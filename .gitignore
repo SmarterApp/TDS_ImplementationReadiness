@@ -108,6 +108,9 @@ tmp/
 local.properties
 .settings/
 .loadpath
+.project
+.classpath
+*.rej
 
 # External tool builders
 .externalToolBuilders/
