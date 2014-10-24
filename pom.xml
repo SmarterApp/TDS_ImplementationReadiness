@@ -8,15 +8,19 @@
     <artifactId>irp-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>IReadinessPackage Parent</name>
+    <name>IReadinessPackage - Parent</name>
     <url>http://bitbucket.org/sbcresst</url>
 
     <modules>
         <module>irp-core</module>
+        <module>irp-model</module>
+        <module>irp-repository</module>
+        <module>irp-service</module>
         <module>irp-webapp</module>
     </modules>
 
     <properties>
+        <irp.version>0.0.1-SNAPSHOT</irp.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-io.version>2.4</commons-io.version>
@@ -30,6 +34,27 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.cresst.sb.irp</groupId>
+                <artifactId>irp-core</artifactId>
+                <version>${irp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cresst.sb.irp</groupId>
+                <artifactId>irp-model</artifactId>
+                <version>${irp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cresst.sb.irp</groupId>
+                <artifactId>irp-repository</artifactId>
+                <version>${irp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cresst.sb.irp</groupId>
+                <artifactId>irp-service</artifactId>
+                <version>${irp.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
@@ -131,6 +156,7 @@
                     <configuration>
                         <port>8080</port>
                         <path>/</path>
+                        <contextReloadable>true</contextReloadable>
                         <useTestClasspath>false</useTestClasspath>
                     </configuration>
                 </plugin>

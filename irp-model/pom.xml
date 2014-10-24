@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>irp-core</artifactId>
+    <artifactId>irp-model</artifactId>
     <packaging>jar</packaging>
-    <name>IReadinessPackage - Core</name>
+    <name>IReadinessPackage - Model</name>
     <url>http://bitbucket.org/sbcresst</url>
 
 </project>
