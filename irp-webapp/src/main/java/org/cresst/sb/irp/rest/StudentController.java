@@ -10,8 +10,12 @@ import org.cresst.sb.irp.exceptions.ValidationException;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.validation.StudentValidator;
 import org.cresst.sb.irp.validation.StudentValidator;
+import org.jsondoc.core.annotation.*;
+import org.jsondoc.core.pojo.ApiParamType;
+import org.jsondoc.core.pojo.ApiVerb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -23,32 +27,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
+@Api(name = "Student API", description = "REST API for Student data")
 @Controller
 public class StudentController {
 	private static Logger logger = Logger.getLogger(StudentController.class);
 
 	@Autowired
 	private StudentService studentService;
-	
-	public StudentController(){
 
-	}
-	
+	@ApiMethod(path = "students", description = "Returns a list of Students", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/students", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Student> getStudents(){
+	public @ApiResponseObject List<Student> getStudents(){
 		return studentService.getStudents();
 		
 	}
-	
-	@RequestMapping(value="/students/{studentIdentifier}", 
-			method = RequestMethod.GET, 
-			produces="application/json")
+
+	@ApiMethod(path = "students/{studentIdentifier}", description = "Returns a Student", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value="/students/{studentIdentifier}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Student getStudentByStudentIdentifier(@PathVariable("studentIdentifier") String studentIdentifier){
+	public @ApiResponseObject Student getStudentByStudentIdentifier(
+			@ApiParam(name = "studentIdentifier", description = "The Student ID", paramType = ApiParamType.PATH)
+			@PathVariable("studentIdentifier") String studentIdentifier){
 		if (!NumberUtils.isNumber(studentIdentifier)) {
 			logger.info("getStudentByStudentIdentifier error studentIdentifier is not a number");
 		} else {
@@ -57,9 +59,14 @@ public class StudentController {
 		return null;
 		
 	}
-	
+
+	@ApiMethod(path = "students/addstudent", description = "Adds a Student", verb = ApiVerb.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/students/addstudent", method = RequestMethod.POST)
-	public ResponseEntity<Student> createStudent(@RequestBody Student student, BindingResult bindingResult){
+	@ResponseBody
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public @ApiResponseObject Student createStudent(
+			@ApiBodyObject
+			@RequestBody Student student, BindingResult bindingResult){
 		new StudentValidator().validate(student, bindingResult);
 		if (bindingResult.hasErrors()){
 			logger.info("createStudent() method: Validation errors occurred");
@@ -67,8 +74,7 @@ public class StudentController {
 		} else {
 			studentService.createStudent(student);
 			logger.info("createStudent() method: new student successfully saved.");
-			return new ResponseEntity<Student>(student,
-					HttpStatus.CREATED);
+			return student;
 		}
 	}
 	

@@ -14,4 +14,15 @@
     <name>IReadinessPackage - Model</name>
     <url>http://bitbucket.org/sbcresst</url>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.jsondoc</groupId>
+            <artifactId>jsondoc-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jsondoc</groupId>
+            <artifactId>jsondoc-springmvc</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
