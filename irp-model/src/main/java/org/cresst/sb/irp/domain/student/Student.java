@@ -1,7 +1,10 @@
 package org.cresst.sb.irp.domain.student;
 
+import org.jsondoc.core.annotation.ApiObject;
+
 import java.io.Serializable;
 
+@ApiObject(name = "Student", description = "Student")
 public class Student implements Serializable {
 
 	/**

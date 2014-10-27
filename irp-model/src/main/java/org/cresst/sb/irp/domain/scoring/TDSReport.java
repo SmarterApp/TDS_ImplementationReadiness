@@ -8,6 +8,8 @@
 
 package org.cresst.sb.irp.domain.scoring;
 
+import org.jsondoc.core.annotation.ApiObject;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -656,6 +658,7 @@ public class TDSReport {
     @XmlType(name = "", propOrder = {
         "examineeAttributeOrExamineeRelationship"
     })
+    @ApiObject(name = "Examinee")
     public static class Examinee {
 
         @XmlElements({
@@ -3313,6 +3316,7 @@ public class TDSReport {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
+    @ApiObject(name = "Test")
     public static class Test {
 
         @XmlAttribute(name = "name", required = true)

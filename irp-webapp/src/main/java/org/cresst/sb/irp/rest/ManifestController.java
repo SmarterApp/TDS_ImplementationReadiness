@@ -8,7 +8,9 @@ import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.ManifestService;
 import org.jsondoc.core.annotation.Api;
 import org.jsondoc.core.annotation.ApiMethod;
+import org.jsondoc.core.annotation.ApiParam;
 import org.jsondoc.core.annotation.ApiResponseObject;
+import org.jsondoc.core.pojo.ApiParamType;
 import org.jsondoc.core.pojo.ApiVerb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -32,41 +34,45 @@ public class ManifestController {
 	@Autowired
 	private ManifestService manifestService;
 
-	@ApiMethod(path = "/manifest", description = "Returns a list of metadata, organizations, resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "manifest", description = "Returns a list of metadata, organizations, resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest", method = RequestMethod.GET, produces="application/json")
-	public ResponseEntity<Manifest> getManifest() {
-		return new ResponseEntity<Manifest>(
-				manifestService.getManifest(), HttpStatus.OK);
-	}
-
-	@ApiMethod(path = "/manifest/resources", description = "Returns a list of Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	@RequestMapping(value="/manifest/resources", method = RequestMethod.GET, produces="application/json")
+	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public HttpEntity<List<Manifest.Resources>> getResources() {
-		return new HttpEntity<List<Manifest.Resources>>(manifestService.getResources());
+	public @ApiResponseObject Manifest getManifest() {
+		return manifestService.getManifest();
 	}
 
-	@ApiMethod(path = "/manifest/resources/{identifier}", description = "Returns a Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "manifest/resources", description = "Returns a list of Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value="/manifest/resources", method = RequestMethod.GET, produces="application/json")
+	@ResponseBody
+	@ResponseStatus(value = HttpStatus.OK)
+	public @ApiResponseObject List<Manifest.Resources> getResources() {
+		return manifestService.getResources();
+	}
+
+	@ApiMethod(path = "manifest/resources/{identifier}", description = "Returns a Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/resources/{identifier}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Manifest.Resources.Resource getResource(@PathVariable("identifier") String identifier) {
+	public @ApiResponseObject Manifest.Resources.Resource getResource(
+			@ApiParam(name = "identifier", description = "Manifest resource's ID", paramType = ApiParamType.PATH)
+			@PathVariable("identifier") String identifier) {
 		return manifestService.getResource(identifier);
 	}
 
-	@ApiMethod(path = "/manifest/metadata", description = "Returns a manifest metadata", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "manifest/metadata", description = "Returns a manifest metadata", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/metadata", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Manifest.Metadata getMetadata() {
+	public @ApiResponseObject Manifest.Metadata getMetadata() {
 		return manifestService.getMetadata();
 	}
 
-	@ApiMethod(path = "/manifest/organizations", description = "Returns the organizations", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "manifest/organizations", description = "Returns the organizations", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/organizations", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public String getOrganizations(){
+	public @ApiResponseObject String getOrganizations(){
 		return manifestService.getOrganizations();
 	}
 	

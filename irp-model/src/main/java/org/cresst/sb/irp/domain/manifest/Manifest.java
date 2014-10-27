@@ -8,6 +8,8 @@
 
 package org.cresst.sb.irp.domain.manifest;
 
+import org.jsondoc.core.annotation.ApiObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -98,6 +100,7 @@ import javax.xml.bind.annotation.XmlType;
     "resources"
 })
 @XmlRootElement(name = "manifest")
+@ApiObject(name = "Manifest", description = "Manifest")
 public class Manifest {
 
     protected String organizations;

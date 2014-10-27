@@ -8,6 +8,10 @@
 
 package org.cresst.sb.irp.domain.items;
 
+import org.jsondoc.core.annotation.Api;
+import org.jsondoc.core.annotation.ApiObject;
+import org.jsondoc.core.annotation.ApiObjectField;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -331,8 +335,10 @@ import javax.xml.bind.annotation.XmlValue;
     "item"
 })
 @XmlRootElement(name = "itemrelease")
+@ApiObject(name = "ItemRelease")
 public class Itemrelease {
 
+    @ApiObjectField(description = "List of Items")
     protected List<Itemrelease.Item> item;
     @XmlAttribute(name = "version")
     protected String version;
@@ -700,6 +706,7 @@ public class Itemrelease {
         "content",
         "keywordList"
     })
+    @ApiObject(name = "Item")
     public static class Item {
 
         protected String associatedpassage;

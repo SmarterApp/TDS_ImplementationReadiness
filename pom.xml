@@ -24,6 +24,7 @@
         <spring.version>4.1.1.RELEASE</spring.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-io.version>2.4</commons-io.version>
+        <jsondoc.version>1.0.4</jsondoc.version>
         <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
         <junit.version>4.11</junit.version>
@@ -78,6 +79,33 @@
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>99-empty</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsondoc</groupId>
+                <artifactId>jsondoc-core</artifactId>
+                <version>${jsondoc.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jsondoc</groupId>
+                <artifactId>jsondoc-springmvc</artifactId>
+                <version>${jsondoc.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.codehaus.jackson</groupId>
+                        <artifactId>jackson-mapper-asl</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
