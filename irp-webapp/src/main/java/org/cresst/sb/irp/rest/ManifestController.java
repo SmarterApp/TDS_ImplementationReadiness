@@ -39,6 +39,7 @@ public class ManifestController {
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
 	public @ApiResponseObject Manifest getManifest() {
+		logger.info("getManifest method()");
 		return manifestService.getManifest();
 	}
 
