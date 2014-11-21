@@ -39,7 +39,6 @@ public class ManifestDaoImpl implements ManifestDao, InitializingBean {
 			Unmarshaller unmarshaller = ctx.createUnmarshaller();
 			manifest = (Manifest) unmarshaller.unmarshal(new File(
 					rootResourceFolderName + "/" + manifestFileName));
-
 			String identifier = manifest.getIdentifier();
 			map.put(identifier, manifest);
 		} catch (Exception e) {

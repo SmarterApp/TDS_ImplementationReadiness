@@ -18,7 +18,7 @@ public class StudentUtil {
 	private static Logger logger = Logger.getLogger(StudentUtil.class);
 
 	public StudentUtil(){
-		logger.info("initializingB");
+		logger.info("initializing");
 	}
 	
 	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet) {

@@ -9,27 +9,26 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.scoring.ObjectFactory;
 import org.cresst.sb.irp.domain.scoring.TDSReport;
+import org.cresst.sb.irp.domain.scoring.TDSReport.Test;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.utils.XMLValidate;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ScoringDaoImpl implements ScoringDao {
+public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	private static Logger logger = Logger.getLogger(ScoringDaoImpl.class);
 	private String rootResourceFolderName = "SampleAssessmentItemPackage";
-	private String testScoringFileName = "sampleoutput.xml";
+	private String testScoringFileName = "TestScoreBatching.xml"; //"sampleoutput.xml";
+	private String testScoringXSDFileName = "TDSReport.xsd"; // "TestScoreBatching.xsd";
 	private TDSReport tDSReport;
 
+	@Autowired
+	private XMLValidate xMLValidate;
+	
 	public ScoringDaoImpl() {
-		try {
-			JAXBContext ctx = JAXBContext
-					.newInstance(ObjectFactory.class);
-			Unmarshaller unmarshaller = ctx.createUnmarshaller();
-			tDSReport = (TDSReport) unmarshaller.unmarshal(new File(
-					rootResourceFolderName + "/" + testScoringFileName));
-			// Test test = tDSReport.getTest();
-		} catch (Exception e) {
-			logger.error("ScoringDaoImpl exception: ", e);
-		}
+		logger.info("initializing");
 	}
 
 	@Override
@@ -86,6 +85,24 @@ public class ScoringDaoImpl implements ScoringDao {
 	}
 
 	@Override
+	public void afterPropertiesSet() throws Exception {
+		try {
+			String xsdPath = rootResourceFolderName + "/" + testScoringXSDFileName;
+			String xmlPath = rootResourceFolderName + "/" + testScoringFileName;
+			boolean bln = xMLValidate.validateXMLSchema(xsdPath, xmlPath);
+			JAXBContext ctx = JAXBContext
+					.newInstance(ObjectFactory.class);
+			Unmarshaller unmarshaller = ctx.createUnmarshaller();
+			tDSReport = (TDSReport) unmarshaller.unmarshal(new File(
+					rootResourceFolderName + "/" + testScoringFileName));
+			Test test = tDSReport.getTest();
+		} catch (Exception e) {
+			logger.error("ScoringDaoImpl exception: ", e);
+		}
+		
+	}
+	
+	@Override
 	public List<TDSReport.Comment> getComments() {
 		List<TDSReport.Comment> commentList = tDSReport.getComment();
 		if (commentList == null){
@@ -102,6 +119,7 @@ public class ScoringDaoImpl implements ScoringDao {
 		}
 		return toolUsageList;
 	}
+	
 
 
 

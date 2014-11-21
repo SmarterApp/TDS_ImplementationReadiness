@@ -48,9 +48,11 @@ public class ScoringServiceImpl implements ScoringService {
 	public List<TDSReport.Comment> getComments() {
 		return scoringDao.getComments();
 	}
+	
 
 	@Override
 	public List<TDSReport.ToolUsage> getToolUsage() {
 		return scoringDao.getToolUsage();
 	}
+	
 }
