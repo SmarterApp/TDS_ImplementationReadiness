@@ -1,5 +1,8 @@
 # Overview #
-This is the source repository for the Implementation Readiness Package developed at CRESST as part of the Smarter Balance initiative to deliver open source assessment software across the U.S.A.
+This is the source repository for the Implementation Readiness Package (IRP) developed by UCLA CRESST as part of the Smarter Balance initiative.
+IRP can be used by vendors to check their custom Assessment Delivery Systems implementation.
+
+For more information visit http://www.smarterapp.org.
 
 ### What is this repository for? ###
 
