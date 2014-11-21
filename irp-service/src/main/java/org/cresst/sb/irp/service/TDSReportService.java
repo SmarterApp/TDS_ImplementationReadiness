@@ -1,12 +1,11 @@
-package org.cresst.sb.irp.dao;
+package org.cresst.sb.irp.service;
 
-import org.cresst.sb.irp.domain.items.Itemrelease;
-import org.cresst.sb.irp.domain.scoring.TDSReport;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
 import java.util.List;
 
 
-public interface ScoringDao {
+public interface TDSReportService {
 	
 	TDSReport.Test getTest();
 	

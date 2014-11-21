@@ -56,8 +56,6 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 			String xmlPath = rootResourceFolderName + "/"
 					+ testpackageAdminMathFileName;
 			
-			
-			
 			// TODO Auto-generated method stub
 			/****** there is a problem to validate xml vs xsd. need to be check it out *****/
 			//boolean bln = xMLValidate.validateXMLSchema(xsdPath, xmlPath);

@@ -17,7 +17,7 @@ public class ItemServiceImpl implements ItemService {
 	private ItemDao itemDao;
 	
 	public ItemServiceImpl(){
-
+		logger.info("initializing");
 	}
 	
 	@Override
