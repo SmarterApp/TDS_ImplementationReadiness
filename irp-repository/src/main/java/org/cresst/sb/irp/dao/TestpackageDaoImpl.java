@@ -2,7 +2,9 @@ package org.cresst.sb.irp.dao;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -30,11 +32,7 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	private String rootResourceFolderName = "SampleAssessmentItemPackage";
 	private String testpackageAdminMathFileName = "testpackageAdminMath.xml";
 	private String testpackageAdminXSDFileName = "testpackageAdmin.xsd";
-	private Testpackage testpackage; 
-	
-	//use this list if parse multiple testpackage xml files. e.g: Math, English
-	//the following methods need to be modified too to make sure which testpackage object required
-	private List<Testpackage> listTestpackage = new ArrayList<Testpackage>(); 
+	 private Map<String, Testpackage> mapTestpackage = new HashMap<String, Testpackage>();
 	
 	@Autowired
 	private XMLValidate xMLValidate;
@@ -44,7 +42,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public Testpackage getTestpackage() {
+	public Testpackage getTestpackage(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getTestpackage");
+		}
 		return testpackage;
 	}
 
@@ -63,16 +65,22 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 			JAXBContext ctx = JAXBContext
 					.newInstance(ObjectFactory.class);
 			Unmarshaller unmarshaller = ctx.createUnmarshaller();
-			testpackage = (Testpackage)unmarshaller.unmarshal(new File(
+			/***** we may need to create function to parse multiple testpackge xml files *****/
+			Testpackage testpackage = (Testpackage)unmarshaller.unmarshal(new File(
 					rootResourceFolderName + "/" + testpackageAdminMathFileName));
-			
+			String uniqueid = testpackage.getIdentifier().getUniqueid();
+			mapTestpackage.put(uniqueid, testpackage);
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
 	}
 
 	@Override
-	public Identifier getIdentifier() {
+	public Identifier getIdentifier(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getIdentifier");
+		}
 		Identifier identifier = testpackage.getIdentifier();
 		if (identifier == null){
 			throw new NotFoundException("Could not find Identifier for TestpackageDaoImpl.getIdentifier");
@@ -81,7 +89,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public List<Property> getListProperty() {
+	public List<Property> getListProperty(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getListProperty");
+		}
 		List<Property> listProperty = testpackage.getProperty();
 		if (listProperty == null){
 			throw new NotFoundException("Could not find listProperty for TestpackageDaoImpl.getListProperty");
@@ -90,7 +102,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public Administration getAdministration() {
+	public Administration getAdministration(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getAdministration");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getAdministration");
@@ -99,7 +115,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public String getPublisher() {
+	public String getPublisher(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getPublisher");
+		}
 		String publisher = testpackage.getPublisher();
 		if (publisher == null){
 			throw new NotFoundException("Could not find publisher for TestpackageDaoImpl.getPublisher");
@@ -108,7 +128,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public String getPublishdate() {
+	public String getPublishdate(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getPublishdate");
+		}
 		String publishdate = testpackage.getPublishdate();
 		if (publishdate == null){
 			throw new NotFoundException("Could not find publishdate for TestpackageDaoImpl.getPublishdate");
@@ -117,7 +141,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public String getVersion() {
+	public String getVersion(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getVersion");
+		}
 		String version = testpackage.getVersion();
 		if (version == null){
 			throw new NotFoundException("Could not find version for TestpackageDaoImpl.getVersion");
@@ -126,8 +154,12 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public String getPurpose() {
-		String purpose = testpackage.getVersion();
+	public String getPurpose(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getPurpose");
+		}
+		String purpose = testpackage.getPurpose();
 		if (purpose == null){
 			throw new NotFoundException("Could not find purpose for TestpackageDaoImpl.getPurpose");
 		}
@@ -135,7 +167,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public Testblueprint getTestblueprint() {
+	public Testblueprint getTestblueprint(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getTestblueprint");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getTestblueprint");
@@ -148,7 +184,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public List<Poolproperty> getListPoolproperty() {
+	public List<Poolproperty> getListPoolproperty(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getListPoolproperty");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getListPoolproperty");
@@ -161,7 +201,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public Itempool getItempool() {
+	public Itempool getItempool(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getItempool");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getItempool");
@@ -174,7 +218,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public List<Testform> getTestform() {
+	public List<Testform> getTestform(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getTestform");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getTestform");
@@ -187,7 +235,11 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public List<Adminsegment> getAdminsegment() {
+	public List<Adminsegment> getAdminsegment(String testpackageUniqueid) {
+		Testpackage testpackage = mapTestpackage.get(testpackageUniqueid);
+		if (testpackage == null){
+			throw new NotFoundException("Could not find testpackage for TestpackageDaoImpl.getAdminsegment");
+		}
 		Administration administration = testpackage.getAdministration();
 		if (administration == null){
 			throw new NotFoundException("Could not find administration for TestpackageDaoImpl.getAdminsegment");

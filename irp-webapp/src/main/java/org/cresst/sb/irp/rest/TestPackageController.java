@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,108 +32,108 @@ public class TestPackageController {
 	@Autowired
 	public TestPackageService testPackageService;
 	
-	@RequestMapping(value="/testpackage", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Testpackage getTestpackage(){
+	public Testpackage getTestpackage(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getTestpackage() method");
-		return testPackageService.getTestpackage();
+		return testPackageService.getTestpackage(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/identifier", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/identifier", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Identifier getIdentifier(){
+	public Identifier getIdentifier(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getIdentifier() method");
-		return testPackageService.getIdentifier();
+		return testPackageService.getIdentifier(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/properties", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/properties", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Property> getListProperty(){
+	public List<Property> getListProperty(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getListProperty() method");
-		return testPackageService.getListProperty();
+		return testPackageService.getListProperty(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/administration", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Administration getAdministration(){
+	public Administration getAdministration(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getAdministration() method");
-		return testPackageService.getAdministration();
+		return testPackageService.getAdministration(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/publisher", method = RequestMethod.GET, produces="text/plain")
+	@RequestMapping(value="/testpackage/{uniqueid}/publisher", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public String getPublisher(){
+	public String getPublisher(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getPublisher() method");
-		return testPackageService.getPublisher();
+		return testPackageService.getPublisher(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/publishdate", method = RequestMethod.GET, produces="text/plain")
+	@RequestMapping(value="/testpackage/{uniqueid}/publishdate", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public String getPublishdate(){
+	public String getPublishdate(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getPublishdate() method");
-		return testPackageService.getPublishdate();
+		return testPackageService.getPublishdate(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/version", method = RequestMethod.GET, produces="text/plain")
+	@RequestMapping(value="/testpackage/{uniqueid}/version", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public String getVersion(){
+	public String getVersion(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getVersion() method");
-		return testPackageService.getVersion();
+		return testPackageService.getVersion(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/purpose", method = RequestMethod.GET, produces="text/plain")
+	@RequestMapping(value="/testpackage/{uniqueid}/purpose", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public String getPurpose(){
+	public String getPurpose(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getPurpose() method");
-		return testPackageService.getPurpose();
+		return testPackageService.getPurpose(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/testblueprint", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration/testblueprint", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Testblueprint getTestblueprint(){
+	public Testblueprint getTestblueprint(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getTestblueprint() method");
-		return testPackageService.getTestblueprint();
+		return testPackageService.getTestblueprint(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/poolproperties", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration/poolproperties", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Poolproperty> getListPoolproperty(){
+	public List<Poolproperty> getListPoolproperty(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getListPoolproperty() method");
-		return testPackageService.getListPoolproperty();
+		return testPackageService.getListPoolproperty(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/itempool", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration/itempool", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Itempool getItempool(){
+	public Itempool getItempool(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getItempool() method");
-		return testPackageService.getItempool();
+		return testPackageService.getItempool(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/testform", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration/testform", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Testform> getTestform(){
+	public List<Testform> getTestform(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getTestform() method");
-		return testPackageService.getTestform();
+		return testPackageService.getTestform(uniqueid);
 	}
 	
-	@RequestMapping(value="/testpackage/adminsegment", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/testpackage/{uniqueid}/administration/adminsegment", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public List<Adminsegment> getAdminsegment(){
+	public List<Adminsegment> getAdminsegment(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getAdminsegment() method");
-		return testPackageService.getAdminsegment();
+		return testPackageService.getAdminsegment(uniqueid);
 	}
 	
 	

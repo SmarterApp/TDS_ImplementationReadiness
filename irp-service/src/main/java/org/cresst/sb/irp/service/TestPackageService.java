@@ -15,30 +15,30 @@ import org.cresst.sb.irp.domain.testpackage.Testpackage;
 
 public interface TestPackageService {
 
-	Testpackage getTestpackage();
+	Testpackage getTestpackage(String uniqueid);
 	
-	Identifier getIdentifier();
+	Identifier getIdentifier(String testpackageUniqueid);
 	
-	List<Property> getListProperty();
+	List<Property> getListProperty(String testpackageUniqueid);
 	
-	Administration getAdministration();
+	Administration getAdministration(String testpackageUniqueid);
 	
-	String getPublisher();
+	String getPublisher(String uniqueid);
 	
-	String getPublishdate();
+	String getPublishdate(String uniqueid);
 	
-	String getVersion();
+	String getVersion(String uniqueid);
 	
-	String getPurpose();
+	String getPurpose(String uniqueid);
 	
-	Testblueprint getTestblueprint();
+	Testblueprint getTestblueprint(String testpackageUniqueid);
 	
-	List<Poolproperty> getListPoolproperty();
+	List<Poolproperty> getListPoolproperty(String testpackageUniqueid);
 	
-	Itempool getItempool();
+	Itempool getItempool(String testpackageUniqueid);
 	
-	List<Testform> getTestform();
+	List<Testform> getTestform(String testpackageUniqueid);
 	
-	List<Adminsegment> getAdminsegment();
+	List<Adminsegment> getAdminsegment(String testpackageUniqueid);
 	
 }

@@ -24,68 +24,70 @@ public class TestPackageServiceImpl implements TestPackageService {
 	private TestpackageDao testpackageDao;
 	
 	@Override
-	public Testpackage getTestpackage() {
-		return testpackageDao.getTestpackage();
+	public Testpackage getTestpackage(String uniqueid) {
+		return testpackageDao.getTestpackage(uniqueid);
 	}
 
 	@Override
-	public Identifier getIdentifier() {
-		return testpackageDao.getIdentifier();
+	public Identifier getIdentifier(String testpackageUniqueid) {
+		return testpackageDao.getIdentifier(testpackageUniqueid);
 	}
 
 	@Override
-	public List<Property> getListProperty() {
-		return testpackageDao.getListProperty();
+	public List<Property> getListProperty(String testpackageUniqueid) {
+		return testpackageDao.getListProperty(testpackageUniqueid);
 	}
 
 	@Override
-	public Administration getAdministration() {
-		return testpackageDao.getAdministration();
+	public Administration getAdministration(String testpackageUniqueid) {
+		return testpackageDao.getAdministration(testpackageUniqueid);
 	}
 	
 	@Override
-	public String getPublisher() {
-		return testpackageDao.getPublisher();
+	public String getPublisher(String uniqueid) {
+		return testpackageDao.getPublisher(uniqueid);
 	}
 	
 	@Override
-	public String getPublishdate() {
-		return testpackageDao.getPublishdate();
+	public String getPublishdate(String uniqueid) {
+		return testpackageDao.getPublishdate(uniqueid);
 	}
 
 	@Override
-	public String getVersion() {
-		return testpackageDao.getVersion();
+	public String getVersion(String uniqueid) {
+		return testpackageDao.getVersion(uniqueid);
 	}
 
 	@Override
-	public String getPurpose() {
-		return testpackageDao.getPurpose();
+	public String getPurpose(String uniqueid) {
+		return testpackageDao.getPurpose(uniqueid);
 	}
 
 	@Override
-	public Testblueprint getTestblueprint() {
-		return testpackageDao.getTestblueprint();
+	public Testblueprint getTestblueprint(String testpackageUniqueid) {
+		return testpackageDao.getTestblueprint(testpackageUniqueid);
 	}
 
 	@Override
-	public List<Poolproperty> getListPoolproperty() {
-		return testpackageDao.getListPoolproperty();
+	public List<Poolproperty> getListPoolproperty(String testpackageUniqueid) {
+		return testpackageDao.getListPoolproperty(testpackageUniqueid);
 	}
 
 	@Override
-	public Itempool getItempool() {
-		return testpackageDao.getItempool();
+	public Itempool getItempool(String testpackageUniqueid) {
+		return testpackageDao.getItempool(testpackageUniqueid);
 	}
 
 	@Override
-	public List<Testform> getTestform() {
-		return testpackageDao.getTestform();
+	public List<Testform> getTestform(String testpackageUniqueid) {
+		return testpackageDao.getTestform(testpackageUniqueid);
 	}
 
 	@Override
-	public List<Adminsegment> getAdminsegment() {
-		return testpackageDao.getAdminsegment();
+	public List<Adminsegment> getAdminsegment(String testpackageUniqueid) {
+		return testpackageDao.getAdminsegment(testpackageUniqueid);
 	}
+
+
 
 }
