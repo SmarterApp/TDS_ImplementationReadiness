@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="668" version="17" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>668</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.HS.SR.1.0AREI.I.xxx - SBAC_SST</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP13 (5);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>10</val>
+        <desc>10</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="1112" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_668_v17.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="668" ITSVer="5" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons></ShowButtons><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><CenterImage>false</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons><IconSpec><FileSpec>item_668_v17_1_png16malpha.png</FileSpec><Label>1</Label></IconSpec><IconSpec><FileSpec>item_668_v17_2_png16malpha.png</FileSpec><Label>2</Label></IconSpec><IconSpec><FileSpec>item_668_v17_3_png16malpha.png</FileSpec><Label>3</Label></IconSpec><IconSpec><FileSpec>item_668_v17_4_png16malpha.png</FileSpec><Label>4</Label></IconSpec><IconSpec><FileSpec>item_668_v17_5_png16malpha.png</FileSpec><Label>5</Label></IconSpec></ObjectMenuIcons><ImageSpec><FileSpec>item_668_v17_Background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="668"><QuestionPart id="1"><ObjectSet><AtomicObject>{2(170,39)}</AtomicObject><AtomicObject>{1(91,39)}</AtomicObject><AtomicObject>{3(246,39)}</AtomicObject><AtomicObject>{4(322,38)}</AtomicObject><AtomicObject>{5(400,39)}</AtomicObject></ObjectSet><SnapPoint>40@246,371;91,371;400,371;170,371;322,372;272,193</SnapPoint></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="17">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="color:#000000; ">Look at the graph and the algebraic statement. Place the correct mathematical symbol in the box <span id="item_668_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>so that<span class="its-tag" data-tag-ref="item_668_TAG_2" data-tag-boundary="end"></span> the number line <span id="item_668_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>displays<span class="its-tag" data-tag-ref="item_668_TAG_3" data-tag-boundary="end"></span> the solution to the algebraic <span id="item_668_TAG_1_BEGIN"><span id="item_668_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>statement.<span class="its-tag" data-tag-ref="item_668_TAG_1" data-tag-boundary="end"></span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">≤ </p></li></ul><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">1 point = correct symbol</p></li></ul><p style="color:#000000; "><span style="">No partial credit.</span> </p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_668_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_668_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>statement. this is an interactive image. the main answer space is divided into 2 sections. the top section contains a number line with a range from negative 5 to 5, increasing in increments of 5, below the number line reeds, negative 2 times, open parenthesis x plus 3 closed parenthesis, box, minus 10, the bottom section reeds from left to right, less than, less than or equal to, equals, greater than or equal to, greater than</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>statement.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>statement.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0">
+      <stem><![CDATA[<p style="color:#000000; language:es; country:ES; ">Observa la gráfica y la expresión algebraica. Coloca el símbolo matemático correcto en la casilla de manera que la recta numérica muestre la solución a la expresión algebraica.</p><p class="languagedivider">&#xA0;</p><p style="color:#000000; ">Look at the graph and the algebraic statement. Place the correct mathematical symbol in the box <span id="item_668_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>so that<span class="its-tag" data-tag-ref="item_668_TAG_2" data-tag-boundary="end"></span> the number line <span id="item_668_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>displays<span class="its-tag" data-tag-ref="item_668_TAG_3" data-tag-boundary="end"></span> the solution to the algebraic <span id="item_668_TAG_1_BEGIN"><span id="item_668_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>statement.<span class="its-tag" data-tag-ref="item_668_TAG_1" data-tag-boundary="end"></span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">≤ </p></li></ul><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">1 point = correct symbol</p></li></ul><p style="color:#000000; ">No partial credit.</p><p style="color:#000000; ">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_668_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>statement. this is an interactive image. the main answer space is divided into 2 sections. the top section contains a number line with a range from negative 5 to 5, increasing in increments of 5, below the number line reeds, negative 2 times, open parenthesis x plus 3 closed parenthesis, box, minus 10, the bottom section reeds from left to right, less than, less than or equal to, equals, greater than or equal to, greater than</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>statement.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>statement.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

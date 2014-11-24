@@ -1,0 +1,26 @@
+,! FUNC;NS F(X) .K #500(1.015)^X &
+    G(X) .K #500(1.021)^X GIVE ! TOTAL
+    AM.TS 9 TWO DI6]5T SAV+S A3.TS AF ;X
+    YE>S4
+      ,H[ D ! GRAPHS ( F(X) & G(X) -P>E8
+  ;,A_4 ,!Y H ! SAME ;Y-9T]CEPT1 B !
+    GRAPH ( F(X) RISES M QKLY OV] "T4
+  ;,B_4 ,!Y H ! SAME ;Y-9T]CEPT1 B !
+    GRAPH ( G(X) RISES M QKLY OV] "T4
+  ;,C_4 ,! FUNC;N F(X) HAS A GRT]
+    ;Y-9T]CEPT & RISES M QKLY OV] "T4
+  ;,D_4 ,! FUNC;N G(X) HAS A GRT]
+    ;Y-9T]CEPT & RISES M QKLY OV] "T4
+
+
+
+
+
+
+
+
+
+
+
+
+

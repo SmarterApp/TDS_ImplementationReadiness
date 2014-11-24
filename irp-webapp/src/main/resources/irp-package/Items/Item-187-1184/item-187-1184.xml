@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1184" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="representative sample" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">muestra representativa</p>]]></html>
+      </keyword>
+      <keyword text="surveyed" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">encuestada</p>]]></html>
+      </keyword>
+      <keyword text="Each" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">A cada</p>]]></html>
+      </keyword>
+      <keyword text="column" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">columna</p>]]></html>
+      </keyword>
+      <keyword text="click" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Haz clic</p>]]></html>
+      </keyword>
+      <keyword text="whether" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">si</p>]]></html>
+      </keyword>
+      <keyword text="valid" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">válida</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

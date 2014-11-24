@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1189" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="gallon" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">galón</p>]]></html>
+      </keyword>
+      <keyword text="mixing" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mezclando</p>]]></html>
+      </keyword>
+      <keyword text="paint" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">pintura</p>]]></html>
+      </keyword>
+      <keyword text="part" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">parte</p>]]></html>
+      </keyword>
+      <keyword text="every" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="how much" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">qué parte</p>]]></html>
+      </keyword>
+      <keyword text="Select" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Selecciona</p>]]></html>
+      </keyword>
+      <keyword text="show" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mostrar</p>]]></html>
+      </keyword>
+      <keyword text="gallons" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">galones</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

@@ -6,46 +6,35 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Tutorial;
-import org.cresst.sb.irp.domain.items.ObjectFactory;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
+
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
 
 
 @Repository
 public class ItemDaoImpl implements ItemDao {
 	private static Logger logger = Logger.getLogger(ItemDaoImpl.class);
 	private static Map<Integer, Itemrelease.Item> map = new ConcurrentHashMap<Integer, Itemrelease.Item>();
-	private String rootResourceFolderName = "SampleAssessmentItemPackage";
+	private String rootResourceFolderName = "irp-package";
 	private String resourceType = "imsqti_apipitem_xmlv2p2";
-	// "imsqti_apipitem_xmlv2p2"; not dependency type of
-	// resourcemetadata/apipv1p0
 	private List<Manifest.Resources.Resource> listResource;
 
+	@Autowired
+	private Unmarshaller unmarshaller;
+
 	public ItemDaoImpl() {
-		try {
-			/***
-			 * use this constractor if you don't want to circular dependency
-			 * scenario ManifestDaoImpl.afterPropertiesSet()
-			 ***/
-			/*
-			 * JAXBContext ctx = JAXBContext
-			 * .newInstance(org.readiness.manifest.domain.ObjectFactory.class);
-			 * Unmarshaller unmarshaller = ctx.createUnmarshaller(); manifest =
-			 * (Manifest) unmarshaller.unmarshal(new File(
-			 * rootResourceFolderName + "/imsmanifest.xml")); loadData();
-			 */
-		} catch (Exception e) {
-			logger.error("ItemDaoImpl.ItemDaoImpl() Exception thrown", e);
-		}
+
 	}
 
 	@Override
@@ -58,14 +47,11 @@ public class ItemDaoImpl implements ItemDao {
 		return item;
 	}
 
-	public void loadData(List<Manifest.Resources> listResources) throws JAXBException, FileNotFoundException {
+	public void loadData(List<Manifest.Resources> listResources) throws FileNotFoundException {
 		logger.info("ItemDaoImpl.loadData()");
 		Manifest.Resources resources = listResources.get(0);
 		this.listResource = resources.getResource();
 
-		JAXBContext ctx = JAXBContext
-				.newInstance(ObjectFactory.class);
-		Unmarshaller unmarshaller = ctx.createUnmarshaller();
 		Itemrelease itemrelease;
 		Itemrelease.Item item;
 		for (Manifest.Resources.Resource rs : listResource) {
@@ -79,9 +65,9 @@ public class ItemDaoImpl implements ItemDao {
 				if (identifierArray.length == 3) {
 					try {
 						int itemid = Integer.parseInt(identifierArray[2]);
-						itemrelease = (Itemrelease) unmarshaller
-								.unmarshal(new File(rootResourceFolderName
-										+ "/" + _file.getHref()));
+						Resource resource = new ClassPathResource(rootResourceFolderName + "/" + _file.getHref());
+						Source source = new StreamSource(resource.getInputStream());
+						itemrelease = (Itemrelease) unmarshaller.unmarshal(source);
 						item = itemrelease.getItem().get(0);
 						map.put(itemid, item);
 					} catch (NumberFormatException e) {

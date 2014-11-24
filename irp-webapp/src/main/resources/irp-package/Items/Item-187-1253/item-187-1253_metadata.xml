@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>1253</Identifier>
+    <AssociatedStimulus>3597</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sean_Redmond</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sean_Redmond</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>ELA.11.4894.C1.T13.27175.Cloned for Special Forms from ITS 48712 - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <Version>5</Version>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>3</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>MC</InteractionType>
+    <EnemyItem></EnemyItem>
+    <EducationalDifficulty>Hard</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <EvidenceStatement>To complete this task, students must read closely and cite specific textual evidence to support conclusions about text structure.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>To complete this task, students must read closely and cite specific textual evidence to support conclusions about text structure.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <Claim2Category></Claim2Category>
+    <Notes></Notes>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <StimulusLength>Long</StimulusLength>
+    <PtWritingType></PtWritingType>
+    <Claim2RevisionCategory></Claim2RevisionCategory>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StimulusName>Sustainable Fashion</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <TargetSpecificAttributes></TargetSpecificAttributes>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:1-IT|13-11</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1072</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

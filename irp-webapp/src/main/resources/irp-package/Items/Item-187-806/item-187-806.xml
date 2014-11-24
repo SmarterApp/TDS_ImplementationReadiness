@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="806" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="Subjects" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">subjects - classes or courses a person studies in school </p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">subjects - classes, courses </p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Materias</p>]]></html>
+      </keyword>
+      <keyword text="many more" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">más</p>]]></html>
+      </keyword>
+      <keyword text="than" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">que</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

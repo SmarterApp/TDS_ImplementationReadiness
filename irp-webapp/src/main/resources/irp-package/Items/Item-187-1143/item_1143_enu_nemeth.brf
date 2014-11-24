@@ -1,0 +1,26 @@
+  ,! TA# %[S S"EAL 9PUTS & \TPUTS = TWO
+FUNC;NS1 ;F & ;G, T >E BO? 3T9U\S ON !
+9T]VAL #0 TO #8_4
+
+;X  F(X)  G(X)
+"3  "333  "333
+#0  -#5   #120
+#1  -#4   #103
+#2  -#1    #86
+#3   #4    #69
+#4  #11    #52
+#5  #20    #35
+#6  #31    #18
+#7  #44     #1
+#8  #95    #16
+
+  ,"! IS EXACTLY "O SOLU;N = :
+F(X) .K G(X)_4
+
+,: 9T]VAL = ;X DOES ! SOLU;N 6? SY/EM (
+    EQU,NS LIE8
+  ;,A_4 2T #2 & #3
+  ;,B_4 2T #3 & #4
+  ;,C_4 2T #5 & #6
+  ;,D_4 2T #7 & #8
+

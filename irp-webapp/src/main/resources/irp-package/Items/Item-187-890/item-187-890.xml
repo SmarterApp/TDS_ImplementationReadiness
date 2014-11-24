@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="890" version="13" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>890</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.SR.4.W.04.xxx - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13 (35); PracTest::ELAG11::SP13::BRAILLE (30);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="13">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A student is writing an argumentative research report to answer the research question, “Should fluoride be added to public drinking supplies to promote dental health?” Read four credible sources that the student found about fluoride. Then, answer the question that follows.</p><p style="font-weight:bold; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; text-decoration:underline; font-weight:bold; ">SOURCE #1:</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">Optimal fluoride levels recommended by the US Public Health Service and CDC for drinking water range from <span id="item_890_TAG_9_BEGIN">0.7</span> parts per million (ppm) for warmer climates to 1.2 ppm for cooler climates to adjust for the tendency for people to drink more water in warmer climates.</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; font-weight:bold; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; text-decoration:underline; font-weight:bold; ">SOURCE #2:</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">Salts containing Group <span id="item_890_TAG_3_BEGIN">I</span> elements from the periodic table can dissolve (<span id="item_890_TAG_5_BEGIN">Li+</span>, <span id="item_890_TAG_6_BEGIN">Na+</span>, <span id="item_890_TAG_7_BEGIN">K+</span>, <span id="item_890_TAG_8_BEGIN">Cs+</span>, <span id="item_890_TAG_10_BEGIN">Rb+</span>). Exceptions to this rule are rare. Salts containing the ammonium ion (<span id="item_890_TAG_11_BEGIN">NH4+</span>) can also dissolve. <span id="item_890_TAG_1_BEGIN">. . .</span> Fluorides frequently do not dissolve; for example, <span id="item_890_TAG_12_BEGIN">BaF2</span>, <span id="item_890_TAG_13_BEGIN">MgF2</span>, and <span id="item_890_TAG_14_BEGIN">PbF2</span>.</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; font-weight:bold; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; text-decoration:underline; font-weight:bold; ">SOURCE #3:</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">Exposure to excessive consumption of fluoride over a lifetime may lead to increased likelihood of bone fractures in adults and may result in bone pain and tenderness. Children aged eight years and younger exposed to excessive amounts of fluoride have an increased chance of developing pits in tooth enamel, along with a range of cosmetic effects to teeth.</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; font-weight:bold; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; text-decoration:underline; font-weight:bold; ">SOURCE #4:</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">Widespread use of fluoride has been a major factor in the decline in the prevalence and severity of dental caries (<span id="item_890_TAG_4_BEGIN">i.e</span>., tooth decay) in the United States and other economically developed countries. When used appropriately, fluoride is both safe and effective in preventing and controlling dental caries. <span id="item_890_TAG_2_BEGIN">. . .</span> To ensure additional gains in oral health, water fluoridation should be extended to more communities, and fluoride toothpaste should be used widely. Adoption of these and other recommendations in this report could lead to considerable savings in public and private resources without compromising fluoride’s substantial benefit of improved dental health.</p><p style="">&#xA0;</p><p style="">Which <span id="item_890_TAG_16_BEGIN"><span style="font-weight:bold; ">two</span></span> sources contain the <span id="item_890_TAG_15_BEGIN"><span style="font-weight:bold; ">most</span></span><span style="font-weight:bold; "> </span>useful evidence and should be cited when writing a report arguing a claim and counterclaim concerning fluoride use?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Sources 1 and 2</p>]]></val>
+          <feedback><![CDATA[<p style="">Sources 1 and 2 have information about fluoride, but not opposing views.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Sources 1 and 4</p>]]></val>
+          <feedback><![CDATA[<p style="">Source 4 has evidence showing the positive effects of fluoride, but Source 1 does not contain evidence for an opposing view.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Sources 2 and 3</p>]]></val>
+          <feedback><![CDATA[<p style="">Source 3 makes a claim about the effectiveness of fluoride, but Source 2 does not.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">Sources 3 and 4</p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT. Source 3 has evidence showing the negative effects of fluoride, and Source 4 has evidence showing the positive effects of fluoride.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="item_890_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="item_890_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>zero point 7</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>0.7</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>0.7</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>I</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>I</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>L I positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Li+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Li+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>N A positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Na+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Na+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>K positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>K+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>K+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>C S positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Cs+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Cs+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>R B positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Rb+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Rb+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>N H 4 positive</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>NH4+</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>NH4+</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>B A F 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>BaF2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>BaF2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>M G F 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>MgF2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>MgF2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>P B F 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>PbF2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>PbF2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>I E</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>i.e</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>i.e</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_890_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, most,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>most</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>most</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1922" version="6" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1922</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (10); PracTest::MG11::S2::SP14::Braille (10); PracTest::MG11::S2::SP14::ESN (10);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2361" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1922_v6.erx" />
+    <RendererSpec filename="Item_1922_v6.eax" />
+    <content language="ENU" version="2.0" approvedVersion="6">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Jim <span id="item_1922_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>can paint<span class="its-tag" data-tag-ref="item_1922_TAG_2" data-tag-boundary="end"></span> a house in 12 hours. Alex <span id="item_1922_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>can paint<span class="its-tag" data-tag-ref="item_1922_TAG_3" data-tag-boundary="end"></span> the <span id="item_1922_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>same<span class="its-tag" data-tag-ref="item_1922_TAG_4" data-tag-boundary="end"></span> house in 8 hours.</p><p style="">&#xA0;</p><p style=""><span id="item_1922_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>Enter<span class="its-tag" data-tag-ref="item_1922_TAG_10" data-tag-boundary="end"></span> an equation that <span id="item_1922_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>can be used<span class="its-tag" data-tag-ref="item_1922_TAG_6" data-tag-boundary="end"></span> <span id="item_1922_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>to find<span class="its-tag" data-tag-ref="item_1922_TAG_7" data-tag-boundary="end"></span> the time in hours, <span style="font-style:italic; ">t</span><span style="font-style:normal; ">, </span><span id="item_1922_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span style="font-style:normal; ">it would take</span><span class="its-tag" data-tag-ref="item_1922_TAG_11" data-tag-boundary="end"></span><span style="font-style:normal; "> Jim and Alex to paint the house </span><span id="item_1922_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span id="item_1922_TAG_1_BEGIN"><span style="font-style:normal; ">together</span></span><span class="its-tag" data-tag-ref="item_1922_TAG_9" data-tag-boundary="end"></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar: 1/12 + 1/8 = 1/t or equivalent</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">1 point: The student correctly enters an equation.</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="nemeth" file="item_1922_enu_nemeth.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1922_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1922_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>together.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>together</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="6">
+      <stem><![CDATA[<p style="">Jim puede pintar una casa en 12 horas. Alex puede pintar la misma casa en 8 horas.</p><p style="">&#xA0;</p><p style="">Escribe una ecuación que pueda usarse para encontrar el tiempo en horas, <span style="font-style:italic; ">t</span><span style="font-style:normal; ">, que Jim y Alex se tardarían en pintar la casa juntos.</span></p><p style="font-style:normal; ">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style="">Jim <span id="item_1922_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>can paint<span class="its-tag" data-tag-ref="item_1922_TAG_2" data-tag-boundary="end"></span> a house in 12 hours. Alex <span id="item_1922_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>can paint<span class="its-tag" data-tag-ref="item_1922_TAG_3" data-tag-boundary="end"></span> the <span id="item_1922_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>same<span class="its-tag" data-tag-ref="item_1922_TAG_4" data-tag-boundary="end"></span> house in 8 hours.</p><p style="">&#xA0;</p><p style=""><span id="item_1922_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>Enter<span class="its-tag" data-tag-ref="item_1922_TAG_10" data-tag-boundary="end"></span> an equation that <span id="item_1922_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>can be used<span class="its-tag" data-tag-ref="item_1922_TAG_6" data-tag-boundary="end"></span> <span id="item_1922_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>to find<span class="its-tag" data-tag-ref="item_1922_TAG_7" data-tag-boundary="end"></span> the time in hours, <span style="font-style:italic; ">t</span><span style="font-style:normal; ">, </span><span id="item_1922_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span style="font-style:normal; ">it would take</span><span class="its-tag" data-tag-ref="item_1922_TAG_11" data-tag-boundary="end"></span><span style="font-style:normal; "> Jim and Alex to paint the house </span><span id="item_1922_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span id="item_1922_TAG_1_BEGIN"><span style="font-style:normal; ">together</span></span><span class="its-tag" data-tag-ref="item_1922_TAG_9" data-tag-boundary="end"></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1922_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>together.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>together</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

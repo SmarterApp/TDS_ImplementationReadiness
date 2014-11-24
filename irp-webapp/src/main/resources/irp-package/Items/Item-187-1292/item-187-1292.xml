@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1292" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="run" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">correr</p>]]></html>
+      </keyword>
+      <keyword text="runs" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">corre</p>]]></html>
+      </keyword>
+      <keyword text="Run" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Corridas</p>]]></html>
+      </keyword>
+      <keyword text="total" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">total</p>]]></html>
+      </keyword>
+      <keyword text="table" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tabla</p>]]></html>
+      </keyword>
+      <keyword text="each" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="Each" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cada</p>]]></html>
+      </keyword>
+      <keyword text="lap" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">vuelta</p>]]></html>
+      </keyword>
+      <keyword text="laps" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">vueltas</p>]]></html>
+      </keyword>
+      <keyword text="Laps" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Vueltas</p>]]></html>
+      </keyword>
+      <keyword text="How many" index="11">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuántas</p>]]></html>
+      </keyword>
+      <keyword text="Drag" index="12">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="up to" index="13">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">un máximo de</p>]]></html>
+      </keyword>
+      <keyword text="drag elements" index="14">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">elementos arrastrados</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

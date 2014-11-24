@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="sa" id="2065" version="24" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2065</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (11); PracTest::MG11::S2::SP14::Braille (11); PracTest::MG11::S2::SP14::ESN (11);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>SA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>SA</val>
+        <desc>SA [6]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [6.4]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HTMLEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2377" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="24">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Jos<span style="">é</span> and Tina are studying geometric transformations.</p><p style="">&#xA0;</p><p style=""><img id="item_2065_graphics1" src="item_2065_v24_graphics1_png256.png" width="328" height="335" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">José is able to move triangle <span style="font-style:italic; ">A</span> to triangle <span id="item_2065_TAG_7_BEGIN"><span style="font-style:italic; ">A'</span></span> using the following </p><p style=""><span id="item_2065_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>sequence<span class="its-tag" data-tag-ref="item_2065_TAG_19" data-tag-boundary="end"></span> of basic transformations:</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">1.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflection across the <span style="font-style:italic; ">x</span>-<span id="item_2065_TAG_4_BEGIN">axis</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">2.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflection across the <span id="item_2065_TAG_3_BEGIN"><span style="font-style:italic; ">y</span></span>-<span id="item_2065_TAG_5_BEGIN">axis</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">3.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Translation two units to the <span id="item_2065_TAG_6_BEGIN">right</span></p></dd></dl></p><p style="">&#xA0;</p><p style="">Tina <span id="item_2065_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>claims<span class="its-tag" data-tag-ref="item_2065_TAG_8" data-tag-boundary="end"></span> that the <span id="item_2065_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>same<span class="its-tag" data-tag-ref="item_2065_TAG_9" data-tag-boundary="end"></span> three transformations, <span id="item_2065_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>done in any order<span class="its-tag" data-tag-ref="item_2065_TAG_18" data-tag-boundary="end"></span>, </p><p style="">will <span id="item_2065_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>always<span class="its-tag" data-tag-ref="item_2065_TAG_11" data-tag-boundary="end"></span> <span id="item_2065_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>produce<span class="its-tag" data-tag-ref="item_2065_TAG_20" data-tag-boundary="end"></span> the <span id="item_2065_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>same<span class="its-tag" data-tag-ref="item_2065_TAG_12" data-tag-boundary="end"></span> result. <span id="item_2065_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Explain<span class="its-tag" data-tag-ref="item_2065_TAG_13" data-tag-boundary="end"></span> why Tina's <span id="item_2065_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>claim<span class="its-tag" data-tag-ref="item_2065_TAG_14" data-tag-boundary="end"></span> is </p><p style="">incorrect.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">NA</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style=""><span style="color:#000000; ">The translation of two units to the right must follow the reflection over the </span><span style="color:#000000; font-style:italic; ">y</span><span style="color:#000000; ">-axis. The </span><span style="color:#000000; font-style:italic; ">x-</span><span style="color:#000000; ">coordinate will be –(</span><span style="color:#000000; font-style:italic; ">x</span><span style="color:#000000; "> + 2) = –</span><span style="color:#000000; font-style:italic; ">x</span><span style="color:#000000; "> – 2 after a translation to the right and then a reflection over the </span><span style="color:#000000; font-style:italic; ">y</span><span style="color:#000000; ">-axis. So the reflection across the </span><span style="color:#000000; font-style:italic; ">y</span><span style="color:#000000; ">-axis must be completed first –(</span><span style="color:#000000; font-style:italic; ">x</span><span style="color:#000000; ">) + 2 = –</span><span style="color:#000000; font-style:italic; ">x</span><span style="color:#000000; "> + 2. </span></p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. </p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile2" type="PRN" subtype="nemeth" file="item_2065_enu_nemeth.prn" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2065_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis has a range from negative 8 to 8, increasing in increments of 2. The why axis has a range from negative 8 to 8, increasing in increments of 2. From top to bottom the figures are labeled, A., A: prime.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. prime,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>axis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>axis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>axis</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>axis</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>right.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>right</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>right</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="24">
+      <stem><![CDATA[<p style="">José y Tina están estudiando las transformaciones geométricas.</p><p style="">&#xA0;</p><p style=""><img id="item_2065_graphics2" src="item_2065_v24_graphics2_png256.png" width="328" height="335" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">José es capaz de mover el triángulo <span style="font-style:italic; ">A</span> al triángulo <span style="font-style:italic; ">A'</span> usando la siguiente secuencia de transformaciones básicas:</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">1.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflexión por el eje <span style="font-style:italic; ">x</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">2.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflexión por el eje <span style="font-style:italic; ">y</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">3.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Traslación dos unidades a la derecha</p></dd></dl></p><p style="">&#xA0;</p><p style="">Tina afirma que las mismas tres transformaciones, realizadas en cualquier orden, siempre producirán el mismo resultado. Explica por qué la afirmación de Tina es incorrecta.</p><p class="languagedivider">&#xA0;</p><p style="">Jos<span style="">é</span> and Tina are studying geometric transformations.</p><p style="">&#xA0;</p><p style=""><img id="item_2065_graphics1" src="item_2065_v24_graphics1_png256.png" width="328" height="335" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">José is able to move triangle <span style="font-style:italic; ">A</span> to triangle <span id="item_2065_TAG_7_BEGIN"><span style="font-style:italic; ">A'</span></span> using the following </p><p style=""><span id="item_2065_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>sequence<span class="its-tag" data-tag-ref="item_2065_TAG_19" data-tag-boundary="end"></span> of basic transformations:</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">1.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflection across the <span style="font-style:italic; ">x</span>-<span id="item_2065_TAG_4_BEGIN">axis</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">2.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Reflection across the <span id="item_2065_TAG_3_BEGIN"><span style="font-style:italic; ">y</span></span>-<span id="item_2065_TAG_5_BEGIN">axis</span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">3.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Translation two units to the <span id="item_2065_TAG_6_BEGIN">right</span></p></dd></dl></p><p style="">&#xA0;</p><p style="">Tina <span id="item_2065_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>claims<span class="its-tag" data-tag-ref="item_2065_TAG_8" data-tag-boundary="end"></span> that the <span id="item_2065_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>same<span class="its-tag" data-tag-ref="item_2065_TAG_9" data-tag-boundary="end"></span> three transformations, <span id="item_2065_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>done in any order<span class="its-tag" data-tag-ref="item_2065_TAG_18" data-tag-boundary="end"></span>, </p><p style="">will <span id="item_2065_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>always<span class="its-tag" data-tag-ref="item_2065_TAG_11" data-tag-boundary="end"></span> <span id="item_2065_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>produce<span class="its-tag" data-tag-ref="item_2065_TAG_20" data-tag-boundary="end"></span> the <span id="item_2065_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>same<span class="its-tag" data-tag-ref="item_2065_TAG_12" data-tag-boundary="end"></span> result. <span id="item_2065_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Explain<span class="its-tag" data-tag-ref="item_2065_TAG_13" data-tag-boundary="end"></span> why Tina's <span id="item_2065_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>claim<span class="its-tag" data-tag-ref="item_2065_TAG_14" data-tag-boundary="end"></span> is </p><p style="">incorrect.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist />
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis has a range from negative 8 to 8, increasing in increments of 2. The why axis has a range from negative 8 to 8, increasing in increments of 2. From top to bottom the figures are labeled, A., A: prime.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. prime,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>axis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>axis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>axis</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>axis</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2065_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>right.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>right</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>right</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

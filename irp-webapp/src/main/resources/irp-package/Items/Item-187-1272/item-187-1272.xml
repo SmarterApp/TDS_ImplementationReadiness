@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1272" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="Look at" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Observa/Mira/Ve</p>]]></html>
+      </keyword>
+      <keyword text="area" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">área</p>]]></html>
+      </keyword>
+      <keyword text="in" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

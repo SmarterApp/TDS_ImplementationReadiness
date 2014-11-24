@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="280" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="ticket" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">boleto</p>]]></html>
+      </keyword>
+      <keyword text="tickets" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">boletos</p>]]></html>
+      </keyword>
+      <keyword text="A set of" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Un conjunto de</p>]]></html>
+      </keyword>
+      <keyword text="a set of" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">un conjunto de</p>]]></html>
+      </keyword>
+      <keyword text="each" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

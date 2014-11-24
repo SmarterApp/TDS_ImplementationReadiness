@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1257" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="buying" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">comprando</p>]]></html>
+      </keyword>
+      <keyword text="buy" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">comprar</p>]]></html>
+      </keyword>
+      <keyword text="tickets" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">boletos/entradas</p>]]></html>
+      </keyword>
+      <keyword text="play" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">obra teatral</p>]]></html>
+      </keyword>
+      <keyword text="per ticket" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">por boleto/por entrada</p>]]></html>
+      </keyword>
+      <keyword text="How many" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">CuántosCuántas</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

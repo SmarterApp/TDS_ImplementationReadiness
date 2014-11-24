@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1328" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="function" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">función</p>]]></html>
+      </keyword>
+      <keyword text="represents" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">representa</p>]]></html>
+      </keyword>
+      <keyword text="greater than" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mayor que</p>]]></html>
+      </keyword>
+      <keyword text="shown" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">que se muestra/mostrada</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

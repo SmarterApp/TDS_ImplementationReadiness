@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="307" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="2 months from now" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en 2 meses</p>]]></html>
+      </keyword>
+      <keyword text="predictions" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">pronósticos</p>]]></html>
+      </keyword>
+      <keyword text="accurate" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">precisos</p>]]></html>
+      </keyword>
+      <keyword text="current" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">actual</p>]]></html>
+      </keyword>
+      <keyword text="will be" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">será</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

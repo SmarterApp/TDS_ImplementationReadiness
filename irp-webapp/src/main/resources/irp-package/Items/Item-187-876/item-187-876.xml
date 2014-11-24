@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ht" id="876" version="8" bankkey="187">
+    <associatedpassage>3598</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>876</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.TE.1.RL.02.xxx - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13 (14);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3598</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_876_v8.hrx" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Click on <span id="item_876_TAG_6_BEGIN"><span style="font-weight:bold; ">two</span></span> sentences that summarize the main idea of the text.</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">A)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style=""><span id="item_876_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1">Luke and Kate are both very knowledgeable about Shakespeare.</span></span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">B)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style=""><span id="item_876_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">Luke and Kate present arguments to their teacher and defend their points of view.</span></span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">C)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style=""><span id="item_876_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">Luke and Kate realize that people can have different interpretations of characters in a play.</span></span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">D)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style=""><span id="item_876_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">Luke and Kate disagree about the nature of the relationship between Beatrice and Benedick.</span></span></p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">E)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style=""><span id="item_876_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">Luke and Kate are told that they need to work together to study a scene from <span style="font-style:italic; ">Much Ado About Nothing</span>.</span></span></p></dd></dl></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">For this item, a full-credit 1 point response includes:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">“Luke and Kate disagree about the nature of the relationship between Beatrice and Benedick” selected.</p><p style="">AND</p></li><li><p style="">“Luke and Kate realize that people can have different interpretations of characters in a play” selected.</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="item_876_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="item_876_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_876_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

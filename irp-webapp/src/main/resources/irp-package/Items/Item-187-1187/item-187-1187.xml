@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1187" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="fewer" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">menos</p>]]></html>
+      </keyword>
+      <keyword text="charged" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cobran</p>]]></html>
+      </keyword>
+      <keyword text="additional" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">adicional</p>]]></html>
+      </keyword>
+      <keyword text="fee" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cargo</p>]]></html>
+      </keyword>
+      <keyword text="each" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="bill" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">factura</p>]]></html>
+      </keyword>
+      <keyword text="How much" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuánto</p>]]></html>
+      </keyword>
+      <keyword text="limit" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">límite</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

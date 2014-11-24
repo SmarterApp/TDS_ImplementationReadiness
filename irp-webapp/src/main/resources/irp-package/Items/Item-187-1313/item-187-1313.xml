@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1313" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="to plot" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">para graficar</p>]]></html>
+      </keyword>
+      <keyword text="after" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">después de</p>]]></html>
+      </keyword>
+      <keyword text="greeting card" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tarjetas de felicitación</p>]]></html>
+      </keyword>
+      <keyword text="Greeting Card" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Tarjetas de Felicitación</p>]]></html>
+      </keyword>
+      <keyword text="each hour" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada hora</p>]]></html>
+      </keyword>
+      <keyword text="prints" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">imprime</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

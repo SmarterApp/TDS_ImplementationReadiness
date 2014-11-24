@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1264" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="folds" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">dobla</p>]]></html>
+      </keyword>
+      <keyword text="square piece of paper" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">pedazo de papel cuadrado/hoja de papel cuadrada</p>]]></html>
+      </keyword>
+      <keyword text="in half" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">a la mitad</p>]]></html>
+      </keyword>
+      <keyword text="create" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crear</p>]]></html>
+      </keyword>
+      <keyword text="creates" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crea</p>]]></html>
+      </keyword>
+      <keyword text="rectangle" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">rectángulo</p>]]></html>
+      </keyword>
+      <keyword text="perimeter" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">perímetro</p>]]></html>
+      </keyword>
+      <keyword text="Connect" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Conectar</p>]]></html>
+      </keyword>
+      <keyword text="original square" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cuadrado original</p>]]></html>
+      </keyword>
+      <keyword text="area" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">área</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

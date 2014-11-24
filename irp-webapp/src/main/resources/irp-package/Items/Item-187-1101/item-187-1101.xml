@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1101" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="digit" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">dígitos</p>]]></html>
+      </keyword>
+      <keyword text="even" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">par</p>]]></html>
+      </keyword>
+      <keyword text="greatest" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mayor</p>]]></html>
+      </keyword>
+      <keyword text="digit cards" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cartas de dígitos</p>]]></html>
+      </keyword>
+      <keyword text="are left" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">quedan</p>]]></html>
+      </keyword>
+      <keyword text="remaining" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">restantes</p>]]></html>
+      </keyword>
+      <keyword text="create" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crear</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

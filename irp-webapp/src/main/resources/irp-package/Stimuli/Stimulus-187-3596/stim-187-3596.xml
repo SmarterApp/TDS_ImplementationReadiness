@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3596" version="12" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3596</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>The Science of Meditation</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <content language="ENU" version="2.0" approvedVersion="12">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="text-align:center; font-weight:bold; ">The Science of <span id="passage_3596_TAG_1_BEGIN">Meditation</span></p><p style="">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">Meditation has been practiced for thousands of years by people from a wide variety of cultures. Though traditionally a spiritual practice, meditation has more recently been identified by medical professionals as a uniquely effective way to improve mental and physical health. How does meditation work, and what does science have to say about its effects on practitioners?</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">While there are many ways to meditate, meditation is, at its core, simply a way of focusing awareness. Here is one of the most commonly taught ways to meditate: start by sitting on the floor or in a chair in a comfortable and relaxed position. Once you are comfortable, concentrate your awareness on your breathing. Simply follow your breath in and out, sensing the movement of your diaphragm as you breathe. As you focus on your breathing, notice how your mind tends to wander to other things: something you need to do later in the day, or a conversation you just had with your mother, or a fragment of a song, or questions like “Am I doing this right?” or even “<span style="font-style:italic; ">Why </span>am I doing this?” When you notice your attention wandering, simply acknowledge this new thought, watch it go by, and then return your awareness to your breathing. Don’t try to fight against these wandering thoughts; telling yourself “I will <span style="font-style:italic; ">not </span>think of other things!” is just another thought that will distract you from your breathing. With practice and patience, you will find it easier and easier to keep your focus on your breath for extended periods. This type of meditation can be practiced every day and almost anywhere.</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">People who meditate regularly report numerous benefits. They feel calmer and more relaxed, and more prepared and clear-headed when responding to the challenges and frustrations of everyday life. These reported benefits have been supported by scientific research on meditation, research that has investigated the mental and physical changes that take place when a person meditates. Scientists have learned that meditation produces clear changes in a person’s brain wave patterns and, in turn, affects how the body responds to normal physical demands and stress.</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">Brain waves are electrical impulses in the brain that correspond to different types or <span id="passage_3596_TAG_8_BEGIN">“levels”</span> of awareness. For example, the <span id="passage_3596_TAG_9_BEGIN">“beta”</span> brain wave pattern, measurable from about 13 to 100 cycles per second, is the pattern of normal waking consciousness and is associated with alert activity. Scientists measuring the brain waves of meditators have found that when people meditate, these beta waves give way to different, slower brain wave patterns, including the <span id="passage_3596_TAG_10_BEGIN">“alpha”</span> pattern <span id="passage_3596_TAG_2_BEGIN">(8</span> to <span id="passage_3596_TAG_4_BEGIN">13.9</span> cycles per <span id="passage_3596_TAG_3_BEGIN">second)</span> and the <span id="passage_3596_TAG_11_BEGIN">“theta”</span> pattern <span id="passage_3596_TAG_5_BEGIN">(4</span> to 7.9 cycles per <span id="passage_3596_TAG_6_BEGIN">second)</span>. The alpha pattern is associated with what is often called the “relaxation response,” a wakeful yet restful state. The theta pattern corresponds to an even deeper state of mental and physical calm. Meditation, therefore, is a way of intentionally entering into a mental state of relaxation and calm. What is more, people who meditate regularly have a much greater ability to enter these calmer states of mind in their day-to-day living, whenever they need to.</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">These research findings have led to a tremendous increase in the use and promotion of meditation by health-care providers across the country, particularly for controlling stress. Stress is linked to a long list of mental and physical problems, including anxiety, depression, heart problems, and hypertension. By entering the calmer states of mind that are associated with meditation, practitioners can lower both their heart rate and blood pressure, therefore reversing the effects of the stress response. Meditation has also been shown to be useful in relieving pain, preparing patients for medical procedures, and helping them recover from surgery.</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0in; margin-right:0in; text-indent:0.25in; ">Meditation has also proven to be an effective way to enhance athletic and artistic performance. In many types of martial arts training, meditation is used extensively to develop concentration, mental clarity, and inner emotional balance. Meditative techniques are also used by many athletes, such as the practice of “visualization”<span id="passage_3596_TAG_12_BEGIN">—</span>in which an athlete will picture him or herself performing at their best and accomplishing a desired result or goal<span id="passage_3596_TAG_7_BEGIN">—</span>before a competition, shot, or routine.</p>]]></stem>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="passage_3596_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="passage_3596_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Meditation.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Meditation</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Meditation</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>levels</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>“levels”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>“levels”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>beta</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>“beta”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>“beta”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>alpha</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>“alpha”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>“alpha”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, open parenthesis, 8</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(8</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>(8</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>13 point 9</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>13.9</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>13.9</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>second, closed parenthesis,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>second)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>second)</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>theta</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>“theta”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>“theta”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, open parenthesis, 4</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(4</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>(4</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>second, closed parenthesis</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>second)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>second)</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3596_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">&#xA0;</p>]]></stem>
+    </content>
+  </passage>
+</itemrelease>

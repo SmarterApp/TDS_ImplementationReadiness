@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ms" id="1145" version="16" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1145</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned for Special Forms from ITS 48039 - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13::BRAILLE (17);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>C,E</val>
+        <desc>,</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1073" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="16">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">If a student chooses E,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option F</name>
+          <val><![CDATA[<p style="">If a student chooses F,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">The figure shown is composed of a rectangular prism and half of a sphere. The diameter of the sphere is <span style="font-style:italic; ">x</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style="text-align:center; font-style:normal; "><img id="item_1145_graphics1" src="item_1145_v16_graphics1_png256.png" width="253" height="296" style="vertical-align:baseline;" /></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; ">Which expressions go into the boxes to complete the equation that represents the volume of the figure, </span><span style="font-style:italic; ">V</span><span style="font-style:normal; ">, in terms of </span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">?</span></p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object1" style="vertical-align:middle;" src="item_1145_v16_Object1_png16malpha.png" width="52" height="13" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object2" style="vertical-align:middle;" src="item_1145_v16_Object2_png16malpha.png" width="30" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object3" style="vertical-align:middle;" src="item_1145_v16_Object3_png16malpha.png" width="71" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object4" style="vertical-align:middle;" src="item_1145_v16_Object4_png16malpha.png" width="45" height="35" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object5" style="vertical-align:middle;" src="item_1145_v16_Object5_png16malpha.png" width="32" height="38" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option F</name>
+          <val><![CDATA[<p style=""><img id="item_1145_Object6" style="vertical-align:middle;" src="item_1145_v16_Object6_png16malpha.png" width="32" height="38" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="file2" type="PRN" subtype="nemeth" file="item_1145_enu_nemeth.prn" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>from left to right the figure reeds, x plus 3, x, x.
+From left to right below the figure it reeds, v equals box plus box.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 x    plus     3</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 x    plus     3</brailleTextString>
+                <brailleCode type="Nemeth">#3x+3
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 x  cubed</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 x  raised to the power of 3</brailleTextString>
+                <brailleCode type="Nemeth">#3x~3"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x  cubed  plus     3 x  squared</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x  raised to the power of 3    plus     3 x  raised to the power of 2</brailleTextString>
+                <brailleCode type="Nemeth">x~3"+3x~2"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>4 over 3, pi x cubed.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 4 over 3,  UNKNOWN  x  raised to the power of 3</brailleTextString>
+                <brailleCode type="Nemeth">?4/3#'\xf070'x~3"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object5" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>pi x cubed over 12.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  x  raised to the power of 3   over 12,</brailleTextString>
+                <brailleCode type="Nemeth">?'\xf070'x~3"/12#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1145_Object6" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>pi x cubed over 6.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  x  raised to the power of 3   over 6,</brailleTextString>
+                <brailleCode type="Nemeth">?'\xf070'x~3"/6#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

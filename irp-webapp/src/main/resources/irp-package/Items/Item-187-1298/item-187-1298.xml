@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1298" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="artist" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">artista</p>]]></html>
+      </keyword>
+      <keyword text="tiles" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">azulejos/losas/baldosas</p>]]></html>
+      </keyword>
+      <keyword text="tile" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">azulejo/losa/baldosa</p>]]></html>
+      </keyword>
+      <keyword text="create" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crear</p>]]></html>
+      </keyword>
+      <keyword text="mosaic" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mosaico</p>]]></html>
+      </keyword>
+      <keyword text="every" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="Drag" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="into the space" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">al espacio</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

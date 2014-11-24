@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1293" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="will both water and weed" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">va a hacer las dos cosas, regar y quitar las hierbas</p>]]></html>
+      </keyword>
+      <keyword text="waters" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">riega</p>]]></html>
+      </keyword>
+      <keyword text="every" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="weeds" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">quita las hierbas</p>]]></html>
+      </keyword>
+      <keyword text="both" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">ambas cosas</p>]]></html>
+      </keyword>
+      <keyword text="next" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">próxima</p>]]></html>
+      </keyword>
+      <keyword text="date" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">fecha</p>]]></html>
+      </keyword>
+      <keyword text="Select" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Selecciona</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

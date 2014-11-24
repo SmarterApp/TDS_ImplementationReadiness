@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="nl" id="878" version="4" bankkey="187">
+    <associatedpassage>3600</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>878</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.5120.C3.T4.NewItem1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13 (30); PracTest::ELAG11::SP13::BRAILLE (25);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>NL</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>NL</val>
+        <desc>NL [3]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3600</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_878_v4.nlx" />
+    <content language="ENU" version="2.0" approvedVersion="4">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Describe the persuasive technique the narrator uses to support the idea that space exploration benefits humans. Use details from the presentation to support your answer.</p><p style="">&#xA0;</p><p style="">Type your answer in the space provided.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">A two-point response includes a description of the persuasive technique the narrator uses and a correct supporting detail from the presentation. </p><p style="">Approach: </p><ul style="padding-left:1.5000em; "><li><p style="">emotional approach / shocks the reader / appeals to emotions/ takes an active role by holding all people accountable</p></li></ul><p style="">&#xA0;</p><p style="">Details:</p><ul style="padding-left:1.5000em; "><li><p style="">shortsig<span style="">hted / ignorant / poorer</span></p></li><li><p style="">almost certain to improve our lives</p></li><li><p style=""><span style="">untold rich</span>es </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The narrator believes that space exploration can benefit humans in many different ways. The narrator appeals to listeners’ emotions with statements such as “Never looking beyond our own backyard will leave us shortsighted, ignorant, and ultimately poorer for our lack of courage and vision.” This extreme description attempts to shock the reader into agreement.</p><p style="">&#xA0;</p><p style="">Furthermore, the narrator is persistent and emphasizes that people need to take an active role in supporting future space exploration by urging that “there is work for all of us to do.” The narrator goes on to say that we must “put our money where our hearts and minds are and demand the budgets and write the checks for space exploration.”</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">A one-point response includes a description of the persuasive technique the narrator uses without supporting details from the text. </p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The narrator tries to convince listeners by shocking them with extreme statements, and by emphasizing the need for everyone to take an active role in space exploration.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">A response that does not describe the persuasive technique the narrator uses to support the idea that space exploration benefits humans. No credit is awarded for providing details from the presentation without a description of the narrator’s persuasive technique.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The narrator is talking about how space exploration is good for humans.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_878_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_878_enu_uncontracted.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_878_ASL_STEM.MP4" />
+      </attachmentlist>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1116" version="3" bankkey="187">
+    <keywordList>
+      <keyword text="building" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">construyendo</p>]]></html>
+      </keyword>
+      <keyword text="building" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">construir</p>]]></html>
+      </keyword>
+      <keyword text="builds" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">construye</p>]]></html>
+      </keyword>
+      <keyword text="blocks" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">bloques</p>]]></html>
+      </keyword>
+      <keyword text="greatest" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mayor</p>]]></html>
+      </keyword>
+      <keyword text="Each" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cada</p>]]></html>
+      </keyword>
+      <keyword text="each" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="all" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">todos</p>]]></html>
+      </keyword>
+      <keyword text="level" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">nivel</p>]]></html>
+      </keyword>
+      <keyword text="levels" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">niveles</p>]]></html>
+      </keyword>
+      <keyword text="table" index="11">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tabla</p>]]></html>
+      </keyword>
+      <keyword text="Blocks" index="12">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Bloques</p>]]></html>
+      </keyword>
+      <keyword text="color blocks" index="13">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">colores de bloque</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

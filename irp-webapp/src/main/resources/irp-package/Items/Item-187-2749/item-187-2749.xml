@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2749" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="tedious" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">slow; boring</p>]]></html>
+      </keyword>
+      <keyword text="menacing" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">dangerous; scary</p>]]></html>
+      </keyword>
+      <keyword text="iridescent" index="3">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">brightly colored </p>]]></html>
+      </keyword>
+      <keyword text="miniscule" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">very small </p>]]></html>
+      </keyword>
+      <keyword text="siphoned" index="5">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">transferred liquid </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

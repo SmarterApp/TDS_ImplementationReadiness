@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1501" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="triangle" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">triángulo</p>]]></html>
+      </keyword>
+      <keyword text="always" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">siempre</p>]]></html>
+      </keyword>
+      <keyword text="sometimes" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">algunas veces</p>]]></html>
+      </keyword>
+      <keyword text="never" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">nunca</p>]]></html>
+      </keyword>
+      <keyword text="Provide" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Da/Proporciona/Ofrece</p>]]></html>
+      </keyword>
+      <keyword text="justification" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">justificación</p>]]></html>
+      </keyword>
+      <keyword text="to support" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">para apoyar</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

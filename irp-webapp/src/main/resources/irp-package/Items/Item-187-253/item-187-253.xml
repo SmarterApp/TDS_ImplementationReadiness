@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="nl" id="253" version="14" bankkey="187">
+    <associatedpassage>3484</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>253</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.C4.T2.PublicArt.PT.01 - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::Perf::S1::SP13 (1); PracTest::ELAG11::Perf::S1::SP13::BRAILLE (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>NL</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>NL</val>
+        <desc>NL [3]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3484</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_253_v14.nlx" />
+    <content language="ENU" version="2.0" approvedVersion="14">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">As a mission statement, Source <span id="item_253_TAG_3_BEGIN">#2</span> makes some general claims about public art. One of these claims states:</p><p style="">&#xA0;</p><p style="font-weight:bold; "><span id="item_253_TAG_1_BEGIN">“Through</span> government partnerships, public art can also transform dull or <span id="item_253_TAG_5_BEGIN">run-down</span> public spaces and inspire the people who <span id="item_253_TAG_4_BEGIN">live</span> and work <span id="item_253_TAG_2_BEGIN">there.”</span></p><p style="">&#xA0;</p><p style="">Identify another source that addresses this claim and explain <span id="item_253_TAG_6_BEGIN"><span style="font-weight:bold; ">two</span></span> ways in which that source supports the claim.</p><p style="">&#xA0;</p><p style="">Type your answer in the space provided.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">Identification of Source 1</p><p style="">AND</p><p style="">Any two of the following explanations:</p><ul style="padding-left:1.5000em; "><li><p style="">A mural painting program in Philadelphia has been recognized as a successful partnership between public and private agencies.</p></li><li><p style="">Mural painting has beautified many run-down neighborhoods in Philadelphia.</p></li><li><p style="">Community members have become involved in the mural painting program.</p></li><li><p style="">The program has given graffiti artists a new sense of purpose.</p></li></ul><p style="">&#xA0;</p><p style="">2 points: correct identification of the source and explanation of two ways in which the claim is supported</p><p style="">1 point: correct identification of the source and explanation of one way in which the claim is supported</p><p style="">0 points: other</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">Response includes the correct source listed above and and one explanation with an incorrect or missing explanation.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. The response indicates inadequate or no understanding of the task and/or the idea or concept needed to answer the item. It may only repeat information given in the test item. The response may provide an incorrect solution/response and the provided supportive information may be irrelevant to the item, or possibly, no other information is shown. The student may have written on a different topic or written, “I don't know.”</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="item_253_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="item_253_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Quote, Through</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>“Through</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>“Through</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>run down</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>run-down</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>run-down</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>liv</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>live</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>live</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>there. End Quote.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>there.”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>there.”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_253_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

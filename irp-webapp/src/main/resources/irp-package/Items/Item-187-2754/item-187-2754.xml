@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2754" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="hasty" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">quick; not careful</p>]]></html>
+      </keyword>
+      <keyword text="bombarded" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">having a sudden arrival of many items</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

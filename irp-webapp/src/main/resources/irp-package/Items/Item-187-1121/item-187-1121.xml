@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1121" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="odd numbers" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">números impares</p>]]></html>
+      </keyword>
+      <keyword text="odd number" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">número impar</p>]]></html>
+      </keyword>
+      <keyword text="greater than" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mayores que</p>]]></html>
+      </keyword>
+      <keyword text="greater than" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mayor que</p>]]></html>
+      </keyword>
+      <keyword text="less than" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">menores que</p>]]></html>
+      </keyword>
+      <keyword text="less than" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">menor que</p>]]></html>
+      </keyword>
+      <keyword text="prime" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">primos</p>]]></html>
+      </keyword>
+      <keyword text="prime" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">primo</p>]]></html>
+      </keyword>
+      <keyword text="Explain why" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Explica por qué</p>]]></html>
+      </keyword>
+      <keyword text="number" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">número</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

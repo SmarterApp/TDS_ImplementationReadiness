@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="nl" id="254" version="8" bankkey="187">
+    <associatedpassage>3484</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>254</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.C4.T2.PublicArt.PT.02 - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::Perf::S1::SP13 (2); PracTest::ELAG11::Perf::S1::SP13::BRAILLE (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>NL</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>NL</val>
+        <desc>NL [3]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3484</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_254_v8.nlx" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">According to what you have learned from your review of the sources, what are some potential challenges artists might face when creating public art pieces that are government<span id="item_254_TAG_2_BEGIN">-</span>funded? Provide <span id="item_254_TAG_1_BEGIN"><span style="font-weight:bold; ">three</span></span> challenges from at least two sources.</p><p style="">&#xA0;</p><p style="">Type your answer in the space provided.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">2 points: Three challenges artists may face from two sources</p><p style="">1 point: Two challenges artists may face</p><p style="">0 points: Other</p><p style="">&#xA0;</p><p style="">Possible responses:</p><p style="">Source #1:</p><ul style="padding-left:1.5000em; "><li><p style="">Art can be publicly criticized and removed.</p></li></ul><p style="">&#xA0;</p><p style="">Source #2:</p><ul style="padding-left:1.5000em; "><li><p style="">No Support</p></li></ul><p style="">&#xA0;</p><p style="">Source #3</p><ul style="padding-left:1.5000em; "><li><p style="">Art could be compared to earlier public monuments.</p></li><li><p style="">&#xA0;Art representing new ideas may be criticized.</p></li><li><p style="">&#xA0;There could be copyright issues.</p></li></ul><p style="">&#xA0;</p><p style="">Source#4</p><ul style="padding-left:1.5000em; "><li><p style="">The artist loses freedom of expression.</p></li><li><p style="">&#xA0;The artist is constrained by the need to represent the point of view of the government.</p></li><li><p style="">&#xA0;The art may be censored.</p></li><li><p style="">&#xA0;There is a loss in personal freedom.</p></li><li><p style="">&#xA0;Artists are limited to mediocre artwork.</p></li><li><p style="">&#xA0;The art may incite controversy or upset taxpayers who paid for the work.</p><p style="">&#xA0;</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">Response includes two correct challenges listed above with an incorrect or missing challenge.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. The response indicates inadequate or no understanding of the task and/or the idea or concept needed to answer the item. It may only repeat information given in the test item. The response may provide an incorrect solution/response and the provided supportive information may be irrelevant to the item, or possibly, no other information is shown. The student may have written on a different topic or written, “I don't know.”</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="item_254_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="item_254_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_254_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>-</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>-</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_254_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>: three!</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>three</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>three</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

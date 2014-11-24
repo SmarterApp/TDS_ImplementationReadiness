@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="663" version="32" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>663</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.HS.TE.1.00FIF.M.xxx - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP13 (4);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="1194" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_663_v32.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="43674" ITSVer="3" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons>delete</ShowButtons><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><CenterImage>false</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons><IconSpec><FileSpec>item_663_v32_43674_palette_xplus1_png16malpha.png</FileSpec><Label>1</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_x-1_png16malpha.png</FileSpec><Label>2</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_xplus2_png16malpha.png</FileSpec><Label>3</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_x-2_png16malpha.png</FileSpec><Label>4</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_xplus3_png16malpha.png</FileSpec><Label>5</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_x-3_png16malpha.png</FileSpec><Label>6</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_xplus4_png16malpha.png</FileSpec><Label>7</Label></IconSpec><IconSpec><FileSpec>item_663_v32_43674_palette_x-4_png16malpha.png</FileSpec><Label>8</Label></IconSpec></ObjectMenuIcons><ImageSpec><FileSpec>item_663_v32_43674_background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="43674"><QuestionPart id="1"><ObjectSet /><SnapPoint>450@145,190;210,190;275,190;340,190;405,190</SnapPoint></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="32">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">The graph of a polynomial function <span id="item_663_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>is shown<span class="its-tag" data-tag-ref="item_663_TAG_9" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><img id="item_663_43674_prompt:(d=png256)" src="item_663_v32_43674_prompt_png256.png" width="272" height="365" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="item_663_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Create<span class="its-tag" data-tag-ref="item_663_TAG_10" data-tag-boundary="end"></span> a possible function for the <span id="item_663_TAG_4_BEGIN">graph.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><p style=""><img id="item_663_Object1" style="vertical-align:middle;" src="item_663_v32_Object1_png16malpha.png" width="329" height="19" /></p><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The binomials can be placed in any order.</p></li></ul><p style="">&#xA0;</p><p style="">Full credit (1 point):</p><p style="">&#xA0;</p><p style="">The response demonstrates a full and complete understanding of creating equivalent forms of a polynomial function. The response contains the following evidence:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student creates the function <img id="item_663_Object2" style="vertical-align:middle;" src="item_663_v32_Object2_png16malpha.png" width="329" height="19" />. The binomials can be in any order.</p></li></ul><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</p><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_663_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_43674_prompt:(d=png256)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis of the graph has a range from negative 4 to 10, increasing in increments of 2. The f of x axis of the graph has a range from negative 80 to 1 hundred 20, increasing in increments of 20.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>graph. This is an interactive image. The blue button above the image reeds, delete. From top to bottom the rectangle along the left side of the image reeds, Open parenthesis, x plus 1, closed parenthesis. Open parenthesis, x minus 1, closed parenthesis. Open parenthesis, x plus 2, closed parenthesis. Open parenthesis, x minus 2, closed parenthesis. Open parenthesis, x plus 3, closed parenthesis. Open parenthesis, x minus 3, closed parenthesis. Open parenthesis, x plus 4, closed parenthesis. Open parenthesis, x minus 4, closed parenthesis. The main answer space reeds, f of x equals.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>graph.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>graph.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-2)(x-2)(x+1)(x+3)(x-4)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-2)(x-2)(x+1)(x+3)(x-4)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="32">
+      <stem><![CDATA[<p style=""><span style="language:es; country:ES; ">Se muestra la gráfica de una función polinómica</span>.</p><p style="">&#xA0;</p><p style=""><img id="item_663_43674_prompt_ESN:(d=png256)" src="item_663_v32_43674_prompt_png256_ESN.png" width="272" height="365" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">Crea la función para la gráfica.</p><p class="languagedivider">&#xA0;</p><p style="">The graph of a polynomial function <span id="item_663_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>is shown<span class="its-tag" data-tag-ref="item_663_TAG_9" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><img id="item_663_43674_prompt:(d=png256)" src="item_663_v32_43674_prompt_png256.png" width="272" height="365" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="item_663_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Create<span class="its-tag" data-tag-ref="item_663_TAG_10" data-tag-boundary="end"></span> a possible function for the <span id="item_663_TAG_4_BEGIN">graph.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><p style=""><img id="item_663_Object3" style="vertical-align:middle;" src="item_663_v32_Object3_png16malpha.png" width="329" height="19" /></p><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The binomials can be placed in any order.</p></li></ul><p style="">&#xA0;</p><p style="">Full credit (1 point):</p><p style="">&#xA0;</p><p style="">The response demonstrates a full and complete understanding of creating equivalent forms of a polynomial function. The response contains the following evidence:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student creates the function <img id="item_663_Object4" style="vertical-align:middle;" src="item_663_v32_Object4_png16malpha.png" width="329" height="19" />. The binomials can be in any order.</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_43674_prompt:(d=png256)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis of the graph has a range from negative 4 to 10, increasing in increments of 2. The f of x axis of the graph has a range from negative 80 to 1 hundred 20, increasing in increments of 20.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>graph. This is an interactive image. The blue button above the image reeds, delete. From top to bottom the rectangle along the left side of the image reeds, Open parenthesis, x plus 1, closed parenthesis. Open parenthesis, x minus 1, closed parenthesis. Open parenthesis, x plus 2, closed parenthesis. Open parenthesis, x minus 2, closed parenthesis. Open parenthesis, x plus 3, closed parenthesis. Open parenthesis, x minus 3, closed parenthesis. Open parenthesis, x plus 4, closed parenthesis. Open parenthesis, x minus 4, closed parenthesis. The main answer space reeds, f of x equals.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>graph.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>graph.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-2)(x-2)(x+1)(x+3)(x-4)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_663_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  the quantity  x  minus  2  ,    the quantity  x  minus  2  ,   the quantity  x  plus  1  ,   the quantity  x  plus  3  ,   the quantity  x  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-2)(x-2)(x+1)(x+3)(x-4)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2347" version="12" bankkey="187">
+    <keywordList>
+      <keyword text="empty" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">vacío</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">فارغ</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">trống</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "> 空嘅</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">空的</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">walang lamang, walang laman, bakanteng, bakante, bakante</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Пустой</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">빈, 비어 있는</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਖਾਲ੍ਹੀ , خالی</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Порожню</p>]]></html>
+      </keyword>
+      <keyword text="corn silo" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">silo de maíz</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">صومعة الذرة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">thùng đựng ngô, thùng chứa bắp</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "> 玉米储仓,  玉米儲倉</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">玉米筒仓, 玉米筒倉</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">silo ng mais, garong ti mais</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">бункер для хранения кукурузы</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">옥수수 저장고, 옥수수 사일로</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਮੱਕਾ ਬੁਖਾਰੀ , مکئی دا گودام </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">силосну яму</p>]]></html>
+      </keyword>
+      <keyword text="filled" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">llenando</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ملأ</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">đổ đầy, được đổ đầy</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">装入了 </span>&#xA0;</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">裝滿了</span>, <span style="">裝入</span><span style="">，装满了，装入</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">pinupuno, nilalagyan, mapunpunno </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">заполняется</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">채워지다 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਭਰਿਆ , بھریا ہویا</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="language:uk; country:UA; ">Заповнюють, заповнюється </span>&#xA0;</p>]]></html>
+      </keyword>
+      <keyword text="corn" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">maíz</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">الذرة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ngũ cốc, bắp</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "> 玉米</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">玉米</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">mais</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">кукурузой</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">옥수수</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">ਮਕੀ</span> , <span style="">ਮਕਈ</span> &#xA0;, مکئی </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Зерном, <span style="language:uk; country:UA; ">зерна</span> </p>]]></html>
+      </keyword>
+      <keyword text="silo" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">silo</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">الصومعة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">thùng chứa</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "> 储仓,  儲倉</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">筒仓, 筒倉</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">silo, garong</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">бункер</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">저장고, 사일로</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਬੁਖਾਰੀ , گودام</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Яма, <span style="language:uk; country:UA; ">ямі, ями</span><span style="language:uk; country:UA; "> </span>&#xA0;</p>]]></html>
+      </keyword>
+      <keyword text="given" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">dado </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">معطى</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">được cho, đã cho</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">已知嘅</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">给定的，已知的, 給定的，已知的</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">nakasaad, nakalagay, naited</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">данное</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">주어진</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਦਿੱਤਾ ਹੋਇਆ , دیتی گئی</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">задану</p>]]></html>
+      </keyword>
+      <keyword text="Enter" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Escribe</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">أدخل</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Điền</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "> 输入,  輸入</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">輸入</span>, <span style="">填寫</span><span style="">，</span><span style="">输入，填写</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Ilagay, Ikabil </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Введи</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">쓰다, 입력하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ਦਾਖਲ ਕਰੋ , پاؤ</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Введіть</p>]]></html>
+      </keyword>
+      <keyword text="filling" index="8">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">the process of putting things inside an object</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

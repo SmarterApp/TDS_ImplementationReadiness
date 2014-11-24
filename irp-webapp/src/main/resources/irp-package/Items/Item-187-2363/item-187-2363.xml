@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2363" version="7" bankkey="187">
+    <keywordList>
+      <keyword text="Enter" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Escribe</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">أدخل</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Điền</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "> <span style="">输入</span> ,  第一個空格</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">輸入</span>, <span style="">填寫</span><span style="">，</span><span style="">输入，填写</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="language:es; country:MX; ">maglagay, mangikabil</span> &#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="language:ru; country:RU; font-weight:normal; font-family:'Times New Roman'; ">Введите</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">쓰다, 입력하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਦਾਖਲ ਕਰੋ , پاؤ</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Введіть</p>]]></html>
+      </keyword>
+      <keyword text="first box" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">primera casilla </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">المربع الأول</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ô vuông thứ nhất, ô đầu tiên</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">第一个空格</span> </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">第一個方框</span>, <span style="">第一個方格</span>, <span style="">第一个方框，第一个方格</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">unang kahon, umuna a kahon </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">первое поле </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">첫 번째 상자</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਪਹਿਲਾ ਬਕਸਾ &#xA0;, پہلاخانہ</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">перше поле</p>]]></html>
+      </keyword>
+      <keyword text="If" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Si</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">إذا</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Nếu</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "> <span style="">如果</span> ,  當中有</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">如果</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Kung, Nu</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Если</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">만약~면</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਜੇਕਰ , جے</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Якщо</p>]]></html>
+      </keyword>
+      <keyword text="there are" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">hay</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">يوجد</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">Có, có</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "> <span style="">有</span> ,  輸入</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">&#xA0;<span style="">當中有</span>, <span style="">那裡有</span>, <span style="">当中有，那里有</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">mayroong, adda iti</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">есть</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">~이 있다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਉੱਥੇ ਹਨ , ایہہ نیں</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">існує</p>]]></html>
+      </keyword>
+      <keyword text="enter" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">escribe </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">أدخل</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">điền</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "> <span style="">输入</span> ,  第二個空格</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">輸入</span>, <span style="">填寫</span><span style="">，</span><span style="">输入，填写</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ilagay, Ikabil </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">введи</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">쓰다, 입력하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਦਾਖਲ ਕਰੋ , پاؤ</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">введіть</p>]]></html>
+      </keyword>
+      <keyword text="second box" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">segunda casilla</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">المربع الثاني</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ô vuông thứ hai, ô thứ hai</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "> <span style="">第二个空格</span> ,  輸入</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="">第</span><span style="">二</span><span style="">個方框</span>, <span style="">第</span><span style="">二</span><span style="">個方格</span>, <span style="">第二个方框，第二个方格</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; "><span style="language:es; country:MX; ">ikalalawang kahon, maikadua a kahon</span> &#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">второе поле</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">두 번째 상자</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">ਦੂਜਾ ਬਕਸਾ , دوجا خانہ</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="color:#000000; font-size:1.0000em; font-family:'Times New Roman'; ">друге поле</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>
