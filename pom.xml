@@ -16,7 +16,7 @@
         <module>irp-model</module>
         <module>irp-repository</module>
         <module>irp-service</module>
-        <module>irp-validation-engine</module>
+        <module>irp-analysis-engine</module>
         <module>irp-webapp</module>
     </modules>
 
