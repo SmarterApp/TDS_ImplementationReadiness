@@ -29,7 +29,7 @@ public class ScoringController {
 	@Autowired
 	private ScoringService scoringService;
 
-	@ApiMethod(path = "scoring/test", description = "Returns the test", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/test", description = "Returns the test", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/test", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -37,7 +37,7 @@ public class ScoringController {
 		return scoringService.getTest();
 	}
 
-	@ApiMethod(path = "scoring/examinee", description = "Returns the examinee", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/examinee", description = "Returns the examinee", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/examinee", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -45,7 +45,7 @@ public class ScoringController {
 		return scoringService.getExaminee();
 	}
 
-	@ApiMethod(path = "scoring/opportunity", description = "Returns the scoring opportunity", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/opportunity", description = "Returns the scoring opportunity", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/opportunity", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -53,7 +53,7 @@ public class ScoringController {
 		return scoringService.getOpportunity();
 	}
 
-	@ApiMethod(path = "scoring/opportunity/scores", description = "Returns the opportunity's scores", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/opportunity/scores", description = "Returns the opportunity's scores", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/opportunity/scores", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -61,7 +61,7 @@ public class ScoringController {
 		return scoringService.getOpportunityScores();
 	}
 
-	@ApiMethod(path = "scoring/opportunity/items", description = "Returns the opportunity's items", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/opportunity/items", description = "Returns the opportunity's items", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/opportunity/items", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -69,7 +69,7 @@ public class ScoringController {
 		return scoringService.getOpportunityItems();
 	}
 
-	@ApiMethod(path = "scoring/comments", description = "Returns the scoring comments", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/comments", description = "Returns the scoring comments", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/comments", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -77,7 +77,7 @@ public class ScoringController {
 		return scoringService.getComments();
 	}
 
-	@ApiMethod(path = "scoring/toolusage", description = "Returns the scoring tool usage", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/scoring/toolusage", description = "Returns the scoring tool usage", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/toolusage", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)

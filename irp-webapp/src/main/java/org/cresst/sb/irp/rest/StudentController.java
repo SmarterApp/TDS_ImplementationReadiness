@@ -35,7 +35,7 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@ApiMethod(path = "students", description = "Returns a list of Students", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/students", description = "Returns a list of Students", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/students", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -44,7 +44,7 @@ public class StudentController {
 		
 	}
 
-	@ApiMethod(path = "students/{studentIdentifier}", description = "Returns a Student", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/students/{studentIdentifier}", description = "Returns a Student", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/students/{studentIdentifier}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -60,7 +60,7 @@ public class StudentController {
 		
 	}
 
-	@ApiMethod(path = "students/addstudent", description = "Adds a Student", verb = ApiVerb.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/students/addstudent", description = "Adds a Student", verb = ApiVerb.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/students/addstudent", method = RequestMethod.POST)
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.CREATED)

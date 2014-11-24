@@ -13,15 +13,20 @@
 
     <mvc:resources mapping="/**" location="/" />
     <mvc:resources mapping="/index.html" location="/" />
-    
+
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="org.cresst.sb.irp.*"/>
+    <context:component-scan base-package="org.cresst.sb.irp.*" use-default-filters="false">
+        <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation" />
+    </context:component-scan>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="256000000"/>
+    </bean>
 
     <bean id="documentationController" class="org.jsondoc.springmvc.controller.JSONDocController">
         <property name="version" value="1.0" />
-        <!-- TODO: replace base path with placeholder -->
-        <property name="basePath" value="http://localhost:8080/" />
+        <property name="basePath" value="#{ servletContext.getContextPath() }" />
         <property name="packages">
             <list>
                 <value>org.cresst.sb.irp.rest</value>
@@ -43,6 +48,5 @@
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine" />
         <property name="order" value="1" />
-        <property name="viewNames" value="*.html,*.xhtml" />
     </bean>
 </beans>

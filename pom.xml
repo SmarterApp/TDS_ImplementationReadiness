@@ -16,6 +16,7 @@
         <module>irp-model</module>
         <module>irp-repository</module>
         <module>irp-service</module>
+        <module>irp-validation-engine</module>
         <module>irp-webapp</module>
     </modules>
 
@@ -196,6 +197,14 @@
         <repository>
             <id>maven-central</id>
             <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>spring-release</id>
+            <url>http://repo.spring.io/release/</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <url>http://repo.spring.io/milestone/</url>
         </repository>
         <repository>
             <id>version99</id>

@@ -29,11 +29,6 @@ public class ItemDaoImpl implements ItemDao {
 	// "imsqti_apipitem_xmlv2p2"; not dependency type of
 	// resourcemetadata/apipv1p0
 	private List<Manifest.Resources.Resource> listResource;
-	private Manifest manifest;
-
-	public void setManifest(Manifest manifest) {
-		this.manifest = manifest;
-	}
 
 	public ItemDaoImpl() {
 		try {
@@ -63,9 +58,8 @@ public class ItemDaoImpl implements ItemDao {
 		return item;
 	}
 
-	public void loadData() throws JAXBException, FileNotFoundException {
+	public void loadData(List<Manifest.Resources> listResources) throws JAXBException, FileNotFoundException {
 		logger.info("ItemDaoImpl.loadData()");
-		List<Manifest.Resources> listResources = manifest.getResources();
 		Manifest.Resources resources = listResources.get(0);
 		this.listResource = resources.getResource();
 

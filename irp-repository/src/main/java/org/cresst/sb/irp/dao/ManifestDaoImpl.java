@@ -86,9 +86,8 @@ public class ManifestDaoImpl implements ManifestDao, InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		//or in Constructor of ItemDaoImpl - re generate manifest used in ManifestDaoImpl() above 
-		itemDao.setManifest(manifest);
-		itemDao.loadData();
+		//or in Constructor of ItemDaoImpl - re generate manifest used in ManifestDaoImpl() above
+		itemDao.loadData(manifest.getResources());
 		
 	}
 
