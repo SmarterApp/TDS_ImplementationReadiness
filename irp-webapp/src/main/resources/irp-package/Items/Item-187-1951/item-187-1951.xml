@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1951" version="6" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1951</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2013</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14 (10); PracTest::MG11::S1::SP14::ESN (10);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2372" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1951_v6.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="1951" ITSVer="2" ScoreEngineVer="1" version="2.0" xmlns=""><Description /><QuestionPart id="1"><Options><ShowButtons /><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><UpdateLayout>false</UpdateLayout><CanvasWidth>500</CanvasWidth><CanvasHeight>410</CanvasHeight><PaletteWidth>75</PaletteWidth><CenterImage>false</CenterImage><ProperLineGeometry>false</ProperLineGeometry><ScaleImage>false</ScaleImage></Options><Text /><ObjectMenuIcons /><ImageSpec><FileSpec>item_1951_v6_Background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec><HotSpots><Regions><Region name="a1" shape="circle" coords="93, 130, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="a2" shape="circle" coords="93, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="a3" shape="circle" coords="93, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="a4" shape="circle" coords="93, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="a5" shape="circle" coords="93, 257, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="b1" shape="circle" coords="124, 130, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="b2" shape="circle" coords="124, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="b3" shape="circle" coords="124, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="b4" shape="circle" coords="124, 225, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="b5" shape="circle" coords="124, 257, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="c1" shape="circle" coords="155, 130, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="c2" shape="circle" coords="155, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="c3" shape="circle" coords="155, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="c4" shape="circle" coords="155, 225, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="c5" shape="circle" coords="155, 257, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="d1" shape="circle" coords="186, 130, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="d2" shape="circle" coords="186, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="d3" shape="circle" coords="186, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="d4" shape="circle" coords="186, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="d5" shape="circle" coords="186, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="e1" shape="circle" coords="218, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="e2" shape="circle" coords="218, 163, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="e3" shape="circle" coords="218, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="e4" shape="circle" coords="218, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="e5" shape="circle" coords="218, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="f1" shape="circle" coords="249, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="f2" shape="circle" coords="249, 163, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="f3" shape="circle" coords="249, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="f4" shape="circle" coords="249, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="f5" shape="circle" coords="249, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="g1" shape="circle" coords="280, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="g2" shape="circle" coords="280, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="g3" shape="circle" coords="280, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="g4" shape="circle" coords="280, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="g5" shape="circle" coords="280, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="h1" shape="circle" coords="311, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="h2" shape="circle" coords="311, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="h3" shape="circle" coords="311, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="h4" shape="circle" coords="311, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="h5" shape="circle" coords="311, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="i1" shape="circle" coords="342, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="i2" shape="circle" coords="342, 163, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="i3" shape="circle" coords="342, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="i4" shape="circle" coords="342, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="i5" shape="circle" coords="342, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="j1" shape="circle" coords="373, 131, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="j2" shape="circle" coords="373, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="j3" shape="circle" coords="374, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="j4" shape="circle" coords="374, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="j5" shape="circle" coords="373, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="balck" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="k1" shape="circle" coords="405, 130, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="k2" shape="circle" coords="405, 162, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="k3" shape="circle" coords="405, 194, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="k4" shape="circle" coords="405, 226, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region><Region name="k5" shape="circle" coords="405, 258, 7"><Event name="select"><Styles fill="black" fill-opacity="0.3" stroke="black" stroke-width="1.0" stroke-opacity="" stroke-dasharray="" /></Event></Region></Regions><RegionGroups><RegionGroup name="grpA" min="0" max="0"><Include region="a1" /><Include region="a2" /><Include region="a3" /><Include region="a4" /><Include region="a5" /></RegionGroup><RegionGroup name="grpB" min="0" max="0"><Include region="b1" /><Include region="b2" /><Include region="b3" /><Include region="b4" /><Include region="b5" /></RegionGroup><RegionGroup name="grpC" min="0" max="0"><Include region="c1" /><Include region="c2" /><Include region="c3" /><Include region="c4" /><Include region="c5" /></RegionGroup><RegionGroup name="grpD" min="0" max="0"><Include region="d1" /><Include region="d2" /><Include region="d3" /><Include region="d4" /><Include region="d5" /></RegionGroup><RegionGroup name="grpE" min="0" max="0"><Include region="e1" /><Include region="e2" /><Include region="e3" /><Include region="e4" /><Include region="e5" /></RegionGroup><RegionGroup name="grpF" min="0" max="0"><Include region="f1" /><Include region="f2" /><Include region="f3" /><Include region="f4" /><Include region="f5" /></RegionGroup><RegionGroup name="grpG" min="0" max="0"><Include region="g1" /><Include region="g2" /><Include region="g3" /><Include region="g4" /><Include region="g5" /></RegionGroup><RegionGroup name="grpH" min="0" max="0"><Include region="h1" /><Include region="h2" /><Include region="h3" /><Include region="h4" /><Include region="h5" /></RegionGroup><RegionGroup name="grpI" min="0" max="0"><Include region="i1" /><Include region="i2" /><Include region="i3" /><Include region="i4" /><Include region="i5" /></RegionGroup><RegionGroup name="grpJ" min="0" max="0"><Include region="j1" /><Include region="j2" /><Include region="j3" /><Include region="j4" /><Include region="j5" /></RegionGroup><RegionGroup name="grpk" min="0" max="0"><Include region="k1" /><Include region="k2" /><Include region="k3" /><Include region="k4" /><Include region="k5" /></RegionGroup></RegionGroups></HotSpots></QuestionPart><PreSetAnswerPart /></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="6">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="line-height:115%; color:#000000; "><span id="item_1951_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Click<span class="its-tag" data-tag-ref="item_1951_TAG_2" data-tag-boundary="end"></span> above the numbers to <span id="item_1951_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>create<span class="its-tag" data-tag-ref="item_1951_TAG_4" data-tag-boundary="end"></span> a dot plot for the <span id="item_1951_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>given<span class="its-tag" data-tag-ref="item_1951_TAG_3" data-tag-boundary="end"></span> test scores.</p><p style="line-height:115%; color:#000000; ">&#xA0;</p><p style="line-height:115%; color:#000000; ">90, 45, 85, 70, 85, 50, 75, 85, 65, 75, 60, 85, 80, 65, <span id="item_1951_TAG_1_BEGIN">80</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><p style=""><img id="item_1951_Exemplar:(d=png16malpha)" src="item_1951_v6_Exemplar_png16malpha.png" width="390" height="290" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Student gets 100% correct<span style="background-color:transparent; "> (1 point).</span></p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1951_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1951_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>80. This is an interactive image. The title of the dot plot is test scores. The horizontal axis is titled: Test scores and has a range from 40 to 90 increasing in increments of 10.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>80</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>80</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="6">
+      <stem><![CDATA[<p style="line-height:115%; color:#000000; ">Haz clic sobre los números para crear un diagrama de puntos para las calificaciones dadas del examen.</p><p style="line-height:115%; color:#000000; ">&#xA0;</p><p style="line-height:115%; color:#000000; ">90, 45, 85, 70, 85, 50, 75, 85, 65, 75, 60, 85, 80, 65, 80</p><p class="languagedivider">&#xA0;</p><p style="line-height:115%; color:#000000; "><span id="item_1951_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Click<span class="its-tag" data-tag-ref="item_1951_TAG_2" data-tag-boundary="end"></span> above the numbers to <span id="item_1951_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>create<span class="its-tag" data-tag-ref="item_1951_TAG_4" data-tag-boundary="end"></span> a dot plot for the <span id="item_1951_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>given<span class="its-tag" data-tag-ref="item_1951_TAG_3" data-tag-boundary="end"></span> test scores.</p><p style="line-height:115%; color:#000000; ">&#xA0;</p><p style="line-height:115%; color:#000000; ">90, 45, 85, 70, 85, 50, 75, 85, 65, 75, 60, 85, 80, 65, <span id="item_1951_TAG_1_BEGIN">80</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1951_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>80. This is an interactive image. The title of the dot plot is test scores. The horizontal axis is titled: Test scores and has a range from 40 to 90 increasing in increments of 10.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>80</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>80</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

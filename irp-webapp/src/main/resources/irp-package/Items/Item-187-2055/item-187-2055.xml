@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="sa" id="2055" version="9" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2055</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (8); PracTest::MG11::S2::SP14::Braille (8); PracTest::MG11::S2::SP14::ESN (8);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>SA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>SA</val>
+        <desc>SA [6]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [6.4]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HTMLEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2382" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="9">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">The dot plots below compare the number of minutes 30 flights made by two <span id="item_2055_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>airlines<span class="its-tag" data-tag-ref="item_2055_TAG_2" data-tag-boundary="end"></span> <span id="item_2055_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_3" data-tag-boundary="end"></span> </p><p style=""><span id="item_2055_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>before<span class="its-tag" data-tag-ref="item_2055_TAG_4" data-tag-boundary="end"></span> or <span id="item_2055_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>after<span class="its-tag" data-tag-ref="item_2055_TAG_5" data-tag-boundary="end"></span> their <span id="item_2055_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>scheduled arrival times<span class="its-tag" data-tag-ref="item_2055_TAG_6" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><img id="item_2055_graphics1" src="item_2055_v9_graphics1_png256.png" width="571" height="289" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Negative numbers represent the minutes <span id="item_2055_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_7" data-tag-boundary="end"></span> <span id="item_2055_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_8" data-tag-boundary="end"></span> <span id="item_2055_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>before<span class="its-tag" data-tag-ref="item_2055_TAG_9" data-tag-boundary="end"></span> its <span id="item_2055_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_10" data-tag-boundary="end"></span>.</p></li><li><p style="">Positive numbers represent the minutes <span id="item_2055_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_11" data-tag-boundary="end"></span> <span id="item_2055_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_12" data-tag-boundary="end"></span> <span id="item_2055_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>after<span class="its-tag" data-tag-ref="item_2055_TAG_13" data-tag-boundary="end"></span> its <span id="item_2055_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_14" data-tag-boundary="end"></span>.</p></li><li><p style="">Zero indicates <span id="item_2055_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_15" data-tag-boundary="end"></span> <span id="item_2055_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_16" data-tag-boundary="end"></span> at its <span id="item_2055_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_17" data-tag-boundary="end"></span>.</p></li></ul><p style="">&#xA0;</p><p style="">Assuming you want <span id="item_2055_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to arrive<span class="its-tag" data-tag-ref="item_2055_TAG_18" data-tag-boundary="end"></span> as <span id="item_2055_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>close<span class="its-tag" data-tag-ref="item_2055_TAG_19" data-tag-boundary="end"></span> to the <span id="item_2055_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_20" data-tag-boundary="end"></span> as <span id="item_2055_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>possible<span class="its-tag" data-tag-ref="item_2055_TAG_21" data-tag-boundary="end"></span>, from which <span id="item_2055_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>airline<span class="its-tag" data-tag-ref="item_2055_TAG_22" data-tag-boundary="end"></span> should </p><p style="">you buy your <span id="item_2055_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>ticket<span class="its-tag" data-tag-ref="item_2055_TAG_23" data-tag-boundary="end"></span>? Use the ideas of center and spread <span id="item_2055_TAG_24" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>to justify<span class="its-tag" data-tag-ref="item_2055_TAG_24" data-tag-boundary="end"></span> your choice.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">I would buy the ticket from Airline P. Both airlines are likely to have an on-time arrival since they both have median values at 0. However, Airline Q has a much greater range in arrival times. Airline Q could arrive anywhere from 35 minutes early to 60 minutes late. For Airline P, the flights arrived within 10 minutes on either side of the scheduled arrival time about 2/3 of the time and for Airline Q, that number was only about ½. For these reasons, I think Airline P is the better choice.</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The student chooses Airline P and clearly explains that both airlines have the same center, but that Airline P has a smaller spread.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">The student states that either airline could be chosen because they have the same median, but does not address the issue of spread.</p><p style="">&#xA0;</p><p style="">Or</p><p style="">&#xA0;</p><p style="">The student states that both airlines have the same median and chooses Airline P, but does not justify the choice based on spread.</p><p style="">&#xA0;</p><p style="">Or</p><p style="">&#xA0;</p><p style="">The student explains that Airline P would be the better choice based on the smaller spread, but does not indentify that both airlines have the same median.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. The response indicates inadequate or no understanding of the task and/or the idea or concept needed to answer the item. It may only repeat information given in the test item. The response may provide an incorrect solution/response and the provided supportive information may be irrelevant to the item, or possibly, no other information is shown. The student may have written on a different topic or written, “I don't know.”</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile2" type="PRN" subtype="nemeth" file="item_2055_enu_nemeth.prn" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2055_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2055_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The top half of the dot plot is titled, Airline P.
+The bottom half is titled, Airline Q.
+The dot plot has a range from negative 50 to 60 increasing in increments of 10.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="9">
+      <stem><![CDATA[<p style="">El siguiente diagrama de puntos compara el número de minutos en los que 30 vuelos de dos aerolíneas llegaron antes o después de su tiempo de llegada programado.</p><p style="">&#xA0;</p><p style=""><img id="item_2055_graphics2" src="item_2055_v9_graphics2_png256.png" width="571" height="289" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Los números negativos representan los minutos en que el vuelo llegó antes de tu tiempo programado.</p></li><li><p style="">Los números positivos representan los minutos en que el vuelo llegó después de su tiempo programado.</p></li><li><p style="">El cero indica que el vuelo llegó en el tiempo programado.</p></li></ul><p style="">&#xA0;</p><p style="">Suponiendo que quieres llegar lo más cerca posible a la hora programada, ¿en cuál aerolínea debes comprar tu boleto? Usa los conceptos de centro y dispersión para justificar tu elección.</p><p class="languagedivider">&#xA0;</p><p style="">The dot plots below compare the number of minutes 30 flights made by two <span id="item_2055_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>airlines<span class="its-tag" data-tag-ref="item_2055_TAG_2" data-tag-boundary="end"></span> <span id="item_2055_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_3" data-tag-boundary="end"></span> </p><p style=""><span id="item_2055_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>before<span class="its-tag" data-tag-ref="item_2055_TAG_4" data-tag-boundary="end"></span> or <span id="item_2055_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>after<span class="its-tag" data-tag-ref="item_2055_TAG_5" data-tag-boundary="end"></span> their <span id="item_2055_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>scheduled arrival times<span class="its-tag" data-tag-ref="item_2055_TAG_6" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><img id="item_2055_graphics1" src="item_2055_v9_graphics1_png256.png" width="571" height="289" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Negative numbers represent the minutes <span id="item_2055_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_7" data-tag-boundary="end"></span> <span id="item_2055_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_8" data-tag-boundary="end"></span> <span id="item_2055_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>before<span class="its-tag" data-tag-ref="item_2055_TAG_9" data-tag-boundary="end"></span> its <span id="item_2055_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_10" data-tag-boundary="end"></span>.</p></li><li><p style="">Positive numbers represent the minutes <span id="item_2055_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_11" data-tag-boundary="end"></span> <span id="item_2055_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_12" data-tag-boundary="end"></span> <span id="item_2055_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>after<span class="its-tag" data-tag-ref="item_2055_TAG_13" data-tag-boundary="end"></span> its <span id="item_2055_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_14" data-tag-boundary="end"></span>.</p></li><li><p style="">Zero indicates <span id="item_2055_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>the flight<span class="its-tag" data-tag-ref="item_2055_TAG_15" data-tag-boundary="end"></span> <span id="item_2055_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>arrived<span class="its-tag" data-tag-ref="item_2055_TAG_16" data-tag-boundary="end"></span> at its <span id="item_2055_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_17" data-tag-boundary="end"></span>.</p></li></ul><p style="">&#xA0;</p><p style="">Assuming you want <span id="item_2055_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to arrive<span class="its-tag" data-tag-ref="item_2055_TAG_18" data-tag-boundary="end"></span> as <span id="item_2055_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>close<span class="its-tag" data-tag-ref="item_2055_TAG_19" data-tag-boundary="end"></span> to the <span id="item_2055_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>scheduled time<span class="its-tag" data-tag-ref="item_2055_TAG_20" data-tag-boundary="end"></span> as <span id="item_2055_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>possible<span class="its-tag" data-tag-ref="item_2055_TAG_21" data-tag-boundary="end"></span>, from which <span id="item_2055_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>airline<span class="its-tag" data-tag-ref="item_2055_TAG_22" data-tag-boundary="end"></span> should </p><p style="">you buy your <span id="item_2055_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>ticket<span class="its-tag" data-tag-ref="item_2055_TAG_23" data-tag-boundary="end"></span>? Use the ideas of center and spread <span id="item_2055_TAG_24" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>to justify<span class="its-tag" data-tag-ref="item_2055_TAG_24" data-tag-boundary="end"></span> your choice.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist />
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2055_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The top half of the dot plot is titled, Airline P.
+The bottom half is titled, Airline Q.
+The dot plot has a range from negative 50 to 60 increasing in increments of 10.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1304" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="buys" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">compra</p>]]></html>
+      </keyword>
+      <keyword text="before" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">antes de</p>]]></html>
+      </keyword>
+      <keyword text="has $32.25 left" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">le queda $32.25</p>]]></html>
+      </keyword>
+      <keyword text="Which" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">¿Cuál?</p>]]></html>
+      </keyword>
+      <keyword text="groceries" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">víveres/comestibles</p>]]></html>
+      </keyword>
+      <keyword text="could be used" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">se podría usar</p>]]></html>
+      </keyword>
+      <keyword text="total" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">total</p>]]></html>
+      </keyword>
+      <keyword text="she bought" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">de comprar</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

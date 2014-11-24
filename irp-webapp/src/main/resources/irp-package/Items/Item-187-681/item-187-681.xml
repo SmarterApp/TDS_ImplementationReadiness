@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="681" version="31" bankkey="187">
+    <associatedpassage>3563</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>681</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.HS.TE.4.0ACED.F.xxx - SBAC_SST</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13 (3); PracTest::MG11::S2::SP13::BRAILLE (3);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3563</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="795" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_681_v31.erx" />
+    <RendererSpec filename="Item_681_v31.eax" />
+    <content language="ENU" version="2.0" approvedVersion="31">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_681_TAG_3_BEGIN">Use</span> the buttons <span id="item_681_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>to create<span class="its-tag" data-tag-ref="item_681_TAG_5" data-tag-boundary="end"></span> an equation that <span id="item_681_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>represents the situation<span class="its-tag" data-tag-ref="item_681_TAG_6" data-tag-boundary="end"></span> and can be used to solve for <span style="font-style:italic; ">x</span>, the initial number of <span id="item_681_TAG_7_BEGIN">winners.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><img id="item_681_Object1" style="vertical-align:middle;" src="item_681_v31_Object1_png16malpha.png" width="165" height="38" /></p></li></ul><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="font-style:normal; ">any equivalent equation</p><p style="font-style:normal; ">&#xA0;</p></li></ul><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">a correct function (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_681_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Ewes</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Use</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Use</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>winners. Click the buttons to create your answer.
+From left to right, The buttons above the equation tool reed, undo, redo, delete. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are displayed.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>winners.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>winners.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 1 0 0 0  over x ,    is equal to     the fraction 1 0 0 0  over UNKNOWN  x    plus     1 UNKNOWN  ,    plus     50</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 0 0 0  over x ,    is equal to     the fraction 1 0 0 0  over UNKNOWN  x    plus     1 UNKNOWN  ,    plus     50</brailleTextString>
+                <brailleCode type="Nemeth">?1000/x# .k ?1000/ (x+1 )#+50
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="31">
+      <stem><![CDATA[<p style=""><span style="language:es; country:ES; ">Usa los botones para crear una ecuación que represente la situación y pueda usarse para resolver el número inicial de ganadores para </span><span style="language:es; country:ES; font-style:italic; ">x</span><span style="language:es; country:ES; ">.</span></p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_681_TAG_3_BEGIN">Use</span> the buttons <span id="item_681_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>to create<span class="its-tag" data-tag-ref="item_681_TAG_5" data-tag-boundary="end"></span> an equation that <span id="item_681_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>represents the situation<span class="its-tag" data-tag-ref="item_681_TAG_6" data-tag-boundary="end"></span> and can be used to solve for <span style="font-style:italic; ">x</span>, the initial number of <span id="item_681_TAG_7_BEGIN">winners.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><img id="item_681_Object2" style="vertical-align:middle;" src="item_681_v31_Object2_png16malpha.png" width="165" height="38" /></p></li></ul><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">any equivalent equation</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">a correct function (1 point).</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Ewes</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Use</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Use</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>winners. Click the buttons to create your answer.
+From left to right, The buttons above the equation tool reed, undo, redo, delete. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are displayed.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>winners.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>winners.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_681_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 1 0 0 0  over x ,    is equal to     the fraction 1 0 0 0  over UNKNOWN  x    plus     1 UNKNOWN  ,    plus     50</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 0 0 0  over x ,    is equal to     the fraction 1 0 0 0  over UNKNOWN  x    plus     1 UNKNOWN  ,    plus     50</brailleTextString>
+                <brailleCode type="Nemeth">?1000/x# .k ?1000/ (x+1 )#+50
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

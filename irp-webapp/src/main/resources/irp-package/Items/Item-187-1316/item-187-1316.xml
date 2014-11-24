@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1316" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="wrote down" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">escribieron</p>]]></html>
+      </keyword>
+      <keyword text="different functions" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="text-align:left; ">funciones diferentes/ distintas</p>]]></html>
+      </keyword>
+      <keyword text="function" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">función</p>]]></html>
+      </keyword>
+      <keyword text="represented" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">representada</p>]]></html>
+      </keyword>
+      <keyword text="table" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">table</p>]]></html>
+      </keyword>
+      <keyword text="Add Arrow tool" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">herramienta Añadir flecha</p>]]></html>
+      </keyword>
+      <keyword text="graph" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">graficar</p>]]></html>
+      </keyword>
+      <keyword text="could be" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">podría ser</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

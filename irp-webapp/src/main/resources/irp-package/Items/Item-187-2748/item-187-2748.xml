@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2748" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="affirmation" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">confirmation</p>]]></html>
+      </keyword>
+      <keyword text="blogger" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">a person who writes articles on the Internet </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

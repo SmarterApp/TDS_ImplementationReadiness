@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="sa" id="2040" version="10" bankkey="187">
+    <associatedpassage>3719</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2040</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Going “viral” Item 5</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::Perf::SP14 (5); PracTest::MG11::Perf::SP14::Braille (5); PracTest::MG11::Perf::SP14::ESN (5);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>SA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>SA</val>
+        <desc>SA [6]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HTMLEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3719</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2447" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">One possible definition of the word viral is given: </p><p style="">&#xA0;</p><p style="text-align:left; ">“A piece of media is considered viral if it got more than 1 million <span id="item_2040_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>views<span class="its-tag" data-tag-ref="item_2040_TAG_3" data-tag-boundary="end"></span> in a <span id="item_2040_TAG_1_BEGIN">3–7</span> day period.”</p><p style="">&#xA0;</p><p style="">How does this definition compare to your definition? <span id="item_2040_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Could there be<span class="its-tag" data-tag-ref="item_2040_TAG_4" data-tag-boundary="end"></span> a video <span id="item_2040_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>that fits<span class="its-tag" data-tag-ref="item_2040_TAG_5" data-tag-boundary="end"></span> your definition but not the definition given, <span id="item_2040_TAG_2_BEGIN">and/or</span> <span id="item_2040_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>vice versa<span class="its-tag" data-tag-ref="item_2040_TAG_6" data-tag-boundary="end"></span>? <span id="item_2040_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>Justify<span class="its-tag" data-tag-ref="item_2040_TAG_7" data-tag-boundary="end"></span> your response with an example.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">A full-credit (2 point) response should include:</p><ul style="padding-left:1.5000em; "><li><p style="">A comparison between the definition in the stem and the students definition in item 3</p></li><li><p style="">Statement of whether a video can fit one definition but not another</p></li><li><p style="">Example of the a video that fits one definition but not another</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">A partial-credit (1 point) response should include:</p><ul style="padding-left:1.5000em; "><li><p style="">2 of the 3 requirements for a full credit response</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. The response indicates inadequate or no understanding of the task and/or the idea or concept needed to answer the item. It may only repeat information given in the test item. The response may provide an incorrect solution/response and the provided supportive information may be irrelevant to the item, or possibly, no other information is shown. The student may have written on a different topic or written, “I don't know.”</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="nemeth" file="item_2040_enu_nemeth.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2040_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2040_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 to 7</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3–7</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2040_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>and, slash, or</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>and/or</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="10">
+      <stem><![CDATA[<p style="">Una definición posible de la palabra <span style="font-style:italic; ">viral </span><span style="font-style:normal; ">es</span>:</p><p style="">&#xA0;</p><p style="text-align:left; ">“Una pieza de medios de comunicación se considera viral si recibió más de 1 millón de vistas en un periodo de 3 a 7 días”.</p><p style="">&#xA0;</p><p style="">¿Cómo se compara esta definición con tu definición? ¿Podría haber un video que se ajuste a tu definición pero no a la definición dada y/o viceversa? Justifica tu respuesta con un ejemplo.</p><p class="languagedivider">&#xA0;</p><p style="">One possible definition of the word viral is given: </p><p style="">&#xA0;</p><p style="text-align:left; ">“A piece of media is considered viral if it got more than 1 million <span id="item_2040_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>views<span class="its-tag" data-tag-ref="item_2040_TAG_3" data-tag-boundary="end"></span> in a <span id="item_2040_TAG_1_BEGIN">3–7</span> day period.”</p><p style="">&#xA0;</p><p style="">How does this definition compare to your definition? <span id="item_2040_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Could there be<span class="its-tag" data-tag-ref="item_2040_TAG_4" data-tag-boundary="end"></span> a video <span id="item_2040_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>that fits<span class="its-tag" data-tag-ref="item_2040_TAG_5" data-tag-boundary="end"></span> your definition but not the definition given, <span id="item_2040_TAG_2_BEGIN">and/or</span> <span id="item_2040_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>vice versa<span class="its-tag" data-tag-ref="item_2040_TAG_6" data-tag-boundary="end"></span>? <span id="item_2040_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>Justify<span class="its-tag" data-tag-ref="item_2040_TAG_7" data-tag-boundary="end"></span> your response with an example.</p>]]></stem>
+      <rubriclist />
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2040_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 to 7</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3–7</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2040_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>and, slash, or</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>and/or</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="301" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="Explain why or why not" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Explica por qué sí o por qué no</p>]]></html>
+      </keyword>
+      <keyword text="required minimum" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">mínimo requirido</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

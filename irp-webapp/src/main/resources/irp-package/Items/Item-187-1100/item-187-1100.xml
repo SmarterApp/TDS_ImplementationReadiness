@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1100" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="over the summer" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">durante el verano</p>]]></html>
+      </keyword>
+      <keyword text="picture graph" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">gráfica de imágenes</p>]]></html>
+      </keyword>
+      <keyword text="another" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">otra</p>]]></html>
+      </keyword>
+      <keyword text="graph" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">gráfica</p>]]></html>
+      </keyword>
+      <keyword text="key" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">clave</p>]]></html>
+      </keyword>
+      <keyword text="whole" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">enteros</p>]]></html>
+      </keyword>
+      <keyword text="half" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">medios</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

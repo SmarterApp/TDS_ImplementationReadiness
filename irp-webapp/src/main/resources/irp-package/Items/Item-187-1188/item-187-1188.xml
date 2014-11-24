@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1188" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="statement" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">expresión</p>]]></html>
+      </keyword>
+      <keyword text="so that" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">de manera que</p>]]></html>
+      </keyword>
+      <keyword text="displays" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">muestre</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

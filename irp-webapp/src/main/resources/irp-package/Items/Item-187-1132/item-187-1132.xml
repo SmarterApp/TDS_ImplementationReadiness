@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1132" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="Write another way" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Escribe otra forma/otra manera/ otro modo</p>]]></html>
+      </keyword>
+      <keyword text="bags" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">bolsas</p>]]></html>
+      </keyword>
+      <keyword text="bag" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">bolsa</p>]]></html>
+      </keyword>
+      <keyword text="more than" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">más de</p>]]></html>
+      </keyword>
+      <keyword text="per" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">por</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

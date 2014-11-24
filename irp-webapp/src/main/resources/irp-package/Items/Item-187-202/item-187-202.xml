@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="202" version="22" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>202</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.HS.TE.2.000SP.D.xxx - SBAC_SST</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13 (10);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>10</val>
+        <desc>10</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="319" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_202_v22.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="202" ITSVer="11" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons>delete</ShowButtons><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><CenterImage>true</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons><IconSpec><FileSpec>item_202_v22_5_png16malpha.png</FileSpec><Label>5</Label></IconSpec><IconSpec><FileSpec>item_202_v22_1_png16malpha.png</FileSpec><Label>1</Label></IconSpec></ObjectMenuIcons><ImageSpec><FileSpec>item_202_v22_background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="202"><QuestionPart id="1"><ObjectSet /><SnapPoint>40@180,213;180,189;180,165;180,141;210,213;210,189;210,165;210,141;240,213;240,189;240,165;240,141;270,213;270,189;270,165;270,141;305,213;305,189;305,165;305,141;335,213;335,189;335,165;335,141;365,213;365,189;365,165;365,141;395,213;395,189;395,165;395,141;305,314;305,290;305,266;305,242;335,314;335,290;335,266;335,242;365,314;365,290;365,266;365,242;395,315;395,290;395,266;395,242;180,314;180,290;180,266;180,242;210,314;210,290;210,266;210,242;240,314;240,290;240,266;240,242;270,314;270,290;270,266;270,242</SnapPoint></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="22">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A teacher has a classroom with 30 <span style="vertical-align: 0%;font-size: 100%;">boys and girls. The class has both 9th and 10th graders. </span></p><p style="vertical-align: 0%;font-size: 100%;">&#xA0;</p><p style="line-height:0.35in; "><span style="vertical-align: 0%;font-size: 100%;">The probability of a randomly selected student from the class being a female </span><span style="vertical-align: 0%;font-size: 100%;font-weight:bold; ">or </span><span style="vertical-align: 0%;font-size: 100%;font-weight:normal; ">in grade 9 is equal to </span><span style="vertical-align: 0%;font-size: 100%;font-weight:normal; "><img id="item_202_Object1" style="vertical-align:middle;" src="item_202_v22_Object1_png16malpha.png" width="23" height="36" /></span><span style="vertical-align: 0%;font-size: 100%;font-weight:normal; ">.</span></p><p style="line-height:0.35in; vertical-align: 0%;font-size: 100%;font-weight:normal; ">Drag tick marks into each section of the chart to show how this can be true.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><img id="item_202_graphics1" src="item_202_v22_graphics1_png256.png" width="436" height="308" style="vertical-align:baseline;" /></p></li></ul><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">any combination where 9<span style="vertical-align:super; font-size: 58%;">th</span> grade and 10<span style="vertical-align:super; font-size: 58%;">th</span> females equal 19 and the total is 30</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">a correct value for 9</span><span style="vertical-align:super; font-size: 58%;background-color:transparent; ">th</span><span style="background-color:transparent; "> grade and 10</span><span style="vertical-align:super; font-size: 58%;background-color:transparent; ">th</span><span style="background-color:transparent; "> female </span>(1 point)</p><p style="">AND</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="background-color:transparent; ">a correct sum for the other three groups (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_202_ASL_STEM.MP4" />
+      </attachmentlist>
+    </content>
+  </item>
+</itemrelease>

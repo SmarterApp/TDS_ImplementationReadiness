@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2452" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="colonies" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">groups of animals that live together </p>]]></html>
+      </keyword>
+      <keyword text="biomes" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">Groups of plants and animals that live in an area </p>]]></html>
+      </keyword>
+      <keyword text="adapt" index="3">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">adjust, modify </p>]]></html>
+      </keyword>
+      <keyword text="teem" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">are full of </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

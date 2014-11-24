@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ht" id="869" version="4" bankkey="187">
+    <associatedpassage>3597</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>869</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.TE.1.RI.08.xxx</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13 (12);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3597</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_869_v4.hrx" />
+    <content language="ENU" version="2.0" approvedVersion="4">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Read the conclusion and the directions that follow.</p><p style="">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0in; ">The fashion industry has started to become more sustainable.</p><p style="">&#xA0;</p><p style="">Click on the paragraph that <span id="item_869_TAG_6_BEGIN"><span style="font-weight:bold; ">best</span></span> supports this conclusion.</p><p style="">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; "><span id="item_869_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">While some eco-conscious consumers avoid synthetic, petroleum-based fabrics, such as polyester and nylon, even these fabrics can be produced in more sustainable ways by using recycled materials. One clothing company recycles plastic soda bottles and makes them into winter parkas. Other companies recycle old clothes and then remanufacture the synthetic material into new clothes.</span></span></p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; "><span id="item_869_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">Sustainability, however, does not just mean being good to the environment; it also means being fair to fellow human beings. Clothing is often made in ways that are hazardous to workers who are underpaid and mistreated. One of the goals of the eco-fashion movement is to make sure that the farmers who grow the raw materials and the workers who manufacture the clothing are able to work in safe and fair workplaces.</span></span></p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; "><span id="item_869_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">Eco-fashion’s rise in popularity has even caught the attention of some top fashion designers who are beginning to add organic silks and recycled-plastic fabrics in their clothing. Overall, however, the fashion industry has been slow to pick up on this trend. While the big design houses have hesitated, many smaller clothing makers have moved quickly to fill the demand, producing clothes in a sustainable way and marketing their eco-friendliness to consumers. If successful, these smaller brands are sure to get the attention of larger brands and others looking to profit from the movement.</span></span></p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0.25in; "><span id="item_869_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">Given this rush to capitalize on eco-fashion’s newfound popularity, consumers who seek true sustainability in the products they buy would do well to remember the old Latin phrase caveat emptor: let the buyer beware. Shoppers everywhere are now bombarded with advertising and packaging that touts the “organic,” “fair trade,” or “green” qualities of a product. While some of these terms are defined by regulations (for example, organic crops are certified by the U.S. Food and Drug Administration), others are open to interpretation: what really makes a product “green”? Consumers who wish to purchase truly sustainable products should examine the labels closely—and perhaps even do some research on the manufacturers—to make sure the products are actually as eco-friendly as they say they are.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">For this item, a full-credit response includes:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">“Eco-fashion’s rise in popularity...” is selected (1 point)</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_869_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_869_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_869_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_869_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_869_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

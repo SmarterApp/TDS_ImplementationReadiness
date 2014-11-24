@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ti" id="2037" version="16" bankkey="187">
+    <associatedpassage>3719</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2037</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Going “viral” Item 2</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::Perf::SP14 (2); PracTest::MG11::Perf::SP14::Braille (2); PracTest::MG11::Perf::SP14::ESN (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>TI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>TI</val>
+        <desc>Table Item</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableInput</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3719</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1768" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2444" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2037_v16.trx" />
+    <content language="ENU" version="2.0" approvedVersion="16">
+      <stem><![CDATA[<p style="">Use <span style="font-weight:bold; ">Figure 2</span> and <span style="font-weight:bold; ">Table 1</span> to answer these questions about Video B and Video <span id="item_2037_TAG_11_BEGIN">C.</span> <span id="item_2037_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_2037_TAG_13" data-tag-boundary="end"></span> your responses for each video in the <span id="item_2037_TAG_12_BEGIN">table.</span></p><p style="">&#xA0;</p><div align="left"><table class="tableItem" style="width:38.4582em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:22.0836em; " /><colgroup style="width:7.9836em; " /><colgroup style="width:8.3916em; " /><thead><tr><th data-its-identifier="col0" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="font-size:1.0000em; font-family:Verdana; ">&#xA0;</p></th><th data-its-identifier="col1" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="line-height:115%; text-align:center; font-weight:bold; font-size:1.0000em; font-family:Verdana; ">Video B </p></th><th data-its-identifier="col2" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="line-height:115%; text-align:center; font-weight:bold; font-size:1.0000em; font-family:Verdana; ">Video C</p></th></tr></thead><tbody><tr><td style="vertical-align:middle; background-color:transparent; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">What is the total <span id="item_2037_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>viewcount<span class="its-tag" data-tag-ref="item_2037_TAG_22" data-tag-boundary="end"></span> for each video over the period displayed in the graph or table?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; background-color:transparent; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; "><span id="item_2037_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Consider<span class="its-tag" data-tag-ref="item_2037_TAG_15" data-tag-boundary="end"></span> the 2-day period during which the <span id="item_2037_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>viewcount<span class="its-tag" data-tag-ref="item_2037_TAG_23" data-tag-boundary="end"></span> for each video increases by the greatest number. How much does the <span id="item_2037_TAG_24" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>viewcount<span class="its-tag" data-tag-ref="item_2037_TAG_24" data-tag-boundary="end"></span> for each video increase during that 2-day period?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; background-color:transparent; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; "><span id="item_2037_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Consider<span class="its-tag" data-tag-ref="item_2037_TAG_18" data-tag-boundary="end"></span> the 5-day period during which the <span id="item_2037_TAG_25" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>viewcount<span class="its-tag" data-tag-ref="item_2037_TAG_25" data-tag-boundary="end"></span> for each video increases by the greatest number. How much does the <span id="item_2037_TAG_26" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>viewcount<span class="its-tag" data-tag-ref="item_2037_TAG_26" data-tag-boundary="end"></span> for each video increase during that 5-day period?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; background-color:transparent; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">In your opinion, <span id="item_2037_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>would you consider<span class="its-tag" data-tag-ref="item_2037_TAG_21" data-tag-boundary="end"></span> each video an example of a “viral” video? Answer Yes or No for each.</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="alphaOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="alphaOnly">_</span></p></td></tr></tbody></table></div>]]></stem>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="nemeth" file="item_2037_enu_nemeth.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2037_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2037_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>C.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>C.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2037_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>table.  The table has two columns and 4 rows. From left to right the column headings reed, Video B., Video C., ;  From top to bottom the row headings reed, what is the total view count for each video over the period displayed in the graph or table.  
+Consider the 2 day period during which the view count for each video increases by the greatest number, how much does the view count for each video increase during that 2 day period.  
+Consider the 5 day period during which the view count for each video increases by the greatest number, how much does the view count for each video increase during that 5 day period.
+
+In your opinion, would you consider each video an example of a viral video, answer yes or no for each.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>table.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="16">
+      <stem><![CDATA[<p style="">Usa la <span style="font-weight:bold; ">figura 2</span> y la <span style="font-weight:bold; ">tabla 1</span> para contestar estas preguntas acerca del video B y el video C. Escribe tus respuestas en la tabla para cada video.</p><div align="left"><table class="tableItem" style="width:46.4376em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:30.5628em; " /><colgroup style="width:8.1876em; " /><colgroup style="width:7.6878em; " /><thead><tr><th data-its-identifier="col0" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="font-size:1.0000em; font-family:Verdana; ">&#xA0;</p></th><th data-its-identifier="col1" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="line-height:115%; text-align:center; font-weight:bold; font-size:1.0000em; font-family:Verdana; ">Video B </p></th><th data-its-identifier="col2" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="line-height:115%; text-align:center; font-weight:bold; font-size:1.0000em; font-family:Verdana; ">Video C</p></th></tr></thead><tbody><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">¿Cuál es el total del conteo de vistas para cada video durante el periodo mostrado en la gráfica o la tabla?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">Considera el periodo de 2 días durante el cual el conteo de vistas para cada video se incrementa en mayor número. ¿Cuánto se incrementa el conteo de vistas para cada video durante ese periodo de 2 días?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">Considera el periodo de 5 días durante el cual el conteo de vistas para cada video se incrementa en mayor número. ¿Cuánto se incrementa el conteo de vistas para cada video durante ese periodo de 5 días?</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="font-size:1.0000em; font-family:Verdana; ">En tu opinión, ¿considerarías a cada video como un ejemplo de video “viral”? Contesta Sí o No para cada uno.</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-size:1.0000em; font-family:Verdana; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr></tbody></table></div>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2037_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>C.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>C.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2037_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>table.  The table has two columns and 4 rows. From left to right the column headings reed, Video B., Video C., ;  From top to bottom the row headings reed, what is the total view count for each video over the period displayed in the graph or table.  
+Consider the 2 day period during which the view count for each video increases by the greatest number, how much does the view count for each video increase during that 2 day period.  
+Consider the 5 day period during which the view count for each video increases by the greatest number, how much does the view count for each video increase during that 5 day period.
+
+In your opinion, would you consider each video an example of a viral video, answer yes or no for each.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>table.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

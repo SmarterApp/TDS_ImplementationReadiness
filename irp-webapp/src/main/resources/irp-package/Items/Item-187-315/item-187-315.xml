@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="315" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="incentives" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">incentivos</p>]]></html>
+      </keyword>
+      <keyword text="additional savings" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">ahorros adicionales</p>]]></html>
+      </keyword>
+      <keyword text="including" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">incluidos</p>]]></html>
+      </keyword>
+      <keyword text="installation fees" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">costos de instalación</p>]]></html>
+      </keyword>
+      <keyword text="After how many years" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Después de cuántas años</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

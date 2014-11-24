@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2132" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="archeologists" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">scientists who dig in certain areas of the world to study ancient times </p>]]></html>
+      </keyword>
+      <keyword text="curious" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">wanting to learn </p>]]></html>
+      </keyword>
+      <keyword text="expert" index="3">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">highly skilled </p>]]></html>
+      </keyword>
+      <keyword text="structures" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">buildings </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

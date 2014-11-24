@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3563" version="6" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3563</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>Lottery Winners (with 44838 and 46235) - SBAC_SST</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_att_Credit Line">
+        <name>Stim: Credit Line</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist>
+      <resource type="wordList" id="795" index="1" bankkey="187" />
+    </resourceslist>
+    <content language="ENU" version="2.0" approvedVersion="6">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">The $1000 prize for a lottery is to be <span id="passage_3563_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>divided<span class="its-tag" data-tag-ref="passage_3563_TAG_2" data-tag-boundary="end"></span> <span id="passage_3563_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>evenly<span class="its-tag" data-tag-ref="passage_3563_TAG_1" data-tag-boundary="end"></span> <span id="passage_3563_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>among<span class="its-tag" data-tag-ref="passage_3563_TAG_3" data-tag-boundary="end"></span> the winners. <span id="passage_3563_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Initially<span class="its-tag" data-tag-ref="passage_3563_TAG_4" data-tag-boundary="end"></span> there are <span style="font-style:italic; ">x</span> winners, but then one more winner <span id="passage_3563_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>comes forward<span class="its-tag" data-tag-ref="passage_3563_TAG_5" data-tag-boundary="end"></span>, causing <span id="passage_3563_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="passage_3563_TAG_6" data-tag-boundary="end"></span> winner to receive $50 less.</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3563_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo />
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">El premio de $1000 de una lotería ha de dividirse en partes iguales entre los ganadores. Inicialmente hay <span style="font-style:italic; ">x</span> ganadores, pero luego se presenta un ganador más, ocasionando que cada ganador reciba $50 menos.</p>]]></stem>
+    </content>
+  </passage>
+</itemrelease>

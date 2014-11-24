@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>3719</Identifier>
+    <Subject>MATH</Subject>
+    <Version>18</Version>
+    <InteractionType>Stimulus</InteractionType>
+    <ItemAuthorIdentifier>Chaitanya_Deshpande</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Chaitanya_Deshpande</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Going"viral".11.Stim</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <MaximumGrade>11</MaximumGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <IntendedGrade>11</IntendedGrade>
+    <CopyrightAndOtherRestrictions>Commissioned</CopyrightAndOtherRestrictions>
+    <StimulusGraphic>Y</StimulusGraphic>
+    <BrailleType>PRN</BrailleType>
+    <AssociatedWordlist>2449</AssociatedWordlist>
+    <Language>spa</Language>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

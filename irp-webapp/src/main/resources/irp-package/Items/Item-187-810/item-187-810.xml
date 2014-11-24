@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="810" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="divide them" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">dividirlas</p>]]></html>
+      </keyword>
+      <keyword text="equally" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en partes iguales/equitativemente</p>]]></html>
+      </keyword>
+      <keyword text="bags" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">bolsas</p>]]></html>
+      </keyword>
+      <keyword text="bag" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">bolsa</p>]]></html>
+      </keyword>
+      <keyword text="in each" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en cada</p>]]></html>
+      </keyword>
+      <keyword text="into" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en</p>]]></html>
+      </keyword>
+      <keyword text="How many" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuántas</p>]]></html>
+      </keyword>
+      <keyword text="will be" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">habrá</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

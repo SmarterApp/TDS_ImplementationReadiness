@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1322" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="The following" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Lo siguiente</p>]]></html>
+      </keyword>
+      <keyword text="most recent" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">más reciente</p>]]></html>
+      </keyword>
+      <keyword text="toward" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">hacia</p>]]></html>
+      </keyword>
+      <keyword text="realized" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">se dio cuenta</p>]]></html>
+      </keyword>
+      <keyword text="turned around" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">se dio la vuelta</p>]]></html>
+      </keyword>
+      <keyword text="spent" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">pasó</p>]]></html>
+      </keyword>
+      <keyword text="all the way" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">todo el camino</p>]]></html>
+      </keyword>
+      <keyword text="twice" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">doble</p>]]></html>
+      </keyword>
+      <keyword text="original speed" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">velocidad original</p>]]></html>
+      </keyword>
+      <keyword text="finish" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">completar/terminar</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

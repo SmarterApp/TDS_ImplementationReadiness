@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1649" version="6" bankkey="187">
+    <keywordList>
+      <keyword text="to plant" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">grow, put seeds in soil</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">sembrar </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ليزرع</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">trồng</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">种植, 種植</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">种植, 種植</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; ">magtatanim, agmula </span>&#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">для посадки</span> &#xA0;, <span style="color:#000000; language:ru; country:RU; ">засадить</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">‘~<span style="">을</span> <span style="">심다</span> </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">اگانڑ لئی, <span style="">ਲਾਉਣ</span> <span style="">ਲਈ</span> </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">посадити</p>]]></html>
+      </keyword>
+      <keyword text="vegetables" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">verduras, vegetales, legumbres</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">خضروات</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">rau</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">蔬菜</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">蔬菜</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">mga gulay, dagiti nateng</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">Овощей</span> &#xA0;, <span style="color:#000000; language:ru; country:RU; ">овощами</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">채소</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">سبزیاں, <span style="">ਸਬਜ਼ੀਆਂ</span> </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">овочі</p>]]></html>
+      </keyword>
+      <keyword text="local" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">local</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">محلي</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">địa phương, địa phương</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">当地, 當地</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">本地</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">lokal</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">местного</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">지역의</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">مقامی, ਸਥਾਨਕ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">місцевому</p>]]></html>
+      </keyword>
+      <keyword text="garden" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">space used for growing plants</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">huerto</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">حديقة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">vườn</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">花园, 花園, 菜園</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">菜园, 菜園</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">hardin</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">Сада</span> , сад</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">정원</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">باغ, ਬਗੀਚਾ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">саду</p>]]></html>
+      </keyword>
+      <keyword text="manager" index="5">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">the owner of a company or business</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">administrador, director</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">مدير</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">người quản lý, nhà quản lý</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">管理人</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">经理，管理人员, 經理，管理人員</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">tagapamahala, manager, tagimaton</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">менеджер“,”управляющий</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">매니저, 관리자</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">مینجر, ਪ੍ਰਬੰਧਕ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Керівник</p>]]></html>
+      </keyword>
+      <keyword text="has provided" index="6">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">given; made available</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ha proporcionado, ha cedido</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">قد قدم</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">đã cung cấp</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">提供了, 提供咗</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">已經提供了</span>, <span style="">提供了</span>, <span style="">已经提供了</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; ">nagbigay ng, nangited iti</span> </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">предоставил</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">제공하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">فراہم کیتے ہوئے, ਮੁੱਹਈਆ ਕੀਤਾ ਹੈ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">виділив</p>]]></html>
+      </keyword>
+      <keyword text="as follows" index="7">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">using these instructions</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">de la siguiente manera</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">كما يلي</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">như sau</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">按照以下, 如下</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">如下</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ayon sa sumusunod, kas sumagannad</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">следующим образом</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">다음과 같이</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">تھلے دیتے ہوئے, <span style="">ਹੇਠਾਂ</span> <span style="">ਦਿੱਤੀਆਂ</span> <span style="">ਅਨੁਸਾਰ</span> </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="language:ru; country:RU; ">т</span><span style="language:uk; country:UA; ">аким чином</span> </p>]]></html>
+      </keyword>
+      <keyword text="total" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">total</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">مجموع</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">tổng, tổng</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">总数, 总, 總數, 總</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">总, 總</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; ">kabuuang, suma total</span> </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">общая</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">전체의</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">کل, ਕੁੱਲ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">Загальна</p>]]></html>
+      </keyword>
+      <keyword text="wide" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ancho</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">عرض</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">rộng</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">宽, 寬</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">宽, 寬</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">lapad, nalawa</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">шириной</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">넓은</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">چوڑا ا, ਚੌੜਾ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">у ширину</p>]]></html>
+      </keyword>
+      <keyword text="has decided" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ha decidido </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">قرر</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">đã quyết định</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">已决定, 決定咗</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">已經決定了</span>, <span style="">決定了</span>, <span style="">已经决定了，决定了</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; ">ay nagdesisyong, ket nagdesisyon</span> </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">решил</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">결정하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">فیصلہ کیتا ہویا, <span style="">ਫੈਸਲਾ</span> <span style="">ਕੀਤਾ</span> <span style="">ਹੈ</span> </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">вирішив</p>]]></html>
+      </keyword>
+      <keyword text="according to" index="11">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">de acuerdo con </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">وفقًا ل</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">theo</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">按照</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">根据, 根據</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">alinsunod sa, ayon sa, segun iti</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">согласно</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">~에 따라</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">دے حساب نالڑ, ਦੇ ਅਨੁਸਾਰ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">відповідно до</p>]]></html>
+      </keyword>
+      <keyword text="plan" index="12">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">list of information to use</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">plan</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">خطة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">bản quy hoạch, kế hoạch</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">计划, 計劃</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">计划, 計劃</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">plano</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">плану</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">계획</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">منصوبہ, ਯੋਜਨਾ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">плану</p>]]></html>
+      </keyword>
+      <keyword text="will be planted" index="13">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">se sembrarán</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">سيتم زرع</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">sẽ được trồng</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">会种植, 會種植</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">” <span style="">将被种下，将用作种植，</span><span style="">將被種下</span>, <span style="">將用作種植</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; ">ay tataniman, ket mamulaan</span> </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">будет засажена</span> &#xA0;</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">심을 것이다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">اگائے جانڑ گے, &#xA0;ਲਗਇਆ ਜਾਵੇਗਾ &#xA0;</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">буде засаджено</p>]]></html>
+      </keyword>
+      <keyword text="task" index="14">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">tarea</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">مهمة</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">bài tập</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">任务, 问题, 任務, 問題</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">任務</span>, <span style="">作業</span>, <span style="">問題</span>, <span style="">任务，作业，问题</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">gawain, akem</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">задании</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">과제</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">کم, ਕਾਰਜ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">завданні</p>]]></html>
+      </keyword>
+      <keyword text="alternate" index="15">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">different; another</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">alternativo, otro</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">بديلة</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">khác, cách khác</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">另外一个, 另外一個, 替代</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">備用</span>, <span style="">备用，</span><span style="">替代</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">alternatibo, iba, agsinnublat</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">другой“,”чередующийся</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">대안의</span>, <span style="">대체의</span> </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">متبادل , <span style="">ਦੂਸਰੀ</span> <span style="language:pa; country:IN; ">(</span><span style="">ਵਿਕਲਪਕ</span><span style="language:pa; country:IN; ">)</span> &#xA0;</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">альтернативний</p>]]></html>
+      </keyword>
+      <keyword text="make the most use" index="16">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">use the largest amount</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">aprovechar al máximo, use le mejor posible</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">جعل معظم الاستخدام</p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">tận dụng tối đa, tận dụng nhiều nhất</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">尽量使用, 充分利用</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">充分利用</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">pinakamakakalubos, usaren iti kalalainganna</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">извлечь максимальную пользу</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">최대한 활용하다</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">ودھ توں ودھ ورتنڑاں, ਜ਼ਿਆਦਾ ਵਰਤੋਂ ਕਰੋ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">якнайкорисніше використати</p>]]></html>
+      </keyword>
+      <keyword text="available" index="17">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">disponible</p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="">متاحة</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">có sẵn</p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">可提供嘅, 可用嘅</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">可用的</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">magagamit, sidadaan</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; "><span style="color:#000000; language:ru; country:RU; ">имеющейся</span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">이용가능한</p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">دستیاب اے, ਉਪਲਬਧ </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">доступну</p>]]></html>
+      </keyword>
+      <keyword text="section" index="18">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">piece, small area</p>]]></html>
+      </keyword>
+      <keyword text="analyze" index="19">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">look at, study</p>]]></html>
+      </keyword>
+      <keyword text="determine" index="20">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">find, figure out</p>]]></html>
+      </keyword>
+      <keyword text="represent" index="21">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="font-size:1.0000em; font-family:'Times New Roman'; ">stand in for</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

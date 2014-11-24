@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="308" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="Explain how" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Explica cómo</p>]]></html>
+      </keyword>
+      <keyword text="meets" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cumple con</p>]]></html>
+      </keyword>
+      <keyword text="nutritional" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">nutricionales</p>]]></html>
+      </keyword>
+      <keyword text="requirements" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">requisitos</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

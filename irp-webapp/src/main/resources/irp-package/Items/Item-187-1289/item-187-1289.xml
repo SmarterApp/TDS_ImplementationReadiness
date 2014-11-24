@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1289" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="Drag" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="into" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">a</p>]]></html>
+      </keyword>
+      <keyword text="each" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="create" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crear</p>]]></html>
+      </keyword>
+      <keyword text="true" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">verdaderas</p>]]></html>
+      </keyword>
+      <keyword text="statements" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">expresiones</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

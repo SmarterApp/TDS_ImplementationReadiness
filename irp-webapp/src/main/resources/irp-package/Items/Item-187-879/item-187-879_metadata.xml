@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>879</Identifier>
+    <Version>8</Version>
+    <Subject>ELA</Subject>
+    <AssociatedStimulus>3600</AssociatedStimulus>
+    <ItemAuthorIdentifier>Shashank_Abhyankar</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Diana_Reed</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>ELA.11.5120.C3.T4.NewItem2</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>NL</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>2</MaximumNumberOfPoints>
+    <EvidenceStatement>TK</EvidenceStatement>
+    <SufficientEvidenceOfClaim>TK</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <MinimumGrade>10</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <ScorePoints>"0,1,2"</ScorePoints>
+    <StimulusName>On the Final Flight of the Discovery</StimulusName>
+    <StimulusType>Audio</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:3-L|4-11</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ht" id="888" version="4" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>888</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ELA.11.TE.2.W.06.xxx</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13 (23);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HT</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_888_v4.hrx" />
+    <content language="ENU" version="2.0" approvedVersion="4">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Jazmine is writing an argumentative article about year-round school for her school newspaper. <span id="item_888_TAG_11_BEGIN">Read</span> the draft of her article and the directions that follow.</p><p style="">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0in; ">&#xA0;&#xA0;&#xA0;&#xA0;<span class="interaction selectable" data-its-identifier="14" data-its-group="1">Many school districts have switched their traditional calendars to year-round calendars.</span> <span class="interaction selectable" data-its-identifier="15" data-its-group="1">Administrators and school board members assert that year-round school programs offer students more opportunities, increase test scores, and benefit personnel across the district.</span> <span class="interaction selectable" data-its-identifier="16" data-its-group="1">However, not only do year-round school programs cost more than traditional school programs, they also do not improve academic results.</span> <span class="interaction selectable" data-its-identifier="17" data-its-group="1">First, year-round programs increase the money spent on busing, staff, and heating and cooling.</span> <span class="interaction selectable" data-its-identifier="18" data-its-group="1">In addition, some studies show that students achieve about the same amount whether they attend school year-round or not.</span> <span class="interaction selectable" data-its-identifier="19" data-its-group="1">Other studies show that students need about the same amount of time in any program to review topics such as math.</span> <span class="interaction selectable" data-its-identifier="20" data-its-group="1">More time needs to be spent on social studies education.</span> <span class="interaction selectable" data-its-identifier="21" data-its-group="1">Finally, the school board should weigh the cost of running year-round programs against the benefits of spending money on programs that have proven track records for improving academic success.</span> <span class="interaction selectable" data-its-identifier="22" data-its-group="1">Some parents want their children to go to school all year, but for the wrong reasons.</span></p><p style="">&#xA0;</p><p style="">Click on the sentences that do <span style="font-weight:bold; ">not</span> belong in Jazmine’s article because they weaken the focus.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">For this item, a full-credit 1 point response includes:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Student selects “Other studies show that students need about the same amount of time in any program to review topics such as math.” </p><p style="">AND</p></li><li><p style="">Student selects “More time needs to be spent on social studies education.” </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="file1" type="BRF" subtype="contracted" file="item_888_enu_contracted.brf" />
+        <attachment id="file2" type="BRF" subtype="uncontracted" file="item_888_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_888_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

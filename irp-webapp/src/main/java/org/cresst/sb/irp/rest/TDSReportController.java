@@ -29,7 +29,7 @@ public class TDSReportController {
 	@Autowired
 	private TDSReportService tDSReportService;
 
-	@ApiMethod(path = "tdsreport/test", description = "Returns the test", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/test", description = "Returns the test", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/test", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -37,7 +37,7 @@ public class TDSReportController {
 		return tDSReportService.getTest();
 	}
 
-	@ApiMethod(path = "tdsreport/examinee", description = "Returns the examinee", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/examinee", description = "Returns the examinee", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/examinee", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -53,7 +53,7 @@ public class TDSReportController {
 		return tDSReportService.getOpportunity();
 	}
 
-	@ApiMethod(path = "tdsreport/opportunity/scores", description = "Returns the opportunity's scores", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/opportunity/scores", description = "Returns the opportunity's scores", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/opportunity/scores", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -61,7 +61,7 @@ public class TDSReportController {
 		return tDSReportService.getOpportunityScores();
 	}
 
-	@ApiMethod(path = "tdsreport/opportunity/items", description = "Returns the opportunity's items", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/opportunity/items", description = "Returns the opportunity's items", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/opportunity/items", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -69,7 +69,7 @@ public class TDSReportController {
 		return tDSReportService.getOpportunityItems();
 	}
 
-	@ApiMethod(path = "tdsreport/comments", description = "Returns the tdsreport comments", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/comments", description = "Returns the tdsreport comments", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/comments", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -77,7 +77,7 @@ public class TDSReportController {
 		return tDSReportService.getComments();
 	}
 
-	@ApiMethod(path = "tdsreport/toolusage", description = "Returns the tdsreport tool usage", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/tdsreport/toolusage", description = "Returns the tdsreport tool usage", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/toolusage", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)

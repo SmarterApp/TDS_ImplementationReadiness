@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="1148" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1148</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned for Special Forms from ITS 46089 - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13::BRAILLE (16);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>C</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A ball is thrown in the air. The height of the ball in terms of time is modeled by the graph shown.</p><p style="">&#xA0;</p><p style=""><img id="item_1148_graphics1" src="item_1148_v10_graphics1_png256.png" width="404" height="499" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">A second ball is thrown from a lower initial height and reaches a higher maximum height.</p><p style="">&#xA0;</p><p style="">Which equation could represent the height of the second ball in terms of time?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_1148_Object2" style="vertical-align:middle;" src="item_1148_v10_Object2_png16malpha.png" width="130" height="20" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_1148_Object3" style="vertical-align:middle;" src="item_1148_v10_Object3_png16malpha.png" width="131" height="20" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_1148_Object1" style="vertical-align:middle;" src="item_1148_v10_Object1_png16malpha.png" width="130" height="20" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_1148_Object4" style="vertical-align:middle;" src="item_1148_v10_Object4_png16malpha.png" width="130" height="20" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="file2" type="PRN" subtype="nemeth" file="item_1148_enu_nemeth.prn" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1148_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis of the graph is titled, time, seconds. The axis has a range from 0 to 5, increasing in increments of 0 point 5. the y axis of the graph is titled, height, meters. The axis has a range from zero to 10 point 5, increasing in increments of point 7 5.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1148_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals negative x squared, plus 2 x, plus 3.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to    minus  x  raised to the power of 2      plus     2x   plus     3</brailleTextString>
+                <brailleCode type="Nemeth">y .k -x~2"+2x+3</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1148_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals, negative x squared, plus 4 x, plus 6.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to    minus  x  raised to the power of 2      plus     4x   plus     6</brailleTextString>
+                <brailleCode type="Nemeth">y .k -x~2"+4x+6</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1148_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals negative x squared, plus 5 x, plus 3.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to    minus  x  raised to the power of 2      plus     5x   plus     3</brailleTextString>
+                <brailleCode type="Nemeth">y .k -x~2"+5x+3</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1148_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals negative x squared, plus 5 x, plus 5.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to    minus  x  raised to the power of 2      plus     5x   plus     5</brailleTextString>
+                <brailleCode type="Nemeth">y .k -x~2"+5x+5</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

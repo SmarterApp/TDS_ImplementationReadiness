@@ -34,7 +34,7 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 
-	@ApiMethod(path = "items/item/{id}", description = "Returns application/json structure with list of attriblist, tutorial, statistic, resourceslist, MachineRubric, content, keywordList", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}", description = "Returns application/json structure with list of attriblist, tutorial, statistic, resourceslist, MachineRubric, content, keywordList", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -49,7 +49,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/attribute", description = "Returns an item's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/attribute", description = "Returns an item's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/attribute", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -64,7 +64,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/attriblist", description = "Returns a list of item attributes", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/attriblist", description = "Returns a list of item attributes", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/attriblist", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -80,7 +80,7 @@ public class ItemController {
 
 	}
 
-	@ApiMethod(path = "items/item/{id}/attriblist/{attid}", description = "Returns an item attribute's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/attriblist/{attid}", description = "Returns an item attribute's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/attriblist/{attid}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -100,7 +100,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/attriblist2/{attid}", description = "Returns an item attribute's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/attriblist2/{attid}", description = "Returns an item attribute's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/attriblist2/{attid}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -120,7 +120,7 @@ public class ItemController {
 
 	}
 
-	@ApiMethod(path = "items/item/{id}/tutorial", description = "Returns an item tutorial", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/tutorial", description = "Returns an item tutorial", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/tutorial", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -135,7 +135,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/resourceslist", description = "Returns a resource list", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/resourceslist", description = "Returns a resource list", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/resourceslist", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -150,7 +150,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/statistic", description = "Returns an item's statistic", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/statistic", description = "Returns an item's statistic", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/statistic", method = RequestMethod.GET, produces = "text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -165,7 +165,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/MachineRubric", description = "Returns an item's MachineRubric", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/MachineRubric", description = "Returns an item's MachineRubric", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/MachineRubric", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -181,7 +181,7 @@ public class ItemController {
 
 	}
 
-	@ApiMethod(path = "items/item/{id}/RendererSpec", description = "Returns an item's renderer specification", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/RendererSpec", description = "Returns an item's renderer specification", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/RendererSpec", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -196,7 +196,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/gridanswerspace", description = "Returns an item grid answer space", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/gridanswerspace", description = "Returns an item grid answer space", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/gridanswerspace", method = RequestMethod.GET, produces = "text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -211,7 +211,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/content", description = "Returns an item's content", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/content", description = "Returns an item's content", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/content", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -227,7 +227,7 @@ public class ItemController {
 		
 	}
 
-	@ApiMethod(path = "items/item/{id}/content/{language}", description = "Returns an item's content language", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/content/{language}", description = "Returns an item's content language", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/content/{language}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -244,7 +244,7 @@ public class ItemController {
 		return null;
 	}
 
-	@ApiMethod(path = "items/item/{id}/keywordList", description = "Returns an item's keyword list", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/items/item/{id}/keywordList", description = "Returns an item's keyword list", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/keywordList", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)

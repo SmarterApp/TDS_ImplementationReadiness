@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1324" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="says" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">dice</p>]]></html>
+      </keyword>
+      <keyword text="always" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">siempre</p>]]></html>
+      </keyword>
+      <keyword text="create" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crear</p>]]></html>
+      </keyword>
+      <keyword text="example" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">ejemplo</p>]]></html>
+      </keyword>
+      <keyword text="supports" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">apoye/fundamente</p>]]></html>
+      </keyword>
+      <keyword text="claim" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">afirmación</p>]]></html>
+      </keyword>
+      <keyword text="false" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">falsa</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

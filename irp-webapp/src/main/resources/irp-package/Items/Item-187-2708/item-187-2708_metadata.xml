@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2708</Identifier>
+    <Version>2</Version>
+    <Subject>ELA</Subject>
+    <AssociatedStimulus>3760</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Life of Pi 2/10133 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>MC</InteractionType>
+    <EducationalDifficulty>Low</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <EvidenceStatement>The student will determine the meaning of a word based on its context in a literary text.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>The student will determine the meaning of a word based on its context in a literary text.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StimulusName>Life of Pi</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:1-LT|3-11|11-12.RL.4</PrimaryStandard>
+      <SecondaryStandard>SBAC-ELA-v2:1-LT|3-11|11-12.L.4a</SecondaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1072</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

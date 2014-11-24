@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="203" version="16" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>203</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.10.TE.0000G.xxx - SBAC_SST</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13 (14);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>10</val>
+        <desc>10</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="322" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_203_v16.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="203" ITSVer="5" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons>delete,point,connect</ShowButtons><GridColor>LightBlue</GridColor><GridSpacing>20,Y</GridSpacing><CenterImage>false</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons></ObjectMenuIcons><ImageSpec><FileSpec>item_203_v16_background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart></PreSetAnswerPart></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="16">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Melissa and Carrie both drew right triangles. The length of the hypotenuse in each triangle is <img id="item_203_Object1" style="vertical-align:middle;" src="item_203_v16_Object1_png16malpha.png" width="41" height="20" /> units.</p><p style="">&#xA0;</p><p style="">The perimeter of Melissa's triangle is <img id="item_203_Object2" style="vertical-align:middle;" src="item_203_v16_Object2_png16malpha.png" width="77" height="20" /> units.</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">A.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Use the Connect Line tool to draw Melissa's triangle.</p></dd></dl></p><p style="">&#xA0;</p><p style="">The perimeter of Carrie's triangle is <img id="item_203_Object3" style="vertical-align:middle;" src="item_203_v16_Object3_png16malpha.png" width="77" height="20" /> units.</p><p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">B.</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="">Use the Connect Line tool to draw Carrie's triangle.</p></dd></dl></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Melissa: a right triangle with legs of 3 and 11 units</p><p style="">&#xA0;</p><p style="">Carrie: a right triangle with legs of 7 and 9 units</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">Melissa's triangle </span>(1 point)</p></li></ul><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND</p><ul style="padding-left:1.5000em; "><li><p style="background-color:transparent; ">Carrie's triangle (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_203_ASL_STEM.MP4" />
+      </attachmentlist>
+    </content>
+  </item>
+</itemrelease>

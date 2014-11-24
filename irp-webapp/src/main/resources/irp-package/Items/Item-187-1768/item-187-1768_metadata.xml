@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>1768</Identifier>
+    <ItemAuthorIdentifier>Nate_Thompson</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Nate_Thompson</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Table Input Item Tutorial (TI) - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>Student Help</Subject>
+    <Version>16</Version>
+    <MaximumGrade>NA</MaximumGrade>
+    <MinimumGrade>NA</MinimumGrade>
+    <IntendedGrade>NA</IntendedGrade>
+    <InteractionType>TUT</InteractionType>
+    <StandardPublication>
+      <Publication>SBAC-SH-v1</Publication>
+      <PrimaryStandard>SBAC-SH-v1:SH-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <Language>eng</Language>
+    <Language>spa</Language>
+  </smarterAppMetadata>
+</metadata>

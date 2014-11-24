@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1133" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="Which" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuál</p>]]></html>
+      </keyword>
+      <keyword text="expressions" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">expresiones/ operaciones</p>]]></html>
+      </keyword>
+      <keyword text="sum" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">suma/ adición</p>]]></html>
+      </keyword>
+      <keyword text="equal" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">igual</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

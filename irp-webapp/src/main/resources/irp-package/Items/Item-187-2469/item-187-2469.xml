@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2469" version="0" bankkey="187">
+    <associatedpassage>3736</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2469</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Mass Produced 9393 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (24); PracTest::ELAG11::SP14::Braille (24);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3736</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="0">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <illustration><![CDATA[<p style="">&#xA0;</p>]]></illustration>
+      <stem><![CDATA[<p style="">Which point does the author emphasize by including details about performances?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Ballet dancers and movie makers connect to their audiences in different ways.</p>]]></val>
+          <feedback><![CDATA[<p style="">While this could be implied, the author does not make this connection in the presentation as there is no mention of any connection to an audience in either example.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Ballets are limited because more people would rather watch a movie than a ballet.</p>]]></val>
+          <feedback><![CDATA[<p style="">While the presentation does describe the ballet as limited, the reasoning in this option in incorrectly identified.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Popular culture content that gets mass produced is less artistic because it loses its spontaneous nature.</p>]]></val>
+          <feedback><![CDATA[<p style="">The author does not make a statement about quality of art in the presentation.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">The potential for popular culture content to be mass produced depends on the involvement of the participants.</p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT. Each type of performer entertains their audiences differently with specific goals that are either meant for easy reproduction or not. This is not an accident.<br /></p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2469_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2469_enu_uncontracted.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2469_ASL_STEM.MP4" />
+      </attachmentlist>
+    </content>
+  </item>
+</itemrelease>

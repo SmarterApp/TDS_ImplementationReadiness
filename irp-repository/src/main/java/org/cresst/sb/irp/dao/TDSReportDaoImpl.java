@@ -1,31 +1,29 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.File;
 import java.util.List;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
+import javax.annotation.PostConstruct;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.tdsreport.ObjectFactory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.exceptions.NotFoundException;
-import org.cresst.sb.irp.utils.XMLValidate;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
+public class TDSReportDaoImpl implements TDSReportDao {
 	private static Logger logger = Logger.getLogger(TDSReportDaoImpl.class);
-	private String rootResourceFolderName = "SampleAssessmentItemPackage";
-	private String testScoringFileName = "TestScoreBatching.xml"; //"sampleoutput.xml";
-	private String testScoringXSDFileName = "TDSReport.xsd"; // "TestScoreBatching.xsd";
-	private TDSReport tDSReport;
+	private TDSReport tdsReport;
+
+	@Value("classpath:irp-package/TestScoreBatching.xml")
+	private Resource tdsReportResource;
 
 	@Autowired
-	private XMLValidate xMLValidate;
+	private Unmarshaller unmarshaller;
 	
 	public TDSReportDaoImpl() {
 		logger.info("initializing");
@@ -33,7 +31,7 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 
 	@Override
 	public TDSReport.Test getTest() {
-		TDSReport.Test test = tDSReport.getTest();
+		TDSReport.Test test = tdsReport.getTest();
 		if (test == null){
 			throw new NotFoundException("Could not find Test for TDSReportDaoImpl");
 		}
@@ -42,7 +40,7 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 
 	@Override
 	public TDSReport.Examinee getExaminee() {
-		TDSReport.Examinee examinee = tDSReport.getExaminee();
+		TDSReport.Examinee examinee = tdsReport.getExaminee();
 		if (examinee == null){
 			throw new NotFoundException("Could not find Examinee for TDSReportDaoImpl");
 		}
@@ -51,7 +49,7 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 
 	@Override
 	public TDSReport.Opportunity getOpportunity() {
-		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
+		TDSReport.Opportunity opportunity = tdsReport.getOpportunity();
 		if (opportunity == null){
 			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
@@ -60,7 +58,7 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 	
 	@Override
 	public List<TDSReport.Opportunity.Score> getOpportunityScores() {
-		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
+		TDSReport.Opportunity opportunity = tdsReport.getOpportunity();
 		if (opportunity == null){
 			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
@@ -73,7 +71,7 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 	
 	@Override
 	public List<TDSReport.Opportunity.Item> getOpportunityItems() {
-		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
+		TDSReport.Opportunity opportunity = tdsReport.getOpportunity();
 		if (opportunity == null){
 			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
@@ -83,28 +81,10 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 		}
 		return itemList;
 	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		try {
-			String xsdPath = rootResourceFolderName + "/" + testScoringXSDFileName;
-			String xmlPath = rootResourceFolderName + "/" + testScoringFileName;
-			boolean bln = xMLValidate.validateXMLSchema(xsdPath, xmlPath);
-			JAXBContext ctx = JAXBContext
-					.newInstance(ObjectFactory.class);
-			Unmarshaller unmarshaller = ctx.createUnmarshaller();
-			tDSReport = (TDSReport) unmarshaller.unmarshal(new File(
-					rootResourceFolderName + "/" + testScoringFileName));
-			Test test = tDSReport.getTest();
-		} catch (Exception e) {
-			logger.error("TDSReportDaoImpl exception: ", e);
-		}
-		
-	}
 	
 	@Override
 	public List<TDSReport.Comment> getComments() {
-		List<TDSReport.Comment> commentList = tDSReport.getComment();
+		List<TDSReport.Comment> commentList = tdsReport.getComment();
 		if (commentList == null){
 			throw new NotFoundException("Could not find List<Comment> for TDSReportDaoImpl");
 		}
@@ -113,16 +93,20 @@ public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
 
 	@Override
 	public List<TDSReport.ToolUsage> getToolUsage() {
-		List<TDSReport.ToolUsage> toolUsageList = tDSReport.getToolUsage();
+		List<TDSReport.ToolUsage> toolUsageList = tdsReport.getToolUsage();
 		if (toolUsageList == null){
 			throw new NotFoundException("Could not find List<ToolUsage> for TDSReportDaoImpl");
 		}
 		return toolUsageList;
 	}
-	
 
+	@PostConstruct
+	public void loadData() throws Exception {
+		try {
+			tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tdsReportResource.getInputStream()));
+		} catch (Exception e) {
+			logger.error("TDSReportDaoImpl exception: ", e);
+		}
 
-
-	
-
+	}
 }

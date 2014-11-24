@@ -24,16 +24,21 @@ import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	private static Logger logger = Logger.getLogger(TestpackageDaoImpl.class);
-	private String rootResourceFolderName = "SampleAssessmentItemPackage";
-	private String testpackageAdminMathFileName = "testpackageAdminMath.xml";
-	private String testpackageAdminXSDFileName = "testpackageAdmin.xsd";
 	private Map<String, Testpackage> mapTestpackage = new HashMap<String, Testpackage>();
-	
+
+	@Value("classpath:irp-package/testpackageAdminMath.xml")
+	private Resource testPackageAdminMathResource;
+
+	@Value("classpath:irp-package/testpackageAdmin.xsd")
+	private Resource testPackageAdminResource;
+
 	@Autowired
 	private XMLValidate xMLValidate;
 
@@ -53,21 +58,15 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		try {
-			String xsdPath = rootResourceFolderName + "/"
-					+ testpackageAdminXSDFileName;
-			String xmlPath = rootResourceFolderName + "/"
-					+ testpackageAdminMathFileName;
-			
 			// TODO Auto-generated method stub
 			/****** there is a problem to validate xml vs xsd. need to be check it out *****/
 			//boolean bln = xMLValidate.validateXMLSchema(xsdPath, xmlPath);
-			
+
 			JAXBContext ctx = JAXBContext
 					.newInstance(ObjectFactory.class);
 			Unmarshaller unmarshaller = ctx.createUnmarshaller();
 			/***** we may need to create function to parse multiple testpackge xml files *****/
-			Testpackage testpackage = (Testpackage)unmarshaller.unmarshal(new File(
-					rootResourceFolderName + "/" + testpackageAdminMathFileName));
+			Testpackage testpackage = (Testpackage)unmarshaller.unmarshal(testPackageAdminMathResource.getInputStream());
 			String uniqueid = testpackage.getIdentifier().getUniqueid();
 			mapTestpackage.put(uniqueid, testpackage);
 		} catch (Exception e) {

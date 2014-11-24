@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1984" version="6" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1984</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14::Braille (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2387" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1984_v6.erx" />
+    <RendererSpec filename="Item_1984_v6.eax" />
+    <content language="ENU" version="2.0" approvedVersion="6">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1984_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1984_TAG_8" data-tag-boundary="end"></span> an equation for the line of symmetry for the </p><p style="">function <img id="item_1984_Object1" style="vertical-align:middle;" src="item_1984_v6_Object1_png16malpha.png" width="182" height="19" /></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><img id="item_1984_Object5" style="vertical-align:middle;" src="item_1984_v6_Object5_png16malpha.png" width="34" height="13" /></p></li></ul><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><img id="item_1984_Object3" style="vertical-align:middle;" src="item_1984_v6_Object3_png16malpha.png" width="34" height="13" />or <img id="item_1984_Object4" style="vertical-align:middle;" src="item_1984_v6_Object4_png16malpha.png" width="50" height="13" />or <img id="item_1984_Object6" style="vertical-align:middle;" src="item_1984_v6_Object6_png16malpha.png" width="49" height="13" />or <img id="item_1984_Object7" style="vertical-align:middle;" src="item_1984_v6_Object7_png16malpha.png" width="33" height="13" /></p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student enter the correct equation<img id="item_1984_Object2" style="vertical-align:middle;" src="item_1984_v6_Object2_png16malpha.png" width="34" height="13" />.</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&#xA0;</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="nemeth" file="item_1984_enu_nemeth.brf" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1984_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>F of ex equals negative 8 ex squared plus 16 ex plus 2. The equation tool has two sections. In the left section, from left to right top to bottom, the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative. In the right section mathematical functions are shown.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object5" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x  is equal to  1</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x  is equal to  1</brailleTextString>
+                <brailleCode type="Nemeth">x .k #1
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x  is equal to  1</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x  is equal to  1</brailleTextString>
+                <brailleCode type="Nemeth">x .k #1
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x  is equal to  1.0</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x  is equal to  1.0</brailleTextString>
+                <brailleCode type="Nemeth">x .k #1.0
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object6" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>1.0 is equal to  x</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1.0 is equal to  x</brailleTextString>
+                <brailleCode type="Nemeth">#1.0 .k x
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object7" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>1 is equal to  x</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1 is equal to  x</brailleTextString>
+                <brailleCode type="Nemeth">#1 .k x
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1984_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x  is equal to  1</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x  is equal to  1</brailleTextString>
+                <brailleCode type="Nemeth">x .k #1
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

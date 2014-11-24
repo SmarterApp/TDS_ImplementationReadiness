@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1193" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="treadmill" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cinta de correr</p>]]></html>
+      </keyword>
+      <keyword text="lap" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">vuelta</p>]]></html>
+      </keyword>
+      <keyword text="counts" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cuenta</p>]]></html>
+      </keyword>
+      <keyword text="total" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">total</p>]]></html>
+      </keyword>
+      <keyword text="display" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">pantalla</p>]]></html>
+      </keyword>
+      <keyword text="Click" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Haz clic</p>]]></html>
+      </keyword>
+      <keyword text="current" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">actual</p>]]></html>
+      </keyword>
+      <keyword text="Create" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Crea</p>]]></html>
+      </keyword>
+      <keyword text="how much" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cuánto</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

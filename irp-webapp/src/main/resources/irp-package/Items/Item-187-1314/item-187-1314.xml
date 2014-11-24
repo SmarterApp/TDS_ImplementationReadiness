@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1314" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="to create" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">para crear</p>]]></html>
+      </keyword>
+      <keyword text="to display" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">que muestre</p>]]></html>
+      </keyword>
+      <keyword text="The following" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Estas </p>]]></html>
+      </keyword>
+      <keyword text="data" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">datos</p>]]></html>
+      </keyword>
+      <keyword text="lengths" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">longitudes</p>]]></html>
+      </keyword>
+      <keyword text="Length" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Longitud</p>]]></html>
+      </keyword>
+      <keyword text="fish caught" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">peces pescados</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

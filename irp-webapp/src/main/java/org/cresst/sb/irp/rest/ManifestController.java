@@ -34,7 +34,7 @@ public class ManifestController {
 	@Autowired
 	private ManifestService manifestService;
 
-	@ApiMethod(path = "manifest", description = "Returns a list of metadata, organizations, resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/manifest", description = "Returns a list of metadata, organizations, resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -43,7 +43,7 @@ public class ManifestController {
 		return manifestService.getManifest();
 	}
 
-	@ApiMethod(path = "manifest/resources", description = "Returns a list of Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/manifest/resources", description = "Returns a list of Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/resources", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -51,7 +51,7 @@ public class ManifestController {
 		return manifestService.getResources();
 	}
 
-	@ApiMethod(path = "manifest/resources/{identifier}", description = "Returns a Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/manifest/resources/{identifier}", description = "Returns a Resources", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/resources/{identifier}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -61,7 +61,7 @@ public class ManifestController {
 		return manifestService.getResource(identifier);
 	}
 
-	@ApiMethod(path = "manifest/metadata", description = "Returns a manifest metadata", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/manifest/metadata", description = "Returns a manifest metadata", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/metadata", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
@@ -69,7 +69,7 @@ public class ManifestController {
 		return manifestService.getMetadata();
 	}
 
-	@ApiMethod(path = "manifest/organizations", description = "Returns the organizations", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ApiMethod(path = "/manifest/organizations", description = "Returns the organizations", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value="/manifest/organizations", method = RequestMethod.GET, produces="text/plain")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)

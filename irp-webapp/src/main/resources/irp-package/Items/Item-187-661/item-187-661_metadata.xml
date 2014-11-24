@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>661</Identifier>
+    <Version>21</Version>
+    <ItemAuthorIdentifier>Opeyemi_Fasakin</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Opeyemi_Fasakin</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>MAT.HS.SR.1.0AREI.H.xxx - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>MATH</Subject>
+    <IntendedGrade>11</IntendedGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <MathematicalPractice>2</MathematicalPractice>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>GI</InteractionType>
+    <EducationalDifficulty>Low</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <AllowCalculator>Y</AllowCalculator>
+    <BrailleType>Not Braillable</BrailleType>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StandardPublication>
+      <Publication>SBAC-MA-v3</Publication>
+      <PrimaryStandard>SBAC-MA-v3:MA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-MA-v1</Publication>
+      <PrimaryStandard>SBAC-MA-v1:1|A-REI|H|m|A-REI.2</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1075</AssociatedTutorial>
+    <AssociatedWordlist>1083</AssociatedWordlist>
+    <Language>eng</Language>
+    <Language>spa</Language>
+  </smarterAppMetadata>
+</metadata>

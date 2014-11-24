@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1198" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="shows" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">muestra</p>]]></html>
+      </keyword>
+      <keyword text="to show" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">para mostrar</p>]]></html>
+      </keyword>
+      <keyword text="in which" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en el que</p>]]></html>
+      </keyword>
+      <keyword text="lie" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">&#xA0;encontrarse/estar</p>]]></html>
+      </keyword>
+      <keyword text="the unit interval" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">el intervalo de unidades</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

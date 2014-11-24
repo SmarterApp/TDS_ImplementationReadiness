@@ -10,11 +10,9 @@ import javax.xml.bind.JAXBException;
 
 public interface ItemDao {
 	
-	void loadData() throws JAXBException, FileNotFoundException;
+	void loadData(List<Manifest.Resources> listResources) throws JAXBException, FileNotFoundException;
 
 	Itemrelease.Item getItemById(int id);
-
-	void setManifest(Manifest manifest);
 
 	ItemAttribute getItemAttribute(int id);
 

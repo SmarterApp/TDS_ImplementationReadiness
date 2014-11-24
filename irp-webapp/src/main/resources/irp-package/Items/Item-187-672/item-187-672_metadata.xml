@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>672</Identifier>
+    <Version>28</Version>
+    <Subject>MATH</Subject>
+    <ItemAuthorIdentifier>Christopher_Paskoff</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Christopher_Paskoff</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>MAT.HS.TE.1.0ACED.G.xxx - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>11</IntendedGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <MathematicalPractice>None</MathematicalPractice>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>GI</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <AllowCalculator>Y</AllowCalculator>
+    <CopyrightAndOtherRestrictions></CopyrightAndOtherRestrictions>
+    <Notes></Notes>
+    <StimulusScource></StimulusScource>
+    <BrailleType>Not Braillable</BrailleType>
+    <EnemyItem></EnemyItem>
+    <ScorePoints>"0,1"</ScorePoints>
+    <TargetSpecificAttributes></TargetSpecificAttributes>
+    <StandardPublication>
+      <Publication>SBAC-MA-v3</Publication>
+      <PrimaryStandard>SBAC-MA-v3:MA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-MA-v1</Publication>
+      <PrimaryStandard>SBAC-MA-v1:1|A-CED|G|a/s|A-CED.2</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1075</AssociatedTutorial>
+    <AssociatedWordlist>794</AssociatedWordlist>
+    <Language>eng</Language>
+    <Language>spa</Language>
+  </smarterAppMetadata>
+</metadata>

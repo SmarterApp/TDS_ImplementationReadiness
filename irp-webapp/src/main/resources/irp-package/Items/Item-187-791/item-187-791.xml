@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="791" version="3" bankkey="187">
+    <keywordList>
+      <keyword text="Most" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">La mayoría</p>]]></html>
+      </keyword>
+      <keyword text="favorite kind" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tipo favorito</p>]]></html>
+      </keyword>
+      <keyword text="Each" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cada</p>]]></html>
+      </keyword>
+      <keyword text="voted" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">votó</p>]]></html>
+      </keyword>
+      <keyword text="vote" index="5">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">vote - to choose something or someone</p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">vote - choice, choose</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">voto</p>]]></html>
+      </keyword>
+      <keyword text="vote" index="6">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">vote - to choose something or someone</p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">vote - choice, choose</p>]]></html>
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">votar</p>]]></html>
+      </keyword>
+      <keyword text="to match" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">que corresponda a</p>]]></html>
+      </keyword>
+      <keyword text="still need to" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">todavía tienen que</p>]]></html>
+      </keyword>
+      <keyword text="How many" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuántos</p>]]></html>
+      </keyword>
+      <keyword text="kind" index="10">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">kind - type, sort</p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">kind - set, group</p>]]></html>
+      </keyword>
+      <keyword text="match" index="11">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">match - to fit together</p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">match - fit, join</p>]]></html>
+      </keyword>
+      <keyword text="still" index="12">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">still - even, at this time</p>]]></html>
+        <html listType="thesaurus" listCode="TDS_WL_THES"><![CDATA[<p style="">still - along with, plus, even</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>1146</Identifier>
+    <Subject>MATH</Subject>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Cloned for Special Forms from ITS 48139 - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Version>8</Version>
+    <ItemAuthorIdentifier>Kari_Stellpflug</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Kari_Stellpflug</LastModifiedBy>
+    <IntendedGrade>11</IntendedGrade>
+    <MinimumGrade></MinimumGrade>
+    <MaximumGrade></MaximumGrade>
+    <MathematicalPractice>None</MathematicalPractice>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>MC</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <AllowCalculator>Y</AllowCalculator>
+    <CopyrightAndOtherRestrictions></CopyrightAndOtherRestrictions>
+    <Notes></Notes>
+    <StimulusScource></StimulusScource>
+    <BrailleType>BRF</BrailleType>
+    <EnemyItem></EnemyItem>
+    <ScorePoints>NA</ScorePoints>
+    <TargetSpecificAttributes></TargetSpecificAttributes>
+    <StandardPublication>
+      <Publication>SBAC-MA-v1</Publication>
+      <PrimaryStandard>SBAC-MA-v1:1|A-REI|J|m|A-REI.10</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-MA-v3</Publication>
+      <PrimaryStandard>SBAC-MA-v3:MA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1072</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

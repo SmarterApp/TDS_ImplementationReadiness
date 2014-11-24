@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="782" version="6" bankkey="187">
+    <keywordList>
+      <keyword text="Consider" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Considera</p>]]></html>
+      </keyword>
+      <keyword text="Drag" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="possible" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">posibles</p>]]></html>
+      </keyword>
+      <keyword text="measures" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">medidas</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

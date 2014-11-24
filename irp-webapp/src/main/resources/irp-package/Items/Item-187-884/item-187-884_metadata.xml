@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>884</Identifier>
+    <Version>13</Version>
+    <ItemAuthorIdentifier>linesh_shah</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>linesh_shah</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>ELA.11.SR.2.W.01.xxx - SB OP</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>NL</InteractionType>
+    <EducationalDifficulty>Low</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <SufficientEvidenceOfClaim>To complete this task, students must revise the conclusion of a text. </SufficientEvidenceOfClaim>
+    <EvidenceStatement>To complete this task, students must revise the conclusion of a text. </EvidenceStatement>
+    <BrailleType>BRF</BrailleType>
+    <Claim2Category>O</Claim2Category>
+    <MinimumGrade>10</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <Claim2RevisionCategory>R</Claim2RevisionCategory>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:2-W</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

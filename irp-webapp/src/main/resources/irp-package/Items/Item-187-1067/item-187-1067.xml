@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="1067" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1067</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>ClonedforSpecialFormsfrom202</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13::BRAILLE (12);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>A</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>10</val>
+        <desc>10</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Stacked</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A teacher has a classroom with 30 boys and girls. The class has both 9th and 10th graders.</p><p style="">&#xA0;</p><p style="">The probability of a randomly selected student from the class being a female <span style="font-weight:bold; ">or</span><span style="font-weight:normal; "> in grade 9 is equal to </span><span style="font-weight:normal; "><img id="item_1067_Object1" style="vertical-align:middle;" src="item_1067_v10_Object1_png16malpha.png" width="28" height="33" /></span></p><p style="font-weight:normal; ">&#xA0;</p><p style="font-weight:normal; ">Which chart shows how this can be true?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics1" src="item_1067_v10_graphics1_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics2" src="item_1067_v10_graphics2_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics3" src="item_1067_v10_graphics3_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics4" src="item_1067_v10_graphics4_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="file2" type="PRN" subtype="nemeth" file="item_1067_enu_nemeth.prn" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 19  over 30,  .</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  over 30,  .</brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics2" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics3" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics4" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">Melissa Bell quiero dinero</p><p class="languagedivider">&#xA0;</p><p style="">A teacher has a classroom with 30 boys and girls. The class has both 9th and 10th graders.</p><p style="">&#xA0;</p><p style="">The probability of a randomly selected student from the class being a female <span style="font-weight:bold; ">or</span><span style="font-weight:normal; "> in grade 9 is equal to </span><span style="font-weight:normal; "><img id="item_1067_Object1" style="vertical-align:middle;" src="item_1067_v10_Object1_png16malpha.png" width="28" height="33" /></span></p><p style="font-weight:normal; ">&#xA0;</p><p style="font-weight:normal; ">Which chart shows how this can be true?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics1" src="item_1067_v10_graphics1_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics2" src="item_1067_v10_graphics2_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics3" src="item_1067_v10_graphics3_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_1067_graphics4" src="item_1067_v10_graphics4_png256.png" width="328" height="256" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 19  over 30,  .</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  over 30,  .</brailleTextString>
+                <brailleCode type="Nemeth" />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics2" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics3" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1067_graphics4" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The title of the chart is, students by gender and grade. The table has 2 rows and 2 columns. From left to right the column headings reed, gender, grade 9, grade 10. From top to bottom the row headings reed, female, male.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

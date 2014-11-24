@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="1139" version="9" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1139</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned for Special Forms from ITS 43674 - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP13::BRAILLE (3);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="9">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">The graph of a polynomial function is shown. </p><p style="">&#xA0;</p><p style=""><img id="item_1139_graphics1" src="item_1139_v9_graphics1_png256.png" width="272" height="365" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">Which function represents this graph?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="font-style:italic; "><img id="item_1139_Object3" style="vertical-align:middle;" src="item_1139_v9_Object3_png16malpha.png" width="266" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="font-style:italic; "><img id="item_1139_Object4" style="vertical-align:middle;" src="item_1139_v9_Object4_png16malpha.png" width="266" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="font-style:italic; "><img id="item_1139_Object2" style="vertical-align:middle;" src="item_1139_v9_Object2_png16malpha.png" width="320" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="font-style:italic; "><img id="item_1139_Object1" style="vertical-align:middle;" src="item_1139_v9_Object1_png16malpha.png" width="320" height="17" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="file2" type="PRN" subtype="nemeth" file="item_1139_enu_nemeth.prn" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1139_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis of the graph has a range from negative 4 to 10, increasing in increments of 2. The f of X axis has a range from negative 80 to 120, increasing in increments of 20.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1139_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals 
+open parenthesis x minus 3, closed parenthesis, 
+times open parenthesis x minus 1, closed parenthesis, 
+times open parenthesis x plus 2, closed parenthesis, 
+times open parenthesis x plus 4, closed parenthesis.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,     is equal to     the quantity  x    minus     3  ,   the quantity  x    minus     1  ,   the quantity  x    plus     2  ,   the quantity  x    plus     4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-3)(x-1)(x+2)(x+4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1139_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals 
+open parenthesis x plus 3, closed parenthesis, 
+times open parenthesis x plus 1, closed parenthesis, 
+times open parenthesis x minus 2, closed parenthesis, 
+times open parenthesis x minus 4, closed parenthesis.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,     is equal to     the quantity  x    plus     3  ,   the quantity  x    plus     1  ,   the quantity  x    minus     2  ,   the quantity  x    minus     4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x+3)(x+1)(x-2)(x-4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1139_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals open parenthesis x minus 3, closed parenthesis, times open parenthesis x minus 1, closed parenthesis, times open parenthesis x plus 2, closed parenthesis, times open parenthesis x plus 2, closed parenthesis, times open parenthesis x plus 4, closed parenthesis,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,     is equal to     the quantity  x    minus     3  ,   the quantity  x    minus     1  ,   the quantity  x    plus     2  ,   the quantity  x    plus     2  ,   the quantity  x    plus     4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x-3)(x-1)(x+2)(x+2)(x+4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1139_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals, open parenthesis, x plus 3, closed parenthesis, times open parenthesis, x plus 1, closed parenthesis, times open parenthesis, x minus 2, closed parenthesis, times open parenthesis, x minus 2, closed parenthesis, times open parenthesis, x minus 4, closed parenthesis.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,     is equal to     the quantity  x    plus     3  ,   the quantity  x    plus     1  ,   the quantity  x    minus     2  ,   the quantity  x    minus     2  ,   the quantity  x    minus     4  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k (x+3)(x+1)(x-2)(x-2)(x-4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

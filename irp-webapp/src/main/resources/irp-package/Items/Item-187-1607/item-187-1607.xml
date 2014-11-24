@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="1607" version="7" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1607</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned for Special Forms from item 1510</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP13::BRAILLE (37);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>C</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="7">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A student is writing a research paper for his civics class. He found the two sources below. Read both sources and the directions that follow.</p><p style="">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0in; "><span id="item_1607_TAG_3_BEGIN">1.</span> &#xA0;&#xA0;&#xA0;<span id="item_1607_TAG_1_BEGIN">As</span> of 2012, 30 states had laws in place requiring voters to show ID before voting. Of those, some are strict, requiring ID or issuing provisional ballots. Several require photo IDs, which can be difficult to obtain, especially for those who live in rural areas or do not drive. People who may have voted all their lives may now be turned away. Some of the strictest of these laws have been challenged and ultimately overturned. Lawyers on both sides of a Pennsylvania challenge agreed that voter fraud in the state is unheard of. Nevertheless, the judge in that case ruled that election officials may request photo ID—but they may not turn people away who do not have it.</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0in; ">&#xA0;</p><p style="margin-left:0.5in; margin-right:0.5in; text-indent:0in; "><span id="item_1607_TAG_4_BEGIN">2.</span> &#xA0;&#xA0;&#xA0;<span id="item_1607_TAG_2_BEGIN">Texas</span> Attorney General Abbott declared recently that there is no proof that voter ID laws affect certain population groups more than other groups. According to Abbott, votes cast by deceased persons and foreign nationals as well as multiple voting are widespread in Texas, and a strict law is needed to clamp down on such fraud. Abbott joins Philadelphia City Commissioner Al Schmidt, who documented examples of fraud and errors at the polls in Pennsylvania. In a close election, he argues, there is enough of this kind of fraud to affect the outcome. People who support the Attorney General and City Commissioner in this effort point out that photo IDs are required for many tasks, from boarding an airplane to taking college entrance exams. Is voting any less important?</p><p style="">&#xA0;</p><p style="">The student drafted some possible claims and counterclaims for his paper.</p><p style="">&#xA0;</p><p style="">Which statement is supported by the information in Source 2?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Strict voter ID laws have improved efficiency at the polls.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Voter ID laws may hinder citizens’ ability to exercise their rights.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Voter ID laws are reasonable measures to prevent fraud at the polls.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">Strict voter ID laws have the side effect of treating some people unfairly.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_1607_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_1607_enu_uncontracted.brf" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1607_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, 1.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1607_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, As</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>As</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>As</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1607_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, 2.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1607_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, Texas</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Texas</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Texas</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

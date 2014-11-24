@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1968" version="12" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1968</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned from 686</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (7); PracTest::MG11::S2::SP14::Braille (7); PracTest::MG11::S2::SP14::ESN (7);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2365" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1968_v12.erx" />
+    <RendererSpec filename="Item_1968_v12.eax" />
+    <content language="ENU" version="2.0" approvedVersion="12">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">The graph of an exponential function <span id="item_1968_TAG_9_BEGIN"><span style="font-style:italic; ">f</span></span> </p><p style="">passes through <span id="item_1968_TAG_10_BEGIN">(0, 1)</span> and <span id="item_1968_TAG_11_BEGIN">(2, 4)</span>, as shown.</p><p style=""><br /><img id="item_1968_graphics1" src="item_1968_v12_graphics1_png256.png" width="302" height="309" style="vertical-align:baseline;" /></p><p style=""><br /><span id="item_1968_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>What<span class="its-tag" data-tag-ref="item_1968_TAG_16" data-tag-boundary="end"></span> is the value of <span id="item_1968_TAG_12_BEGIN"><span style="font-style:italic; ">f</span>(6)</span><span id="item_1968_TAG_15_BEGIN">?</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar: 64</p><p style="">&#xA0;</p><p style="">(1 point) Student enters 64 or equivalent.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment id="braillefile2" type="PRN" subtype="nemeth" file="item_1968_enu_nemeth.prn" />
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1968_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>f of ex</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, zero comma one,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(0, 1)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, two comma four,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(2, 4)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis has a range from negative 4 to 4, increasing in increments of 1. The vertical axis is titled, f of x, and has a range from negative 2 to 6, increasing in increments of one.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>f of six. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, negative. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(6)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="11">
+      <stem><![CDATA[<p style="language:es; country:ES; ">La gráfica de la función exponencial <span style="font-style:italic; ">f</span><span style="font-style:normal; ">(</span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">) pasa por (0, 1) y (2, 4), como se muestra.</span></p><p style="language:es; country:ES; ">&#xA0;</p><p style="language:es; country:ES; "><img id="item_1968_graphics2" src="item_1968_v11_graphics2_png256.png" width="302" height="309" style="vertical-align:baseline;" /></p><p style="language:es; country:ES; "><br />¿Cuál es el valor de <span style="font-style:italic; ">f</span><span style="font-style:normal; ">(6)</span>?</p><p class="languagedivider">&#xA0;</p><p style="">The graph of an exponential function <span id="item_1968_TAG_9_BEGIN"><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>)</span> </p><p style="">passes through <span id="item_1968_TAG_10_BEGIN">(0, 1)</span> and <span id="item_1968_TAG_11_BEGIN">(2, 4)</span>, as shown.</p><p style=""><br /><img id="item_1968_graphics1" src="item_1968_v11_graphics1_png256.png" width="302" height="309" style="vertical-align:baseline;" /></p><p style=""><br /><span id="item_1968_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>What<span class="its-tag" data-tag-ref="item_1968_TAG_16" data-tag-boundary="end"></span> is the value of <span id="item_1968_TAG_12_BEGIN"><span style="font-style:italic; ">f</span>(6)</span><span id="item_1968_TAG_15_BEGIN">?</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar: 64</p><p style="">&#xA0;</p><p style="">(1 point) Student enters 64 or equivalent.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>f of ex</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, zero comma one,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(0, 1)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, two comma four,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(2, 4)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The x axis has a range from negative 4 to 4, increasing in increments of 1. The vertical axis is titled, f of x, and has a range from negative 2 to 6, increasing in increments of one.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>f of six. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, negative. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(6)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1968_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation />
+                <textToSpeechPronunciationAlternate>?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

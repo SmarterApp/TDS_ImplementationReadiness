@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>3738</Identifier>
+    <Subject>ELA</Subject>
+    <Version>6</Version>
+    <InteractionType>Stimulus</InteractionType>
+    <ItemAuthorIdentifier>linesh_shah</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>linesh_shah</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>SBAC_G11_C1_LI_C_Sustainable Fashion</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <MaximumGrade>11</MaximumGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <IntendedGrade>11</IntendedGrade>
+    <StimulusLength>Long</StimulusLength>
+    <StimulusGenre>Informational</StimulusGenre>
+    <StimulusGraphic>N</StimulusGraphic>
+    <BrailleType>BRF</BrailleType>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

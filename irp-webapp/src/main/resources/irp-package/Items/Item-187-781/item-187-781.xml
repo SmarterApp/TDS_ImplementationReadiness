@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="781" version="6" bankkey="187">
+    <keywordList>
+      <keyword text="Select" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Selecciona</p>]]></html>
+      </keyword>
+      <keyword text="each" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+      <keyword text="row" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">hilera</p>]]></html>
+      </keyword>
+      <keyword text="Which" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cuáles</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

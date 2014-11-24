@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="311" version="2" bankkey="187">
+    <keywordList>
+      <keyword text="at least" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">por lo menos</p>]]></html>
+      </keyword>
+      <keyword text="panels" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">paneles</p>]]></html>
+      </keyword>
+      <keyword text="panel" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">paneles</p>]]></html>
+      </keyword>
+      <keyword text="get" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">obtener</p>]]></html>
+      </keyword>
+      <keyword text="less than" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">menos de</p>]]></html>
+      </keyword>
+      <keyword text="Drag" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="drag" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">arrastra</p>]]></html>
+      </keyword>
+      <keyword text="each" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

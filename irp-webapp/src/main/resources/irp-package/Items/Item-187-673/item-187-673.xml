@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="673" version="27" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>673</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MAT.HS.TE.1.0AREI.J.xxx - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP13 (6);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="1192" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_673_v27.grx" />
+    <gridanswerspace><![CDATA[
+					<Question id="48138" ITSVer="3" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons></ShowButtons><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><CenterImage>false</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons><IconSpec><FileSpec>item_673_v27_fx_png16malpha.png</FileSpec><Label>fx</Label></IconSpec><IconSpec><FileSpec>item_673_v27_gx_png16malpha.png</FileSpec><Label>gx</Label></IconSpec><IconSpec><FileSpec>item_673_v27_fxgx_png16malpha.png</FileSpec><Label>fxgx</Label></IconSpec></ObjectMenuIcons><ImageSpec><FileSpec>item_673_v27_background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="48138"><QuestionPart id="1"><ObjectSet><AtomicObject>{gx(250,20)}</AtomicObject><AtomicObject>{fx(120,20)}</AtomicObject><AtomicObject>{fxgx(380,20)}</AtomicObject></ObjectSet><SnapPoint>100@250,390;120,390;380,390;107,237;146,126;178,179;232,267;232,147;262,204;305,116;353,101</SnapPoint></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
+						]]></gridanswerspace>
+    <content language="ENU" version="2.0" approvedVersion="27">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">The graphs of <img id="item_673_Object1" style="vertical-align:middle;" src="item_673_v27_Object1_png16malpha.png" width="56" height="17" /> and <img id="item_673_Object2" style="vertical-align:middle;" src="item_673_v27_Object2_png16malpha.png" width="59" height="17" /> are shown.</p><p style="">&#xA0;</p><p style=""><span id="item_673_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_673_TAG_13" data-tag-boundary="end"></span> points <span id="item_673_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>onto<span class="its-tag" data-tag-ref="item_673_TAG_14" data-tag-boundary="end"></span> the coordinate grid to <span id="item_673_TAG_7_BEGIN">show</span></p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">a solution for <img id="item_673_Object3" style="vertical-align:middle;" src="item_673_v27_Object3_png16malpha.png" width="56" height="17" /> only,</p><p style="">&#xA0;</p></li><li><p style="">a solution for <img id="item_673_Object4" style="vertical-align:middle;" src="item_673_v27_Object4_png16malpha.png" width="59" height="17" /> only,</p><p style="">&#xA0;</p><p style="">&#xA0;<span id="item_673_TAG_6_BEGIN">and</span></p><p style="">&#xA0;</p></li><li><p style="">a solution for <img id="item_673_Object5" style="vertical-align:middle;" src="item_673_v27_Object5_png16malpha.png" width="81" height="17" />.</p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">any point that lies on the graph of <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>), any point that lies on the graph of <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>), and a point of intersection</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">identifying a solution for </span><span style="font-style:italic; background-color:transparent; ">f</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) and a solution for </span><span style="font-style:italic; background-color:transparent; ">g</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) </span>(1 point)</p></li></ul><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">identifying a solution for </span><span style="font-style:italic; background-color:transparent; ">f</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) = </span><span style="font-style:italic; background-color:transparent; ">g</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) (1 point).</span></p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_673_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals f of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals g of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>show:</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>show</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>show</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals f of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals g of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>and,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>and,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>and</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object5" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals g of x, This is an interactive image.
+The top section contains a graph.
+The Horizontal axis is labeled: x, The vertical axis is labeled: y.
+
+From left to right the functions on the graph reed: f of x, g of x.
+
+The bottom section reeds from left to right: Solution f of x, Solution g of x, solution f of x equals g of x.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="27">
+      <stem><![CDATA[<p style="">Se muestran las gráficas de <img id="item_673_Object6" style="vertical-align:middle;" src="item_673_v27_Object6_png16malpha.png" width="56" height="17" /> y <img id="item_673_Object7" style="vertical-align:middle;" src="item_673_v27_Object7_png16malpha.png" width="59" height="17" />.</p><p style="">&#xA0;</p><p style="">Arrastra puntos al plano de coordenadas para mostrar</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">una solución para <img id="item_673_Object8" style="vertical-align:middle;" src="item_673_v27_Object8_png16malpha.png" width="56" height="17" />,</p></li></ul><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">una solución para <img id="item_673_Object9" style="vertical-align:middle;" src="item_673_v27_Object9_png16malpha.png" width="59" height="17" />, y</p><p style="">&#xA0;</p></li><li><p style="">una solución para <img id="item_673_Object10" style="vertical-align:middle;" src="item_673_v27_Object10_png16malpha.png" width="81" height="17" />.</p></li></ul><p style="">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style="">The graphs of <img id="item_673_Object1" style="vertical-align:middle;" src="item_673_v27_Object1_png16malpha.png" width="56" height="17" /> and <img id="item_673_Object2" style="vertical-align:middle;" src="item_673_v27_Object2_png16malpha.png" width="59" height="17" /> are shown.</p><p style="">&#xA0;</p><p style=""><span id="item_673_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_673_TAG_13" data-tag-boundary="end"></span> points <span id="item_673_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>onto<span class="its-tag" data-tag-ref="item_673_TAG_14" data-tag-boundary="end"></span> the coordinate grid to <span id="item_673_TAG_7_BEGIN">show</span></p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">a solution for <img id="item_673_Object3" style="vertical-align:middle;" src="item_673_v27_Object3_png16malpha.png" width="56" height="17" /> only,</p><p style="">&#xA0;</p></li><li><p style="">a solution for <img id="item_673_Object4" style="vertical-align:middle;" src="item_673_v27_Object4_png16malpha.png" width="59" height="17" /> only,</p><p style="">&#xA0;</p><p style="">&#xA0;<span id="item_673_TAG_6_BEGIN">and</span></p><p style="">&#xA0;</p></li><li><p style="">a solution for <img id="item_673_Object5" style="vertical-align:middle;" src="item_673_v27_Object5_png16malpha.png" width="81" height="17" />.</p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">any point that lies on the graph of <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>), any point that lies on the graph of <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>), and a point of intersection</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">identifying a solution for </span><span style="font-style:italic; background-color:transparent; ">f</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) and a solution for </span><span style="font-style:italic; background-color:transparent; ">g</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) </span>(1 point)</p></li></ul><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">identifying a solution for </span><span style="font-style:italic; background-color:transparent; ">f</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) = </span><span style="font-style:italic; background-color:transparent; ">g</span><span style="background-color:transparent; ">(</span><span style="font-style:italic; background-color:transparent; ">x</span><span style="background-color:transparent; ">) (1 point).</span></p></li></ul><p style="background-color:transparent; ">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals f of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals g of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>show:</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>show</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>show</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals f of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals g of x,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>and,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>and,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>and</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object5" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f of x equals g of x, This is an interactive image.
+The top section contains a graph.
+The Horizontal axis is labeled: x, The vertical axis is labeled: y.
+
+From left to right the functions on the graph reed: f of x, g of x.
+
+The bottom section reeds from left to right: Solution f of x, Solution g of x, solution f of x equals g of x.</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k g(x)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object6" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y  is equal to  f   the quantity  x  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object7" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y  is equal to  g   the quantity  x  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object8" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y  is equal to  f   the quantity  x  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  f   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k f(x)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object9" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y  is equal to  g   the quantity  x  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y  is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">y .k g(x)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_673_Object10" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>f  the quantity  x  ,   is equal to  g   the quantity  x  ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>f  the quantity  x  ,   is equal to  g   the quantity  x  ,</brailleTextString>
+                <brailleCode type="Nemeth">f(x) .k g(x)
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

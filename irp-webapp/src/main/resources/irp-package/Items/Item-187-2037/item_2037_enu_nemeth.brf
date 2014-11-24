@@ -1,0 +1,51 @@
+,USE .,FIGURE .#2 & .,TA# .#1 6ANSW] ^!
+  "QS AB ,VIDEO ;,B & ,VIDEO ;,C_4 ,5T]
+  YR RESPONSES = EA* VIDEO 9 ! TA#4
+      ,',DATA F ! TA# IS RE>RANG$ =
+    CL>;Y4,'
+
+,:AT IS ! TOTAL VIEWC.T = EA* VIDEO OV]
+    ! P]IOD 4PLAY$ 9 ! GRAPH OR TA#8
+  ,VIDEO ;,B_3 ----
+  ,VIDEO ;,C_3 ----
+,3SID] ! #2-"D P]IOD DUR+ : ! VIEWC.T =
+    EA* VIDEO 9CR1SES 0! GRTE/ NUMB]4
+    ,H[ M* DOES ! VIEWC.T = EA* VIDEO
+    9CR1SE DUR+ T #2-"D P]IOD8
+  ,VIDEO ;,B_3 ----
+  ,VIDEO ;,C_3 ----
+,3SID] ! #5-"D P]IOD DUR+ : ! VIEWC.T =
+    EA* VIDEO 9CR1SES 0! GRTE/ NUMB]4
+    ,H[ M* DOES ! VIEWC.T = EA* VIDEO
+    9CR1SE DUR+ T #5-"D P]IOD8
+  ,VIDEO ;,B_3 ----
+  ,VIDEO ;,C_3 ----
+
+
+
+,9 YR OP9ION1 WD Y 3SID] EA* VIDEO AN
+    EXAMPLE (A 8VIRAL0 VIDEO8 ,ANSW]
+    ,YES OR ,NO = EA*4
+  ,VIDEO ;,B_3 ----
+  ,VIDEO ;,C_3 ----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

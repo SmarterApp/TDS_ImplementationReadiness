@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1502" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="owned" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tenían</p>]]></html>
+      </keyword>
+      <keyword text="own" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tiene</p>]]></html>
+      </keyword>
+      <keyword text="both" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">ambos</p>]]></html>
+      </keyword>
+      <keyword text="Drag" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Arrastra</p>]]></html>
+      </keyword>
+      <keyword text="number" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">número</p>]]></html>
+      </keyword>
+      <keyword text="to complete" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">para completar</p>]]></html>
+      </keyword>
+      <keyword text="table" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">tabla</p>]]></html>
+      </keyword>
+      <keyword text="information" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">información</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

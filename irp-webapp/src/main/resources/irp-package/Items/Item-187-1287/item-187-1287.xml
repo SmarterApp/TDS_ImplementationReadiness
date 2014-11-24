@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1287" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="measured" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">midió</p>]]></html>
+      </keyword>
+      <keyword text="growth of" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">crecimiento de</p>]]></html>
+      </keyword>
+      <keyword text="sunflower" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">girasol</p>]]></html>
+      </keyword>
+      <keyword text="In week" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">En la semana</p>]]></html>
+      </keyword>
+      <keyword text="grew" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">creció</p>]]></html>
+      </keyword>
+      <keyword text="did the sunflower grow" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">creció el girasol</p>]]></html>
+      </keyword>
+      <keyword text="in" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">en</p>]]></html>
+      </keyword>
+      <keyword text="weeks" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">semanas</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

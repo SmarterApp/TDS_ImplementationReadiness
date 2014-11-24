@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1210" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="lawn-mowing" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">de corte de césped</p>]]></html>
+      </keyword>
+      <keyword text="relationship" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">relación</p>]]></html>
+      </keyword>
+      <keyword text="between" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">entre</p>]]></html>
+      </keyword>
+      <keyword text="service" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">servicio</p>]]></html>
+      </keyword>
+      <keyword text="models" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">muestre</p>]]></html>
+      </keyword>
+      <keyword text="total" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">total</p>]]></html>
+      </keyword>
+      <keyword text="charge" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cobro</p>]]></html>
+      </keyword>
+      <keyword text="Create" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Crea</p>]]></html>
+      </keyword>
+      <keyword text="lawn-mowing" index="9">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cortar el césped/ cortando el césped</p>]]></html>
+      </keyword>
+      <keyword text="charges" index="10">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cobra</p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>
