@@ -6,7 +6,7 @@
 //
 
 
-package org.cresst.sb.irp.domain.scoring;
+package org.cresst.sb.irp.domain.tdsreport;
 
 import org.jsondoc.core.annotation.ApiObject;
 

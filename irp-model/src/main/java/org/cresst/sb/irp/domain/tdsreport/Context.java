@@ -6,7 +6,7 @@
 //
 
 
-package org.cresst.sb.irp.domain.scoring;
+package org.cresst.sb.irp.domain.tdsreport;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;

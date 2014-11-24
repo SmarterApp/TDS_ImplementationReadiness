@@ -7,9 +7,9 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.scoring.ObjectFactory;
-import org.cresst.sb.irp.domain.scoring.TDSReport;
-import org.cresst.sb.irp.domain.scoring.TDSReport.Test;
+import org.cresst.sb.irp.domain.tdsreport.ObjectFactory;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.InitializingBean;
@@ -17,8 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ScoringDaoImpl implements ScoringDao, InitializingBean {
-	private static Logger logger = Logger.getLogger(ScoringDaoImpl.class);
+public class TDSReportDaoImpl implements TDSReportDao, InitializingBean {
+	private static Logger logger = Logger.getLogger(TDSReportDaoImpl.class);
 	private String rootResourceFolderName = "SampleAssessmentItemPackage";
 	private String testScoringFileName = "TestScoreBatching.xml"; //"sampleoutput.xml";
 	private String testScoringXSDFileName = "TDSReport.xsd"; // "TestScoreBatching.xsd";
@@ -27,7 +27,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	@Autowired
 	private XMLValidate xMLValidate;
 	
-	public ScoringDaoImpl() {
+	public TDSReportDaoImpl() {
 		logger.info("initializing");
 	}
 
@@ -35,7 +35,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public TDSReport.Test getTest() {
 		TDSReport.Test test = tDSReport.getTest();
 		if (test == null){
-			throw new NotFoundException("Could not find Test for ScoringDaoImpl");
+			throw new NotFoundException("Could not find Test for TDSReportDaoImpl");
 		}
 		return test;
 	}
@@ -44,7 +44,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public TDSReport.Examinee getExaminee() {
 		TDSReport.Examinee examinee = tDSReport.getExaminee();
 		if (examinee == null){
-			throw new NotFoundException("Could not find Examinee for ScoringDaoImpl");
+			throw new NotFoundException("Could not find Examinee for TDSReportDaoImpl");
 		}
 		return examinee;
 	}
@@ -53,7 +53,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public TDSReport.Opportunity getOpportunity() {
 		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
 		if (opportunity == null){
-			throw new NotFoundException("Could not find Opportunity for ScoringDaoImpl");
+			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
 		return opportunity;
 	}
@@ -62,11 +62,11 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public List<TDSReport.Opportunity.Score> getOpportunityScores() {
 		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
 		if (opportunity == null){
-			throw new NotFoundException("Could not find Opportunity for ScoringDaoImpl");
+			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
 		List<TDSReport.Opportunity.Score> scoreList = opportunity.getScore();
 		if (scoreList == null){
-			throw new NotFoundException("Could not find List<Score> for ScoringDaoImpl");
+			throw new NotFoundException("Could not find List<Score> for TDSReportDaoImpl");
 		}
 		return scoreList;
 	}	
@@ -75,11 +75,11 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public List<TDSReport.Opportunity.Item> getOpportunityItems() {
 		TDSReport.Opportunity opportunity = tDSReport.getOpportunity();
 		if (opportunity == null){
-			throw new NotFoundException("Could not find Opportunity for ScoringDaoImpl");
+			throw new NotFoundException("Could not find Opportunity for TDSReportDaoImpl");
 		}
 		List<TDSReport.Opportunity.Item> itemList = opportunity.getItem();
 		if (itemList == null){
-			throw new NotFoundException("Could not find List<Item> for ScoringDaoImpl");
+			throw new NotFoundException("Could not find List<Item> for TDSReportDaoImpl");
 		}
 		return itemList;
 	}
@@ -97,7 +97,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 					rootResourceFolderName + "/" + testScoringFileName));
 			Test test = tDSReport.getTest();
 		} catch (Exception e) {
-			logger.error("ScoringDaoImpl exception: ", e);
+			logger.error("TDSReportDaoImpl exception: ", e);
 		}
 		
 	}
@@ -106,7 +106,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public List<TDSReport.Comment> getComments() {
 		List<TDSReport.Comment> commentList = tDSReport.getComment();
 		if (commentList == null){
-			throw new NotFoundException("Could not find List<Comment> for ScoringDaoImpl");
+			throw new NotFoundException("Could not find List<Comment> for TDSReportDaoImpl");
 		}
 		return commentList;
 	}
@@ -115,7 +115,7 @@ public class ScoringDaoImpl implements ScoringDao, InitializingBean {
 	public List<TDSReport.ToolUsage> getToolUsage() {
 		List<TDSReport.ToolUsage> toolUsageList = tDSReport.getToolUsage();
 		if (toolUsageList == null){
-			throw new NotFoundException("Could not find List<ToolUsage> for ScoringDaoImpl");
+			throw new NotFoundException("Could not find List<ToolUsage> for TDSReportDaoImpl");
 		}
 		return toolUsageList;
 	}
