@@ -10,9 +10,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>irp-validation-engine</artifactId>
+    <artifactId>irp-analysis-engine</artifactId>
     <packaging>jar</packaging>
-    <name>IReadinessPackage - Validation Engine</name>
+    <name>IReadinessPackage - Analysis Engine</name>
     <url>http://bitbucket.org/sbcresst</url>
 
 
