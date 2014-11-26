@@ -2,6 +2,7 @@ package org.cresst.sb.irp.upload;
 
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+import org.cresst.sb.irp.service.AnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.XmlMappingException;
@@ -13,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.xml.transform.stream.StreamSource;
+
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -22,6 +25,9 @@ import java.io.IOException;
 public class FileUploadController {
     private static Logger logger = Logger.getLogger(FileUploadController.class);
 
+	@Autowired
+	public AnalysisService analysisService;
+    
     @Autowired
     private Unmarshaller unmarshaller;
 
@@ -36,6 +42,10 @@ public class FileUploadController {
         if (!file.isEmpty()) {
             try {
                 TDSReport tdsReport = (TDSReport)unmarshaller.unmarshal(new StreamSource(file.getInputStream()));
+                //need to create a return object (list of AnalysisResponse object ?
+                //for the time being, there is no return object
+                System.out.println("AAAAAAAAAAAAAAAAAAAAA");
+                analysisService.analysisProcess(tdsReport);
                 // TODO: Run validation engine on TDS Report and return an analysis report
                 if (tdsReport != null) {
                     validationMessage = "Valid";
@@ -44,7 +54,14 @@ public class FileUploadController {
                 logger.info("File upload failed", e);
             }
         }
-
+        
+        //Paul may need to modify here
+        /*
+        java.util.List<File> fileList = new java.util.ArrayList<>();
+        fileList.add((File) file);
+        analysisService.analysisProcess(fileList);
+        */
+        
         mav.addObject("validation", validationMessage);
 
         return mav;

@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.cresst.sb.irp</groupId>
-        <artifactId>irp-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>org.cresst.sb.irp</groupId>
+		<artifactId>irp-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
-    <artifactId>irp-analysis-engine</artifactId>
-    <packaging>jar</packaging>
-    <name>IReadinessPackage - Analysis Engine</name>
-    <url>http://bitbucket.org/sbcresst</url>
+	<artifactId>irp-analysis-engine</artifactId>
+	<packaging>jar</packaging>
+	<name>IReadinessPackage - Analysis Engine</name>
+	<url>http://bitbucket.org/sbcresst</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.cresst.sb.irp</groupId>
+			<artifactId>irp-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cresst.sb.irp</groupId>
+			<artifactId>irp-service</artifactId>
+		</dependency>
+
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
 
 
 </project>
