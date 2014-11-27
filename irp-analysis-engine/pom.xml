@@ -14,6 +14,10 @@
 	<name>IReadinessPackage - Analysis Engine</name>
 	<url>http://bitbucket.org/sbcresst</url>
 
+	<properties>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.cresst.sb.irp</groupId>
@@ -24,7 +28,7 @@
 			<artifactId>irp-service</artifactId>
 		</dependency>
 
-	
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -62,6 +66,8 @@
 			<artifactId>mockito-all</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
 
 	</dependencies>
 

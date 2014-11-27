@@ -53,7 +53,7 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	public TestpackageDaoImpl() {
 		logger.info("initializing");
 	}
-
+	
 	@Override
 	public Testpackage getTestpackage(String uniqueid) {
 		Testpackage testpackage = mapTestpackage.get(uniqueid);
@@ -65,14 +65,27 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
+	public Testpackage getTestpackage2(String uniqueid) {
+		Testpackage testpackage = mapTestpackage.get(uniqueid);
+		if (testpackage == null) {
+			return null;
+		}
+		return testpackage;
+	}
+	
+	@Override
+	public Map<String, Testpackage> getMapTestpackage() {
+		// TODO Auto-generated method stub
+		return mapTestpackage;
+	}
+	
+	@Override
 	public void afterPropertiesSet() throws Exception {
 		try {
 			// TODO Auto-generated method stub
 			/******
-			 * there is a problem to validate xml vs xsd. need to be check it
-			 * out
+			 * there are some problems to validate xml vs xsd for testpackage. 
 			 *****/
-			// boolean bln = xMLValidate.validateXMLSchema(xsdPath, xmlPath);
 			
 			retrieveFileUtil.walk(testPackagePath.getURI().getPath(), mapTestpackage);
 			
@@ -83,7 +96,6 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 					.unmarshal(testPackageAdminMathResource.getInputStream());
 			String uniqueid = testpackage.getIdentifier().getUniqueid();
 			mapTestpackage.put(uniqueid, testpackage);*/
-			
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
@@ -293,5 +305,8 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 		}
 		return listAdminsegment;
 	}
+
+
+
 
 }

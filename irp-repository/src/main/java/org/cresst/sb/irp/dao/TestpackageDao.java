@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
@@ -14,7 +15,11 @@ import org.cresst.sb.irp.domain.testpackage.Testpackage;
 
 public interface TestpackageDao {
 	
+	Map<String, Testpackage> getMapTestpackage();
+	
 	Testpackage getTestpackage(String uniqueid);
+	
+	Testpackage getTestpackage2(String uniqueid);
 	
 	Identifier getIdentifier(String testpackageUniqueid);
 	
