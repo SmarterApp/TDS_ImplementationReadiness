@@ -13,3 +13,8 @@ Feature: A TDS Report is uploaded and an analysis report is given.
     Given I have a valid TDS Report XML document
     When I upload the document
     Then The analysis report should indicate my TDS Report is valid
+
+  Scenario: Multiple TDS Report Upload via ZIP file
+    Given I have a ZIP file containing 3 TDS Report XML documents
+    When I upload the document
+    Then The analysis report should indicate that 3 TDS Reports have been uploaded

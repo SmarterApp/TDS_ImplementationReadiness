@@ -36,6 +36,7 @@
             <groupId>org.cresst.sb.irp</groupId>
             <artifactId>irp-analysis-engine</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -76,7 +77,6 @@
             <artifactId>commons-fileupload</artifactId>
             <version>${commons-upload.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.thymeleaf</groupId>

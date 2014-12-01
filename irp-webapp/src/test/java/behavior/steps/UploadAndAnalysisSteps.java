@@ -1,6 +1,7 @@
 package behavior.steps;
 
 import behavior.steps.utils.TdsReportFactory;
+import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -51,5 +52,16 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
 
         resultActions.andExpect(status().isOk())
                 .andExpect(xpath("//p[@id='validation']").string(expectedValidation));
+    }
+
+    @Given("^I have a ZIP file containing (\\d+) TDS Report XML documents$")
+    public void I_have_a_ZIP_file_containing_TDS_Report_XML_documents(int numberOfDocumentsInZip) throws Throwable {
+         tdsReportXml = TdsReportFactory.getZippedTdsReport();
+    }
+
+    @Then("^The analysis report should indicate that (\\d+) TDS Reports have been uploaded$")
+    public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
+        resultActions.andExpect(status().isOk())
+                .andExpect(xpath("//span[@id='numTdsFilesUploaded']").number(3.0));
     }
 }

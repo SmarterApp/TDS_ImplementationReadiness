@@ -1,13 +1,19 @@
 package behavior.steps.utils;
 
 import org.apache.commons.io.FileUtils;
+import org.mockito.Mock;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 /**
  * Creates stubbed TdsReport XML documents
@@ -29,5 +35,33 @@ public class TdsReportFactory {
         }
 
         return tdsReport;
+    }
+
+    public static MockMultipartFile getZippedTdsReport() throws IOException {
+        Resource resource = new ClassPathResource("good-tds-report.xml");
+        byte[] reportByteArray = FileUtils.readFileToByteArray(resource.getFile());
+        ByteArrayOutputStream boas = new ByteArrayOutputStream();
+        try (ZipOutputStream zos = new ZipOutputStream(boas)) {
+
+            ZipEntry entry = new ZipEntry("tdsreport-1.xml");
+            zos.putNextEntry(entry);
+            zos.write(reportByteArray);
+            zos.closeEntry();
+
+            entry = new ZipEntry("tdsreport-2.xml");
+            zos.putNextEntry(entry);
+            zos.write(reportByteArray);
+            zos.closeEntry();
+
+            entry = new ZipEntry("tdsreport-3.xml");
+            zos.putNextEntry(entry);
+            zos.write(reportByteArray);
+            zos.closeEntry();
+        }
+
+        MockMultipartFile zippedTdsReport = new MockMultipartFile("file", "tdsreports.zip", MediaType.MULTIPART_FORM_DATA_VALUE,
+                boas.toByteArray());
+
+        return zippedTdsReport;
     }
 }
