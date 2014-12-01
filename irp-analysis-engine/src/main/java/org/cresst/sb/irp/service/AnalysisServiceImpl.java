@@ -6,6 +6,8 @@ import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Path;
+
 @Service
 public class AnalysisServiceImpl implements AnalysisService {
 	private static Logger logger = Logger.getLogger(AnalysisServiceImpl.class);
@@ -18,18 +20,7 @@ public class AnalysisServiceImpl implements AnalysisService {
 	}
 
 	@Override
-	public void analysisProcess(AnalysisResponse analysisResponse) {
-		analysisDao.analysisProcess(analysisResponse);
-		
+	public AnalysisResponse analysisProcess(Iterable<Path> tdsReportPaths) {
+		return new AnalysisResponse();
 	}
-
-	/*@Override
-	public void analysisProcess(TDSReport tdsReport, List analysisResponseList) {
-		analysisDao.analysisProcess(tdsReport, analysisResponseList);
-		//return analysisDao.
-	}*/
-	
-	
-	
-	
 }

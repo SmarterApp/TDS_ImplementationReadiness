@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.upload;
 
 import org.apache.log4j.Logger;
+import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.AnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +44,7 @@ public class FileUploadController {
                 Iterable<Path> tdsReportPaths = getTdsReportFiles(file);
 
                 // TODO: Run validation/analysis engine on TDS Reports and return an analysis report
-                //analysisService.analysisProcess(analysisResponse);
-                //Paul may need to modify here, no return object yet for analysisProcess function
-                /*
                 AnalysisResponse analysisResponse = analysisService.analysisProcess(tdsReportPaths);
-                */
 
             } catch (IOException | XmlMappingException | ClassCastException e) {
                 logger.info("File upload failed", e);
