@@ -13,14 +13,16 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String StateAbbreviation;
 	private String ResponsibleDistrictIdentifier;
-	private String ResponsibleSchoolIdentifier;
+	private String ResponsibleInstitutionIdentifier; //ResponsibleSchoolIdentifier
 	private String LastOrSurname;
 	private String FirstName;
 	private String MiddleName;
 	private String Birthdate;
-	private String StudentIdentifier;
-	private String ExternalSSID;
-	private String ConfirmationCode;
+	private String SSID;
+	private String AlternateSSID;
+	//private String StudentIdentifier;
+	//private String ExternalSSID;
+	//private String ConfirmationCode;
 	private String GradeLevelWhenAssessed;
 	private String Sex;
 	private String HispanicOrLatinoEthnicity;
@@ -64,13 +66,24 @@ public class Student implements Serializable {
 		ResponsibleDistrictIdentifier = responsibleDistrictIdentifier;
 	}
 
+	/*
 	public String getResponsibleSchoolIdentifier() {
 		return ResponsibleSchoolIdentifier;
-	}
+	}*/
 
+	/*
 	public void setResponsibleSchoolIdentifier(
 			String responsibleSchoolIdentifier) {
 		ResponsibleSchoolIdentifier = responsibleSchoolIdentifier;
+	}*/
+	
+	public String getResponsibleInstitutionIdentifier() {
+		return ResponsibleInstitutionIdentifier;
+	}
+
+	public void setResponsibleInstitutionIdentifier(
+			String responsibleInstitutionIdentifier) {
+		ResponsibleInstitutionIdentifier = responsibleInstitutionIdentifier;
 	}
 
 	public String getLastOrSurname() {
@@ -104,30 +117,53 @@ public class Student implements Serializable {
 	public void setBirthdate(String birthdate) {
 		Birthdate = birthdate;
 	}
+	
+	public String getSSID() {
+		return SSID;
+	}
 
+	public void setSSID(String sSID) {
+		SSID = sSID;
+	}
+	
+	public String getAlternateSSID() {
+		return AlternateSSID;
+	}
+
+	public void setAlternateSSID(String alternateSSID) {
+		AlternateSSID = alternateSSID;
+	}
+
+	
+	/*
 	public String getStudentIdentifier() {
 		return StudentIdentifier;
-	}
+	}*/
 
+	/*
 	public void setStudentIdentifier(String studentIdentifier) {
 		StudentIdentifier = studentIdentifier;
-	}
+	}*/
 
+	/*
 	public String getExternalSSID() {
 		return ExternalSSID;
-	}
+	}*/
 
+	/*
 	public void setExternalSSID(String externalSSID) {
 		ExternalSSID = externalSSID;
-	}
+	}*/
 
+	/*
 	public String getConfirmationCode() {
 		return ConfirmationCode;
-	}
+	}*/
 
+	/*
 	public void setConfirmationCode(String confirmationCode) {
 		ConfirmationCode = confirmationCode;
-	}
+	}*/
 
 	public String getGradeLevelWhenAssessed() {
 		return GradeLevelWhenAssessed;
@@ -310,23 +346,20 @@ public class Student implements Serializable {
 	public void setDelete(String delete) {
 		Delete = delete;
 	}
-
 	
 	@Override
 	public String toString() {
 		return "Student [StateAbbreviation=" + StateAbbreviation
 				+ ", ResponsibleDistrictIdentifier="
 				+ ResponsibleDistrictIdentifier
-				+ ", ResponsibleSchoolIdentifier="
-				+ ResponsibleSchoolIdentifier + ", LastOrSurname="
+				+ ", ResponsibleInstitutionIdentifier="
+				+ ResponsibleInstitutionIdentifier + ", LastOrSurname="
 				+ LastOrSurname + ", FirstName=" + FirstName + ", MiddleName="
-				+ MiddleName + ", Birthdate=" + Birthdate
-				+ ", StudentIdentifier=" + StudentIdentifier
-				+ ", ExternalSSID=" + ExternalSSID + ", ConfirmationCode="
-				+ ConfirmationCode + ", GradeLevelWhenAssessed="
-				+ GradeLevelWhenAssessed + ", Sex=" + Sex
-				+ ", HispanicOrLatinoEthnicity=" + HispanicOrLatinoEthnicity
-				+ ", AmericanIndianOrAlaskaNative="
+				+ MiddleName + ", Birthdate=" + Birthdate + ", SSID=" + SSID
+				+ ", AlternateSSID=" + AlternateSSID
+				+ ", GradeLevelWhenAssessed=" + GradeLevelWhenAssessed
+				+ ", Sex=" + Sex + ", HispanicOrLatinoEthnicity="
+				+ HispanicOrLatinoEthnicity + ", AmericanIndianOrAlaskaNative="
 				+ AmericanIndianOrAlaskaNative + ", Asian=" + Asian
 				+ ", BlackOrAfricanAmerican=" + BlackOrAfricanAmerican
 				+ ", White=" + White
@@ -349,5 +382,6 @@ public class Student implements Serializable {
 				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType
 				+ ", Delete=" + Delete + "]";
 	}
-
+	
+	
 }

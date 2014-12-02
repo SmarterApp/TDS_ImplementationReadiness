@@ -44,17 +44,17 @@ public class StudentController {
 		
 	}
 
-	@ApiMethod(path = "/students/{studentIdentifier}", description = "Returns a Student", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	@RequestMapping(value="/students/{studentIdentifier}", method = RequestMethod.GET, produces="application/json")
+	@ApiMethod(path = "/students/{studentSSID}", description = "Returns a Student", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value="/students/{studentSSID}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public @ApiResponseObject Student getStudentByStudentIdentifier(
-			@ApiParam(name = "studentIdentifier", description = "The Student ID", paramType = ApiParamType.PATH)
-			@PathVariable("studentIdentifier") String studentIdentifier){
-		if (!NumberUtils.isNumber(studentIdentifier)) {
+	public @ApiResponseObject Student getStudentByStudentSSID(
+			@ApiParam(name = "studentSSID", description = "The Student ID", paramType = ApiParamType.PATH)
+			@PathVariable("studentSSID") String studentSSID){
+		if (!NumberUtils.isNumber(studentSSID)) {
 			logger.info("getStudentByStudentIdentifier error studentIdentifier is not a number");
 		} else {
-			return studentService.getStudentByStudentIdentifier(studentIdentifier);
+			return studentService.getStudentByStudentSSID(studentSSID); //getStudentByStudentIdentifier(studentIdentifier);
 		}
 		return null;
 		

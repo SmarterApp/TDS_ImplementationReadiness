@@ -24,14 +24,22 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.getStudents();
 	}
 
+	/*
 	@Override
 	public Student getStudentByStudentIdentifier(String studentIdentifier) {
 		return studentDao.getStudentByStudentIdentifier(studentIdentifier);
+	}*/
+	
+	@Override
+	public Student getStudentByStudentSSID(String studentSSID) {
+		return studentDao.getStudentByStudentSSID(studentSSID);
 	}
 
 	@Override
 	public void createStudent(Student student) {
 		studentDao.createStudent(student);
 	}
+
+	
 	
 }

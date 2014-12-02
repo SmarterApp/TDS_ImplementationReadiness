@@ -17,9 +17,9 @@ public class StudentValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		Student student = (Student) target;
-		String externalSSID = student.getExternalSSID();
+		String externalSSID = student.getAlternateSSID();
 		String birthDate = student.getBirthdate();
-		String confirmationCode = student.getConfirmationCode();
+		//String confirmationCode = student.getConfirmationCode();
 		
 		//. . .
 		
@@ -29,13 +29,6 @@ public class StudentValidator implements Validator {
 		} else if (externalSSID.length() < 12) {
 			errors.rejectValue("externalSSID", "error.externalSSID.less",
 					"must be greater than or equal to 12");
-		}
-		
-		if (confirmationCode == null){
-			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmationCode",
-					"error.confirmationCode.blank", "must not be blank");
-		} else if (confirmationCode.contains("abc")){
-			errors.rejectValue("confirmationCode", "error.confirmationCode.invalid", "not a valid confirmationcode");
 		}
 		
 		//. . .

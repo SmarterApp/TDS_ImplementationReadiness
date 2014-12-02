@@ -9,7 +9,9 @@ public interface StudentDao {
 	
 	List<Student> getStudents();
 	
-	Student getStudentByStudentIdentifier(String studentIdentifier);
+	//Student getStudentByStudentIdentifier(String studentIdentifier);
+	
+	Student getStudentByStudentSSID(String studentSSID);
 	
 	void createStudent(Student student);
 

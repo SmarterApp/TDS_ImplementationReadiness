@@ -24,7 +24,7 @@ public class StudentDaoImpl implements StudentDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<Student> listStudent = new ArrayList<Student>();
 
-	@Value("classpath:irp-package/AK Students.xlsx")
+	@Value("classpath:irp-package/HI Students1_100.xlsx")  //AK Students.xlsx")
 	private Resource studentResource;
 
 	@Autowired
@@ -55,11 +55,20 @@ public class StudentDaoImpl implements StudentDao {
 		return listStudent;
 	}
 
-	@Override
+	/*@Override
 	public Student getStudentByStudentIdentifier(String studentIdentifier) {
 		Student student = studentUtil.getStudentByStudentIdentifier(listStudent, studentIdentifier);
 		if (student == null){
 			throw new NotFoundException("Could not find student " + studentIdentifier);
+		}
+		return student;
+	}*/
+	
+	@Override
+	public Student getStudentByStudentSSID(String studentSSID) {
+		Student student = studentUtil.getStudentBySSID(listStudent, studentSSID);
+		if (student == null){
+			throw new NotFoundException("Could not find student " + studentSSID);
 		}
 		return student;
 	}
@@ -68,5 +77,7 @@ public class StudentDaoImpl implements StudentDao {
 	public void createStudent(Student student) {
 		listStudent.add(student);
 	}
+
+
 
 }

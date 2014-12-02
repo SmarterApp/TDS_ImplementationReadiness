@@ -117,8 +117,8 @@ public class StudentUtil {
 			case "ResponsibleDistrictIdentifier":
 				student.setResponsibleDistrictIdentifier(cellStringValue);
 				break;
-			case "ResponsibleSchoolIdentifier":
-				student.setResponsibleSchoolIdentifier(cellStringValue);
+			case "ResponsibleInstitutionIdentifier": //"ResponsibleSchoolIdentifier":
+				student.setResponsibleInstitutionIdentifier(cellStringValue);
 				break;
 			case "LastOrSurname":
 				student.setLastOrSurname(cellStringValue);
@@ -132,6 +132,13 @@ public class StudentUtil {
 			case "Birthdate":
 				student.setBirthdate(cellStringValue);
 				break;
+			case "SSID":
+				student.setSSID(cellStringValue);
+				break;	
+			case "AlternateSSID":
+				student.setAlternateSSID(cellStringValue);
+				break;		
+			/*	
 			case "StudentIdentifier":
 				student.setStudentIdentifier(cellStringValue);
 				break;
@@ -141,6 +148,7 @@ public class StudentUtil {
 			case "ConfirmationCode":
 				student.setConfirmationCode(cellStringValue);
 				break;
+			*/
 			case "GradeLevelWhenAssessed":
 				student.setGradeLevelWhenAssessed(cellStringValue);
 				break;
@@ -219,6 +227,24 @@ public class StudentUtil {
 		}
 	}
 
+	public Student getStudentBySSID(List<Student> listStudent,
+			String studentSSID) {
+		Student student = null;
+		try {
+			for(Student _student: listStudent){
+				if(_student.getSSID().trim().toLowerCase().equals(studentSSID.trim().toLowerCase())){
+					return _student;
+				}
+			}
+		} catch (Exception e) {
+			logger.info("getStudentBySSID exception: " + e);
+			System.out.println("StudentUtil.getStudentBySSID Exception thrown  :"+ e);
+			e.printStackTrace();
+		}
+		return student;
+	}
+	
+	/*
 	public Student getStudentByStudentIdentifier(List<Student> listStudent,
 			String studentIdentifier) {
 
@@ -235,7 +261,7 @@ public class StudentUtil {
 			e.printStackTrace();
 		}
 		return student;
-	}
+	}*/
 
 	
 	
