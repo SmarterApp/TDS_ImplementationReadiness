@@ -17,6 +17,8 @@ public interface TestPackageService {
 
 	Testpackage getTestpackage(String uniqueid);
 	
+	Testpackage getTestpackageByIdentifierUniqueid(String uniqueid);
+	
 	Identifier getIdentifier(String testpackageUniqueid);
 	
 	List<Property> getListProperty(String testpackageUniqueid);

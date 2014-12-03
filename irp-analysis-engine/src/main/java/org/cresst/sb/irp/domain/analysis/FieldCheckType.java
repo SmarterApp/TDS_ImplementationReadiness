@@ -8,9 +8,9 @@ public class FieldCheckType {
 	private boolean isCorrectDataType;
 	private boolean isAcceptableValue;
 	private boolean isCorrectValue;
-	private fieldCheckType _fieldCheckType;
+	private EnumFieldCheckType enumfieldCheckType;
 
-	public enum fieldCheckType {
+	public enum EnumFieldCheckType {
 		D, P, PC;
 	}
 
@@ -46,12 +46,12 @@ public class FieldCheckType {
 		this.isCorrectValue = isCorrectValue;
 	}
 
-	public fieldCheckType get_fieldCheckType() {
-		return _fieldCheckType;
+	public EnumFieldCheckType getEnumfieldCheckType() {
+		return enumfieldCheckType;
 	}
 
-	public void set_fieldCheckType(fieldCheckType _fieldCheckType) {
-		this._fieldCheckType = _fieldCheckType;
+	public void setEnumfieldCheckType(EnumFieldCheckType enumfieldCheckType) {
+		this.enumfieldCheckType = enumfieldCheckType;
 	}
 
 	@Override
@@ -59,8 +59,10 @@ public class FieldCheckType {
 		return "FieldCheckType [isFieldEmpty=" + isFieldEmpty
 				+ ", isCorrectDataType=" + isCorrectDataType
 				+ ", isAcceptableValue=" + isAcceptableValue
-				+ ", isCorrectValue=" + isCorrectValue + ", _fieldCheckType="
-				+ _fieldCheckType + "]";
+				+ ", isCorrectValue=" + isCorrectValue
+				+ ", enumfieldCheckType=" + enumfieldCheckType + "]";
 	}
+
+
 
 }

@@ -55,4 +55,23 @@ public class XMLValidate {
 		return true;
 	}
 
+	
+	public boolean validateXMLSchema(Resource resource,String file)
+			throws IOException {
+
+		try {
+			SchemaFactory factory = SchemaFactory
+					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			Schema schema = factory.newSchema(resource.getFile()); 
+			Validator validator = (Validator) schema.newValidator();
+			validator.validate(new StreamSource(file));
+		} catch (SAXException e) {
+			System.out.println("Exception: " + e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	
+	
 }

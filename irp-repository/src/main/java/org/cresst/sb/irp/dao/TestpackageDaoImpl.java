@@ -65,7 +65,7 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	}
 
 	@Override
-	public Testpackage getTestpackage2(String uniqueid) {
+	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
 		Testpackage testpackage = mapTestpackage.get(uniqueid);
 		if (testpackage == null) {
 			return null;

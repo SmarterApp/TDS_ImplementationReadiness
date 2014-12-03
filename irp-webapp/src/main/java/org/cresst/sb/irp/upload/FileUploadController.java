@@ -42,6 +42,7 @@ public class FileUploadController {
         if (!file.isEmpty()) {
             try {
                 Iterable<Path> tdsReportPaths = getTdsReportFiles(file);
+                System.out.println("tdsReportPaths ---->" + tdsReportPaths);
 
                 // TODO: Run validation/analysis engine on TDS Reports and return an analysis report
                 AnalysisResponse analysisResponse = analysisService.analysisProcess(tdsReportPaths);
@@ -67,6 +68,7 @@ public class FileUploadController {
 
         final List<Path> paths = new ArrayList<>();
         String fileType = multipartFile.getContentType();
+        System.out.println("fileType ---->" + fileType);
 
         // Determine file type
         if ("application/zip".equals(fileType)) {
@@ -74,10 +76,9 @@ public class FileUploadController {
             getTdsReportFilesFromZip(multipartFile, paths);
 
         } else if ("text/xml".equals(fileType)) {
-
             final Path tmpDir = Files.createTempDirectory("irp");
             final Path tmpFile = Paths.get(tmpDir.toString(), multipartFile.getOriginalFilename());
-
+            
             // Move the uploaded file to the new temporary directory
             multipartFile.transferTo(tmpFile.toFile());
 

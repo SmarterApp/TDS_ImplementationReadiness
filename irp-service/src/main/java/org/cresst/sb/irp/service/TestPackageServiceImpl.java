@@ -29,6 +29,11 @@ public class TestPackageServiceImpl implements TestPackageService {
 	}
 
 	@Override
+	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
+		return testpackageDao.getTestpackageByIdentifierUniqueid(uniqueid);
+	}
+	
+	@Override
 	public Identifier getIdentifier(String testpackageUniqueid) {
 		return testpackageDao.getIdentifier(testpackageUniqueid);
 	}
@@ -87,7 +92,6 @@ public class TestPackageServiceImpl implements TestPackageService {
 	public List<Adminsegment> getAdminsegment(String testpackageUniqueid) {
 		return testpackageDao.getAdminsegment(testpackageUniqueid);
 	}
-
 
 
 }

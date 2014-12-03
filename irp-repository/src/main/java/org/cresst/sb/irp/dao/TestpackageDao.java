@@ -17,9 +17,9 @@ public interface TestpackageDao {
 	
 	Map<String, Testpackage> getMapTestpackage();
 	
-	Testpackage getTestpackage(String uniqueid);
+	Testpackage getTestpackage(String uniqueid);	
 	
-	Testpackage getTestpackage2(String uniqueid);
+	Testpackage getTestpackageByIdentifierUniqueid(String uniqueid);
 	
 	Identifier getIdentifier(String testpackageUniqueid);
 	

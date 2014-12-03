@@ -25,6 +25,3 @@ For more information visit http://www.smarterapp.org.
 * Repo owner or admin
 * Other community or team contact
 
-############ new #############
-hello again
-hhhhhhhhhhhh
