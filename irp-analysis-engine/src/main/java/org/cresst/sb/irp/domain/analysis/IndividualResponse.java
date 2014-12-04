@@ -13,7 +13,6 @@ public class IndividualResponse {
 	private String fileName; // id
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
-	private MultipartFile multipartFile; // upload file
 	
 	//Test, Examinee, ExamineeAttribute, Opportunity
 	private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
@@ -39,14 +38,6 @@ public class IndividualResponse {
 		this.tdsReport = tdsReport;
 	}
 
-	public MultipartFile getMultipartFile() {
-		return multipartFile;
-	}
-
-	public void setMultipartFile(MultipartFile multipartFile) {
-		this.multipartFile = multipartFile;
-	}
-
 	public HashMap<String, Hashtable<String, FieldCheckType>> getMapCategoryField() {
 		return mapCategoryField;
 	}
@@ -67,8 +58,8 @@ public class IndividualResponse {
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile="
 				+ isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", multipartFile=" + multipartFile + ", mapCategoryField="
-				+ mapCategoryField + "]";
+				+ ", mapCategoryField=" + mapCategoryField + "]";
 	}
+
 
 }

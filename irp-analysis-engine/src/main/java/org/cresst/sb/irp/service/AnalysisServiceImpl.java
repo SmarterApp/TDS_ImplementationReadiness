@@ -22,6 +22,5 @@ public class AnalysisServiceImpl implements AnalysisService {
 	@Override
 	public AnalysisResponse analysisProcess(Iterable<Path> tdsReportPaths) {
 		return analysisDao.analysisProcess(tdsReportPaths);
-		//return new AnalysisResponse();
 	}
 }
