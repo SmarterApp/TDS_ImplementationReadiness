@@ -15,15 +15,17 @@ public class IndividualResponse {
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
 
-	private List<TestCategory> listTestCategory;
+	private List<CellCategory> listTestCategory;
 	private ExamineeCategory examineeCategory;
+	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
 
 	// Test, Examinee, ExamineeAttribute, Opportunity
 	//private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
 
 	public IndividualResponse() {
 		logger.info("initializing");
-		setListTestCategory(new ArrayList<TestCategory>());
+		setListTestCategory(new ArrayList<CellCategory>());
+		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
 		//setMapCategoryField(new HashMap<String, Hashtable<String, FieldCheckType>>());
 	}
 
@@ -60,11 +62,11 @@ public class IndividualResponse {
 		this.isValidXMLfile = isValidXMLfile;
 	}
 
-	public List<TestCategory> getListTestCategory() {
+	public List<CellCategory> getListTestCategory() {
 		return listTestCategory;
 	}
 
-	public void setListTestCategory(List<TestCategory> listTestCategory) {
+	public void setListTestCategory(List<CellCategory> listTestCategory) {
 		this.listTestCategory = listTestCategory;
 	}
 
@@ -76,10 +78,19 @@ public class IndividualResponse {
 		this.examineeCategory = examineeCategory;
 	}
 
+	public List<ExamineeAttributeCategory> getListExamineeAttributeCategory() {
+		return listExamineeAttributeCategory;
+	}
+
+	public void setListExamineeAttributeCategory(List<ExamineeAttributeCategory> listExamineeAttributeCategory) {
+		this.listExamineeAttributeCategory = listExamineeAttributeCategory;
+	}
+
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory + "]";
+				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory
+				+ ", listExamineeAttributeCategory=" + listExamineeAttributeCategory + "]";
 	}
 
 	

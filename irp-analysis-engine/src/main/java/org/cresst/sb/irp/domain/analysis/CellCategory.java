@@ -2,14 +2,14 @@ package org.cresst.sb.irp.domain.analysis;
 
 import org.apache.log4j.Logger;
 
-public class TestCategory {
-	private static Logger logger = Logger.getLogger(TestCategory.class);
+public class CellCategory {
+	private static Logger logger = Logger.getLogger(CellCategory.class);
 	
 	private String tdsFieldName; //name, subject, testId, bankKey. . .
 	private String tdsFieldNameValue;
 	private FieldCheckType fieldCheckType;
 	
-	public TestCategory(){
+	public CellCategory(){
 		logger.info("initializing");
 	}
 
@@ -39,9 +39,10 @@ public class TestCategory {
 
 	@Override
 	public String toString() {
-		return "TestCategory [tdsFieldName=" + tdsFieldName + ", tdsFieldNameValue=" + tdsFieldNameValue + ", "
-				+ "fieldCheckType=" + fieldCheckType + "]";
+		return "CellCategory [tdsFieldName=" + tdsFieldName + ", tdsFieldNameValue=" + tdsFieldNameValue + ", fieldCheckType="
+				+ fieldCheckType + "]";
 	}
 
+	
 
 }

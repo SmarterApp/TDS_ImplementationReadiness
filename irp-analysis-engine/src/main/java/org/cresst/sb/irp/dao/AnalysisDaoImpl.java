@@ -28,7 +28,7 @@ import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
-import org.cresst.sb.irp.utils.TestAnalysisAction;
+import org.cresst.sb.irp.utils.ProcessAnalysisAction;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,12 +41,12 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	private static Logger logger = Logger.getLogger(AnalysisDaoImpl.class);
 
 	@Autowired
-	public TestAnalysisAction testAnalysisAction;
+	public ProcessAnalysisAction processAnalysisAction;
 	
 	@Autowired
 	public StudentService studentService;
 
-	@Value("classpath:irp-package/reportxml_oss.xsd") //Received from Rami on 12/4/14 vs sample_oss_report2.xml
+	@Value("classpath:irp-package/reportxml_oss.xsd") //from Rami on 12/4/14 vs sample_oss_report2.xml
 	private Resource TDSReportXSDResource;
 
 	@Autowired
@@ -81,12 +81,12 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
 					individualResponse.setTDSReport(tdsReport);
 
-					testAnalysisAction.setIndividualResponse(individualResponse);
-					testAnalysisAction.setTdsReport(tdsReport);
+					processAnalysisAction.setIndividualResponse(individualResponse);
+					processAnalysisAction.setTdsReport(tdsReport);
 					
-					testAnalysisAction.analysisTest();
-					testAnalysisAction.analysisExaminee();
-					testAnalysisAction.analysisExamineeAttribute();
+					processAnalysisAction.analysisTest();
+					processAnalysisAction.analysisExaminee();
+					processAnalysisAction.analysisExamineeAttribute();
 					
 					System.out.println("individualResponse ->" + individualResponse.toString());
 					
