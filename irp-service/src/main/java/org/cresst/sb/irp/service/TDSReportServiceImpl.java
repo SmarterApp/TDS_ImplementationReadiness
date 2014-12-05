@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.TDSReportDao;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +33,16 @@ public class TDSReportServiceImpl implements TDSReportService {
 	}
 
 	@Override
+	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
+		return tDSReportDao.getExamineeAttributes(examinee);
+	}
+
+	@Override
+	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee) {
+		return tDSReportDao.getExamineeRelationships(examinee);
+	}
+
+	@Override
 	public TDSReport.Opportunity getOpportunity() {
 		return tDSReportDao.getOpportunity();
 	}
@@ -38,21 +51,20 @@ public class TDSReportServiceImpl implements TDSReportService {
 	public List<TDSReport.Opportunity.Score> getOpportunityScores() {
 		return tDSReportDao.getOpportunityScores();
 	}
-	
+
 	@Override
 	public List<TDSReport.Opportunity.Item> getOpportunityItems() {
 		return tDSReportDao.getOpportunityItems();
 	}
-	
+
 	@Override
 	public List<TDSReport.Comment> getComments() {
 		return tDSReportDao.getComments();
 	}
-	
 
 	@Override
 	public List<TDSReport.ToolUsage> getToolUsage() {
 		return tDSReportDao.getToolUsage();
 	}
-	
+
 }

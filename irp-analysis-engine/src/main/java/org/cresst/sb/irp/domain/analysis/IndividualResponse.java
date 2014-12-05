@@ -1,11 +1,12 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.springframework.web.multipart.MultipartFile;
 
 public class IndividualResponse {
 	private static Logger logger = Logger.getLogger(IndividualResponse.class);
@@ -13,13 +14,17 @@ public class IndividualResponse {
 	private String fileName; // id
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
-	
-	//Test, Examinee, ExamineeAttribute, Opportunity
-	private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
+
+	private List<TestCategory> listTestCategory;
+	private ExamineeCategory examineeCategory;
+
+	// Test, Examinee, ExamineeAttribute, Opportunity
+	//private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
 
 	public IndividualResponse() {
 		logger.info("initializing");
-		setMapCategoryField(new HashMap<String, Hashtable<String, FieldCheckType>>());
+		setListTestCategory(new ArrayList<TestCategory>());
+		//setMapCategoryField(new HashMap<String, Hashtable<String, FieldCheckType>>());
 	}
 
 	public String getFileName() {
@@ -38,13 +43,14 @@ public class IndividualResponse {
 		this.tdsReport = tdsReport;
 	}
 
+	/*
 	public HashMap<String, Hashtable<String, FieldCheckType>> getMapCategoryField() {
 		return mapCategoryField;
 	}
 
 	public void setMapCategoryField(HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField) {
 		this.mapCategoryField = mapCategoryField;
-	}
+	}*/
 
 	public boolean isValidXMLfile() {
 		return isValidXMLfile;
@@ -54,12 +60,28 @@ public class IndividualResponse {
 		this.isValidXMLfile = isValidXMLfile;
 	}
 
-	@Override
-	public String toString() {
-		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile="
-				+ isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", mapCategoryField=" + mapCategoryField + "]";
+	public List<TestCategory> getListTestCategory() {
+		return listTestCategory;
 	}
 
+	public void setListTestCategory(List<TestCategory> listTestCategory) {
+		this.listTestCategory = listTestCategory;
+	}
+
+	public ExamineeCategory getExamineeCategory() {
+		return examineeCategory;
+	}
+
+	public void setExamineeCategory(ExamineeCategory examineeCategory) {
+		this.examineeCategory = examineeCategory;
+	}
+
+	@Override
+	public String toString() {
+		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
+				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory + "]";
+	}
+
+	
 
 }

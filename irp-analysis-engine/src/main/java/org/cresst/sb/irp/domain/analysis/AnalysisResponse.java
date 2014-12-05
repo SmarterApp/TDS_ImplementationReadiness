@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 public class AnalysisResponse {
 	private static Logger logger = Logger.getLogger(AnalysisResponse.class);
 
+	//each IndividualResponse represents each TDSReport xml file uploaded 
+	//and it includes all analysis results  
 	private List<IndividualResponse> listIndividualResponse;
 
 	public AnalysisResponse() {

@@ -93,5 +93,10 @@ public class TestPackageServiceImpl implements TestPackageService {
 		return testpackageDao.getAdminsegment(testpackageUniqueid);
 	}
 
+	@Override
+	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty) {
+		return testpackageDao.getSubjectPropertyValueFromListProperty(listProperty);
+	}
+
 
 }

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testpackage purpose="administration" publisher="SBAC_PT" publishdate="Oct 24 2014  3:26PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015" name="SBAC ELA 3-ELA-3" label="ELA Grades 3-5 Training Test" version="4867" />
+  <property name="subject" value="ELA" label="ELA" />
+  <property name="grade" value="3" label="grade 3" />
+  <property name="grade" value="4" label="grade 4" />
+  <property name="grade" value="5" label="grade 5" />
+  <administration>
+    <testblueprint>
+      <bpelement elementtype="test" minopitems="0" maxopitems="6" minftitems="0" maxftitems="0" opitemcount="0" ftitemcount="6">
+        <identifier uniqueid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015" name="SBAC ELA 3-ELA-3" version="4867" />
+      </bpelement>
+      <bpelement elementtype="segment" minopitems="0" maxopitems="6" minftitems="0" maxftitems="0" opitemcount="0" ftitemcount="6">
+        <identifier uniqueid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015" name="SBAC ELA 3-ELA-3" version="4867" />
+      </bpelement>
+      <bpelement elementtype="strand" minopitems="0" maxopitems="6" opitemcount="0" ftitemcount="6">
+        <identifier uniqueid="SBAC_PT-ELA-Undesignated" name="ELA-Undesignated" version="4867" />
+      </bpelement>
+    </testblueprint>
+    <poolproperty property="--ITEMTYPE--" value="EBSR" label="EBSR" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="2" />
+    <poolproperty property="--ITEMTYPE--" value="SA" label="SA" itemcount="1" />
+    <poolproperty property="Braille" value="BRF" label="Braille = BRF" itemcount="6" />
+    <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" itemcount="3" />
+    <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" itemcount="3" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="6" />
+    <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="6" />
+    <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" itemcount="5" />
+    <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" itemcount="6" />
+    <itempool>
+      <passage filename="stim-187-3709.xml">
+        <identifier uniqueid="187-3709" version="4867" />
+      </passage>
+      <passage filename="stim-187-3716.xml">
+        <identifier uniqueid="187-3716" version="4867" />
+      </passage>
+      <testitem filename="item-187-1690.xml" itemtype="MI">
+        <identifier uniqueid="187-1690" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MI" label="MI" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1692.xml" itemtype="SA">
+        <identifier uniqueid="187-1692" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <passageref>187-3709</passageref>
+        <poolproperty property="--ITEMTYPE--" value="SA" label="SA" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1700.xml" itemtype="EBSR">
+        <identifier uniqueid="187-1700" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <passageref>187-3709</passageref>
+        <poolproperty property="--ITEMTYPE--" value="EBSR" label="EBSR" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1701.xml" itemtype="ER">
+        <identifier uniqueid="187-1701" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="ER" label="ER" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1703.xml" itemtype="MS">
+        <identifier uniqueid="187-1703" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1728.xml" itemtype="MS">
+        <identifier uniqueid="187-1728" version="4867" />
+        <bpref>(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015</bpref>
+        <bpref>SBAC_PT-ELA-Undesignated</bpref>
+        <passageref>187-3716</passageref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Braille" value="BRF" label="Braille = BRF" />
+        <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+    </itempool>
+    <testform length="6">
+      <identifier uniqueid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015:Default-ENU" name="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015:Default-ENU" version="4867" />
+      <property name="language" value="ENU" label="English" />
+      <poolproperty property="--ITEMTYPE--" value="EBSR" label="EBSR" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="SA" label="SA" itemcount="1" />
+      <poolproperty property="Braille" value="BRF" label="Braille = BRF" itemcount="6" />
+      <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" itemcount="3" />
+      <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" itemcount="3" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="6" />
+      <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="6" />
+      <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" itemcount="5" />
+      <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" itemcount="6" />
+      <formpartition>
+        <identifier uniqueid="187-494" name="ELA Training 3-5::SP 14" version="4867" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-494:G-187-3709-0" name="187-494:G-187-3709-0" version="4867" />
+          <passageref passageid="187-3709" />
+          <groupitem itemid="187-1692" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+          <groupitem itemid="187-1700" formposition="2" groupposition="2" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-494:I-187-1701" name="187-494:I-187-1701" version="4867" />
+          <groupitem itemid="187-1701" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-494:I-187-1703" name="187-494:I-187-1703" version="4867" />
+          <groupitem itemid="187-1703" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-494:G-187-3716-0" name="187-494:G-187-3716-0" version="4867" />
+          <passageref passageid="187-3716" />
+          <groupitem itemid="187-1728" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-494:I-187-1690" name="187-494:I-187-1690" version="4867" />
+          <groupitem itemid="187-1690" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+    </testform>
+    <testform length="6">
+      <identifier uniqueid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015:Default-ENU-Braille" name="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015:Default-ENU-Braille" version="4867" />
+      <property name="language" value="ENU-Braille" label="English" />
+      <poolproperty property="--ITEMTYPE--" value="EBSR" label="EBSR" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="SA" label="SA" itemcount="1" />
+      <poolproperty property="Braille" value="BRF" label="Braille = BRF" itemcount="6" />
+      <poolproperty property="Depth of Knowledge" value="2" label="Depth of Knowledge = 2" itemcount="3" />
+      <poolproperty property="Depth of Knowledge" value="3" label="Depth of Knowledge = 3" itemcount="3" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="6" />
+      <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="6" />
+      <poolproperty property="Minimum Grade" value="3" label="Minimum Grade = 3" itemcount="5" />
+      <poolproperty property="Purpose" value="Pilot" label="Purpose = Pilot" itemcount="6" />
+      <formpartition>
+        <identifier uniqueid="187-499" name="ELA Training 3-5::SP 14::Braille" version="4867" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-499:G-187-3709-0" name="187-499:G-187-3709-0" version="4867" />
+          <passageref passageid="187-3709" />
+          <groupitem itemid="187-1692" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+          <groupitem itemid="187-1700" formposition="2" groupposition="2" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-499:I-187-1701" name="187-499:I-187-1701" version="4867" />
+          <groupitem itemid="187-1701" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-499:I-187-1703" name="187-499:I-187-1703" version="4867" />
+          <groupitem itemid="187-1703" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-499:G-187-3716-0" name="187-499:G-187-3716-0" version="4867" />
+          <passageref passageid="187-3716" />
+          <groupitem itemid="187-1728" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-499:I-187-1690" name="187-499:I-187-1690" version="4867" />
+          <groupitem itemid="187-1690" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+    </testform>
+    <adminsegment segmentid="(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015" position="1" itemselection="fixedform">
+      <segmentblueprint>
+        <segmentbpelement bpelementid="SBAC_PT-ELA-Undesignated" minopitems="0" maxopitems="6" />
+      </segmentblueprint>
+      <itemselector type="fixedform">
+        <identifier uniqueid="AIR FIXEDFORM1" name="AIR FIXEDFORM" label="AIR FIXEDFORM" version="1.0" />
+      </itemselector>
+      <segmentform formpartitionid="187-494" />
+      <segmentform formpartitionid="187-499" />
+    </adminsegment>
+  </administration>
+</testpackage>

@@ -306,6 +306,20 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 		return listAdminsegment;
 	}
 
+	@Override
+	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty) {
+		try {
+			for (Property property : listProperty) {
+				if (property.getName().trim().toLowerCase().equals("subject")) {
+					return property.getValue();
+				}
+			}
+		} catch (Exception e) {
+			logger.error("getSubjectPropertyValueFromListProperty exception: ", e);
+		}
+		return null;
+	}
+
 
 
 
