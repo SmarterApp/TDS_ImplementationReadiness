@@ -12,10 +12,7 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
-import org.cresst.sb.irp.domain.testpackage.Property;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +23,16 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 
 	public enum EnumExamineeAttributeFieldName {
 		name, value, context, contextDate;
+	}
+	
+	//added DOB -  <ExamineeAttribute context="FINAL" name="DOB" 
+	public enum EnumExamineeAttributeAcceptValues {
+		LastOrSurname, FirstName, MiddleName, Birthdate, DOB, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed,
+		Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White,
+		NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status,
+		EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, 
+		FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate,
+		TitleIIILanguageInstructionProgramType, PrimaryDisabilityType;
 	}
 
 	@Override
@@ -186,4 +193,27 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 
 	}
 
+	
+	private void processExamineeAttributeName(String nameValue, FieldCheckType fieldCheckType){
+		try {
+			EnumExamineeAttributeAcceptValues ev = EnumValueExist(nameValue);
+			if (ev != null){
+				fieldCheckType.setCorrectValue(true);
+			}
+			
+			
+		} catch (Exception e) {
+			logger.error("processExamineeAttributeName exception: ", e);
+		}
+	}
+
+	//may need to change this function tomorrow
+	private EnumExamineeAttributeAcceptValues EnumValueExist(String nameValue){
+		for (EnumExamineeAttributeAcceptValues me : EnumExamineeAttributeAcceptValues.values()) {
+	        if (me.name().equalsIgnoreCase(nameValue))
+	            return me;
+	    }
+	    return null;
+	}
+	
 }

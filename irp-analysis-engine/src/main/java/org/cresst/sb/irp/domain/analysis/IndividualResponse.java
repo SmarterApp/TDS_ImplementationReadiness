@@ -18,15 +18,14 @@ public class IndividualResponse {
 	private List<CellCategory> listTestCategory;
 	private ExamineeCategory examineeCategory;
 	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
-
-	// Test, Examinee, ExamineeAttribute, Opportunity
-	//private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
+	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
 
 	public IndividualResponse() {
 		logger.info("initializing");
 		setListTestCategory(new ArrayList<CellCategory>());
 		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
-		//setMapCategoryField(new HashMap<String, Hashtable<String, FieldCheckType>>());
+		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
+		
 	}
 
 	public String getFileName() {
@@ -44,15 +43,6 @@ public class IndividualResponse {
 	public void setTDSReport(TDSReport tdsReport) {
 		this.tdsReport = tdsReport;
 	}
-
-	/*
-	public HashMap<String, Hashtable<String, FieldCheckType>> getMapCategoryField() {
-		return mapCategoryField;
-	}
-
-	public void setMapCategoryField(HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField) {
-		this.mapCategoryField = mapCategoryField;
-	}*/
 
 	public boolean isValidXMLfile() {
 		return isValidXMLfile;
@@ -85,12 +75,21 @@ public class IndividualResponse {
 	public void setListExamineeAttributeCategory(List<ExamineeAttributeCategory> listExamineeAttributeCategory) {
 		this.listExamineeAttributeCategory = listExamineeAttributeCategory;
 	}
+	
+	public List<ExamineeRelationshipCategory> getListExamineeRelationshipCategory() {
+		return listExamineeRelationshipCategory;
+	}
+
+	public void setListExamineeRelationshipCategory(List<ExamineeRelationshipCategory> listExamineeRelationshipCategory) {
+		this.listExamineeRelationshipCategory = listExamineeRelationshipCategory;
+	}
 
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
 				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory
-				+ ", listExamineeAttributeCategory=" + listExamineeAttributeCategory + "]";
+				+ ", listExamineeAttributeCategory=" + listExamineeAttributeCategory + ", listExamineeRelationshipCategory="
+				+ listExamineeRelationshipCategory + "]";
 	}
 
 	

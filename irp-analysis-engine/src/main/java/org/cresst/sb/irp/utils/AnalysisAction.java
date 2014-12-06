@@ -14,6 +14,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.cresst.sb.irp.service.StudentService;
@@ -87,6 +88,19 @@ public abstract class AnalysisAction {
 			}
 		} catch (Exception e) {
 			logger.error("getExamineeAttributes exception: ", e);
+		}
+		return null;
+	}
+	
+	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee){
+		List<ExamineeRelationship> listExamineeRelationship = new ArrayList<ExamineeRelationship>();
+		try {
+			listExamineeRelationship = tdsReportService.getExamineeRelationships(examinee);
+			if (listExamineeRelationship != null) {
+				return listExamineeRelationship;
+			}
+		} catch (Exception e) {
+			logger.error("getExamineeRelationships exception: ", e);
 		}
 		return null;
 	}
