@@ -14,6 +14,10 @@ public class FieldCheckType {
 		D, P, PC;
 	}
 
+	public FieldCheckType(){
+		isFieldEmpty = true; 
+	}
+	
 	public boolean isFieldEmpty() {
 		return isFieldEmpty;
 	}
@@ -56,13 +60,10 @@ public class FieldCheckType {
 
 	@Override
 	public String toString() {
-		return "FieldCheckType [isFieldEmpty=" + isFieldEmpty
-				+ ", isCorrectDataType=" + isCorrectDataType
-				+ ", isAcceptableValue=" + isAcceptableValue
-				+ ", isCorrectValue=" + isCorrectValue
-				+ ", enumfieldCheckType=" + enumfieldCheckType + "]";
+		return "FieldCheckType [isFieldEmpty=" + isFieldEmpty + ", isCorrectDataType=" + isCorrectDataType
+				+ ", isAcceptableValue=" + isAcceptableValue + ", isCorrectValue=" + isCorrectValue + ", enumfieldCheckType="
+				+ enumfieldCheckType + "]";
 	}
 
-
-
+	
 }

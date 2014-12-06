@@ -28,7 +28,10 @@ import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
-import org.cresst.sb.irp.utils.ProcessAnalysisAction;
+import org.cresst.sb.irp.utils.AnalysisAction;
+import org.cresst.sb.irp.utils.ExamineeAnalysisAction;
+import org.cresst.sb.irp.utils.ExamineeAttributeAnalysisAction;
+import org.cresst.sb.irp.utils.TestAnalysisAction;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,9 +42,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AnalysisDaoImpl implements AnalysisDao {
 	private static Logger logger = Logger.getLogger(AnalysisDaoImpl.class);
-
+	
 	@Autowired
-	public ProcessAnalysisAction processAnalysisAction;
+	public TestAnalysisAction testAnalysisAction;
+	
+	@Autowired
+	public ExamineeAnalysisAction examineeAnalysisAction;
+	
+	@Autowired
+	public ExamineeAttributeAnalysisAction examineeAttributeAnalysisAction;
 	
 	@Autowired
 	public StudentService studentService;
@@ -80,21 +89,20 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					individualResponse.setValidXMLfile(true);
 					TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
 					individualResponse.setTDSReport(tdsReport);
-
-					processAnalysisAction.setIndividualResponse(individualResponse);
-					processAnalysisAction.setTdsReport(tdsReport);
 					
-					processAnalysisAction.analysisTest();
-					processAnalysisAction.analysisExaminee();
-					processAnalysisAction.analysisExamineeAttribute();
+					testAnalysisAction.setIndividualResponse(individualResponse);
+					testAnalysisAction.setTdsReport(tdsReport);
+					testAnalysisAction.analysis();
 					
-					System.out.println("individualResponse ->" + individualResponse.toString());
+					examineeAnalysisAction.setIndividualResponse(individualResponse);
+					examineeAnalysisAction.setTdsReport(tdsReport);
+					examineeAnalysisAction.analysis();
 					
-					//List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
-					//List<ExamineeAttribute> listExamineeAttribute = getListExamineeAttribute(listObject);
-					/*if (listExamineeAttribute != null && listExamineeAttribute.size() > 0) {
-						analysisExamineeAttribute(listExamineeAttribute, individualResponse, examinee.getKey());
-					}*/
+					examineeAttributeAnalysisAction.setIndividualResponse(individualResponse);
+					examineeAttributeAnalysisAction.setTdsReport(tdsReport);
+					examineeAttributeAnalysisAction.analysis();
+					
+					System.out.println("individualResponse 22222222222 ->" + individualResponse.toString());
 
 				}
 				System.out.println("individualResponse --->" + individualResponse.toString());
@@ -108,57 +116,6 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	}
 
 
-	// @param -> listExamineeAttribute object in tds report xml file includes DOB, HispanicOrLatinoEthnicity. . .
-	// @param -> individualResponse object includes all of the information for a upload file
-	// @param -> examineeKey - student ID
-	private void analysisExamineeAttribute(List<ExamineeAttribute> listExamineeAttribute, 
-			IndividualResponse individualResponse, Long examineeKey ) {
-
-		try {
-			// HashMap Key -> Category like Test, Examinee, Opportunity...
-			//HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField = individualResponse.getMapCategoryField();
-			
-			// Hashtable Key -> TDS Field Name like EnumFieldName.TestName, EnumFieldName.TestSubject...
-			//Hashtable<String, FieldCheckType> tdsFieldResultMap = new Hashtable<String, FieldCheckType>();
-			
-		//	mapCategoryField.put("ExamineeAttribute", tdsFieldResultMap);
-		//	validateExamineeAttributes(listExamineeAttribute, tdsFieldResultMap, examineeKey);
-		} catch (Exception e) {
-			logger.error("analysisExamineeAttribute exception: ", e);
-		}
-
-	}
-
-	// @param -> listExamineeAttribute object in tds report xml file includes DOB, HispanicOrLatinoEthnicity. . .
-	// @param -> tdsFieldResultMap hashTable Key -> TDS Field Name.
-	// @param -> examineeKey - student ID
-	private void validateExamineeAttributes(List<ExamineeAttribute> listExamineeAttribute, 
-			Hashtable<String, FieldCheckType> tdsFieldResultMap, Long examineeKey){
-		try {
-			System.out.println("examineeKey");
-			Student student = studentService.getStudentByStudentSSID(examineeKey.toString());
-			FieldCheckType fieldCheckType;
-			for (ExamineeAttribute e : listExamineeAttribute) {
-				System.out.println("e...." + e.getName());
-				String nameValue = e.getName(); //DOB, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative
-				
-				fieldCheckType = new FieldCheckType();
-				tdsFieldResultMap.put(nameValue, fieldCheckType);
-				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			//	validateField(nameValue, EnumFieldName.ExamineeAttributeName, EnumFieldCheckType.PC, fieldCheckType, student);
-			}
-
-			// validate key
-			fieldCheckType = new FieldCheckType();
-			tdsFieldResultMap.put("key", fieldCheckType);
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
-			// validateField(examinee, EnumFieldName.ExamineeKey, EnumFieldCheckType.D, fieldCheckType);
-
-		} catch (Exception e) {
-			logger.error("validateExamineeAttributes exception: ", e);
-		}
-
-	}
 
 	private void processExamineeAttributeName(String nameValue, FieldCheckType fieldCheckType){
 		try {

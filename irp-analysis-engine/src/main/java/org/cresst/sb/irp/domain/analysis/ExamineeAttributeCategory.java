@@ -22,6 +22,11 @@ public class ExamineeAttributeCategory {
 	public void setListCellCategory(List<CellCategory> listCellCategory) {
 		this.listCellCategory = listCellCategory;
 	}
+
+	@Override
+	public String toString() {
+		return "ExamineeAttributeCategory [listCellCategory=" + listCellCategory + "]";
+	}
 	
 
 
