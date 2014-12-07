@@ -1,4 +1,4 @@
-[ ![Codeship Status for sbcresst/IReadinessPackage](https://codeship.com/projects/0d0b1a20-6080-0132-c347-02eb9615503b/status?branch=[branch_name])](https://codeship.com/projects/51655)
+[ ![Codeship Status for sbcresst/IReadinessPackage](https://codeship.com/projects/0d0b1a20-6080-0132-c347-02eb9615503b/status?branch=#BRANCH_NAME)](https://codeship.com/projects/51655)
 
 # Overview #
 This is the source repository for the Implementation Readiness Package (IRP) developed by UCLA CRESST as part of the Smarter Balance initiative.
