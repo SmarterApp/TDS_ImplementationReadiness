@@ -1,14 +1,15 @@
-package org.cresst.sb.irp.utils;
+package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.cresst.sb.irp.dao.ExamineeAttributeAnalysisAction.EnumExamineeAttributeAcceptValues;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
@@ -21,7 +22,6 @@ import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 
 public abstract class AnalysisAction {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
@@ -38,7 +38,7 @@ public abstract class AnalysisAction {
 	private IndividualResponse individualResponse;
 	private TDSReport tdsReport;
 	private Test test;
-	
+
 	public AnalysisAction() {
 		logger.info("initializing");
 	}
@@ -71,14 +71,14 @@ public abstract class AnalysisAction {
 		this.test = test;
 	}
 
-	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid){
+	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
 		return testPackageService.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
-	
-	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty){
+
+	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty) {
 		return testPackageService.getSubjectPropertyValueFromListProperty(listProperty);
 	}
-	
+
 	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
 		List<ExamineeAttribute> listExamineeAttribute = new ArrayList<ExamineeAttribute>();
 		try {
@@ -91,8 +91,8 @@ public abstract class AnalysisAction {
 		}
 		return null;
 	}
-	
-	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee){
+
+	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee) {
 		List<ExamineeRelationship> listExamineeRelationship = new ArrayList<ExamineeRelationship>();
 		try {
 			listExamineeRelationship = tdsReportService.getExamineeRelationships(examinee);
@@ -118,8 +118,8 @@ public abstract class AnalysisAction {
 			logger.error("getStudent exception: ", e);
 		}
 		return null;
-	}	
-	
+	}
+
 	public int sign(long i) {
 		if (i == 0)
 			return 0;
@@ -129,30 +129,72 @@ public abstract class AnalysisAction {
 	}
 
 	abstract public void analysis() throws IOException;
-	
+
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-	
-	public void processP(String fieldValue, FieldCheckType fieldCheckType) {
+
+	public void validateToken(String fieldValue, FieldCheckType fieldCheckType) {
 		try {
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				fieldCheckType.setCorrectDataType(true);
 				fieldCheckType.setFieldEmpty(false);
 			}
-			if (StringUtils.isAsciiPrintable(fieldValue)) {
+		} catch (Exception e) {
+			logger.error("validateToken exception: ", e);
+		}
+	}
+
+	public void validatePritableASCII(String fieldValue, FieldCheckType fieldCheckType) {
+		try {
+			if (fieldValue != null && !fieldValue.trim().isEmpty() && StringUtils.isAsciiPrintable(fieldValue)) {
 				fieldCheckType.setAcceptableValue(true);
 			}
 		} catch (Exception e) {
-			logger.error("processP exception: ", e);
+			logger.error("validatePritableASCII exception: ", e);
 		}
 	}
-	
-	
 
+	public void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
+			Class<EnumExamineeAttributeAcceptValues> class1) {
+		try {
+			System.out.println("fieldValue ->" + fieldValue);
+			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
+				if (EnumUtils.isValidEnum(class1, fieldValue)) {
+					fieldCheckType.setAcceptableValue(true);
+				} 
+			}
+		} catch (Exception e) {
+			logger.error("processAcceptableEnum exception: ", e);
+		}
+	}
 
-
-
-
-
+	public String getStudentValueByName(String fieldNameValue, Class<EnumExamineeAttributeAcceptValues> class1, Student student) {
+		String str = null;
+		try {
+			if (EnumUtils.isValidEnum(class1, fieldNameValue)) {
+				for (EnumExamineeAttributeAcceptValues e : EnumExamineeAttributeAcceptValues.values()) {
+					if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.FirstName.toString())) {
+						str = student.getFirstName();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.LastOrSurname.toString())) {
+						str = student.getLastOrSurname();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.StudentIdentifier.toString())) {
+						str = student.getSSID();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.DOB.toString())) {
+						str = student.getBirthdate();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.BlackOrAfricanAmerican.toString())) {
+						str = student.getBlackOrAfricanAmerican();
+					}//......
+				}
+			}
+		} catch (Exception e) {
+			logger.error("getStudentValueByName exception: ", e);
+		}
+		return str;
+	}
 
 }

@@ -1,8 +1,9 @@
-package org.cresst.sb.irp.utils;
+package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
@@ -24,15 +25,10 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	public enum EnumExamineeAttributeFieldName {
 		name, value, context, contextDate;
 	}
-	
-	//added DOB -  <ExamineeAttribute context="FINAL" name="DOB" 
+
+	// added DOB - <ExamineeAttribute context="FINAL" name="DOB"
 	public enum EnumExamineeAttributeAcceptValues {
-		LastOrSurname, FirstName, MiddleName, Birthdate, DOB, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed,
-		Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White,
-		NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status,
-		EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, 
-		FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate,
-		TitleIIILanguageInstructionProgramType, PrimaryDisabilityType;
+		LastOrSurname, FirstName, MiddleName, Birthdate, DOB, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatino, Ethnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType;
 	}
 
 	@Override
@@ -74,7 +70,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.PC, EnumExamineeAttributeFieldName.name, fieldCheckType);
+			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.name, fieldCheckType, student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -83,7 +79,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.PC, EnumExamineeAttributeFieldName.value, fieldCheckType);
+			validateField(examineeAttribute, EnumFieldCheckType.PC, EnumExamineeAttributeFieldName.value, fieldCheckType, student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -92,7 +88,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.context, fieldCheckType);
+			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.context, fieldCheckType, student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -101,7 +97,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.contextDate, fieldCheckType);
+			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.contextDate, fieldCheckType, student);
 
 		} catch (Exception e) {
 			logger.error("analysisEachExamineeAttribute exception: ", e);
@@ -109,7 +105,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	}
 
 	private void validateField(ExamineeAttribute examineeAttribute, EnumFieldCheckType enumFieldCheckType,
-			EnumExamineeAttributeFieldName enumExamineeAttributeFieldName, FieldCheckType fieldCheckType) {
+			EnumExamineeAttributeFieldName enumExamineeAttributeFieldName, FieldCheckType fieldCheckType, Student student) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
@@ -119,7 +115,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 				break;
 			case PC:
 				checkP(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType);
-				checkC(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType);
+				checkC(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType, student);
 				break;
 			}
 		} catch (Exception e) {
@@ -132,16 +128,18 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumExamineeAttributeFieldName) {
 			case name:
-				processP(examineeAttribute.getName(), fieldCheckType);
+				System.out.println("xxxxxxxxxxxxxxxxx");
+				validateToken(examineeAttribute.getName(), fieldCheckType);
+				processAcceptableEnum(examineeAttribute.getName(), fieldCheckType, EnumExamineeAttributeAcceptValues.class);
 				break;
 			case value:
-				processP(examineeAttribute.getValue(), fieldCheckType);
+				validateToken(examineeAttribute.getValue(), fieldCheckType);
 				break;
 			case context:
-				// processP(examineeAttribute.getContext(), fieldCheckType);
+				// validateToken(examineeAttribute.getContext(), fieldCheckType);
 				break;
 			case contextDate:
-				// processP(examineeAttribute.getContextDate(), fieldCheckType);
+				// validateToken(examineeAttribute.getContextDate(), fieldCheckType);
 				break;
 			default:
 				break;
@@ -152,21 +150,22 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	}
 
 	private void checkC(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumExamineeAttributeFieldName,
-			FieldCheckType fieldCheckType) {
+			FieldCheckType fieldCheckType, Student student) {
 		try {
 			switch (enumExamineeAttributeFieldName) {
 			case name:
-				processName(examineeAttribute, fieldCheckType);
+				//processName(examineeAttribute, fieldCheckType);
 				break;
 			case value:
-				//processName(fieldCheckType);
+				System.out.println("VVVVVVVVVVVVVVVV");
+				processFieldNameValue(examineeAttribute,  fieldCheckType, student);
 				break;
 			case context:
-				//processName(fieldCheckType);
-				break;	
+				// processName(fieldCheckType);
+				break;
 			case contextDate:
-				//processName(fieldCheckType);
-				break;	
+				// processName(fieldCheckType);
+				break;
 			default:
 				break;
 			}
@@ -175,45 +174,35 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			logger.error("checkC exception: ", e);
 		}
 	}
-	
+
 	private void processName(ExamineeAttribute examineeAttribute, FieldCheckType fieldCheckType) {
 		try {
-			/*String testSubject = test.getSubject();
-			List<Property> listProperty = testpackage.getProperty();
-			String subjectValueFromTestPackage = getSubjectPropertyValueFromListProperty(listProperty);
-			if (subjectValueFromTestPackage != null) {
-				if (subjectValueFromTestPackage.equals("MATH") && testSubject.equals("MA")
-						|| subjectValueFromTestPackage.equals("ELA") && testSubject.equals("ELA")) {
-					fieldCheckType.setCorrectValue(true);
-				}
-			}*/
+			
 		} catch (Exception e) {
 			logger.error("processName exception: ", e);
 		}
 
 	}
 
-	
-	private void processExamineeAttributeName(String nameValue, FieldCheckType fieldCheckType){
+	private void processFieldNameValue(ExamineeAttribute examineeAttribute, FieldCheckType fieldCheckType, Student student) {
 		try {
-			EnumExamineeAttributeAcceptValues ev = EnumValueExist(nameValue);
-			if (ev != null){
-				fieldCheckType.setCorrectValue(true);
+			String fieldName = examineeAttribute.getName();
+			System.out.println("fieldName ------>" +  fieldName);
+			String value = examineeAttribute.getValue();
+			System.out.println("value ------>" +  value);
+			String studentValue = getStudentValueByName(examineeAttribute.getName(), EnumExamineeAttributeAcceptValues.class, student);
+			if (studentValue != null && value != null) {
+				if (studentValue.equals(value)){
+					fieldCheckType.setCorrectValue(true);
+				}
 			}
-			
-			
 		} catch (Exception e) {
-			logger.error("processExamineeAttributeName exception: ", e);
+			logger.error("processFieldNameValue exception: ", e);
 		}
-	}
 
-	//may need to change this function tomorrow
-	private EnumExamineeAttributeAcceptValues EnumValueExist(String nameValue){
-		for (EnumExamineeAttributeAcceptValues me : EnumExamineeAttributeAcceptValues.values()) {
-	        if (me.name().equalsIgnoreCase(nameValue))
-	            return me;
-	    }
-	    return null;
 	}
 	
+	
+	
+
 }

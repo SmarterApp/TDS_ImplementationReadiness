@@ -2,15 +2,13 @@ package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 import java.nio.file.Path;
+
 import javax.xml.transform.stream.StreamSource;
+
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.utils.ExamineeAnalysisAction;
-import org.cresst.sb.irp.utils.ExamineeAttributeAnalysisAction;
-import org.cresst.sb.irp.utils.ExamineeRelationshipAnalysisAction;
-import org.cresst.sb.irp.utils.TestAnalysisAction;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

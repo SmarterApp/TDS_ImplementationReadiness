@@ -1,4 +1,4 @@
-package org.cresst.sb.irp.utils;
+package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 import java.util.List;
@@ -89,13 +89,16 @@ public class TestAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumTestFieldName) {
 			case name:
-				processP(test.getName(), fieldCheckType);
+				validateToken(test.getName(), fieldCheckType);
+				validatePritableASCII(test.getName(), fieldCheckType);
 				break;
 			case subject:
-				processP(test.getSubject(), fieldCheckType);
+				validateToken(test.getSubject(), fieldCheckType);
+				validatePritableASCII(test.getSubject(), fieldCheckType);
 				break;
 			case testId:
-				processP(test.getTestId(), fieldCheckType);
+				validateToken(test.getTestId(), fieldCheckType);
+				validatePritableASCII(test.getTestId(), fieldCheckType);
 				break;
 			case bankKey:
 				break;

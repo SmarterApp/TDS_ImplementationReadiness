@@ -1,4 +1,4 @@
-package org.cresst.sb.irp.utils;
+package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 
@@ -21,7 +21,6 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 	@Override
 	public void analysis() throws IOException {
 		try {
-			System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 			ExamineeCategory examineeCategory = new ExamineeCategory();
 			FieldCheckType fieldCheckType = new FieldCheckType();
 			examineeCategory.setFieldCheckType(fieldCheckType);
