@@ -8,6 +8,7 @@ import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
@@ -28,9 +29,11 @@ public class TestAnalysisAction extends AnalysisAction {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
 			List<CellCategory> listTestPropertyCategory = individualResponse.getListTestPropertyCategory();
+			TDSReport tdsReport = individualResponse.getTDSReport();
+			Test test = getTest(tdsReport);
+			
 			CellCategory testCategory;
 			FieldCheckType fieldCheckType;
-			Test test = getTest();
 
 			testCategory = new CellCategory();
 			listTestPropertyCategory.add(testCategory);
@@ -90,15 +93,15 @@ public class TestAnalysisAction extends AnalysisAction {
 			switch (enumFieldName) {
 			case name:
 				validateToken(test.getName(), fieldCheckType);
-				validatePritableASCII(test.getName(), fieldCheckType);
+				validatePritableASCIIone(test.getName(), fieldCheckType);
 				break;
 			case subject:
 				validateToken(test.getSubject(), fieldCheckType);
-				validatePritableASCII(test.getSubject(), fieldCheckType);
+				validatePritableASCIIone(test.getSubject(), fieldCheckType);
 				break;
 			case testId:
 				validateToken(test.getTestId(), fieldCheckType);
-				validatePritableASCII(test.getTestId(), fieldCheckType);
+				validatePritableASCIIone(test.getTestId(), fieldCheckType);
 				break;
 			case bankKey:
 				break;

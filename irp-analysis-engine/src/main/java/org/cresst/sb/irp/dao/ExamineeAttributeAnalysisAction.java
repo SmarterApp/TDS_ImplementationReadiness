@@ -36,11 +36,12 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
 			List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.getListExamineeAttributeCategory();
+			TDSReport tdsReport = individualResponse.getTDSReport();
+			
 			ExamineeAttributeCategory examineeAttributeCategory;
-			TDSReport tdsReport = getTdsReport();
+			
 			Examinee examinee = tdsReport.getExaminee();
 			Student student = getStudent(examinee.getKey());
-			System.out.println("student first name ->" + student.getFirstName());
 			List<ExamineeAttribute> listExamineeAttribute = getExamineeAttributes(examinee);
 			if (listExamineeAttribute != null) {
 				for (ExamineeAttribute ex : listExamineeAttribute) {
@@ -105,17 +106,17 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	}
 
 	private void validateField(ExamineeAttribute examineeAttribute, EnumFieldCheckType enumFieldCheckType,
-			EnumExamineeAttributeFieldName enumExamineeAttributeFieldName, FieldCheckType fieldCheckType, Student student) {
+			EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
-				checkP(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType);
+				checkP(examineeAttribute, enumFieldName, fieldCheckType);
 				break;
 			case PC:
-				checkP(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType);
-				checkC(examineeAttribute, enumExamineeAttributeFieldName, fieldCheckType, student);
+				checkP(examineeAttribute, enumFieldName, fieldCheckType);
+				checkC(examineeAttribute, enumFieldName, fieldCheckType, student);
 				break;
 			}
 		} catch (Exception e) {
@@ -123,10 +124,10 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumExamineeAttributeFieldName,
+	private void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
-			switch (enumExamineeAttributeFieldName) {
+			switch (enumFieldName) {
 			case name:
 				validateToken(examineeAttribute.getName(), fieldCheckType);
 				processAcceptableEnum(examineeAttribute.getName(), fieldCheckType, EnumExamineeAttributeAcceptValues.class);
@@ -149,10 +150,10 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkC(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumExamineeAttributeFieldName,
+	private void checkC(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName,
 			FieldCheckType fieldCheckType, Student student) {
 		try {
-			switch (enumExamineeAttributeFieldName) {
+			switch (enumFieldName) {
 			case name:
 				//processName(examineeAttribute, fieldCheckType);
 				break;

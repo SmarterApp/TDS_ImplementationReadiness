@@ -38,11 +38,11 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
 			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse.getListExamineeRelationshipCategory();
+			TDSReport tdsReport = individualResponse.getTDSReport();
+			
 			ExamineeRelationshipCategory examineeRelationshipCategory;
-			TDSReport tdsReport = getTdsReport();
 			Examinee examinee = tdsReport.getExaminee();
 			Student student = getStudent(examinee.getKey());
-			System.out.println("student first name in relationship ->" + student.getFirstName());
 			List<ExamineeRelationship> listExamineeRelationship = getExamineeRelationships(examinee);
 			if (listExamineeRelationship != null) {
 				for (ExamineeRelationship er : listExamineeRelationship) {
@@ -99,17 +99,17 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	}
 
 	private void validateField(ExamineeRelationship examineeRelationship, EnumFieldCheckType enumFieldCheckType,
-			EnumExamineeRelationshipFieldName enumExamineeRelationshipFieldName, FieldCheckType fieldCheckType, Student student) {
+			EnumExamineeRelationshipFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
-				checkP(examineeRelationship, enumExamineeRelationshipFieldName, fieldCheckType);
+				checkP(examineeRelationship, enumFieldName, fieldCheckType);
 				break;
 			case PC:
-				checkP(examineeRelationship, enumExamineeRelationshipFieldName, fieldCheckType);
-				//checkC(examineeRelationship, enumExamineeRelationshipFieldName, fieldCheckType, student);
+				checkP(examineeRelationship, enumFieldName, fieldCheckType);
+				//checkC(examineeRelationship, enumFieldName, fieldCheckType, student);
 				break;
 			}
 		} catch (Exception e) {
@@ -117,17 +117,17 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 		}
 	}
 	
-	private void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumExamineeRelationshipFieldName,
+	private void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
-			switch (enumExamineeRelationshipFieldName) {
+			switch (enumFieldName) {
 			case name:
 				validateToken(examineeRelationship.getName(), fieldCheckType);
 				processAcceptableEnum(examineeRelationship.getName(), fieldCheckType, EnumExamineeRelationshipAcceptValues.class);
 				break;
 			case value:
 				validateToken(examineeRelationship.getValue(), fieldCheckType);
-				validatePritableASCII(examineeRelationship.getValue(), fieldCheckType);
+				validatePritableASCIIone(examineeRelationship.getValue(), fieldCheckType);
 				break;
 			case context:
 				validateToken(examineeRelationship.getContext().toString(), fieldCheckType);

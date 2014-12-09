@@ -63,10 +63,13 @@ public class OpportunityCategory {
 	public void setListItemCategory(List<ItemCategory> listItemCategory) {
 		this.listItemCategory = listItemCategory;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "OpportunityCategory [listOportunityPropertyCategory=" + listOportunityPropertyCategory + ", listSegmentCategory="
+				+ listSegmentCategory + ", listAccommodationCategory=" + listAccommodationCategory + ", listScoreCategory="
+				+ listScoreCategory + ", listItemCategory=" + listItemCategory + "]";
+	}
 	
 	
 	

@@ -12,6 +12,7 @@ public class IndividualResponse {
 	private String fileName; // id
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
+	private String status; //No errors, Contains xx errors 
 
 	private List<CellCategory> listTestPropertyCategory;
 	private ExamineeCategory examineeCategory;
@@ -51,15 +52,6 @@ public class IndividualResponse {
 	public void setValidXMLfile(boolean isValidXMLfile) {
 		this.isValidXMLfile = isValidXMLfile;
 	}
-/*
-	public List<CellCategory> getListTestCategory() {
-		return listTestCategory;
-	}
-
-	public void setListTestCategory(List<CellCategory> listTestCategory) {
-		this.listTestCategory = listTestCategory;
-	}
-*/
 	
 	public List<CellCategory> getListTestPropertyCategory() {
 		return listTestPropertyCategory;
@@ -102,14 +94,22 @@ public class IndividualResponse {
 		this.opportunityCategory = opportunityCategory;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory=" + examineeCategory
-				+ ", listExamineeAttributeCategory=" + listExamineeAttributeCategory + ", listExamineeRelationshipCategory="
-				+ listExamineeRelationshipCategory + ", opportunityCategory=" + opportunityCategory + "]";
+				+ ", status=" + status + ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory="
+				+ examineeCategory + ", listExamineeAttributeCategory=" + listExamineeAttributeCategory
+				+ ", listExamineeRelationshipCategory=" + listExamineeRelationshipCategory + ", opportunityCategory="
+				+ opportunityCategory + "]";
 	}
 
-	
 
 }

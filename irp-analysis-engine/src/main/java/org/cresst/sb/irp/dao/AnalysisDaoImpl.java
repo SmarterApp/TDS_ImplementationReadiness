@@ -32,6 +32,15 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	@Autowired
 	public ExamineeRelationshipAnalysisAction examineeRelationshipAnalysisAction;
 
+	@Autowired
+	public OpportunityAnalysisAction opportunityAnalysisAction;
+	
+	@Autowired
+	public SegmentAnalysisAction segmentAnalysisAction;
+	
+	@Autowired
+	public AccommodationAnalysisAction accommodationAnalysisAction;
+	
 	//tdsreport_12_8_14.xsd from AIR David original file name tdsreport.xsd
 	@Value("classpath:irp-package/tdsreport_12_8_14.xsd") //reportxml_oss.xsd") from Rami on 12/4/14 vs sample_oss_report2.xml
 	private Resource TDSReportXSDResource;
@@ -60,20 +69,25 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					individualResponse.setTDSReport(tdsReport);
 					
 					testAnalysisAction.setIndividualResponse(individualResponse);
-					testAnalysisAction.setTdsReport(tdsReport);
 					testAnalysisAction.analysis();
 					
 					examineeAnalysisAction.setIndividualResponse(individualResponse);
-					examineeAnalysisAction.setTdsReport(tdsReport);
 					examineeAnalysisAction.analysis();
 					
 					examineeAttributeAnalysisAction.setIndividualResponse(individualResponse);
-					examineeAttributeAnalysisAction.setTdsReport(tdsReport);
 					examineeAttributeAnalysisAction.analysis();
 					
 					examineeRelationshipAnalysisAction.setIndividualResponse(individualResponse);
-					examineeRelationshipAnalysisAction.setTdsReport(tdsReport);
 					examineeRelationshipAnalysisAction.analysis();
+					
+					opportunityAnalysisAction.setIndividualResponse(individualResponse);
+					opportunityAnalysisAction.analysis();
+					
+					segmentAnalysisAction.setIndividualResponse(individualResponse);
+					segmentAnalysisAction.analysis();
+					
+					accommodationAnalysisAction.setIndividualResponse(individualResponse);
+					accommodationAnalysisAction.analysis();
 					
 				}
 				System.out.println("individualResponse --->" + individualResponse.toString());

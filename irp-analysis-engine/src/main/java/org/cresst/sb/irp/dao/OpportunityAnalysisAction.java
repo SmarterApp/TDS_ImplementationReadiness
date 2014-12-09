@@ -8,10 +8,9 @@ import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
-import org.cresst.sb.irp.domain.analysis.SegmentCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Segment;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -26,23 +25,17 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 
 	@Override
 	public void analysis() throws IOException {
-		// TODO Auto-generated method stub
-		IndividualResponse individualResponse = getIndividualResponse();
-		OpportunityCategory opportunityCategory = new OpportunityCategory();
-		individualResponse.setOpportunityCategory(opportunityCategory);
-		Opportunity opportunity = getOpportunity();
-
-		analysisOpportunityProperty(opportunity, opportunityCategory);
-		analysisSegments(opportunity, opportunityCategory);
-		// List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.;
-
-	}
-
-	private void analysisOpportunityProperty(Opportunity opportunity, OpportunityCategory opportunityCategory) {
 		try {
+			IndividualResponse individualResponse = getIndividualResponse();
+			TDSReport tdsReport = individualResponse.getTDSReport();
+
+			OpportunityCategory opportunityCategory = new OpportunityCategory();
+			individualResponse.setOpportunityCategory(opportunityCategory);
+			List<CellCategory> listOportunityPropertyCategory = opportunityCategory.getListOportunityPropertyCategory();
+			Opportunity opportunity = getOpportunity(tdsReport);
+
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
-			List<CellCategory> listOportunityPropertyCategory = opportunityCategory.getListOportunityPropertyCategory();
 
 			cellCategory = new CellCategory();
 			listOportunityPropertyCategory.add(cellCategory);
@@ -71,40 +64,22 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 			cellCategory.setFieldCheckType(fieldCheckType);
 			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.key, fieldCheckType);
 
-			// TODO Auto-generated method stub
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.oppId.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getOppId());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.oppId, fieldCheckType);
+
 			
+			// TODO Auto-generated method stub
 		} catch (Exception e) {
-			logger.error("analysisOpportunityProperty exception: ", e);
+			logger.error("analysis exception: ", e);
 		}
 	}
 
-	private void analysisSegments(Opportunity opportunity, OpportunityCategory opportunityCategory) {
-		try {
-			SegmentCategory segmentCategory;
-			List<SegmentCategory> listSegmentCategory = opportunityCategory.getListSegmentCategory();
-			
-			List<Segment> listSegment = opportunity.getSegment();
-			if (listSegment != null) {
-				for (Segment s : listSegment) {
-					System.out.println("segment...." + s.getId());
-					segmentCategory = new SegmentCategory();
-					listSegmentCategory.add(segmentCategory);
-					analysisSegment(segmentCategory, s);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("analysisSegments exception: ", e);
-		}
-	}
-
-	private void analysisSegment(SegmentCategory segmentCategory,Segment s) {
-		try {
-			// TODO Auto-generated method stub
-		} catch (Exception e) {
-			logger.error("analysisSegment exception: ", e);
-		}
-	}
-	
 	private void validateField(Opportunity opportunity, EnumFieldCheckType enumFieldCheckType,
 			EnumOpportunityPropertyFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
@@ -131,16 +106,23 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 			switch (enumFieldName) {
 			case server:
 				validateToken(opportunity.getServer(), fieldCheckType);
-				validatePritableASCII(opportunity.getServer(), fieldCheckType);
+				validatePritableASCIIone(opportunity.getServer(), fieldCheckType);
 				break;
 			case database:
 				validateToken(opportunity.getDatabase(), fieldCheckType);
-				validatePritableASCII(opportunity.getDatabase(), fieldCheckType);
+				validatePritableASCIIzero(opportunity.getDatabase(), fieldCheckType);
 				break;
 			case key:
 				validateToken(opportunity.getKey(), fieldCheckType);
-				validatePritableASCII(opportunity.getKey(), fieldCheckType);
+				validatePritableASCIIone(opportunity.getKey(), fieldCheckType);
 				break;
+			case oppId:
+				if (sign(Long.valueOf(opportunity.getOppId()).longValue()) > 0) {
+					fieldCheckType.setCorrectDataType(true);
+					fieldCheckType.setFieldEmpty(false);
+					fieldCheckType.setAcceptableValue(true);
+				}
+				break;	
 			default:
 				break;
 			}

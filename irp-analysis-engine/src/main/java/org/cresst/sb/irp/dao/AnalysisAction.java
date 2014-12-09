@@ -42,8 +42,6 @@ public abstract class AnalysisAction {
 	public TDSReportService tdsReportService;
 
 	private IndividualResponse individualResponse;
-	private TDSReport tdsReport;
-	private Test test;
 
 	public AnalysisAction() {
 		logger.info("initializing");
@@ -57,27 +55,20 @@ public abstract class AnalysisAction {
 		this.individualResponse = individualResponse;
 	}
 
-	public TDSReport getTdsReport() {
-		return tdsReport;
-	}
-
-	public void setTdsReport(TDSReport tdsReport) {
-		this.tdsReport = tdsReport;
-	}
-
-	public Test getTest() {
-		test = tdsReport.getTest();
-		if (test != null) {
-			return test;
+	public Test getTest(TDSReport tdsReport) {
+		Test test = null;
+		try {
+			test = tdsReport.getTest();
+			if (test != null) {
+				return test;
+			}
+		} catch (Exception e) {
+			logger.error("getTest exception: ", e);
 		}
 		return null;
 	}
 
-	public void setTest(Test test) {
-		this.test = test;
-	}
-
-	public Opportunity getOpportunity() {
+	public Opportunity getOpportunity(TDSReport tdsReport) {
 		Opportunity opportunity = new Opportunity();
 		try {
 			opportunity = tdsReport.getOpportunity();
@@ -147,10 +138,15 @@ public abstract class AnalysisAction {
 		return +1;
 	}
 
-	abstract public void analysis() throws IOException;
+	public int getNumberOfBits(int N) {
+		int bits = 0;
+		while (Math.pow(2, bits) <= N) {
+			bits++;
+		}
+		return bits;
+	}
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+	abstract public void analysis() throws IOException;
 
 	public void validateToken(String fieldValue, FieldCheckType fieldCheckType) {
 		try {
@@ -163,13 +159,38 @@ public abstract class AnalysisAction {
 		}
 	}
 
-	public void validatePritableASCII(String fieldValue, FieldCheckType fieldCheckType) {
+	// One or more printable ASCII characters
+	public void validatePritableASCIIone(String fieldValue, FieldCheckType fieldCheckType) {
 		try {
 			if (fieldValue != null && !fieldValue.trim().isEmpty() && StringUtils.isAsciiPrintable(fieldValue)) {
 				fieldCheckType.setAcceptableValue(true);
 			}
 		} catch (Exception e) {
-			logger.error("validatePritableASCII exception: ", e);
+			logger.error("validatePritableASCIIone exception: ", e);
+		}
+	}
+
+	// Zero or more printable ASCII characters
+	public void validatePritableASCIIzero(String fieldValue, FieldCheckType fieldCheckType) {
+		try {
+			if (fieldValue != null && StringUtils.isAsciiPrintable(fieldValue)) {
+				fieldCheckType.setAcceptableValue(true);
+			}
+		} catch (Exception e) {
+			logger.error("validatePritableASCIIzero exception: ", e);
+		}
+	}
+
+	public void validateUnsignedIntPositive32bit(int number, FieldCheckType fieldCheckType) {
+		try {
+			int num = getNumberOfBits(number);
+			if (num > 0 && num <= 32) {
+				fieldCheckType.setCorrectDataType(true);
+				fieldCheckType.setFieldEmpty(false);
+				fieldCheckType.setAcceptableValue(true);
+			}
+		} catch (Exception e) {
+			logger.error("validateUnsignedIntPositive32bit exception: ", e);
 		}
 	}
 

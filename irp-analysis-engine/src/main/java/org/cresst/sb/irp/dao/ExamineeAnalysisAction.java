@@ -21,13 +21,13 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 	@Override
 	public void analysis() throws IOException {
 		try {
+			IndividualResponse individualResponse = getIndividualResponse();	
+			TDSReport tdsReport = individualResponse.getTDSReport();
+			
 			ExamineeCategory examineeCategory = new ExamineeCategory();
 			FieldCheckType fieldCheckType = new FieldCheckType();
 			examineeCategory.setFieldCheckType(fieldCheckType);
-			IndividualResponse individualResponse = getIndividualResponse();
 			individualResponse.setExamineeCategory(examineeCategory);
-
-			TDSReport tdsReport = getTdsReport();
 			Examinee examinee = tdsReport.getExaminee();
 			Long key = examinee.getKey();
 			if (key != null) {
@@ -38,7 +38,6 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 		} catch (Exception e) {
 			logger.error("analysis exception: ", e);
 		}
-
 	}
 
 	private void validateField(Long key, EnumFieldCheckType enumFieldCheckType, FieldCheckType fieldCheckType) {
