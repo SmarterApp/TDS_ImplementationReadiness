@@ -1,8 +1,6 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,14 +13,16 @@ public class IndividualResponse {
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
 
-	private List<CellCategory> listTestCategory;
+	private List<CellCategory> listTestPropertyCategory;
 	private ExamineeCategory examineeCategory;
 	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
 	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
-
+	private OpportunityCategory opportunityCategory;
+	
+	
 	public IndividualResponse() {
 		logger.info("initializing");
-		setListTestCategory(new ArrayList<CellCategory>());
+		setListTestPropertyCategory(new ArrayList<CellCategory>());
 		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
 		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
 		
@@ -51,7 +51,7 @@ public class IndividualResponse {
 	public void setValidXMLfile(boolean isValidXMLfile) {
 		this.isValidXMLfile = isValidXMLfile;
 	}
-
+/*
 	public List<CellCategory> getListTestCategory() {
 		return listTestCategory;
 	}
@@ -59,7 +59,17 @@ public class IndividualResponse {
 	public void setListTestCategory(List<CellCategory> listTestCategory) {
 		this.listTestCategory = listTestCategory;
 	}
+*/
+	
+	public List<CellCategory> getListTestPropertyCategory() {
+		return listTestPropertyCategory;
+	}
 
+	public void setListTestPropertyCategory(List<CellCategory> listTestPropertyCategory) {
+		this.listTestPropertyCategory = listTestPropertyCategory;
+	}
+
+	
 	public ExamineeCategory getExamineeCategory() {
 		return examineeCategory;
 	}
@@ -83,13 +93,21 @@ public class IndividualResponse {
 	public void setListExamineeRelationshipCategory(List<ExamineeRelationshipCategory> listExamineeRelationshipCategory) {
 		this.listExamineeRelationshipCategory = listExamineeRelationshipCategory;
 	}
+	
+	public OpportunityCategory getOpportunityCategory() {
+		return opportunityCategory;
+	}
+
+	public void setOpportunityCategory(OpportunityCategory opportunityCategory) {
+		this.opportunityCategory = opportunityCategory;
+	}
 
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory
+				+ ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory=" + examineeCategory
 				+ ", listExamineeAttributeCategory=" + listExamineeAttributeCategory + ", listExamineeRelationshipCategory="
-				+ listExamineeRelationshipCategory + "]";
+				+ listExamineeRelationshipCategory + ", opportunityCategory=" + opportunityCategory + "]";
 	}
 
 	

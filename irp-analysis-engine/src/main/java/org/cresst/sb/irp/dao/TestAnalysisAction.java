@@ -27,13 +27,13 @@ public class TestAnalysisAction extends AnalysisAction {
 	public void analysis() throws IOException {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
-			List<CellCategory> listTestCategory = individualResponse.getListTestCategory();
+			List<CellCategory> listTestPropertyCategory = individualResponse.getListTestPropertyCategory();
 			CellCategory testCategory;
 			FieldCheckType fieldCheckType;
 			Test test = getTest();
 
 			testCategory = new CellCategory();
-			listTestCategory.add(testCategory);
+			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.name.toString());
 			testCategory.setTdsFieldNameValue(test.getName());
 			fieldCheckType = new FieldCheckType();
@@ -42,7 +42,7 @@ public class TestAnalysisAction extends AnalysisAction {
 			validateField(test, EnumFieldCheckType.PC, EnumTestFieldName.name, fieldCheckType);
 
 			testCategory = new CellCategory();
-			listTestCategory.add(testCategory);
+			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.subject.toString());
 			testCategory.setTdsFieldNameValue(test.getSubject());
 			fieldCheckType = new FieldCheckType();
@@ -51,7 +51,7 @@ public class TestAnalysisAction extends AnalysisAction {
 			validateField(test, EnumFieldCheckType.PC, EnumTestFieldName.subject, fieldCheckType);
 
 			testCategory = new CellCategory();
-			listTestCategory.add(testCategory);
+			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.testId.toString());
 			testCategory.setTdsFieldNameValue(test.getTestId());
 			fieldCheckType = new FieldCheckType();
@@ -64,18 +64,18 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void validateField(Test test, EnumFieldCheckType enumFieldCheckType, EnumTestFieldName enumTestFieldName,
+	private void validateField(Test test, EnumFieldCheckType enumFieldCheckType, EnumTestFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
-				checkP(test, enumTestFieldName, fieldCheckType);
+				checkP(test, enumFieldName, fieldCheckType);
 				break;
 			case PC:
-				checkP(test, enumTestFieldName, fieldCheckType);
-				checkC(test, enumTestFieldName, fieldCheckType);
+				checkP(test, enumFieldName, fieldCheckType);
+				checkC(test, enumFieldName, fieldCheckType);
 				break;
 			}
 		} catch (Exception e) {
@@ -85,9 +85,9 @@ public class TestAnalysisAction extends AnalysisAction {
 
 	// Field Check Type (P) --> check that field is not empty, and field value is of correct data type
 	// and within acceptable values
-	private void checkP(Test test, EnumTestFieldName enumTestFieldName, FieldCheckType fieldCheckType) {
+	private void checkP(Test test, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
-			switch (enumTestFieldName) {
+			switch (enumFieldName) {
 			case name:
 				validateToken(test.getName(), fieldCheckType);
 				validatePritableASCII(test.getName(), fieldCheckType);
@@ -120,8 +120,7 @@ public class TestAnalysisAction extends AnalysisAction {
 	private void checkC(Test test, EnumTestFieldName enumTestFieldName, FieldCheckType fieldCheckType) {
 
 		try {
-			// String uniqueid = test.getName();
-			String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015"; // "(SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015";
+			String uniqueid = test.getName(); //String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015"; 
 			Testpackage testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
 			if (testpackage != null) {
 				switch (enumTestFieldName) {

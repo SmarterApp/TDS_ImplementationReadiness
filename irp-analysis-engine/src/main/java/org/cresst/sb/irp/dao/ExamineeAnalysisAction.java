@@ -30,7 +30,6 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 			TDSReport tdsReport = getTdsReport();
 			Examinee examinee = tdsReport.getExaminee();
 			Long key = examinee.getKey();
-			System.out.println("key========>" + key);
 			if (key != null) {
 				examineeCategory.setKey(key);
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
@@ -74,8 +73,7 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 	
 	private void processC(Long key, FieldCheckType fieldCheckType) {
 		try {
-			Long tempKey = 8505L;
-			Student student = getStudent(tempKey); //getStudent(key);
+			Student student = getStudent(key); //Long tempKey = 8505L;
 			if (student != null) {
 				fieldCheckType.setCorrectValue(true);
 			}

@@ -8,11 +8,13 @@ import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.ExamineeAttributeAnalysisAction.EnumExamineeAttributeAcceptValues;
+import org.cresst.sb.irp.dao.ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipAcceptValues;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
@@ -25,6 +27,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AnalysisAction {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
+
+	public enum EnumExamineeAttributeContextAcceptValues {
+		INITIAL, FINAL;
+	}
 
 	@Autowired
 	public TestPackageService testPackageService;
@@ -69,6 +75,19 @@ public abstract class AnalysisAction {
 
 	public void setTest(Test test) {
 		this.test = test;
+	}
+
+	public Opportunity getOpportunity() {
+		Opportunity opportunity = new Opportunity();
+		try {
+			opportunity = tdsReport.getOpportunity();
+			if (opportunity != null) {
+				return opportunity;
+			}
+		} catch (Exception e) {
+			logger.error("getOpportunity exception: ", e);
+		}
+		return null;
 	}
 
 	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
@@ -154,17 +173,17 @@ public abstract class AnalysisAction {
 		}
 	}
 
-	public void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
-			Class<EnumExamineeAttributeAcceptValues> class1) {
+	public void processAcceptableContextEnum(String fieldValue, FieldCheckType fieldCheckType,
+			Class<EnumExamineeAttributeContextAcceptValues> class1) {
 		try {
 			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue)) {
 					fieldCheckType.setAcceptableValue(true);
-				} 
+				}
 			}
 		} catch (Exception e) {
-			logger.error("processAcceptableEnum exception: ", e);
+			logger.error("processAcceptableContextEnum exception: ", e);
 		}
 	}
 
@@ -188,7 +207,7 @@ public abstract class AnalysisAction {
 					} else if (e.name().equals(fieldNameValue)
 							&& e.name().equals(EnumExamineeAttributeAcceptValues.BlackOrAfricanAmerican.toString())) {
 						str = student.getBlackOrAfricanAmerican();
-					}//......
+					}// ......
 				}
 			}
 		} catch (Exception e) {

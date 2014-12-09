@@ -128,7 +128,6 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumExamineeAttributeFieldName) {
 			case name:
-				System.out.println("xxxxxxxxxxxxxxxxx");
 				validateToken(examineeAttribute.getName(), fieldCheckType);
 				processAcceptableEnum(examineeAttribute.getName(), fieldCheckType, EnumExamineeAttributeAcceptValues.class);
 				break;
@@ -136,7 +135,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 				validateToken(examineeAttribute.getValue(), fieldCheckType);
 				break;
 			case context:
-				// validateToken(examineeAttribute.getContext(), fieldCheckType);
+				validateToken(examineeAttribute.getContext().toString(), fieldCheckType);
+				processAcceptableContextEnum(examineeAttribute.getContext().toString(), fieldCheckType, EnumExamineeAttributeContextAcceptValues.class);
 				break;
 			case contextDate:
 				// validateToken(examineeAttribute.getContextDate(), fieldCheckType);
@@ -157,7 +157,6 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 				//processName(examineeAttribute, fieldCheckType);
 				break;
 			case value:
-				System.out.println("VVVVVVVVVVVVVVVV");
 				processFieldNameValue(examineeAttribute,  fieldCheckType, student);
 				break;
 			case context:
@@ -187,10 +186,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	private void processFieldNameValue(ExamineeAttribute examineeAttribute, FieldCheckType fieldCheckType, Student student) {
 		try {
 			String fieldName = examineeAttribute.getName();
-			System.out.println("fieldName ------>" +  fieldName);
 			String value = examineeAttribute.getValue();
-			System.out.println("value ------>" +  value);
-			String studentValue = getStudentValueByName(examineeAttribute.getName(), EnumExamineeAttributeAcceptValues.class, student);
+			String studentValue = getStudentValueByName(fieldName, EnumExamineeAttributeAcceptValues.class, student);
 			if (studentValue != null && value != null) {
 				if (studentValue.equals(value)){
 					fieldCheckType.setCorrectValue(true);
@@ -202,7 +199,19 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 
 	}
 	
-	
-	
+	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
+			Class<EnumExamineeAttributeAcceptValues> class1) {
+		try {
+			System.out.println("fieldValue ->" + fieldValue);
+			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
+				if (EnumUtils.isValidEnum(class1, fieldValue)) {
+					fieldCheckType.setAcceptableValue(true);
+				} 
+			}
+		} catch (Exception e) {
+			logger.error("processAcceptableEnum exception: ", e);
+		}
+	}
+
 
 }

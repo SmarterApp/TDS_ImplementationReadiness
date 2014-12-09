@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testpackage purpose="administration" publisher="SBAC_PT" publishdate="Oct 24 2014  3:26PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015" name="SBAC-Mathematics-3" label="G3 Math Practice Test" version="5644" />
+  <property name="subject" value="MATH" label="MATH" />
+  <property name="grade" value="3" label="grade 3" />
+  <administration>
+    <testblueprint>
+      <bpelement elementtype="test" minopitems="0" maxopitems="28" minftitems="0" maxftitems="0" opitemcount="0" ftitemcount="61">
+        <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015" name="SBAC-Mathematics-3" version="5644" />
+      </bpelement>
+      <bpelement elementtype="segment" minopitems="0" maxopitems="28" minftitems="0" maxftitems="0" opitemcount="0" ftitemcount="61">
+        <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015" name="SBAC-Mathematics-3" version="5644" />
+      </bpelement>
+      <bpelement elementtype="strand" minopitems="0" maxopitems="28" opitemcount="0" ftitemcount="61">
+        <identifier uniqueid="SBAC_PT-MA-Undesignated" name="MA-Undesignated" version="5644" />
+      </bpelement>
+    </testblueprint>
+    <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="21" />
+    <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="13" />
+    <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="15" />
+    <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="3" />
+    <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="7" />
+    <poolproperty property="--ITEMTYPE--" value="NL" label="NL" itemcount="2" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="49" />
+    <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="48" />
+    <poolproperty property="Language" value="ESN" label="Spanish" itemcount="28" />
+    <itempool>
+      <passage filename="stim-187-3554.xml">
+        <identifier uniqueid="187-3554" version="4867" />
+      </passage>
+      <testitem filename="item-187-1124.xml" itemtype="EQ">
+        <identifier uniqueid="187-1124" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1125.xml" itemtype="MS">
+        <identifier uniqueid="187-1125" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1126.xml" itemtype="MC">
+        <identifier uniqueid="187-1126" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1127.xml" itemtype="MC">
+        <identifier uniqueid="187-1127" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1129.xml" itemtype="EQ">
+        <identifier uniqueid="187-1129" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1131.xml" itemtype="MS">
+        <identifier uniqueid="187-1131" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1792.xml" itemtype="MC">
+        <identifier uniqueid="187-1792" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1793.xml" itemtype="MI">
+        <identifier uniqueid="187-1793" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1794.xml" itemtype="EQ">
+        <identifier uniqueid="187-1794" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1795.xml" itemtype="EQ">
+        <identifier uniqueid="187-1795" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1886.xml" itemtype="MC">
+        <identifier uniqueid="187-1886" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1888.xml" itemtype="MC">
+        <identifier uniqueid="187-1888" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1965.xml" itemtype="GI">
+        <identifier uniqueid="187-1965" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1966.xml" itemtype="GI">
+        <identifier uniqueid="187-1966" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1972.xml" itemtype="GI">
+        <identifier uniqueid="187-1972" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1973.xml" itemtype="MC">
+        <identifier uniqueid="187-1973" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1975.xml" itemtype="EQ">
+        <identifier uniqueid="187-1975" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1976.xml" itemtype="EQ">
+        <identifier uniqueid="187-1976" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1977.xml" itemtype="EQ">
+        <identifier uniqueid="187-1977" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1978.xml" itemtype="EQ">
+        <identifier uniqueid="187-1978" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1979.xml" itemtype="GI">
+        <identifier uniqueid="187-1979" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1985.xml" itemtype="MC">
+        <identifier uniqueid="187-1985" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1986.xml" itemtype="EQ">
+        <identifier uniqueid="187-1986" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1987.xml" itemtype="EQ">
+        <identifier uniqueid="187-1987" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1988.xml" itemtype="MI">
+        <identifier uniqueid="187-1988" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1991.xml" itemtype="EQ">
+        <identifier uniqueid="187-1991" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1994.xml" itemtype="EQ">
+        <identifier uniqueid="187-1994" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-1996.xml" itemtype="EQ">
+        <identifier uniqueid="187-1996" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2001.xml" itemtype="MC">
+        <identifier uniqueid="187-2001" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2003.xml" itemtype="GI">
+        <identifier uniqueid="187-2003" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2015.xml" itemtype="MS">
+        <identifier uniqueid="187-2015" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2016.xml" itemtype="EQ">
+        <identifier uniqueid="187-2016" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2017.xml" itemtype="GI">
+        <identifier uniqueid="187-2017" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2024.xml" itemtype="MC">
+        <identifier uniqueid="187-2024" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <poolproperty property="Language" value="ESN" label="Spanish" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2048.xml" itemtype="EQ">
+        <identifier uniqueid="187-2048" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2049.xml" itemtype="MC">
+        <identifier uniqueid="187-2049" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2050.xml" itemtype="MC">
+        <identifier uniqueid="187-2050" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2051.xml" itemtype="MI">
+        <identifier uniqueid="187-2051" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2052.xml" itemtype="EQ">
+        <identifier uniqueid="187-2052" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-2056.xml" itemtype="MS">
+        <identifier uniqueid="187-2056" version="5644" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-540.xml" itemtype="GI">
+        <identifier uniqueid="187-540" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-542.xml" itemtype="GI">
+        <identifier uniqueid="187-542" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-543.xml" itemtype="MC">
+        <identifier uniqueid="187-543" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-545.xml" itemtype="NL">
+        <identifier uniqueid="187-545" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <passageref>187-3554</passageref>
+        <poolproperty property="--ITEMTYPE--" value="NL" label="NL" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-546.xml" itemtype="NL">
+        <identifier uniqueid="187-546" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <passageref>187-3554</passageref>
+        <poolproperty property="--ITEMTYPE--" value="NL" label="NL" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-547.xml" itemtype="MS">
+        <identifier uniqueid="187-547" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-548.xml" itemtype="MS">
+        <identifier uniqueid="187-548" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-549.xml" itemtype="EQ">
+        <identifier uniqueid="187-549" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-550.xml" itemtype="EQ">
+        <identifier uniqueid="187-550" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-554.xml" itemtype="GI">
+        <identifier uniqueid="187-554" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="3" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-555.xml" itemtype="GI">
+        <identifier uniqueid="187-555" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-556.xml" itemtype="GI">
+        <identifier uniqueid="187-556" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-557.xml" itemtype="GI">
+        <identifier uniqueid="187-557" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-558.xml" itemtype="GI">
+        <identifier uniqueid="187-558" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="3" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-560.xml" itemtype="MS">
+        <identifier uniqueid="187-560" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MS" label="MS" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-561.xml" itemtype="MC">
+        <identifier uniqueid="187-561" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-562.xml" itemtype="MC">
+        <identifier uniqueid="187-562" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-563.xml" itemtype="EQ">
+        <identifier uniqueid="187-563" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-565.xml" itemtype="EQ">
+        <identifier uniqueid="187-565" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="2" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-566.xml" itemtype="EQ">
+        <identifier uniqueid="187-566" version="4867" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+      <testitem filename="item-187-570.xml" itemtype="MC">
+        <identifier uniqueid="187-570" version="4059" />
+        <bpref>(SBAC_PT)SBAC-MATH-3-Spring-2013-2015</bpref>
+        <bpref>SBAC_PT-MA-Undesignated</bpref>
+        <poolproperty property="--ITEMTYPE--" value="MC" label="MC" />
+        <poolproperty property="Language" value="ENU" label="English" />
+        <poolproperty property="Language" value="ENU-Braille" label="Braille English" />
+        <itemscoredimension measuremodel="RAWSCORE" scorepoints="1" weight="1.000000000000000e+000" />
+      </testitem>
+    </itempool>
+    <testform length="49">
+      <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ENU" name="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ENU" version="5534" />
+      <property name="language" value="ENU" label="English" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="17" />
+      <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="13" />
+      <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="11" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="4" />
+      <poolproperty property="--ITEMTYPE--" value="NL" label="NL" itemcount="2" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="49" />
+      <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="36" />
+      <poolproperty property="Language" value="ESN" label="Spanish" itemcount="28" />
+      <formpartition>
+        <identifier uniqueid="187-396" name="PracTest::MG3::S1::SP13" version="4059" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-554" name="187-396:I-187-554" version="4059" />
+          <groupitem itemid="187-554" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-548" name="187-396:I-187-548" version="4059" />
+          <groupitem itemid="187-548" formposition="2" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-570" name="187-396:I-187-570" version="4059" />
+          <groupitem itemid="187-570" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-565" name="187-396:I-187-565" version="4059" />
+          <groupitem itemid="187-565" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-555" name="187-396:I-187-555" version="4059" />
+          <groupitem itemid="187-555" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="6" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-558" name="187-396:I-187-558" version="4059" />
+          <groupitem itemid="187-558" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="7" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-560" name="187-396:I-187-560" version="4059" />
+          <groupitem itemid="187-560" formposition="7" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="8" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-561" name="187-396:I-187-561" version="4059" />
+          <groupitem itemid="187-561" formposition="8" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="9" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-566" name="187-396:I-187-566" version="4059" />
+          <groupitem itemid="187-566" formposition="9" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="10" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-562" name="187-396:I-187-562" version="4059" />
+          <groupitem itemid="187-562" formposition="10" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="11" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-563" name="187-396:I-187-563" version="4059" />
+          <groupitem itemid="187-563" formposition="11" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="12" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-396:G-187-3554-0" name="187-396:G-187-3554-0" version="4059" />
+          <passageref passageid="187-3554" />
+          <groupitem itemid="187-545" formposition="12" groupposition="1" adminrequired="false" responserequired="false" isactive="true" isfieldtest="true" blockid="A" />
+          <groupitem itemid="187-546" formposition="13" groupposition="2" adminrequired="false" responserequired="false" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="13" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-547" name="187-396:I-187-547" version="4059" />
+          <groupitem itemid="187-547" formposition="14" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="14" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-540" name="187-396:I-187-540" version="4059" />
+          <groupitem itemid="187-540" formposition="15" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="15" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-542" name="187-396:I-187-542" version="4059" />
+          <groupitem itemid="187-542" formposition="16" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="16" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-549" name="187-396:I-187-549" version="4059" />
+          <groupitem itemid="187-549" formposition="17" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="17" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-550" name="187-396:I-187-550" version="4059" />
+          <groupitem itemid="187-550" formposition="18" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="18" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-543" name="187-396:I-187-543" version="4059" />
+          <groupitem itemid="187-543" formposition="19" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="19" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-557" name="187-396:I-187-557" version="4059" />
+          <groupitem itemid="187-557" formposition="20" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="20" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-396:I-187-556" name="187-396:I-187-556" version="4059" />
+          <groupitem itemid="187-556" formposition="21" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+      <formpartition>
+        <identifier uniqueid="187-507" name="PracTest::MG3::S1::SP14" version="5534" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1986" name="187-507:I-187-1986" version="5644" />
+          <groupitem itemid="187-1986" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1988" name="187-507:I-187-1988" version="5644" />
+          <groupitem itemid="187-1988" formposition="2" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1987" name="187-507:I-187-1987" version="5644" />
+          <groupitem itemid="187-1987" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2003" name="187-507:I-187-2003" version="5644" />
+          <groupitem itemid="187-2003" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1976" name="187-507:I-187-1976" version="5644" />
+          <groupitem itemid="187-1976" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="6" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1966" name="187-507:I-187-1966" version="5644" />
+          <groupitem itemid="187-1966" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="7" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2015" name="187-507:I-187-2015" version="5644" />
+          <groupitem itemid="187-2015" formposition="7" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="8" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2016" name="187-507:I-187-2016" version="5644" />
+          <groupitem itemid="187-2016" formposition="8" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="9" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2017" name="187-507:I-187-2017" version="5644" />
+          <groupitem itemid="187-2017" formposition="9" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="10" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1985" name="187-507:I-187-1985" version="5644" />
+          <groupitem itemid="187-1985" formposition="10" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="11" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1991" name="187-507:I-187-1991" version="5644" />
+          <groupitem itemid="187-1991" formposition="11" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="12" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1792" name="187-507:I-187-1792" version="5644" />
+          <groupitem itemid="187-1792" formposition="12" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="13" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1994" name="187-507:I-187-1994" version="5644" />
+          <groupitem itemid="187-1994" formposition="13" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="14" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1794" name="187-507:I-187-1794" version="5644" />
+          <groupitem itemid="187-1794" formposition="14" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="15" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1972" name="187-507:I-187-1972" version="5644" />
+          <groupitem itemid="187-1972" formposition="15" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="16" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1996" name="187-507:I-187-1996" version="5644" />
+          <groupitem itemid="187-1996" formposition="16" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="17" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1886" name="187-507:I-187-1886" version="5644" />
+          <groupitem itemid="187-1886" formposition="17" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="18" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1973" name="187-507:I-187-1973" version="5644" />
+          <groupitem itemid="187-1973" formposition="18" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="19" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1793" name="187-507:I-187-1793" version="5644" />
+          <groupitem itemid="187-1793" formposition="19" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="20" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1979" name="187-507:I-187-1979" version="5644" />
+          <groupitem itemid="187-1979" formposition="20" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="21" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1888" name="187-507:I-187-1888" version="5644" />
+          <groupitem itemid="187-1888" formposition="21" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="22" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1965" name="187-507:I-187-1965" version="5644" />
+          <groupitem itemid="187-1965" formposition="22" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="23" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2024" name="187-507:I-187-2024" version="5644" />
+          <groupitem itemid="187-2024" formposition="23" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="24" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1795" name="187-507:I-187-1795" version="5644" />
+          <groupitem itemid="187-1795" formposition="24" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="25" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-2001" name="187-507:I-187-2001" version="5644" />
+          <groupitem itemid="187-2001" formposition="25" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="26" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1975" name="187-507:I-187-1975" version="5644" />
+          <groupitem itemid="187-1975" formposition="26" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="27" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1977" name="187-507:I-187-1977" version="5644" />
+          <groupitem itemid="187-1977" formposition="27" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="28" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-507:I-187-1978" name="187-507:I-187-1978" version="5644" />
+          <groupitem itemid="187-1978" formposition="28" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+    </testform>
+    <testform length="48">
+      <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ENU-Braille" name="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ENU-Braille" version="5534" />
+      <property name="language" value="ENU-Braille" label="English" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="21" />
+      <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="15" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="3" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="7" />
+      <poolproperty property="--ITEMTYPE--" value="NL" label="NL" itemcount="2" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="36" />
+      <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="48" />
+      <poolproperty property="Language" value="ESN" label="Spanish" itemcount="22" />
+      <formpartition>
+        <identifier uniqueid="187-398" name="PracTest::MG3::S1::SP13::BRAILLE" version="4059" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1129" name="187-398:I-187-1129" version="4059" />
+          <groupitem itemid="187-1129" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-548" name="187-398:I-187-548" version="4059" />
+          <groupitem itemid="187-548" formposition="2" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-570" name="187-398:I-187-570" version="4059" />
+          <groupitem itemid="187-570" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-565" name="187-398:I-187-565" version="4059" />
+          <groupitem itemid="187-565" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1125" name="187-398:I-187-1125" version="4059" />
+          <groupitem itemid="187-1125" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="6" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-560" name="187-398:I-187-560" version="4059" />
+          <groupitem itemid="187-560" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="7" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-561" name="187-398:I-187-561" version="4059" />
+          <groupitem itemid="187-561" formposition="7" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="8" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-566" name="187-398:I-187-566" version="4059" />
+          <groupitem itemid="187-566" formposition="8" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="9" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-562" name="187-398:I-187-562" version="4059" />
+          <groupitem itemid="187-562" formposition="9" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="10" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-563" name="187-398:I-187-563" version="4059" />
+          <groupitem itemid="187-563" formposition="10" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="11" maxitems="ALL" maxresponses="ALL">
+          <identifier uniqueid="187-398:G-187-3554-0" name="187-398:G-187-3554-0" version="4059" />
+          <passageref passageid="187-3554" />
+          <groupitem itemid="187-545" formposition="11" groupposition="1" adminrequired="false" responserequired="false" isactive="true" isfieldtest="true" blockid="A" />
+          <groupitem itemid="187-546" formposition="12" groupposition="2" adminrequired="false" responserequired="false" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="12" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-547" name="187-398:I-187-547" version="4059" />
+          <groupitem itemid="187-547" formposition="13" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="13" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1126" name="187-398:I-187-1126" version="4059" />
+          <groupitem itemid="187-1126" formposition="14" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="14" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1124" name="187-398:I-187-1124" version="4059" />
+          <groupitem itemid="187-1124" formposition="15" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="15" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-549" name="187-398:I-187-549" version="4059" />
+          <groupitem itemid="187-549" formposition="16" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="16" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-550" name="187-398:I-187-550" version="4059" />
+          <groupitem itemid="187-550" formposition="17" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="17" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-543" name="187-398:I-187-543" version="4059" />
+          <groupitem itemid="187-543" formposition="18" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="18" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1127" name="187-398:I-187-1127" version="4059" />
+          <groupitem itemid="187-1127" formposition="19" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="19" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-398:I-187-1131" name="187-398:I-187-1131" version="4059" />
+          <groupitem itemid="187-1131" formposition="20" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+      <formpartition>
+        <identifier uniqueid="187-508" name="PracTest::MG3::S1::SP14::Braille" version="5534" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1986" name="187-508:I-187-1986" version="5644" />
+          <groupitem itemid="187-1986" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1988" name="187-508:I-187-1988" version="5644" />
+          <groupitem itemid="187-1988" formposition="2" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1987" name="187-508:I-187-1987" version="5644" />
+          <groupitem itemid="187-1987" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2051" name="187-508:I-187-2051" version="5644" />
+          <groupitem itemid="187-2051" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1976" name="187-508:I-187-1976" version="5644" />
+          <groupitem itemid="187-1976" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="6" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2056" name="187-508:I-187-2056" version="5644" />
+          <groupitem itemid="187-2056" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="7" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2015" name="187-508:I-187-2015" version="5644" />
+          <groupitem itemid="187-2015" formposition="7" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="8" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2016" name="187-508:I-187-2016" version="5644" />
+          <groupitem itemid="187-2016" formposition="8" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="9" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2052" name="187-508:I-187-2052" version="5644" />
+          <groupitem itemid="187-2052" formposition="9" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="10" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1985" name="187-508:I-187-1985" version="5644" />
+          <groupitem itemid="187-1985" formposition="10" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="11" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1991" name="187-508:I-187-1991" version="5644" />
+          <groupitem itemid="187-1991" formposition="11" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="12" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1792" name="187-508:I-187-1792" version="5644" />
+          <groupitem itemid="187-1792" formposition="12" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="13" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1994" name="187-508:I-187-1994" version="5644" />
+          <groupitem itemid="187-1994" formposition="13" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="14" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1794" name="187-508:I-187-1794" version="5644" />
+          <groupitem itemid="187-1794" formposition="14" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="15" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2048" name="187-508:I-187-2048" version="5644" />
+          <groupitem itemid="187-2048" formposition="15" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="16" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1996" name="187-508:I-187-1996" version="5644" />
+          <groupitem itemid="187-1996" formposition="16" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="17" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1886" name="187-508:I-187-1886" version="5644" />
+          <groupitem itemid="187-1886" formposition="17" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="18" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1973" name="187-508:I-187-1973" version="5644" />
+          <groupitem itemid="187-1973" formposition="18" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="19" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1793" name="187-508:I-187-1793" version="5644" />
+          <groupitem itemid="187-1793" formposition="19" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="20" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2049" name="187-508:I-187-2049" version="5644" />
+          <groupitem itemid="187-2049" formposition="20" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="21" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1888" name="187-508:I-187-1888" version="5644" />
+          <groupitem itemid="187-1888" formposition="21" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="22" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2050" name="187-508:I-187-2050" version="5644" />
+          <groupitem itemid="187-2050" formposition="22" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="23" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2024" name="187-508:I-187-2024" version="5644" />
+          <groupitem itemid="187-2024" formposition="23" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="24" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1795" name="187-508:I-187-1795" version="5644" />
+          <groupitem itemid="187-1795" formposition="24" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="25" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-2001" name="187-508:I-187-2001" version="5644" />
+          <groupitem itemid="187-2001" formposition="25" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="26" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1975" name="187-508:I-187-1975" version="5644" />
+          <groupitem itemid="187-1975" formposition="26" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="27" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1977" name="187-508:I-187-1977" version="5644" />
+          <groupitem itemid="187-1977" formposition="27" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="28" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-508:I-187-1978" name="187-508:I-187-1978" version="5644" />
+          <groupitem itemid="187-1978" formposition="28" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+    </testform>
+    <testform length="28">
+      <identifier uniqueid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ESN" name="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015:Default-ESN" version="5534" />
+      <property name="language" value="ESN" label="Spanish" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="12" />
+      <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="6" />
+      <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="7" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="1" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="28" />
+      <poolproperty property="Language" value="ENU-Braille" label="Braille English" itemcount="22" />
+      <poolproperty property="Language" value="ESN" label="Spanish" itemcount="28" />
+      <formpartition>
+        <identifier uniqueid="187-509" name="PracTest::MG3::S1::SP14::ESN" version="5534" />
+        <itemgroup formposition="1" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1986" name="187-509:I-187-1986" version="5644" />
+          <groupitem itemid="187-1986" formposition="1" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="2" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1988" name="187-509:I-187-1988" version="5644" />
+          <groupitem itemid="187-1988" formposition="2" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="3" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1987" name="187-509:I-187-1987" version="5644" />
+          <groupitem itemid="187-1987" formposition="3" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="4" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2003" name="187-509:I-187-2003" version="5644" />
+          <groupitem itemid="187-2003" formposition="4" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="5" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1976" name="187-509:I-187-1976" version="5644" />
+          <groupitem itemid="187-1976" formposition="5" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="6" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1966" name="187-509:I-187-1966" version="5644" />
+          <groupitem itemid="187-1966" formposition="6" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="7" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2015" name="187-509:I-187-2015" version="5644" />
+          <groupitem itemid="187-2015" formposition="7" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="8" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2016" name="187-509:I-187-2016" version="5644" />
+          <groupitem itemid="187-2016" formposition="8" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="9" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2017" name="187-509:I-187-2017" version="5644" />
+          <groupitem itemid="187-2017" formposition="9" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="10" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1985" name="187-509:I-187-1985" version="5644" />
+          <groupitem itemid="187-1985" formposition="10" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="11" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1991" name="187-509:I-187-1991" version="5644" />
+          <groupitem itemid="187-1991" formposition="11" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="12" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1792" name="187-509:I-187-1792" version="5644" />
+          <groupitem itemid="187-1792" formposition="12" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="13" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1994" name="187-509:I-187-1994" version="5644" />
+          <groupitem itemid="187-1994" formposition="13" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="14" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1794" name="187-509:I-187-1794" version="5644" />
+          <groupitem itemid="187-1794" formposition="14" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="15" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1972" name="187-509:I-187-1972" version="5644" />
+          <groupitem itemid="187-1972" formposition="15" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="16" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1996" name="187-509:I-187-1996" version="5644" />
+          <groupitem itemid="187-1996" formposition="16" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="17" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1886" name="187-509:I-187-1886" version="5644" />
+          <groupitem itemid="187-1886" formposition="17" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="18" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1973" name="187-509:I-187-1973" version="5644" />
+          <groupitem itemid="187-1973" formposition="18" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="19" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1793" name="187-509:I-187-1793" version="5644" />
+          <groupitem itemid="187-1793" formposition="19" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="20" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1979" name="187-509:I-187-1979" version="5644" />
+          <groupitem itemid="187-1979" formposition="20" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="21" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1888" name="187-509:I-187-1888" version="5644" />
+          <groupitem itemid="187-1888" formposition="21" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="22" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1965" name="187-509:I-187-1965" version="5644" />
+          <groupitem itemid="187-1965" formposition="22" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="23" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2024" name="187-509:I-187-2024" version="5644" />
+          <groupitem itemid="187-2024" formposition="23" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="24" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1795" name="187-509:I-187-1795" version="5644" />
+          <groupitem itemid="187-1795" formposition="24" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="25" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-2001" name="187-509:I-187-2001" version="5644" />
+          <groupitem itemid="187-2001" formposition="25" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="26" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1975" name="187-509:I-187-1975" version="5644" />
+          <groupitem itemid="187-1975" formposition="26" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="27" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1977" name="187-509:I-187-1977" version="5644" />
+          <groupitem itemid="187-1977" formposition="27" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+        <itemgroup formposition="28" maxitems="ALL" maxresponses="0">
+          <identifier uniqueid="187-509:I-187-1978" name="187-509:I-187-1978" version="5644" />
+          <groupitem itemid="187-1978" formposition="28" groupposition="1" adminrequired="true" responserequired="true" isactive="true" isfieldtest="true" blockid="A" />
+        </itemgroup>
+      </formpartition>
+    </testform>
+    <adminsegment segmentid="(SBAC_PT)SBAC-MATH-3-Spring-2013-2015" position="1" itemselection="fixedform">
+      <segmentblueprint>
+        <segmentbpelement bpelementid="SBAC_PT-MA-Undesignated" minopitems="0" maxopitems="28" />
+      </segmentblueprint>
+      <itemselector type="fixedform">
+        <identifier uniqueid="AIR FIXEDFORM1" name="AIR FIXEDFORM" label="AIR FIXEDFORM" version="1.0" />
+      </itemselector>
+      <segmentform formpartitionid="187-396" />
+      <segmentform formpartitionid="187-398" />
+      <segmentform formpartitionid="187-507" />
+      <segmentform formpartitionid="187-508" />
+      <segmentform formpartitionid="187-509" />
+    </adminsegment>
+  </administration>
+</testpackage>
