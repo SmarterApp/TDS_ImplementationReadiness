@@ -10,19 +10,17 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ItemCategory;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
-import org.cresst.sb.irp.domain.analysis.ResponseCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
 @Scope("prototype")
-public class ItemAnalysisAction extends AnalysisAction {
-	private static Logger logger = Logger.getLogger(ItemAnalysisAction.class);
+public class ItemAttributesAnalysisAction extends AnalysisAction {
+	private static Logger logger = Logger.getLogger(ItemAttributesAnalysisAction.class);
 
 	public enum EnumItemFieldName {
 		position, segmentId, bankKey, key, operational, isSelected, format, score, scoreStatus, adminDate, numberVisits, mimeType, clientId, strand, contentLevel, pageNumber, pageVisits, pageTime, dropped;
@@ -39,20 +37,14 @@ public class ItemAnalysisAction extends AnalysisAction {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> listItemCategory = opportunityCategory.getListItemCategory();
-
 			ItemCategory itemCategory;
-
 			Opportunity opportunity = getOpportunity(tdsReport);
 			List<Item> listItem = opportunity.getItem();
-
 			for (Item i : listItem) {
-				System.out.println("item ------->" + i.getPosition());
 				itemCategory = new ItemCategory();
 				listItemCategory.add(itemCategory);
 				analysisItemAttributes(itemCategory, i);
-				analysisItemResponse(itemCategory, i);
 			}
-
 		} catch (Exception e) {
 			logger.error("analysis exception: ", e);
 		}
@@ -100,7 +92,7 @@ public class ItemAnalysisAction extends AnalysisAction {
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.key, fieldCheckType);
-
+	
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
 			cellCategory.setTdsFieldName(EnumItemFieldName.operational.toString());
@@ -211,40 +203,6 @@ public class ItemAnalysisAction extends AnalysisAction {
 
 		} catch (Exception e) {
 			logger.error("analysisItemAttributes exception: ", e);
-		}
-	}
-
-	private void analysisItemResponse(ItemCategory itemCategory, Item item) {
-		try {
-			ResponseCategory responseCategory = new ResponseCategory();
-			itemCategory.setResponseCategory(responseCategory);
-			Response response = item.getResponse();
-			String strDate = response.getDate().toString();
-			responseCategory.setDate(strDate);
-			
-			FieldCheckType fieldCheckType;
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			responseCategory.setDateFieldCheckType(fieldCheckType);
-			//validateField(response.getDate(), EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
-			
-			String strType = response.getType();
-			responseCategory.setType(strType);
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			responseCategory.setTypeFieldCheckType(fieldCheckType);
-			//validateField(response.getType(), EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
-			
-			String strNodeText = response.getContent();
-			responseCategory.setContent(strNodeText);
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			responseCategory.setContentFieldCheckType(fieldCheckType);
-			//validateField(response.getContent(), EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
-			
-			
-		} catch (Exception e) {
-			logger.error("analysisItemResponse exception: ", e);
 		}
 	}
 

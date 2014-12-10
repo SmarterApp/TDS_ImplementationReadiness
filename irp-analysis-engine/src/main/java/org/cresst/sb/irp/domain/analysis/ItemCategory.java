@@ -10,7 +10,7 @@ public class ItemCategory {
 
 	private List<CellCategory> listItemAttribute;
 	private ResponseCategory responseCategory;
-	private ScoreInfoCategory scoreInfoCategory;
+	private ScoreInfoCategory scoreInfoCategory; 
 	
 	public ItemCategory() {
 		logger.info("initializing");
@@ -41,10 +41,11 @@ public class ItemCategory {
 		this.scoreInfoCategory = scoreInfoCategory;
 	}
 
-
-
-
-
+	@Override
+	public String toString() {
+		return "ItemCategory [listItemAttribute=" + listItemAttribute + ", responseCategory=" + responseCategory
+				+ ", scoreInfoCategory=" + scoreInfoCategory + "]";
+	}
 
 
 }

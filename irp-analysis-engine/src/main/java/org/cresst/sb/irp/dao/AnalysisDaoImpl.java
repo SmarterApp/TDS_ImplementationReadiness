@@ -42,7 +42,13 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	public AccommodationAnalysisAction accommodationAnalysisAction;
 	
 	@Autowired
-	public ItemAnalysisAction itemAnalysisAction;
+	public ItemAttributesAnalysisAction itemAttributesAnalysisAction;
+	
+	@Autowired
+	public ItemResponseAnalysisAction itemResponseAnalysisAction;
+	
+	@Autowired
+	public ItemScoreInfoAnalysisAction itemScoreInfoAnalysisAction;
 	
 	//tdsreport_12_8_14.xsd from AIR David original file name tdsreport.xsd
 	@Value("classpath:irp-package/tdsreport_12_8_14.xsd") //reportxml_oss.xsd") from Rami on 12/4/14 vs sample_oss_report2.xml
@@ -92,8 +98,14 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					accommodationAnalysisAction.setIndividualResponse(individualResponse);
 					accommodationAnalysisAction.analysis();
 					
-					itemAnalysisAction.setIndividualResponse(individualResponse);
-					itemAnalysisAction.analysis();
+					itemAttributesAnalysisAction.setIndividualResponse(individualResponse);
+					itemAttributesAnalysisAction.analysis();
+					
+					itemResponseAnalysisAction.setIndividualResponse(individualResponse);
+					itemResponseAnalysisAction.analysis();
+					
+					itemScoreInfoAnalysisAction.setIndividualResponse(individualResponse);
+					itemScoreInfoAnalysisAction.analysis();
 					
 				}
 				System.out.println("individualResponse --->" + individualResponse.toString());
