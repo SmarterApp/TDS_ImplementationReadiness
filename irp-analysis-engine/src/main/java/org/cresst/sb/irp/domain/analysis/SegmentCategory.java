@@ -22,5 +22,10 @@ public class SegmentCategory {
 	public void setListCellCategory(List<CellCategory> listCellCategory) {
 		this.listCellCategory = listCellCategory;
 	}
+
+	@Override
+	public String toString() {
+		return "SegmentCategory [listCellCategory=" + listCellCategory + "]";
+	}
 	
 }

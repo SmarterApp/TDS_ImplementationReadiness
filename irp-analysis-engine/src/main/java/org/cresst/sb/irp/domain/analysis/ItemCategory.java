@@ -1,17 +1,30 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 public class ItemCategory {
 	private static Logger logger = Logger.getLogger(ItemCategory.class);
 
+	private List<CellCategory> listItemAttribute;
 	private ResponseCategory responseCategory;
 	private ScoreInfoCategory scoreInfoCategory;
 	
 	public ItemCategory() {
 		logger.info("initializing");
+		setListItemAttribute(new ArrayList<CellCategory>());
 	}
 
+	public List<CellCategory> getListItemAttribute() {
+		return listItemAttribute;
+	}
+
+	public void setListItemAttribute(List<CellCategory> listItemAttribute) {
+		this.listItemAttribute = listItemAttribute;
+	}
+	
 	public ResponseCategory getResponseCategory() {
 		return responseCategory;
 	}
@@ -27,5 +40,11 @@ public class ItemCategory {
 	public void setScoreInfoCategory(ScoreInfoCategory scoreInfoCategory) {
 		this.scoreInfoCategory = scoreInfoCategory;
 	}
+
+
+
+
+
+
 
 }

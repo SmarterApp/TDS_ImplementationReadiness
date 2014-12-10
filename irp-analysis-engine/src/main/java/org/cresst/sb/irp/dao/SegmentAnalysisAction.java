@@ -141,7 +141,7 @@ public class SegmentAnalysisAction extends AnalysisAction {
 				validatePritableASCIIone(segment.getId(), fieldCheckType);
 				break;
 			case position:
-				validateUnsignedIntPositive32bit(segment.getPosition(), fieldCheckType);
+				validateUnsignedIntPositive32bit(Short.toString(segment.getPosition()), fieldCheckType);
 				break;
 			case formKey:
 				break;

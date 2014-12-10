@@ -117,11 +117,7 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 				validatePritableASCIIone(opportunity.getKey(), fieldCheckType);
 				break;
 			case oppId:
-				if (sign(Long.valueOf(opportunity.getOppId()).longValue()) > 0) {
-					fieldCheckType.setCorrectDataType(true);
-					fieldCheckType.setFieldEmpty(false);
-					fieldCheckType.setAcceptableValue(true);
-				}
+				validateUnsignedLongPositive64bit(Long.valueOf(opportunity.getOppId()).longValue(), fieldCheckType);
 				break;	
 			default:
 				break;

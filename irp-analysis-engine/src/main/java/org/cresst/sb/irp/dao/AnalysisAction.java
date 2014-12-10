@@ -8,7 +8,6 @@ import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.ExamineeAttributeAnalysisAction.EnumExamineeAttributeAcceptValues;
-import org.cresst.sb.irp.dao.ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipAcceptValues;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.student.Student;
@@ -130,7 +129,7 @@ public abstract class AnalysisAction {
 		return null;
 	}
 
-	public int sign(long i) {
+	private int sign(long i) {
 		if (i == 0)
 			return 0;
 		if (i >> 63 != 0)
@@ -144,6 +143,24 @@ public abstract class AnalysisAction {
 			bits++;
 		}
 		return bits;
+	}
+
+	public boolean isInteger(String s) {
+		try {
+			Integer.parseInt(s);
+			return true;
+		} catch (NumberFormatException ex) {
+			return false;
+		}
+	}
+
+	public boolean isFloat(String str) {
+		try {
+			Float.parseFloat(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
 	}
 
 	abstract public void analysis() throws IOException;
@@ -181,16 +198,61 @@ public abstract class AnalysisAction {
 		}
 	}
 
-	public void validateUnsignedIntPositive32bit(int number, FieldCheckType fieldCheckType) {
+	public void validateUnsignedIntPositive32bit(String inputValue, FieldCheckType fieldCheckType) {
 		try {
-			int num = getNumberOfBits(number);
-			if (num > 0 && num <= 32) {
+			if (isInteger(inputValue)) {
+				int num = getNumberOfBits(Integer.parseInt(inputValue));
+				if (num > 0 && num <= 32) {
+					fieldCheckType.setCorrectDataType(true);
+					fieldCheckType.setFieldEmpty(false);
+					fieldCheckType.setAcceptableValue(true);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("validateUnsignedIntPositive32bit exception: ", e);
+		}
+	}
+
+	public void validateUnsignedLongPositive64bit(long number, FieldCheckType fieldCheckType) {
+		try {
+			long num = sign(number);
+			if (num > 0) {
 				fieldCheckType.setCorrectDataType(true);
 				fieldCheckType.setFieldEmpty(false);
 				fieldCheckType.setAcceptableValue(true);
 			}
 		} catch (Exception e) {
-			logger.error("validateUnsignedIntPositive32bit exception: ", e);
+			logger.error("validateUnsignedLongPositive64bit exception: ", e);
+		}
+	}
+
+	public void validateUnsignedInt(String inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue) {
+		try {
+			if (isInteger(inputValue)) {
+				if (Integer.parseInt(inputValue) == firstValue || Integer.parseInt(inputValue) == secondValue) {
+					fieldCheckType.setCorrectDataType(true);
+					fieldCheckType.setFieldEmpty(false);
+					fieldCheckType.setAcceptableValue(true);
+				}
+			}
+
+		} catch (Exception e) {
+			logger.error("validateUnsignedInt exception: ", e);
+		}
+	}
+
+	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
+		try {
+			if (isFloat(inputValue)) {
+				float fValue = Float.parseFloat(inputValue);
+				if (fValue >= 0 || fValue == allowedValue) {
+					fieldCheckType.setCorrectDataType(true);
+					fieldCheckType.setFieldEmpty(false);
+					fieldCheckType.setAcceptableValue(true);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("validateUnsignedFloat exception: ", e);
 		}
 	}
 

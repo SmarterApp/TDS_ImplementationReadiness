@@ -60,11 +60,7 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 
 	private void processP(Long key, FieldCheckType fieldCheckType) {
 		try {
-			if (sign(key) > 0) {
-				fieldCheckType.setCorrectDataType(true);
-				fieldCheckType.setFieldEmpty(false);
-				fieldCheckType.setAcceptableValue(true);
-			}
+			validateUnsignedLongPositive64bit(key, fieldCheckType);
 		} catch (Exception e) {
 			logger.error("processP exception: ", e);
 		}

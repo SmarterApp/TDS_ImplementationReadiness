@@ -19,6 +19,7 @@ public class IndividualResponse {
 	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
 	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
 	private OpportunityCategory opportunityCategory;
+	private List<CommentCategory> listCoomentCategory;
 	
 	
 	public IndividualResponse() {
@@ -26,7 +27,7 @@ public class IndividualResponse {
 		setListTestPropertyCategory(new ArrayList<CellCategory>());
 		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
 		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
-		
+		setListCoomentCategory(new ArrayList<CommentCategory>());
 	}
 
 	public String getFileName() {
@@ -102,13 +103,21 @@ public class IndividualResponse {
 		this.status = status;
 	}
 
+	public List<CommentCategory> getListCoomentCategory() {
+		return listCoomentCategory;
+	}
+
+	public void setListCoomentCategory(List<CommentCategory> listCoomentCategory) {
+		this.listCoomentCategory = listCoomentCategory;
+	}
+
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
 				+ ", status=" + status + ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory="
 				+ examineeCategory + ", listExamineeAttributeCategory=" + listExamineeAttributeCategory
 				+ ", listExamineeRelationshipCategory=" + listExamineeRelationshipCategory + ", opportunityCategory="
-				+ opportunityCategory + "]";
+				+ opportunityCategory + ", listCoomentCategory=" + listCoomentCategory + "]";
 	}
 
 
