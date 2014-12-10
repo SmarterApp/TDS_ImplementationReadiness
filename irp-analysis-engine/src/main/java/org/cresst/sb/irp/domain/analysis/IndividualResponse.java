@@ -1,8 +1,6 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -14,17 +12,22 @@ public class IndividualResponse {
 	private String fileName; // id
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
+	private String status; //No errors, Contains xx errors 
 
-	private List<TestCategory> listTestCategory;
+	private List<CellCategory> listTestPropertyCategory;
 	private ExamineeCategory examineeCategory;
-
-	// Test, Examinee, ExamineeAttribute, Opportunity
-	//private HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField;
-
+	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
+	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
+	private OpportunityCategory opportunityCategory;
+	private List<CommentCategory> listCoomentCategory;
+	
+	
 	public IndividualResponse() {
 		logger.info("initializing");
-		setListTestCategory(new ArrayList<TestCategory>());
-		//setMapCategoryField(new HashMap<String, Hashtable<String, FieldCheckType>>());
+		setListTestPropertyCategory(new ArrayList<CellCategory>());
+		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
+		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
+		setListCoomentCategory(new ArrayList<CommentCategory>());
 	}
 
 	public String getFileName() {
@@ -43,15 +46,6 @@ public class IndividualResponse {
 		this.tdsReport = tdsReport;
 	}
 
-	/*
-	public HashMap<String, Hashtable<String, FieldCheckType>> getMapCategoryField() {
-		return mapCategoryField;
-	}
-
-	public void setMapCategoryField(HashMap<String, Hashtable<String, FieldCheckType>> mapCategoryField) {
-		this.mapCategoryField = mapCategoryField;
-	}*/
-
 	public boolean isValidXMLfile() {
 		return isValidXMLfile;
 	}
@@ -59,15 +53,16 @@ public class IndividualResponse {
 	public void setValidXMLfile(boolean isValidXMLfile) {
 		this.isValidXMLfile = isValidXMLfile;
 	}
-
-	public List<TestCategory> getListTestCategory() {
-		return listTestCategory;
+	
+	public List<CellCategory> getListTestPropertyCategory() {
+		return listTestPropertyCategory;
 	}
 
-	public void setListTestCategory(List<TestCategory> listTestCategory) {
-		this.listTestCategory = listTestCategory;
+	public void setListTestPropertyCategory(List<CellCategory> listTestPropertyCategory) {
+		this.listTestPropertyCategory = listTestPropertyCategory;
 	}
 
+	
 	public ExamineeCategory getExamineeCategory() {
 		return examineeCategory;
 	}
@@ -76,12 +71,54 @@ public class IndividualResponse {
 		this.examineeCategory = examineeCategory;
 	}
 
+	public List<ExamineeAttributeCategory> getListExamineeAttributeCategory() {
+		return listExamineeAttributeCategory;
+	}
+
+	public void setListExamineeAttributeCategory(List<ExamineeAttributeCategory> listExamineeAttributeCategory) {
+		this.listExamineeAttributeCategory = listExamineeAttributeCategory;
+	}
+	
+	public List<ExamineeRelationshipCategory> getListExamineeRelationshipCategory() {
+		return listExamineeRelationshipCategory;
+	}
+
+	public void setListExamineeRelationshipCategory(List<ExamineeRelationshipCategory> listExamineeRelationshipCategory) {
+		this.listExamineeRelationshipCategory = listExamineeRelationshipCategory;
+	}
+	
+	public OpportunityCategory getOpportunityCategory() {
+		return opportunityCategory;
+	}
+
+	public void setOpportunityCategory(OpportunityCategory opportunityCategory) {
+		this.opportunityCategory = opportunityCategory;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<CommentCategory> getListCoomentCategory() {
+		return listCoomentCategory;
+	}
+
+	public void setListCoomentCategory(List<CommentCategory> listCoomentCategory) {
+		this.listCoomentCategory = listCoomentCategory;
+	}
+
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", listTestCategory=" + listTestCategory + ", examineeCategory=" + examineeCategory + "]";
+				+ ", status=" + status + ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory="
+				+ examineeCategory + ", listExamineeAttributeCategory=" + listExamineeAttributeCategory
+				+ ", listExamineeRelationshipCategory=" + listExamineeRelationshipCategory + ", opportunityCategory="
+				+ opportunityCategory + ", listCoomentCategory=" + listCoomentCategory + "]";
 	}
 
-	
 
 }
