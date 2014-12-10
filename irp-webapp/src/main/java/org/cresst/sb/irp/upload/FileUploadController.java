@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.upload;
 
+import com.google.common.collect.Iterables;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.exceptions.NotFoundException;
@@ -33,27 +34,25 @@ public class FileUploadController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public ModelAndView upload(@RequestParam("file") MultipartFile file) {
 
-        String validationMessage = "Invalid";
-        int numTdsFilesUploaded = 1;
-
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("report");
 
         if (!file.isEmpty()) {
             try {
                 Iterable<Path> tdsReportPaths = getTdsReportFiles(file);
-                System.out.println("tdsReportPaths ---->" + tdsReportPaths);
 
-                // TODO: Run validation/analysis engine on TDS Reports and return an analysis report
                 AnalysisResponse analysisResponse = analysisService.analysisProcess(tdsReportPaths);
+
+
+                mav.setViewName("report");
+                mav.addObject("numTdsFilesUploaded", Iterables.size(tdsReportPaths));
+                mav.addObject("numTdsFilesAnalyzed", analysisResponse.getListIndividualResponse().size());
+                mav.addObject("reports", analysisResponse.getListIndividualResponse());
 
             } catch (IOException | XmlMappingException | ClassCastException e) {
                 logger.info("File upload failed", e);
+                mav.setViewName("report-error");
             }
         }
-
-        mav.addObject("validation", validationMessage);
-        mav.addObject("numTdsFilesUploaded", numTdsFilesUploaded);
 
         return mav;
     }
@@ -68,7 +67,6 @@ public class FileUploadController {
 
         final List<Path> paths = new ArrayList<>();
         String fileType = multipartFile.getContentType();
-        System.out.println("fileType ---->" + fileType);
 
         // Determine file type
         if ("application/zip".equals(fileType)) {
