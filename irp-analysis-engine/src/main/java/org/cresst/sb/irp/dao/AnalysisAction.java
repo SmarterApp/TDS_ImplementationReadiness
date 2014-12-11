@@ -137,6 +137,15 @@ public abstract class AnalysisAction {
 		return itemService.getItemByIdentifier(identifier);
 	}
 	
+	public Itemrelease.Item.Attriblist getItemAttriblistFromIRPitem (org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem){
+		return itemService.getItemAttriblistFromIRPitem(irpItem);
+	}
+	
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(Itemrelease.Item.Attriblist attriblist, 
+			String attid){
+		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
+	}
+	
 	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitem (org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, 
 			String attid){
 		return itemService.getItemAttribFromIRPitem(irpItem, attid);
@@ -360,6 +369,19 @@ public abstract class AnalysisAction {
 	
 	public void setCcorrect(FieldCheckType fieldCheckType){
 		fieldCheckType.setCorrectValue(true);
+	}
+	
+	public void processP(String str, FieldCheckType fieldCheckType) {
+		if (str != null && str.length() > 0) {
+			setPcorrect(fieldCheckType);
+		}
+	}
+	
+	public boolean isCorrectValue(String v1, String v2){
+		if (v1.trim().toLowerCase().equals(v2.trim().toLowerCase()))
+			return true;
+		else
+			return false;
 	}
 	
 }

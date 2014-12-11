@@ -14,7 +14,7 @@ public class ItemCategory {
 	private ScoreInfoCategory scoreInfoCategory; 
 	private String itemBankKeyKey;
 	private String expectResultFromIRPitem;
-	private Itemrelease.Item.Attriblist.Attrib attrib;
+	private Itemrelease.Item.Attriblist attriblist;
 	
 	public ItemCategory() {
 		logger.info("initializing");
@@ -61,20 +61,22 @@ public class ItemCategory {
 		this.expectResultFromIRPitem = expectResultFromIRPitem;
 	}
 
-	public Itemrelease.Item.Attriblist.Attrib getAttrib() {
-		return attrib;
+	public Itemrelease.Item.Attriblist getAttriblist() {
+		return attriblist;
 	}
 
-	public void setAttrib(Itemrelease.Item.Attriblist.Attrib attrib) {
-		this.attrib = attrib;
+	public void setAttriblist(Itemrelease.Item.Attriblist attriblist) {
+		this.attriblist = attriblist;
 	}
 
 	@Override
 	public String toString() {
 		return "ItemCategory [listItemAttribute=" + listItemAttribute + ", responseCategory=" + responseCategory
 				+ ", scoreInfoCategory=" + scoreInfoCategory + ", itemBankKeyKey=" + itemBankKeyKey
-				+ ", expectResultFromIRPitem=" + expectResultFromIRPitem + ", attrib=" + attrib + "]";
+				+ ", expectResultFromIRPitem=" + expectResultFromIRPitem + ", attriblist=" + attriblist + "]";
 	}
+
+
 
 
 }

@@ -23,7 +23,6 @@ import org.springframework.stereotype.Repository;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
-
 @Repository
 public class ItemDaoImpl implements ItemDao {
 	private static Logger logger = Logger.getLogger(ItemDaoImpl.class);
@@ -44,12 +43,12 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item getItemById(int id) {
 		logger.info("getItemById");
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		return item;
 	}
-	
+
 	@Override
 	public Item getItemByIdentifier(String Identifier) {
 		logger.info("getItemByIdentifier");
@@ -82,7 +81,9 @@ public class ItemDaoImpl implements ItemDao {
 						map.put(itemid, item);
 						map2.put(resourceIdentifier.trim(), item);
 					} catch (NumberFormatException e) {
-						logger.error("the last part of resource identifier (xxx-number-number) in imsmanifest.xml is not a number !!", e);
+						logger.error(
+								"the last part of resource identifier (xxx-number-number) in imsmanifest.xml is not a number !!",
+								e);
 					} catch (Exception e) {
 						logger.error("ItemDaoImpl.loadData() Exception", e);
 					}
@@ -98,7 +99,7 @@ public class ItemDaoImpl implements ItemDao {
 	public ItemAttribute getItemAttribute(int id) {
 		logger.info("getItemAttribute");
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		ItemAttribute itemAttribute = new ItemAttribute();
@@ -112,7 +113,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.Attriblist getAttriblist(int id) {
 		logger.info("getAttriblist with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
@@ -122,10 +123,18 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	@Override
+	public Attriblist getItemAttriblistFromIRPitem(Item item) {
+		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
+		if (listAttriblist == null || listAttriblist.size() == 0)
+			return null;
+		return listAttriblist.get(0);
+	}
+
+	@Override
 	public Itemrelease.Item.Attriblist.Attrib getAttribByIntAttid(int id, int attid) {
 		logger.info("getAttribByIntAttid with id " + id + " and attid " + attid);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
@@ -142,7 +151,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.Attriblist.Attrib getAttribByStrAttid(int id, String attid) {
 		logger.info("getAttribByStrAttid with id " + id + " and attid " + attid);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
@@ -153,8 +162,20 @@ public class ItemDaoImpl implements ItemDao {
 		if (listAttrib == null || listAttrib.size() == 0)
 			throw new NotFoundException("Could not find listAttrib for item " + id);
 		for (Itemrelease.Item.Attriblist.Attrib att : listAttrib) {
-			if (attid.toLowerCase().trim()
-					.equals(att.getAttid().toLowerCase().trim())) {
+			if (attid.toLowerCase().trim().equals(att.getAttid().toLowerCase().trim())) {
+				return att;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(Attriblist attriblist, String attid) {
+		List<Itemrelease.Item.Attriblist.Attrib> listAttrib = attriblist.getAttrib();
+		if (listAttrib == null || listAttrib.size() == 0)
+			return null;
+		for (Itemrelease.Item.Attriblist.Attrib att : listAttrib) {
+			if (attid.toLowerCase().trim().equals(att.getAttid().toLowerCase().trim())) {
 				return att;
 			}
 		}
@@ -182,7 +203,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Tutorial gettutorial(int id) {
 		logger.info("gettutorial with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Tutorial> listTutorial = item.getTutorial();
@@ -195,7 +216,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.Resourceslist getResourceslist(int id) {
 		logger.info("getResourceslist with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Resourceslist> listResourceslist = item.getResourceslist();
@@ -208,7 +229,7 @@ public class ItemDaoImpl implements ItemDao {
 	public String getStatistic(int id) {
 		logger.info("getStatistic with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		return item.getStatistic();
@@ -218,7 +239,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.MachineRubric getMachineRubric(int id) {
 		logger.info("getMachineRubric with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.MachineRubric> listMachineRubric = item.getMachineRubric();
@@ -228,7 +249,7 @@ public class ItemDaoImpl implements ItemDao {
 			Itemrelease.Item.MachineRubric machineRubric = listMachineRubric.get(0);
 			if (machineRubric == null) {
 				throw new IndexOutOfBoundsException();
-			}else{
+			} else {
 				return machineRubric;
 			}
 		}
@@ -238,7 +259,7 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.RendererSpec getRendererSpec(int id) {
 		logger.info("getRendererSpec with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.RendererSpec> listRendererSpec = item.getRendererSpec();
@@ -253,14 +274,13 @@ public class ItemDaoImpl implements ItemDao {
 	public String getGridanswerspace(int id) {
 		logger.info("getGridanswerspace with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		String gridanswerspace = null;
 		gridanswerspace = item.getGridanswerspace();
 		if (gridanswerspace == null) {
-			throw new NotFoundException(
-					"Could not find gridanswerspace for item " + id);
+			throw new NotFoundException("Could not find gridanswerspace for item " + id);
 		}
 		return gridanswerspace;
 	}
@@ -269,7 +289,7 @@ public class ItemDaoImpl implements ItemDao {
 	public List<Itemrelease.Item.Content> getContents(int id) {
 		logger.info("getContents with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Content> listContent = item.getContent();
@@ -283,16 +303,15 @@ public class ItemDaoImpl implements ItemDao {
 	public Itemrelease.Item.Content getContentByLanguage(int id, String language) {
 		logger.info("getContentByLanguage with id " + id + " language " + language);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.Content> listContent = item.getContent();
-		if (listContent == null){
+		if (listContent == null) {
 			throw new NotFoundException("Could not find listContent for item " + id);
 		}
 		for (Itemrelease.Item.Content contentTmp : listContent) {
-			if (language.trim().toLowerCase()
-					.equals(contentTmp.getLanguage().toLowerCase().trim())) {
+			if (language.trim().toLowerCase().equals(contentTmp.getLanguage().toLowerCase().trim())) {
 				return contentTmp;
 			}
 		}
@@ -305,15 +324,14 @@ public class ItemDaoImpl implements ItemDao {
 	public List<Itemrelease.Item.KeywordList> getkeywordList(int id) {
 		logger.info("getkeywordList with id " + id);
 		Itemrelease.Item item = map.get(id);
-		if (item == null){
+		if (item == null) {
 			throw new NullPointerException();
 		}
 		List<Itemrelease.Item.KeywordList> listKeywordList = item.getKeywordList();
-		if (listKeywordList == null){
+		if (listKeywordList == null) {
 			throw new NotFoundException("Could not find listKeywordList for item " + id);
 		}
 		return listKeywordList;
 	}
-
 
 }

@@ -3,8 +3,6 @@ package org.cresst.sb.irp.dao;
 import java.io.IOException;
 import java.util.List;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -76,12 +74,13 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
 			boolean blnFormat = isItemFormatByValue(listItemAttribute, "MC");
-			if(blnFormat){ //handle MC only 
+			if (blnFormat) { // handle MC only
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemIdentifier);
-				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, irpItem, itemCategory);
-			}else{
+				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, irpItem,
+						itemCategory);
+			} else {
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
@@ -109,7 +108,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			logger.error("validateField exception: ", e);
 		}
 	}
-	
+
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
 			FieldCheckType fieldCheckType, org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory) {
 		try {
@@ -133,26 +132,21 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case date:
-				// check field is not empty. xsd <xs:attribute name="date" type="xs:dateTime" />
-				processP(response.getDate(), fieldCheckType);
+				//  Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
+				if (response.getDate() != null && response.getDate().toString().length() > 0)
+					setPcorrect(fieldCheckType);
 				break;
 			case type:
-				//accept values -> value reference <blank allowed>
-				/*<xs:attribute name="type">
-                   <xs:simpleType>
-                     <xs:restriction base="xs:token">
-                       <xs:enumeration value="value" />
-                       <xs:enumeration value="reference" />
-                       <xs:enumeration value="" />
-                     </xs:restriction>
-                   </xs:simpleType>
-                 </xs:attribute>*/
-				//xsd already validated
-				setPcorrect(fieldCheckType);
+				// Required N
+				/*
+				 * <xs:attribute name="type"> <xs:simpleType> <xs:restriction base="xs:token"> <xs:enumeration value="value" />
+				 * <xs:enumeration value="reference" /> <xs:enumeration value="" /> </xs:restriction> </xs:simpleType>
+				 * </xs:attribute>
+				 */
+				processP(response.getType(), fieldCheckType);
 				break;
 			case content:
-				if (response.getContent().length() > 0)
-					setPcorrect(fieldCheckType);
+				processP(response.getContent(), fieldCheckType);
 				break;
 			default:
 				break;
@@ -162,7 +156,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType){
+	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -176,13 +170,13 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			default:
 				break;
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("checkC exception: ", e);
 		}
 	}
-	
-	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, 
-			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory){
+
+	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -196,33 +190,30 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			default:
 				break;
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("checkC exception: ", e);
 		}
 	}
-	
-	private void processP(XMLGregorianCalendar xmlGregorianCalendar, FieldCheckType fieldCheckType) {
-		if (xmlGregorianCalendar != null) {
-			setPcorrect(fieldCheckType);
-		}
-	}
-	
-	private void processC(String responseContent, FieldCheckType fieldCheckType){
+
+	private void processC(String responseContent, FieldCheckType fieldCheckType) {
 		try {
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("processC exception: ", e);
 		}
 	}
-	
-	private void processC(String responseContent, FieldCheckType fieldCheckType, 
-			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory){
+
+	private void processC(String tdsResponseContent, FieldCheckType fieldCheckType,
+			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory) {
 		try {
-			Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitem(irpItem, "itm_att_Answer Key");
-			itemCategory.setAttrib(attrib);
-			String answerKey = attrib.getVal();
-			if (answerKey.trim().toLowerCase().equals(responseContent.trim().toLowerCase()))
+			Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+			itemCategory.setAttriblist(attriblist);
+			Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist, "itm_att_Answer Key");
+			//Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitem(irpItem, "itm_att_Answer Key");
+			String irpItemAnswerKey = attrib.getVal();
+			boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
+			if (blnCorrectAnswer)
 				setCcorrect(fieldCheckType);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("processC exception: ", e);
 		}
 	}
