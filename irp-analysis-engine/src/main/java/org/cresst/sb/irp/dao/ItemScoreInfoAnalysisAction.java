@@ -57,11 +57,12 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
 			//validateField(response.getDate(), EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
 			
-			/*String scorePoint = scoreInfoType.ge;
-			scoreInfoCategory.setScorePoint(scorePoint);
+			//need to double check UPDATE dox with AIR as "old" version does NOT have this value
+			String maxScore = scoreInfoType.getMaxScore();
+			scoreInfoCategory.setMaxScore(maxScore);
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);*/
+			scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
 			//validateField(response.getDate(), EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
 			
 			

@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.ItemDao;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
+import org.cresst.sb.irp.domain.items.Itemrelease.Item;
+import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
+	public Item getItemByIdentifier(String Identifier) {
+		return itemDao.getItemByIdentifier(Identifier);
+	}
+	
+	@Override
 	public ItemAttribute getItemAttribute(int id) {
 		return itemDao.getItemAttribute(id);
 	}
@@ -45,6 +52,11 @@ public class ItemServiceImpl implements ItemService {
 		return itemDao.getAttribByStrAttid(id, attid);
 	}
 
+	@Override
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribFromIRPitem(Item item, String attid) {
+		return itemDao.getItemAttribFromIRPitem(item, attid);
+	}
+	
 	@Override
 	public Itemrelease.Item.Tutorial gettutorial(int id) {
 		return itemDao.gettutorial(id);
@@ -89,5 +101,7 @@ public class ItemServiceImpl implements ItemService {
 	public List<Itemrelease.Item.KeywordList> getkeywordList(int id) {
 		return itemDao.getkeywordList(id);
 	}
+
+
 
 }

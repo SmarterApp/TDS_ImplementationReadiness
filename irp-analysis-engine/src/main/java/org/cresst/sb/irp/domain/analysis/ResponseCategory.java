@@ -63,13 +63,5 @@ public class ResponseCategory {
 	public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
 		this.contentFieldCheckType = contentFieldCheckType;
 	}
-
-	@Override
-	public String toString() {
-		return "ResponseCategory [date=" + date + ", type=" + type + ", content=" + content + ", dateFieldCheckType="
-				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
-				+ contentFieldCheckType + "]";
-	}
-	
 	
 }

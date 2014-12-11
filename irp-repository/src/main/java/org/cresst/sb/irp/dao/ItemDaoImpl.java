@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +8,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
+import org.cresst.sb.irp.domain.items.Itemrelease.Item;
+import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist;
+import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist.Attrib;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Tutorial;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
@@ -26,6 +28,7 @@ import javax.xml.transform.stream.StreamSource;
 public class ItemDaoImpl implements ItemDao {
 	private static Logger logger = Logger.getLogger(ItemDaoImpl.class);
 	private static Map<Integer, Itemrelease.Item> map = new ConcurrentHashMap<Integer, Itemrelease.Item>();
+	private static Map<String, Itemrelease.Item> map2 = new ConcurrentHashMap<String, Itemrelease.Item>();
 	private String rootResourceFolderName = "irp-package";
 	private String resourceType = "imsqti_apipitem_xmlv2p2";
 	private List<Manifest.Resources.Resource> listResource;
@@ -34,7 +37,7 @@ public class ItemDaoImpl implements ItemDao {
 	private Unmarshaller unmarshaller;
 
 	public ItemDaoImpl() {
-
+		logger.info("initializing");
 	}
 
 	@Override
@@ -44,6 +47,15 @@ public class ItemDaoImpl implements ItemDao {
 		if (item == null){
 			throw new NullPointerException();
 		}
+		return item;
+	}
+	
+	@Override
+	public Item getItemByIdentifier(String Identifier) {
+		logger.info("getItemByIdentifier");
+		Item item = map.get(Identifier);
+		if (item == null)
+			return null;
 		return item;
 	}
 
@@ -57,10 +69,8 @@ public class ItemDaoImpl implements ItemDao {
 		for (Manifest.Resources.Resource rs : listResource) {
 			if (rs.getType().trim().toLowerCase().equals(resourceType)) {
 				String resourceIdentifier = rs.getIdentifier();
-				List<Manifest.Resources.Resource.File> listFile = rs
-						.getFile();
-				Manifest.Resources.Resource.File _file = listFile
-						.get(0);
+				List<Manifest.Resources.Resource.File> listFile = rs.getFile();
+				Manifest.Resources.Resource.File _file = listFile.get(0);
 				String[] identifierArray = resourceIdentifier.split("-");
 				if (identifierArray.length == 3) {
 					try {
@@ -70,6 +80,7 @@ public class ItemDaoImpl implements ItemDao {
 						itemrelease = (Itemrelease) unmarshaller.unmarshal(source);
 						item = itemrelease.getItem().get(0);
 						map.put(itemid, item);
+						map2.put(resourceIdentifier.trim(), item);
 					} catch (NumberFormatException e) {
 						logger.error("the last part of resource identifier (xxx-number-number) in imsmanifest.xml is not a number !!", e);
 					} catch (Exception e) {
@@ -144,6 +155,23 @@ public class ItemDaoImpl implements ItemDao {
 		for (Itemrelease.Item.Attriblist.Attrib att : listAttrib) {
 			if (attid.toLowerCase().trim()
 					.equals(att.getAttid().toLowerCase().trim())) {
+				return att;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribFromIRPitem(Item item, String attid) {
+		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
+		if (listAttriblist == null || listAttriblist.size() == 0)
+			return null;
+		Itemrelease.Item.Attriblist attriblist = listAttriblist.get(0);
+		List<Itemrelease.Item.Attriblist.Attrib> listAttrib = attriblist.getAttrib();
+		if (listAttrib == null || listAttrib.size() == 0)
+			return null;
+		for (Itemrelease.Item.Attriblist.Attrib att : listAttrib) {
+			if (attid.toLowerCase().trim().equals(att.getAttid().toLowerCase().trim())) {
 				return att;
 			}
 		}
@@ -287,6 +315,5 @@ public class ItemDaoImpl implements ItemDao {
 		return listKeywordList;
 	}
 
-	
 
 }

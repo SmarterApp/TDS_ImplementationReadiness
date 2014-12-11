@@ -8,8 +8,10 @@ import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.ExamineeAttributeAnalysisAction.EnumExamineeAttributeAcceptValues;
+import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
@@ -19,6 +21,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.service.ItemService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
@@ -40,6 +43,9 @@ public abstract class AnalysisAction {
 	@Autowired
 	public TDSReportService tdsReportService;
 
+	@Autowired
+	public ItemService itemService;
+	
 	private IndividualResponse individualResponse;
 
 	public AnalysisAction() {
@@ -117,9 +123,7 @@ public abstract class AnalysisAction {
 	public Student getStudent(Long key) {
 		Student student = new Student();
 		try {
-			String tempKey = "8505";
-			// Student student = studentService.getStudentByStudentSSID(key.toString());
-			student = studentService.getStudentByStudentSSID(tempKey);
+			student = studentService.getStudentByStudentSSID(key.toString());
 			if (student != null) {
 				return student;
 			}
@@ -129,6 +133,15 @@ public abstract class AnalysisAction {
 		return null;
 	}
 
+	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier){
+		return itemService.getItemByIdentifier(identifier);
+	}
+	
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitem (org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, 
+			String attid){
+		return itemService.getItemAttribFromIRPitem(irpItem, attid);
+	}
+	
 	private int sign(long i) {
 		if (i == 0)
 			return 0;
@@ -163,6 +176,37 @@ public abstract class AnalysisAction {
 		}
 	}
 
+	public boolean isItemFormatByValue(List<CellCategory> listItemAttribute, String value){
+		boolean bln = false;
+		try{
+			for(CellCategory c: listItemAttribute){
+				if (c.getTdsFieldName().equals("format") && c.getTdsFieldNameValue().equals(value)){
+					bln = true;
+				}
+			}
+		}catch (Exception e) {
+			logger.error("isItemFormatByValue exception: ", e);
+		}
+		return bln;
+	}
+	
+	public String getItemBankKeyKeyFromItemAttribute(List<CellCategory> listItemAttribute){
+		String str = "";
+		try{
+			for(CellCategory c: listItemAttribute){
+				if (c.getTdsFieldName().equals("bankKey") || c.getTdsFieldName().equals("key")){
+					str = str.concat(c.getTdsFieldNameValue()).concat("-");
+				}
+			}
+			if (str.endsWith("-"))
+				str = str.substring(0, str.length() -1);
+		}catch (Exception e) {
+			logger.error("validateToken exception: ", e);
+		}
+		return str;
+	}
+	
+	
 	abstract public void analysis() throws IOException;
 
 	public void validateToken(String fieldValue, FieldCheckType fieldCheckType) {
@@ -299,4 +343,23 @@ public abstract class AnalysisAction {
 		return str;
 	}
 
+	////////////////////////////////
+	
+	public void setAllCorrectFieldCheckType(FieldCheckType fieldCheckType){
+		fieldCheckType.setCorrectDataType(true);
+		fieldCheckType.setFieldEmpty(false);
+		fieldCheckType.setAcceptableValue(true);
+		fieldCheckType.setCorrectValue(true);
+	}
+	
+	public void setPcorrect(FieldCheckType fieldCheckType){
+		fieldCheckType.setCorrectDataType(true);
+		fieldCheckType.setFieldEmpty(false);
+		fieldCheckType.setAcceptableValue(true);
+	}
+	
+	public void setCcorrect(FieldCheckType fieldCheckType){
+		fieldCheckType.setCorrectValue(true);
+	}
+	
 }
