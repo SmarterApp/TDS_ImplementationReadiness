@@ -45,7 +45,7 @@ public abstract class AnalysisAction {
 
 	@Autowired
 	public ItemService itemService;
-	
+
 	private IndividualResponse individualResponse;
 
 	public AnalysisAction() {
@@ -133,24 +133,24 @@ public abstract class AnalysisAction {
 		return null;
 	}
 
-	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier){
+	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
 		return itemService.getItemByIdentifier(identifier);
 	}
-	
-	public Itemrelease.Item.Attriblist getItemAttriblistFromIRPitem (org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem){
+
+	public Itemrelease.Item.Attriblist getItemAttriblistFromIRPitem(org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem) {
 		return itemService.getItemAttriblistFromIRPitem(irpItem);
 	}
-	
-	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(Itemrelease.Item.Attriblist attriblist, 
-			String attid){
+
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(Itemrelease.Item.Attriblist attriblist,
+			String attid) {
 		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
 	}
-	
-	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitem (org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, 
-			String attid){
+
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitem(
+			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, String attid) {
 		return itemService.getItemAttribFromIRPitem(irpItem, attid);
 	}
-	
+
 	private int sign(long i) {
 		if (i == 0)
 			return 0;
@@ -185,37 +185,36 @@ public abstract class AnalysisAction {
 		}
 	}
 
-	public boolean isItemFormatByValue(List<CellCategory> listItemAttribute, String value){
+	public boolean isItemFormatByValue(List<CellCategory> listItemAttribute, String value) {
 		boolean bln = false;
-		try{
-			for(CellCategory c: listItemAttribute){
-				if (c.getTdsFieldName().equals("format") && c.getTdsFieldNameValue().equals(value)){
+		try {
+			for (CellCategory c : listItemAttribute) {
+				if (c.getTdsFieldName().equals("format") && c.getTdsFieldNameValue().equals(value)) {
 					bln = true;
 				}
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("isItemFormatByValue exception: ", e);
 		}
 		return bln;
 	}
-	
-	public String getItemBankKeyKeyFromItemAttribute(List<CellCategory> listItemAttribute){
+
+	public String getItemBankKeyKeyFromItemAttribute(List<CellCategory> listItemAttribute) {
 		String str = "";
-		try{
-			for(CellCategory c: listItemAttribute){
-				if (c.getTdsFieldName().equals("bankKey") || c.getTdsFieldName().equals("key")){
+		try {
+			for (CellCategory c : listItemAttribute) {
+				if (c.getTdsFieldName().equals("bankKey") || c.getTdsFieldName().equals("key")) {
 					str = str.concat(c.getTdsFieldNameValue()).concat("-");
 				}
 			}
 			if (str.endsWith("-"))
-				str = str.substring(0, str.length() -1);
-		}catch (Exception e) {
+				str = str.substring(0, str.length() - 1);
+		} catch (Exception e) {
 			logger.error("validateToken exception: ", e);
 		}
 		return str;
 	}
-	
-	
+
 	abstract public void analysis() throws IOException;
 
 	public void validateToken(String fieldValue, FieldCheckType fieldCheckType) {
@@ -294,20 +293,7 @@ public abstract class AnalysisAction {
 		}
 	}
 
-	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
-		try {
-			if (isFloat(inputValue)) {
-				float fValue = Float.parseFloat(inputValue);
-				if (fValue >= 0 || fValue == allowedValue) {
-					fieldCheckType.setCorrectDataType(true);
-					fieldCheckType.setFieldEmpty(false);
-					fieldCheckType.setAcceptableValue(true);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("validateUnsignedFloat exception: ", e);
-		}
-	}
+
 
 	public void processAcceptableContextEnum(String fieldValue, FieldCheckType fieldCheckType,
 			Class<EnumExamineeAttributeContextAcceptValues> class1) {
@@ -352,36 +338,83 @@ public abstract class AnalysisAction {
 		return str;
 	}
 
-	////////////////////////////////
-	
-	public void setAllCorrectFieldCheckType(FieldCheckType fieldCheckType){
+	// //////////////////////////////
+
+	public void setAllCorrectFieldCheckType(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);
 		fieldCheckType.setFieldEmpty(false);
 		fieldCheckType.setAcceptableValue(true);
 		fieldCheckType.setCorrectValue(true);
 	}
-	
-	public void setPcorrect(FieldCheckType fieldCheckType){
+
+	public void setPcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);
 		fieldCheckType.setFieldEmpty(false);
 		fieldCheckType.setAcceptableValue(true);
 	}
-	
-	public void setCcorrect(FieldCheckType fieldCheckType){
+
+	public void setCcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectValue(true);
 	}
-	
+
 	public void processP(String str, FieldCheckType fieldCheckType) {
 		if (str != null && str.length() > 0) {
 			setPcorrect(fieldCheckType);
 		}
 	}
-	
-	public boolean isCorrectValue(String v1, String v2){
+
+	public boolean isCorrectValue(String v1, String v2) {
 		if (v1.trim().toLowerCase().equals(v2.trim().toLowerCase()))
 			return true;
 		else
 			return false;
 	}
+
+	public void processP_Positive32bit(String inputValue, FieldCheckType fieldCheckType) {
+		try {
+			int num = getNumberOfBits(Integer.parseInt(inputValue));
+			if (num > 0 && num <= 32) {
+				setPcorrect(fieldCheckType);
+			}
+		} catch (Exception e) {
+			logger.error("processP_Positive32bit exception: ", e);
+		}
+	}
 	
+	public void processP_Positive64bit(Long inputValue, FieldCheckType fieldCheckType) {
+		try {
+			long num = sign(inputValue);
+			if (num > 0) {
+				setPcorrect(fieldCheckType);
+			}
+		} catch (Exception e) {
+			logger.error("processP_Positive64bit exception: ", e);
+		}
+	}
+	
+	public void processP_PritableASCIIone(String inputValue, FieldCheckType fieldCheckType){
+		if (inputValue.length() > 0 && StringUtils.isAsciiPrintable(inputValue)){
+			setPcorrect(fieldCheckType);
+		}
+	}
+	
+	public void processP_AcceptValue(int inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue){
+		if (inputValue == firstValue || inputValue == secondValue) {
+			setPcorrect(fieldCheckType);
+		}
+	}
+	
+	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
+		try {
+			if (isFloat(inputValue)) {
+				float fValue = Float.parseFloat(inputValue);
+				if (fValue >= 0 || fValue == allowedValue) {
+					setPcorrect(fieldCheckType);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("validateUnsignedFloat exception: ", e);
+		}
+	}
+
 }

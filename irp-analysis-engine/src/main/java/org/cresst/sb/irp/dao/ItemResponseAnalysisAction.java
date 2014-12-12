@@ -67,20 +67,27 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			responseCategory.setTypeFieldCheckType(fieldCheckType);
 			validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.type, fieldCheckType);
 
-			List<CellCategory> listItemAttribute = itemCategory.getListItemAttribute();
-			String itemBankKeyKey = getItemBankKeyKeyFromItemAttribute(listItemAttribute);
-			String itemIdentifier = "Item-".concat(itemBankKeyKey);
-			itemCategory.setItemBankKeyKey(itemIdentifier);
+		
+			StringBuilder itemIdentifier = new StringBuilder();
+			itemIdentifier.append("Item-").append(itemCategory.getBankKey().toString()).append("-")
+					.append(itemCategory.getKey().toString());	
+			
+			System.out.println("itemIdentifier ->" + itemIdentifier);
+			itemCategory.setItemBankKeyKey(itemIdentifier.toString());
+		
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
-			boolean blnFormat = isItemFormatByValue(listItemAttribute, "MC");
-			if (blnFormat) { // handle MC only
+			String format = itemCategory.getFormat();
+			System.out.println("format ->" + format);
+			if (format.trim().toLowerCase().equals("mc")) {// handle MC only
+				responseCategory.setMC(true);
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
-				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemIdentifier);
+				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemIdentifier.toString());
 				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, irpItem,
 						itemCategory);
-			} else {
+			}else {
+				responseCategory.setMC(false);
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
@@ -132,7 +139,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case date:
-				//  Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
+				// Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
 				if (response.getDate() != null && response.getDate().toString().length() > 0)
 					setPcorrect(fieldCheckType);
 				break;
@@ -206,9 +213,9 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, ItemCategory itemCategory) {
 		try {
 			Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-			itemCategory.setAttriblist(attriblist);
+			itemCategory.setAttriblist(attriblist); //nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 			Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist, "itm_att_Answer Key");
-			//Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitem(irpItem, "itm_att_Answer Key");
+			// Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitem(irpItem, "itm_att_Answer Key");
 			String irpItemAnswerKey = attrib.getVal();
 			boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
 			if (blnCorrectAnswer)

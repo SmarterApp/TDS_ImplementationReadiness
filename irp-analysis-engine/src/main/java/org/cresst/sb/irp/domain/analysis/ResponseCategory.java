@@ -12,6 +12,8 @@ public class ResponseCategory {
 	private FieldCheckType typeFieldCheckType;
 	private FieldCheckType contentFieldCheckType;
 	
+	private boolean isMC;
+	
 	public ResponseCategory() {
 		logger.info("initializing");
 	}
@@ -63,5 +65,24 @@ public class ResponseCategory {
 	public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
 		this.contentFieldCheckType = contentFieldCheckType;
 	}
+
+	//Test 
+	public boolean isMC() {
+		return isMC;
+	}
+
+	public void setMC(boolean isMC) {
+		this.isMC = isMC;
+	}
+
+	@Override
+	public String toString() {
+		return "ResponseCategory [date=" + date + ", type=" + type + ", dateFieldCheckType="
+				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
+				+ contentFieldCheckType + ", isMC=" + isMC + "]";
+	}
+
+	
+	
 	
 }

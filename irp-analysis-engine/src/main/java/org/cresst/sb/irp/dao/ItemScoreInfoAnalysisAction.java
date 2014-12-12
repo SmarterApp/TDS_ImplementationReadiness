@@ -11,8 +11,10 @@ import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
 import org.cresst.sb.irp.domain.analysis.ResponseCategory;
 import org.cresst.sb.irp.domain.analysis.ScoreInfoCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.ScoreRationaleCategory;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.tdsreport.ScoreInfoType;
+import org.cresst.sb.irp.domain.tdsreport.ScoreInfoType.ScoreRationale;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
@@ -41,6 +43,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			for (Item i : listItem) {
 				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
 				analysisItemScoreInfo(itemCategory, i);
+				//ScoreInfoCategory scoreInfoCategory = itemCategory.getScoreInfoCategory();
+				//if (scoreInfoCategory != null)
+					//analysisItemScoreInfoScoreRationale(scoreInfoCategory, i.getScoreInfo());
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
@@ -91,6 +96,17 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 
 		} catch (Exception e) {
 			logger.error("analysisItemScoreInfo exception: ", e);
+		}
+	}
+	
+	private void analysisItemScoreInfoScoreRationale(ScoreInfoCategory scoreInfoCategory, ScoreInfoType scoreInfoType){
+		try {
+			ScoreRationaleCategory scoreRationaleCategory = new ScoreRationaleCategory();
+			scoreInfoCategory.setScoreRationaleCategory(scoreRationaleCategory);
+			ScoreRationale scoreRationale = scoreInfoType.getScoreRationale();
+			scoreRationaleCategory.setMessage(scoreRationale.getMessage().toString());
+		} catch (Exception e) {
+			logger.error("analysisItemScoreInfoScoreRationale exception: ", e);
 		}
 	}
 

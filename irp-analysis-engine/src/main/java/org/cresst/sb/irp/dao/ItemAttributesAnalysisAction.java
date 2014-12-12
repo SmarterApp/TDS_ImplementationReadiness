@@ -52,153 +52,114 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 
 	private void analysisItemAttributes(ItemCategory itemCategory, Item item) {
 		try {
-			List<CellCategory> listCellCategory = itemCategory.getListItemAttribute();
-
-			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.position.toString());
-			cellCategory.setTdsFieldNameValue(Long.toString(item.getPosition()));
+			itemCategory.setPosition(item.getPosition());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setPositionFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.segmentId.toString());
-			cellCategory.setTdsFieldNameValue(item.getSegmentId());
+			itemCategory.setSegmentId(item.getSegmentId());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setSegmentIdFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.segmentId, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.bankKey.toString());
-			cellCategory.setTdsFieldNameValue(Long.toString(item.getBankKey()));
+			itemCategory.setBankKey(item.getBankKey());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setBankKeyFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.bankKey, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.key.toString());
-			cellCategory.setTdsFieldNameValue(Long.toString(item.getKey()));
+			itemCategory.setKey(item.getKey());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setKeyFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.key, fieldCheckType);
-	
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.operational.toString());
-			cellCategory.setTdsFieldNameValue(Short.toString(item.getOperational()));
+
+			itemCategory.setOperational(item.getOperational());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setOperationalFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.operational, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.isSelected.toString());
-			cellCategory.setTdsFieldNameValue(Short.toString(item.getIsSelected()));
+			itemCategory.setIsSelected(item.getIsSelected());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setIsSelectedFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.isSelected, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.format.toString());
-			cellCategory.setTdsFieldNameValue(item.getFormat());
+			itemCategory.setFormat(item.getFormat());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setFormatFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.format, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.score.toString());
-			cellCategory.setTdsFieldNameValue(item.getScore());
+			itemCategory.setScore(item.getScore());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setScoreFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.score, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.scoreStatus.toString());
-			cellCategory.setTdsFieldNameValue(item.getScoreStatus());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, fieldCheckType);
-
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.adminDate.toString());
-			cellCategory.setTdsFieldNameValue(item.getAdminDate().toString());
+			itemCategory.setScoreStatus(item.getScoreStatus());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setScoreStatusFieldCheckType(fieldCheckType);
+			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.scoreStatus, fieldCheckType);
+
+			itemCategory.setAdminDate(item.getAdminDate().toString());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			itemCategory.setAdminDateFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.adminDate, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.numberVisits.toString());
-			cellCategory.setTdsFieldNameValue(Long.toString(item.getNumberVisits()));
+			itemCategory.setNumberVisits(item.getNumberVisits());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setNumberVisitsFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.numberVisits, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.mimeType.toString());
-			cellCategory.setTdsFieldNameValue(item.getMimeType());
+			itemCategory.setMimeType(item.getMimeType());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setMimeTypeFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.mimeType, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.strand.toString());
-			cellCategory.setTdsFieldNameValue(item.getStrand());
+			itemCategory.setStrand(item.getStrand());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setStrandFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.strand, fieldCheckType);
-
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.contentLevel.toString());
-			cellCategory.setTdsFieldNameValue(item.getContentLevel());
+			
+			itemCategory.setContentLevel(item.getContentLevel());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setContentLevelFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.contentLevel, fieldCheckType);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.pageNumber.toString());
-			cellCategory.setTdsFieldNameValue(Long.toString(item.getPageNumber()));
+			itemCategory.setPageNumber(item.getPageNumber());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setPageNumberFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageNumber, fieldCheckType);
-
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumItemFieldName.dropped.toString());
-			cellCategory.setTdsFieldNameValue(Short.toString(item.getDropped()));
+			
+			itemCategory.setPageVisits(item.getPageVisits());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
+			itemCategory.setPageVisitsFieldCheckType(fieldCheckType);
+			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageVisits, fieldCheckType);
+			
+			itemCategory.setPageTime(item.getPageTime());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			itemCategory.setPageTimeFieldCheckType(fieldCheckType);
+			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageTime, fieldCheckType);
+			
+			itemCategory.setDropped(item.getDropped());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			itemCategory.setDroppedFieldCheckType(fieldCheckType);
 			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.dropped, fieldCheckType);
 
 		} catch (Exception e) {
@@ -231,49 +192,90 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case position:
-				validateUnsignedIntPositive32bit(Long.toString(item.getPosition()), fieldCheckType);
+				// <xs:attribute name="position" use="required" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(item.getPosition()), fieldCheckType);
 				break;
 			case segmentId:
-				validateToken(item.getSegmentId(), fieldCheckType);
-				validatePritableASCIIone(item.getSegmentId(), fieldCheckType);
+				// <xs:attribute name="segmentId" use="required" />
+				processP_PritableASCIIone(item.getSegmentId(), fieldCheckType);
 				break;
 			case bankKey:
-				validateToken(Long.toString(item.getBankKey()), fieldCheckType);
-				validatePritableASCIIone(Long.toString(item.getBankKey()), fieldCheckType);
+				// <xs:attribute name="bankKey" use="required" type="xs:unsignedInt" /> vs dox, need to check
+				processP_PritableASCIIone(Long.toString(item.getBankKey()), fieldCheckType);
 				break;
 			case key:
-				validateUnsignedLongPositive64bit(item.getKey(), fieldCheckType);
+				// <xs:attribute name="key" use="required" type="xs:unsignedInt" />
+				processP_Positive64bit(item.getKey(), fieldCheckType);
 				break;
 			case operational:
-				validateUnsignedInt(Short.toString(item.getOperational()), fieldCheckType, 0, 1);
+				// <xs:attribute name="operational" use="required" type="Bit" />
+				processP_AcceptValue(item.getOperational(), fieldCheckType, 0, 1);
 				break;
 			case isSelected:
-				validateUnsignedInt(Short.toString(item.getIsSelected()), fieldCheckType, 0, 1);
+				// <xs:attribute name="isSelected" use="required" type="Bit" />
+				processP_AcceptValue(item.getIsSelected(), fieldCheckType, 0, 1);
 				break;
 			case format:
-				validateToken(item.getFormat(), fieldCheckType);
+				// <xs:attribute name="format" use="required" />
 				processAcceptableEnum(item.getFormat(), fieldCheckType, EnumFormatAcceptValues.class);
 				break;
 			case score:
+				// <xs:attribute name="score" use="required" type="UFloatAllowNegativeOne" />
 				validateUnsignedFloat(item.getScore(), fieldCheckType, -1);
 				break;
+			case scoreStatus:
+				// <xs:attribute name="scoreStatus">
+				// <xs:simpleType>
+				// <xs:restriction base="xs:token">
+				// <xs:enumeration value="NOTSCORED" />
+				// <xs:enumeration value="SCORED" />
+				// <xs:enumeration value="WAITINGFORMACHINESCORE" />
+				// <xs:enumeration value="SCORINGERROR" />
+				// <!-- future -->
+				// <xs:enumeration value="APPEALED" />
+				// </xs:restriction>
+				// </xs:simpleType>
+				processP(item.getScoreStatus(), fieldCheckType);
+				break;
 			case adminDate:
-				// validateUnsignedFloat(item.getScore(), fieldCheckType, -1);
+				// <xs:attribute name="adminDate" use="required" type="xs:dateTime" />
+				processP(item.getAdminDate().toString(), fieldCheckType);
 				break;
 			case numberVisits:
-				validateUnsignedIntPositive32bit(Long.toString(item.getNumberVisits()), fieldCheckType);
+				// <xs:attribute name="numberVisits" use="required" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(item.getNumberVisits()), fieldCheckType);
 				break;
 			case mimeType:
-				validatePritableASCIIone(item.getMimeType(), fieldCheckType);
+				// <xs:attribute name="mimeType" use="required">
+				// <xs:simpleType>
+				// <xs:restriction base="xs:token">
+				// <xs:enumeration value="text/plain" />
+				// <xs:enumeration value="text/xml" />
+				// <xs:enumeration value="text/html" />
+				// <xs:enumeration value="audio/ogg" />
+				// </xs:restriction>
+				// </xs:simpleType>
+				processP_PritableASCIIone(item.getMimeType(), fieldCheckType);
 				break;
 			case strand:
-				validatePritableASCIIone(item.getStrand(), fieldCheckType);
+				// <xs:attribute name="strand" use="required" />
+				processP_PritableASCIIone(item.getStrand(), fieldCheckType);
 				break;
 			case contentLevel:
-				validatePritableASCIIone(item.getContentLevel(), fieldCheckType);
+				// 	<xs:attribute name="contentLevel" use="required" />
+				processP_PritableASCIIone(item.getContentLevel(), fieldCheckType);
 				break;
 			case pageNumber:
-				validateUnsignedIntPositive32bit(Long.toString(item.getPageNumber()), fieldCheckType);
+				// <xs:attribute name="pageNumber" use="required" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(item.getPageNumber()), fieldCheckType);
+				break;
+			case pageVisits:
+				// 	<xs:attribute name="pageVisits" use="required" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(item.getPageVisits()), fieldCheckType);
+				break;
+			case pageTime:
+				// <xs:attribute name="pageTime" use="required" type="xs:int" />
+				processP_Positive32bit(Integer.toString(item.getPageTime()), fieldCheckType);
 				break;
 			case dropped:
 				validateUnsignedInt(Short.toString(item.getDropped()), fieldCheckType, 0, 1);
@@ -288,10 +290,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType, Class<EnumFormatAcceptValues> class1) {
 		try {
-			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue)) {
-					fieldCheckType.setAcceptableValue(true);
+					setPcorrect(fieldCheckType);
 				}
 			}
 		} catch (Exception e) {
