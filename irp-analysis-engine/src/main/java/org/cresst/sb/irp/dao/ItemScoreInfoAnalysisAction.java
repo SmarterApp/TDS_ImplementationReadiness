@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.cresst.sb.irp.dao.ItemResponseAnalysisAction.EnumItemResponseFieldName;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ItemCategory;
@@ -18,6 +19,7 @@ import org.cresst.sb.irp.domain.tdsreport.ScoreInfoType.ScoreRationale;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +45,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			for (Item i : listItem) {
 				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
 				analysisItemScoreInfo(itemCategory, i);
-				//ScoreInfoCategory scoreInfoCategory = itemCategory.getScoreInfoCategory();
-				//if (scoreInfoCategory != null)
-					//analysisItemScoreInfoScoreRationale(scoreInfoCategory, i.getScoreInfo());
+				ScoreInfoCategory scoreInfoCategory = itemCategory.getScoreInfoCategory();
+				if (scoreInfoCategory != null)
+					analysisItemScoreInfoScoreRationale(scoreInfoCategory, i.getScoreInfo());
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
@@ -55,6 +57,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 
 	private void analysisItemScoreInfo(ItemCategory itemCategory, Item tdsItem) {
 		try {
+			String itemFormat = itemCategory.getFormat();
 			ScoreInfoCategory scoreInfoCategory = new ScoreInfoCategory();
 			itemCategory.setScoreInfoCategory(scoreInfoCategory);
 			ScoreInfoType scoreInfoType = tdsItem.getScoreInfo();
@@ -62,10 +65,17 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 
 			scoreInfoCategory.setScorePoint(scoreInfoType.getScorePoint());
 			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
-			validateField(scoreInfoType, EnumFieldCheckType.PC, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
-					itemCategory);
+			if (itemFormat.trim().toLowerCase().equals("mc")) { // handle multiple choice only
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+				scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
+				validateField(scoreInfoType, EnumFieldCheckType.PC, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
+						itemCategory);
+			} else {
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+				scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
+				validateField(scoreInfoType, EnumFieldCheckType.P, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
+						itemCategory);
+			}
 
 			// need to double check UPDATE dox with AIR as "old" version does NOT have this value
 			scoreInfoCategory.setMaxScore(scoreInfoType.getMaxScore());
@@ -98,13 +108,17 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			logger.error("analysisItemScoreInfo exception: ", e);
 		}
 	}
-	
-	private void analysisItemScoreInfoScoreRationale(ScoreInfoCategory scoreInfoCategory, ScoreInfoType scoreInfoType){
+
+	private void analysisItemScoreInfoScoreRationale(ScoreInfoCategory scoreInfoCategory, ScoreInfoType scoreInfoType) {
 		try {
 			ScoreRationaleCategory scoreRationaleCategory = new ScoreRationaleCategory();
 			scoreInfoCategory.setScoreRationaleCategory(scoreRationaleCategory);
 			ScoreRationale scoreRationale = scoreInfoType.getScoreRationale();
 			scoreRationaleCategory.setMessage(scoreRationale.getMessage().toString());
+			FieldCheckType fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			scoreRationaleCategory.setMessageFieldCheckType(fieldCheckType);
+			validateField(scoreRationale.getMessage().toString(), EnumFieldCheckType.P, fieldCheckType);
 		} catch (Exception e) {
 			logger.error("analysisItemScoreInfoScoreRationale exception: ", e);
 		}
@@ -128,20 +142,36 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			logger.error("validateField exception: ", e);
 		}
 	}
+	
+	private void validateField(String message, EnumFieldCheckType enumFieldCheckType, FieldCheckType fieldCheckType) {
+		try {
+			switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				processP(message, fieldCheckType);
+				break;
+			case PC:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("validateField exception: ", e);
+		}
+	}
 
 	private void checkP(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case scorePoint:
-				// Required N. xsd <xs:attribute name="scorePoint" type="UFloatAllowNegativeOne" />
+				// Required N. <xs:attribute name="scorePoint" type="UFloatAllowNegativeOne" />
 				processP(scoreInfoType.getScorePoint(), fieldCheckType);
 				break;
 			case maxScore:
-				// Required N. xsd <xs:attribute name="maxScore" type="UFloatAllowNegativeOne" />
+				// Required N. <xs:attribute name="maxScore" type="UFloatAllowNegativeOne" />
 				processP(scoreInfoType.getMaxScore(), fieldCheckType);
 				break;
 			case scoreDimension:
-				// Required N. xsd <xs:attribute name="scoreDimension" />
+				// Required N. <xs:attribute name="scoreDimension" />
 				if (scoreInfoType.getScoreDimension() != null) {
 					validateToken(scoreInfoType.getScoreDimension(), fieldCheckType);
 					validatePritableASCIIone(scoreInfoType.getScoreDimension(), fieldCheckType);
@@ -149,11 +179,15 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 				break;
 			case scoreStatus:
 				// Required N.
-				/*
-				 * xsd: <xs:attribute name="scoreStatus"> <xs:simpleType> <xs:restriction base="xs:token"> <xs:enumeration
-				 * value="Scored" /> <xs:enumeration value="NotScored" /> <xs:enumeration value="WaitingForMachineScore" />
-				 * <xs:enumeration value="ScoringError" /> </xs:restriction> </xs:simpleType> </xs:attribute>
-				 */
+				//<xs:attribute name="scoreStatus">
+				//      <xs:simpleType>
+				//        <xs:restriction base="xs:token">
+				//          <xs:enumeration value="Scored" />
+				//          <xs:enumeration value="NotScored" />
+				//          <xs:enumeration value="WaitingForMachineScore" />
+				//          <xs:enumeration value="ScoringError" />
+				//        </xs:restriction>
+				//      </xs:simpleType>
 				processP(scoreInfoType.getScoreStatus(), fieldCheckType);
 				break;
 			case confLevel:
@@ -167,7 +201,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			logger.error("checkP exception: ", e);
 		}
 	}
-	
+
 	private void checkC(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType,
 			ItemCategory itemCategory) {
 		try {
@@ -192,22 +226,35 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 	}
 
 	private void processC(String scoreInfoTypeScorePoint, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
-		Itemrelease.Item.Attriblist attriblist = itemCategory.getAttriblist();
-		Itemrelease.Item.Attriblist.Attrib attribAnswerKey = getItemAttribValueFromIRPitemAttriblist(attriblist,
-				"itm_att_Answer Key");
-		Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
-				"itm_att_Item Point");
-
-		ResponseCategory responseCategory = itemCategory.getResponseCategory();
-		String tdsResponseContent = responseCategory.getContent();
-		String irpItemAnswerKey = attribAnswerKey.getVal();
-		boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
-		
-		// <attrib attid="itm_att_Item Point"> <name>Item: Item Point</name> <val>1 pt.</val> <desc>1 Point</desc> </attrib>
-		String irpItemItemPoint = attribItemPoint.getVal().replace("pt", "").trim();
-		boolean blnScorePoint = isCorrectValue(irpItemItemPoint, scoreInfoTypeScorePoint.trim());
-		if (blnCorrectAnswer && blnScorePoint){
-			setCcorrect(fieldCheckType);
+		try {
+			Itemrelease.Item.Attriblist attriblist = itemCategory.getAttriblist();
+			Itemrelease.Item.Attriblist.Attrib attribAnswerKey = getItemAttribValueFromIRPitemAttriblist(attriblist,
+					"itm_att_Answer Key");
+			Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
+					"itm_att_Item Point");
+			ResponseCategory responseCategory = itemCategory.getResponseCategory();
+			String tdsResponseContent = responseCategory.getContent();
+			String irpItemAnswerKey = attribAnswerKey.getVal();
+			boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
+			
+			// <attrib attid="itm_att_Item Point"> <name>Item: Item Point</name> <val>1 pt.</val> <desc>1 Point</desc> </attrib>
+			String irpItemItemPoint = attribItemPoint.getVal().replace("pt.", "").trim();
+			boolean blnScorePoint = isCorrectValue(irpItemItemPoint, scoreInfoTypeScorePoint.trim());
+			/*if (blnCorrectAnswer && blnScorePoint) {
+				setCcorrect(fieldCheckType);
+			}*/
+			
+			if (blnCorrectAnswer){
+				if (scoreInfoTypeScorePoint.trim().equals(irpItemItemPoint))
+					setCcorrect(fieldCheckType);
+			}else
+			{
+				if (scoreInfoTypeScorePoint.trim().equals(0))
+					setCcorrect(fieldCheckType);
+			}
+			
+		} catch (Exception e) {
+			logger.error("processC exception: ", e);
 		}
 
 	}

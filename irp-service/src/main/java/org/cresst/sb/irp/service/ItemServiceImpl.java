@@ -8,7 +8,6 @@ import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist;
-import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist.Attrib;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +28,7 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public Item getItemByIdentifier(String Identifier) {
+	public Itemrelease.Item getItemByIdentifier(String Identifier) {
 		return itemDao.getItemByIdentifier(Identifier);
 	}
 	

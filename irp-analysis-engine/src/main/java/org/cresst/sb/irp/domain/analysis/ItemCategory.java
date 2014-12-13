@@ -48,7 +48,9 @@ public class ItemCategory {
 	
 	private ResponseCategory responseCategory;
 	private ScoreInfoCategory scoreInfoCategory; 
+	
 	private String itemBankKeyKey;
+	private org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem;
 	private Itemrelease.Item.Attriblist attriblist;
 	
 	public ItemCategory() {
@@ -347,6 +349,14 @@ public class ItemCategory {
 		this.itemBankKeyKey = itemBankKeyKey;
 	}
 
+	public org.cresst.sb.irp.domain.items.Itemrelease.Item getIrpItem() {
+		return irpItem;
+	}
+
+	public void setIrpItem(org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem) {
+		this.irpItem = irpItem;
+	}
+	
 	public Itemrelease.Item.Attriblist getAttriblist() {
 		return attriblist;
 	}
@@ -373,8 +383,10 @@ public class ItemCategory {
 				+ ", pageNumberFieldCheckType=" + pageNumberFieldCheckType + ", pageVisitsFieldCheckType="
 				+ pageVisitsFieldCheckType + ", pageTimeFieldCheckType=" + pageTimeFieldCheckType + ", droppedFieldCheckType="
 				+ droppedFieldCheckType + ", responseCategory=" + responseCategory + ", scoreInfoCategory=" + scoreInfoCategory
-				+ ", itemBankKeyKey=" + itemBankKeyKey + ", attriblist=" + attriblist + "]";
+				+ ", itemBankKeyKey=" + itemBankKeyKey + ", irpItem=" + irpItem + ", attriblist=" + attriblist + "]";
 	}
+
+
 
 
 }

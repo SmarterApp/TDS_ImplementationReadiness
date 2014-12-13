@@ -22,7 +22,7 @@ public class ScoreInfoCategory {
 	public ScoreInfoCategory() {
 		logger.info("initializing");
 	}
-
+	
 	public ScoreRationaleCategory getScoreRationaleCategory() {
 		return scoreRationaleCategory;
 	}
@@ -121,6 +121,6 @@ public class ScoreInfoCategory {
 				+ ", scoreRationaleCategory=" + scoreRationaleCategory + "]";
 	}
 
-	
+
 	
 }

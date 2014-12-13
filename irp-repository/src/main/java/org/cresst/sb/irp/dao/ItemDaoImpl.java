@@ -10,7 +10,6 @@ import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist;
-import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist.Attrib;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Tutorial;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
@@ -50,11 +49,12 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	@Override
-	public Item getItemByIdentifier(String Identifier) {
+	public Itemrelease.Item getItemByIdentifier(String Identifier) {
 		logger.info("getItemByIdentifier");
-		Item item = map.get(Identifier);
-		if (item == null)
+		Itemrelease.Item item = map2.get(Identifier);
+		if (item == null){
 			return null;
+		}
 		return item;
 	}
 

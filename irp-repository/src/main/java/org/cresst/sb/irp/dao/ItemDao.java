@@ -16,7 +16,7 @@ public interface ItemDao {
 
 	Itemrelease.Item getItemById(int id);
 	
-	Item getItemByIdentifier(String Identifier);
+	Itemrelease.Item getItemByIdentifier(String Identifier);
 
 	ItemAttribute getItemAttribute(int id);
 

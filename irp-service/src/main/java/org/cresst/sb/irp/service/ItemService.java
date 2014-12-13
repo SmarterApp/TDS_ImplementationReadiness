@@ -10,7 +10,7 @@ public interface ItemService {
 
 	Itemrelease.Item getItem(int id);
 
-	Item getItemByIdentifier(String Identifier);
+	Itemrelease.Item getItemByIdentifier(String Identifier);
 
 	ItemAttribute getItemAttribute(int id);
 

@@ -49,6 +49,15 @@ public class ItemController {
 		return null;
 	}
 
+	@RequestMapping(value="/item2/{Identifier}", method = RequestMethod.GET, produces="application/json")
+	@ResponseBody
+	@ResponseStatus(value = HttpStatus.OK)
+	public Itemrelease.Item getItemByIdentifier(@PathVariable("Identifier") String Identifier){
+		logger.info("getTestpackage() method");
+		return itemService.getItemByIdentifier(Identifier);
+	}
+	
+	
 	@ApiMethod(path = "/items/item/{id}/attribute", description = "Returns an item's attribute", verb = ApiVerb.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@RequestMapping(value = "/item/{id}/attribute", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody

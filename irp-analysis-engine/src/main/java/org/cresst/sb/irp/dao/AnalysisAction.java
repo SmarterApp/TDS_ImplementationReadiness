@@ -94,6 +94,10 @@ public abstract class AnalysisAction {
 		return testPackageService.getSubjectPropertyValueFromListProperty(listProperty);
 	}
 
+	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
+		return testPackageService.getGradePropertyValueFromListProperty(listProperty);
+	}
+	
 	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
 		List<ExamineeAttribute> listExamineeAttribute = new ArrayList<ExamineeAttribute>();
 		try {
@@ -404,6 +408,14 @@ public abstract class AnalysisAction {
 		}
 	}
 	
+	public void processP_Year(Long year, FieldCheckType fieldCheckType){
+		if (year != null){
+			if (1900 <= year && year <=9999){
+				setPcorrect(fieldCheckType);
+			}
+		}
+	}
+	
 	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
 		try {
 			if (isFloat(inputValue)) {
@@ -414,6 +426,15 @@ public abstract class AnalysisAction {
 			}
 		} catch (Exception e) {
 			logger.error("validateUnsignedFloat exception: ", e);
+		}
+	}
+	
+	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues){
+		if (value.length() > 0){
+			for(String listItem: listGradeAcceptValues){
+				if (listItem.equals(value))
+					fieldCheckType.setCorrectValue(true);
+			}
 		}
 	}
 

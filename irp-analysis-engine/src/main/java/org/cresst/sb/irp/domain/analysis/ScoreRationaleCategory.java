@@ -7,6 +7,8 @@ public class ScoreRationaleCategory {
 	
 	private String message;
 	
+	private FieldCheckType messageFieldCheckType;
+	
 	public ScoreRationaleCategory() {
 		logger.info("initializing");
 	}
@@ -19,9 +21,17 @@ public class ScoreRationaleCategory {
 		this.message = message;
 	}
 
+	public FieldCheckType getMessageFieldCheckType() {
+		return messageFieldCheckType;
+	}
+
+	public void setMessageFieldCheckType(FieldCheckType messageFieldCheckType) {
+		this.messageFieldCheckType = messageFieldCheckType;
+	}
+
 	@Override
 	public String toString() {
-		return "ScoreRationaleCategory [message=" + message + "]";
+		return "ScoreRationaleCategory [message=" + message + ", messageFieldCheckType=" + messageFieldCheckType + "]";
 	}
 	
 	
