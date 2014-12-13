@@ -45,11 +45,9 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			List<ExamineeAttribute> listExamineeAttribute = getExamineeAttributes(examinee);
 			if (listExamineeAttribute != null) {
 				for (ExamineeAttribute ex : listExamineeAttribute) {
-					System.out.println("ddddd...." + ex.getName());
 					examineeAttributeCategory = new ExamineeAttributeCategory();
 					listExamineeAttributeCategory.add(examineeAttributeCategory);
 					analysisEachExamineeAttribute(examineeAttributeCategory, ex, student);
-
 				}
 			}
 		} catch (Exception e) {

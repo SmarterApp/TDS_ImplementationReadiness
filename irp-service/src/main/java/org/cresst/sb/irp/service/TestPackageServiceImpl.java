@@ -98,5 +98,10 @@ public class TestPackageServiceImpl implements TestPackageService {
 		return testpackageDao.getSubjectPropertyValueFromListProperty(listProperty);
 	}
 
+	@Override
+	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
+		return testpackageDao.getGradePropertyValueFromListProperty(listProperty);
+	}
+
 
 }

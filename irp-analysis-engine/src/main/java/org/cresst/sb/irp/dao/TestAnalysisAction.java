@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -24,61 +25,127 @@ public class TestAnalysisAction extends AnalysisAction {
 		name, subject, testId, bankKey, contract, mode, grade, assessmentType, academicYear, assessmentVersion;
 	}
 
+	List<String> listGradeAcceptValues = Arrays.asList("IT", "PR", "PK", "TK", "KG", "01", "02", "03", "04", "05", 
+			"06", "07", "08", "09", "10", "11", "12", "13", "PS", "UG"); 
+	
 	@Override
 	public void analysis() throws IOException {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
 			List<CellCategory> listTestPropertyCategory = individualResponse.getListTestPropertyCategory();
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			Test test = getTest(tdsReport);
-			
+			Test tdsTest = getTest(tdsReport);
+
 			CellCategory testCategory;
 			FieldCheckType fieldCheckType;
 
 			testCategory = new CellCategory();
 			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.name.toString());
-			testCategory.setTdsFieldNameValue(test.getName());
+			testCategory.setTdsFieldNameValue(tdsTest.getName());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(test, EnumFieldCheckType.PC, EnumTestFieldName.name, fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.name, fieldCheckType);
 
 			testCategory = new CellCategory();
 			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.subject.toString());
-			testCategory.setTdsFieldNameValue(test.getSubject());
+			testCategory.setTdsFieldNameValue(tdsTest.getSubject());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(test, EnumFieldCheckType.PC, EnumTestFieldName.subject, fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.subject, fieldCheckType);
 
 			testCategory = new CellCategory();
 			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.testId.toString());
-			testCategory.setTdsFieldNameValue(test.getTestId());
+			testCategory.setTdsFieldNameValue(tdsTest.getTestId());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(test, EnumFieldCheckType.PC, EnumTestFieldName.testId, fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.testId, fieldCheckType);
+
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.bankKey.toString());
+			testCategory.setTdsFieldNameValue(Long.toString(tdsTest.getBankKey()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.bankKey, fieldCheckType);
+
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.contract.toString());
+			testCategory.setTdsFieldNameValue(tdsTest.getContract());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.contract, fieldCheckType);
+
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.mode.toString());
+			testCategory.setTdsFieldNameValue(tdsTest.getMode());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.mode, fieldCheckType);
+			
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.grade.toString());
+			testCategory.setTdsFieldNameValue(tdsTest.getGrade());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.grade, fieldCheckType);
+			
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.assessmentType.toString());
+			testCategory.setTdsFieldNameValue(tdsTest.getAssessmentType());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.assessmentType, fieldCheckType);
+
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.academicYear.toString());
+			testCategory.setTdsFieldNameValue(Long.toString(tdsTest.getAcademicYear()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.academicYear, fieldCheckType);
+
+			testCategory = new CellCategory();
+			listTestPropertyCategory.add(testCategory);
+			testCategory.setTdsFieldName(EnumTestFieldName.assessmentVersion.toString());
+			testCategory.setTdsFieldNameValue(tdsTest.getAssessmentVersion());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+			testCategory.setFieldCheckType(fieldCheckType);
+			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.assessmentVersion, fieldCheckType);
 
 		} catch (Exception e) {
 			logger.error("analysis exception: ", e);
 		}
 	}
 
-	private void validateField(Test test, EnumFieldCheckType enumFieldCheckType, EnumTestFieldName enumFieldName,
+	private void validateField(Test tdsTest, EnumFieldCheckType enumFieldCheckType, EnumTestFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
-				checkP(test, enumFieldName, fieldCheckType);
+				checkP(tdsTest, enumFieldName, fieldCheckType);
 				break;
 			case PC:
-				checkP(test, enumFieldName, fieldCheckType);
-				checkC(test, enumFieldName, fieldCheckType);
+				checkP(tdsTest, enumFieldName, fieldCheckType);
+				checkC(tdsTest, enumFieldName, fieldCheckType);
 				break;
 			}
 		} catch (Exception e) {
@@ -88,28 +155,56 @@ public class TestAnalysisAction extends AnalysisAction {
 
 	// Field Check Type (P) --> check that field is not empty, and field value is of correct data type
 	// and within acceptable values
-	private void checkP(Test test, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	private void checkP(Test tdsTest, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case name:
-				validateToken(test.getName(), fieldCheckType);
-				validatePritableASCIIone(test.getName(), fieldCheckType);
+				//<xs:attribute name="name" use="required" />
+				processP_PritableASCIIone(tdsTest.getName(), fieldCheckType);
 				break;
 			case subject:
-				validateToken(test.getSubject(), fieldCheckType);
-				validatePritableASCIIone(test.getSubject(), fieldCheckType);
+				//<xs:attribute name="subject" use="required" />
+				processP_PritableASCIIone(tdsTest.getSubject(), fieldCheckType);
 				break;
 			case testId:
-				validateToken(test.getTestId(), fieldCheckType);
-				validatePritableASCIIone(test.getTestId(), fieldCheckType);
+				//<xs:attribute name="testId" use="required" />
+				processP_PritableASCIIone(tdsTest.getTestId(), fieldCheckType);
 				break;
 			case bankKey:
+				//<xs:attribute name="bankKey" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(tdsTest.getBankKey()), fieldCheckType);
 				break;
 			case contract:
+				//<xs:attribute name="contract" use="required" />
+				processP_PritableASCIIone(tdsTest.getSubject(), fieldCheckType);
 				break;
 			case mode:
+				//	<xs:attribute name="mode" use="required">
+				//<xs:simpleType>
+				//<xs:restriction base="xs:token">
+				//	<xs:enumeration value="online" />
+				//	<xs:enumeration value="paper" />
+				//	<xs:enumeration value="scanned" />
+				//</xs:restriction>
+				//</xs:simpleType>
+				processP(tdsTest.getMode(), fieldCheckType);
 				break;
 			case grade:
+				//<xs:attribute name="grade" use="required" />
+				validateToken(tdsTest.getGrade(), fieldCheckType);
+				processAcceptValue(tdsTest.getGrade(), fieldCheckType, listGradeAcceptValues);
+				break;
+			case assessmentType:
+				//  <xs:attribute name="assessmentType" />
+				processP_PritableASCIIone(tdsTest.getAssessmentType(), fieldCheckType);
+				break;
+			case academicYear:	
+				// <xs:attribute name="academicYear" type="xs:unsignedInt" />
+				processP_Year(tdsTest.getAcademicYear(), fieldCheckType);
+				break;
+			case assessmentVersion:		
+				// <xs:attribute name="assessmentVersion" />
+				processP(tdsTest.getAssessmentVersion(), fieldCheckType);
 				break;
 			default:
 				break;
@@ -120,21 +215,21 @@ public class TestAnalysisAction extends AnalysisAction {
 	}
 
 	// Field Check Type (PC) --> check everything the same as (P) plus check if field value is correct
-	private void checkC(Test test, EnumTestFieldName enumTestFieldName, FieldCheckType fieldCheckType) {
+	private void checkC(Test tdsTest, EnumTestFieldName enumTestFieldName, FieldCheckType fieldCheckType) {
 
 		try {
-			String uniqueid = test.getName(); //String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015"; 
+			String uniqueid = tdsTest.getName(); // String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015";
 			Testpackage testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
 			if (testpackage != null) {
 				switch (enumTestFieldName) {
 				case name:
-					processName(fieldCheckType);
+					setCcorrect(fieldCheckType);
 					break;
 				case subject:
-					processSubject(test, testpackage, fieldCheckType);
+					processC_Subject(tdsTest, testpackage, fieldCheckType);
 					break;
 				case testId:
-					processTestId(test, testpackage, fieldCheckType);
+					processC_TestId(tdsTest, testpackage, fieldCheckType);
 					break;
 				case bankKey:
 					break;
@@ -143,6 +238,14 @@ public class TestAnalysisAction extends AnalysisAction {
 				case mode:
 					break;
 				case grade:
+					processC_Grade(tdsTest, testpackage, fieldCheckType);
+					break;
+				case assessmentType:
+					break;
+				case academicYear:	
+					break;	
+				case assessmentVersion:
+					processC_AssessmentVersion(tdsTest, testpackage, fieldCheckType);
 					break;
 				default:
 					break;
@@ -153,17 +256,9 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void processName(FieldCheckType fieldCheckType) {
+	private void processC_Subject(Test tdsTest, Testpackage testpackage, FieldCheckType fieldCheckType) {
 		try {
-			fieldCheckType.setCorrectValue(true);
-		} catch (Exception e) {
-			logger.error("processName exception: ", e);
-		}
-	}
-
-	private void processSubject(Test test, Testpackage testpackage, FieldCheckType fieldCheckType) {
-		try {
-			String testSubject = test.getSubject();
+			String testSubject = tdsTest.getSubject();
 			List<Property> listProperty = testpackage.getProperty();
 			String subjectValueFromTestPackage = getSubjectPropertyValueFromListProperty(listProperty);
 			if (subjectValueFromTestPackage != null) {
@@ -178,14 +273,33 @@ public class TestAnalysisAction extends AnalysisAction {
 
 	}
 
-	private void processTestId(Test test, Testpackage testpackage, FieldCheckType fieldCheckType) {
+	private void processC_TestId(Test test, Testpackage testpackage, FieldCheckType fieldCheckType) {
 		try {
-			// don't know corresponding object in testpacke
 			// TODO Auto-generated method stub
 		} catch (Exception e) {
 			logger.error("processTestId exception: ", e);
 		}
 
 	}
+	
+	private void processC_Grade(Test tdsTest, Testpackage testpackage, FieldCheckType fieldCheckType){
+		String testGrade = tdsTest.getGrade();
+		List<Property> listProperty = testpackage.getProperty();
+		String gradeValueFromTestPackage = getGradePropertyValueFromListProperty(listProperty);
+		if (gradeValueFromTestPackage != null) {
+			if (gradeValueFromTestPackage.equals(testGrade))
+				fieldCheckType.setCorrectValue(true);
+		}
+	}
+	
+	private void processC_AssessmentVersion(Test tdsTest, Testpackage testpackage, FieldCheckType fieldCheckType){
+		String assessmentVersion = tdsTest.getAssessmentVersion();
+		String version = testpackage.getIdentifier().getVersion();
+		if (assessmentVersion != null && assessmentVersion.length() > 0 && version != null && version.length() > 0){
+			if (assessmentVersion.trim().toLowerCase().equals(version.trim().toLowerCase()))
+				fieldCheckType.setCorrectValue(true);
+		}
+	}
+	
 
 }

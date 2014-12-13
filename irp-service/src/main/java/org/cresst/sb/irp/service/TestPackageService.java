@@ -25,6 +25,8 @@ public interface TestPackageService {
 	
 	String getSubjectPropertyValueFromListProperty(List<Property> listProperty);
 	
+	String getGradePropertyValueFromListProperty(List<Property> listProperty);
+	
 	Administration getAdministration(String testpackageUniqueid);
 	
 	String getPublisher(String uniqueid);
