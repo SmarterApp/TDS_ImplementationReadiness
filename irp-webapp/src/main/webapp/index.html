@@ -17,6 +17,7 @@
             </core-toolbar>
             <core-menu>
                 <core-item label="Home"></core-item>
+
             </core-menu>
         </core-header-panel>
 
@@ -33,8 +34,11 @@
                     </form>
                 </li>
             </ul>
+
+            <report-summary></report-summary>
         </div>
     </core-scaffold>
+
 
     <paper-action-dialog transition="core-transition-center" id="fileUploadErrorDialog" backdrop layered="false" heading="File Upload Error">
         <p>An error occurred while uploading the file. If this keeps happening, contact sbdev@cse.ucla.edu.</p>
@@ -50,8 +54,8 @@
         document.getElementById("fileUploader").addEventListener('submitted', function(event) {
             document.getElementById("fileUploadButton").hidden = false;
             document.querySelector('paper-spinner').active = false;
-            if (event.detail.status == 400) {
-                document.getElementById("fileUploadErrorDialog").toggle();
+            if (event.detail.status == 200) {
+                document.querySelector("report-summary").update(JSON.parse(event.detail.responseText).listIndividualResponse);
             } else {
                 document.getElementById("fileUploadErrorDialog").toggle();
             }
