@@ -18,3 +18,8 @@ Feature: A TDS Report is uploaded and an analysis report is given.
     Given I have a ZIP file containing 3 TDS Report XML documents
     When I upload the document
     Then The analysis report should indicate that 3 TDS Reports have been uploaded
+
+  Scenario: Upload file error
+    Given I have a file to upload
+    When I upload the file as an unknown file type
+    Then The result of the upload should give me an error response

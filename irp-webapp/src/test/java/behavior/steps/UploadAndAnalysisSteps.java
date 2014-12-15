@@ -12,10 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.HashMap;
-
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -44,16 +41,11 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     }
 
     @Then("^The analysis report should indicate my TDS Report is (malformed|valid)$")
-    public void The_analysis_report_should_indicate_my_TDS_Report_is_malformed(String type) throws Throwable {
-        String expectedValidation = "Valid";
-        if ("malformed".equals(type)) {
-            expectedValidation = "Invalid";
-        }
-
-//        resultActions.andExpect(status().isOk())
-//                .andExpect(xpath("//p[@id='validation']").string(expectedValidation));
+    public void The_analysis_report_should_indicate_my_TDS_Report_is(String type) throws Throwable {
         resultActions.andExpect(status().isOk())
-                .andExpect(xpath("//p[@id='validation']").exists());
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.listIndividualResponse", hasSize(1)))
+                .andExpect(jsonPath("$.listIndividualResponse[0].validXMLfile").value("malformed".equals(type) ? false : true));
     }
 
     @Given("^I have a ZIP file containing (\\d+) TDS Report XML documents$")
@@ -63,9 +55,25 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
 
     @Then("^The analysis report should indicate that (\\d+) TDS Reports have been uploaded$")
     public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
-//        resultActions.andExpect(status().isOk())
-//                .andExpect(xpath("//span[@id='numTdsFilesUploaded']").number(3.0));
         resultActions.andExpect(status().isOk())
-                .andExpect(xpath("//span[@id='numTdsFilesUploaded']").exists());
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.listIndividualResponse", hasSize(numberOfDocumentsInZip)));
+    }
+
+    @Given("^I have a file to upload$")
+    public void I_have_a_file_to_upload() throws Throwable {
+        tdsReportXml = TdsReportFactory.getTdsReport("bad-content-type");
+    }
+
+    @When("^I upload the file as an unknown file type$")
+    public void I_upload_the_file_as_an_unknown_file_type() throws Throwable {
+        resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml));
+    }
+
+    @Then("^The result of the upload should give me an error response$")
+    public void The_result_of_the_upload_should_give_me_an_error_response() throws Throwable {
+        resultActions.andExpect(status().isBadRequest())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.error").value("true"));
     }
 }

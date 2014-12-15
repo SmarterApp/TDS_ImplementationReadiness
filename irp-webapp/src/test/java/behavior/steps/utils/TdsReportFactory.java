@@ -23,12 +23,15 @@ public class TdsReportFactory {
         MockMultipartFile tdsReport = null;
         switch(type) {
             case "malformed":
-                tdsReport = new MockMultipartFile("file", "bad-tds-report.xml", "text/plain", "<tdsreport></tdsreport>".getBytes());
+                tdsReport = new MockMultipartFile("file", "bad-tds-report.xml", "text/xml", "<tdsreport></tdsreport>".getBytes());
                 break;
             case "valid":
                 Resource resource = new ClassPathResource("good-tds-report.xml");
-                tdsReport = new MockMultipartFile("file", resource.getFilename(), "text/plain",
+                tdsReport = new MockMultipartFile("file", resource.getFilename(), "text/xml",
                         FileUtils.readFileToByteArray(resource.getFile()));
+                break;
+            case "bad-content-type":
+                tdsReport = new MockMultipartFile("file", "bad-tds-report.xml", MediaType.IMAGE_GIF_VALUE, "<tdsreport></tdsreport>".getBytes());
                 break;
             default:
                 throw new IllegalArgumentException(type + " is not a valid input");
@@ -59,7 +62,7 @@ public class TdsReportFactory {
             zos.closeEntry();
         }
 
-        MockMultipartFile zippedTdsReport = new MockMultipartFile("file", "tdsreports.zip", MediaType.MULTIPART_FORM_DATA_VALUE,
+        MockMultipartFile zippedTdsReport = new MockMultipartFile("file", "tdsreports.zip", "application/zip",
                 boas.toByteArray());
 
         return zippedTdsReport;

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.*;
@@ -20,6 +22,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Handles file uploads
@@ -31,30 +34,28 @@ public class FileUploadController {
 	@Autowired
 	public AnalysisService analysisService;
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public ModelAndView upload(@RequestParam("file") MultipartFile file) {
-
-        ModelAndView mav = new ModelAndView();
+    @RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "application/json")
+    @ResponseBody
+    public AnalysisResponse upload(@RequestParam("file") MultipartFile file) throws FileUploadException {
 
         if (!file.isEmpty()) {
             try {
+                // Get the paths to all the uploaded TDS report files
                 Iterable<Path> tdsReportPaths = getTdsReportFiles(file);
 
+                // Analyze the TDS Report files
                 AnalysisResponse analysisResponse = analysisService.analysisProcess(tdsReportPaths);
 
-
-                mav.setViewName("report");
-                mav.addObject("numTdsFilesUploaded", Iterables.size(tdsReportPaths));
-                mav.addObject("numTdsFilesAnalyzed", analysisResponse.getListIndividualResponse().size());
-                mav.addObject("reports", analysisResponse.getListIndividualResponse());
+                return analysisResponse;
 
             } catch (IOException | XmlMappingException | ClassCastException e) {
                 logger.info("File upload failed", e);
-                mav.setViewName("report-error");
+
+                throw new FileUploadException(e);
             }
         }
 
-        return mav;
+        throw new FileUploadException("File not uploaded.");
     }
 
     /**
@@ -138,10 +139,25 @@ public class FileUploadController {
         Files.delete(tmpZip);
     }
 
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-	/* . . . . . . . . . . . . . EXCEPTION HANDLERS . . . . . . . . . . . . .. */
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /**
+     * Exception handler if something goes wrong in the upload method
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(FileUploadException.class)
+    @ResponseBody
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public Map<String, String> handleFileUploadException(FileUploadException ex) {
+        Map<String, String> error = new HashMap<>(1);
+        error.put("error", "true");
+        return error;
+    }
 
+    /**
+     * Exception handler for not found exception
+     * @param ex
+     * @return
+     */
 	@ExceptionHandler(NotFoundException.class)
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Not Found")
