@@ -1,0 +1,69 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-item/core-item.html">
+<link rel="import" href="bower_components/ajax-form/ajax-form.html">
+<link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="bower_components/sampler-scaffold/sampler-scaffold.html">
+<link rel="import" href="report-summary.html">
+
+<polymer-element name="irp-scaffold" attributes="label responsiveWidth">
+    <template>
+        <sampler-scaffold label="Implementation Readiness Package">
+
+            <div home>
+                <ul>
+                    <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the IRP package.</a></li>
+                    <li>Step 2: Load data from the IRP package into your system.</li>
+                    <li>Step 3: Upload the TDSReport XML files for each result to IRP. Only a single XML or ZIP containing multiple XML documents are accepted.
+                        <form id="fileUploader" is="ajax-form" method="post" enctype="multipart/form-data" action="/upload">
+                            <input type="file" class="btn btn-default" name="file" required />
+                            <button id="fileUploadButton" class="btn btn-primary">Upload</button> <paper-spinner id="uploadSpinner" class="blue" inactive></paper-spinner>
+                        </form>
+                    </li>
+                </ul>
+
+                <report-summary id="reportSummary" responses="{{responses}}"></report-summary>
+            </div>
+
+            <core-item label="Home" tag="home"></core-item>
+
+            <template id="tmplIndividualResponses" repeat="{{response in responses}}">
+                <core-item label="{{response.fileName}}" tag="{{response.fileName}}" response="{{response | stringify}}"></core-item>
+            </template>
+
+        </sampler-scaffold>
+    </template>
+    <script>
+        Polymer('irp-scaffold', {
+            ready: function() {
+                var that = this;
+                this.$.fileUploadButton.addEventListener('click', function(event) {
+                    this.hidden = true;
+                    that.$.uploadSpinner.active = true;
+                });
+
+                this.$.fileUploader.addEventListener('submitted', function(event) {
+                    that.$.fileUploadButton.hidden = false;
+                    that.$.uploadSpinner.active = false;
+
+                    if (event.detail.status == 200) {
+                        var individualResponses = JSON.parse(event.detail.responseText).individualResponses;
+                        that.responses = individualResponses;
+                    } else {
+                        that.$.fileUploadErrorDialog.toggle();
+                    }
+                });
+            },
+
+            stringify: {
+                toDOM: function(value)
+                {
+                    return JSON.stringify(value);
+                },
+                toModel: function(value)
+                {
+                    return JSON.stringify(value);
+                }
+            }
+        });
+    </script>
+</polymer-element>

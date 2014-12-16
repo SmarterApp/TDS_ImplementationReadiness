@@ -9,57 +9,6 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body fullbleed unresolved>
-    <core-scaffold>
-
-        <core-header-panel navigation flex>
-            <core-toolbar id="navheader">
-                <span>Menu</span>
-            </core-toolbar>
-            <core-menu>
-                <core-item label="Home"></core-item>
-
-            </core-menu>
-        </core-header-panel>
-
-        <span tool>Implementation Readiness Package (IRP)</span>
-
-        <div class="content">
-            <ul>
-                <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the IRP package.</a></li>
-                <li>Step 2: Load data from the IRP package into your system.</li>
-                <li>Step 3: Upload the TDSReport XML files for each result to IRP. Only a single XML or ZIP containing multiple XML documents are accepted.
-                    <form id="fileUploader" is="ajax-form" method="post" enctype="multipart/form-data" action="/upload">
-                        <input type="file" class="btn btn-default" name="file" required />
-                        <button id="fileUploadButton" class="btn btn-primary">Upload</button> <paper-spinner class="blue" inactive></paper-spinner>
-                    </form>
-                </li>
-            </ul>
-
-            <report-summary></report-summary>
-        </div>
-    </core-scaffold>
-
-
-    <paper-action-dialog transition="core-transition-center" id="fileUploadErrorDialog" backdrop layered="false" heading="File Upload Error">
-        <p>An error occurred while uploading the file. If this keeps happening, contact sbdev@cse.ucla.edu.</p>
-        <paper-button affirmative>OK</paper-button>
-    </paper-action-dialog>
-
-    <script>
-        document.getElementById("fileUploadButton").addEventListener('click', function(event) {
-            this.hidden = true;
-            document.querySelector('paper-spinner').active = true;
-        });
-
-        document.getElementById("fileUploader").addEventListener('submitted', function(event) {
-            document.getElementById("fileUploadButton").hidden = false;
-            document.querySelector('paper-spinner').active = false;
-            if (event.detail.status == 200) {
-                document.querySelector("report-summary").update(JSON.parse(event.detail.responseText).listIndividualResponse);
-            } else {
-                document.getElementById("fileUploadErrorDialog").toggle();
-            }
-        });
-    </script>
+    <irp-scaffold></irp-scaffold>
 </body>
 </html>

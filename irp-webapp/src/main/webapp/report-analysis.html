@@ -1,0 +1,16 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<polymer-element name="report-analysis" attributes="response">
+    <template>
+        <h2>Hi</h2>
+            This is {{response.fileName}}.
+            Valid: {{response.validXMLfile}}.
+    </template>
+    <script>
+        Polymer("report-analysis", {
+            created: function() {
+                this.response = {};
+            }
+        });
+    </script>
+</polymer-element>

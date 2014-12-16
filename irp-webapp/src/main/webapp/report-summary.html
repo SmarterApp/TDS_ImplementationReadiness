@@ -1,1 +1,21 @@
-<link rel="import" href=""
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<polymer-element name="report-summary" attributes="responses">
+    <template>
+        <div>
+            <template id="tmplResults" repeat="{{response in responses}}">
+                <div class="result">
+                    <h2>TDS Report File Name: <span>{{response.fileName}}</span></h2>
+                    <p>Is XML Valid: <span class="validation">{{response.validXMLfile}}</span></p>
+                </div>
+            </template>
+        </div>
+    </template>
+    <script>
+        Polymer("report-summary", {
+            created: function() {
+                this.responses = {};
+            }
+        });
+    </script>
+</polymer-element>
