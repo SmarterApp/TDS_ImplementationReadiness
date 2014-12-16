@@ -44,8 +44,8 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     public void The_analysis_report_should_indicate_my_TDS_Report_is(String type) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.listIndividualResponse", hasSize(1)))
-                .andExpect(jsonPath("$.listIndividualResponse[0].validXMLfile").value("malformed".equals(type) ? false : true));
+                .andExpect(jsonPath("$.individualResponses", hasSize(1)))
+                .andExpect(jsonPath("$.individualResponses[0].validXMLfile").value("malformed".equals(type) ? false : true));
     }
 
     @Given("^I have a ZIP file containing (\\d+) TDS Report XML documents$")
@@ -57,7 +57,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.listIndividualResponse", hasSize(numberOfDocumentsInZip)));
+                .andExpect(jsonPath("$.individualResponses", hasSize(numberOfDocumentsInZip)));
     }
 
     @Given("^I have a file to upload$")
