@@ -27,7 +27,7 @@ public class CommentAnalysisAction extends AnalysisAction {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			List<CommentCategory> listCoomentCategory = individualResponse.getListCoomentCategory();
+			List<CommentCategory> listCoomentCategory = individualResponse.getCoomentCategories();
 			CommentCategory commentCategory;
 			List<Comment> listComment = tdsReport.getComment();
 			for(Comment c: listComment){
@@ -102,7 +102,11 @@ public class CommentAnalysisAction extends AnalysisAction {
 				break;
 			case itemPosition:
 				// <xs:attribute name="itemPosition" type="NullableUInt" />
-				processP_Positive32bit(tdsComment.getItemPosition(), fieldCheckType);
+				//Positive 32-bit integer, Null allowed
+				if (tdsComment.getItemPosition().length() == 0)
+					setPcorrect(fieldCheckType);
+				else
+					processP_Positive32bit(tdsComment.getItemPosition(), fieldCheckType);
 				break;
 			case date:
 				//<xs:attribute name="date" use="required" type="xs:dateTime" />

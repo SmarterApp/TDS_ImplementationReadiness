@@ -19,15 +19,16 @@ public class IndividualResponse {
 	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
 	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
 	private OpportunityCategory opportunityCategory;
-	private List<CommentCategory> listCoomentCategory;
-	
+	private List<CommentCategory> coomentCategories;
+	private List<ToolUsageCategory> toolUsageCategories;
 	
 	public IndividualResponse() {
 		logger.info("initializing");
 		setListTestPropertyCategory(new ArrayList<CellCategory>());
 		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
 		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
-		setListCoomentCategory(new ArrayList<CommentCategory>());
+		setCoomentCategories(new ArrayList<CommentCategory>());
+		setToolUsageCategories(new ArrayList<ToolUsageCategory>());
 	}
 
 	public String getFileName() {
@@ -103,12 +104,20 @@ public class IndividualResponse {
 		this.status = status;
 	}
 
-	public List<CommentCategory> getListCoomentCategory() {
-		return listCoomentCategory;
+	public List<CommentCategory> getCoomentCategories() {
+		return coomentCategories;
 	}
 
-	public void setListCoomentCategory(List<CommentCategory> listCoomentCategory) {
-		this.listCoomentCategory = listCoomentCategory;
+	public void setCoomentCategories(List<CommentCategory> coomentCategories) {
+		this.coomentCategories = coomentCategories;
+	}
+
+	public List<ToolUsageCategory> getToolUsageCategories() {
+		return toolUsageCategories;
+	}
+
+	public void setToolUsageCategories(List<ToolUsageCategory> toolUsageCategories) {
+		this.toolUsageCategories = toolUsageCategories;
 	}
 
 	@Override
@@ -117,7 +126,8 @@ public class IndividualResponse {
 				+ ", status=" + status + ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory="
 				+ examineeCategory + ", listExamineeAttributeCategory=" + listExamineeAttributeCategory
 				+ ", listExamineeRelationshipCategory=" + listExamineeRelationshipCategory + ", opportunityCategory="
-				+ opportunityCategory + ", listCoomentCategory=" + listCoomentCategory + "]";
+				+ opportunityCategory + ", coomentCategories=" + coomentCategories + ", toolUsageCategories="
+				+ toolUsageCategories + "]";
 	}
 
 

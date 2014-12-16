@@ -15,6 +15,10 @@ public class CommentCategory {
 	private FieldCheckType dateFieldCheckType;
 	private FieldCheckType contentFieldCheckType;
 	
+	public CommentCategory() {
+		logger.info("initializing");
+	}
+	
 	public FieldCheckType getContextFieldCheckType() {
 		return contextFieldCheckType;
 	}
@@ -45,10 +49,6 @@ public class CommentCategory {
 
 	public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
 		this.contentFieldCheckType = contentFieldCheckType;
-	}
-
-	public CommentCategory() {
-		logger.info("initializing");
 	}
 
 	public String getContext() {
