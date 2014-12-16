@@ -37,7 +37,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	public void analysis() throws IOException {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
-			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse.getListExamineeRelationshipCategory();
+			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse.getExamineeRelationshipCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			
 			ExamineeRelationshipCategory examineeRelationshipCategory;

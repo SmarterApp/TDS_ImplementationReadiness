@@ -35,7 +35,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	public void analysis() throws IOException {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
-			List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.getListExamineeAttributeCategory();
+			List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.getExamineeAttributeCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			
 			ExamineeAttributeCategory examineeAttributeCategory;

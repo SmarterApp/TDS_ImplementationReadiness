@@ -9,22 +9,22 @@ public class AnalysisResponse {
 
 	//each IndividualResponse represents each TDSReport xml file uploaded 
 	//and it includes all analysis results  
-	private List<IndividualResponse> listIndividualResponse;
+	private List<IndividualResponse> individualResponses;
 
 	public AnalysisResponse() {
 		logger.info("initializing");
-		listIndividualResponse = new ArrayList<IndividualResponse>();
+		individualResponses = new ArrayList<IndividualResponse>();
 	}
 
-	public List<IndividualResponse> getListIndividualResponse() {
-		return listIndividualResponse;
+	public List<IndividualResponse> getIndividualResponses() {
+		return individualResponses;
 	}
 
-	public void setListIndividualResponse(List<IndividualResponse> listIndividualResponse) {
-		this.listIndividualResponse = listIndividualResponse;
+	public void setIndividualResponses(List<IndividualResponse> individualResponses) {
+		this.individualResponses = individualResponses;
 	}
 	
 	public void addListIndividualResponse(IndividualResponse individualResponse){
-		this.listIndividualResponse.add(individualResponse);
+		this.individualResponses.add(individualResponse);
 	}
 }

@@ -14,20 +14,20 @@ public class IndividualResponse {
 	private TDSReport tdsReport; //
 	private String status; //No errors, Contains xx errors 
 
-	private List<CellCategory> listTestPropertyCategory;
+	private List<CellCategory> testPropertyCategories;
 	private ExamineeCategory examineeCategory;
-	private List<ExamineeAttributeCategory> listExamineeAttributeCategory;
-	private List<ExamineeRelationshipCategory> listExamineeRelationshipCategory;
+	private List<ExamineeAttributeCategory> examineeAttributeCategories;
+	private List<ExamineeRelationshipCategory> examineeRelationshipCategories;
 	private OpportunityCategory opportunityCategory;
-	private List<CommentCategory> listCoomentCategory;
+	private List<CommentCategory> commentCategories;
 	
 	
 	public IndividualResponse() {
 		logger.info("initializing");
-		setListTestPropertyCategory(new ArrayList<CellCategory>());
-		setListExamineeAttributeCategory(new ArrayList<ExamineeAttributeCategory>());
-		setListExamineeRelationshipCategory(new ArrayList<ExamineeRelationshipCategory>());
-		setListCoomentCategory(new ArrayList<CommentCategory>());
+		setTestPropertyCategories(new ArrayList<CellCategory>());
+		setExamineeAttributeCategories(new ArrayList<ExamineeAttributeCategory>());
+		setExamineeRelationshipCategories(new ArrayList<ExamineeRelationshipCategory>());
+		setCommentCategories(new ArrayList<CommentCategory>());
 	}
 
 	public String getFileName() {
@@ -54,12 +54,12 @@ public class IndividualResponse {
 		this.isValidXMLfile = isValidXMLfile;
 	}
 	
-	public List<CellCategory> getListTestPropertyCategory() {
-		return listTestPropertyCategory;
+	public List<CellCategory> getTestPropertyCategories() {
+		return testPropertyCategories;
 	}
 
-	public void setListTestPropertyCategory(List<CellCategory> listTestPropertyCategory) {
-		this.listTestPropertyCategory = listTestPropertyCategory;
+	public void setTestPropertyCategories(List<CellCategory> testPropertyCategories) {
+		this.testPropertyCategories = testPropertyCategories;
 	}
 
 	
@@ -71,20 +71,20 @@ public class IndividualResponse {
 		this.examineeCategory = examineeCategory;
 	}
 
-	public List<ExamineeAttributeCategory> getListExamineeAttributeCategory() {
-		return listExamineeAttributeCategory;
+	public List<ExamineeAttributeCategory> getExamineeAttributeCategories() {
+		return examineeAttributeCategories;
 	}
 
-	public void setListExamineeAttributeCategory(List<ExamineeAttributeCategory> listExamineeAttributeCategory) {
-		this.listExamineeAttributeCategory = listExamineeAttributeCategory;
+	public void setExamineeAttributeCategories(List<ExamineeAttributeCategory> examineeAttributeCategories) {
+		this.examineeAttributeCategories = examineeAttributeCategories;
 	}
 	
-	public List<ExamineeRelationshipCategory> getListExamineeRelationshipCategory() {
-		return listExamineeRelationshipCategory;
+	public List<ExamineeRelationshipCategory> getExamineeRelationshipCategories() {
+		return examineeRelationshipCategories;
 	}
 
-	public void setListExamineeRelationshipCategory(List<ExamineeRelationshipCategory> listExamineeRelationshipCategory) {
-		this.listExamineeRelationshipCategory = listExamineeRelationshipCategory;
+	public void setExamineeRelationshipCategories(List<ExamineeRelationshipCategory> examineeRelationshipCategories) {
+		this.examineeRelationshipCategories = examineeRelationshipCategories;
 	}
 	
 	public OpportunityCategory getOpportunityCategory() {
@@ -103,21 +103,21 @@ public class IndividualResponse {
 		this.status = status;
 	}
 
-	public List<CommentCategory> getListCoomentCategory() {
-		return listCoomentCategory;
+	public List<CommentCategory> getCommentCategories() {
+		return commentCategories;
 	}
 
-	public void setListCoomentCategory(List<CommentCategory> listCoomentCategory) {
-		this.listCoomentCategory = listCoomentCategory;
+	public void setCommentCategories(List<CommentCategory> commentCategories) {
+		this.commentCategories = commentCategories;
 	}
 
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", status=" + status + ", listTestPropertyCategory=" + listTestPropertyCategory + ", examineeCategory="
-				+ examineeCategory + ", listExamineeAttributeCategory=" + listExamineeAttributeCategory
-				+ ", listExamineeRelationshipCategory=" + listExamineeRelationshipCategory + ", opportunityCategory="
-				+ opportunityCategory + ", listCoomentCategory=" + listCoomentCategory + "]";
+				+ ", status=" + status + ", testPropertyCategories=" + testPropertyCategories + ", examineeCategory="
+				+ examineeCategory + ", examineeAttributeCategories=" + examineeAttributeCategories
+				+ ", examineeRelationshipCategories=" + examineeRelationshipCategories + ", opportunityCategory="
+				+ opportunityCategory + ", commentCategories=" + commentCategories + "]";
 	}
 
 

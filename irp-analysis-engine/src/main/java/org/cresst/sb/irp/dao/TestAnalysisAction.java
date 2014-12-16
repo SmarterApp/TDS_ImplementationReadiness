@@ -32,7 +32,7 @@ public class TestAnalysisAction extends AnalysisAction {
 	public void analysis() throws IOException {
 		try {
 			IndividualResponse individualResponse = getIndividualResponse();
-			List<CellCategory> listTestPropertyCategory = individualResponse.getListTestPropertyCategory();
+			List<CellCategory> listTestPropertyCategory = individualResponse.getTestPropertyCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			Test tdsTest = getTest(tdsReport);
 
