@@ -128,19 +128,26 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case type:
-				validateToken(accommodation.getType(), fieldCheckType);
+				//	<xs:attribute name="type" use="required" />
 				processAcceptableEnum(accommodation.getType(), fieldCheckType, EnumAccommodationAcceptValues.class, "Translation(Glossary)");
 				break;
 			case value:
-				validateToken(accommodation.getValue(), fieldCheckType);
-				validatePritableASCIIone(accommodation.getValue(), fieldCheckType);
+				//<xs:attribute name="value" use="required" />
+				processP_PritableASCIIone(accommodation.getValue(), fieldCheckType);
 				break;
 			case code:
-				validateToken(accommodation.getCode(), fieldCheckType);
-				validatePritableASCIIone(accommodation.getCode(), fieldCheckType);
+				//<xs:attribute name="code" use="required" />
+				processP_PritableASCIIone(accommodation.getCode(), fieldCheckType);
 				break;
 			case segment:
-				validateUnsignedIntPositive32bit(Long.toString(accommodation.getSegment()), fieldCheckType);
+				//  <xs:attribute name="segment" use="required">
+                //<xs:simpleType>
+                //<xs:restriction base="xs:unsignedInt">
+                //  <xs:minInclusive value="0" />
+                //</xs:restriction>
+				//</xs:simpleType>
+				//</xs:attribute>
+				processP_Positive32bit(Long.toString(accommodation.getSegment()), fieldCheckType);
 				break;
 			default:
 				break;
@@ -156,7 +163,7 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue) || fieldValue.toLowerCase().trim().equals(parenthesesValue.toLowerCase())) {
-					fieldCheckType.setAcceptableValue(true);
+					setPcorrect(fieldCheckType);
 				} 
 			}
 		} catch (Exception e) {

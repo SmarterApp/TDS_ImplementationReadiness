@@ -140,7 +140,6 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 					setPcorrect(fieldCheckType);
 				break;
 			case type:
-				// Required N
 				// <xs:attribute name="type">
 				// <xs:simpleType>
 				// <xs:restriction base="xs:token">
@@ -149,10 +148,10 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 				// <xs:enumeration value="" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP(response.getType(), fieldCheckType);
+				processP(response.getType(), fieldCheckType, false); // Required N
 				break;
 			case content:
-				processP(response.getContent(), fieldCheckType);
+				processP(response.getContent(), fieldCheckType, false); // Required N
 				break;
 			default:
 				break;

@@ -235,11 +235,11 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 				// <xs:enumeration value="APPEALED" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP(item.getScoreStatus(), fieldCheckType);
+				processP(item.getScoreStatus(), fieldCheckType, false); //last param: required: N
 				break;
 			case adminDate:
 				// <xs:attribute name="adminDate" use="required" type="xs:dateTime" />
-				processP(item.getAdminDate().toString(), fieldCheckType);
+				processP(item.getAdminDate().toString(), fieldCheckType, true);
 				break;
 			case numberVisits:
 				// <xs:attribute name="numberVisits" use="required" type="xs:unsignedInt" />
@@ -278,7 +278,14 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 				processP_Positive32bit(Integer.toString(item.getPageTime()), fieldCheckType);
 				break;
 			case dropped:
-				validateUnsignedInt(Short.toString(item.getDropped()), fieldCheckType, 0, 1);
+				// <xs:attribute name="dropped" use="required" type="Bit" />
+				//	<xs:simpleType name="Bit">
+				//<xs:restriction base="xs:unsignedByte">
+				//<xs:minInclusive value="0" />
+				//<xs:maxInclusive value="1" />
+				//</xs:restriction>
+				//</xs:simpleType>
+				processP(Short.toString(item.getDropped()), fieldCheckType, true); //last param: required Y
 				break;
 			default:
 				break;

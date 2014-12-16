@@ -50,6 +50,9 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	@Autowired
 	public ItemScoreInfoAnalysisAction itemScoreInfoAnalysisAction;
 	
+	@Autowired
+	public CommentAnalysisAction commentAnalysisAction;
+	
 	//tdsreport_12_8_14.xsd from AIR David original file name tdsreport.xsd
 	@Value("classpath:irp-package/tdsreport_12_8_14.xsd") //reportxml_oss.xsd") from Rami on 12/4/14 vs sample_oss_report2.xml
 	private Resource TDSReportXSDResource;
@@ -106,6 +109,9 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					
 					itemScoreInfoAnalysisAction.setIndividualResponse(individualResponse);
 					itemScoreInfoAnalysisAction.analysis();
+					
+					commentAnalysisAction.setIndividualResponse(individualResponse);
+					commentAnalysisAction.analysis();
 					
 				}
 				System.out.println("individualResponse --->" + individualResponse.toString());
