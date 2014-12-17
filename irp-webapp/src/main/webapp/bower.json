@@ -1,13 +1,7 @@
 {
   "name": "IReadinessPackage",
   "version": "0.0.1",
-  "authors": [
-    "Paul Espinosa <paulespin@gmail.com>",
-    "Matt Zhang <mattucla88@gmail.com>"
-  ],
   "description": "Smarter Balanced Implementation Readiness Package",
-  "main": "index.html",
-  "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
@@ -18,9 +12,123 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.2",
-    "core-elements": "Polymer/core-elements#~0.5.2",
-    "paper-elements": "Polymer/paper-elements#~0.5.2",
-    "file-input": "~1.1.4",
-    "ajax-form": "~1.4.0"
+    "ajax-form": "~1.4.0",
+    "core-item": "Polymer/core-item#~0.5.2",
+    "paper-spinner": "Polymer/paper-spinner#~0.5.2",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.2",
+    "core-drawer-panel": "Polymer/core-drawer-panel#~0.5.2",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.2",
+    "core-menu": "Polymer/core-menu#~0.5.2",
+    "core-icon-button": "Polymer/core-icon-button#~0.5.2"
+  },
+  "install" : {
+    "path": "deps",
+    "sources": {
+      "ajax-form": [
+        "bower_components/ajax-form/ajax-form.html",
+        "bower_components/ajax-form/ajax-form.js"
+      ],
+      "core-ajax": [
+        "bower_components/core-ajax/core-ajax.html",
+        "bower_components/core-ajax/core-xhr.html"
+      ],
+      "core-collapse": [
+        "bower_components/core-collapse/core-collapse.html",
+        "bower_components/core-collapse/core-collapse.css"
+      ],
+      "core-component-page": [
+        "bower_components/core-component-page/core-component-page.html"
+      ],
+      "core-drawer-panel": [
+        "bower_components/core-drawer-panel/core-drawer-panel.html",
+        "bower_components/core-drawer-panel/core-drawer-panel.css"
+      ],
+      "core-header-panel": [
+        "bower_components/core-header-panel/core-header-panel.html",
+        "bower_components/core-header-panel/core-header-panel.css"
+      ],
+      "core-icon-button": [
+        "bower_components/core-icon-button/core-icon-button.html",
+        "bower_components/core-icon-button/core-icon-button.css"
+      ],
+      "core-icon": [
+        "bower_components/core-icon/core-icon.html",
+        "bower_components/core-icon/core-icon.css",
+        "bower_components/core-icon/metadata.html"
+      ],
+      "core-icons": [
+        "bower_components/core-icons/av-icons.html",
+        "bower_components/core-icons/communication-icons.html",
+        "bower_components/core-icons/core-icons.html",
+        "bower_components/core-icons/device-icons.html",
+        "bower_components/core-icons/editor-icons.html",
+        "bower_components/core-icons/hardware-icons.html",
+        "bower_components/core-icons/image-icons.html",
+        "bower_components/core-icons/maps-icons.html",
+        "bower_components/core-icons/notification-icons.html",
+        "bower_components/core-icons/png-icons.html",
+        "bower_components/core-icons/social-icons.html"
+      ],
+      "core-iconset-svg": [
+        "bower_components/core-iconset-svg/core-iconset-svg.html"
+      ],
+      "core-iconset": [
+        "bower_components/core-iconset/core-iconset.html",
+        "bower_components/core-iconset/my-icons.png",
+        "bower_components/core-iconset/my-icons-big.png"
+      ],
+      "core-item": [
+        "bower_components/core-item/core-item.html",
+        "bower_components/core-item/core-item.css"
+      ],
+      "core-media-query": [
+        "bower_components/core-media-query/core-media-query.html"
+      ],
+      "core-menu": [
+        "bower_components/core-menu/core-menu.html",
+        "bower_components/core-menu/core-menu.css",
+        "bower_components/core-menu/core-submenu.html",
+        "bower_components/core-menu/core-submenu.css",
+        "bower_components/core-menu/metadata.html"
+      ],
+      "core-meta": [
+        "bower_components/core-meta/core-meta.html"
+      ],
+      "core-selection": [
+        "bower_components/core-selection/core-selection.html"
+      ],
+      "core-selector": [
+        "bower_components/core-selector/core-selector.html",
+        "bower_components/core-menu/metadata.html"
+      ],
+      "core-toolbar": [
+        "bower_components/core-toolbar/core-toolbar.html",
+        "bower_components/core-toolbar/core-toolbar.css",
+        "bower_components/core-menu/metadata.html"
+      ],
+      "paper-spinner": [
+        "bower_components/paper-spinner/paper-spinner.html",
+        "bower_components/paper-spinner/paper-spinner.css"
+      ],
+      "polymer": [
+        "bower_components/polymer/polymer.html",
+        "bower_components/polymer/layout.html",
+        "bower_components/polymer/polymer.js",
+        "bower_components/polymer/polymer.min.js"
+      ],
+      "webcomponentsjs": [
+        "bower_components/webcomponentsjs/webcomponents.js",
+        "bower_components/webcomponentsjs/webcomponents.min.js",
+        "bower_components/webcomponentsjs/webcomponents-lite.js",
+        "bower_components/webcomponentsjs/webcomponents-lite.min.js",
+        "bower_components/webcomponentsjs/CustomElements.js",
+        "bower_components/webcomponentsjs/CustomElements.min.js",
+        "bower_components/webcomponentsjs/HTMLImports.js",
+        "bower_components/webcomponentsjs/HTMLImports.min.js",
+        "bower_components/webcomponentsjs/ShadowDOM.js",
+        "bower_components/webcomponentsjs/ShadowDOM.min.js"
+      ]
+
+    }
   }
 }

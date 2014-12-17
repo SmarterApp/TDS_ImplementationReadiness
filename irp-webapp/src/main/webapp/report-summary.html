@@ -1,20 +1,131 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="deps/polymer/polymer.html">
 
 <polymer-element name="report-summary" attributes="responses">
     <template>
+        <style>
+            .reportSummary {
+                margin:0px;padding:0px;
+                width:100%;
+                box-shadow: 10px 10px 5px #888888;
+                border:1px solid #bfbf00;
+
+                -moz-border-radius-bottomleft:0px;
+                -webkit-border-bottom-left-radius:0px;
+                border-bottom-left-radius:0px;
+
+                -moz-border-radius-bottomright:0px;
+                -webkit-border-bottom-right-radius:0px;
+                border-bottom-right-radius:0px;
+
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }.reportSummary table{
+                 border-collapse: collapse;
+                 border-spacing: 0;
+                 width:100%;
+                 height:100%;
+                 margin:0px;padding:0px;
+             }.reportSummary tr:last-child td:last-child {
+                  -moz-border-radius-bottomright:0px;
+                  -webkit-border-bottom-right-radius:0px;
+                  border-bottom-right-radius:0px;
+              }
+            .reportSummary table tr:first-child td:first-child {
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }
+            .reportSummary table tr:first-child td:last-child {
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+            }.reportSummary tr:last-child td:first-child{
+                 -moz-border-radius-bottomleft:0px;
+                 -webkit-border-bottom-left-radius:0px;
+                 border-bottom-left-radius:0px;
+             }.reportSummary tr:hover td{
+
+              }
+            .reportSummary tr:nth-child(odd){ background-color:#ffffaa; }
+            .reportSummary tr:nth-child(even)    { background-color:#ffffff; }.reportSummary td{
+                                                                                  vertical-align:middle;
+
+
+                                                                                  border:1px solid #bfbf00;
+                                                                                  border-width:0px 1px 1px 0px;
+                                                                                  text-align:left;
+                                                                                  padding:8px;
+                                                                                  font-size:14px;
+                                                                                  font-family:Arial;
+                                                                                  font-weight:bold;
+                                                                                  color:#000000;
+                                                                              }.reportSummary tr:last-child td{
+                                                                                   border-width:0px 1px 0px 0px;
+                                                                               }.reportSummary tr td:last-child{
+                                                                                    border-width:0px 0px 1px 0px;
+                                                                                }.reportSummary tr:last-child td:last-child{
+                                                                                     border-width:0px 0px 0px 0px;
+                                                                                 }
+            .reportSummary tr:first-child td{
+                background:-o-linear-gradient(bottom, #ffff00 5%, #e8e800 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffff00), color-stop(1, #e8e800) );
+                background:-moz-linear-gradient( center top, #ffff00 5%, #e8e800 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff00", endColorstr="#e8e800");	background: -o-linear-gradient(top,#ffff00,e8e800);
+
+                background-color:#ffff00;
+                border:0px solid #bfbf00;
+                text-align:center;
+                border-width:0px 0px 1px 1px;
+                font-size:14px;
+                font-family:Arial;
+                font-weight:bold;
+                color:#000000;
+            }
+            .reportSummary tr:first-child:hover td{
+                background:-o-linear-gradient(bottom, #ffff00 5%, #e8e800 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffff00), color-stop(1, #e8e800) );
+                background:-moz-linear-gradient( center top, #ffff00 5%, #e8e800 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff00", endColorstr="#e8e800");	background: -o-linear-gradient(top,#ffff00,e8e800);
+
+                background-color:#ffff00;
+            }
+            .reportSummary tr:first-child td:first-child{
+                border-width:0px 0px 1px 0px;
+            }
+            .reportSummary tr:first-child td:last-child{
+                border-width:0px 0px 1px 1px;
+            }
+        </style>
+
         <div>
-            <template id="tmplResults" repeat="{{response in responses}}">
-                <div class="result">
-                    <h2>TDS Report File Name: <span>{{response.fileName}}</span></h2>
-                    <p>Is XML Valid: <span class="validation">{{response.validXMLfile}}</span></p>
-                </div>
-            </template>
+            <table class="reportSummary">
+                <thead>
+                    <tr>
+                        <th>TDS Report File Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <template repeat="{{response in responses}}">
+                    <tr>
+                        <td>{{response.fileName}}</td>
+                        <td>{{response.validXMLfile | status}}</td>
+                    </tr>
+                </template>
+                </tbody>
+            </table>
         </div>
     </template>
     <script>
         Polymer("report-summary", {
             created: function() {
                 this.responses = {};
+            },
+            status: function(input) {
+                return input ? "No Errors" : "Errors Found";
             }
         });
     </script>

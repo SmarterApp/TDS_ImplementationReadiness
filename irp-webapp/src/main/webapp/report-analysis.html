@@ -1,15 +1,304 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="deps/polymer/polymer.html">
 
 <polymer-element name="report-analysis" attributes="response">
     <template>
-        <h2>Hi</h2>
-            This is {{response.fileName}}.
-            Valid: {{response.validXMLfile}}.
+        <style>
+            .tableAnalysis {
+                margin:0px;padding:0px;
+                width:100%;
+                border:1px solid #000000;
+
+                -moz-border-radius-bottomleft:0px;
+                -webkit-border-bottom-left-radius:0px;
+                border-bottom-left-radius:0px;
+
+                -moz-border-radius-bottomright:0px;
+                -webkit-border-bottom-right-radius:0px;
+                border-bottom-right-radius:0px;
+
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }.tableAnalysis table{
+                 border-collapse: collapse;
+                 border-spacing: 0;
+                 width:100%;
+                 height:100%;
+                 margin:0px;padding:0px;
+             }.tableAnalysis tr:last-child td:last-child {
+                  -moz-border-radius-bottomright:0px;
+                  -webkit-border-bottom-right-radius:0px;
+                  border-bottom-right-radius:0px;
+              }
+            .tableAnalysis table tr:first-child td:first-child {
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }
+            .tableAnalysis table tr:first-child td:last-child {
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+            }.tableAnalysis tr:last-child td:first-child{
+                 -moz-border-radius-bottomleft:0px;
+                 -webkit-border-bottom-left-radius:0px;
+                 border-bottom-left-radius:0px;
+             }.tableAnalysis tr:hover td{
+
+              }
+            .tableAnalysis tr:nth-child(odd){ background-color:#e5e5e5; }
+            .tableAnalysis tr:nth-child(even)    { background-color:#ffffff; }.tableAnalysis td{
+                                                                                  vertical-align:middle;
+
+
+                                                                                  border:1px solid #000000;
+                                                                                  border-width:0px 1px 1px 0px;
+                                                                                  text-align:left;
+                                                                                  padding:7px;
+                                                                                  font-size:10px;
+                                                                                  font-family:Arial;
+                                                                                  font-weight:normal;
+                                                                                  color:#000000;
+                                                                              }.tableAnalysis tr:last-child td{
+                                                                                   border-width:0px 1px 0px 0px;
+                                                                               }.tableAnalysis tr td:last-child{
+                                                                                    border-width:0px 0px 1px 0px;
+                                                                                }.tableAnalysis tr:last-child td:last-child{
+                                                                                     border-width:0px 0px 0px 0px;
+                                                                                 }
+            .tableAnalysis tr:first-child td{
+                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+                background-color:#cccccc;
+                border:0px solid #000000;
+                text-align:center;
+                border-width:0px 0px 1px 1px;
+                font-size:14px;
+                font-family:Arial;
+                font-weight:bold;
+                color:#000000;
+            }
+            .tableAnalysis tr:first-child:hover td{
+                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+                background-color:#cccccc;
+            }
+            .tableAnalysis tr:first-child td:first-child{
+                border-width:0px 0px 1px 0px;
+            }
+            .tableAnalysis tr:first-child td:last-child{
+                border-width:0px 0px 1px 1px;
+            }
+        </style>
+
+        <template if="{{!response.validXMLfile}}">
+            <p>IRP was unable to validate and analyze this file.</p>
+        </template>
+
+        <table class="tableAnalysis">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Expected Value</th>
+                    <th>Returned Value</th>
+                    <th>Status</th>
+                    <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template repeat="{{category in response.testPropertyCategories}}">
+                <tr>
+                    <td>Test Properties: {{category.tdsFieldName}}</td>
+                    <td></td>
+                    <td>{{category.tdsFieldNameValue}}</td>
+                    <td>{{category.fieldCheckType | status}}</td>
+                    <td>{{category.fieldCheckType | explanation}}</td>
+                </tr>
+                </template>
+
+                <template repeat="{{category in response.examineeAttributeCategories}}">
+                    <template repeat="{{cell in category}}">
+                    <tr>
+                        <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
+                        <td></td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{cell.fieldCheckType | status}}</td>
+                        <td>{{cell.fieldCheckType | explanation}}</td>
+                    </tr>
+                    </template>
+                </template>
+
+                <template repeat="{{category in response.examineeRelationshipCategory}}">
+                    <template repeat="{{cell in category}}">
+                        <tr>
+                            <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
+                            <td></td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+
+                <template repeat="{{category in response.opportunityCategory}}">
+                    <template repeat="{{cell in category.listOportunityPropertyCategory}}">
+                        <tr>
+                            <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
+                            <td></td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                    <template repeat="{{segment in category.listSegmentCategory}}">
+                        <template repeat="{{cell in segment.listCellCategory}}">
+                        <tr>
+                            <td>Segment: {{cell.tdsFieldName}}</td>
+                            <td></td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                        </template>
+                    </template>
+                    <template repeat="{{accommodation in category.listAccommodationCategory}}">
+                        <template repeat="{{cell in accommodation.listCellCategory}}">
+                            <tr>
+                                <td>Accommodation: {{cell.tdsFieldName}}</td>
+                                <td></td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{cell.fieldCheckType | status}}</td>
+                                <td>{{cell.fieldCheckType | explanation}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template repeat="{{score in category.listScoreCategory}}">
+                        <template repeat="{{cell in score.listCellCategory}}">
+                            <tr>
+                                <td>Score: {{cell.tdsFieldName}}</td>
+                                <td></td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{cell.fieldCheckType | status}}</td>
+                                <td>{{cell.fieldCheckType | explanation}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template repeat="{{item in category.listItemCategory}}">
+                        <template repeat="{{cell in item.listCellCategory}}">
+                            <tr>
+                                <td>Score: {{cell.tdsFieldName}}</td>
+                                <td></td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{cell.fieldCheckType | status}}</td>
+                                <td>{{cell.fieldCheckType | explanation}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                </template>
+
+                <template repeat="{{category in response.commentCategories}}">
+                    <tr>
+                        <td>Comment: context</td>
+                        <td></td>
+                        <td>{{category.context}}</td>
+                        <td>{{category.contextFieldCheckType | status}}</td>
+                        <td>{{category.contextFieldCheckType | explanation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Comment: itemPosition</td>
+                        <td></td>
+                        <td>{{category.itemPosition}}</td>
+                        <td>{{category.itemPositionFieldCheckType | status}}</td>
+                        <td>{{category.itemPositionFieldCheckType | explanation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Comment: date</td>
+                        <td></td>
+                        <td>{{category.date}}</td>
+                        <td>{{category.dateFieldCheckType | status}}</td>
+                        <td>{{category.dateFieldCheckType | explanation}}</td>
+                    </tr>
+                </template>
+
+                <template repeat="{{category in response.toolUsageCategories}}">
+                    <tr>
+                        <td>ToolUsage: type</td>
+                        <td></td>
+                        <td>{{category.type}}</td>
+                        <td>{{category.typeFieldCheckType | status}}</td>
+                        <td>{{category.typeFieldCheckType | explanation}}</td>
+                    </tr>
+                    <tr>
+                        <td>ToolUsage: code</td>
+                        <td></td>
+                        <td>{{category.code}}</td>
+                        <td>{{category.codeFieldCheckType | status}}</td>
+                        <td>{{category.codeFieldCheckType | explanation}}</td>
+                    </tr>
+                    <template repeat="{{pageCategory in category.toolPageCategories}}">
+                        <tr>
+                            <td>ToolPage: page</td>
+                            <td></td>
+                            <td>{{pageCategory.page}}</td>
+                            <td>{{pageCategory.pageFieldCheckType | status}}</td>
+                            <td>{{pageCategory.pageFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>ToolPage: groupId</td>
+                            <td></td>
+                            <td>{{pageCategory.groupId}}</td>
+                            <td>{{pageCategory.groupIdFieldCheckType | status}}</td>
+                            <td>{{pageCategory.groupIdFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>ToolPage: count</td>
+                            <td></td>
+                            <td>{{pageCategory.count}}</td>
+                            <td>{{pageCategory.countFieldCheckType | status}}</td>
+                            <td>{{pageCategory.countFieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
     </template>
     <script>
         Polymer("report-analysis", {
             created: function() {
                 this.response = {};
+            },
+            status: function(input) {
+                if (input.enumfieldCheckType == 'D') { return "Ignored"; }
+
+                var valid = !input.isFieldEmpty && input.isCorrectDataType && input.isAcceptableValue;
+
+                if (input.enumfieldCheckType == 'PC') {
+                    valid = valid && input.isCorrectValue;
+                }
+
+                return valid ? "No Errors" : "Errors Found";
+            },
+            explanation: function(input) {
+                if (input.enumfieldCheckType == 'D') { return ""; }
+
+                var reasons = [input.enumfieldCheckType];
+                if (input.isFieldEmpty) reasons.push("Field Empty");
+                if (!input.isCorrectDataType) reasons.push("Incorrect Data Type");
+                if (!input.isAcceptableValue) reasons.push("Unacceptable Value");
+
+                if (input.enumfieldCheckType == 'P') {
+                    if (!input.isCorrectValue) reasons.push("Incorrect Value");
+                }
+
+                return reasons.join();
             }
         });
     </script>

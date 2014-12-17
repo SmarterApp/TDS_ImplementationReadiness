@@ -13,6 +13,13 @@ For more information visit http://www.smarterapp.org.
 
 ### How do I get set up? ###
 
+* Install node/npm (http://nodejs.org/download/)
+* Install bower (http://bower.io/)
+* Install bower-installer (https://github.com/blittle/bower-installer)
+* Install Java 7
+* Install Maven >= 3.2
+
+### How do I build? ###
 * To build: `mvn clean install`
 * To run tomcat 7: `mvn tomcat7:run`
 * Deployment instructions coming soon
