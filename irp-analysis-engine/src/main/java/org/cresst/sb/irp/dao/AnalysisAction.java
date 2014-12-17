@@ -30,10 +30,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class AnalysisAction {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
 
-	public enum EnumExamineeAttributeContextAcceptValues {
-		INITIAL, FINAL;
-	}
-
 	@Autowired
 	public TestPackageService testPackageService;
 
@@ -52,6 +48,8 @@ public abstract class AnalysisAction {
 		logger.info("initializing");
 	}
 
+	abstract public void analysis() throws IOException;
+	
 	public IndividualResponse getIndividualResponse() {
 		return individualResponse;
 	}
@@ -125,16 +123,7 @@ public abstract class AnalysisAction {
 	}
 
 	public Student getStudent(Long key) {
-		Student student = new Student();
-		try {
-			student = studentService.getStudentByStudentSSID(key.toString());
-			if (student != null) {
-				return student;
-			}
-		} catch (Exception e) {
-			logger.error("getStudent exception: ", e);
-		}
-		return null;
+			return studentService.getStudentByStudentSSID(key.toString());
 	}
 
 	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
@@ -169,15 +158,6 @@ public abstract class AnalysisAction {
 			bits++;
 		}
 		return bits;
-	}
-
-	public boolean isInteger(String s) {
-		try {
-			Integer.parseInt(s);
-			return true;
-		} catch (NumberFormatException ex) {
-			return false;
-		}
 	}
 
 	public boolean isFloat(String str) {
@@ -219,131 +199,6 @@ public abstract class AnalysisAction {
 		return str;
 	}
 
-	abstract public void analysis() throws IOException;
-
-	public void validateToken(String fieldValue, FieldCheckType fieldCheckType) {
-		try {
-			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
-				fieldCheckType.setCorrectDataType(true);
-				fieldCheckType.setFieldEmpty(false);
-			}
-		} catch (Exception e) {
-			logger.error("validateToken exception: ", e);
-		}
-	}
-
-	// One or more printable ASCII characters
-	public void validatePritableASCIIone(String fieldValue, FieldCheckType fieldCheckType) {
-		try {
-			if (fieldValue != null && !fieldValue.trim().isEmpty() && StringUtils.isAsciiPrintable(fieldValue)) {
-				fieldCheckType.setAcceptableValue(true);
-			}
-		} catch (Exception e) {
-			logger.error("validatePritableASCIIone exception: ", e);
-		}
-	}
-
-	// Zero or more printable ASCII characters
-	public void validatePritableASCIIzero(String fieldValue, FieldCheckType fieldCheckType) {
-		try {
-			if (fieldValue != null && StringUtils.isAsciiPrintable(fieldValue)) {
-				fieldCheckType.setAcceptableValue(true);
-			}
-		} catch (Exception e) {
-			logger.error("validatePritableASCIIzero exception: ", e);
-		}
-	}
-
-	public void validateUnsignedIntPositive32bit(String inputValue, FieldCheckType fieldCheckType) {
-		try {
-			if (isInteger(inputValue)) {
-				int num = getNumberOfBits(Integer.parseInt(inputValue));
-				if (num > 0 && num <= 32) {
-					fieldCheckType.setCorrectDataType(true);
-					fieldCheckType.setFieldEmpty(false);
-					fieldCheckType.setAcceptableValue(true);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("validateUnsignedIntPositive32bit exception: ", e);
-		}
-	}
-
-	public void validateUnsignedLongPositive64bit(long number, FieldCheckType fieldCheckType) {
-		try {
-			long num = sign(number);
-			if (num > 0) {
-				fieldCheckType.setCorrectDataType(true);
-				fieldCheckType.setFieldEmpty(false);
-				fieldCheckType.setAcceptableValue(true);
-			}
-		} catch (Exception e) {
-			logger.error("validateUnsignedLongPositive64bit exception: ", e);
-		}
-	}
-
-	public void validateUnsignedInt(String inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue) {
-		try {
-			if (isInteger(inputValue)) {
-				if (Integer.parseInt(inputValue) == firstValue || Integer.parseInt(inputValue) == secondValue) {
-					fieldCheckType.setCorrectDataType(true);
-					fieldCheckType.setFieldEmpty(false);
-					fieldCheckType.setAcceptableValue(true);
-				}
-			}
-
-		} catch (Exception e) {
-			logger.error("validateUnsignedInt exception: ", e);
-		}
-	}
-
-
-
-	public void processAcceptableContextEnum(String fieldValue, FieldCheckType fieldCheckType,
-			Class<EnumExamineeAttributeContextAcceptValues> class1) {
-		try {
-			System.out.println("fieldValue ->" + fieldValue);
-			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
-				if (EnumUtils.isValidEnum(class1, fieldValue)) {
-					fieldCheckType.setAcceptableValue(true);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processAcceptableContextEnum exception: ", e);
-		}
-	}
-
-	public String getStudentValueByName(String fieldNameValue, Class<EnumExamineeAttributeAcceptValues> class1, Student student) {
-		String str = null;
-		try {
-			if (EnumUtils.isValidEnum(class1, fieldNameValue)) {
-				for (EnumExamineeAttributeAcceptValues e : EnumExamineeAttributeAcceptValues.values()) {
-					if (e.name().equals(fieldNameValue)
-							&& e.name().equals(EnumExamineeAttributeAcceptValues.FirstName.toString())) {
-						str = student.getFirstName();
-					} else if (e.name().equals(fieldNameValue)
-							&& e.name().equals(EnumExamineeAttributeAcceptValues.LastOrSurname.toString())) {
-						str = student.getLastOrSurname();
-					} else if (e.name().equals(fieldNameValue)
-							&& e.name().equals(EnumExamineeAttributeAcceptValues.StudentIdentifier.toString())) {
-						str = student.getSSID();
-					} else if (e.name().equals(fieldNameValue)
-							&& e.name().equals(EnumExamineeAttributeAcceptValues.DOB.toString())) {
-						str = student.getBirthdate();
-					} else if (e.name().equals(fieldNameValue)
-							&& e.name().equals(EnumExamineeAttributeAcceptValues.BlackOrAfricanAmerican.toString())) {
-						str = student.getBlackOrAfricanAmerican();
-					}// ......
-				}
-			}
-		} catch (Exception e) {
-			logger.error("getStudentValueByName exception: ", e);
-		}
-		return str;
-	}
-
-	// //////////////////////////////
-
 	public void setAllCorrectFieldCheckType(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);
 		fieldCheckType.setFieldEmpty(false);
@@ -361,8 +216,8 @@ public abstract class AnalysisAction {
 		fieldCheckType.setCorrectValue(true);
 	}
 
-	public void processP(String str, FieldCheckType fieldCheckType) {
-		if (str != null && str.length() > 0) {
+	public void processP(String str, FieldCheckType fieldCheckType, boolean required) {
+		if ((!required) || (str != null && str.length() > 0)) {
 			setPcorrect(fieldCheckType);
 		}
 	}
@@ -402,6 +257,13 @@ public abstract class AnalysisAction {
 		}
 	}
 	
+	public void processP_PritableASCIIzero(String inputValue, FieldCheckType fieldCheckType){
+		if (inputValue != null && StringUtils.isAsciiPrintable(inputValue)){
+			setPcorrect(fieldCheckType);
+		}
+	}
+	
+	
 	public void processP_AcceptValue(int inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue){
 		if (inputValue == firstValue || inputValue == secondValue) {
 			setPcorrect(fieldCheckType);
@@ -414,6 +276,30 @@ public abstract class AnalysisAction {
 				setPcorrect(fieldCheckType);
 			}
 		}
+	}
+	
+	public boolean isValidYear(Long year)
+	{
+		if (1900 <= year && year <=9999)
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isValidMonth(Long month)
+	{
+		if (01 <= month && month <=12)
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isValidDate(Long date)
+	{
+		if (0 < date && date <=31)
+			return true;
+		else
+			return false;
 	}
 	
 	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
@@ -429,12 +315,24 @@ public abstract class AnalysisAction {
 		}
 	}
 	
+	
 	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues){
 		if (value.length() > 0){
 			for(String listItem: listGradeAcceptValues){
 				if (listItem.equals(value))
 					fieldCheckType.setCorrectValue(true);
 			}
+		}
+	}
+	
+	public void processDate(String date, FieldCheckType fieldCheckType){ // effectiveDate="2014-07-07"
+		String[] array = date.split("-");
+		if (array.length == 3){
+			boolean blnYear = isValidYear(Long.parseLong(array[0]));
+			boolean blnMonth = isValidMonth(Long.parseLong(array[1]));
+			boolean blnDate = isValidDate(Long.parseLong(array[2]));
+			if (blnYear && blnMonth && blnDate)
+				setPcorrect(fieldCheckType);
 		}
 	}
 

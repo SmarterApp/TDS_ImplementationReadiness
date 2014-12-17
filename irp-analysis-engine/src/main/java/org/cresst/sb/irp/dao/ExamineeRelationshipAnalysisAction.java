@@ -46,7 +46,6 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			List<ExamineeRelationship> listExamineeRelationship = getExamineeRelationships(examinee);
 			if (listExamineeRelationship != null) {
 				for (ExamineeRelationship er : listExamineeRelationship) {
-					System.out.println("relation ...." + er.getName());
 					examineeRelationshipCategory = new ExamineeRelationshipCategory();
 					listExamineeRelationshipCategory.add(examineeRelationshipCategory);
 					analysisEachExamineeRelationship(examineeRelationshipCategory, er, student);
@@ -91,7 +90,24 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			cellCategory.setFieldCheckType(fieldCheckType);
 			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.context, fieldCheckType, student);
 
-			
+			cellCategory = new CellCategory();
+			listCellCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumExamineeRelationshipFieldName.contextDate.toString());
+			cellCategory.setTdsFieldNameValue(examineeRelationship.getContextDate().toString());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.contextDate, fieldCheckType, student);
+
+			cellCategory = new CellCategory();
+			listCellCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumExamineeRelationshipFieldName.entityKey.toString());
+			cellCategory.setTdsFieldNameValue(examineeRelationship.getEntityKey().toString());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.entityKey, fieldCheckType, student);
+
 			
 		} catch (Exception e) {
 			logger.error("analysisEachExamineeRelationship exception: ", e);
@@ -122,23 +138,29 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case name:
-				validateToken(examineeRelationship.getName(), fieldCheckType);
+				//<xs:attribute name="name" use="required" />
 				processAcceptableEnum(examineeRelationship.getName(), fieldCheckType, EnumExamineeRelationshipAcceptValues.class);
 				break;
 			case value:
-				validateToken(examineeRelationship.getValue(), fieldCheckType);
-				validatePritableASCIIone(examineeRelationship.getValue(), fieldCheckType);
+				//	<xs:attribute name="value" />
+				processP_PritableASCIIone(examineeRelationship.getValue(), fieldCheckType);
 				break;
 			case context:
-				validateToken(examineeRelationship.getContext().toString(), fieldCheckType);
-				processAcceptableContextEnum(examineeRelationship.getContext().toString(), fieldCheckType, EnumExamineeAttributeContextAcceptValues.class);
+				// <xs:simpleType name="Context">
+				// <xs:restriction base="xs:token">
+				// <xs:enumeration value="INITIAL" />
+				// <xs:enumeration value="FINAL" />
+				// </xs:restriction>
+				// </xs:simpleType>
+				processP(examineeRelationship.getContext().toString(), fieldCheckType, true); //last param: required Y				
 				break;
 			case contextDate:
-				// processP(examineeRelationship.getContextDate(), fieldCheckType);
+				//<xs:attribute name="contextDate" use="required" type="xs:dateTime" />
+				processP(examineeRelationship.getContextDate().toString(), fieldCheckType, true); //last param: required Y	
 				break;
 			case entityKey:
-				validateToken(examineeRelationship.getEntityKey().toString(), fieldCheckType);
-				//validate accept value
+				//<xs:attribute name="entityKey" type="xs:unsignedLong" />
+				processP(examineeRelationship.getEntityKey().toString(), fieldCheckType, true); //last param: required Y
 				break;	
 			default:
 				break;
@@ -151,10 +173,9 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
 			Class<EnumExamineeRelationshipAcceptValues> class1) {
 		try {
-			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue)) {
-					fieldCheckType.setAcceptableValue(true);
+					setPcorrect(fieldCheckType);
 				} 
 			}
 		} catch (Exception e) {

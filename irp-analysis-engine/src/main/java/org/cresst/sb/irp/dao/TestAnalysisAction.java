@@ -187,11 +187,10 @@ public class TestAnalysisAction extends AnalysisAction {
 				//	<xs:enumeration value="scanned" />
 				//</xs:restriction>
 				//</xs:simpleType>
-				processP(tdsTest.getMode(), fieldCheckType);
+				processP(tdsTest.getMode(), fieldCheckType, true); //last param -> required Y 
 				break;
 			case grade:
 				//<xs:attribute name="grade" use="required" />
-				validateToken(tdsTest.getGrade(), fieldCheckType);
 				processAcceptValue(tdsTest.getGrade(), fieldCheckType, listGradeAcceptValues);
 				break;
 			case assessmentType:
@@ -204,7 +203,7 @@ public class TestAnalysisAction extends AnalysisAction {
 				break;
 			case assessmentVersion:		
 				// <xs:attribute name="assessmentVersion" />
-				processP(tdsTest.getAssessmentVersion(), fieldCheckType);
+				processP(tdsTest.getAssessmentVersion(), fieldCheckType, true); //last param -> required Y
 				break;
 			default:
 				break;

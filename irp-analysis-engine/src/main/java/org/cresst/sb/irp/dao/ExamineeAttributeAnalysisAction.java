@@ -37,9 +37,9 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			IndividualResponse individualResponse = getIndividualResponse();
 			List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.getExamineeAttributeCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			
+
 			ExamineeAttributeCategory examineeAttributeCategory;
-			
+
 			Examinee examinee = tdsReport.getExaminee();
 			Student student = getStudent(examinee.getKey());
 			List<ExamineeAttribute> listExamineeAttribute = getExamineeAttributes(examinee);
@@ -87,7 +87,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.context, fieldCheckType, student);
+			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.context, fieldCheckType,
+					student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -96,7 +97,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.contextDate, fieldCheckType, student);
+			validateField(examineeAttribute, EnumFieldCheckType.P, EnumExamineeAttributeFieldName.contextDate, fieldCheckType,
+					student);
 
 		} catch (Exception e) {
 			logger.error("analysisEachExamineeAttribute exception: ", e);
@@ -127,18 +129,25 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case name:
-				validateToken(examineeAttribute.getName(), fieldCheckType);
+				//	<xs:attribute name="name" use="required" />
 				processAcceptableEnum(examineeAttribute.getName(), fieldCheckType, EnumExamineeAttributeAcceptValues.class);
 				break;
 			case value:
-				validateToken(examineeAttribute.getValue(), fieldCheckType);
+				// <xs:attribute name="value" />
+				processP(examineeAttribute.getValue(), fieldCheckType, true); //last param ->required Y
 				break;
 			case context:
-				validateToken(examineeAttribute.getContext().toString(), fieldCheckType);
-				processAcceptableContextEnum(examineeAttribute.getContext().toString(), fieldCheckType, EnumExamineeAttributeContextAcceptValues.class);
+				// <xs:simpleType name="Context">
+				// <xs:restriction base="xs:token">
+				// <xs:enumeration value="INITIAL" />
+				// <xs:enumeration value="FINAL" />
+				// </xs:restriction>
+				// </xs:simpleType>
+				processP(examineeAttribute.getContext().toString(), fieldCheckType, true);  //last param ->required Y
 				break;
 			case contextDate:
-				// validateToken(examineeAttribute.getContextDate(), fieldCheckType);
+				// <xs:attribute name="contextDate" use="required" type="xs:dateTime" />
+				processP(examineeAttribute.getContextDate().toString(), fieldCheckType, true); 
 				break;
 			default:
 				break;
@@ -153,16 +162,14 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case name:
-				//processName(examineeAttribute, fieldCheckType);
+				// processName(examineeAttribute, fieldCheckType);
 				break;
 			case value:
-				processFieldNameValue(examineeAttribute,  fieldCheckType, student);
+				processFieldNameValue(examineeAttribute, fieldCheckType, student);
 				break;
 			case context:
-				// processName(fieldCheckType);
 				break;
 			case contextDate:
-				// processName(fieldCheckType);
 				break;
 			default:
 				break;
@@ -175,7 +182,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 
 	private void processName(ExamineeAttribute examineeAttribute, FieldCheckType fieldCheckType) {
 		try {
-			
+
 		} catch (Exception e) {
 			logger.error("processName exception: ", e);
 		}
@@ -188,7 +195,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 			String value = examineeAttribute.getValue();
 			String studentValue = getStudentValueByName(fieldName, EnumExamineeAttributeAcceptValues.class, student);
 			if (studentValue != null && value != null) {
-				if (studentValue.equals(value)){
+				if (studentValue.equals(value)) {
 					fieldCheckType.setCorrectValue(true);
 				}
 			}
@@ -197,20 +204,47 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 		}
 
 	}
-	
+
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
 			Class<EnumExamineeAttributeAcceptValues> class1) {
 		try {
-			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue)) {
-					fieldCheckType.setAcceptableValue(true);
-				} 
+					setPcorrect(fieldCheckType);
+				}
 			}
 		} catch (Exception e) {
 			logger.error("processAcceptableEnum exception: ", e);
 		}
 	}
-
+	
+	public String getStudentValueByName(String fieldNameValue, Class<EnumExamineeAttributeAcceptValues> class1, Student student) {
+		String str = null;
+		try {
+			if (EnumUtils.isValidEnum(class1, fieldNameValue)) {
+				for (EnumExamineeAttributeAcceptValues e : EnumExamineeAttributeAcceptValues.values()) {
+					if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.FirstName.toString())) {
+						str = student.getFirstName();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.LastOrSurname.toString())) {
+						str = student.getLastOrSurname();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.StudentIdentifier.toString())) {
+						str = student.getSSID();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.DOB.toString())) {
+						str = student.getBirthdate();
+					} else if (e.name().equals(fieldNameValue)
+							&& e.name().equals(EnumExamineeAttributeAcceptValues.BlackOrAfricanAmerican.toString())) {
+						str = student.getBlackOrAfricanAmerican();
+					}// ......
+				}
+			}
+		} catch (Exception e) {
+			logger.error("getStudentValueByName exception: ", e);
+		}
+		return str;
+	}
 
 }

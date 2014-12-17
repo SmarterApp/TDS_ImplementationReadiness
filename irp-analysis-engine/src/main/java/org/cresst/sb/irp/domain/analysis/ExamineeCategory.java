@@ -7,7 +7,8 @@ public class ExamineeCategory {
 
 	private Long key;
 	private String isDemo;
-	private FieldCheckType fieldCheckType;
+	private FieldCheckType keyFieldCheckType;
+	private FieldCheckType isDemoFieldCheckType;
 
 	public ExamineeCategory() {
 		logger.info("initializing");
@@ -28,19 +29,28 @@ public class ExamineeCategory {
 	public void setIsDemo(String isDemo) {
 		this.isDemo = isDemo;
 	}
-	
-	public FieldCheckType getFieldCheckType() {
-		return fieldCheckType;
+
+	public FieldCheckType getKeyFieldCheckType() {
+		return keyFieldCheckType;
 	}
 
-	public void setFieldCheckType(FieldCheckType fieldCheckType) {
-		this.fieldCheckType = fieldCheckType;
+	public void setKeyFieldCheckType(FieldCheckType keyFieldCheckType) {
+		this.keyFieldCheckType = keyFieldCheckType;
+	}
+
+	public FieldCheckType getIsDemoFieldCheckType() {
+		return isDemoFieldCheckType;
+	}
+
+	public void setIsDemoFieldCheckType(FieldCheckType isDemoFieldCheckType) {
+		this.isDemoFieldCheckType = isDemoFieldCheckType;
 	}
 
 	@Override
 	public String toString() {
-		return "ExamineeCategory [key=" + key + ", isDemo=" + isDemo + ", fieldCheckType=" + fieldCheckType + "]";
-	}	
+		return "ExamineeCategory [key=" + key + ", isDemo=" + isDemo + ", keyFieldCheckType=" + keyFieldCheckType
+				+ ", isDemoFieldCheckType=" + isDemoFieldCheckType + "]";
+	}
 	
 
 }

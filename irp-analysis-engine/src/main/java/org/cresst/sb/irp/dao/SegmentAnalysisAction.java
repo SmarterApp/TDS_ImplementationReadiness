@@ -75,18 +75,18 @@ public class SegmentAnalysisAction extends AnalysisAction {
 			cellCategory.setTdsFieldName(EnumSegmentFieldName.formId.toString());
 			cellCategory.setTdsFieldNameValue(segment.getFormId());
 			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.formId, fieldCheckType);
+			validateField(segment, EnumFieldCheckType.D, EnumSegmentFieldName.formId, fieldCheckType);
 			
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
 			cellCategory.setTdsFieldName(EnumSegmentFieldName.formKey.toString());
 			cellCategory.setTdsFieldNameValue(segment.getFormKey());
 			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.formKey, fieldCheckType);
+			validateField(segment, EnumFieldCheckType.D, EnumSegmentFieldName.formKey, fieldCheckType);
 			
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -137,19 +137,30 @@ public class SegmentAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case id:
-				validateToken(segment.getId(), fieldCheckType);
-				validatePritableASCIIone(segment.getId(), fieldCheckType);
+				//	<xs:attribute name="id" use="required" />
+				processP_PritableASCIIone(segment.getId(), fieldCheckType);
 				break;
 			case position:
-				validateUnsignedIntPositive32bit(Short.toString(segment.getPosition()), fieldCheckType);
+				//	<xs:attribute name="position" use="required">
+				//<xs:simpleType>
+				//<xs:restriction base="xs:unsignedByte">
+				//	<xs:minInclusive value="1" />
+				//</xs:restriction>
+				//</xs:simpleType>
+				//</xs:attribute>
+				processP_Positive32bit(Short.toString(segment.getPosition()), fieldCheckType);
 				break;
 			case formKey:
 				break;
 			case formId:
 				break;
 			case algorithm:
+				//<xs:attribute name="algorithm" use="required" />
+				processP_PritableASCIIone(segment.getAlgorithm(), fieldCheckType);
 				break;
 			case algorithmVersion:
+				//   <xs:attribute name="algorithmVersion" />
+				processP_PritableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
 				break;
 			default:
 				break;

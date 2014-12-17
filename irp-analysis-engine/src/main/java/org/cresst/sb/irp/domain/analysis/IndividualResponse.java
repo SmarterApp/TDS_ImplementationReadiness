@@ -20,7 +20,7 @@ public class IndividualResponse {
 	private List<ExamineeRelationshipCategory> examineeRelationshipCategories;
 	private OpportunityCategory opportunityCategory;
 	private List<CommentCategory> commentCategories;
-	
+	private List<ToolUsageCategory> toolUsageCategories;
 	
 	public IndividualResponse() {
 		logger.info("initializing");
@@ -28,6 +28,7 @@ public class IndividualResponse {
 		setExamineeAttributeCategories(new ArrayList<ExamineeAttributeCategory>());
 		setExamineeRelationshipCategories(new ArrayList<ExamineeRelationshipCategory>());
 		setCommentCategories(new ArrayList<CommentCategory>());
+		setToolUsageCategories(new ArrayList<ToolUsageCategory>());
 	}
 
 	public String getFileName() {
@@ -62,7 +63,6 @@ public class IndividualResponse {
 		this.testPropertyCategories = testPropertyCategories;
 	}
 
-	
 	public ExamineeCategory getExamineeCategory() {
 		return examineeCategory;
 	}
@@ -103,6 +103,7 @@ public class IndividualResponse {
 		this.status = status;
 	}
 
+
 	public List<CommentCategory> getCommentCategories() {
 		return commentCategories;
 	}
@@ -111,14 +112,21 @@ public class IndividualResponse {
 		this.commentCategories = commentCategories;
 	}
 
+	public List<ToolUsageCategory> getToolUsageCategories() {
+		return toolUsageCategories;
+	}
+
+	public void setToolUsageCategories(List<ToolUsageCategory> toolUsageCategories) {
+		this.toolUsageCategories = toolUsageCategories;
+	}
+
 	@Override
 	public String toString() {
 		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
 				+ ", status=" + status + ", testPropertyCategories=" + testPropertyCategories + ", examineeCategory="
 				+ examineeCategory + ", examineeAttributeCategories=" + examineeAttributeCategories
 				+ ", examineeRelationshipCategories=" + examineeRelationshipCategories + ", opportunityCategory="
-				+ opportunityCategory + ", commentCategories=" + commentCategories + "]";
+				+ opportunityCategory + ", commentCategories=" + commentCategories + ", toolUsageCategories="
+				+ toolUsageCategories + "]";
 	}
-
-
 }

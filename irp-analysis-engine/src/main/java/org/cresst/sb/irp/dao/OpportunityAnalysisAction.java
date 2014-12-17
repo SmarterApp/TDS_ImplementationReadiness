@@ -57,6 +57,15 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 
 			cellCategory = new CellCategory();
 			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.clientName.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getClientName());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.clientName, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
 			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.key.toString());
 			cellCategory.setTdsFieldNameValue(opportunity.getKey());
 			fieldCheckType = new FieldCheckType();
@@ -73,8 +82,178 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 			cellCategory.setFieldCheckType(fieldCheckType);
 			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.oppId, fieldCheckType);
 
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.startDate.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getStartDate());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.startDate, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.status.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getStatus());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.status, fieldCheckType);
 			
-			// TODO Auto-generated method stub
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.opportunity.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getOpportunity()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.opportunity, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.statusDate.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getStatusDate().toString());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.statusDate, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.dateCompleted.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getDateCompleted());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateCompleted, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.pauseCount.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getPauseCount()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.pauseCount, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.itemCount.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getItemCount()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.itemCount, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.ftCount.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getFtCount()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.ftCount, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.abnormalStarts.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getAbnormalStarts()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.abnormalStarts, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.gracePeriodRestarts.toString());
+			cellCategory.setTdsFieldNameValue(Long.toString(opportunity.getGracePeriodRestarts()));
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.gracePeriodRestarts, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.taId.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getTaId());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taId, fieldCheckType);
+
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.taName.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getTaName());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taName, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.sessionId.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getSessionId());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.sessionId, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.windowId.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getWindowId());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.windowId, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.windowOpportunity.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getWindowOpportunity());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.windowOpportunity, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.dateForceCompleted.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getDateForceCompleted());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateForceCompleted, fieldCheckType);
+		
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.qaLevel.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getQaLevel());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.qaLevel, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getAssessmentParticipantSessionPlatformUserAgent());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent, fieldCheckType);
+			
+			cellCategory = new CellCategory();
+			listOportunityPropertyCategory.add(cellCategory);
+			cellCategory.setTdsFieldName(EnumOpportunityPropertyFieldName.effectiveDate.toString());
+			cellCategory.setTdsFieldNameValue(opportunity.getEffectiveDate());
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+			cellCategory.setFieldCheckType(fieldCheckType);
+			validateField(opportunity, EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate, fieldCheckType);
+			
+			
 		} catch (Exception e) {
 			logger.error("analysis exception: ", e);
 		}
@@ -95,7 +274,7 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkP exception: ", e);
+			logger.error("validateField exception: ", e);
 		}
 	}
 
@@ -105,20 +284,89 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case server:
-				validateToken(opportunity.getServer(), fieldCheckType);
-				validatePritableASCIIone(opportunity.getServer(), fieldCheckType);
+				// <xs:attribute name="server" use="required" />
+				processP_PritableASCIIone(opportunity.getServer(), fieldCheckType);
 				break;
 			case database:
-				validateToken(opportunity.getDatabase(), fieldCheckType);
-				validatePritableASCIIzero(opportunity.getDatabase(), fieldCheckType);
+				// <xs:attribute name="database" />
+				processP_PritableASCIIzero(opportunity.getDatabase(), fieldCheckType);
+				break;
+			case clientName:
+				//	<xs:attribute name="clientName" use="required" /> 
+				processP_PritableASCIIone(opportunity.getClientName(), fieldCheckType);
 				break;
 			case key:
-				validateToken(opportunity.getKey(), fieldCheckType);
-				validatePritableASCIIone(opportunity.getKey(), fieldCheckType);
+				// 	<xs:attribute name="key" use="required" />
+				processP_PritableASCIIone(opportunity.getKey(), fieldCheckType);
 				break;
 			case oppId:
-				validateUnsignedLongPositive64bit(Long.valueOf(opportunity.getOppId()).longValue(), fieldCheckType);
+				//<xs:attribute name="oppId" use="required" />
+				processP_Positive64bit(Long.valueOf(opportunity.getOppId()).longValue(), fieldCheckType);
 				break;	
+			case startDate:
+				//	<xs:attribute name="startDate" type="NullableDateTime" />
+				processP(opportunity.getStartDate(), fieldCheckType, true); //required Y
+				break;
+			case status:
+				//<xs:attribute name="status" use="required">
+				//<xs:simpleType>
+				//<xs:restriction base="xs:token">
+				//	<xs:enumeration value="appeal" />
+				//	<xs:enumeration value="completed" />
+				//	<xs:enumeration value="expired" />
+				//	<xs:enumeration value="handscoring" />
+				//	<xs:enumeration value="invalidated" />
+				//	<xs:enumeration value="paused" />
+				//	<xs:enumeration value="reported" />
+				//	<xs:enumeration value="reset" />
+				//	<xs:enumeration value="scored" />
+				//	<xs:enumeration value="submitted" />
+				//	<xs:enumeration value="pending" />
+				//</xs:restriction>
+				//</xs:simpleType>
+				processP(opportunity.getStatus(), fieldCheckType, true); //required Y
+				break;
+			case opportunity:
+				//<xs:attribute name="opportunity" use="required" type="xs:unsignedInt" />
+				processP_Positive32bit(Long.toString(opportunity.getOpportunity()), fieldCheckType);
+				break;
+			case statusDate:
+				//	<xs:attribute name="statusDate" use="required" type="xs:dateTime" />
+				processP(opportunity.getStatusDate().toString(), fieldCheckType, true); //required Y
+				break;
+			case pauseCount:
+				//	<xs:attribute name="pauseCount" use="required" type="xs:unsignedInt" />
+				processP(Long.toString(opportunity.getPauseCount()), fieldCheckType, true); //required Y
+				break;
+			case itemCount:
+				//	<xs:attribute name="itemCount" use="required" type="xs:unsignedInt" />
+				processP(Long.toString(opportunity.getItemCount()), fieldCheckType, true); //required Y
+				break;
+			case ftCount:
+				//	<xs:attribute name="ftCount" use="required" type="xs:unsignedInt" />
+				processP(Long.toString(opportunity.getFtCount()), fieldCheckType, true); //required Y
+				break;
+			case abnormalStarts:	
+				//	<xs:attribute name="abnormalStarts" use="required" type="xs:unsignedInt" />
+				processP(Long.toString(opportunity.getAbnormalStarts()), fieldCheckType, true); //required Y
+				break;
+			case gracePeriodRestarts:	
+				//	<xs:attribute name="gracePeriodRestarts" use="required" type="xs:unsignedInt" />
+				processP(Long.toString(opportunity.getGracePeriodRestarts()), fieldCheckType, true); //required Y
+				break;
+			case windowId:
+				//	<xs:attribute name="windowId" use="required" />
+				processP_PritableASCIIone(opportunity.getWindowId(), fieldCheckType);
+				break;
+			case assessmentParticipantSessionPlatformUserAgent:
+				// <xs:attribute name="assessmentParticipantSessionPlatformUserAgent" />
+				processP(opportunity.getAssessmentParticipantSessionPlatformUserAgent(), fieldCheckType, true); //required Y
+				break;
+			case effectiveDate:
+				//<xs:attribute name="effectiveDate" />
+				//YYYY-MM-DD, where 2000 <= YYYY <= 9999 01 <= MM <= 12 01 <= DD <= 31
+				processDate(opportunity.getEffectiveDate(), fieldCheckType); //required Y
+				break;
 			default:
 				break;
 			}

@@ -119,6 +119,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			scoreRationaleCategory.setMessageFieldCheckType(fieldCheckType);
 			validateField(scoreRationale.getMessage().toString(), EnumFieldCheckType.P, fieldCheckType);
+			/****** scoreRationale.getMessage() needs to double check. there is no getContent method ****/
 		} catch (Exception e) {
 			logger.error("analysisItemScoreInfoScoreRationale exception: ", e);
 		}
@@ -149,7 +150,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			case D:
 				break;
 			case P:
-				processP(message, fieldCheckType);
+				//checkP(message, fieldCheckType);
+				// temporarely set P to true. No getContent method. need to check it out
+				setPcorrect(fieldCheckType); 
 				break;
 			case PC:
 				break;
@@ -163,22 +166,18 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 		try {
 			switch (enumFieldName) {
 			case scorePoint:
-				// Required N. <xs:attribute name="scorePoint" type="UFloatAllowNegativeOne" />
-				processP(scoreInfoType.getScorePoint(), fieldCheckType);
+				//<xs:attribute name="scorePoint" type="UFloatAllowNegativeOne" />
+				processP(scoreInfoType.getScorePoint(), fieldCheckType, false); // Required N.
 				break;
 			case maxScore:
-				// Required N. <xs:attribute name="maxScore" type="UFloatAllowNegativeOne" />
-				processP(scoreInfoType.getMaxScore(), fieldCheckType);
+				// <xs:attribute name="maxScore" type="UFloatAllowNegativeOne" />
+				processP(scoreInfoType.getMaxScore(), fieldCheckType, false);// Required N.
 				break;
 			case scoreDimension:
-				// Required N. <xs:attribute name="scoreDimension" />
-				if (scoreInfoType.getScoreDimension() != null) {
-					validateToken(scoreInfoType.getScoreDimension(), fieldCheckType);
-					validatePritableASCIIone(scoreInfoType.getScoreDimension(), fieldCheckType);
-				}
+				// <xs:attribute name="scoreDimension" />
+				processP(scoreInfoType.getScoreDimension(), fieldCheckType, false);// Required N.
 				break;
 			case scoreStatus:
-				// Required N.
 				//<xs:attribute name="scoreStatus">
 				//      <xs:simpleType>
 				//        <xs:restriction base="xs:token">
@@ -188,11 +187,11 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 				//          <xs:enumeration value="ScoringError" />
 				//        </xs:restriction>
 				//      </xs:simpleType>
-				processP(scoreInfoType.getScoreStatus(), fieldCheckType);
+				processP(scoreInfoType.getScoreStatus(), fieldCheckType, false);// Required N.
 				break;
 			case confLevel:
 				// <xs:attribute name="confLevel" />
-				processP(scoreInfoType.getConfLevel(), fieldCheckType);
+				processP(scoreInfoType.getConfLevel(), fieldCheckType, false);
 				break;
 			default:
 				break;
