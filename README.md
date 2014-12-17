@@ -11,6 +11,12 @@ For more information visit http://www.smarterapp.org.
 * Implementation Readiness Package
 * Version: 0.0.1-SNAPSHOT
 
+### Technology Used ###
+* Maven
+* Spring Framework
+* Polymer
+* Thymeleaf
+
 ### How do I get set up? ###
 
 * Install node/npm (http://nodejs.org/download/)
