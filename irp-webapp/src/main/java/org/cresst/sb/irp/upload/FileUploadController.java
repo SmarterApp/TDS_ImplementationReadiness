@@ -116,7 +116,7 @@ public class FileUploadController {
 
                     @Override
                     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                        if (matcher.matches(file.getFileName())) {
+                        if (attrs.isRegularFile() && matcher.matches(file.getFileName()) && !file.getFileName().toString().startsWith(".")) {
                             // Copy the XML file from the ZIP file to the temp directory
                             Path destFile = Paths.get(tmpDir.toString(), file.getFileName().toString());
                             Path copiedFile = Files.copy(file, destFile, StandardCopyOption.REPLACE_EXISTING);

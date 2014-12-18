@@ -60,6 +60,17 @@ public class TdsReportFactory {
             zos.putNextEntry(entry);
             zos.write(reportByteArray);
             zos.closeEntry();
+
+            // This one should be ignored since it starts with a .
+            entry = new ZipEntry(".tdsreport-4.xml");
+            zos.putNextEntry(entry);
+            zos.write(reportByteArray);
+            zos.closeEntry();
+
+            // This should be ignored since it's a directory
+            entry = new ZipEntry("directory/");
+            zos.putNextEntry(entry);
+            zos.closeEntry();
         }
 
         MockMultipartFile zippedTdsReport = new MockMultipartFile("file", "tdsreports.zip", "application/zip",
