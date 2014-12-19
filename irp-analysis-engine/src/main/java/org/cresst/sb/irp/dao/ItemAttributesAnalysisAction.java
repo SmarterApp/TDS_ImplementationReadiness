@@ -2,14 +2,11 @@ package org.cresst.sb.irp.dao;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.analysis.ItemCategory;
-import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
+import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
@@ -32,145 +29,74 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 
 	@Override
 	public void analysis() throws IOException {
-		try {
-			IndividualResponse individualResponse = getIndividualResponse();
-			TDSReport tdsReport = individualResponse.getTDSReport();
-			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getListItemCategory();
-			ItemCategory itemCategory;
-			Opportunity opportunity = getOpportunity(tdsReport);
-			List<Item> listItem = opportunity.getItem();
-			for (Item i : listItem) {
-				itemCategory = new ItemCategory();
-				listItemCategory.add(itemCategory);
-				analysisItemAttributes(itemCategory, i);
-			}
-		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+		IndividualResponse individualResponse = getIndividualResponse();
+		TDSReport tdsReport = individualResponse.getTDSReport();
+		OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
+		List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
+		ItemCategory itemCategory;
+		Opportunity opportunity = getOpportunity(tdsReport);
+		List<Item> listItem = opportunity.getItem();
+		for (Item i : listItem) {
+			itemCategory = new ItemCategory();
+			listItemCategory.add(itemCategory);
+			analysisItemAttributes(itemCategory, i);
 		}
 	}
 
+	/**
+	 * Analyzes each of the given item's fields.
+	 * @param itemCategory The ItemCategory to store the results of the analysis
+	 * @param item The item to analyze
+	 */
 	private void analysisItemAttributes(ItemCategory itemCategory, Item item) {
-		try {
-			FieldCheckType fieldCheckType;
+		validateItem(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position);
+		validateItem(itemCategory, item, item.getSegmentId(), EnumFieldCheckType.P, EnumItemFieldName.segmentId);
+		validateItem(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey);
+		validateItem(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key);
+		validateItem(itemCategory, item, item.getClientId(), EnumFieldCheckType.D, EnumItemFieldName.clientId);
+		validateItem(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational);
+		validateItem(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.PC, EnumItemFieldName.isSelected);
+		validateItem(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format);
+		validateItem(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score);
+		validateItem(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus);
+		validateItem(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate);
+		validateItem(itemCategory, item, item.getNumberVisits(), EnumFieldCheckType.P, EnumItemFieldName.numberVisits);
+		validateItem(itemCategory, item, item.getMimeType(), EnumFieldCheckType.P, EnumItemFieldName.mimeType);
+		validateItem(itemCategory, item, item.getStrand(), EnumFieldCheckType.P, EnumItemFieldName.strand);
+		validateItem(itemCategory, item, item.getContentLevel(), EnumFieldCheckType.P, EnumItemFieldName.contentLevel);
+		validateItem(itemCategory, item, item.getPageNumber(), EnumFieldCheckType.P, EnumItemFieldName.pageNumber);
+		validateItem(itemCategory, item, item.getPageVisits(), EnumFieldCheckType.P, EnumItemFieldName.pageVisits);
+		validateItem(itemCategory, item, item.getPageTime(), EnumFieldCheckType.P, EnumItemFieldName.pageTime);
+		validateItem(itemCategory, item, item.getDropped(), EnumFieldCheckType.P, EnumItemFieldName.dropped);
+	}
 
-			itemCategory.setPosition(item.getPosition());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setPositionFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.position, fieldCheckType);
+	/**
+	 * Sets up the FieldCheckType and CellCategory so the item's field can be evaluated.
+	 * @param itemCategory The ItemCategory that the CellCategory is stored
+	 * @param item The Item being evaluated
+	 * @param value The value of the item's field that is being checked
+	 * @param enumFieldCheckType Specifies the type of field check to perform
+	 * @param enumItemFieldName The name of the field being analyzed
+	 * @param <T> Since item has many different types of values this generic parameter was introduced to account for the differences.
+	 */
+	private <T> void validateItem(ItemCategory itemCategory, Item item, T value, EnumFieldCheckType enumFieldCheckType, EnumItemFieldName enumItemFieldName) {
+		final FieldCheckType fieldCheckType = new FieldCheckType();
+		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
 
-			itemCategory.setSegmentId(item.getSegmentId());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setSegmentIdFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.segmentId, fieldCheckType);
+		final CellCategory cellCategory = new CellCategory();
+		cellCategory.setTdsFieldName(enumItemFieldName.toString());
+		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
+		cellCategory.setFieldCheckType(fieldCheckType);
 
-			itemCategory.setBankKey(item.getBankKey());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setBankKeyFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.bankKey, fieldCheckType);
+		itemCategory.addCellCategory(cellCategory);
 
-			itemCategory.setKey(item.getKey());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setKeyFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.key, fieldCheckType);
-
-			itemCategory.setOperational(item.getOperational());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setOperationalFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.operational, fieldCheckType);
-
-			itemCategory.setIsSelected(item.getIsSelected());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			itemCategory.setIsSelectedFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.isSelected, fieldCheckType);
-
-			itemCategory.setFormat(item.getFormat());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			itemCategory.setFormatFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.format, fieldCheckType);
-
-			itemCategory.setScore(item.getScore());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			itemCategory.setScoreFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.PC, EnumItemFieldName.score, fieldCheckType);
-
-			itemCategory.setScoreStatus(item.getScoreStatus());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setScoreStatusFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.scoreStatus, fieldCheckType);
-
-			itemCategory.setAdminDate(item.getAdminDate().toString());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setAdminDateFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.adminDate, fieldCheckType);
-
-			itemCategory.setNumberVisits(item.getNumberVisits());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setNumberVisitsFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.numberVisits, fieldCheckType);
-
-			itemCategory.setMimeType(item.getMimeType());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setMimeTypeFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.mimeType, fieldCheckType);
-
-			itemCategory.setStrand(item.getStrand());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setStrandFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.strand, fieldCheckType);
-			
-			itemCategory.setContentLevel(item.getContentLevel());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setContentLevelFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.contentLevel, fieldCheckType);
-
-			itemCategory.setPageNumber(item.getPageNumber());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setPageNumberFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageNumber, fieldCheckType);
-			
-			itemCategory.setPageVisits(item.getPageVisits());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setPageVisitsFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageVisits, fieldCheckType);
-			
-			itemCategory.setPageTime(item.getPageTime());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setPageTimeFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.pageTime, fieldCheckType);
-			
-			itemCategory.setDropped(item.getDropped());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			itemCategory.setDroppedFieldCheckType(fieldCheckType);
-			validateField(item, EnumFieldCheckType.P, EnumItemFieldName.dropped, fieldCheckType);
-
-		} catch (Exception e) {
-			logger.error("analysisItemAttributes exception: ", e);
-		}
+		validateField(item, enumFieldCheckType, enumItemFieldName, fieldCheckType);
 	}
 
 	private void validateField(Item item, EnumFieldCheckType enumFieldCheckType, EnumItemFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
+
+		switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
@@ -180,9 +106,6 @@ public class ItemAttributesAnalysisAction extends AnalysisAction {
 				checkP(item, enumFieldName, fieldCheckType);
 				// checkC(accommodation, enumFieldName, fieldCheckType);
 				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
 		}
 	}
 

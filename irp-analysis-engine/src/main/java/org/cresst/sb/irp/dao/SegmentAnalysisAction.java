@@ -31,7 +31,7 @@ public class SegmentAnalysisAction extends AnalysisAction {
 			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<SegmentCategory> listSegmentCategory = opportunityCategory.getListSegmentCategory();
+			List<SegmentCategory> listSegmentCategory = opportunityCategory.getSegmentCategories();
 
 			SegmentCategory segmentCategory;
 			Opportunity opportunity = getOpportunity(tdsReport);
@@ -48,7 +48,7 @@ public class SegmentAnalysisAction extends AnalysisAction {
 	
 	private void analysisEachSegment(SegmentCategory segmentCategory, Segment segment){
 		try {
-			List<CellCategory> listCellCategory = segmentCategory.getListCellCategory();
+			List<CellCategory> listCellCategory = segmentCategory.getCellCategories();
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
 

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ItemCategory;
@@ -34,7 +33,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getListItemCategory();
+			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
 			Opportunity opportunity = getOpportunity(tdsReport);
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
@@ -68,13 +67,13 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.type, fieldCheckType);
 
 			StringBuilder itemIdentifier = new StringBuilder();
-			itemIdentifier.append("item-").append(itemCategory.getBankKey().toString()).append("-")
-					.append(itemCategory.getKey().toString());
+			itemIdentifier.append("item-").append(tdsItem.getBankKey()).append("-")
+					.append(tdsItem.getKey());
 			itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
 
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
-			String format = itemCategory.getFormat();
+			String format = tdsItem.getFormat();
 			if (format.trim().toLowerCase().equals("mc")) {// handle MC only
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 				responseCategory.setContentFieldCheckType(fieldCheckType);

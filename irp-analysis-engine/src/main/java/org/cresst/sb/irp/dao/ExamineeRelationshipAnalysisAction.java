@@ -23,14 +23,14 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(ExamineeRelationshipAnalysisAction.class);
 
 	public enum EnumExamineeRelationshipFieldName {
-		name, value, context, contextDate, entityKey;
+		name, value, context, contextDate, entityKey
 	}
 	
 	//need to double check with the UPDATE document
 	public enum EnumExamineeRelationshipAcceptValues {
 		DistrictId, DistrictName, SchoolId, SchoolName, StateName, StudentGroupName,
 		ResponsibleDistrictIdentifier, OrganizationName, ResponsibleInstitutionIdentifier, NameOfInstitution,
-		StateAbbreviation;
+		StateAbbreviation
 	}
 	
 	@Override
@@ -59,7 +59,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	private void analysisEachExamineeRelationship(ExamineeRelationshipCategory examineeRelationshipCategory,
 			ExamineeRelationship examineeRelationship, Student student) {
 		try {
-			List<CellCategory> listCellCategory = examineeRelationshipCategory.getListCellCategory();
+			List<CellCategory> listCellCategory = examineeRelationshipCategory.getCellCategories();
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
 			

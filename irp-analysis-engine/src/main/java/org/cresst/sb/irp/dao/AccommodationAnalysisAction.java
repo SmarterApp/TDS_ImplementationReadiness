@@ -38,7 +38,7 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<AccommodationCategory> listAccommodationCategory = opportunityCategory.getListAccommodationCategory();
+			List<AccommodationCategory> listAccommodationCategory = opportunityCategory.getAccommodationCategories();
 			
 			AccommodationCategory accommodationCategory;
 			Opportunity opportunity = getOpportunity(tdsReport);
@@ -57,7 +57,7 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 
 	private void analysisEachAccommodation(AccommodationCategory accommodationCategory, Accommodation accommodation){
 		try {
-			List<CellCategory> listCellCategory = accommodationCategory.getListCellCategory();
+			List<CellCategory> listCellCategory = accommodationCategory.getCellCategories();
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
 

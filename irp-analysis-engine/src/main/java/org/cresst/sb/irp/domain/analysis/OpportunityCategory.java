@@ -8,67 +8,67 @@ import org.apache.log4j.Logger;
 public class OpportunityCategory {
 	private static Logger logger = Logger.getLogger(OpportunityCategory.class);
 	
-	private List<CellCategory> listOportunityPropertyCategory;
-	private List<SegmentCategory> listSegmentCategory;
-	private List<AccommodationCategory> listAccommodationCategory;
-	private List<ScoreCategory> listScoreCategory;
-	private List<ItemCategory> listItemCategory;
+	private List<CellCategory> opportunityPropertyCategories;
+	private List<SegmentCategory> segmentCategories;
+	private List<AccommodationCategory> accommodationCategories;
+	private List<ScoreCategory> scoreCategories;
+	private List<ItemCategory> itemCategories;
 	
 	
 	public OpportunityCategory() {
 		logger.info("initializing");
-		setListOportunityPropertyCategory(new ArrayList<CellCategory>());
-		setListSegmentCategory(new ArrayList<SegmentCategory>());
-		setListAccommodationCategory(new ArrayList<AccommodationCategory>());
-		setListScoreCategory(new ArrayList<ScoreCategory>());
-		setListItemCategory(new ArrayList<ItemCategory>());
+		setOpportunityPropertyCategories(new ArrayList<CellCategory>());
+		setSegmentCategories(new ArrayList<SegmentCategory>());
+		setAccommodationCategories(new ArrayList<AccommodationCategory>());
+		setScoreCategories(new ArrayList<ScoreCategory>());
+		setItemCategories(new ArrayList<ItemCategory>());
 	}
 
-	public List<CellCategory> getListOportunityPropertyCategory() {
-		return listOportunityPropertyCategory;
+	public List<CellCategory> getOpportunityPropertyCategories() {
+		return opportunityPropertyCategories;
 	}
 
-	public void setListOportunityPropertyCategory(List<CellCategory> listOportunityPropertyCategory) {
-		this.listOportunityPropertyCategory = listOportunityPropertyCategory;
+	public void setOpportunityPropertyCategories(List<CellCategory> opportunityPropertyCategories) {
+		this.opportunityPropertyCategories = opportunityPropertyCategories;
 	}
 
-	public List<SegmentCategory> getListSegmentCategory() {
-		return listSegmentCategory;
+	public List<SegmentCategory> getSegmentCategories() {
+		return segmentCategories;
 	}
 
-	public void setListSegmentCategory(List<SegmentCategory> listSegmentCategory) {
-		this.listSegmentCategory = listSegmentCategory;
+	public void setSegmentCategories(List<SegmentCategory> segmentCategories) {
+		this.segmentCategories = segmentCategories;
 	}
 
-	public List<AccommodationCategory> getListAccommodationCategory() {
-		return listAccommodationCategory;
+	public List<AccommodationCategory> getAccommodationCategories() {
+		return accommodationCategories;
 	}
 
-	public void setListAccommodationCategory(List<AccommodationCategory> listAccommodationCategory) {
-		this.listAccommodationCategory = listAccommodationCategory;
+	public void setAccommodationCategories(List<AccommodationCategory> accommodationCategories) {
+		this.accommodationCategories = accommodationCategories;
 	}
 
-	public List<ScoreCategory> getListScoreCategory() {
-		return listScoreCategory;
+	public List<ScoreCategory> getScoreCategories() {
+		return scoreCategories;
 	}
 
-	public void setListScoreCategory(List<ScoreCategory> listScoreCategory) {
-		this.listScoreCategory = listScoreCategory;
+	public void setScoreCategories(List<ScoreCategory> scoreCategories) {
+		this.scoreCategories = scoreCategories;
 	}
 
-	public List<ItemCategory> getListItemCategory() {
-		return listItemCategory;
+	public List<ItemCategory> getItemCategories() {
+		return itemCategories;
 	}
 
-	public void setListItemCategory(List<ItemCategory> listItemCategory) {
-		this.listItemCategory = listItemCategory;
+	public void setItemCategories(List<ItemCategory> itemCategories) {
+		this.itemCategories = itemCategories;
 	}
 
 	@Override
 	public String toString() {
-		return "OpportunityCategory [listOportunityPropertyCategory=" + listOportunityPropertyCategory + ", listSegmentCategory="
-				+ listSegmentCategory + ", listAccommodationCategory=" + listAccommodationCategory + ", listScoreCategory="
-				+ listScoreCategory + ", listItemCategory=" + listItemCategory + "]";
+		return "OpportunityCategory [opportunityPropertyCategories=" + opportunityPropertyCategories + ", segmentCategories="
+				+ segmentCategories + ", accommodationCategories=" + accommodationCategories + ", scoreCategories="
+				+ scoreCategories + ", itemCategories=" + itemCategories + "]";
 	}
 	
 	

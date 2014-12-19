@@ -31,7 +31,7 @@ public class OpportunityAnalysisAction extends AnalysisAction {
 
 			OpportunityCategory opportunityCategory = new OpportunityCategory();
 			individualResponse.setOpportunityCategory(opportunityCategory);
-			List<CellCategory> listOportunityPropertyCategory = opportunityCategory.getListOportunityPropertyCategory();
+			List<CellCategory> listOportunityPropertyCategory = opportunityCategory.getOpportunityPropertyCategories();
 			Opportunity opportunity = getOpportunity(tdsReport);
 
 			CellCategory cellCategory;

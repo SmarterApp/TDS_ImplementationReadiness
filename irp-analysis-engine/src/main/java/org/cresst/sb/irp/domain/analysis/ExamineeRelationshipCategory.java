@@ -8,24 +8,24 @@ import org.apache.log4j.Logger;
 public class ExamineeRelationshipCategory {
 	private static Logger logger = Logger.getLogger(ExamineeRelationshipCategory.class);
 
-	private List<CellCategory> listCellCategory;
+	private List<CellCategory> cellCategories;
 	
 	public ExamineeRelationshipCategory() {
 		logger.info("initializing");
-		setListCellCategory(new ArrayList<CellCategory>());
+		setCellCategories(new ArrayList<CellCategory>());
 	}
 
-	public List<CellCategory> getListCellCategory() {
-		return listCellCategory;
+	public List<CellCategory> getCellCategories() {
+		return cellCategories;
 	}
 
-	public void setListCellCategory(List<CellCategory> listCellCategory) {
-		this.listCellCategory = listCellCategory;
+	public void setCellCategories(List<CellCategory> cellCategories) {
+		this.cellCategories = cellCategories;
 	}
 
 	@Override
 	public String toString() {
-		return "ExamineeRelationshipCategory [listCellCategory=" + listCellCategory + "]";
+		return "ExamineeRelationshipCategory [cellCategories=" + cellCategories + "]";
 	}
 	
 }

@@ -65,5 +65,29 @@ public class FieldCheckType {
 				+ enumfieldCheckType + "]";
 	}
 
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		FieldCheckType that = (FieldCheckType) o;
+
+		if (isAcceptableValue != that.isAcceptableValue) return false;
+		if (isCorrectDataType != that.isCorrectDataType) return false;
+		if (isCorrectValue != that.isCorrectValue) return false;
+		if (isFieldEmpty != that.isFieldEmpty) return false;
+		if (enumfieldCheckType != that.enumfieldCheckType) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = (isFieldEmpty ? 1 : 0);
+		result = 31 * result + (isCorrectDataType ? 1 : 0);
+		result = 31 * result + (isAcceptableValue ? 1 : 0);
+		result = 31 * result + (isCorrectValue ? 1 : 0);
+		result = 31 * result + (enumfieldCheckType != null ? enumfieldCheckType.hashCode() : 0);
+		return result;
+	}
 }

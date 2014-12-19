@@ -58,7 +58,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 	private void analysisEachExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
 			ExamineeAttribute examineeAttribute, Student student) {
 		try {
-			List<CellCategory> listCellCategory = examineeAttributeCategory.getListCellCategory();
+			List<CellCategory> listCellCategory = examineeAttributeCategory.getCellCategories();
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
 

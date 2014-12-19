@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.ItemResponseAnalysisAction.EnumItemResponseFieldName;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ItemCategory;
@@ -19,7 +18,6 @@ import org.cresst.sb.irp.domain.tdsreport.ScoreInfoType.ScoreRationale;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +36,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getListItemCategory();
+			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
 			Opportunity opportunity = getOpportunity(tdsReport);
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
@@ -57,7 +55,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 
 	private void analysisItemScoreInfo(ItemCategory itemCategory, Item tdsItem) {
 		try {
-			String itemFormat = itemCategory.getFormat();
+			String itemFormat = tdsItem.getFormat();
 			ScoreInfoCategory scoreInfoCategory = new ScoreInfoCategory();
 			itemCategory.setScoreInfoCategory(scoreInfoCategory);
 			ScoreInfoType scoreInfoType = tdsItem.getScoreInfo();

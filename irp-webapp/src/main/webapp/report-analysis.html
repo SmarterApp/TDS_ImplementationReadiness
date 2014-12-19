@@ -125,7 +125,7 @@
                 </template>
 
                 <template repeat="{{category in response.examineeAttributeCategories}}">
-                    <template repeat="{{cell in category}}">
+                    <template repeat="{{cell in category.cellCategories}}">
                     <tr>
                         <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
                         <td></td>
@@ -136,8 +136,8 @@
                     </template>
                 </template>
 
-                <template repeat="{{category in response.examineeRelationshipCategory}}">
-                    <template repeat="{{cell in category}}">
+                <template repeat="{{category in response.examineeRelationshipCategories}}">
+                    <template repeat="{{cell in category.cellCategories}}">
                         <tr>
                             <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
                             <td></td>
@@ -148,8 +148,8 @@
                     </template>
                 </template>
 
-                <template repeat="{{category in response.opportunityCategory}}">
-                    <template repeat="{{cell in category.listOportunityPropertyCategory}}">
+                <template bind="{{response.opportunityCategory as category}}">
+                    <template repeat="{{cell in category.opportunityPropertyCategories}}">
                         <tr>
                             <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
                             <td></td>
@@ -158,10 +158,10 @@
                             <td>{{cell.fieldCheckType | explanation}}</td>
                         </tr>
                     </template>
-                    <template repeat="{{segment in category.listSegmentCategory}}">
-                        <template repeat="{{cell in segment.listCellCategory}}">
+                    <template repeat="{{segment in category.segmentCategories}}">
+                        <template repeat="{{cell in segment.cellCategories}}">
                         <tr>
-                            <td>Segment: {{cell.tdsFieldName}}</td>
+                            <td>Opportunity Segment: {{cell.tdsFieldName}}</td>
                             <td></td>
                             <td>{{cell.tdsFieldNameValue}}</td>
                             <td>{{cell.fieldCheckType | status}}</td>
@@ -169,10 +169,10 @@
                         </tr>
                         </template>
                     </template>
-                    <template repeat="{{accommodation in category.listAccommodationCategory}}">
-                        <template repeat="{{cell in accommodation.listCellCategory}}">
+                    <template repeat="{{accommodation in category.accommodationCategories}}">
+                        <template repeat="{{cell in accommodation.cellCategories}}">
                             <tr>
-                                <td>Accommodation: {{cell.tdsFieldName}}</td>
+                                <td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>
                                 <td></td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
                                 <td>{{cell.fieldCheckType | status}}</td>
@@ -180,10 +180,10 @@
                             </tr>
                         </template>
                     </template>
-                    <template repeat="{{score in category.listScoreCategory}}">
-                        <template repeat="{{cell in score.listCellCategory}}">
+                    <template repeat="{{score in category.scoreCategories}}">
+                        <template repeat="{{cell in score.cellCategories}}">
                             <tr>
-                                <td>Score: {{cell.tdsFieldName}}</td>
+                                <td>Opportunity Score: {{cell.tdsFieldName}}</td>
                                 <td></td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
                                 <td>{{cell.fieldCheckType | status}}</td>
@@ -191,10 +191,10 @@
                             </tr>
                         </template>
                     </template>
-                    <template repeat="{{item in category.listItemCategory}}">
-                        <template repeat="{{cell in item.listCellCategory}}">
+                    <template repeat="{{item in category.itemCategories}}">
+                        <template repeat="{{cell in item.cellCategories}}">
                             <tr>
-                                <td>Score: {{cell.tdsFieldName}}</td>
+                                <td>Opportunity Item: {{cell.tdsFieldName}}</td>
                                 <td></td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
                                 <td>{{cell.fieldCheckType | status}}</td>
@@ -276,7 +276,7 @@
                 this.response = {};
             },
             status: function(input) {
-
+                if (!input) { return ""; }
                 if (input.enumfieldCheckType == 'D') { return "Ignored"; }
 
                 var valid = !input.fieldEmpty && input.correctDataType && input.acceptableValue;
@@ -288,6 +288,7 @@
                 return valid ? "No Errors" : "Errors Found";
             },
             explanation: function(input) {
+                if (!input) { return ""; }
                 if (input.enumfieldCheckType == 'D') { return ""; }
 
                 var reasons = [input.enumfieldCheckType];
