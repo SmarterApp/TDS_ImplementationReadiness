@@ -34,9 +34,7 @@ public class RetrieveFileUtil {
 		for (File f : list) {
 			if (f.isDirectory()) {
 				walk(f.getAbsolutePath(), mapTestpackage);
-				System.out.println("Dir:" + f.getAbsoluteFile());
 			} else {
-				System.out.println("File:" + f.getAbsoluteFile());
 				Testpackage testpackage = (Testpackage) unmarshaller
 						.unmarshal(f);
 				String uniqueid = testpackage.getIdentifier().getUniqueid();

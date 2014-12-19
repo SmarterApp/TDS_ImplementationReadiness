@@ -119,9 +119,7 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					toolUsageAnalysisAction.setIndividualResponse(individualResponse);
 					toolUsageAnalysisAction.analysis();
 				}
-				System.out.println("individualResponse --->" + individualResponse.toString());
 			} catch (IOException e) {
-				e.printStackTrace();
 				logger.error("analysisProcess exception: ", e);
 			}
 

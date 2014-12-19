@@ -33,7 +33,7 @@ public class XMLValidate {
 			Validator validator = (Validator) schema.newValidator();
 			validator.validate(new StreamSource(new File(xmlPath)), null);
 		} catch (SAXException e) {
-			System.out.println("Exception: " + e.getMessage());
+			logger.error("Exception: ", e);
 			return false;
 		}
 		return true;
@@ -49,7 +49,7 @@ public class XMLValidate {
 			Validator validator = (Validator) schema.newValidator();
 			validator.validate(new StreamSource(file.getInputStream()), null);
 		} catch (SAXException e) {
-			System.out.println("Exception: " + e.getMessage());
+			logger.error("Exception: ", e);
 			return false;
 		}
 		return true;
@@ -66,7 +66,7 @@ public class XMLValidate {
 			Validator validator = (Validator) schema.newValidator();
 			validator.validate(new StreamSource(file));
 		} catch (SAXException e) {
-			System.out.println("Exception: " + e.getMessage());
+			logger.error("Exception: ", e);
 			return false;
 		}
 		return true;

@@ -33,9 +33,7 @@ public class StudentUtil {
 						.getStringCellValue().trim());
 			}
 		} catch (Exception e) {
-			logger.info("getHeaderColumn(); exception: " + e);
-			System.out.println("getHeaderColumn Exception thrown  :" + e);
-			e.printStackTrace();
+			logger.error("getHeaderColumn(); exception: ", e);
 		}
 	}
 
@@ -51,9 +49,7 @@ public class StudentUtil {
 				}
 			}
 		} catch (Exception e) {
-			logger.info("processSheet(); exception: " + e);
-			System.out.println("processSheet Exception thrown  :" + e);
-			e.printStackTrace();
+			logger.error("processSheet(); exception: ", e);
 		}
 
 	}
@@ -70,9 +66,7 @@ public class StudentUtil {
 				}
 			}
 		} catch (Exception e) {
-			logger.info("isEmptyRow(); exception: " + e);
-			System.out.println("isEmptyRow Exception thrown  :" + e);
-			e.printStackTrace();
+			logger.error("isEmptyRow(); exception: ", e);
 		}
 		return bln;
 	}
@@ -97,11 +91,7 @@ public class StudentUtil {
 			}
 
 		} catch (Exception e) {
-			logger.info("createStudentObject(); exception: " + e);
-			System.out
-					.println("StudentData.createStudentObject Exception thrown  :"
-							+ e);
-			e.printStackTrace();
+			logger.error("createStudentObject(); exception: ", e);
 		}
 
 		return student;
@@ -220,10 +210,7 @@ public class StudentUtil {
 						+ columnName);
 			}
 		} catch (Exception e) {
-			logger.info("setStudentFieldData(); exception: " + e);
-			System.out
-					.println("setStudentFieldData Exception thrown  :" + e);
-			e.printStackTrace();
+			logger.error("setStudentFieldData(); exception: ", e);
 		}
 	}
 
@@ -237,9 +224,7 @@ public class StudentUtil {
 				}
 			}
 		} catch (Exception e) {
-			logger.info("getStudentBySSID exception: " + e);
-			System.out.println("StudentUtil.getStudentBySSID Exception thrown  :"+ e);
-			e.printStackTrace();
+			logger.error("getStudentBySSID exception: ", e);
 		}
 		return student;
 	}

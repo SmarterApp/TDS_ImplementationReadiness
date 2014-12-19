@@ -44,7 +44,6 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 			Opportunity opportunity = getOpportunity(tdsReport);
 			List<Accommodation> listAccommodation = opportunity.getAccommodation();
 			for (Accommodation a : listAccommodation) {
-				System.out.println("accomodation ->" + a);
 				accommodationCategory = new AccommodationCategory();
 				listAccommodationCategory.add(accommodationCategory);
 				analysisEachAccommodation(accommodationCategory, a);
@@ -160,7 +159,6 @@ public class AccommodationAnalysisAction extends AnalysisAction {
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
 			Class<EnumAccommodationAcceptValues> class1, String parenthesesValue) {
 		try {
-			System.out.println("fieldValue ->" + fieldValue);
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue) || fieldValue.toLowerCase().trim().equals(parenthesesValue.toLowerCase())) {
 					setPcorrect(fieldCheckType);
