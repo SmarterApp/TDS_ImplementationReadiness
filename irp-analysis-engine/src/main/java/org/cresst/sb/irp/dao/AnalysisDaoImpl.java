@@ -83,41 +83,18 @@ public class AnalysisDaoImpl implements AnalysisDao {
 					TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
 					individualResponse.setTDSReport(tdsReport);
 					
-					testAnalysisAction.setIndividualResponse(individualResponse);
-					testAnalysisAction.analysis();
-					
-					examineeAnalysisAction.setIndividualResponse(individualResponse);
-					examineeAnalysisAction.analysis();
-					
-					examineeAttributeAnalysisAction.setIndividualResponse(individualResponse);
-					examineeAttributeAnalysisAction.analysis();
-					
-					examineeRelationshipAnalysisAction.setIndividualResponse(individualResponse);
-					examineeRelationshipAnalysisAction.analysis();
-					
-					opportunityAnalysisAction.setIndividualResponse(individualResponse);
-					opportunityAnalysisAction.analysis();
-					
-					segmentAnalysisAction.setIndividualResponse(individualResponse);
-					segmentAnalysisAction.analysis();
-					
-					accommodationAnalysisAction.setIndividualResponse(individualResponse);
-					accommodationAnalysisAction.analysis();
-					
-					itemAttributesAnalysisAction.setIndividualResponse(individualResponse);
-					itemAttributesAnalysisAction.analysis();
-					
-					itemResponseAnalysisAction.setIndividualResponse(individualResponse);
-					itemResponseAnalysisAction.analysis();
-					
-					itemScoreInfoAnalysisAction.setIndividualResponse(individualResponse);
-					itemScoreInfoAnalysisAction.analysis();
-					
-					commentAnalysisAction.setIndividualResponse(individualResponse);
-					commentAnalysisAction.analysis();
-					
-					toolUsageAnalysisAction.setIndividualResponse(individualResponse);
-					toolUsageAnalysisAction.analysis();
+					testAnalysisAction.analysis(individualResponse);
+					examineeAnalysisAction.analysis(individualResponse);
+					examineeAttributeAnalysisAction.analysis(individualResponse);
+					examineeRelationshipAnalysisAction.analysis(individualResponse);
+					opportunityAnalysisAction.analysis(individualResponse);
+					segmentAnalysisAction.analysis(individualResponse);
+					accommodationAnalysisAction.analysis(individualResponse);
+					itemAttributesAnalysisAction.analysis(individualResponse);
+					itemResponseAnalysisAction.analysis(individualResponse);
+					itemScoreInfoAnalysisAction.analysis(individualResponse);
+					commentAnalysisAction.analysis(individualResponse);
+					toolUsageAnalysisAction.analysis(individualResponse);
 				}
 			} catch (IOException e) {
 				logger.error("analysisProcess exception: ", e);

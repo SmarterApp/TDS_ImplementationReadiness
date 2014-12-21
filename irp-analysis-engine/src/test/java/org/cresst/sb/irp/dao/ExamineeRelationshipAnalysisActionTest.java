@@ -36,11 +36,11 @@ public class ExamineeRelationshipAnalysisActionTest {
     private TDSReportService tdsReportService;
 
     @InjectMocks
-    private AnalysisAction underTest = new ExamineeRelationshipAnalysisAction();
+    private ExamineeRelationshipAnalysisAction underTest = new ExamineeRelationshipAnalysisAction();
 
     /**
      * Given an ExamineeRelationship the analyzer will produces a CellCategory that matches expectations.
-     * @throws Exception
+     * @throws Exception Caught by test runner if there's a problem
      */
     @Test
     public void testAnalysis_ProducesKnownResults() throws Exception {
@@ -51,10 +51,8 @@ public class ExamineeRelationshipAnalysisActionTest {
         when(studentService.getStudentByStudentSSID("1")).thenReturn(generateStudent());
         when(tdsReportService.getExamineeRelationships(individualResponse.getTDSReport().getExaminee())).thenReturn(generateExamineeRelationships());
 
-        underTest.setIndividualResponse(individualResponse);
-
         // Act
-        underTest.analysis();
+        underTest.analysis(individualResponse);
 
         // Assert
         CellCategory expectedCellCategory = generateExpectedCellCategory();
@@ -94,9 +92,7 @@ public class ExamineeRelationshipAnalysisActionTest {
     }
 
     private Student generateStudent() {
-        Student student = new Student();
-        student.setAlternateSSID("1");
-        return student;
+        return new Student();
     }
 
     private IndividualResponse generateIndividualResponse() throws Exception  {

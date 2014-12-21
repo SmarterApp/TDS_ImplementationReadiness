@@ -17,7 +17,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Scope("prototype")
 public class SegmentAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(SegmentAnalysisAction.class);
 
@@ -26,9 +25,8 @@ public class SegmentAnalysisAction extends AnalysisAction {
 	}
 	
 	@Override
-	public void analysis() throws IOException {
+	public void analysis(IndividualResponse individualResponse) throws IOException {
 		try {
-			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<SegmentCategory> listSegmentCategory = opportunityCategory.getSegmentCategories();

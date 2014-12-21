@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Scope("prototype")
 public class ToolUsageAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(ToolUsageAnalysisAction.class);
 
@@ -29,9 +28,8 @@ public class ToolUsageAnalysisAction extends AnalysisAction {
 	}
 	
 	@Override
-	public void analysis() throws IOException {
+	public void analysis(IndividualResponse individualResponse) throws IOException {
 		try {
-			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			List<ToolUsageCategory> listToolUsageCategory = individualResponse.getToolUsageCategories();
 			ToolUsageCategory toolUsageCategory;

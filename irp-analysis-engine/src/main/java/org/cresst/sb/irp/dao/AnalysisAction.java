@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.ExamineeAttributeAnalysisAction.EnumExamineeAttributeAcceptValues;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -42,21 +40,7 @@ public abstract class AnalysisAction {
 	@Autowired
 	public ItemService itemService;
 
-	private IndividualResponse individualResponse;
-
-	public AnalysisAction() {
-		logger.info("initializing");
-	}
-
-	abstract public void analysis() throws IOException;
-	
-	public IndividualResponse getIndividualResponse() {
-		return individualResponse;
-	}
-
-	public void setIndividualResponse(IndividualResponse individualResponse) {
-		this.individualResponse = individualResponse;
-	}
+	abstract public void analysis(IndividualResponse individualResponse) throws IOException;
 
 	public Test getTest(TDSReport tdsReport) {
 		Test test = null;

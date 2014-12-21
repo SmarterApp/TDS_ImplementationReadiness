@@ -17,7 +17,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Scope("prototype")
 public class TestAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(TestAnalysisAction.class);
 
@@ -29,9 +28,8 @@ public class TestAnalysisAction extends AnalysisAction {
 			"06", "07", "08", "09", "10", "11", "12", "13", "PS", "UG"); 
 	
 	@Override
-	public void analysis() throws IOException {
+	public void analysis(IndividualResponse individualResponse) throws IOException {
 		try {
-			IndividualResponse individualResponse = getIndividualResponse();
 			List<CellCategory> listTestPropertyCategory = individualResponse.getTestPropertyCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			Test tdsTest = getTest(tdsReport);

@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Scope("prototype")
 public class ItemResponseAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(ItemResponseAnalysisAction.class);
 
@@ -28,9 +27,8 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 	}
 
 	@Override
-	public void analysis() throws IOException {
+	public void analysis(IndividualResponse individualResponse) throws IOException {
 		try {
-			IndividualResponse individualResponse = getIndividualResponse();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
