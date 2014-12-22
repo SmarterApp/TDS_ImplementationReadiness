@@ -14,7 +14,6 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,20 +23,19 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	public enum EnumExamineeRelationshipFieldName {
 		name, value, context, contextDate, entityKey
 	}
-	
-	//need to double check with the UPDATE document
+
+	// need to double check with the UPDATE document
 	public enum EnumExamineeRelationshipAcceptValues {
-		DistrictId, DistrictName, SchoolId, SchoolName, StateName, StudentGroupName,
-		ResponsibleDistrictIdentifier, OrganizationName, ResponsibleInstitutionIdentifier, NameOfInstitution,
-		StateAbbreviation
+		DistrictId, DistrictName, SchoolId, SchoolName, StateName, StudentGroupName, ResponsibleDistrictIdentifier, OrganizationName, ResponsibleInstitutionIdentifier, NameOfInstitution, StateAbbreviation
 	}
-	
+
 	@Override
 	public void analysis(IndividualResponse individualResponse) throws IOException {
 		try {
-			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse.getExamineeRelationshipCategories();
+			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse
+					.getExamineeRelationshipCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			
+
 			ExamineeRelationshipCategory examineeRelationshipCategory;
 			Examinee examinee = tdsReport.getExaminee();
 			Student student = getStudent(examinee.getKey());
@@ -53,14 +51,14 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			logger.error("analysis exception: ", e);
 		}
 	}
-	
+
 	private void analysisEachExamineeRelationship(ExamineeRelationshipCategory examineeRelationshipCategory,
 			ExamineeRelationship examineeRelationship, Student student) {
 		try {
 			List<CellCategory> listCellCategory = examineeRelationshipCategory.getCellCategories();
 			CellCategory cellCategory;
 			FieldCheckType fieldCheckType;
-			
+
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
 			cellCategory.setTdsFieldName(EnumExamineeRelationshipFieldName.name.toString());
@@ -68,7 +66,8 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.name, fieldCheckType, student);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.name, fieldCheckType,
+					student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -77,7 +76,8 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.value, fieldCheckType, student);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.value, fieldCheckType,
+					student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -86,7 +86,8 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.context, fieldCheckType, student);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.context, fieldCheckType,
+					student);
 
 			cellCategory = new CellCategory();
 			listCellCategory.add(cellCategory);
@@ -95,18 +96,22 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.contextDate, fieldCheckType, student);
+			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.contextDate,
+					fieldCheckType, student);
 
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumExamineeRelationshipFieldName.entityKey.toString());
-			cellCategory.setTdsFieldNameValue(examineeRelationship.getEntityKey().toString());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.entityKey, fieldCheckType, student);
+			//<xs:attribute name="entityKey" type="xs:unsignedLong" /> dox -> required Y but xsd No use="required"
+			if (examineeRelationship.getEntityKey() != null) { 
+				cellCategory = new CellCategory();
+				listCellCategory.add(cellCategory);
+				cellCategory.setTdsFieldName(EnumExamineeRelationshipFieldName.entityKey.toString());
+				cellCategory.setTdsFieldNameValue(examineeRelationship.getEntityKey().toString());
+				fieldCheckType = new FieldCheckType();
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+				cellCategory.setFieldCheckType(fieldCheckType);
+				validateField(examineeRelationship, EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.entityKey,
+						fieldCheckType, student);
+			}
 
-			
 		} catch (Exception e) {
 			logger.error("analysisEachExamineeRelationship exception: ", e);
 		}
@@ -123,24 +128,24 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 				break;
 			case PC:
 				checkP(examineeRelationship, enumFieldName, fieldCheckType);
-				//checkC(examineeRelationship, enumFieldName, fieldCheckType, student);
+				// checkC(examineeRelationship, enumFieldName, fieldCheckType, student);
 				break;
 			}
 		} catch (Exception e) {
 			logger.error("validateField exception: ", e);
 		}
 	}
-	
+
 	private void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case name:
-				//<xs:attribute name="name" use="required" />
+				// <xs:attribute name="name" use="required" />
 				processAcceptableEnum(examineeRelationship.getName(), fieldCheckType, EnumExamineeRelationshipAcceptValues.class);
 				break;
 			case value:
-				//	<xs:attribute name="value" />
+				// <xs:attribute name="value" />
 				processP_PritableASCIIone(examineeRelationship.getValue(), fieldCheckType);
 				break;
 			case context:
@@ -150,16 +155,16 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 				// <xs:enumeration value="FINAL" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP(examineeRelationship.getContext().toString(), fieldCheckType, true); //last param: required Y				
+				processP(examineeRelationship.getContext().toString(), fieldCheckType, true); // last param: required Y
 				break;
 			case contextDate:
-				//<xs:attribute name="contextDate" use="required" type="xs:dateTime" />
-				processP(examineeRelationship.getContextDate().toString(), fieldCheckType, true); //last param: required Y	
+				// <xs:attribute name="contextDate" use="required" type="xs:dateTime" />
+				processP(examineeRelationship.getContextDate().toString(), fieldCheckType, true); // last param: required Y
 				break;
 			case entityKey:
-				//<xs:attribute name="entityKey" type="xs:unsignedLong" />
-				processP(examineeRelationship.getEntityKey().toString(), fieldCheckType, true); //last param: required Y
-				break;	
+				// <xs:attribute name="entityKey" type="xs:unsignedLong" />
+				processP(examineeRelationship.getEntityKey().toString(), fieldCheckType, true); // last param: required Y
+				break;
 			default:
 				break;
 			}
@@ -174,12 +179,11 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			if (fieldValue != null && !fieldValue.trim().isEmpty()) {
 				if (EnumUtils.isValidEnum(class1, fieldValue)) {
 					setPcorrect(fieldCheckType);
-				} 
+				}
 			}
 		} catch (Exception e) {
 			logger.error("processAcceptableEnum exception: ", e);
 		}
 	}
-	
-}
 
+}
