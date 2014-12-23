@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import com.google.common.collect.ImmutableList;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.Itemrelease;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemCategory {
+	private static Logger logger = Logger.getLogger(ItemCategory.class);
 
 	private List<CellCategory> cellCategories = new ArrayList<>();
 
@@ -19,6 +21,10 @@ public class ItemCategory {
 	private org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem;
 	private Itemrelease.Item.Attriblist attriblist;
 
+	public ItemCategory(){
+		logger.info("initializing");
+	}
+	
 	public ImmutableList<CellCategory> getCellCategories() {
 		return ImmutableList.copyOf(cellCategories);
 	}
