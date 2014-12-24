@@ -66,7 +66,13 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 				scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
 				validateField(scoreInfoType, EnumFieldCheckType.PC, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
 						itemCategory);
-			} else {
+			} else 	if (itemFormat.trim().toLowerCase().equals("ms")) { // handle MS 
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+				scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
+				validateField(scoreInfoType, EnumFieldCheckType.PC, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
+						itemCategory);
+			}
+			else {
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				scoreInfoCategory.setScorePointFieldCheckType(fieldCheckType);
 				validateField(scoreInfoType, EnumFieldCheckType.P, EnumItemScoreInfoFieldName.scorePoint, fieldCheckType,
@@ -222,6 +228,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 
 	private void processC(String scoreInfoTypeScorePoint, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
 		try {
+			//need to modify this function to handle MC and MS . . .
 			Itemrelease.Item.Attriblist attriblist = itemCategory.getAttriblist();
 			Itemrelease.Item.Attriblist.Attrib attribAnswerKey = getItemAttribValueFromIRPitemAttriblist(attriblist,
 					"itm_att_Answer Key");

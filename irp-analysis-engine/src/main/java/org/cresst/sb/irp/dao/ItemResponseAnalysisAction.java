@@ -72,7 +72,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
 			String format = tdsItem.getFormat();
-			if (format.trim().toLowerCase().equals("mc")) {// handle MC only
+			if (format.trim().toLowerCase().equals("mc")) {// handle MC 
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
@@ -80,7 +80,16 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
 				itemCategory.setAttriblist(attriblist);
 				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
-			} else {
+			} else if (format.trim().toLowerCase().equals("ms")){ // handle MS
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+				responseCategory.setContentFieldCheckType(fieldCheckType);
+				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
+				itemCategory.setIrpItem(irpItem);
+				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+				itemCategory.setAttriblist(attriblist);
+				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);	
+			}
+			else {
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
