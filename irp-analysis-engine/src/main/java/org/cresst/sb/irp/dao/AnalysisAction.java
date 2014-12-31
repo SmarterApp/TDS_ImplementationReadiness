@@ -298,17 +298,7 @@ public abstract class AnalysisAction {
 			logger.error("validateUnsignedFloat exception: ", e);
 		}
 	}
-	
-	
-	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues){
-		if (value.length() > 0){
-			for(String listItem: listGradeAcceptValues){
-				if (listItem.equals(value))
-					fieldCheckType.setCorrectValue(true);
-			}
-		}
-	}
-	
+
 	public void processDate(String date, FieldCheckType fieldCheckType){ // effectiveDate="2014-07-07"
 		String[] array = date.split("-");
 		if (array.length == 3){
