@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assessmentItem identifier="666" title="ePP_HS_B3_031 - SB OP" adaptive="false" timeDependent="false" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/imsqti_v2p1.xsd" xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair" />
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <match>
+          <variable identifier="RESPONSE" />
+          <correct identifier="RESPONSE" />
+        </match>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElse>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseElse>
+    </responseCondition>
+  </responseProcessing>
+</assessmentItem>

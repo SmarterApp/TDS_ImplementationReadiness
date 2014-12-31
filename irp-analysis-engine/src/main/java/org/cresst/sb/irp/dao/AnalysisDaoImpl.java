@@ -57,7 +57,7 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	public ToolUsageAnalysisAction toolUsageAnalysisAction;
 	
 	//tdsreport_12_8_14.xsd from AIR David original file name tdsreport.xsd
-	@Value("classpath:irp-package/tdsreport_12_8_14.xsd") //reportxml_oss.xsd") from Rami on 12/4/14 vs sample_oss_report2.xml
+	@Value("classpath:tdsreport_12_8_14.xsd") //reportxml_oss.xsd") from Rami on 12/4/14 vs sample_oss_report2.xml
 	private Resource TDSReportXSDResource;
 
 	@Autowired

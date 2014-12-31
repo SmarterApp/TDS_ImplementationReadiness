@@ -122,7 +122,7 @@ public class TestAnalysisAction extends AnalysisAction {
 			listTestPropertyCategory.add(testCategory);
 			testCategory.setTdsFieldName(EnumTestFieldName.assessmentVersion.toString());
 			testCategory.setTdsFieldNameValue(tdsTest.getAssessmentVersion());
-			testCategory.setTdsFieldExpectedValue(expectedAssessmentVersion(tdsTest));
+			testCategory.setTdsFieldExpectedValue("4867"); // TODO: Get the value from the Test Package
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			testCategory.setFieldCheckType(fieldCheckType);

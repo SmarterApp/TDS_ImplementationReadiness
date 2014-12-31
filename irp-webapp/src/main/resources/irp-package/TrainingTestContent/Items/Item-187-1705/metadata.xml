@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>1705</Identifier>
+    <Version>4</Version>
+    <AssociatedStimulus>3712</AssociatedStimulus>
+    <ItemAuthorIdentifier>Diana_Reed</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Diana_Reed</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>62984 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>4</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>ER</InteractionType>
+    <EducationalDifficulty>Low</EducationalDifficulty>
+    <MaximumNumberOfPoints>2</MaximumNumberOfPoints>
+    <SufficientEvidenceOfClaim> 	The student will make an inference about an informational text or texts and identify evidence within the text or texts that support that inference.</SufficientEvidenceOfClaim>
+    <EvidenceStatement> 	The student will make an inference about an informational text or texts and identify evidence within the text or texts that support that inference.</EvidenceStatement>
+    <BrailleType>BRF</BrailleType>
+    <MinimumGrade>9</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <AssociatedWordlist>1750</AssociatedWordlist>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

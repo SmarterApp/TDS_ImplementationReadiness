@@ -1,0 +1,38 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_56192" title="Item 56192" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
+    <correctResponse xmlns="">
+      <value>R1-P1</value>
+      <value>R1-P2</value>
+      <value>R1-P3</value>
+      <value>R2-P1</value>
+      <value>R2-P2</value>
+      <value>R2-P4</value>
+    </correctResponse>
+    <mapping defaultValue="0" xmlns="">
+      <mapEntry mapKey="R1-P1" mappedValue="1" />
+      <mapEntry mapKey="R1-P2" mappedValue="1" />
+      <mapEntry mapKey="R1-P3" mappedValue="1" />
+      <mapEntry mapKey="R2-P1" mappedValue="1" />
+      <mapEntry mapKey="R2-P2" mappedValue="1" />
+      <mapEntry mapKey="R2-P4" mappedValue="1" />
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item56192_31b5fa9f-8c70-4def-a58d-ddde58a72c94">
+      <span class="bold">Rationales:</span>
+    </p>
+    <p id="Item56192_acf32190-9fb4-4c7d-be10-b20085ccd0f4">Source 1 is relevant to the topic of the paragraph and is credible because it is a .gov site with a review posted by a scientific panel of experts.</p>
+    <p id="Item56192_2c0cd98d-6a46-48c9-b2bb-4259b99110b5">Source 2 is relevant to the topic of the paragraph and is credible because it uses a research reviewer's presentation of a scientific explanation.</p>
+    <p id="Item56192_cfebed64-7ad7-4024-b1f7-e6158415e8b2">Source 3 is relevant to the topic but is not credible because the credentials of the person reviewing the product are not provided.</p>
+    <p id="Item56192_11913971-04bf-47f4-9ce2-32f26fd6d6c2">Source 4 is not relevant because it does not align to the subtopic of the report. It is credible because it is a journal that references an expert.</p>
+    <p id="Item56192_236d74fa-a4bc-4181-a4ab-7c0ec2ad0e11">
+      <span class="bold">Final matching table with correct answer choices:</span>
+    </p>
+    <p id="Item56192_68a34905-8429-439b-a124-1fb1bdd97e7e">
+      <img src="item_resources/Image_32630.jpg" id="Image_32630" alt="Image_32630" class="After" width="1000" height="459" />
+    </p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>
