@@ -1,0 +1,558 @@
+<TDSReport>
+	<Test name="(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015" subject="MA" testId="SBAC-Mathematics-11" bankKey="187" contract="SBAC_PT" mode="online" grade="11" handScoreProject="0" assessmentType="" academicYear="2015" assessmentVersion="5566"/>
+	<Examinee key="8505" isDemo="1">
+		<ExamineeAttribute context="INITIAL" name="Birthdate" value="01012000" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="FirstName" value="Student1" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="Sex" value="F" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="GradeLevelWhenAssessed" value="3" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="LastOrSurname" value="Student1" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="MiddleName" value="A" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="AlternateSSID" value="student1" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="HispanicOrLatinoEthnicity" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="AmericanIndianOrAlaskaNative" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="Asian" value="Yes" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="BlackOrAfricanAmerican" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="White" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="NativeHawaiianOrOtherPacificIslander" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="DemographicRaceTwoOrMoreRaces" value="None" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="IDEAIndicator" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="LEPStatus" value="false" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="Section504Status" value="No" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="INITIAL" name="LEPExitDate" value="" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeAttribute context="FINAL" name="Birthdate" value="01012000" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="FirstName" value="Student1" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="Sex" value="F" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="GradeLevelWhenAssessed" value="3" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="LastOrSurname" value="Student1" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="MiddleName" value="A" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="AlternateSSID" value="student1" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="HispanicOrLatinoEthnicity" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="AmericanIndianOrAlaskaNative" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="Asian" value="Yes" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="BlackOrAfricanAmerican" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="White" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="NativeHawaiianOrOtherPacificIslander" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="DemographicRaceTwoOrMoreRaces" value="None" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="IDEAIndicator" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="LEPStatus" value="false" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="Section504Status" value="No" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeAttribute context="FINAL" name="LEPExitDate" value="" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="INITIAL" name="ResponsibleDistrictIdentifier" value="12345" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="INITIAL" name="OrganizationName" value="LA County Schools" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="INITIAL" name="ResponsibleInstitutionIdentifier" value="345234" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="INITIAL" name="NameOfInstitution" value="Wren Reedbuck High School" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="INITIAL" name="StateName" value="New York" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="INITIAL" name="StateAbbreviation" value="SBAC_PT" contextDate="2014-11-19T15:32:48.924"/>
+		<ExamineeRelationship context="FINAL" name="ResponsibleDistrictIdentifier" value="12345" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="FINAL" name="OrganizationName" value="LA County Schools" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="FINAL" name="ResponsibleInstitutionIdentifier" value="345234" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="FINAL" name="NameOfInstitution" value="Wren Reedbuck High School" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="FINAL" name="StateName" value="New York" contextDate="2014-11-19T16:35:13.629"/>
+		<ExamineeRelationship context="FINAL" name="StateAbbreviation" value="SBAC_PT" contextDate="2014-11-19T16:35:13.629"/>
+	</Examinee>
+	<Opportunity server="DC1KULAKOVLT" database="session" clientName="SBAC_PT" key="1eafa846-d189-443d-b693-01982b7e218e" oppId="100062" startDate="2014-08-05T18:07:47.948" status="completed" opportunity="1" statusDate="2014-08-05T18:35:56.006" dateCompleted="2014-08-05T18:35:56.006" pauseCount="0" itemCount="29" ftCount="29" abnormalStarts="0" gracePeriodRestarts="0" taId="" taName="" sessionId="GUEST Session" windowId="ANNUAL" windowOpportunity="1" dateForceCompleted="" qaLevel="" assessmentParticipantSessionPlatformUserAgent="" effectiveDate="2014-07-07">
+		<Segment id="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" position="1" formId="PracTest::MG11::S1::SP14" formKey="187-534" algorithm="fixedform" algorithmVersion="0"/>
+		<Segment id="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" position="2" formId="PracTest::MG11::S2::SP14" formKey="187-537" algorithm="fixedform" algorithmVersion="0"/>
+		<Accommodation type="Language" value="English" code="ENU" segment="0"/>
+		<Accommodation type="Audio Playback Controls" value="Play and Stop" code="TDS_APC_PS" segment="0"/>
+		<Accommodation type="American Sign Language" value="Do not show ASL videos" code="TDS_ASL0" segment="0"/>
+		<Accommodation type="Block Pausing" value="Block pausing with unanswered items" code="TDS_BP1" segment="0"/>
+		<Accommodation type="Braille" value="False" code="TDS_Braille0" segment="0"/>
+		<Accommodation type="Braille Type" value="Not Applicable" code="TDS_BT0" segment="0"/>
+		<Accommodation type="Calculator" value="None" code="TDS_Calc0" segment="0"/>
+		<Accommodation type="Color Choices" value="Black on White" code="TDS_CC0" segment="0"/>
+		<Accommodation type="Closed Captioning" value="Closed Captioning Not Available" code="TDS_ClosedCap0" segment="0"/>
+		<Accommodation type="Compass" value="Compass On" code="TDS_Compass1" segment="0"/>
+		<Accommodation type="Dictionary" value="MerriamWebsters Collegiate Dictionary" code="TDS_Dict_Collegiate" segment="0"/>
+		<Accommodation type="Dictionary Options" value="None" code="TDS_DO_None" segment="0"/>
+		<Accommodation type="Emboss" value="None" code="TDS_Emboss0" segment="0"/>
+		<Accommodation type="Emboss Request Type" value="Not Applicable" code="TDS_ERT0" segment="0"/>
+		<Accommodation type="Enhanced Security Options" value="ESO Disabled" code="TDS_ESO_None" segment="0"/>
+		<Accommodation type="Expandable Passages" value="Expandable Passages On" code="TDS_ExpandablePassages1" segment="0"/>
+		<Accommodation type="Formula" value="None" code="TDS_F0" segment="0"/>
+		<Accommodation type="Font Type" value="San-Serif (Arial)" code="TDS_FT_San-Serif" segment="0"/>
+		<Accommodation type="Passage Font Size" value="12pt" code="TDS_F_S12" segment="0"/>
+		<Accommodation type="Global Notes" value="Global Notes On" code="TDS_GN1" segment="0"/>
+		<Accommodation type="Highlight" value="True" code="TDS_Highlight1" segment="0"/>
+		<Accommodation type="Hardware Checks" value="No hardware checks will be done" code="TDS_HW0" segment="0"/>
+		<Accommodation type="Item Font Size" value="12pt Items" code="TDS_IF_S12" segment="0"/>
+		<Accommodation type="Item Score Report" value="None" code="TDS_ISR0" segment="0"/>
+		<Accommodation type="Item Types Exclusion" value="None" code="TDS_ItemTypeExcl_None" segment="0"/>
+		<Accommodation type="Item Numbers" value="Show Position Numbers" code="TDS_ItmNumPos" segment="0"/>
+		<Accommodation type="Line Reader" value="Line Reader Off" code="TDS_LR0" segment="0"/>
+		<Accommodation type="Masking" value="Masking Available" code="TDS_Masking1" segment="0"/>
+		<Accommodation type="Mark for Review" value="True" code="TDS_MfR1" segment="0"/>
+		<Accommodation type="Mute System Volume" value="Not Muted" code="TDS_Mute0" segment="0"/>
+		<Accommodation type="Navigation Dropdown" value="Show Question Numbers" code="TDS_NavQu" segment="0"/>
+		<Accommodation type="Paginate Item Groups" value="Off" code="TDS_PIG0" segment="0"/>
+		<Accommodation type="Permissive Mode" value="Permissive Mode Disabled" code="TDS_PM0" segment="0"/>
+		<Accommodation type="Print on Request" value="None" code="TDS_PoD0" segment="0"/>
+		<Accommodation type="Protractor" value="Protractor On" code="TDS_Protractor1" segment="0"/>
+		<Accommodation type="Print Size" value="No default zoom applied" code="TDS_PS_L0" segment="0"/>
+		<Accommodation type="Periodic Table" value="None" code="TDS_PT0" segment="0"/>
+		<Accommodation type="Require Page Visit" value="False" code="TDS_RPV0" segment="0"/>
+		<Accommodation type="Ruler" value="Ruler Off" code="TDS_Ruler0" segment="0"/>
+		<Accommodation type="Student Comments" value="None" code="TDS_SC0" segment="0"/>
+		<Accommodation type="Suppress Score" value="Display score to student" code="TDS_SS0" segment="0"/>
+		<Accommodation type="Strikethrough" value="True" code="TDS_ST1" segment="0"/>
+		<Accommodation type="Straight Line" value="StraightLine Off" code="TDS_StraightLine0" segment="0"/>
+		<Accommodation type="System Volume Control" value="OFF" code="TDS_SVC0" segment="0"/>
+		<Accommodation type="Tutorial" value="False" code="TDS_T0" segment="0"/>
+		<Accommodation type="Thesaurus" value="Off" code="TDS_TH0" segment="0"/>
+		<Accommodation type="Thesaurus Options" value="None" code="TDS_TO_None" segment="0"/>
+		<Accommodation type="Test Progress Indicator" value="Show indicator as a fraction and adjust to test length" code="TDS_TPI_ResponsesFix" segment="0"/>
+		<Accommodation type="Test Shell" value="Standard Test Shell" code="TDS_TS_Modern" segment="0"/>
+		<Accommodation type="TTS" value="None" code="TDS_TTS0" segment="0"/>
+		<Accommodation type="TTS Audio Adjustments" value="TTS Audio Adjustments Off" code="TDS_TTSAA0" segment="0"/>
+		<Accommodation type="TTS Pausing" value="TTS Pausing Off" code="TDS_TTSPause0" segment="0"/>
+		<Accommodation type="TTS Tracking" value="Tracking Off" code="TDS_TTSTracking0" segment="0"/>
+		<Accommodation type="TTX Business Rules" value="Read As-Is" code="TDS_TTX_0" segment="0"/>
+		<Accommodation type="Word List" value="No Word List Available" code="TDS_WL0" segment="0"/>
+		<Item position="9" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1899" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:11:02.678" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="9" pageVisits="2" pageTime="19173" dropped="1">
+			<Response date="2014-08-05T18:12:02.322"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>5</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="3" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1915" operational="1" isSelected="1" format="MI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:07:57.149" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="3" pageVisits="1" pageTime="42086" dropped="1">
+			<Response date="2014-08-05T18:10:15.016"><![CDATA[ <itemResponse><response id="RESPONSE"><value>1 b</value><value>2 b</value><value>3 a</value></response></itemResponse> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score mi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="2" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1918" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:07:56.958" numberVisits="2" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="2" pageVisits="2" pageTime="9679" dropped="1">
+			<Response date="2014-08-05T18:09:32.991"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>1</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="8" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1926" operational="1" isSelected="1" format="MS" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:10:58.138" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="8" pageVisits="1" pageTime="31621" dropped="1">
+			<Response date="2014-08-05T18:11:53.627">B,D</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  B,D|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="5" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1929" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:09:33.259" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="5" pageVisits="1" pageTime="23020" dropped="1">
+			<Response date="2014-08-05T18:10:58.016"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mfrac>
+      <mn>5</mn>
+      <mn>3</mn>
+    </mfrac>
+  </mstyle>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mrow class="MJX-TeXAtom-ORD">
+      <mo>&#x2212;<!-- − --></mo>
+      <mfrac>
+        <mn>5</mn>
+        <mn>3</mn>
+      </mfrac>
+    </mrow>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="4" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1932" operational="1" isSelected="1" format="GI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:09:01.264" numberVisits="1" mimeType="text/xml" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="4" pageVisits="1" pageTime="19575" dropped="1">
+			<Response date="2014-08-05T18:10:34.873"><![CDATA[ <?xml version="1.0" encoding="UTF-8"?>
+<!-- MACHINE GENERATED 8/5/14  18:10 PM. DO NOT EDIT -->
+<!DOCTYPE AnswerSet [
+<!ELEMENT AnswerSet (Question+)>
+<!ELEMENT AtomicObject (#PCDATA)>
+<!ELEMENT EdgeVector (#PCDATA)>
+<!ELEMENT GridImageTestPoints (TestPoint*)>
+<!ELEMENT LabelList (#PCDATA)>
+<!ELEMENT Object (PointVector,EdgeVector,LabelList,ValueList)>
+<!ELEMENT ObjectSet (Object,AtomicObject+)>
+<!ELEMENT PointVector (#PCDATA)>
+<!ELEMENT Question (QuestionPart)>
+<!ATTLIST Question id NMTOKEN #REQUIRED>
+<!ELEMENT QuestionPart (LabelList,GridImageTestPoints,ObjectSet)>
+<!ATTLIST QuestionPart id NMTOKEN #REQUIRED>
+<!ELEMENT TestPoint (#PCDATA)>
+<!ELEMENT ValueList (#PCDATA)>
+]>
+<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><RegionGroupObject name="group" numselected="2"><RegionObject name="a1" isselected="false"/><RegionObject name="a2" isselected="false"/><RegionObject name="a3" isselected="true"/><RegionObject name="a4" isselected="true"/><RegionObject name="a5" isselected="false"/></RegionGroupObject></ObjectSet><SnapPoint></SnapPoint></QuestionPart></Question></AnswerSet> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score gi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="7" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1948" operational="1" isSelected="1" format="GI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:10:35.008" numberVisits="1" mimeType="text/xml" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="7" pageVisits="1" pageTime="19424" dropped="1">
+			<Response date="2014-08-05T18:11:21.945"><![CDATA[ <?xml version="1.0" encoding="UTF-8"?>
+<!-- MACHINE GENERATED 8/5/14  18:11 PM. DO NOT EDIT -->
+<!DOCTYPE AnswerSet [
+<!ELEMENT AnswerSet (Question+)>
+<!ELEMENT AtomicObject (#PCDATA)>
+<!ELEMENT EdgeVector (#PCDATA)>
+<!ELEMENT GridImageTestPoints (TestPoint*)>
+<!ELEMENT LabelList (#PCDATA)>
+<!ELEMENT Object (PointVector,EdgeVector,LabelList,ValueList)>
+<!ELEMENT ObjectSet (Object,AtomicObject+)>
+<!ELEMENT PointVector (#PCDATA)>
+<!ELEMENT Question (QuestionPart)>
+<!ATTLIST Question id NMTOKEN #REQUIRED>
+<!ELEMENT QuestionPart (LabelList,GridImageTestPoints,ObjectSet)>
+<!ATTLIST QuestionPart id NMTOKEN #REQUIRED>
+<!ELEMENT TestPoint (#PCDATA)>
+<!ELEMENT ValueList (#PCDATA)>
+]>
+<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><Object><PointVector>{(237,227)}</PointVector><EdgeVector> {} </EdgeVector><LabelList> {} </LabelList><ValueList> {} </ValueList></Object></ObjectSet><SnapPoint></SnapPoint></QuestionPart></Question></AnswerSet> ]]></Response>
+			<ScoreInfo scorePoint="2" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score gi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="10" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1951" operational="1" isSelected="1" format="GI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:11:22.245" numberVisits="1" mimeType="text/xml" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="10" pageVisits="3" pageTime="62675" dropped="1">
+			<Response date="2014-08-05T18:13:02.601"><![CDATA[ <?xml version="1.0" encoding="UTF-8"?>
+<!-- MACHINE GENERATED 8/5/14  18:13 PM. DO NOT EDIT -->
+<!DOCTYPE AnswerSet [
+<!ELEMENT AnswerSet (Question+)>
+<!ELEMENT AtomicObject (#PCDATA)>
+<!ELEMENT EdgeVector (#PCDATA)>
+<!ELEMENT GridImageTestPoints (TestPoint*)>
+<!ELEMENT LabelList (#PCDATA)>
+<!ELEMENT Object (PointVector,EdgeVector,LabelList,ValueList)>
+<!ELEMENT ObjectSet (Object,AtomicObject+)>
+<!ELEMENT PointVector (#PCDATA)>
+<!ELEMENT Question (QuestionPart)>
+<!ATTLIST Question id NMTOKEN #REQUIRED>
+<!ELEMENT QuestionPart (LabelList,GridImageTestPoints,ObjectSet)>
+<!ATTLIST QuestionPart id NMTOKEN #REQUIRED>
+<!ELEMENT TestPoint (#PCDATA)>
+<!ELEMENT ValueList (#PCDATA)>
+]>
+<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><RegionGroupObject name="grpA" numselected="0"><RegionObject name="a1" isselected="false"/><RegionObject name="a2" isselected="false"/><RegionObject name="a3" isselected="false"/><RegionObject name="a4" isselected="false"/><RegionObject name="a5" isselected="false"/></RegionGroupObject><RegionGroupObject name="grpB" numselected="1"><RegionObject name="b1" isselected="false"/><RegionObject name="b2" isselected="false"/><RegionObject name="b3" isselected="false"/><RegionObject name="b4" isselected="false"/><RegionObject name="b5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpC" numselected="1"><RegionObject name="c1" isselected="false"/><RegionObject name="c2" isselected="false"/><RegionObject name="c3" isselected="false"/><RegionObject name="c4" isselected="false"/><RegionObject name="c5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpD" numselected="0"><RegionObject name="d1" isselected="false"/><RegionObject name="d2" isselected="false"/><RegionObject name="d3" isselected="false"/><RegionObject name="d4" isselected="false"/><RegionObject name="d5" isselected="false"/></RegionGroupObject><RegionGroupObject name="grpE" numselected="1"><RegionObject name="e1" isselected="false"/><RegionObject name="e2" isselected="false"/><RegionObject name="e3" isselected="false"/><RegionObject name="e4" isselected="false"/><RegionObject name="e5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpF" numselected="2"><RegionObject name="f1" isselected="false"/><RegionObject name="f2" isselected="false"/><RegionObject name="f3" isselected="false"/><RegionObject name="f4" isselected="true"/><RegionObject name="f5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpG" numselected="1"><RegionObject name="g1" isselected="false"/><RegionObject name="g2" isselected="false"/><RegionObject name="g3" isselected="false"/><RegionObject name="g4" isselected="false"/><RegionObject name="g5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpH" numselected="2"><RegionObject name="h1" isselected="false"/><RegionObject name="h2" isselected="false"/><RegionObject name="h3" isselected="false"/><RegionObject name="h4" isselected="true"/><RegionObject name="h5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpI" numselected="2"><RegionObject name="i1" isselected="false"/><RegionObject name="i2" isselected="false"/><RegionObject name="i3" isselected="false"/><RegionObject name="i4" isselected="true"/><RegionObject name="i5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpJ" numselected="4"><RegionObject name="j1" isselected="false"/><RegionObject name="j2" isselected="true"/><RegionObject name="j3" isselected="true"/><RegionObject name="j4" isselected="true"/><RegionObject name="j5" isselected="true"/></RegionGroupObject><RegionGroupObject name="grpk" numselected="1"><RegionObject name="k1" isselected="false"/><RegionObject name="k2" isselected="false"/><RegionObject name="k3" isselected="false"/><RegionObject name="k4" isselected="false"/><RegionObject name="k5" isselected="true"/></RegionGroupObject></ObjectSet><SnapPoint></SnapPoint></QuestionPart></Question></AnswerSet> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score gi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="1" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1969" operational="1" isSelected="1" format="GI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:07:56.483" numberVisits="1" mimeType="text/xml" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="1" pageVisits="2" pageTime="83870" dropped="1">
+			<Response date="2014-08-05T18:09:01.005"><![CDATA[ <?xml version="1.0" encoding="UTF-8"?>
+<!-- MACHINE GENERATED 8/5/14  18:9 PM. DO NOT EDIT -->
+<!DOCTYPE AnswerSet [
+<!ELEMENT AnswerSet (Question+)>
+<!ELEMENT AtomicObject (#PCDATA)>
+<!ELEMENT EdgeVector (#PCDATA)>
+<!ELEMENT GridImageTestPoints (TestPoint*)>
+<!ELEMENT LabelList (#PCDATA)>
+<!ELEMENT Object (PointVector,EdgeVector,LabelList,ValueList)>
+<!ELEMENT ObjectSet (Object,AtomicObject+)>
+<!ELEMENT PointVector (#PCDATA)>
+<!ELEMENT Question (QuestionPart)>
+<!ATTLIST Question id NMTOKEN #REQUIRED>
+<!ELEMENT QuestionPart (LabelList,GridImageTestPoints,ObjectSet)>
+<!ATTLIST QuestionPart id NMTOKEN #REQUIRED>
+<!ELEMENT TestPoint (#PCDATA)>
+<!ELEMENT ValueList (#PCDATA)>
+]>
+<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{curve(325,239)}</AtomicObject></ObjectSet><SnapPoint></SnapPoint></QuestionPart></Question></AnswerSet> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score gi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="6" segmentId="(SBAC_PT)SBAC-SEG1-MATH-11-Spring-2013-2015" bankKey="187" key="1997" operational="1" isSelected="1" format="MS" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:10:15.617" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="6" pageVisits="1" pageTime="4452" dropped="1">
+			<Response date="2014-08-05T18:11:02.506">A,B</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  D,E,F|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="20" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1922" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:21:48.015" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="20" pageVisits="1" pageTime="69530" dropped="1">
+			<Response date="2014-08-05T18:24:49.049"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>4</mn>
+    <mo>.</mo>
+    <mn>8</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="23" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1927" operational="1" isSelected="1" format="TI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:24:49.711" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="23" pageVisits="1" pageTime="38657" dropped="1">
+			<Response date="2014-08-05T18:32:06.263"><![CDATA[ <responseSpec><responseTable><tr><th id="col0"/><th id="col1"/></tr><tr><td/><td/></tr><tr><td/><td/></tr><tr><td/><td>0.12</td></tr><tr><td/><td/></tr><tr><td/><td/></tr><tr><td/><td/></tr><tr><td/><td/></tr><tr><td/><td>0.425</td></tr><tr><td/><td/></tr><tr><td/><td/></tr><tr><td/><td>0.0175</td></tr><tr><td/><td/></tr><tr><td/><td/></tr></responseTable></responseSpec> ]]></Response>
+			<ScoreInfo scorePoint="3" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score ti </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="12" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1930" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:12:02.049" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="12" pageVisits="1" pageTime="277838" dropped="1">
+			<Response date="2014-08-05T18:18:09.041"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>5</mn>
+    <mn>3</mn>
+    <mo>.</mo>
+    <mn>1</mn>
+    <mn>3</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="24" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1933" operational="1" isSelected="1" format="MC" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:25:05.059" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="24" pageVisits="1" pageTime="16955" dropped="1">
+			<Response date="2014-08-05T18:32:19.025">B</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  B|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="27" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1936" operational="1" isSelected="1" format="MI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:32:19.003" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="27" pageVisits="3" pageTime="82333" dropped="1">
+			<Response date="2014-08-05T18:35:08.212"><![CDATA[ <itemResponse><response id="RESPONSE"><value>1 a</value><value>2 b</value><value>3 b</value><value>4 a</value></response></itemResponse> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score mi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="11" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1947" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:11:54.084" numberVisits="2" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="11" pageVisits="2" pageTime="13839" dropped="1">
+			<Response date="2014-08-05T18:13:31.162"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mo>&#x2212;<!-- − --></mo>
+    <mn>4</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="15" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1950" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:18:09.279" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="15" pageVisits="1" pageTime="61190" dropped="1">
+			<Response date="2014-08-05T18:20:42.662"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>3</mn>
+    <mn>0</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="28" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1956" operational="1" isSelected="1" format="MC" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:33:34.692" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="28" pageVisits="3" pageTime="14186" dropped="1">
+			<Response date="2014-08-05T18:35:18.422">C</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  C|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="17" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1968" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:19:41.683" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="17" pageVisits="1" pageTime="34234" dropped="1">
+			<Response date="2014-08-05T18:21:47.847"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mrow class="MJX-TeXAtom-ORD">
+      <mn>6</mn>
+      <mn>4</mn>
+    </mrow>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="16" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1998" operational="1" isSelected="1" format="MC" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:18:32.481" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="16" pageVisits="1" pageTime="30852" dropped="1">
+			<Response date="2014-08-05T18:21:10.808">D</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  D|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="26" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="1999" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:32:06.426" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="26" pageVisits="2" pageTime="14475" dropped="1">
+			<Response date="2014-08-05T18:33:46.771"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>8</mn>
+  </mstyle>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mrow class="MJX-TeXAtom-ORD">
+      <mn>7</mn>
+    </mrow>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="19" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2005" operational="1" isSelected="1" format="MC" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:21:10.934" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="19" pageVisits="1" pageTime="52827" dropped="1">
+			<Response date="2014-08-05T18:23:33.805">D</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  D|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="29" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2006" operational="1" isSelected="1" format="MS" score="0" scoreStatus="SCORED" adminDate="2014-08-05T18:33:46.942" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="29" pageVisits="2" pageTime="21674" dropped="1">
+			<Response date="2014-08-05T18:35:33.126">A,B,C,D,E,F</Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="Scored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  B,C,D,F|0 </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="25" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2008" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:31:27.644" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="25" pageVisits="1" pageTime="70919" dropped="1">
+			<Response date="2014-08-05T18:33:34.258"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>8</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="13" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2028" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:13:02.789" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="13" pageVisits="1" pageTime="22987" dropped="1">
+			<Response date="2014-08-05T18:18:32.059"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>5</mn>
+  </mstyle>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mrow class="MJX-TeXAtom-ORD">
+
+    </mrow>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="2" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="14" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2029" operational="1" isSelected="1" format="GI" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:13:31.314" numberVisits="1" mimeType="text/xml" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="14" pageVisits="1" pageTime="69310" dropped="1">
+			<Response date="2014-08-05T18:19:41.451"><![CDATA[ <?xml version="1.0" encoding="UTF-8"?>
+<!-- MACHINE GENERATED 8/5/14  18:19 PM. DO NOT EDIT -->
+<!DOCTYPE AnswerSet [
+<!ELEMENT AnswerSet (Question+)>
+<!ELEMENT AtomicObject (#PCDATA)>
+<!ELEMENT EdgeVector (#PCDATA)>
+<!ELEMENT GridImageTestPoints (TestPoint*)>
+<!ELEMENT LabelList (#PCDATA)>
+<!ELEMENT Object (PointVector,EdgeVector,LabelList,ValueList)>
+<!ELEMENT ObjectSet (Object,AtomicObject+)>
+<!ELEMENT PointVector (#PCDATA)>
+<!ELEMENT Question (QuestionPart)>
+<!ATTLIST Question id NMTOKEN #REQUIRED>
+<!ELEMENT QuestionPart (LabelList,GridImageTestPoints,ObjectSet)>
+<!ATTLIST QuestionPart id NMTOKEN #REQUIRED>
+<!ELEMENT TestPoint (#PCDATA)>
+<!ELEMENT ValueList (#PCDATA)>
+]>
+<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{2(105,378)}</AtomicObject><AtomicObject>{1(125,141)}</AtomicObject><AtomicObject>{1(168,93)}</AtomicObject><AtomicObject>{2(375,139)}</AtomicObject><AtomicObject>{8(419,93)}</AtomicObject><RegionGroupObject name="PartB" numselected="0"><RegionObject name="True" isselected="false"/><RegionObject name="False" isselected="false"/><RegionObject name="CBD" isselected="false"/></RegionGroupObject></ObjectSet><SnapPoint>30@125,269;168,317;403,317;186,317;433,317;419,317;375,271;151,317</SnapPoint></QuestionPart></Question></AnswerSet> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score gi </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="22" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2032" operational="1" isSelected="1" format="EQ" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:23:34.244" numberVisits="1" mimeType="text/plain" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="22" pageVisits="1" pageTime="381930" dropped="1">
+			<Response date="2014-08-05T18:31:27.502"><![CDATA[ <response><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mstyle displaystyle="true">
+    <mn>2</mn>
+    <mn>0</mn>
+    <mn>4</mn>
+  </mstyle>
+</math></response> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score eq </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="18" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2055" operational="1" isSelected="1" format="SA" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:20:42.973" numberVisits="1" mimeType="text/html" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="18" pageVisits="1" pageTime="59066" dropped="1">
+			<Response date="2014-08-05T18:22:47.037"><![CDATA[ <p>sigma is less</p> ]]></Response>
+			<ScoreInfo scorePoint="2" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score sa </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+		<Item position="21" segmentId="(SBAC_PT)SBAC-SEG2-MATH-11-Spring-2013-2015" bankKey="187" key="2065" operational="1" isSelected="1" format="SA" score="-1" scoreStatus="NOTSCORED" adminDate="2014-08-05T18:22:47.156" numberVisits="1" mimeType="text/html" clientId="" strand="MA-Undesignated" contentLevel="MA-Undesignated" pageNumber="21" pageVisits="1" pageTime="15921" dropped="1">
+			<Response date="2014-08-05T18:25:05.474"><![CDATA[ <p>No</p> ]]></Response>
+			<ScoreInfo scorePoint="1" maxScore="-1" scoreDimension="null" scoreStatus="NotScored" confLevel="">
+				<ScoreRationale>
+					<Message>
+  TDS does not score sa </Message>
+				</ScoreRationale>
+			</ScoreInfo>
+		</Item>
+	</Opportunity>
+	<Comment context="GlobalNotes" itemPosition="" date="2014-08-05T18:08:57.139"><![CDATA[Comment 1]]></Comment>
+	<Comment context="GlobalNotes" itemPosition="" date="2014-08-05T18:10:01.465"><![CDATA[Comment 1
+Comment 2]]></Comment>
+	<Comment context="GlobalNotes" itemPosition="" date="2014-08-05T18:11:19.408"><![CDATA[Comment 1
+Comment 2
+Comment 6]]></Comment>
+  <ToolUsage type="Highlight" code="TDS_Highlight1">
+    <ToolPage page="2" groupId="I-200-22489" count="1" />
+  </ToolUsage>
+</TDSReport>
