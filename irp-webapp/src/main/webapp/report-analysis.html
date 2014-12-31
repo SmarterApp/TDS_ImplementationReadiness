@@ -124,42 +124,42 @@
                 <template repeat="{{category in response.testPropertyCategories}}">
                 <tr>
                     <td>Test Properties: {{category.tdsFieldName}}</td>
-                    <td></td>
+                    <td>{{category.tdsFieldExpectedValue}}</td>
                     <td>{{category.tdsFieldNameValue}}</td>
                     <td>{{category.fieldCheckType | status}}</td>
                     <td>{{category.fieldCheckType | explanation}}</td>
                 </tr>
                 </template>
 
-                <template repeat="{{category in response.examineeAttributeCategories}}">
-                    <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
-                        <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
-                        <td></td>
-                        <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{cell.fieldCheckType | status}}</td>
-                        <td>{{cell.fieldCheckType | explanation}}</td>
-                    </tr>
-                    </template>
-                </template>
+                <!--<template repeat="{{category in response.examineeAttributeCategories}}">-->
+                    <!--<template repeat="{{cell in category.cellCategories}}">-->
+                    <!--<tr>-->
+                        <!--<td>ExamineeAttribute: {{cell.tdsFieldName}}</td>-->
+                        <!--<td>{{cell.tdsFieldExpectedValue}}</td>-->
+                        <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+                        <!--<td>{{cell.fieldCheckType | status}}</td>-->
+                        <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+                    <!--</tr>-->
+                    <!--</template>-->
+                <!--</template>-->
 
-                <template repeat="{{category in response.examineeRelationshipCategories}}">
-                    <template repeat="{{cell in category.cellCategories}}">
-                        <tr>
-                            <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
-                            <td></td>
-                            <td>{{cell.tdsFieldNameValue}}</td>
-                            <td>{{cell.fieldCheckType | status}}</td>
-                            <td>{{cell.fieldCheckType | explanation}}</td>
-                        </tr>
-                    </template>
-                </template>
+                <!--<template repeat="{{category in response.examineeRelationshipCategories}}">-->
+                    <!--<template repeat="{{cell in category.cellCategories}}">-->
+                        <!--<tr>-->
+                            <!--<td>ExamineeRelationship: {{cell.tdsFieldName}}</td>-->
+                            <!--<td>{{cell.tdsFieldExpectedValue}}</td>-->
+                            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+                            <!--<td>{{cell.fieldCheckType | status}}</td>-->
+                            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+                        <!--</tr>-->
+                    <!--</template>-->
+                <!--</template>-->
 
                 <template bind="{{response.opportunityCategory as category}}">
                     <template repeat="{{cell in category.opportunityPropertyCategories}}">
                         <tr>
                             <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
-                            <td></td>
+                            <td>{{cell.tdsFieldExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
                             <td>{{cell.fieldCheckType | status}}</td>
                             <td>{{cell.fieldCheckType | explanation}}</td>
@@ -169,29 +169,29 @@
                         <template repeat="{{cell in segment.cellCategories}}">
                         <tr>
                             <td>Opportunity Segment: {{cell.tdsFieldName}}</td>
-                            <td></td>
+                            <td>{{cell.tdsFieldExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
                             <td>{{cell.fieldCheckType | status}}</td>
                             <td>{{cell.fieldCheckType | explanation}}</td>
                         </tr>
                         </template>
                     </template>
-                    <template repeat="{{accommodation in category.accommodationCategories}}">
-                        <template repeat="{{cell in accommodation.cellCategories}}">
-                            <tr>
-                                <td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>
-                                <td></td>
-                                <td>{{cell.tdsFieldNameValue}}</td>
-                                <td>{{cell.fieldCheckType | status}}</td>
-                                <td>{{cell.fieldCheckType | explanation}}</td>
-                            </tr>
-                        </template>
-                    </template>
+                    <!--<template repeat="{{accommodation in category.accommodationCategories}}">-->
+                        <!--<template repeat="{{cell in accommodation.cellCategories}}">-->
+                            <!--<tr>-->
+                                <!--<td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>-->
+                                <!--<td>{{cell.tdsFieldExpectedValue}}</td>-->
+                                <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+                                <!--<td>{{cell.fieldCheckType | status}}</td>-->
+                                <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+                            <!--</tr>-->
+                        <!--</template>-->
+                    <!--</template>-->
                     <template repeat="{{score in category.scoreCategories}}">
                         <template repeat="{{cell in score.cellCategories}}">
                             <tr>
                                 <td>Opportunity Score: {{cell.tdsFieldName}}</td>
-                                <td></td>
+                                <td>{{cell.tdsFieldExpectedValue}}</td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
                                 <td>{{cell.fieldCheckType | status}}</td>
                                 <td>{{cell.fieldCheckType | explanation}}</td>
@@ -202,7 +202,7 @@
                         <template repeat="{{cell in item.cellCategories}}">
                             <tr>
                                 <td>Opportunity Item: {{cell.tdsFieldName}}</td>
-                                <td></td>
+                                <td>{{cell.tdsFieldExpectedValue}}</td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
                                 <td>{{cell.fieldCheckType | status}}</td>
                                 <td>{{cell.fieldCheckType | explanation}}</td>

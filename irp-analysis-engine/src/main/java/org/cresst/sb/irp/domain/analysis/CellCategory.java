@@ -1,8 +1,11 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class CellCategory {
     private String tdsFieldName; //name, subject, testId, bankKey. . .
     private String tdsFieldNameValue;
+    private String tdsFieldExpectedValue;
     private FieldCheckType fieldCheckType;
 
     public String getTdsFieldName() {
@@ -21,6 +24,14 @@ public class CellCategory {
         this.tdsFieldNameValue = tdsFieldNameValue;
     }
 
+    public String getTdsFieldExpectedValue() {
+        return tdsFieldExpectedValue;
+    }
+
+    public void setTdsFieldExpectedValue(String tdsFieldExpectedValue) {
+        this.tdsFieldExpectedValue = tdsFieldExpectedValue;
+    }
+
     public FieldCheckType getFieldCheckType() {
         return fieldCheckType;
     }
@@ -31,8 +42,12 @@ public class CellCategory {
 
     @Override
     public String toString() {
-        return "CellCategory [tdsFieldName=" + tdsFieldName + ", tdsFieldNameValue=" + tdsFieldNameValue + ", fieldCheckType="
-                + fieldCheckType + "]";
+        return new ToStringBuilder(this)
+                .append("tdsFieldName", tdsFieldName)
+                .append("tdsFieldNameValue", tdsFieldNameValue)
+                .append("tdsFieldExpectedValue", tdsFieldExpectedValue)
+                .append("fieldCheckType", fieldCheckType)
+                .toString();
     }
 
     @Override
@@ -43,6 +58,8 @@ public class CellCategory {
         CellCategory that = (CellCategory) o;
 
         if (fieldCheckType != null ? !fieldCheckType.equals(that.fieldCheckType) : that.fieldCheckType != null)
+            return false;
+        if (tdsFieldExpectedValue != null ? !tdsFieldExpectedValue.equals(that.tdsFieldExpectedValue) : that.tdsFieldExpectedValue != null)
             return false;
         if (tdsFieldName != null ? !tdsFieldName.equals(that.tdsFieldName) : that.tdsFieldName != null) return false;
         if (tdsFieldNameValue != null ? !tdsFieldNameValue.equals(that.tdsFieldNameValue) : that.tdsFieldNameValue != null)
@@ -55,6 +72,7 @@ public class CellCategory {
     public int hashCode() {
         int result = tdsFieldName != null ? tdsFieldName.hashCode() : 0;
         result = 31 * result + (tdsFieldNameValue != null ? tdsFieldNameValue.hashCode() : 0);
+        result = 31 * result + (tdsFieldExpectedValue != null ? tdsFieldExpectedValue.hashCode() : 0);
         result = 31 * result + (fieldCheckType != null ? fieldCheckType.hashCode() : 0);
         return result;
     }
