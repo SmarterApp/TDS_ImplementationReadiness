@@ -8,7 +8,7 @@ public class AnalysisResponse {
 	private static Logger logger = Logger.getLogger(AnalysisResponse.class);
 
 	//each IndividualResponse represents each TDSReport xml file uploaded 
-	//and it includes all analysis results  
+	//and it includes all analyze results
 	private List<IndividualResponse> individualResponses;
 
 	public AnalysisResponse() {

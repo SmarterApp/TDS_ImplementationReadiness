@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang3.EnumUtils;
@@ -14,47 +13,39 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExamineeAttributeAnalysisAction extends AnalysisAction {
+public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName> {
 	private static Logger logger = Logger.getLogger(ExamineeAttributeAnalysisAction.class);
 
-	public enum EnumExamineeAttributeFieldName {
-		name, value, context, contextDate;
+	static public enum EnumExamineeAttributeFieldName {
+		name, value, context, contextDate
 	}
 
 	// added DOB - <ExamineeAttribute context="FINAL" name="DOB"
-	public enum EnumExamineeAttributeAcceptValues {
-		LastOrSurname, FirstName, MiddleName, Birthdate, DOB, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatino, Ethnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType;
+	static public enum EnumExamineeAttributeAcceptValues {
+		LastOrSurname, FirstName, MiddleName, Birthdate, DOB, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatino, Ethnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
 	}
 
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
-		try {
-			List<ExamineeAttributeCategory> listExamineeAttributeCategory = individualResponse.getExamineeAttributeCategories();
-			TDSReport tdsReport = individualResponse.getTDSReport();
+	public void analyze(IndividualResponse individualResponse) {
+		TDSReport tdsReport = individualResponse.getTDSReport();
+		Examinee examinee = tdsReport.getExaminee();
+		Student student = getStudent(examinee.getKey());
+		List<ExamineeAttribute> listExamineeAttribute = getExamineeAttributes(examinee);
 
-			ExamineeAttributeCategory examineeAttributeCategory;
-
-			Examinee examinee = tdsReport.getExaminee();
-			Student student = getStudent(examinee.getKey());
-			List<ExamineeAttribute> listExamineeAttribute = getExamineeAttributes(examinee);
-			if (listExamineeAttribute != null) {
-				for (ExamineeAttribute ex : listExamineeAttribute) {
-					examineeAttributeCategory = new ExamineeAttributeCategory();
-					listExamineeAttributeCategory.add(examineeAttributeCategory);
-					analysisEachExamineeAttribute(examineeAttributeCategory, ex, student);
-				}
+		if (listExamineeAttribute != null) {
+			for (ExamineeAttribute examineeAttribute : listExamineeAttribute) {
+				ExamineeAttributeCategory examineeAttributeCategory = new ExamineeAttributeCategory();
+				individualResponse.addExamineeAttributeCategory(examineeAttributeCategory);
+				analyzeExamineeAttribute(examineeAttributeCategory, examineeAttribute, student);
 			}
-		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
 		}
 	}
 
-	private void analysisEachExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
-			ExamineeAttribute examineeAttribute, Student student) {
+	private void analyzeExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
+										  ExamineeAttribute examineeAttribute, Student student) {
 		try {
 			List<CellCategory> listCellCategory = examineeAttributeCategory.getCellCategories();
 			CellCategory cellCategory;
@@ -99,7 +90,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction {
 					student);
 
 		} catch (Exception e) {
-			logger.error("analysisEachExamineeAttribute exception: ", e);
+			logger.error("analyzeExamineeAttribute exception: ", e);
 		}
 	}
 

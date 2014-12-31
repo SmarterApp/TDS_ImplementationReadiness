@@ -4,18 +4,13 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.analysis.ItemCategory;
-import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
-import org.cresst.sb.irp.domain.analysis.ResponseCategory;
+import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,16 +18,16 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(ItemResponseAnalysisAction.class);
 
 	public enum EnumItemResponseFieldName {
-		date, type, content;
+		date, type, content
 	}
 
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) throws IOException {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
-			Opportunity opportunity = getOpportunity(tdsReport);
+			List<Category> listItemCategory = opportunityCategory.getItemCategories();
+			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
 			for (Item i : listItem) {
@@ -41,7 +36,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+			logger.error("analyze exception: ", e);
 		}
 	}
 

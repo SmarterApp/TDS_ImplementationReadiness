@@ -28,11 +28,11 @@ public class TestAnalysisAction extends AnalysisAction {
 			"06", "07", "08", "09", "10", "11", "12", "13", "PS", "UG"); 
 	
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) throws IOException {
 		try {
 			List<CellCategory> listTestPropertyCategory = individualResponse.getTestPropertyCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			Test tdsTest = getTest(tdsReport);
+			Test tdsTest = tdsReport.getTest();
 
 			CellCategory testCategory;
 			FieldCheckType fieldCheckType;
@@ -128,7 +128,7 @@ public class TestAnalysisAction extends AnalysisAction {
 			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.assessmentVersion, fieldCheckType);
 
 		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+			logger.error("analyze exception: ", e);
 		}
 	}
 

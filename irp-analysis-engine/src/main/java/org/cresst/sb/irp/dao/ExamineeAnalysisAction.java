@@ -3,8 +3,6 @@ package org.cresst.sb.irp.dao;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.ItemResponseAnalysisAction.EnumItemResponseFieldName;
-import org.cresst.sb.irp.dao.OpportunityAnalysisAction.EnumOpportunityPropertyFieldName;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -12,63 +10,29 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExamineeAnalysisAction extends AnalysisAction {
+public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAnalysisAction.EnumExamineeFieldName> {
 	private static Logger logger = Logger.getLogger(ExamineeAnalysisAction.class);
 
-	public enum EnumExamineeFieldName {
-		key, isDemo;
+	static public enum EnumExamineeFieldName {
+		key, isDemo
 	}
 	
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
-		try {
-			TDSReport tdsReport = individualResponse.getTDSReport();
-			Examinee examinee = tdsReport.getExaminee();
-			ExamineeCategory examineeCategory = new ExamineeCategory();
-			individualResponse.setExamineeCategory(examineeCategory);
-			FieldCheckType fieldCheckType;
-			
-			examineeCategory.setKey(examinee.getKey());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			examineeCategory.setKeyFieldCheckType(fieldCheckType);
-			validateField(examinee, EnumFieldCheckType.P, EnumExamineeFieldName.key, fieldCheckType);
-			
-			examineeCategory.setIsDemo(Short.toString(examinee.getIsDemo()));
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
-			examineeCategory.setIsDemoFieldCheckType(fieldCheckType);
-			validateField(examinee, EnumFieldCheckType.D, EnumExamineeFieldName.isDemo, fieldCheckType);
-			
-		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
-		}
+	public void analyze(IndividualResponse individualResponse) throws IOException {
+		TDSReport tdsReport = individualResponse.getTDSReport();
+		Examinee examinee = tdsReport.getExaminee();
+		ExamineeCategory examineeCategory = new ExamineeCategory();
+		individualResponse.setExamineeCategory(examineeCategory);
+
+		validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.P, EnumExamineeFieldName.key);
+		validate(examineeCategory, examinee, examinee.getIsDemo(), EnumFieldCheckType.D, EnumExamineeFieldName.isDemo);
 	}
 
-	private void validateField(Examinee examinee, EnumFieldCheckType enumFieldCheckType, 
-			EnumExamineeFieldName enumFieldName,FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(examinee, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(examinee, enumFieldName, fieldCheckType);
-				checkC(examinee, enumFieldName, fieldCheckType);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
-		}
-	}
-
-	private void checkP(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType){
+	@Override
+	protected void checkP(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType){
 		try {
 			switch (enumFieldName) {
 			case key:
@@ -93,7 +57,8 @@ public class ExamineeAnalysisAction extends AnalysisAction {
 		}
 	}
 	
-	private void checkC(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType){
+	@Override
+	protected void checkC(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType){
 		try {
 			switch (enumFieldName) {
 			case key:

@@ -3,37 +3,18 @@ package org.cresst.sb.irp.domain.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import com.google.common.collect.ImmutableList;
 
-public class OpportunityCategory {
-	private static Logger logger = Logger.getLogger(OpportunityCategory.class);
-	
-	private List<CellCategory> opportunityPropertyCategories;
-	private List<SegmentCategory> segmentCategories;
-	private List<AccommodationCategory> accommodationCategories;
-	private List<ScoreCategory> scoreCategories;
-	private List<ItemCategory> itemCategories;
-	
-	
-	public OpportunityCategory() {
-		logger.info("initializing");
-		setOpportunityPropertyCategories(new ArrayList<CellCategory>());
-		setSegmentCategories(new ArrayList<SegmentCategory>());
-		setAccommodationCategories(new ArrayList<AccommodationCategory>());
-		setScoreCategories(new ArrayList<ScoreCategory>());
-		setItemCategories(new ArrayList<ItemCategory>());
-	}
+public class OpportunityCategory extends Category {
 
-	public List<CellCategory> getOpportunityPropertyCategories() {
-		return opportunityPropertyCategories;
-	}
-
-	public void setOpportunityPropertyCategories(List<CellCategory> opportunityPropertyCategories) {
-		this.opportunityPropertyCategories = opportunityPropertyCategories;
-	}
+	private List<CellCategory> opportunityPropertyCategories = new ArrayList<>();
+	private List<SegmentCategory> segmentCategories = new ArrayList<>();
+	private List<AccommodationCategory> accommodationCategories = new ArrayList<>();
+	private List<ScoreCategory> scoreCategories = new ArrayList<>();
+	private List<ItemCategory> itemCategories = new ArrayList<>();
 
 	public List<SegmentCategory> getSegmentCategories() {
-		return segmentCategories;
+		return ImmutableList.copyOf(segmentCategories);
 	}
 
 	public void setSegmentCategories(List<SegmentCategory> segmentCategories) {
@@ -41,7 +22,7 @@ public class OpportunityCategory {
 	}
 
 	public List<AccommodationCategory> getAccommodationCategories() {
-		return accommodationCategories;
+		return ImmutableList.copyOf(accommodationCategories);
 	}
 
 	public void setAccommodationCategories(List<AccommodationCategory> accommodationCategories) {
@@ -49,7 +30,7 @@ public class OpportunityCategory {
 	}
 
 	public List<ScoreCategory> getScoreCategories() {
-		return scoreCategories;
+		return ImmutableList.copyOf(scoreCategories);
 	}
 
 	public void setScoreCategories(List<ScoreCategory> scoreCategories) {
@@ -57,7 +38,7 @@ public class OpportunityCategory {
 	}
 
 	public List<ItemCategory> getItemCategories() {
-		return itemCategories;
+		return ImmutableList.copyOf(itemCategories);
 	}
 
 	public void setItemCategories(List<ItemCategory> itemCategories) {
@@ -70,7 +51,4 @@ public class OpportunityCategory {
 				+ segmentCategories + ", accommodationCategories=" + accommodationCategories + ", scoreCategories="
 				+ scoreCategories + ", itemCategories=" + itemCategories + "]";
 	}
-	
-	
-	
 }

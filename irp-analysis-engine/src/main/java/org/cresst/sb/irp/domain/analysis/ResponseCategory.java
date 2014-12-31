@@ -1,10 +1,8 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import org.apache.log4j.Logger;
 
 public class ResponseCategory {
-	private static Logger logger = Logger.getLogger(ResponseCategory.class);
-	
+
 	private String date;
 	private String type;
 	private String content;
@@ -12,10 +10,6 @@ public class ResponseCategory {
 	private FieldCheckType typeFieldCheckType;
 	private FieldCheckType contentFieldCheckType;
 	
-	public ResponseCategory() {
-		logger.info("initializing");
-	}
-
 	public String getDate() {
 		return date;
 	}
@@ -70,9 +64,4 @@ public class ResponseCategory {
 				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
 				+ contentFieldCheckType + "]";
 	}
-
-
-	
-	
-	
 }

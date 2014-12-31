@@ -1,20 +1,14 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
@@ -25,7 +19,7 @@ import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AnalysisAction {
+public abstract class AnalysisAction<T, E extends Enum> {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
 
 	@Autowired
@@ -40,32 +34,82 @@ public abstract class AnalysisAction {
 	@Autowired
 	public ItemService itemService;
 
-	abstract public void analysis(IndividualResponse individualResponse) throws IOException;
+	/**
+	 * Analyze the TDS Report
+	 * @param individualResponse Where the TDS Report is obtained and where the result is stored
+	 */
+	abstract public void analyze(IndividualResponse individualResponse);
 
-	public Test getTest(TDSReport tdsReport) {
-		Test test = null;
-		try {
-			test = tdsReport.getTest();
-			if (test != null) {
-				return test;
-			}
-		} catch (Exception e) {
-			logger.error("getTest exception: ", e);
-		}
-		return null;
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
+	 * and within acceptable values
+	 * @param checkObj Object with fields to check
+	 * @param enumFieldName Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	abstract protected void checkP(T checkObj, E enumFieldName, FieldCheckType fieldCheckType);
+
+	/**
+	 * Checks if the field has the correct value
+	 * @param checkObj Object with field to check
+	 * @param enumFieldName Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	abstract protected void checkC(T checkObj, E enumFieldName, FieldCheckType fieldCheckType, O comparisonData);
+
+	/**
+	 * Checks if the field has the correct value. The field may be compared to data found in comparisonData
+	 * @param checkObj Object with field to check
+	 * @param enumFieldName Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 * @param comparisonData Data to check the correctness of the field
+	 * @param <O> Can be any type that contains the data to verify field correctness
+	 */
+	protected <O> void checkC(T checkObj, E enumFieldName, FieldCheckType fieldCheckType, O comparisonData) { }
+
+	/**
+	 * Validates the checkObj's field
+	 * @param category The category to store the result
+	 * @param checkObj The object containing the field to check
+	 * @param value The value of the field that is being checked (it's simply converted to a String)
+	 * @param enumFieldCheckType Specifies the type of field check to perform
+	 * @param enumFieldName The name of the field being analyzed as Category specific Enum
+	 * @param <U> Since checkObj has many different types of values this generic parameter was introduced to account for the differences.
+	 */
+	protected <U> void validate(Category category, T checkObj, U value, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName) {
+		final FieldCheckType fieldCheckType = new FieldCheckType();
+		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
+
+		final CellCategory cellCategory = new CellCategory();
+		cellCategory.setTdsFieldName(enumFieldName.toString());
+		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
+		cellCategory.setFieldCheckType(fieldCheckType);
+
+		category.addCellCategory(cellCategory);
+
+		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType);
 	}
 
-	public Opportunity getOpportunity(TDSReport tdsReport) {
-		Opportunity opportunity = new Opportunity();
-		try {
-			opportunity = tdsReport.getOpportunity();
-			if (opportunity != null) {
-				return opportunity;
-			}
-		} catch (Exception e) {
-			logger.error("getOpportunity exception: ", e);
+	/**
+	 * Checks the field
+	 * @param checkObj The object containing the field to check
+	 * @param enumFieldCheckType Specifies the type of field check to perform
+	 * @param enumFieldName The name of the field being analyzed as Category specific Enum
+	 * @param fieldCheckType This is where the result is stored
+	 */
+	protected void checkField(T checkObj, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, FieldCheckType fieldCheckType) {
+
+		switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				checkP(checkObj, enumFieldName, fieldCheckType);
+				break;
+			case PC:
+				checkP(checkObj, enumFieldName, fieldCheckType);
+				checkC(checkObj, enumFieldName, fieldCheckType);
+				break;
 		}
-		return null;
 	}
 
 	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
@@ -81,29 +125,11 @@ public abstract class AnalysisAction {
 	}
 	
 	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
-		List<ExamineeAttribute> listExamineeAttribute = new ArrayList<ExamineeAttribute>();
-		try {
-			listExamineeAttribute = tdsReportService.getExamineeAttributes(examinee);
-			if (listExamineeAttribute != null) {
-				return listExamineeAttribute;
-			}
-		} catch (Exception e) {
-			logger.error("getExamineeAttributes exception: ", e);
-		}
-		return null;
+		return tdsReportService.getExamineeAttributes(examinee);
 	}
 
 	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee) {
-		List<ExamineeRelationship> listExamineeRelationship = new ArrayList<ExamineeRelationship>();
-		try {
-			listExamineeRelationship = tdsReportService.getExamineeRelationships(examinee);
-			if (listExamineeRelationship != null) {
-				return listExamineeRelationship;
-			}
-		} catch (Exception e) {
-			logger.error("getExamineeRelationships exception: ", e);
-		}
-		return null;
+		return tdsReportService.getExamineeRelationships(examinee);
 	}
 
 	public Student getStudent(Long key) {
@@ -123,73 +149,6 @@ public abstract class AnalysisAction {
 		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
 	}
 
-	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitem(
-			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem, String attid) {
-		return itemService.getItemAttribFromIRPitem(irpItem, attid);
-	}
-
-	private int sign(long i) {
-		if (i == 0)
-			return 0;
-		if (i >> 63 != 0)
-			return -1;
-		return +1;
-	}
-
-	public int getNumberOfBits(int N) {
-		int bits = 0;
-		while (Math.pow(2, bits) <= N) {
-			bits++;
-		}
-		return bits;
-	}
-
-	public boolean isFloat(String str) {
-		try {
-			Float.parseFloat(str);
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
-		}
-	}
-
-	public boolean isItemFormatByValue(List<CellCategory> listItemAttribute, String value) {
-		boolean bln = false;
-		try {
-			for (CellCategory c : listItemAttribute) {
-				if (c.getTdsFieldName().equals("format") && c.getTdsFieldNameValue().equals(value)) {
-					bln = true;
-				}
-			}
-		} catch (Exception e) {
-			logger.error("isItemFormatByValue exception: ", e);
-		}
-		return bln;
-	}
-
-	public String getItemBankKeyKeyFromItemAttribute(List<CellCategory> listItemAttribute) {
-		String str = "";
-		try {
-			for (CellCategory c : listItemAttribute) {
-				if (c.getTdsFieldName().equals("bankKey") || c.getTdsFieldName().equals("key")) {
-					str = str.concat(c.getTdsFieldNameValue()).concat("-");
-				}
-			}
-			if (str.endsWith("-"))
-				str = str.substring(0, str.length() - 1);
-		} catch (Exception e) {
-			logger.error("validateToken exception: ", e);
-		}
-		return str;
-	}
-
-	public void setAllCorrectFieldCheckType(FieldCheckType fieldCheckType) {
-		fieldCheckType.setCorrectDataType(true);
-		fieldCheckType.setFieldEmpty(false);
-		fieldCheckType.setAcceptableValue(true);
-		fieldCheckType.setCorrectValue(true);
-	}
-
 	public void setPcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);
 		fieldCheckType.setFieldEmpty(false);
@@ -201,122 +160,103 @@ public abstract class AnalysisAction {
 	}
 
 	public void processP(String str, FieldCheckType fieldCheckType, boolean required) {
-		if ((!required) || (str != null && str.length() > 0)) {
+		if (!required || StringUtils.isNotEmpty(str)) {
 			setPcorrect(fieldCheckType);
 		}
 	}
 
 	public boolean isCorrectValue(String v1, String v2) {
-		if (v1.trim().toLowerCase().equals(v2.trim().toLowerCase()))
-			return true;
-		else
-			return false;
+		return v1.trim().toLowerCase().equals(v2.trim().toLowerCase());
 	}
 
 	public void processP_Positive32bit(String inputValue, FieldCheckType fieldCheckType) {
 		try {
-			int num = getNumberOfBits(Integer.parseInt(inputValue));
-			if (num > 0 && num <= 32) {
+			int num = Integer.parseInt(inputValue);
+			if (num > 0) {
 				setPcorrect(fieldCheckType);
 			}
-		} catch (Exception e) {
-			logger.error("processP_Positive32bit exception: ", e);
+		} catch (NumberFormatException e) {
+			logger.info("Number not an integer: " + inputValue);
 		}
 	}
 	
 	public void processP_Positive64bit(Long inputValue, FieldCheckType fieldCheckType) {
-		try {
-			long num = sign(inputValue);
-			if (num > 0) {
-				setPcorrect(fieldCheckType);
-			}
-		} catch (Exception e) {
-			logger.error("processP_Positive64bit exception: ", e);
+		if (inputValue > 0) {
+			setPcorrect(fieldCheckType);
 		}
 	}
 	
-	public void processP_PritableASCIIone(String inputValue, FieldCheckType fieldCheckType){
+	public void processP_PritableASCIIone(String inputValue, FieldCheckType fieldCheckType) {
 		if (inputValue.length() > 0 && StringUtils.isAsciiPrintable(inputValue)){
 			setPcorrect(fieldCheckType);
 		}
 	}
 	
-	public void processP_PritableASCIIzero(String inputValue, FieldCheckType fieldCheckType){
+	public void processP_PritableASCIIzero(String inputValue, FieldCheckType fieldCheckType) {
 		if (inputValue != null && StringUtils.isAsciiPrintable(inputValue)){
 			setPcorrect(fieldCheckType);
 		}
 	}
 	
 	
-	public void processP_AcceptValue(int inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue){
+	public void processP_AcceptValue(int inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue) {
 		if (inputValue == firstValue || inputValue == secondValue) {
 			setPcorrect(fieldCheckType);
 		}
 	}
 	
-	public void processP_Year(Long year, FieldCheckType fieldCheckType){
-		if (year != null){
-			if (1900 <= year && year <=9999){
-				setPcorrect(fieldCheckType);
-			}
+	public void processP_Year(Long year, FieldCheckType fieldCheckType) {
+		if (year != null && isValidYear(year)) {
+			setPcorrect(fieldCheckType);
 		}
 	}
 	
-	public boolean isValidYear(Long year)
-	{
-		if (1900 <= year && year <=9999)
-			return true;
-		else
-			return false;
+	public boolean isValidYear(Long year) {
+		return 1900 <= year && year <= 9999;
 	}
 	
-	public boolean isValidMonth(Long month)
-	{
-		if (01 <= month && month <=12)
-			return true;
-		else
-			return false;
+	public boolean isValidMonth(Long month) {
+		return 1 <= month && month <= 12;
 	}
 	
-	public boolean isValidDate(Long date)
-	{
-		if (0 < date && date <=31)
-			return true;
-		else
-			return false;
+	public boolean isValidDate(Long date) {
+		return 0 < date && date <= 31;
 	}
 	
 	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
 		try {
-			if (isFloat(inputValue)) {
-				float fValue = Float.parseFloat(inputValue);
-				if (fValue >= 0 || fValue == allowedValue) {
-					setPcorrect(fieldCheckType);
-				}
+			float fValue = Float.parseFloat(inputValue);
+			if (fValue >= 0 || fValue == allowedValue) {
+				setPcorrect(fieldCheckType);
 			}
-		} catch (Exception e) {
-			logger.error("validateUnsignedFloat exception: ", e);
+		} catch (NumberFormatException e) {
+			logger.info("Not a float: " + inputValue);
 		}
 	}
 	
-	
-	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues){
+	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues) {
 		if (value.length() > 0){
 			for(String listItem: listGradeAcceptValues){
-				if (listItem.equals(value))
+				if (listItem.equals(value)) {
 					fieldCheckType.setCorrectValue(true);
+				}
 			}
 		}
 	}
 	
-	public void processDate(String date, FieldCheckType fieldCheckType){ // effectiveDate="2014-07-07"
+	public void processDate(String date, FieldCheckType fieldCheckType) { // effectiveDate="2014-07-07"
 		String[] array = date.split("-");
 		if (array.length == 3){
-			boolean blnYear = isValidYear(Long.parseLong(array[0]));
-			boolean blnMonth = isValidMonth(Long.parseLong(array[1]));
-			boolean blnDate = isValidDate(Long.parseLong(array[2]));
-			if (blnYear && blnMonth && blnDate)
-				setPcorrect(fieldCheckType);
+			try {
+				boolean blnYear = isValidYear(Long.parseLong(array[0]));
+				boolean blnMonth = isValidMonth(Long.parseLong(array[1]));
+				boolean blnDate = isValidDate(Long.parseLong(array[2]));
+				if (blnYear && blnMonth && blnDate) {
+					setPcorrect(fieldCheckType);
+				}
+			} catch (NumberFormatException e) {
+				logger.info("Could not parse date: " + date);
+			}
 		}
 	}
 

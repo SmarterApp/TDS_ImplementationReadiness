@@ -21,18 +21,18 @@ public class SegmentAnalysisAction extends AnalysisAction {
 	private static Logger logger = Logger.getLogger(SegmentAnalysisAction.class);
 
 	public enum EnumSegmentFieldName {
-		id, position, formId, formKey, algorithm, algorithmVersion;
+		id, position, formId, formKey, algorithm, algorithmVersion
 	}
 	
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) throws IOException {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<SegmentCategory> listSegmentCategory = opportunityCategory.getSegmentCategories();
 
 			SegmentCategory segmentCategory;
-			Opportunity opportunity = getOpportunity(tdsReport);
+			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Segment> listSegment = opportunity.getSegment();
 			for (Segment s : listSegment) {
 				segmentCategory = new SegmentCategory();
@@ -40,7 +40,7 @@ public class SegmentAnalysisAction extends AnalysisAction {
 				analysisEachSegment(segmentCategory, s);
 			}
 		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+			logger.error("analyze exception: ", e);
 		}
 	}
 	

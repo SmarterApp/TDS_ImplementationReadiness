@@ -1,16 +1,10 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class ItemCategory {
-
-	private List<CellCategory> cellCategories = new ArrayList<>();
+public class ItemCategory extends Category {
 
 	private ResponseCategory responseCategory;
 	private ScoreInfoCategory scoreInfoCategory; 
@@ -18,14 +12,6 @@ public class ItemCategory {
 	private String itemBankKeyKey;
 	private org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem;
 	private Itemrelease.Item.Attriblist attriblist;
-
-	public ImmutableList<CellCategory> getCellCategories() {
-		return ImmutableList.copyOf(cellCategories);
-	}
-
-	public void addCellCategory(CellCategory cellCategory) {
-		cellCategories.add(cellCategory);
-	}
 
 	public ResponseCategory getResponseCategory() {
 		return responseCategory;
@@ -66,7 +52,6 @@ public class ItemCategory {
 	public void setAttriblist(Itemrelease.Item.Attriblist attriblist) {
 		this.attriblist = attriblist;
 	}
-
 
 	@Override
 	public String toString() {

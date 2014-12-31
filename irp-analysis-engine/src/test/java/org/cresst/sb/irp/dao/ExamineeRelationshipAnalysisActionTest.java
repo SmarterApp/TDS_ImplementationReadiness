@@ -52,7 +52,7 @@ public class ExamineeRelationshipAnalysisActionTest {
         when(tdsReportService.getExamineeRelationships(individualResponse.getTDSReport().getExaminee())).thenReturn(generateExamineeRelationships());
 
         // Act
-        underTest.analysis(individualResponse);
+        underTest.analyze(individualResponse);
 
         // Assert
         CellCategory expectedCellCategory = generateExpectedCellCategory();

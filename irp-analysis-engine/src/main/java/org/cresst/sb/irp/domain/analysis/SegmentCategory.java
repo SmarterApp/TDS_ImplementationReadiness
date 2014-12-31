@@ -1,22 +1,16 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 public class SegmentCategory {
-	private static Logger logger = Logger.getLogger(SegmentCategory.class);
-	
-	private List<CellCategory> cellCategories;
-	
-	public SegmentCategory() {
-		logger.info("initializing");
-		setCellCategories(new ArrayList<CellCategory>());
-	}
+
+	private List<CellCategory> cellCategories = new ArrayList<>();
 
 	public List<CellCategory> getCellCategories() {
-		return cellCategories;
+		return ImmutableList.copyOf(cellCategories);
 	}
 
 	public void setCellCategories(List<CellCategory> cellCategories) {
@@ -27,5 +21,4 @@ public class SegmentCategory {
 	public String toString() {
 		return "SegmentCategory [cellCategories=" + cellCategories + "]";
 	}
-	
 }

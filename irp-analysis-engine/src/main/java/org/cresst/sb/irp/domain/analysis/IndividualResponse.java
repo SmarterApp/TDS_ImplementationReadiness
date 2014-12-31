@@ -3,33 +3,22 @@ package org.cresst.sb.irp.domain.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
 public class IndividualResponse {
-	private static Logger logger = Logger.getLogger(IndividualResponse.class);
 
 	private String fileName; // id
 	private boolean isValidXMLfile;
 	private TDSReport tdsReport; //
 	private String status; //No errors, Contains xx errors 
 
-	private List<CellCategory> testPropertyCategories;
+	private List<CellCategory> testPropertyCategories = new ArrayList<>();
 	private ExamineeCategory examineeCategory;
-	private List<ExamineeAttributeCategory> examineeAttributeCategories;
-	private List<ExamineeRelationshipCategory> examineeRelationshipCategories;
+	private List<ExamineeAttributeCategory> examineeAttributeCategories = new ArrayList<>();
+	private List<ExamineeRelationshipCategory> examineeRelationshipCategories = new ArrayList<>();
 	private OpportunityCategory opportunityCategory;
-	private List<CommentCategory> commentCategories;
-	private List<ToolUsageCategory> toolUsageCategories;
-	
-	public IndividualResponse() {
-		logger.info("initializing");
-		setTestPropertyCategories(new ArrayList<CellCategory>());
-		setExamineeAttributeCategories(new ArrayList<ExamineeAttributeCategory>());
-		setExamineeRelationshipCategories(new ArrayList<ExamineeRelationshipCategory>());
-		setCommentCategories(new ArrayList<CommentCategory>());
-		setToolUsageCategories(new ArrayList<ToolUsageCategory>());
-	}
+	private List<CommentCategory> commentCategories = new ArrayList<>();
+	private List<ToolUsageCategory> toolUsageCategories = new ArrayList<>();
 
 	public String getFileName() {
 		return fileName;
@@ -128,5 +117,9 @@ public class IndividualResponse {
 				+ ", examineeRelationshipCategories=" + examineeRelationshipCategories + ", opportunityCategory="
 				+ opportunityCategory + ", commentCategories=" + commentCategories + ", toolUsageCategories="
 				+ toolUsageCategories + "]";
+	}
+
+	public void addExamineeAttributeCategory(ExamineeAttributeCategory examineeAttributeCategory) {
+		examineeAttributeCategories.add(examineeAttributeCategory);
 	}
 }

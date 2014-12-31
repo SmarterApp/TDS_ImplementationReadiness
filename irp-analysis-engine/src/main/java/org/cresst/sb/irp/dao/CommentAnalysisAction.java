@@ -10,88 +10,38 @@ import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Comment;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommentAnalysisAction extends AnalysisAction {
+public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName> {
 	private static Logger logger = Logger.getLogger(CommentAnalysisAction.class);
 
-	public enum EnumCommentFieldName {
-		context, itemPosition, date, content;
+	static public enum EnumCommentFieldName {
+		context, itemPosition, date, content
 	}
 	
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
-		try {
-			TDSReport tdsReport = individualResponse.getTDSReport();
-			List<CommentCategory> listCommentCategory = individualResponse.getCommentCategories();
-			CommentCategory commentCategory;
-			List<Comment> listComment = tdsReport.getComment();
-			for(Comment c: listComment){
-				commentCategory = new CommentCategory();
-				listCommentCategory.add(commentCategory);
-				analysisComment(commentCategory, c);
-			}
-			
-		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+	public void analyze(IndividualResponse individualResponse) throws IOException {
+		TDSReport tdsReport = individualResponse.getTDSReport();
+		List<CommentCategory> listCommentCategory = individualResponse.getCommentCategories();
+		CommentCategory commentCategory;
+		List<Comment> listComment = tdsReport.getComment();
+		for(Comment c: listComment){
+			commentCategory = new CommentCategory();
+			listCommentCategory.add(commentCategory);
+			analysisComment(commentCategory, c);
 		}
 	}
 	
 	private void analysisComment(CommentCategory commentCategory, Comment tdsComment){
-		try {
-			FieldCheckType fieldCheckType;
-			
-			commentCategory.setContext(tdsComment.getContext());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			commentCategory.setContextFieldCheckType(fieldCheckType);
-			validateField(tdsComment, EnumFieldCheckType.P, EnumCommentFieldName.context, fieldCheckType);
-			
-			commentCategory.setItemPosition(tdsComment.getItemPosition());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			commentCategory.setItemPositionFieldCheckType(fieldCheckType);
-			validateField(tdsComment, EnumFieldCheckType.P, EnumCommentFieldName.itemPosition, fieldCheckType);
-			
-			commentCategory.setDate(tdsComment.getDate().toString());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			commentCategory.setDateFieldCheckType(fieldCheckType);
-			validateField(tdsComment, EnumFieldCheckType.P, EnumCommentFieldName.date, fieldCheckType);
-			
-			commentCategory.setContent(tdsComment.getContent());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			commentCategory.setContentFieldCheckType(fieldCheckType);
-			validateField(tdsComment, EnumFieldCheckType.P, EnumCommentFieldName.content, fieldCheckType);
-			
-		} catch (Exception e) {
-			logger.error("analysisComment exception: ", e);
-		}
+		validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.P, EnumCommentFieldName.context);
+		validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.P, EnumCommentFieldName.itemPosition);
+		validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.P, EnumCommentFieldName.date);
+		validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.P, EnumCommentFieldName.content);
 	}
-	
-	private void validateField(Comment tdsComment, EnumFieldCheckType enumFieldCheckType, EnumCommentFieldName enumFieldName,
-			FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(tdsComment, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(tdsComment, enumFieldName, fieldCheckType);
-				//checkC(tdsComment, enumFieldName, fieldCheckType);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
-		}
-	}
-	
-	private void checkP(Comment tdsComment, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+	@Override
+	protected void checkP(Comment tdsComment, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case context:
@@ -120,6 +70,17 @@ public class CommentAnalysisAction extends AnalysisAction {
 			logger.error("checkP exception: ", e);
 		}
 	}
-	
+
+	/**
+	 * Checks if the field has correct value
+	 *
+	 * @param checkObj       Object with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkC(Comment checkObj, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+	}
 
 }

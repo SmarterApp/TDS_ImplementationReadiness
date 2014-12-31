@@ -1,24 +1,18 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 public class ToolUsageCategory {
-	private static Logger logger = Logger.getLogger(ToolUsageCategory.class);
-	
+
 	private String type;
 	private String code;
 	private FieldCheckType typeFieldCheckType;
 	private FieldCheckType codeFieldCheckType;
 	
-	private List<ToolPageCategory> toolPageCategories;
-	
-	public ToolUsageCategory() {
-		logger.info("initializing");
-		setToolPageCategories(new ArrayList<ToolPageCategory>()); 
-	}
+	private List<ToolPageCategory> toolPageCategories = new ArrayList<>();
 
 	public String getType() {
 		return type;
@@ -53,7 +47,7 @@ public class ToolUsageCategory {
 	}
 
 	public List<ToolPageCategory> getToolPageCategories() {
-		return toolPageCategories;
+		return ImmutableList.copyOf(toolPageCategories);
 	}
 
 	public void setToolPageCategories(List<ToolPageCategory> toolPageCategories) {
@@ -65,7 +59,4 @@ public class ToolUsageCategory {
 		return "ToolUsageCategory [type=" + type + ", code=" + code + ", typeFieldCheckType=" + typeFieldCheckType
 				+ ", codeFieldCheckType=" + codeFieldCheckType + ", toolPageCategories=" + toolPageCategories + "]";
 	}
-
-	
-	
 }

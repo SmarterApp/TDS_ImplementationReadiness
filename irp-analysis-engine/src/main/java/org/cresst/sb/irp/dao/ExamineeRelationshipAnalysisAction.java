@@ -30,7 +30,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 	}
 
 	@Override
-	public void analysis(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) throws IOException {
 		try {
 			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse
 					.getExamineeRelationshipCategories();
@@ -48,7 +48,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("analysis exception: ", e);
+			logger.error("analyze exception: ", e);
 		}
 	}
 

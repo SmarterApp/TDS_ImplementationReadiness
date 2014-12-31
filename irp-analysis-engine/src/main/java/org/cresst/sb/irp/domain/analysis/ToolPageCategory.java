@@ -1,10 +1,7 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import org.apache.log4j.Logger;
-
 public class ToolPageCategory {
-	private static Logger logger = Logger.getLogger(ToolPageCategory.class);
-	
+
 	private Long page;
 	private String groupId;
 	private Long count;
@@ -13,10 +10,6 @@ public class ToolPageCategory {
 	private FieldCheckType groupIdFieldCheckType;
 	private FieldCheckType countFieldCheckType;
 	
-	public ToolPageCategory() {
-		logger.info("initializing");
-	}
-
 	public Long getPage() {
 		return page;
 	}
@@ -71,8 +64,4 @@ public class ToolPageCategory {
 				+ pageFieldCheckType + ", groupIdFieldCheckType=" + groupIdFieldCheckType + ", countFieldCheckType="
 				+ countFieldCheckType + "]";
 	}
-
-
-	
-	
 }

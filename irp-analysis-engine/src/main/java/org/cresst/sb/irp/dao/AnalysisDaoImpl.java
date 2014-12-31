@@ -66,40 +66,38 @@ public class AnalysisDaoImpl implements AnalysisDao {
 	@Autowired
 	private Unmarshaller unmarshaller;
 
-	public AnalysisDaoImpl() {
-		logger.info("initializing");
-	}
-
 	@Override
 	public AnalysisResponse analysisProcess(Iterable<Path> tdsReportPaths) {
 		AnalysisResponse analysisResponse = new AnalysisResponse();
+
 		for (Path tmpPath : tdsReportPaths) {
 			IndividualResponse individualResponse = new IndividualResponse();
 			individualResponse.setFileName(tmpPath.getFileName().toString());
+
 			analysisResponse.addListIndividualResponse(individualResponse);
+
 			try {
 				if (xmlValidate.validateXMLSchema(TDSReportXSDResource, tmpPath.toString())) {
 					individualResponse.setValidXMLfile(true);
 					TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
 					individualResponse.setTDSReport(tdsReport);
 					
-					testAnalysisAction.analysis(individualResponse);
-					examineeAnalysisAction.analysis(individualResponse);
-					examineeAttributeAnalysisAction.analysis(individualResponse);
-					examineeRelationshipAnalysisAction.analysis(individualResponse);
-					opportunityAnalysisAction.analysis(individualResponse);
-					segmentAnalysisAction.analysis(individualResponse);
-					accommodationAnalysisAction.analysis(individualResponse);
-					itemAttributesAnalysisAction.analysis(individualResponse);
-					itemResponseAnalysisAction.analysis(individualResponse);
-					itemScoreInfoAnalysisAction.analysis(individualResponse);
-					commentAnalysisAction.analysis(individualResponse);
-					toolUsageAnalysisAction.analysis(individualResponse);
+					testAnalysisAction.analyze(individualResponse);
+					examineeAnalysisAction.analyze(individualResponse);
+					examineeAttributeAnalysisAction.analyze(individualResponse);
+					examineeRelationshipAnalysisAction.analyze(individualResponse);
+					opportunityAnalysisAction.analyze(individualResponse);
+					segmentAnalysisAction.analyze(individualResponse);
+					accommodationAnalysisAction.analyze(individualResponse);
+					itemAttributesAnalysisAction.analyze(individualResponse);
+					itemResponseAnalysisAction.analyze(individualResponse);
+					itemScoreInfoAnalysisAction.analyze(individualResponse);
+					commentAnalysisAction.analyze(individualResponse);
+					toolUsageAnalysisAction.analyze(individualResponse);
 				}
 			} catch (IOException e) {
 				logger.error("analysisProcess exception: ", e);
 			}
-
 		}
 		return analysisResponse;
 	}
