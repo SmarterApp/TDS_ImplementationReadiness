@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.StudentDao;
 import org.cresst.sb.irp.domain.student.Student;
+import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class StudentServiceImpl implements StudentService {
 	}*/
 	
 	@Override
-	public Student getStudentByStudentSSID(String studentSSID) {
+	public Student getStudentByStudentSSID(long studentSSID) throws NotFoundException {
 		return studentDao.getStudentByStudentSSID(studentSSID);
 	}
 

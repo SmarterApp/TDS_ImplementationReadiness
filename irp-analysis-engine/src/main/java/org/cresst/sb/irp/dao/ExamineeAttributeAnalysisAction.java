@@ -16,8 +16,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName> {
-	private static Logger logger = Logger.getLogger(ExamineeAttributeAnalysisAction.class);
+public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName, Student> {
+	private final Logger logger = Logger.getLogger(ExamineeAttributeAnalysisAction.class);
 
 	static public enum EnumExamineeAttributeFieldName {
 		name, value, context, contextDate
@@ -113,8 +113,15 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 		}
 	}
 
-	private void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName,
-			FieldCheckType fieldCheckType) {
+	/**
+	 * Checks the given ExamineeAttribute for appropriate field definitions
+	 *
+	 * @param examineeAttribute
+	 * @param enumFieldName Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case name:
@@ -146,8 +153,16 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 		}
 	}
 
-	private void checkC(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName,
-			FieldCheckType fieldCheckType, Student student) {
+	/**
+	 * Checks the correctness of the given ExamineeAttribute against the IRP Student
+	 *
+	 * @param examineeAttribute  ExamineeAttribute with fields to check
+	 * @param enumFieldName      Specifies the field to check
+	 * @param fieldCheckType     This is where the results are stored
+	 * @param student            Student that will be compared against ExamineeAttribute
+	 */
+	@Override
+	protected void checkC(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
 		try {
 			switch (enumFieldName) {
 			case name:
@@ -220,7 +235,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 						str = student.getLastOrSurname();
 					} else if (e.name().equals(fieldNameValue)
 							&& e.name().equals(EnumExamineeAttributeAcceptValues.StudentIdentifier.toString())) {
-						str = student.getSSID();
+						//str = student.getSSID();
 					} else if (e.name().equals(fieldNameValue)
 							&& e.name().equals(EnumExamineeAttributeAcceptValues.DOB.toString())) {
 						str = student.getBirthdate();

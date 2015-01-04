@@ -11,6 +11,7 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation;
@@ -18,7 +19,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName> {
+public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName, Student> {
 	private static Logger logger = Logger.getLogger(AccommodationAnalysisAction.class);
 
 	static public enum EnumAccommodationFieldName {
@@ -32,7 +33,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, A
 	}
 	
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		TDSReport tdsReport = individualResponse.getTDSReport();
 		OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 		List<AccommodationCategory> listAccommodationCategory = opportunityCategory.getAccommodationCategories();
@@ -48,10 +49,10 @@ public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, A
 	}
 
 	private void analysisEachAccommodation(AccommodationCategory accommodationCategory, Accommodation accommodation){
-		validate(accommodationCategory, accommodation, accommodation.getType(), EnumFieldCheckType.PC, EnumAccommodationFieldName.type);
-		validate(accommodationCategory, accommodation, accommodation.getValue(), EnumFieldCheckType.PC, EnumAccommodationFieldName.value);
-		validate(accommodationCategory, accommodation, accommodation.getCode(), EnumFieldCheckType.P, EnumAccommodationFieldName.code);
-		validate(accommodationCategory, accommodation, accommodation.getSegment(), EnumFieldCheckType.P, EnumAccommodationFieldName.segment);
+		validate(accommodationCategory, accommodation, accommodation.getType(), EnumFieldCheckType.PC, EnumAccommodationFieldName.type, null);
+		validate(accommodationCategory, accommodation, accommodation.getValue(), EnumFieldCheckType.PC, EnumAccommodationFieldName.value, null);
+		validate(accommodationCategory, accommodation, accommodation.getCode(), EnumFieldCheckType.P, EnumAccommodationFieldName.code, null);
+		validate(accommodationCategory, accommodation, accommodation.getSegment(), EnumFieldCheckType.P, EnumAccommodationFieldName.segment, null);
 	}
 
 	/**
@@ -98,12 +99,13 @@ public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, A
 	/**
 	 * Checks if the field has correct value
 	 *
-	 * @param checkObj       Object with fields to check
+	 * @param accommodation  TDS Accommodation with fields to check
 	 * @param enumFieldName  Specifies the field to check
 	 * @param fieldCheckType This is where the results are stored
+	 * @param student        Student accommodation to compare against TDS Accommodation
 	 */
 	@Override
-	protected void checkC(Accommodation checkObj, EnumAccommodationFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	protected void checkC(Accommodation accommodation, EnumAccommodationFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
 		// Need to get student accommodation file from AIR in order to checkC
 	}
 

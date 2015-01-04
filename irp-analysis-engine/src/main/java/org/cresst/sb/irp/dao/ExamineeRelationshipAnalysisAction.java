@@ -17,20 +17,20 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationshi
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
+public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName, Student> {
 	private static Logger logger = Logger.getLogger(ExamineeRelationshipAnalysisAction.class);
 
-	public enum EnumExamineeRelationshipFieldName {
+	static public enum EnumExamineeRelationshipFieldName {
 		name, value, context, contextDate, entityKey
 	}
 
 	// need to double check with the UPDATE document
-	public enum EnumExamineeRelationshipAcceptValues {
+	static public enum EnumExamineeRelationshipAcceptValues {
 		DistrictId, DistrictName, SchoolId, SchoolName, StateName, StudentGroupName, ResponsibleDistrictIdentifier, OrganizationName, ResponsibleInstitutionIdentifier, NameOfInstitution, StateAbbreviation
 	}
 
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			List<ExamineeRelationshipCategory> listExamineeRelationshipCategory = individualResponse
 					.getExamineeRelationshipCategories();
@@ -136,8 +136,15 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName,
-			FieldCheckType fieldCheckType) {
+	/**
+	 * Checks the given ExamineeRelationship's fields for appropriate values
+	 *
+	 * @param examineeRelationship  ExamineeRelationship with fields to check
+	 * @param enumFieldName 		Specifies the field to check
+	 * @param fieldCheckType 		This is where the results are stored
+	 */
+	@Override
+	protected void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case name:
@@ -172,6 +179,20 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction {
 			logger.error("checkP exception: ", e);
 		}
 	}
+
+	/**
+	 * Checks if the field has the correct value
+	 *
+	 * @param examineeRelationship  ExamineeRelationship with fields to check
+	 * @param enumFieldName  		Specifies the field to check
+	 * @param fieldCheckType 		This is where the results are stored
+	 * @param student				IRP Student that will be compared against the given ExamineeRelationship
+	 */
+	@Override
+	protected void checkC(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
+
+	}
+
 
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,
 			Class<EnumExamineeRelationshipAcceptValues> class1) {

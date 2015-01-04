@@ -13,7 +13,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Comment;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName> {
+public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName, Object> {
 	private static Logger logger = Logger.getLogger(CommentAnalysisAction.class);
 
 	static public enum EnumCommentFieldName {
@@ -21,7 +21,7 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
 	}
 	
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		TDSReport tdsReport = individualResponse.getTDSReport();
 		List<CommentCategory> listCommentCategory = individualResponse.getCommentCategories();
 		CommentCategory commentCategory;
@@ -34,10 +34,10 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
 	}
 	
 	private void analysisComment(CommentCategory commentCategory, Comment tdsComment){
-		validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.P, EnumCommentFieldName.context);
-		validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.P, EnumCommentFieldName.itemPosition);
-		validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.P, EnumCommentFieldName.date);
-		validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.P, EnumCommentFieldName.content);
+		validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.P, EnumCommentFieldName.context, null);
+		validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.P, EnumCommentFieldName.itemPosition, null);
+		validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.P, EnumCommentFieldName.date, null);
+		validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.P, EnumCommentFieldName.content, null);
 	}
 
 	@Override
@@ -72,15 +72,15 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
 	}
 
 	/**
-	 * Checks if the field has correct value
+	 * Noop for now
 	 *
 	 * @param checkObj       Object with fields to check
 	 * @param enumFieldName  Specifies the field to check
 	 * @param fieldCheckType This is where the results are stored
+	 * @param unused         Unused parameter
 	 */
 	@Override
-	protected void checkC(Comment checkObj, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType) {
-
+	protected void checkC(Comment checkObj, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
 	}
 
 }

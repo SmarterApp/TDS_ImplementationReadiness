@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,22 +12,21 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TestAnalysisAction extends AnalysisAction {
+public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.EnumTestFieldName, Testpackage> {
 	private static Logger logger = Logger.getLogger(TestAnalysisAction.class);
 
-	public enum EnumTestFieldName {
-		name, subject, testId, bankKey, contract, mode, grade, assessmentType, academicYear, assessmentVersion;
+	static public enum EnumTestFieldName {
+		name, subject, testId, bankKey, contract, mode, grade, assessmentType, academicYear, assessmentVersion
 	}
 
-	List<String> listGradeAcceptValues = Arrays.asList("IT", "PR", "PK", "TK", "KG", "01", "02", "03", "04", "05", 
+	final List<String> listGradeAcceptValues = Arrays.asList("IT", "PR", "PK", "TK", "KG", "01", "02", "03", "04", "05",
 			"06", "07", "08", "09", "10", "11", "12", "13", "PS", "UG"); 
 	
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			List<CellCategory> listTestPropertyCategory = individualResponse.getTestPropertyCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
@@ -142,8 +140,10 @@ public class TestAnalysisAction extends AnalysisAction {
 				checkP(tdsTest, enumFieldName, fieldCheckType);
 				break;
 			case PC:
+				String uniqueid = tdsTest.getName(); // String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015";
+				Testpackage testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 				checkP(tdsTest, enumFieldName, fieldCheckType);
-				checkC(tdsTest, enumFieldName, fieldCheckType);
+				checkC(tdsTest, enumFieldName, fieldCheckType, testPackage);
 				break;
 			}
 		} catch (Exception e) {
@@ -151,9 +151,16 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	// Field Check Type (P) --> check that field is not empty, and field value is of correct data type
-	// and within acceptable values
-	private void checkP(Test tdsTest, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
+	 * and within acceptable values
+	 *
+	 * @param tdsTest        Test with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkP(Test tdsTest, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case name:
@@ -211,22 +218,27 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	// Field Check Type (PC) --> check everything the same as (P) plus check if field value is correct
-	private void checkC(Test tdsTest, EnumTestFieldName enumTestFieldName, FieldCheckType fieldCheckType) {
-
+	/**
+	 * Checks if the Test field has the correct value
+	 *
+	 * @param tdsTest        Test with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 * @param testPackage	 IRP Testpackage to compare against the given Test
+	 */
+	@Override
+	protected void checkC(Test tdsTest, EnumTestFieldName enumFieldName, FieldCheckType fieldCheckType, Testpackage testPackage) {
 		try {
-			String uniqueid = tdsTest.getName(); // String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015";
-			Testpackage testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
-			if (testpackage != null) {
-				switch (enumTestFieldName) {
+			if (testPackage != null) {
+				switch (enumFieldName) {
 				case name:
 					setCcorrect(fieldCheckType);
 					break;
 				case subject:
-					processC_Subject(tdsTest, testpackage, fieldCheckType);
+					processC_Subject(tdsTest, testPackage, fieldCheckType);
 					break;
 				case testId:
-					processC_TestId(tdsTest, testpackage, fieldCheckType);
+					processC_TestId(tdsTest, testPackage, fieldCheckType);
 					break;
 				case bankKey:
 					break;
@@ -235,14 +247,14 @@ public class TestAnalysisAction extends AnalysisAction {
 				case mode:
 					break;
 				case grade:
-					processC_Grade(tdsTest, testpackage, fieldCheckType);
+					processC_Grade(tdsTest, testPackage, fieldCheckType);
 					break;
 				case assessmentType:
 					break;
 				case academicYear:	
 					break;	
 				case assessmentVersion:
-					processC_AssessmentVersion(tdsTest, testpackage, fieldCheckType);
+					processC_AssessmentVersion(tdsTest, testPackage, fieldCheckType);
 					break;
 				default:
 					break;

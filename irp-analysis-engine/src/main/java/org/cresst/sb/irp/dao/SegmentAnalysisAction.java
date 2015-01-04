@@ -17,15 +17,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SegmentAnalysisAction extends AnalysisAction {
+public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalysisAction.EnumSegmentFieldName, Object> {
 	private static Logger logger = Logger.getLogger(SegmentAnalysisAction.class);
 
-	public enum EnumSegmentFieldName {
+	static public enum EnumSegmentFieldName {
 		id, position, formId, formKey, algorithm, algorithmVersion
 	}
 	
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
@@ -43,7 +43,7 @@ public class SegmentAnalysisAction extends AnalysisAction {
 			logger.error("analyze exception: ", e);
 		}
 	}
-	
+
 	private void analysisEachSegment(SegmentCategory segmentCategory, Segment segment){
 		try {
 			List<CellCategory> listCellCategory = segmentCategory.getCellCategories();
@@ -128,45 +128,64 @@ public class SegmentAnalysisAction extends AnalysisAction {
 			logger.error("validateField exception: ", e);
 		}
 	}
-	
-	// Field Check Type (P) --> check that field is not empty, and field value is of correct data type
-	// and within acceptable values
-	private void checkP(Segment segment, EnumSegmentFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
+	 * and within acceptable values
+	 *
+	 * @param segment       Object with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkP(Segment segment, EnumSegmentFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
-			case id:
-				//	<xs:attribute name="id" use="required" />
-				processP_PritableASCIIone(segment.getId(), fieldCheckType);
-				break;
-			case position:
-				//	<xs:attribute name="position" use="required">
-				//<xs:simpleType>
-				//<xs:restriction base="xs:unsignedByte">
-				//	<xs:minInclusive value="1" />
-				//</xs:restriction>
-				//</xs:simpleType>
-				//</xs:attribute>
-				processP_Positive32bit(Short.toString(segment.getPosition()), fieldCheckType);
-				break;
-			case formKey:
-				break;
-			case formId:
-				break;
-			case algorithm:
-				//<xs:attribute name="algorithm" use="required" />
-				processP_PritableASCIIone(segment.getAlgorithm(), fieldCheckType);
-				break;
-			case algorithmVersion:
-				//   <xs:attribute name="algorithmVersion" />
-				processP_PritableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
-				break;
-			default:
-				break;
+				case id:
+					//	<xs:attribute name="id" use="required" />
+					processP_PritableASCIIone(segment.getId(), fieldCheckType);
+					break;
+				case position:
+					//	<xs:attribute name="position" use="required">
+					//<xs:simpleType>
+					//<xs:restriction base="xs:unsignedByte">
+					//	<xs:minInclusive value="1" />
+					//</xs:restriction>
+					//</xs:simpleType>
+					//</xs:attribute>
+					processP_Positive32bit(Short.toString(segment.getPosition()), fieldCheckType);
+					break;
+				case formKey:
+					break;
+				case formId:
+					break;
+				case algorithm:
+					//<xs:attribute name="algorithm" use="required" />
+					processP_PritableASCIIone(segment.getAlgorithm(), fieldCheckType);
+					break;
+				case algorithmVersion:
+					//   <xs:attribute name="algorithmVersion" />
+					processP_PritableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
+					break;
+				default:
+					break;
 			}
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
 	}
-	
+
+	/**
+	 * Noop for now
+	 *
+	 * @param segment        Object with field to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 * @param unused		 Unused parameter
+	 */
+	@Override
+	protected void checkC(Segment segment, EnumSegmentFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
+
+	}
 
 }

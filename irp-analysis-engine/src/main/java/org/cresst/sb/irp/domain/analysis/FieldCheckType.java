@@ -11,7 +11,7 @@ public class FieldCheckType {
 	private EnumFieldCheckType enumfieldCheckType;
 
 	public enum EnumFieldCheckType {
-		D, P, PC;
+		D, P, PC
 	}
 
 	public FieldCheckType(){

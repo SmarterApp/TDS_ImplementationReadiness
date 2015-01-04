@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.dao;
 
 import org.cresst.sb.irp.domain.student.Student;
+import org.cresst.sb.irp.exceptions.NotFoundException;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface StudentDao {
 	
 	//Student getStudentByStudentIdentifier(String studentIdentifier);
 	
-	Student getStudentByStudentSSID(String studentSSID);
+	Student getStudentByStudentSSID(long studentSSID) throws NotFoundException;
 	
 	void createStudent(Student student);
 

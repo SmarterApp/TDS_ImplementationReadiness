@@ -13,19 +13,19 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName> {
+public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Object> {
 	private static Logger logger = Logger.getLogger(ItemAttributesAnalysisAction.class);
 
 	static public enum EnumItemFieldName {
 		position, segmentId, bankKey, key, operational, isSelected, format, score, scoreStatus, adminDate, numberVisits, mimeType, clientId, strand, contentLevel, pageNumber, pageVisits, pageTime, dropped
 	}
 
-	public enum EnumFormatAcceptValues {
+	static public enum EnumFormatAcceptValues {
 		associateInteraction, choiceInteraction, customInteraction, drawingInteraction, endAttemptInteraction, extendedTextInteraction, gapMatchInteraction, graphicAssociateInteraction, graphicGapMatchInteraction, graphicOrderInteraction, hotspotInteraction, hottextInteraction, inlineChoiceInteraction, matchInteraction, mediaInteraction, orderInteraction, positionObjectInteraction, selectPointInteraction, sliderInteraction, textEntryInteraction, uploadInteraction, EBSR, EQ, ER, GI, HT, HTQ, MC, MI, MS, NL, SA, TI, TUT, WER, WORDLIST, Stimulus
 	}
 
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		TDSReport tdsReport = individualResponse.getTDSReport();
 		OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 
@@ -47,25 +47,25 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 * @param item The item to analyze
 	 */
 	private void analyzeItemAttributes(Category itemCategory, Item item) {
-		validate(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position);
-		validate(itemCategory, item, item.getSegmentId(), EnumFieldCheckType.P, EnumItemFieldName.segmentId);
-		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey);
-		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key);
-		validate(itemCategory, item, item.getClientId(), EnumFieldCheckType.D, EnumItemFieldName.clientId);
-		validate(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational);
-		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.PC, EnumItemFieldName.isSelected);
-		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format);
-		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score);
-		validate(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus);
-		validate(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate);
-		validate(itemCategory, item, item.getNumberVisits(), EnumFieldCheckType.P, EnumItemFieldName.numberVisits);
-		validate(itemCategory, item, item.getMimeType(), EnumFieldCheckType.P, EnumItemFieldName.mimeType);
-		validate(itemCategory, item, item.getStrand(), EnumFieldCheckType.P, EnumItemFieldName.strand);
-		validate(itemCategory, item, item.getContentLevel(), EnumFieldCheckType.P, EnumItemFieldName.contentLevel);
-		validate(itemCategory, item, item.getPageNumber(), EnumFieldCheckType.P, EnumItemFieldName.pageNumber);
-		validate(itemCategory, item, item.getPageVisits(), EnumFieldCheckType.P, EnumItemFieldName.pageVisits);
-		validate(itemCategory, item, item.getPageTime(), EnumFieldCheckType.P, EnumItemFieldName.pageTime);
-		validate(itemCategory, item, item.getDropped(), EnumFieldCheckType.P, EnumItemFieldName.dropped);
+		validate(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position, null);
+		validate(itemCategory, item, item.getSegmentId(), EnumFieldCheckType.P, EnumItemFieldName.segmentId, null);
+		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey, null);
+		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
+		validate(itemCategory, item, item.getClientId(), EnumFieldCheckType.D, EnumItemFieldName.clientId, null);
+		validate(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational, null);
+		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.PC, EnumItemFieldName.isSelected, null);
+		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, null);
+		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null);
+		validate(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, null);
+		validate(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate, null);
+		validate(itemCategory, item, item.getNumberVisits(), EnumFieldCheckType.P, EnumItemFieldName.numberVisits, null);
+		validate(itemCategory, item, item.getMimeType(), EnumFieldCheckType.P, EnumItemFieldName.mimeType, null);
+		validate(itemCategory, item, item.getStrand(), EnumFieldCheckType.P, EnumItemFieldName.strand, null);
+		validate(itemCategory, item, item.getContentLevel(), EnumFieldCheckType.P, EnumItemFieldName.contentLevel, null);
+		validate(itemCategory, item, item.getPageNumber(), EnumFieldCheckType.P, EnumItemFieldName.pageNumber, null);
+		validate(itemCategory, item, item.getPageVisits(), EnumFieldCheckType.P, EnumItemFieldName.pageVisits, null);
+		validate(itemCategory, item, item.getPageTime(), EnumFieldCheckType.P, EnumItemFieldName.pageTime, null);
+		validate(itemCategory, item, item.getDropped(), EnumFieldCheckType.P, EnumItemFieldName.dropped, null);
 	}
 
 	/**
@@ -185,12 +185,14 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 	/**
 	 * No op for now
-	 * @param item Item with fields to check
-	 * @param enumFieldName Specifies the field to check
+	 *
+	 * @param item 			 Item with fields to check
+	 * @param enumFieldName  Specifies the field to check
 	 * @param fieldCheckType This is where results are stored
+	 * @param unused   		 Unused parameter
 	 */
 	@Override
-	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
 	}
 
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType, Class<EnumFormatAcceptValues> class1) {

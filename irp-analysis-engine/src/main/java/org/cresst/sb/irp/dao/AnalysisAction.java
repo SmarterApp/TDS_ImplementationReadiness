@@ -13,13 +13,14 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.ItemService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AnalysisAction<T, E extends Enum> {
+public abstract class AnalysisAction<T, E extends Enum, O> {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
 
 	@Autowired
@@ -58,14 +59,15 @@ public abstract class AnalysisAction<T, E extends Enum> {
 	abstract protected void checkC(T checkObj, E enumFieldName, FieldCheckType fieldCheckType, O comparisonData);
 
 	/**
-	 * Checks if the field has the correct value. The field may be compared to data found in comparisonData
-	 * @param checkObj Object with field to check
-	 * @param enumFieldName Specifies the field to check
-	 * @param fieldCheckType This is where the results are stored
-	 * @param comparisonData Data to check the correctness of the field
-	 * @param <O> Can be any type that contains the data to verify field correctness
+	 * Gets the expected value that the field being analyzed should contain.
+	 * The default implementation returns a null String. AnalysisAction classes should override this method if they
+	 * are analyzing data with expected values.
+	 *
+	 * @param comparisonData  The IRP object (e.g. Student, Testpackage, etc) containing the field with the expected value
+	 * @param enumFieldName   Specifies the field to check
+	 * @return
 	 */
-	protected <O> void checkC(T checkObj, E enumFieldName, FieldCheckType fieldCheckType, O comparisonData) { }
+	protected String expectedValue(O comparisonData, E enumFieldName) { return null; }
 
 	/**
 	 * Validates the checkObj's field
@@ -76,18 +78,19 @@ public abstract class AnalysisAction<T, E extends Enum> {
 	 * @param enumFieldName The name of the field being analyzed as Category specific Enum
 	 * @param <U> Since checkObj has many different types of values this generic parameter was introduced to account for the differences.
 	 */
-	protected <U> void validate(Category category, T checkObj, U value, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName) {
+	protected <U> void validate(Category category, T checkObj, U value, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, O comparisonData) {
 		final FieldCheckType fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
 
 		final CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(enumFieldName.toString());
 		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
+		cellCategory.setTdsExpectedValue(expectedValue(comparisonData, enumFieldName));
 		cellCategory.setFieldCheckType(fieldCheckType);
 
 		category.addCellCategory(cellCategory);
 
-		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType);
+		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
 	}
 
 	/**
@@ -97,7 +100,7 @@ public abstract class AnalysisAction<T, E extends Enum> {
 	 * @param enumFieldName The name of the field being analyzed as Category specific Enum
 	 * @param fieldCheckType This is where the result is stored
 	 */
-	protected void checkField(T checkObj, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, FieldCheckType fieldCheckType) {
+	protected void checkField(T checkObj, FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, FieldCheckType fieldCheckType, O comparisonData) {
 
 		switch (enumFieldCheckType) {
 			case D:
@@ -107,7 +110,7 @@ public abstract class AnalysisAction<T, E extends Enum> {
 				break;
 			case PC:
 				checkP(checkObj, enumFieldName, fieldCheckType);
-				checkC(checkObj, enumFieldName, fieldCheckType);
+				checkC(checkObj, enumFieldName, fieldCheckType, comparisonData);
 				break;
 		}
 	}
@@ -132,8 +135,8 @@ public abstract class AnalysisAction<T, E extends Enum> {
 		return tdsReportService.getExamineeRelationships(examinee);
 	}
 
-	public Student getStudent(Long key) {
-			return studentService.getStudentByStudentSSID(key.toString());
+	public Student getStudent(long key) throws NotFoundException {
+			return studentService.getStudentByStudentSSID(key);
 	}
 
 	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
@@ -181,7 +184,7 @@ public abstract class AnalysisAction<T, E extends Enum> {
 	}
 	
 	public void processP_Positive64bit(Long inputValue, FieldCheckType fieldCheckType) {
-		if (inputValue > 0) {
+		if (inputValue != null && inputValue > 0) {
 			setPcorrect(fieldCheckType);
 		}
 	}

@@ -14,19 +14,19 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ItemResponseAnalysisAction extends AnalysisAction {
+public class ItemResponseAnalysisAction extends AnalysisAction<Response, ItemResponseAnalysisAction.EnumItemResponseFieldName, Itemrelease.Item.Attriblist> {
 	private static Logger logger = Logger.getLogger(ItemResponseAnalysisAction.class);
 
-	public enum EnumItemResponseFieldName {
+	static public enum EnumItemResponseFieldName {
 		date, type, content
 	}
 
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<Category> listItemCategory = opportunityCategory.getItemCategories();
+			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
@@ -105,7 +105,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 				break;
 			case PC:
 				checkP(response, enumFieldName, fieldCheckType);
-				checkC(response, enumFieldName, fieldCheckType);
+				checkC(response, enumFieldName, fieldCheckType, null);
 				break;
 			}
 		} catch (Exception e) {
@@ -132,7 +132,16 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkP(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
+	 * and within acceptable values
+	 *
+	 * @param response		 Response with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkP(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -162,59 +171,64 @@ public class ItemResponseAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	/**
+	 * Checks if the field has the correct value
+	 *
+	 * @param response       Object with field to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 * @param attriblist	 Attriblist to compare against Response
+	 */
+	@Override
+	protected void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
 		try {
 			switch (enumFieldName) {
-			case date:
-				break;
-			case type:
-				setCcorrect(fieldCheckType);
-				break;
-			case content:
-				processC(response.getContent(), fieldCheckType);
-				break;
-			default:
-				break;
+				case date:
+					break;
+				case type:
+					setCcorrect(fieldCheckType);
+					break;
+				case content:
+					processC(response.getContent(), fieldCheckType, attriblist);
+					break;
+				default:
+					break;
 			}
 		} catch (Exception e) {
 			logger.error("checkC exception: ", e);
 		}
 	}
 
-	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldName) {
-			case date:
-				break;
-			case type:
-				setCcorrect(fieldCheckType);
-				break;
-			case content:
-				processC(response.getContent(), fieldCheckType, attriblist);
-				break;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkC exception: ", e);
-		}
-	}
-
-	private void processC(String responseContent, FieldCheckType fieldCheckType) {
-		try {
-		} catch (Exception e) {
-			logger.error("processC exception: ", e);
-		}
-	}
+//	private void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+//			Itemrelease.Item.Attriblist attriblist) {
+//		try {
+//			switch (enumFieldName) {
+//			case date:
+//				break;
+//			case type:
+//				setCcorrect(fieldCheckType);
+//				break;
+//			case content:
+//				processC(response.getContent(), fieldCheckType, attriblist);
+//				break;
+//			default:
+//				break;
+//			}
+//		} catch (Exception e) {
+//			logger.error("checkC exception: ", e);
+//		}
+//	}
 
 	private void processC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
 		try {
-			Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist, "itm_att_Answer Key");
-			String irpItemAnswerKey = attrib.getVal();
-			boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
-			if (blnCorrectAnswer)
-				setCcorrect(fieldCheckType);
+			if (attriblist != null) {
+				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist, "itm_att_Answer Key");
+				String irpItemAnswerKey = attrib.getVal();
+				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
+				if (blnCorrectAnswer) {
+					setCcorrect(fieldCheckType);
+				}
+			}
 		} catch (Exception e) {
 			logger.error("processC exception: ", e);
 		}

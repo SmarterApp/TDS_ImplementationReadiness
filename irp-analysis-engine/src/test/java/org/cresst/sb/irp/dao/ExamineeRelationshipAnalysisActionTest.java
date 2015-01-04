@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.dao;
 
+import builders.StudentBuilder;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -48,7 +49,7 @@ public class ExamineeRelationshipAnalysisActionTest {
         // Arrange
         final IndividualResponse individualResponse = generateIndividualResponse();
 
-        when(studentService.getStudentByStudentSSID("1")).thenReturn(generateStudent());
+        when(studentService.getStudentByStudentSSID(1)).thenReturn(new StudentBuilder(1).toStudent());
         when(tdsReportService.getExamineeRelationships(individualResponse.getTDSReport().getExaminee())).thenReturn(generateExamineeRelationships());
 
         // Act
@@ -89,10 +90,6 @@ public class ExamineeRelationshipAnalysisActionTest {
         cellCategory.setFieldCheckType(fieldCheckType);
 
         return cellCategory;
-    }
-
-    private Student generateStudent() {
-        return new Student();
     }
 
     private IndividualResponse generateIndividualResponse() throws Exception  {

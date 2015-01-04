@@ -15,19 +15,19 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ItemScoreInfoAnalysisAction extends AnalysisAction {
+public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, ItemScoreInfoAnalysisAction.EnumItemScoreInfoFieldName, ItemCategory> {
 	private static Logger logger = Logger.getLogger(ItemScoreInfoAnalysisAction.class);
 
-	public enum EnumItemScoreInfoFieldName {
+	static public enum EnumItemScoreInfoFieldName {
 		scorePoint, maxScore, scoreDimension, scoreStatus, confLevel
 	}
 
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<Category> listItemCategory = opportunityCategory.getItemCategories();
+			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
@@ -157,7 +157,8 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkP(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	@Override
+	protected void checkP(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
 			case scorePoint:
@@ -196,8 +197,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void checkC(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType,
-			ItemCategory itemCategory) {
+	@Override
+	protected void checkC(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName,
+						  FieldCheckType fieldCheckType, ItemCategory itemCategory) {
 		try {
 			switch (enumFieldName) {
 			case scorePoint:

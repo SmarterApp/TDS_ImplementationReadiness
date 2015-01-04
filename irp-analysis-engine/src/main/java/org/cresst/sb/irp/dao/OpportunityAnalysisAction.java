@@ -12,7 +12,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, OpportunityAnalysisAction.EnumOpportunityPropertyFieldName> {
+public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, OpportunityAnalysisAction.EnumOpportunityPropertyFieldName, Object> {
 	private static final Logger logger = Logger.getLogger(OpportunityAnalysisAction.class);
 
 	static public enum EnumOpportunityPropertyFieldName {
@@ -20,37 +20,37 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
 	}
 
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		TDSReport tdsReport = individualResponse.getTDSReport();
 
 		OpportunityCategory opportunityCategory = new OpportunityCategory();
 		individualResponse.setOpportunityCategory(opportunityCategory);
 		Opportunity opportunity = tdsReport.getOpportunity();
 
-		validate(opportunityCategory, opportunity, opportunity.getServer(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.server);
-		validate(opportunityCategory, opportunity, opportunity.getDatabase(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.database);
-		validate(opportunityCategory, opportunity, opportunity.getKey(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.key);
-		validate(opportunityCategory, opportunity, opportunity.getOppId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.oppId);
-		validate(opportunityCategory, opportunity, opportunity.getStartDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.startDate);
-		validate(opportunityCategory, opportunity, opportunity.getStatus(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.status);
-		validate(opportunityCategory, opportunity, opportunity.getOpportunity(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.opportunity);
-		validate(opportunityCategory, opportunity, opportunity.getStatusDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.statusDate);
-		validate(opportunityCategory, opportunity, opportunity.getDateCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateCompleted);
-		validate(opportunityCategory, opportunity, opportunity.getPauseCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.pauseCount);
-		validate(opportunityCategory, opportunity, opportunity.getItemCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.itemCount);
-		validate(opportunityCategory, opportunity, opportunity.getFtCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.ftCount);
-		validate(opportunityCategory, opportunity, opportunity.getAbnormalStarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.abnormalStarts);
-		validate(opportunityCategory, opportunity, opportunity.getGracePeriodRestarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.gracePeriodRestarts);
-		validate(opportunityCategory, opportunity, opportunity.getTaId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taId);
-		validate(opportunityCategory, opportunity, opportunity.getTaName(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taName);
-		validate(opportunityCategory, opportunity, opportunity.getSessionId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.sessionId);
-		validate(opportunityCategory, opportunity, opportunity.getWindowId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.windowId);
-		validate(opportunityCategory, opportunity, opportunity.getWindowOpportunity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.windowOpportunity);
-		validate(opportunityCategory, opportunity, opportunity.getDateForceCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateForceCompleted);
-		validate(opportunityCategory, opportunity, opportunity.getClientName(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.clientName);
-		validate(opportunityCategory, opportunity, opportunity.getAssessmentParticipantSessionPlatformUserAgent(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent);
-		validate(opportunityCategory, opportunity, opportunity.getEffectiveDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate);
-		validate(opportunityCategory, opportunity, opportunity.getQaLevel(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.qaLevel);
+		validate(opportunityCategory, opportunity, opportunity.getServer(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.server, null);
+		validate(opportunityCategory, opportunity, opportunity.getDatabase(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.database, null);
+		validate(opportunityCategory, opportunity, opportunity.getKey(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.key, null);
+		validate(opportunityCategory, opportunity, opportunity.getOppId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.oppId, null);
+		validate(opportunityCategory, opportunity, opportunity.getStartDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.startDate, null);
+		validate(opportunityCategory, opportunity, opportunity.getStatus(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.status, null);
+		validate(opportunityCategory, opportunity, opportunity.getOpportunity(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.opportunity, null);
+		validate(opportunityCategory, opportunity, opportunity.getStatusDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.statusDate, null);
+		validate(opportunityCategory, opportunity, opportunity.getDateCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateCompleted, null);
+		validate(opportunityCategory, opportunity, opportunity.getPauseCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.pauseCount, null);
+		validate(opportunityCategory, opportunity, opportunity.getItemCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.itemCount, null);
+		validate(opportunityCategory, opportunity, opportunity.getFtCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.ftCount, null);
+		validate(opportunityCategory, opportunity, opportunity.getAbnormalStarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.abnormalStarts, null);
+		validate(opportunityCategory, opportunity, opportunity.getGracePeriodRestarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.gracePeriodRestarts, null);
+		validate(opportunityCategory, opportunity, opportunity.getTaId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taId, null);
+		validate(opportunityCategory, opportunity, opportunity.getTaName(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taName, null);
+		validate(opportunityCategory, opportunity, opportunity.getSessionId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.sessionId, null);
+		validate(opportunityCategory, opportunity, opportunity.getWindowId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.windowId, null);
+		validate(opportunityCategory, opportunity, opportunity.getWindowOpportunity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.windowOpportunity, null);
+		validate(opportunityCategory, opportunity, opportunity.getDateForceCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateForceCompleted, null);
+		validate(opportunityCategory, opportunity, opportunity.getClientName(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.clientName, null);
+		validate(opportunityCategory, opportunity, opportunity.getAssessmentParticipantSessionPlatformUserAgent(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent, null);
+		validate(opportunityCategory, opportunity, opportunity.getEffectiveDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate, null);
+		validate(opportunityCategory, opportunity, opportunity.getQaLevel(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.qaLevel, null);
 	}
 
 	/**
@@ -162,8 +162,9 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
 	 * @param checkObj       Object with fields to check
 	 * @param enumFieldName  Specifies the field to check
 	 * @param fieldCheckType This is where the results are stored
+	 * @param unused         Unused parameter
 	 */
 	@Override
-	protected void checkC(Opportunity checkObj, EnumOpportunityPropertyFieldName enumFieldName, FieldCheckType fieldCheckType) {
+	protected void checkC(Opportunity checkObj, EnumOpportunityPropertyFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
 	}
 }

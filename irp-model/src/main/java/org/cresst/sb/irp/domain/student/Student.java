@@ -18,7 +18,7 @@ public class Student implements Serializable {
 	private String FirstName;
 	private String MiddleName;
 	private String Birthdate;
-	private String SSID;
+	private long SSID;
 	private String AlternateSSID;
 	//private String StudentIdentifier;
 	//private String ExternalSSID;
@@ -118,12 +118,12 @@ public class Student implements Serializable {
 		Birthdate = birthdate;
 	}
 	
-	public String getSSID() {
+	public long getSSID() {
 		return SSID;
 	}
 
-	public void setSSID(String sSID) {
-		SSID = sSID;
+	public void setSSID(long ssid) {
+		SSID = ssid;
 	}
 	
 	public String getAlternateSSID() {

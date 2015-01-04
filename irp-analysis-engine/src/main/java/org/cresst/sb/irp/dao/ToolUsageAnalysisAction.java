@@ -16,19 +16,19 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ToolUsageAnalysisAction extends AnalysisAction {
+public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsageAnalysisAction.EnumToolUsageFieldName, Object> {
 	private static Logger logger = Logger.getLogger(ToolUsageAnalysisAction.class);
 
-	public enum EnumToolUsageFieldName {
-		type, code;
+	static public enum EnumToolUsageFieldName {
+		type, code
 	}
 	
-	public enum EnumToolPageFieldName {
-		page, groupId, count;
+	static public enum EnumToolPageFieldName {
+		page, groupId, count
 	}
 	
 	@Override
-	public void analyze(IndividualResponse individualResponse) throws IOException {
+	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			List<ToolUsageCategory> listToolUsageCategory = individualResponse.getToolUsageCategories();
@@ -84,26 +84,48 @@ public class ToolUsageAnalysisAction extends AnalysisAction {
 			logger.error("validateField exception: ", e);
 		}
 	}
-	
-	private void checkP(ToolUsage tdsToolUsage, EnumToolUsageFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
+	 * and within acceptable values
+	 *
+	 * @param toolUsage      ToolUsage with fields to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 */
+	@Override
+	protected void checkP(ToolUsage toolUsage, EnumToolUsageFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
 			switch (enumFieldName) {
-			case type:
-				// 	<xs:attribute name="type" use="required" />
-				processP_PritableASCIIone(tdsToolUsage.getType(), fieldCheckType);
-				break;
-			case code:
-				// 	<xs:attribute name="code" use="required" />
-				processP_PritableASCIIone(tdsToolUsage.getCode(), fieldCheckType);
-				break;
-			default:
-				break;
+				case type:
+					// 	<xs:attribute name="type" use="required" />
+					processP_PritableASCIIone(toolUsage.getType(), fieldCheckType);
+					break;
+				case code:
+					// 	<xs:attribute name="code" use="required" />
+					processP_PritableASCIIone(toolUsage.getCode(), fieldCheckType);
+					break;
+				default:
+					break;
 			}
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
 	}
-	
+
+	/**
+	 * Checks if the ToolUsage field has the correct value
+	 *
+	 * @param toolUsage      ToolUsage with field to check
+	 * @param enumFieldName  Specifies the field to check
+	 * @param fieldCheckType This is where the results are stored
+	 * @param unused         Unused parameter
+	 */
+	@Override
+	protected void checkC(ToolUsage toolUsage, EnumToolUsageFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
+
+	}
+
 	private void analysisToolPages(ToolUsageCategory toolUsageCategory, List<ToolPage> toolPages){
 		try {
 			ToolPageCategory toolPageCategory;
