@@ -11,15 +11,15 @@ import org.cresst.sb.irp.domain.testpackage.Poolproperty;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 
 public interface TestpackageDao {
 	
-	Map<String, Testpackage> getMapTestpackage();
-	
-	Testpackage getTestpackage(String uniqueid);	
-	
-	Testpackage getTestpackageByIdentifierUniqueid(String uniqueid);
+	Map<String, Testspecification> getMapTestpackage();
+
+	Testspecification getTestpackage(String uniqueid);
+
+	Testspecification getTestpackageByIdentifierUniqueid(String uniqueid);
 	
 	Identifier getIdentifier(String testpackageUniqueid);
 	

@@ -13,7 +13,7 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.testpackage.Property;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -140,7 +140,7 @@ public class TestAnalysisAction extends AnalysisAction {
 	 */
 	private String expectedAssessmentVersion(Test tdsTest) {
 		String uniqueid = tdsTest.getName();
-		Testpackage testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
+		Testspecification testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
 		return testpackage.getIdentifier().getVersion();
 	}
 
@@ -230,7 +230,7 @@ public class TestAnalysisAction extends AnalysisAction {
 
 		try {
 			String uniqueid = tdsTest.getName(); // String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015";
-			Testpackage testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
+			Testspecification testpackage = getTestpackageByIdentifierUniqueid(uniqueid);
 			if (testpackage != null) {
 				switch (enumTestFieldName) {
 				case name:
@@ -267,7 +267,7 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 
-	private void processC_Subject(Test tdsTest, Testpackage testpackage, FieldCheckType fieldCheckType) {
+	private void processC_Subject(Test tdsTest, Testspecification testpackage, FieldCheckType fieldCheckType) {
 		try {
 			String testSubject = tdsTest.getSubject();
 			List<Property> listProperty = testpackage.getProperty();
@@ -284,11 +284,11 @@ public class TestAnalysisAction extends AnalysisAction {
 
 	}
 
-	private void processC_TestId(Test test, Testpackage testpackage, FieldCheckType fieldCheckType) {
+	private void processC_TestId(Test test, Testspecification testpackage, FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectValue(StringUtils.equalsIgnoreCase(test.getTestId(), testpackage.getIdentifier().getName()));
 	}
 	
-	private void processC_Grade(Test test, Testpackage testpackage, FieldCheckType fieldCheckType){
+	private void processC_Grade(Test test, Testspecification testpackage, FieldCheckType fieldCheckType){
 		String testGrade = test.getGrade();
 		List<Property> listProperty = testpackage.getProperty();
 		String gradeValueFromTestPackage = getGradePropertyValueFromListProperty(listProperty);
@@ -298,7 +298,7 @@ public class TestAnalysisAction extends AnalysisAction {
 		}
 	}
 	
-	private void processC_AssessmentVersion(Test tdsTest, Testpackage testpackage, FieldCheckType fieldCheckType){
+	private void processC_AssessmentVersion(Test tdsTest, Testspecification testpackage, FieldCheckType fieldCheckType){
 		String assessmentVersion = tdsTest.getAssessmentVersion();
 		String version = testpackage.getIdentifier().getVersion();
 		if (assessmentVersion != null && assessmentVersion.length() > 0 && version != null && version.length() > 0){

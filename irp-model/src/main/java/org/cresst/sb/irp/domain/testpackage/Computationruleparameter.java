@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.NormalizedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -20,37 +21,31 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "identifier",
-    "bpref",
-    "passageref",
-    "poolproperty",
-    "itemscoredimension"
+    "property",
+    "computationruleparametervalue"
 })
-@XmlRootElement(name = "testitem")
+@XmlRootElement(name = "computationruleparameter")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Testitem {
+public class Computationruleparameter {
 
-    @XmlAttribute(name = "filename")
+    @XmlAttribute(name = "position", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String filename;
-    @XmlAttribute(name = "itemtype")
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    protected String position;
+    @XmlAttribute(name = "parametertype")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String itemtype;
+    protected String parametertype;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected Identifier identifier;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Bpref> bpref;
+    protected List<Property> property;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Passageref> passageref;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Poolproperty> poolproperty;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Itemscoredimension> itemscoredimension;
+    protected List<Computationruleparametervalue> computationruleparametervalue;
 
     /**
-     * Gets the value of the filename property.
+     * Gets the value of the position property.
      * 
      * @return
      *     possible object is
@@ -58,12 +53,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getFilename() {
-        return filename;
+    public String getPosition() {
+        return position;
     }
 
     /**
-     * Sets the value of the filename property.
+     * Sets the value of the position property.
      * 
      * @param value
      *     allowed object is
@@ -71,12 +66,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setFilename(String value) {
-        this.filename = value;
+    public void setPosition(String value) {
+        this.position = value;
     }
 
     /**
-     * Gets the value of the itemtype property.
+     * Gets the value of the parametertype property.
      * 
      * @return
      *     possible object is
@@ -84,12 +79,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getItemtype() {
-        return itemtype;
+    public String getParametertype() {
+        return parametertype;
     }
 
     /**
-     * Sets the value of the itemtype property.
+     * Sets the value of the parametertype property.
      * 
      * @param value
      *     allowed object is
@@ -97,8 +92,8 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setItemtype(String value) {
-        this.itemtype = value;
+    public void setParametertype(String value) {
+        this.parametertype = value;
     }
 
     /**
@@ -128,123 +123,63 @@ public class Testitem {
     }
 
     /**
-     * Gets the value of the bpref property.
+     * Gets the value of the property property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the bpref property.
+     * This is why there is not a <CODE>set</CODE> method for the property property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getBpref().add(newItem);
+     *    getProperty().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Bpref }
+     * {@link Property }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Bpref> getBpref() {
-        if (bpref == null) {
-            bpref = new ArrayList<Bpref>();
+    public List<Property> getProperty() {
+        if (property == null) {
+            property = new ArrayList<Property>();
         }
-        return this.bpref;
+        return this.property;
     }
 
     /**
-     * Gets the value of the passageref property.
+     * Gets the value of the computationruleparametervalue property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the passageref property.
+     * This is why there is not a <CODE>set</CODE> method for the computationruleparametervalue property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPassageref().add(newItem);
+     *    getComputationruleparametervalue().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Passageref }
+     * {@link Computationruleparametervalue }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Passageref> getPassageref() {
-        if (passageref == null) {
-            passageref = new ArrayList<Passageref>();
+    public List<Computationruleparametervalue> getComputationruleparametervalue() {
+        if (computationruleparametervalue == null) {
+            computationruleparametervalue = new ArrayList<Computationruleparametervalue>();
         }
-        return this.passageref;
-    }
-
-    /**
-     * Gets the value of the poolproperty property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the poolproperty property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPoolproperty().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Poolproperty }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Poolproperty> getPoolproperty() {
-        if (poolproperty == null) {
-            poolproperty = new ArrayList<Poolproperty>();
-        }
-        return this.poolproperty;
-    }
-
-    /**
-     * Gets the value of the itemscoredimension property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the itemscoredimension property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getItemscoredimension().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Itemscoredimension }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Itemscoredimension> getItemscoredimension() {
-        if (itemscoredimension == null) {
-            itemscoredimension = new ArrayList<Itemscoredimension>();
-        }
-        return this.itemscoredimension;
+        return this.computationruleparametervalue;
     }
 
 }

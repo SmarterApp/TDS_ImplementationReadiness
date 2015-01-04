@@ -21,11 +21,14 @@ import javax.xml.bind.annotation.XmlType;
     "itempool",
     "testform",
     "adminsegment",
+    "performancelevels",
+    "scoringrules",
+    "reportingmeasures",
     "comment"
 })
-@XmlRootElement(name = "administration")
+@XmlRootElement(name = "complete")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Administration {
+public class Complete {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
@@ -40,6 +43,15 @@ public class Administration {
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected List<Adminsegment> adminsegment;
+    @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected Performancelevels performancelevels;
+    @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected Scoringrules scoringrules;
+    @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected Reportingmeasures reportingmeasures;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected String comment;
 
@@ -183,6 +195,84 @@ public class Administration {
             adminsegment = new ArrayList<Adminsegment>();
         }
         return this.adminsegment;
+    }
+
+    /**
+     * Gets the value of the performancelevels property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Performancelevels }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public Performancelevels getPerformancelevels() {
+        return performancelevels;
+    }
+
+    /**
+     * Sets the value of the performancelevels property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Performancelevels }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setPerformancelevels(Performancelevels value) {
+        this.performancelevels = value;
+    }
+
+    /**
+     * Gets the value of the scoringrules property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Scoringrules }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public Scoringrules getScoringrules() {
+        return scoringrules;
+    }
+
+    /**
+     * Sets the value of the scoringrules property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Scoringrules }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setScoringrules(Scoringrules value) {
+        this.scoringrules = value;
+    }
+
+    /**
+     * Gets the value of the reportingmeasures property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Reportingmeasures }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public Reportingmeasures getReportingmeasures() {
+        return reportingmeasures;
+    }
+
+    /**
+     * Sets the value of the reportingmeasures property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Reportingmeasures }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setReportingmeasures(Reportingmeasures value) {
+        this.reportingmeasures = value;
     }
 
     /**

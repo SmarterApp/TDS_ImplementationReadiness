@@ -15,43 +15,43 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "itemgroup"
+    "performancelevel"
 })
-@XmlRootElement(name = "segmentpool")
+@XmlRootElement(name = "performancelevels")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Segmentpool {
+public class Performancelevels {
 
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Itemgroup> itemgroup;
+    protected List<Performancelevel> performancelevel;
 
     /**
-     * Gets the value of the itemgroup property.
+     * Gets the value of the performancelevel property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the itemgroup property.
+     * This is why there is not a <CODE>set</CODE> method for the performancelevel property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getItemgroup().add(newItem);
+     *    getPerformancelevel().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Itemgroup }
+     * {@link Performancelevel }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Itemgroup> getItemgroup() {
-        if (itemgroup == null) {
-            itemgroup = new ArrayList<Itemgroup>();
+    public List<Performancelevel> getPerformancelevel() {
+        if (performancelevel == null) {
+            performancelevel = new ArrayList<Performancelevel>();
         }
-        return this.itemgroup;
+        return this.performancelevel;
     }
 
 }

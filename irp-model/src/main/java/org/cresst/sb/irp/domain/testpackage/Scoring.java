@@ -17,21 +17,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "testblueprint",
-    "poolproperty",
     "itempool",
     "testform",
-    "adminsegment",
-    "comment"
+    "performancelevels",
+    "scoringrules"
 })
-@XmlRootElement(name = "administration")
+@XmlRootElement(name = "scoring")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Administration {
+public class Scoring {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected Testblueprint testblueprint;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Poolproperty> poolproperty;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected Itempool itempool;
@@ -39,9 +36,10 @@ public class Administration {
     protected List<Testform> testform;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Adminsegment> adminsegment;
+    protected Performancelevels performancelevels;
+    @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String comment;
+    protected Scoringrules scoringrules;
 
     /**
      * Gets the value of the testblueprint property.
@@ -67,36 +65,6 @@ public class Administration {
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     public void setTestblueprint(Testblueprint value) {
         this.testblueprint = value;
-    }
-
-    /**
-     * Gets the value of the poolproperty property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the poolproperty property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPoolproperty().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Poolproperty }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Poolproperty> getPoolproperty() {
-        if (poolproperty == null) {
-            poolproperty = new ArrayList<Poolproperty>();
-        }
-        return this.poolproperty;
     }
 
     /**
@@ -156,59 +124,55 @@ public class Administration {
     }
 
     /**
-     * Gets the value of the adminsegment property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the adminsegment property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAdminsegment().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Adminsegment }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Adminsegment> getAdminsegment() {
-        if (adminsegment == null) {
-            adminsegment = new ArrayList<Adminsegment>();
-        }
-        return this.adminsegment;
-    }
-
-    /**
-     * Gets the value of the comment property.
+     * Gets the value of the performancelevels property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Performancelevels }
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getComment() {
-        return comment;
+    public Performancelevels getPerformancelevels() {
+        return performancelevels;
     }
 
     /**
-     * Sets the value of the comment property.
+     * Sets the value of the performancelevels property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Performancelevels }
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setComment(String value) {
-        this.comment = value;
+    public void setPerformancelevels(Performancelevels value) {
+        this.performancelevels = value;
+    }
+
+    /**
+     * Gets the value of the scoringrules property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Scoringrules }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public Scoringrules getScoringrules() {
+        return scoringrules;
+    }
+
+    /**
+     * Sets the value of the scoringrules property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Scoringrules }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setScoringrules(Scoringrules value) {
+        this.scoringrules = value;
     }
 
 }

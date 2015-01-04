@@ -16,58 +16,24 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "testblueprint",
     "poolproperty",
-    "itempool",
-    "testform",
-    "adminsegment",
+    "registrationform",
+    "registrationsegment",
     "comment"
 })
-@XmlRootElement(name = "administration")
+@XmlRootElement(name = "registration")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Administration {
+public class Registration {
 
-    @XmlElement(required = true)
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected Testblueprint testblueprint;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected List<Poolproperty> poolproperty;
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected List<Registrationform> registrationform;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected Itempool itempool;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Testform> testform;
-    @XmlElement(required = true)
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Adminsegment> adminsegment;
+    protected List<Registrationsegment> registrationsegment;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected String comment;
-
-    /**
-     * Gets the value of the testblueprint property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Testblueprint }
-     *     
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public Testblueprint getTestblueprint() {
-        return testblueprint;
-    }
-
-    /**
-     * Sets the value of the testblueprint property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Testblueprint }
-     *     
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setTestblueprint(Testblueprint value) {
-        this.testblueprint = value;
-    }
 
     /**
      * Gets the value of the poolproperty property.
@@ -100,89 +66,63 @@ public class Administration {
     }
 
     /**
-     * Gets the value of the itempool property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Itempool }
-     *     
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public Itempool getItempool() {
-        return itempool;
-    }
-
-    /**
-     * Sets the value of the itempool property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Itempool }
-     *     
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setItempool(Itempool value) {
-        this.itempool = value;
-    }
-
-    /**
-     * Gets the value of the testform property.
+     * Gets the value of the registrationform property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the testform property.
+     * This is why there is not a <CODE>set</CODE> method for the registrationform property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTestform().add(newItem);
+     *    getRegistrationform().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Testform }
+     * {@link Registrationform }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Testform> getTestform() {
-        if (testform == null) {
-            testform = new ArrayList<Testform>();
+    public List<Registrationform> getRegistrationform() {
+        if (registrationform == null) {
+            registrationform = new ArrayList<Registrationform>();
         }
-        return this.testform;
+        return this.registrationform;
     }
 
     /**
-     * Gets the value of the adminsegment property.
+     * Gets the value of the registrationsegment property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the adminsegment property.
+     * This is why there is not a <CODE>set</CODE> method for the registrationsegment property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getAdminsegment().add(newItem);
+     *    getRegistrationsegment().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Adminsegment }
+     * {@link Registrationsegment }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Adminsegment> getAdminsegment() {
-        if (adminsegment == null) {
-            adminsegment = new ArrayList<Adminsegment>();
+    public List<Registrationsegment> getRegistrationsegment() {
+        if (registrationsegment == null) {
+            registrationsegment = new ArrayList<Registrationsegment>();
         }
-        return this.adminsegment;
+        return this.registrationsegment;
     }
 
     /**

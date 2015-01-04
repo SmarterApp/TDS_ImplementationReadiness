@@ -7,8 +7,10 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.NormalizedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -18,34 +20,35 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "property"
+    "identifier",
+    "conversiontuple"
 })
-@XmlRootElement(name = "segmentbpelement")
+@XmlRootElement(name = "conversiontable")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Segmentbpelement {
+public class Conversiontable {
 
-    @XmlAttribute(name = "bpelementid")
+    @XmlAttribute(name = "bpelementid", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected String bpelementid;
-    @XmlAttribute(name = "minopitems")
+    @XmlAttribute(name = "measureid", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String minopitems;
-    @XmlAttribute(name = "maxopitems")
+    protected String measureid;
+    @XmlAttribute(name = "purpose", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected String purpose;
+    @XmlAttribute(name = "formid")
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String maxopitems;
-    @XmlAttribute(name = "minftitems")
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    protected String formid;
+    @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String minftitems;
-    @XmlAttribute(name = "maxftitems")
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    protected Identifier identifier;
+    @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String maxftitems;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Property> property;
+    protected List<Conversiontuple> conversiontuple;
 
     /**
      * Gets the value of the bpelementid property.
@@ -74,7 +77,7 @@ public class Segmentbpelement {
     }
 
     /**
-     * Gets the value of the minopitems property.
+     * Gets the value of the measureid property.
      * 
      * @return
      *     possible object is
@@ -82,12 +85,12 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getMinopitems() {
-        return minopitems;
+    public String getMeasureid() {
+        return measureid;
     }
 
     /**
-     * Sets the value of the minopitems property.
+     * Sets the value of the measureid property.
      * 
      * @param value
      *     allowed object is
@@ -95,12 +98,12 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setMinopitems(String value) {
-        this.minopitems = value;
+    public void setMeasureid(String value) {
+        this.measureid = value;
     }
 
     /**
-     * Gets the value of the maxopitems property.
+     * Gets the value of the purpose property.
      * 
      * @return
      *     possible object is
@@ -108,12 +111,12 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getMaxopitems() {
-        return maxopitems;
+    public String getPurpose() {
+        return purpose;
     }
 
     /**
-     * Sets the value of the maxopitems property.
+     * Sets the value of the purpose property.
      * 
      * @param value
      *     allowed object is
@@ -121,12 +124,12 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setMaxopitems(String value) {
-        this.maxopitems = value;
+    public void setPurpose(String value) {
+        this.purpose = value;
     }
 
     /**
-     * Gets the value of the minftitems property.
+     * Gets the value of the formid property.
      * 
      * @return
      *     possible object is
@@ -134,12 +137,12 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getMinftitems() {
-        return minftitems;
+    public String getFormid() {
+        return formid;
     }
 
     /**
-     * Sets the value of the minftitems property.
+     * Sets the value of the formid property.
      * 
      * @param value
      *     allowed object is
@@ -147,64 +150,64 @@ public class Segmentbpelement {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setMinftitems(String value) {
-        this.minftitems = value;
+    public void setFormid(String value) {
+        this.formid = value;
     }
 
     /**
-     * Gets the value of the maxftitems property.
+     * Gets the value of the identifier property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Identifier }
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getMaxftitems() {
-        return maxftitems;
+    public Identifier getIdentifier() {
+        return identifier;
     }
 
     /**
-     * Sets the value of the maxftitems property.
+     * Sets the value of the identifier property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Identifier }
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setMaxftitems(String value) {
-        this.maxftitems = value;
+    public void setIdentifier(Identifier value) {
+        this.identifier = value;
     }
 
     /**
-     * Gets the value of the property property.
+     * Gets the value of the conversiontuple property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the property property.
+     * This is why there is not a <CODE>set</CODE> method for the conversiontuple property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getProperty().add(newItem);
+     *    getConversiontuple().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Property }
+     * {@link Conversiontuple }
      * 
      * 
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Property> getProperty() {
-        if (property == null) {
-            property = new ArrayList<Property>();
+    public List<Conversiontuple> getConversiontuple() {
+        if (conversiontuple == null) {
+            conversiontuple = new ArrayList<Conversiontuple>();
         }
-        return this.property;
+        return this.conversiontuple;
     }
 
 }

@@ -20,37 +20,36 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "identifier",
-    "bpref",
-    "passageref",
-    "poolproperty",
-    "itemscoredimension"
+    "poolproperty"
 })
-@XmlRootElement(name = "testitem")
+@XmlRootElement(name = "registrationsegment")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Testitem {
+public class Registrationsegment {
 
-    @XmlAttribute(name = "filename")
+    @XmlAttribute(name = "position", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String filename;
-    @XmlAttribute(name = "itemtype")
+    protected String position;
+    @XmlAttribute(name = "itemselection", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String itemtype;
+    protected String itemselection;
+    @XmlAttribute(name = "minitems")
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected String minitems;
+    @XmlAttribute(name = "maxitems")
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    protected String maxitems;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected Identifier identifier;
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Bpref> bpref;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Passageref> passageref;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     protected List<Poolproperty> poolproperty;
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Itemscoredimension> itemscoredimension;
 
     /**
-     * Gets the value of the filename property.
+     * Gets the value of the position property.
      * 
      * @return
      *     possible object is
@@ -58,12 +57,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getFilename() {
-        return filename;
+    public String getPosition() {
+        return position;
     }
 
     /**
-     * Sets the value of the filename property.
+     * Sets the value of the position property.
      * 
      * @param value
      *     allowed object is
@@ -71,12 +70,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setFilename(String value) {
-        this.filename = value;
+    public void setPosition(String value) {
+        this.position = value;
     }
 
     /**
-     * Gets the value of the itemtype property.
+     * Gets the value of the itemselection property.
      * 
      * @return
      *     possible object is
@@ -84,12 +83,12 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getItemtype() {
-        return itemtype;
+    public String getItemselection() {
+        return itemselection;
     }
 
     /**
-     * Sets the value of the itemtype property.
+     * Sets the value of the itemselection property.
      * 
      * @param value
      *     allowed object is
@@ -97,8 +96,60 @@ public class Testitem {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setItemtype(String value) {
-        this.itemtype = value;
+    public void setItemselection(String value) {
+        this.itemselection = value;
+    }
+
+    /**
+     * Gets the value of the minitems property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public String getMinitems() {
+        return minitems;
+    }
+
+    /**
+     * Sets the value of the minitems property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setMinitems(String value) {
+        this.minitems = value;
+    }
+
+    /**
+     * Gets the value of the maxitems property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public String getMaxitems() {
+        return maxitems;
+    }
+
+    /**
+     * Sets the value of the maxitems property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setMaxitems(String value) {
+        this.maxitems = value;
     }
 
     /**
@@ -125,66 +176,6 @@ public class Testitem {
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
     public void setIdentifier(Identifier value) {
         this.identifier = value;
-    }
-
-    /**
-     * Gets the value of the bpref property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the bpref property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getBpref().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Bpref }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Bpref> getBpref() {
-        if (bpref == null) {
-            bpref = new ArrayList<Bpref>();
-        }
-        return this.bpref;
-    }
-
-    /**
-     * Gets the value of the passageref property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the passageref property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPassageref().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Passageref }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Passageref> getPassageref() {
-        if (passageref == null) {
-            passageref = new ArrayList<Passageref>();
-        }
-        return this.passageref;
     }
 
     /**
@@ -215,36 +206,6 @@ public class Testitem {
             poolproperty = new ArrayList<Poolproperty>();
         }
         return this.poolproperty;
-    }
-
-    /**
-     * Gets the value of the itemscoredimension property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the itemscoredimension property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getItemscoredimension().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Itemscoredimension }
-     * 
-     * 
-     */
-    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Itemscoredimension> getItemscoredimension() {
-        if (itemscoredimension == null) {
-            itemscoredimension = new ArrayList<Itemscoredimension>();
-        }
-        return this.itemscoredimension;
     }
 
 }

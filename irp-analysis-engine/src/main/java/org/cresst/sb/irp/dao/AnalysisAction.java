@@ -18,7 +18,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.service.ItemService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
@@ -68,7 +68,7 @@ public abstract class AnalysisAction {
 		return null;
 	}
 
-	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
+	public Testspecification getTestpackageByIdentifierUniqueid(String uniqueid) {
 		return testPackageService.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 

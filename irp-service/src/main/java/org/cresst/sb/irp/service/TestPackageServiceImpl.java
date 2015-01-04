@@ -12,7 +12,7 @@ import org.cresst.sb.irp.domain.testpackage.Poolproperty;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +24,12 @@ public class TestPackageServiceImpl implements TestPackageService {
 	private TestpackageDao testpackageDao;
 	
 	@Override
-	public Testpackage getTestpackage(String uniqueid) {
+	public Testspecification getTestpackage(String uniqueid) {
 		return testpackageDao.getTestpackage(uniqueid);
 	}
 
 	@Override
-	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
+	public Testspecification getTestpackageByIdentifierUniqueid(String uniqueid) {
 		return testpackageDao.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 	

@@ -1,8 +1,6 @@
 
 package org.cresst.sb.irp.domain.testpackage;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -17,22 +15,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "property"
-})
-@XmlRootElement(name = "itemselectionparameter")
+@XmlType(name = "")
+@XmlRootElement(name = "computationruleparametervalue")
 @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-public class Itemselectionparameter {
+public class Computationruleparametervalue {
 
-    @XmlAttribute(name = "bpelementid")
+    @XmlAttribute(name = "value", required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected String bpelementid;
+    protected String value;
+    @XmlAttribute(name = "index")
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    protected List<Property> property;
+    protected String index;
 
     /**
-     * Gets the value of the bpelementid property.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -40,12 +38,12 @@ public class Itemselectionparameter {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public String getBpelementid() {
-        return bpelementid;
+    public String getValue() {
+        return value;
     }
 
     /**
-     * Sets the value of the bpelementid property.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -53,38 +51,34 @@ public class Itemselectionparameter {
      *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public void setBpelementid(String value) {
-        this.bpelementid = value;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     /**
-     * Gets the value of the property property.
+     * Gets the value of the index property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the property property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getProperty().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Property }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
-    public List<Property> getProperty() {
-        if (property == null) {
-            property = new ArrayList<Property>();
-        }
-        return this.property;
+    public String getIndex() {
+        return index;
+    }
+
+    /**
+     * Sets the value of the index property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.internal.xjc.Driver", date = "2015-01-02T07:35:40-08:00", comments = "JAXB RI v2.2.4-2")
+    public void setIndex(String value) {
+        this.index = value;
     }
 
 }

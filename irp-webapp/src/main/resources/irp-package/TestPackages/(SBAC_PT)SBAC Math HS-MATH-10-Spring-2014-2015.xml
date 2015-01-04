@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testpackage purpose="administration" publisher="SBAC_PT" publishdate="Dec 19 2014  5:12PM" version="1.0">
+<testspecification purpose="administration" publisher="SBAC_PT" publishdate="Dec 19 2014  5:12PM" version="1.0">
   <identifier uniqueid="(SBAC_PT)SBAC Math HS-MATH-10-Spring-2014-2015" name="SBAC Math HS-MATH-10" label="Math HS Training Test " version="4867" />
   <property name="subject" value="MATH" label="MATH" />
   <property name="grade" value="10" label="grade 10" />
@@ -291,4 +291,4 @@
       <segmentform formpartitionid="187-504" />
     </adminsegment>
   </administration>
-</testpackage>
+</testspecification>
