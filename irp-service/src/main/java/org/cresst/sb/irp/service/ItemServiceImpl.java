@@ -3,7 +3,7 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.analysis.engine.ItemDao;
+import org.cresst.sb.irp.dao.ItemDao;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;

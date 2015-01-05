@@ -3,7 +3,7 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.analysis.engine.StudentDao;
+import org.cresst.sb.irp.dao.StudentDao;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

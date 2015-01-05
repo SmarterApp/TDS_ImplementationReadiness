@@ -3,7 +3,7 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.analysis.engine.TestpackageDao;
+import org.cresst.sb.irp.dao.TestpackageDao;
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
 import org.cresst.sb.irp.domain.testpackage.Identifier;

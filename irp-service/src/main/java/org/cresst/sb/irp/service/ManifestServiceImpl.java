@@ -3,7 +3,7 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.analysis.engine.ManifestDao;
+import org.cresst.sb.irp.dao.ManifestDao;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
