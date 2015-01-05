@@ -13,16 +13,13 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String StateAbbreviation;
 	private String ResponsibleDistrictIdentifier;
-	private String ResponsibleInstitutionIdentifier; //ResponsibleSchoolIdentifier
+	private String ResponsibleInstitutionIdentifier;
 	private String LastOrSurname;
 	private String FirstName;
 	private String MiddleName;
 	private String Birthdate;
-	private String SSID;
+	private long SSID;
 	private String AlternateSSID;
-	//private String StudentIdentifier;
-	//private String ExternalSSID;
-	//private String ConfirmationCode;
 	private String GradeLevelWhenAssessed;
 	private String Sex;
 	private String HispanicOrLatinoEthnicity;
@@ -44,7 +41,6 @@ public class Student implements Serializable {
 	private String LEPExitDate;
 	private String TitleIIILanguageInstructionProgramType;
 	private String PrimaryDisabilityType;
-	private String Delete;
 
 	public Student() {
 	}
@@ -66,17 +62,6 @@ public class Student implements Serializable {
 		ResponsibleDistrictIdentifier = responsibleDistrictIdentifier;
 	}
 
-	/*
-	public String getResponsibleSchoolIdentifier() {
-		return ResponsibleSchoolIdentifier;
-	}*/
-
-	/*
-	public void setResponsibleSchoolIdentifier(
-			String responsibleSchoolIdentifier) {
-		ResponsibleSchoolIdentifier = responsibleSchoolIdentifier;
-	}*/
-	
 	public String getResponsibleInstitutionIdentifier() {
 		return ResponsibleInstitutionIdentifier;
 	}
@@ -118,12 +103,12 @@ public class Student implements Serializable {
 		Birthdate = birthdate;
 	}
 	
-	public String getSSID() {
+	public long getSSID() {
 		return SSID;
 	}
 
-	public void setSSID(String sSID) {
-		SSID = sSID;
+	public void setSSID(long ssid) {
+		SSID = ssid;
 	}
 	
 	public String getAlternateSSID() {
@@ -133,37 +118,6 @@ public class Student implements Serializable {
 	public void setAlternateSSID(String alternateSSID) {
 		AlternateSSID = alternateSSID;
 	}
-
-	
-	/*
-	public String getStudentIdentifier() {
-		return StudentIdentifier;
-	}*/
-
-	/*
-	public void setStudentIdentifier(String studentIdentifier) {
-		StudentIdentifier = studentIdentifier;
-	}*/
-
-	/*
-	public String getExternalSSID() {
-		return ExternalSSID;
-	}*/
-
-	/*
-	public void setExternalSSID(String externalSSID) {
-		ExternalSSID = externalSSID;
-	}*/
-
-	/*
-	public String getConfirmationCode() {
-		return ConfirmationCode;
-	}*/
-
-	/*
-	public void setConfirmationCode(String confirmationCode) {
-		ConfirmationCode = confirmationCode;
-	}*/
 
 	public String getGradeLevelWhenAssessed() {
 		return GradeLevelWhenAssessed;
@@ -339,14 +293,6 @@ public class Student implements Serializable {
 		PrimaryDisabilityType = primaryDisabilityType;
 	}
 
-	public String getDelete() {
-		return Delete;
-	}
-
-	public void setDelete(String delete) {
-		Delete = delete;
-	}
-	
 	@Override
 	public String toString() {
 		return "Student [StateAbbreviation=" + StateAbbreviation
@@ -379,8 +325,7 @@ public class Student implements Serializable {
 				+ LimitedEnglishProficiencyEntryDate + ", LEPExitDate="
 				+ LEPExitDate + ", TitleIIILanguageInstructionProgramType="
 				+ TitleIIILanguageInstructionProgramType
-				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType
-				+ ", Delete=" + Delete + "]";
+				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + "]";
 	}
 	
 	

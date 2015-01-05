@@ -11,7 +11,7 @@ import org.cresst.sb.irp.domain.testpackage.Poolproperty;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class TestPackageController {
 	@RequestMapping(value="/testpackage/{uniqueid}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	@ResponseStatus(value = HttpStatus.OK)
-	public Testpackage getTestpackage(@PathVariable("uniqueid") String uniqueid){
+	public Testspecification getTestpackage(@PathVariable("uniqueid") String uniqueid){
 		logger.info("getTestpackage() method");
 		return testPackageService.getTestpackage(uniqueid);
 	}

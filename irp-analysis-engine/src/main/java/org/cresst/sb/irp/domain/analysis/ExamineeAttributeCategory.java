@@ -1,33 +1,12 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import org.apache.log4j.Logger;
+public class ExamineeAttributeCategory extends Category {
 
-public class ExamineeAttributeCategory {
-	private static Logger logger = Logger.getLogger(ExamineeAttributeCategory.class);
-	
-	private List<CellCategory> cellCategories;
-	
-	public ExamineeAttributeCategory(){
-		logger.info("initializing");
-		setCellCategories(new ArrayList<CellCategory>());
-	}
-
-	public List<CellCategory> getCellCategories() {
-		return cellCategories;
-	}
-
-	public void setCellCategories(List<CellCategory> cellCategories) {
-		this.cellCategories = cellCategories;
-	}
-
-	@Override
-	public String toString() {
-		return "ExamineeAttributeCategory [cellCategories=" + cellCategories + "]";
-	}
-	
-
-
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .toString();
+    }
 }

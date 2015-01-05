@@ -40,7 +40,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
         resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml));
     }
 
-    @Then("^The analysis report should indicate my TDS Report is (malformed|valid)$")
+    @Then("^The analyze report should indicate my TDS Report is (malformed|valid)$")
     public void The_analysis_report_should_indicate_my_TDS_Report_is(String type) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -53,7 +53,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
          tdsReportXml = TdsReportFactory.getZippedTdsReport();
     }
 
-    @Then("^The analysis report should indicate that (\\d+) TDS Reports have been uploaded$")
+    @Then("^The analyze report should indicate that (\\d+) TDS Reports have been uploaded$")
     public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))

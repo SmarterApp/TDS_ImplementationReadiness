@@ -54,7 +54,7 @@ public class StudentController {
 		if (!NumberUtils.isNumber(studentSSID)) {
 			logger.info("getStudentByStudentIdentifier error studentIdentifier is not a number");
 		} else {
-			return studentService.getStudentByStudentSSID(studentSSID); //getStudentByStudentIdentifier(studentIdentifier);
+			return studentService.getStudentByStudentSSID(NumberUtils.toLong(studentSSID));
 		}
 		return null;
 		

@@ -1,30 +1,20 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.common.collect.ImmutableList;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AnalysisResponse {
-	private static Logger logger = Logger.getLogger(AnalysisResponse.class);
+    // Each IndividualResponse represents each TDSReport xml file and it includes all analyze results
+    private List<IndividualResponse> individualResponses = new ArrayList<>();
 
-	//each IndividualResponse represents each TDSReport xml file uploaded 
-	//and it includes all analysis results  
-	private List<IndividualResponse> individualResponses;
+    public ImmutableList<IndividualResponse> getIndividualResponses() {
+        return ImmutableList.copyOf(individualResponses);
+    }
 
-	public AnalysisResponse() {
-		logger.info("initializing");
-		individualResponses = new ArrayList<IndividualResponse>();
-	}
-
-	public List<IndividualResponse> getIndividualResponses() {
-		return individualResponses;
-	}
-
-	public void setIndividualResponses(List<IndividualResponse> individualResponses) {
-		this.individualResponses = individualResponses;
-	}
-	
-	public void addListIndividualResponse(IndividualResponse individualResponse){
-		this.individualResponses.add(individualResponse);
-	}
+    public void addListIndividualResponse(IndividualResponse individualResponse) {
+        this.individualResponses.add(individualResponse);
+    }
 }

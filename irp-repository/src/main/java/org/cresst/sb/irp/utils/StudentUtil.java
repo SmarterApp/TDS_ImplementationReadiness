@@ -123,7 +123,7 @@ public class StudentUtil {
 				student.setBirthdate(cellStringValue);
 				break;
 			case "SSID":
-				student.setSSID(cellStringValue);
+				student.setSSID(Long.parseLong(cellStringValue));
 				break;	
 			case "AlternateSSID":
 				student.setAlternateSSID(cellStringValue);
@@ -202,9 +202,6 @@ public class StudentUtil {
 			case "PrimaryDisabilityType":
 				student.setPrimaryDisabilityType(cellStringValue);
 				break;
-			case "Delete":
-				student.setDelete(cellStringValue);
-				break;
 			default:
 				throw new IllegalArgumentException("Invalid column name: "
 						+ columnName);
@@ -214,19 +211,15 @@ public class StudentUtil {
 		}
 	}
 
-	public Student getStudentBySSID(List<Student> listStudent,
-			String studentSSID) {
-		Student student = null;
-		try {
-			for(Student _student: listStudent){
-				if(_student.getSSID().trim().toLowerCase().equals(studentSSID.trim().toLowerCase())){
-					return _student;
-				}
+	public Student getStudentBySSID(List<Student> listStudent, long studentSSID) {
+
+		for (Student _student : listStudent){
+			if(_student.getSSID() == studentSSID){
+				return _student;
 			}
-		} catch (Exception e) {
-			logger.error("getStudentBySSID exception: ", e);
 		}
-		return student;
+
+		return null;
 	}
 	
 	/*

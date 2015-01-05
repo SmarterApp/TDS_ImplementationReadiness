@@ -1,132 +1,134 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-
 public class IndividualResponse {
-	private static Logger logger = Logger.getLogger(IndividualResponse.class);
 
-	private String fileName; // id
-	private boolean isValidXMLfile;
-	private TDSReport tdsReport; //
-	private String status; //No errors, Contains xx errors 
+    private String fileName; // id
+    private boolean isValidXMLfile;
+    private TDSReport tdsReport; //
+    private String status; //No errors, Contains xx errors
 
-	private List<CellCategory> testPropertyCategories;
-	private ExamineeCategory examineeCategory;
-	private List<ExamineeAttributeCategory> examineeAttributeCategories;
-	private List<ExamineeRelationshipCategory> examineeRelationshipCategories;
-	private OpportunityCategory opportunityCategory;
-	private List<CommentCategory> commentCategories;
-	private List<ToolUsageCategory> toolUsageCategories;
-	
-	public IndividualResponse() {
-		logger.info("initializing");
-		setTestPropertyCategories(new ArrayList<CellCategory>());
-		setExamineeAttributeCategories(new ArrayList<ExamineeAttributeCategory>());
-		setExamineeRelationshipCategories(new ArrayList<ExamineeRelationshipCategory>());
-		setCommentCategories(new ArrayList<CommentCategory>());
-		setToolUsageCategories(new ArrayList<ToolUsageCategory>());
-	}
+    private TestPropertiesCategory testPropertiesCategory;
+    private ExamineeCategory examineeCategory;
+    private List<ExamineeAttributeCategory> examineeAttributeCategories = new ArrayList<>();
+    private List<ExamineeRelationshipCategory> examineeRelationshipCategories = new ArrayList<>();
+    private OpportunityCategory opportunityCategory;
+    private List<CommentCategory> commentCategories = new ArrayList<>();
+    private List<ToolUsageCategory> toolUsageCategories = new ArrayList<>();
 
-	public String getFileName() {
-		return fileName;
-	}
+    public String getFileName() {
+        return fileName;
+    }
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
-	public TDSReport getTDSReport() {
-		return tdsReport;
-	}
+    public TDSReport getTDSReport() {
+        return tdsReport;
+    }
 
-	public void setTDSReport(TDSReport tdsReport) {
-		this.tdsReport = tdsReport;
-	}
+    public void setTDSReport(TDSReport tdsReport) {
+        this.tdsReport = tdsReport;
+    }
 
-	public boolean isValidXMLfile() {
-		return isValidXMLfile;
-	}
+    public boolean isValidXMLfile() {
+        return isValidXMLfile;
+    }
 
-	public void setValidXMLfile(boolean isValidXMLfile) {
-		this.isValidXMLfile = isValidXMLfile;
-	}
-	
-	public List<CellCategory> getTestPropertyCategories() {
-		return testPropertyCategories;
-	}
+    public void setValidXMLfile(boolean isValidXMLfile) {
+        this.isValidXMLfile = isValidXMLfile;
+    }
 
-	public void setTestPropertyCategories(List<CellCategory> testPropertyCategories) {
-		this.testPropertyCategories = testPropertyCategories;
-	}
+    public TestPropertiesCategory getTestPropertiesCategory() {
+        return testPropertiesCategory;
+    }
 
-	public ExamineeCategory getExamineeCategory() {
-		return examineeCategory;
-	}
+    public void setTestPropertiesCategory(TestPropertiesCategory testPropertiesCategory) {
+        this.testPropertiesCategory = testPropertiesCategory;
+    }
 
-	public void setExamineeCategory(ExamineeCategory examineeCategory) {
-		this.examineeCategory = examineeCategory;
-	}
+    public ExamineeCategory getExamineeCategory() {
+        return examineeCategory;
+    }
 
-	public List<ExamineeAttributeCategory> getExamineeAttributeCategories() {
-		return examineeAttributeCategories;
-	}
+    public void setExamineeCategory(ExamineeCategory examineeCategory) {
+        this.examineeCategory = examineeCategory;
+    }
 
-	public void setExamineeAttributeCategories(List<ExamineeAttributeCategory> examineeAttributeCategories) {
-		this.examineeAttributeCategories = examineeAttributeCategories;
-	}
-	
-	public List<ExamineeRelationshipCategory> getExamineeRelationshipCategories() {
-		return examineeRelationshipCategories;
-	}
+    public ImmutableList<ExamineeAttributeCategory> getExamineeAttributeCategories() {
+        return ImmutableList.copyOf(examineeAttributeCategories);
+    }
 
-	public void setExamineeRelationshipCategories(List<ExamineeRelationshipCategory> examineeRelationshipCategories) {
-		this.examineeRelationshipCategories = examineeRelationshipCategories;
-	}
-	
-	public OpportunityCategory getOpportunityCategory() {
-		return opportunityCategory;
-	}
+    public ImmutableList<ExamineeRelationshipCategory> getExamineeRelationshipCategories() {
+        return ImmutableList.copyOf(examineeRelationshipCategories);
+    }
 
-	public void setOpportunityCategory(OpportunityCategory opportunityCategory) {
-		this.opportunityCategory = opportunityCategory;
-	}
+    public OpportunityCategory getOpportunityCategory() {
+        return opportunityCategory;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setOpportunityCategory(OpportunityCategory opportunityCategory) {
+        this.opportunityCategory = opportunityCategory;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
-	public List<CommentCategory> getCommentCategories() {
-		return commentCategories;
-	}
+    public List<CommentCategory> getCommentCategories() {
+        return commentCategories;
+    }
 
-	public void setCommentCategories(List<CommentCategory> commentCategories) {
-		this.commentCategories = commentCategories;
-	}
+    public void setCommentCategories(List<CommentCategory> commentCategories) {
+        this.commentCategories = commentCategories;
+    }
 
-	public List<ToolUsageCategory> getToolUsageCategories() {
-		return toolUsageCategories;
-	}
+    public List<ToolUsageCategory> getToolUsageCategories() {
+        return toolUsageCategories;
+    }
 
-	public void setToolUsageCategories(List<ToolUsageCategory> toolUsageCategories) {
-		this.toolUsageCategories = toolUsageCategories;
-	}
+    public void setToolUsageCategories(List<ToolUsageCategory> toolUsageCategories) {
+        this.toolUsageCategories = toolUsageCategories;
+    }
 
-	@Override
-	public String toString() {
-		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", status=" + status + ", testPropertyCategories=" + testPropertyCategories + ", examineeCategory="
-				+ examineeCategory + ", examineeAttributeCategories=" + examineeAttributeCategories
-				+ ", examineeRelationshipCategories=" + examineeRelationshipCategories + ", opportunityCategory="
-				+ opportunityCategory + ", commentCategories=" + commentCategories + ", toolUsageCategories="
-				+ toolUsageCategories + "]";
-	}
+    public void addExamineeAttributeCategory(ExamineeAttributeCategory examineeAttributeCategory) {
+        examineeAttributeCategories.add(examineeAttributeCategory);
+    }
+
+    public void addExamineeRelationshipCategory(ExamineeRelationshipCategory examineeRelationshipCategory) {
+        examineeRelationshipCategories.add(examineeRelationshipCategory);
+    }
+
+    public void addToolUsageCategory(ToolUsageCategory toolUsageCategory) {
+        toolUsageCategories.add(toolUsageCategory);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("fileName", fileName)
+                .append("isValidXMLfile", isValidXMLfile)
+                .append("tdsReport", tdsReport)
+                .append("status", status)
+                .append("testPropertiesCategory", testPropertiesCategory)
+                .append("examineeCategory", examineeCategory)
+                .append("examineeAttributeCategories", examineeAttributeCategories)
+                .append("examineeRelationshipCategories", examineeRelationshipCategories)
+                .append("opportunityCategory", opportunityCategory)
+                .append("commentCategories", commentCategories)
+                .append("toolUsageCategories", toolUsageCategories)
+                .toString();
+    }
 }

@@ -3,7 +3,7 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.TestpackageDao;
+import org.cresst.sb.irp.analysis.engine.TestpackageDao;
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
 import org.cresst.sb.irp.domain.testpackage.Identifier;
@@ -12,7 +12,7 @@ import org.cresst.sb.irp.domain.testpackage.Poolproperty;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +24,12 @@ public class TestPackageServiceImpl implements TestPackageService {
 	private TestpackageDao testpackageDao;
 	
 	@Override
-	public Testpackage getTestpackage(String uniqueid) {
+	public Testspecification getTestpackage(String uniqueid) {
 		return testpackageDao.getTestpackage(uniqueid);
 	}
 
 	@Override
-	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
+	public Testspecification getTestpackageByIdentifierUniqueid(String uniqueid) {
 		return testpackageDao.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 	

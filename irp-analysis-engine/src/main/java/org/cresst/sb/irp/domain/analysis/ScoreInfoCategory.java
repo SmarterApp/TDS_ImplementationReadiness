@@ -1,126 +1,116 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import org.apache.log4j.Logger;
-
 public class ScoreInfoCategory {
-	private static Logger logger = Logger.getLogger(ScoreInfoCategory.class);
-	
-	private String scorePoint;
-	private String maxScore;
-	private String scoreDimension;
-	private String scoreStatus;
-	private String confLevel;
-	
-	private FieldCheckType scorePointFieldCheckType;
-	private FieldCheckType maxScoreFieldCheckType;
-	private FieldCheckType scoreDimensionFieldCheckType;
-	private FieldCheckType scoreStatusFieldCheckType;
-	private FieldCheckType confLevelFieldCheckType;
-	
-	private ScoreRationaleCategory scoreRationaleCategory;
-	
-	public ScoreInfoCategory() {
-		logger.info("initializing");
-	}
-	
-	public ScoreRationaleCategory getScoreRationaleCategory() {
-		return scoreRationaleCategory;
-	}
 
-	public void setScoreRationaleCategory(ScoreRationaleCategory scoreRationaleCategory) {
-		this.scoreRationaleCategory = scoreRationaleCategory;
-	}
+    private String scorePoint;
+    private String maxScore;
+    private String scoreDimension;
+    private String scoreStatus;
+    private String confLevel;
 
-	public String getScorePoint() {
-		return scorePoint;
-	}
+    private FieldCheckType scorePointFieldCheckType;
+    private FieldCheckType maxScoreFieldCheckType;
+    private FieldCheckType scoreDimensionFieldCheckType;
+    private FieldCheckType scoreStatusFieldCheckType;
+    private FieldCheckType confLevelFieldCheckType;
 
-	public void setScorePoint(String scorePoint) {
-		this.scorePoint = scorePoint;
-	}
+    private ScoreRationaleCategory scoreRationaleCategory;
 
-	public String getMaxScore() {
-		return maxScore;
-	}
+    public ScoreRationaleCategory getScoreRationaleCategory() {
+        return scoreRationaleCategory;
+    }
 
-	public void setMaxScore(String maxScore) {
-		this.maxScore = maxScore;
-	}
+    public void setScoreRationaleCategory(ScoreRationaleCategory scoreRationaleCategory) {
+        this.scoreRationaleCategory = scoreRationaleCategory;
+    }
 
-	public String getScoreDimension() {
-		return scoreDimension;
-	}
+    public String getScorePoint() {
+        return scorePoint;
+    }
 
-	public void setScoreDimension(String scoreDimension) {
-		this.scoreDimension = scoreDimension;
-	}
+    public void setScorePoint(String scorePoint) {
+        this.scorePoint = scorePoint;
+    }
 
-	public String getScoreStatus() {
-		return scoreStatus;
-	}
+    public String getMaxScore() {
+        return maxScore;
+    }
 
-	public void setScoreStatus(String scoreStatus) {
-		this.scoreStatus = scoreStatus;
-	}
+    public void setMaxScore(String maxScore) {
+        this.maxScore = maxScore;
+    }
 
-	public String getConfLevel() {
-		return confLevel;
-	}
+    public String getScoreDimension() {
+        return scoreDimension;
+    }
 
-	public void setConfLevel(String confLevel) {
-		this.confLevel = confLevel;
-	}
+    public void setScoreDimension(String scoreDimension) {
+        this.scoreDimension = scoreDimension;
+    }
 
-	public FieldCheckType getScorePointFieldCheckType() {
-		return scorePointFieldCheckType;
-	}
+    public String getScoreStatus() {
+        return scoreStatus;
+    }
 
-	public void setScorePointFieldCheckType(FieldCheckType scorePointFieldCheckType) {
-		this.scorePointFieldCheckType = scorePointFieldCheckType;
-	}
+    public void setScoreStatus(String scoreStatus) {
+        this.scoreStatus = scoreStatus;
+    }
 
-	public FieldCheckType getMaxScoreFieldCheckType() {
-		return maxScoreFieldCheckType;
-	}
+    public String getConfLevel() {
+        return confLevel;
+    }
 
-	public void setMaxScoreFieldCheckType(FieldCheckType maxScoreFieldCheckType) {
-		this.maxScoreFieldCheckType = maxScoreFieldCheckType;
-	}
+    public void setConfLevel(String confLevel) {
+        this.confLevel = confLevel;
+    }
 
-	public FieldCheckType getScoreDimensionFieldCheckType() {
-		return scoreDimensionFieldCheckType;
-	}
+    public FieldCheckType getScorePointFieldCheckType() {
+        return scorePointFieldCheckType;
+    }
 
-	public void setScoreDimensionFieldCheckType(FieldCheckType scoreDimensionFieldCheckType) {
-		this.scoreDimensionFieldCheckType = scoreDimensionFieldCheckType;
-	}
+    public void setScorePointFieldCheckType(FieldCheckType scorePointFieldCheckType) {
+        this.scorePointFieldCheckType = scorePointFieldCheckType;
+    }
 
-	public FieldCheckType getScoreStatusFieldCheckType() {
-		return scoreStatusFieldCheckType;
-	}
+    public FieldCheckType getMaxScoreFieldCheckType() {
+        return maxScoreFieldCheckType;
+    }
 
-	public void setScoreStatusFieldCheckType(FieldCheckType scoreStatusFieldCheckType) {
-		this.scoreStatusFieldCheckType = scoreStatusFieldCheckType;
-	}
+    public void setMaxScoreFieldCheckType(FieldCheckType maxScoreFieldCheckType) {
+        this.maxScoreFieldCheckType = maxScoreFieldCheckType;
+    }
 
-	public FieldCheckType getConfLevelFieldCheckType() {
-		return confLevelFieldCheckType;
-	}
+    public FieldCheckType getScoreDimensionFieldCheckType() {
+        return scoreDimensionFieldCheckType;
+    }
 
-	public void setConfLevelFieldCheckType(FieldCheckType confLevelFieldCheckType) {
-		this.confLevelFieldCheckType = confLevelFieldCheckType;
-	}
+    public void setScoreDimensionFieldCheckType(FieldCheckType scoreDimensionFieldCheckType) {
+        this.scoreDimensionFieldCheckType = scoreDimensionFieldCheckType;
+    }
 
-	@Override
-	public String toString() {
-		return "ScoreInfoCategory [scorePoint=" + scorePoint + ", maxScore=" + maxScore + ", scoreDimension=" + scoreDimension
-				+ ", scoreStatus=" + scoreStatus + ", confLevel=" + confLevel + ", scorePointFieldCheckType="
-				+ scorePointFieldCheckType + ", maxScoreFieldCheckType=" + maxScoreFieldCheckType
-				+ ", scoreDimensionFieldCheckType=" + scoreDimensionFieldCheckType + ", scoreStatusFieldCheckType="
-				+ scoreStatusFieldCheckType + ", confLevelFieldCheckType=" + confLevelFieldCheckType
-				+ ", scoreRationaleCategory=" + scoreRationaleCategory + "]";
-	}
+    public FieldCheckType getScoreStatusFieldCheckType() {
+        return scoreStatusFieldCheckType;
+    }
 
+    public void setScoreStatusFieldCheckType(FieldCheckType scoreStatusFieldCheckType) {
+        this.scoreStatusFieldCheckType = scoreStatusFieldCheckType;
+    }
 
-	
+    public FieldCheckType getConfLevelFieldCheckType() {
+        return confLevelFieldCheckType;
+    }
+
+    public void setConfLevelFieldCheckType(FieldCheckType confLevelFieldCheckType) {
+        this.confLevelFieldCheckType = confLevelFieldCheckType;
+    }
+
+    @Override
+    public String toString() {
+        return "ScoreInfoCategory [scorePoint=" + scorePoint + ", maxScore=" + maxScore + ", scoreDimension=" + scoreDimension
+                + ", scoreStatus=" + scoreStatus + ", confLevel=" + confLevel + ", scorePointFieldCheckType="
+                + scorePointFieldCheckType + ", maxScoreFieldCheckType=" + maxScoreFieldCheckType
+                + ", scoreDimensionFieldCheckType=" + scoreDimensionFieldCheckType + ", scoreStatusFieldCheckType="
+                + scoreStatusFieldCheckType + ", confLevelFieldCheckType=" + confLevelFieldCheckType
+                + ", scoreRationaleCategory=" + scoreRationaleCategory + "]";
+    }
 }

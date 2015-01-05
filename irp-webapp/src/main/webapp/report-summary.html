@@ -105,7 +105,7 @@
                 <thead>
                     <tr>
                         <th>TDS Report File Name</th>
-                        <th>Status</th>
+                        <th>Valid XML</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,7 +125,7 @@
                 this.responses = {};
             },
             status: function(input) {
-                return input ? "No Errors" : "Errors Found";
+                return input ? "Yes" : "No";
             }
         });
     </script>
