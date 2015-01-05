@@ -6,6 +6,6 @@ import java.nio.file.Path;
 
 public interface AnalysisService {
 
-	AnalysisResponse analysisProcess(Iterable<Path> tdsReportPaths);
+    AnalysisResponse analysisProcess(Iterable<Path> tdsReportPaths);
 
 }

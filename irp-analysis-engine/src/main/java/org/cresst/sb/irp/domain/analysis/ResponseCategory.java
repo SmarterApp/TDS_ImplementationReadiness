@@ -3,65 +3,65 @@ package org.cresst.sb.irp.domain.analysis;
 
 public class ResponseCategory {
 
-	private String date;
-	private String type;
-	private String content;
-	private FieldCheckType dateFieldCheckType;
-	private FieldCheckType typeFieldCheckType;
-	private FieldCheckType contentFieldCheckType;
-	
-	public String getDate() {
-		return date;
-	}
+    private String date;
+    private String type;
+    private String content;
+    private FieldCheckType dateFieldCheckType;
+    private FieldCheckType typeFieldCheckType;
+    private FieldCheckType contentFieldCheckType;
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public String getDate() {
+        return date;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public FieldCheckType getDateFieldCheckType() {
-		return dateFieldCheckType;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setDateFieldCheckType(FieldCheckType dateFieldCheckType) {
-		this.dateFieldCheckType = dateFieldCheckType;
-	}
+    public FieldCheckType getDateFieldCheckType() {
+        return dateFieldCheckType;
+    }
 
-	public FieldCheckType getTypeFieldCheckType() {
-		return typeFieldCheckType;
-	}
+    public void setDateFieldCheckType(FieldCheckType dateFieldCheckType) {
+        this.dateFieldCheckType = dateFieldCheckType;
+    }
 
-	public void setTypeFieldCheckType(FieldCheckType typeFieldCheckType) {
-		this.typeFieldCheckType = typeFieldCheckType;
-	}
+    public FieldCheckType getTypeFieldCheckType() {
+        return typeFieldCheckType;
+    }
 
-	public FieldCheckType getContentFieldCheckType() {
-		return contentFieldCheckType;
-	}
+    public void setTypeFieldCheckType(FieldCheckType typeFieldCheckType) {
+        this.typeFieldCheckType = typeFieldCheckType;
+    }
 
-	public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
-		this.contentFieldCheckType = contentFieldCheckType;
-	}
+    public FieldCheckType getContentFieldCheckType() {
+        return contentFieldCheckType;
+    }
 
-	@Override
-	public String toString() {
-		return "ResponseCategory [date=" + date + ", type=" + type + ", dateFieldCheckType="
-				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
-				+ contentFieldCheckType + "]";
-	}
+    public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
+        this.contentFieldCheckType = contentFieldCheckType;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseCategory [date=" + date + ", type=" + type + ", dateFieldCheckType="
+                + dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
+                + contentFieldCheckType + "]";
+    }
 }

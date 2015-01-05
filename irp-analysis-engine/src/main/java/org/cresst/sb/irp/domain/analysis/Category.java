@@ -10,37 +10,37 @@ import java.util.List;
  * Base class for Categories
  */
 public abstract class Category {
-	protected List<CellCategory> cellCategories = new ArrayList<>();
+    protected List<CellCategory> cellCategories = new ArrayList<>();
 
-	public ImmutableList<CellCategory> getCellCategories() {
-		return ImmutableList.copyOf(cellCategories);
-	}
+    public ImmutableList<CellCategory> getCellCategories() {
+        return ImmutableList.copyOf(cellCategories);
+    }
 
-	public void addCellCategory(CellCategory cellCategory) {
-		cellCategories.add(cellCategory);
-	}
+    public void addCellCategory(CellCategory cellCategory) {
+        cellCategories.add(cellCategory);
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-		Category category = (Category) o;
+        Category category = (Category) o;
 
-		if (!cellCategories.equals(category.cellCategories)) return false;
+        if (!cellCategories.equals(category.cellCategories)) return false;
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public int hashCode() {
-		return cellCategories.hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return cellCategories.hashCode();
+    }
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this)
-				.append("cellCategories", cellCategories)
-				.toString();
-	}
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("cellCategories", cellCategories)
+                .toString();
+    }
 }

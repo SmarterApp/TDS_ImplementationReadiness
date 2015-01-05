@@ -8,20 +8,20 @@ import java.util.List;
 
 public class ToolUsageCategory extends Category {
 
-	private List<ToolPageCategory> toolPageCategories = new ArrayList<>();
+    private List<ToolPageCategory> toolPageCategories = new ArrayList<>();
 
-	public ImmutableList<ToolPageCategory> getToolPageCategories() {
-		return ImmutableList.copyOf(toolPageCategories);
-	}
+    public ImmutableList<ToolPageCategory> getToolPageCategories() {
+        return ImmutableList.copyOf(toolPageCategories);
+    }
 
-	public void setToolPageCategories(List<ToolPageCategory> toolPageCategories) {
-		this.toolPageCategories = toolPageCategories;
-	}
+    public void setToolPageCategories(List<ToolPageCategory> toolPageCategories) {
+        this.toolPageCategories = toolPageCategories;
+    }
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this)
-				.append("toolPageCategories", toolPageCategories)
-				.toString();
-	}
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("toolPageCategories", toolPageCategories)
+                .toString();
+    }
 }
