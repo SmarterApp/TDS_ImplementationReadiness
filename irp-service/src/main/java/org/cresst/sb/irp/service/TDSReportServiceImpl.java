@@ -3,11 +3,8 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.TDSReportDao;
+import org.cresst.sb.irp.analysis.engine.TDSReportDao;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
