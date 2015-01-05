@@ -206,8 +206,7 @@
                         <configuration>
                             <target>
                                 <zip destfile="src/main/webapp/irp-package.zip"
-                                     basedir="src/main/resources/irp-package"
-                                     includes="*.*" />
+                                     basedir="src/main/resources/irp-package" />
                             </target>
                         </configuration>
                     </execution>

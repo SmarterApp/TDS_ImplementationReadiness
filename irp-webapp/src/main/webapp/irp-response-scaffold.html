@@ -10,6 +10,9 @@
     <template>
 
         <style>
+            #logo {
+                padding-bottom: 5px;
+            }
             #drawerPanel, [drawer] {
                 background-color: #eee;
             }
@@ -26,7 +29,7 @@
             core-toolbar {
                 background-color: #5264ae;
                 color: #fff;
-                font-size: 20px;
+                font-size: 19px;
                 font-weight: 400;
             }
 
@@ -39,7 +42,7 @@
             }
 
             .main-label {
-                padding: 0 0 20px 60px;
+                padding: 0 0 20px 15px;
             }
 
             /* menu */
@@ -52,7 +55,7 @@
             polyfill-next-selector { content: 'core-menu#menu core-item'; }
             ::content core-item, ::content core-submenu::shadow core-item {
                 height: 56px;
-                padding-left: 60px;
+                padding-left:15px;
                 font-size: 15px;
                 color: #444;
                 font-weight: normal !important;
@@ -191,7 +194,10 @@
             <core-header-panel drawer>
 
                 <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
-                    <div class="bottom main-label fit">{{label}}</div>
+                    <div class="bottom main-label fit">
+                        <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" />
+                        {{label}}
+                    </div>
                 </core-toolbar>
 
                 <core-menu id="menu" on-core-select="{{menuSelect}}">

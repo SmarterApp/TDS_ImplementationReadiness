@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1764" version="1" bankkey="187">
+    <keywordList>
+      <keyword text="adaptation" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">change to fit with a place or situation</p>]]></html>
+      </keyword>
+      <keyword text="phenomenon" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">unusual event or experience</p>]]></html>
+      </keyword>
+      <keyword text="species" index="3">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">groups of animals that are similar to each other</p>]]></html>
+      </keyword>
+      <keyword text="elaborate hoax" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">very detailed trick </p>]]></html>
+      </keyword>
+      <keyword text="generations" index="5">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">groups of people or animals born and living during the same time </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

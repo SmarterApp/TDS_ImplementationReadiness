@@ -24,7 +24,7 @@ public class StudentDaoImpl implements StudentDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<Student> listStudent = new ArrayList<Student>();
 
-	@Value("classpath:irp-package/HI Students1_100.xlsx")
+	@Value("classpath:irp-package/HI Students1_3.xlsx")  //AK Students.xlsx")
 	private Resource studentResource;
 
 	@Autowired
@@ -44,10 +44,6 @@ public class StudentDaoImpl implements StudentDao {
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
-	}
-
-	public List<Student> getListStudent() {
-		return listStudent;
 	}
 
 	@Override

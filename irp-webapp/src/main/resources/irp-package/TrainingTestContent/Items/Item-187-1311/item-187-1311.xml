@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="1311" version="8" bankkey="187">
+    <keywordList>
+      <keyword text="prism shown" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">prisma que se muestra</p>]]></html>
+      </keyword>
+      <keyword text="liquid" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">líquido</p>]]></html>
+      </keyword>
+      <keyword text="height" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">altura</p>]]></html>
+      </keyword>
+      <keyword text="fills" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">llena</p>]]></html>
+      </keyword>
+      <keyword text="Select" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Selecciona, Escoge, Elige <a href="item_1311_v8_1311_05spanish_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">يختار &#xA0;&#xA0;&#xA0;<a href="item_1311_v8_1311_05arabic_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Chọn &#xA0;&#xA0;<a href="item_1311_v8_1311_05vietnamese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">选择, 選擇 <a href="item_1311_v8_1311_05cantonese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="">选择, 選擇 &#xA0;<a href="item_1311_v8_1311_05mandarin_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style=""><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; ">Piliin </span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; "><a href="item_1311_v8_1311_05atagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; ">, Pilien </span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; "><a href="item_1311_v8_1311_05btagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span> &#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-weight:normal; "><span style="color:#000000; language:ru; country:RU; font-size:1.0000em; font-family:'Times New Roman'; ">Выберите </span><span style="color:#000000; language:ru; country:RU; font-size:1.0000em; font-family:'Times New Roman'; "><a href="item_1311_v8_1311_05russian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span> &#xA0;</p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">선택하다 &#xA0;<a href="item_1311_v8_1311_05korean_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style=""><span style="font-size:1.0000em; ">&#xA0;ਚੁਣੋ</span>  <a href="item_1311_v8_1311_05apunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a>, &#xA0;<span style="font-size:1.0000em; ">منتخب کرو </span><span style="font-size:1.0000em; "><a href="item_1311_v8_1311_05bpunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span><span style="font-size:1.0000em; "> </span>&#xA0;&#xA0;&#xA0;</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">Вибирати <a href="item_1311_v8_1311_05ukrainian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

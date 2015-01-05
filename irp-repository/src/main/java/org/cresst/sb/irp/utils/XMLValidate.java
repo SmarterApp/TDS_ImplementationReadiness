@@ -19,10 +19,6 @@ import org.xml.sax.SAXException;
 public class XMLValidate {
 	private static Logger logger = Logger.getLogger(XMLValidate.class);
 
-	public XMLValidate() {
-		logger.info("initializing");
-	}
-
 	public boolean validateXMLSchema(String xsdPath, String xmlPath)
 			throws IOException {
 
@@ -56,7 +52,7 @@ public class XMLValidate {
 	}
 
 	
-	public boolean validateXMLSchema(Resource resource,String file)
+	public boolean validateXMLSchema(Resource resource, String file)
 			throws IOException {
 
 		try {
@@ -71,7 +67,4 @@ public class XMLValidate {
 		}
 		return true;
 	}
-
-	
-	
 }

@@ -23,7 +23,7 @@ public class TDSReportDaoImpl implements TDSReportDao {
 	private static Logger logger = Logger.getLogger(TDSReportDaoImpl.class);
 	private TDSReport tdsReport;
 
-	@Value("classpath:irp-package/TestScoreBatching.xml")
+	@Value("classpath:TestScoreBatching.xml")
 	private Resource tdsReportResource;
 
 	@Autowired

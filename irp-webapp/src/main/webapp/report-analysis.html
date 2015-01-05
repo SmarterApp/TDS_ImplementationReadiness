@@ -97,11 +97,18 @@
             .tableAnalysis tr:first-child td:last-child{
                 border-width:0px 0px 1px 1px;
             }
+
+            p {
+                font-family: serif;
+                font-size: smaller;
+            }
         </style>
 
         <template if="{{!response.validXMLfile}}">
             <p>IRP was unable to validate and analyze this file.</p>
         </template>
+
+        <p>Explanation Key: <em>P</em> - Field is not empty with correct data type and acceptable value, <em>PC</em> - Same as P plus verified the value is correct</p>
 
         <table class="tableAnalysis">
             <thead>

@@ -11,8 +11,8 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.domain.testpackage.Property;
-import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.service.ItemService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
@@ -117,7 +117,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		}
 	}
 
-	public Testpackage getTestpackageByIdentifierUniqueid(String uniqueid) {
+	public Testspecification getTestpackageByIdentifierUniqueid(String uniqueid) {
 		return testPackageService.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 
@@ -234,18 +234,8 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 			logger.info("Not a float: " + inputValue);
 		}
 	}
-	
-	public void processAcceptValue(String value, FieldCheckType fieldCheckType, List<String> listGradeAcceptValues) {
-		if (value.length() > 0){
-			for(String listItem: listGradeAcceptValues){
-				if (listItem.equals(value)) {
-					fieldCheckType.setCorrectValue(true);
-				}
-			}
-		}
-	}
-	
-	public void processDate(String date, FieldCheckType fieldCheckType) { // effectiveDate="2014-07-07"
+
+	public void processDate(String date, FieldCheckType fieldCheckType){ // effectiveDate="2014-07-07"
 		String[] array = date.split("-");
 		if (array.length == 3){
 			try {

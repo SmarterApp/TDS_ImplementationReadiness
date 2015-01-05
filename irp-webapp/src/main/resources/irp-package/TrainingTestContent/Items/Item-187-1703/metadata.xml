@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>1703</Identifier>
+    <Version>5</Version>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>59858 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <IntendedGrade>3</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Pilot</TargetAssessmentType>
+    <InteractionType>MS</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <SufficientEvidenceOfClaim>(Elaboration) The student will revise complex opinion text by identifying best use of elaboration techniques such as a. Developing the opinion with supporting reasons</SufficientEvidenceOfClaim>
+    <EvidenceStatement>(Elaboration) The student will revise complex opinion text by identifying best use of elaboration techniques such as a. Developing the opinion with supporting reasons</EvidenceStatement>
+    <BrailleType>BRF</BrailleType>
+    <MinimumGrade>3</MinimumGrade>
+    <MaximumGrade>3</MaximumGrade>
+    <Claim2RevisionCategory>R</Claim2RevisionCategory>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1073</AssociatedTutorial>
+    <AssociatedWordlist>1734</AssociatedWordlist>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>
