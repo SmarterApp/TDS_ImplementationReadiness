@@ -66,15 +66,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Response, ItemRes
             responseCategory.setContent(response.getContent());
             fieldCheckType = new FieldCheckType();
             String format = tdsItem.getFormat();
-            if (format.trim().toLowerCase().equals("mc")) {// handle MC
-                fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-                responseCategory.setContentFieldCheckType(fieldCheckType);
-                org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
-                itemCategory.setIrpItem(irpItem);
-                Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-                itemCategory.setAttriblist(attriblist);
-                validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
-            } else if (format.trim().toLowerCase().equals("ms")) { // handle MS
+            if (format.trim().toLowerCase().equals("mc") || format.trim().toLowerCase().equals("ms")) {// handle MC, MS
                 fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
                 responseCategory.setContentFieldCheckType(fieldCheckType);
                 org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
