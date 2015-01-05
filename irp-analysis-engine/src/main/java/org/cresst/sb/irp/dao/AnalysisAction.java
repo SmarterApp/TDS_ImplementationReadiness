@@ -1,16 +1,15 @@
 package org.cresst.sb.irp.dao;
 
-import java.util.List;
-import java.util.Objects;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.*;
+import org.cresst.sb.irp.domain.analysis.Category;
+import org.cresst.sb.irp.domain.analysis.CellCategory;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType;
+import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
-import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.cresst.sb.irp.exceptions.NotFoundException;
@@ -19,6 +18,9 @@ import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Objects;
 
 public abstract class AnalysisAction<T, E extends Enum, O> {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
@@ -129,10 +131,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	
 	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
 		return tdsReportService.getExamineeAttributes(examinee);
-	}
-
-	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee) {
-		return tdsReportService.getExamineeRelationships(examinee);
 	}
 
 	public Student getStudent(long key) throws NotFoundException {

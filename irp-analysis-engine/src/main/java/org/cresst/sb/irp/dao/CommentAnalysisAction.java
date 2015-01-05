@@ -1,16 +1,15 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.CommentCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Comment;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName, Object> {

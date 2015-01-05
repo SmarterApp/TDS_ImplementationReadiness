@@ -1,24 +1,12 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ExamineeRelationshipCategory {
-
-	private List<CellCategory> cellCategories = new ArrayList<CellCategory>();
-
-	public List<CellCategory> getCellCategories() {
-		return ImmutableList.copyOf(cellCategories);
-	}
-
-	public void setCellCategories(List<CellCategory> cellCategories) {
-		this.cellCategories = cellCategories;
-	}
+public class ExamineeRelationshipCategory extends Category {
 
 	@Override
 	public String toString() {
-		return "ExamineeRelationshipCategory [cellCategories=" + cellCategories + "]";
+		return new ToStringBuilder(this)
+				.toString();
 	}
 }

@@ -38,11 +38,6 @@ public class TDSReportServiceImpl implements TDSReportService {
 	}
 
 	@Override
-	public List<ExamineeRelationship> getExamineeRelationships(Examinee examinee) {
-		return tDSReportDao.getExamineeRelationships(examinee);
-	}
-
-	@Override
 	public TDSReport.Opportunity getOpportunity() {
 		return tDSReportDao.getOpportunity();
 	}

@@ -202,9 +202,6 @@ public class StudentUtil {
 			case "PrimaryDisabilityType":
 				student.setPrimaryDisabilityType(cellStringValue);
 				break;
-			case "Delete":
-				student.setDelete(cellStringValue);
-				break;
 			default:
 				throw new IllegalArgumentException("Invalid column name: "
 						+ columnName);

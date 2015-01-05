@@ -1,52 +1,16 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToolUsageCategory {
+public class ToolUsageCategory extends Category {
 
-	private String type;
-	private String code;
-	private FieldCheckType typeFieldCheckType;
-	private FieldCheckType codeFieldCheckType;
-	
 	private List<ToolPageCategory> toolPageCategories = new ArrayList<>();
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-	
-	public FieldCheckType getTypeFieldCheckType() {
-		return typeFieldCheckType;
-	}
-
-	public void setTypeFieldCheckType(FieldCheckType typeFieldCheckType) {
-		this.typeFieldCheckType = typeFieldCheckType;
-	}
-
-	public FieldCheckType getCodeFieldCheckType() {
-		return codeFieldCheckType;
-	}
-
-	public void setCodeFieldCheckType(FieldCheckType codeFieldCheckType) {
-		this.codeFieldCheckType = codeFieldCheckType;
-	}
-
-	public List<ToolPageCategory> getToolPageCategories() {
+	public ImmutableList<ToolPageCategory> getToolPageCategories() {
 		return ImmutableList.copyOf(toolPageCategories);
 	}
 
@@ -56,7 +20,8 @@ public class ToolUsageCategory {
 
 	@Override
 	public String toString() {
-		return "ToolUsageCategory [type=" + type + ", code=" + code + ", typeFieldCheckType=" + typeFieldCheckType
-				+ ", codeFieldCheckType=" + codeFieldCheckType + ", toolPageCategories=" + toolPageCategories + "]";
+		return new ToStringBuilder(this)
+				.append("toolPageCategories", toolPageCategories)
+				.toString();
 	}
 }

@@ -1,8 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
@@ -11,6 +8,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Object> {
@@ -26,18 +26,24 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 	@Override
 	public void analyze(IndividualResponse individualResponse) {
-		TDSReport tdsReport = individualResponse.getTDSReport();
-		OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
+		try {
+			TDSReport tdsReport = individualResponse.getTDSReport();
 
-		List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
+			Opportunity opportunity = tdsReport.getOpportunity();
+			List<Item> listItem = opportunity.getItem();
 
-		Opportunity opportunity = tdsReport.getOpportunity();
-		List<Item> listItem = opportunity.getItem();
+			List<ItemCategory> itemCategories = new ArrayList<>();
 
-		for (Item i : listItem) {
-			ItemCategory itemCategory = new ItemCategory();
-			listItemCategory.add(itemCategory);
-			analyzeItemAttributes(itemCategory, i);
+			for (Item item : listItem) {
+				ItemCategory itemCategory = new ItemCategory();
+				itemCategories.add(itemCategory);
+				analyzeItemAttributes(itemCategory, item);
+			}
+
+			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
+			opportunityCategory.setItemCategories(itemCategories);
+		} catch (Exception ex) {
+			logger.error("Analyze exception", ex);
 		}
 	}
 

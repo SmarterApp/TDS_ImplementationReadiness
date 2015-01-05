@@ -1,8 +1,9 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.Logger;
 
 public class AnalysisResponse {
 	private static Logger logger = Logger.getLogger(AnalysisResponse.class);

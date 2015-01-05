@@ -1,18 +1,18 @@
 package org.cresst.sb.irp.dao;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.TestPropertiesCategory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testpackage;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.EnumTestFieldName, Testpackage> {
@@ -28,126 +28,28 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 	@Override
 	public void analyze(IndividualResponse individualResponse) {
 		try {
-			List<CellCategory> listTestPropertyCategory = individualResponse.getTestPropertyCategories();
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			Test tdsTest = tdsReport.getTest();
 
-			CellCategory testCategory;
-			FieldCheckType fieldCheckType;
+			String uniqueid = tdsTest.getName();
+			Testpackage testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.name.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getName());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.name, fieldCheckType);
+			TestPropertiesCategory testPropertiesCategory = new TestPropertiesCategory();
+			individualResponse.setTestPropertiesCategory(testPropertiesCategory);
 
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.subject.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getSubject());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.subject, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.testId.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getTestId());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.testId, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.bankKey.toString());
-			testCategory.setTdsFieldNameValue(Long.toString(tdsTest.getBankKey()));
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.bankKey, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.contract.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getContract());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.contract, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.mode.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getMode());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.mode, fieldCheckType);
-			
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.grade.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getGrade());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.grade, fieldCheckType);
-			
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.assessmentType.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getAssessmentType());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.assessmentType, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.academicYear.toString());
-			testCategory.setTdsFieldNameValue(Long.toString(tdsTest.getAcademicYear()));
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.P, EnumTestFieldName.academicYear, fieldCheckType);
-
-			testCategory = new CellCategory();
-			listTestPropertyCategory.add(testCategory);
-			testCategory.setTdsFieldName(EnumTestFieldName.assessmentVersion.toString());
-			testCategory.setTdsFieldNameValue(tdsTest.getAssessmentVersion());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			testCategory.setFieldCheckType(fieldCheckType);
-			validateField(tdsTest, EnumFieldCheckType.PC, EnumTestFieldName.assessmentVersion, fieldCheckType);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getName(), EnumFieldCheckType.PC, EnumTestFieldName.name, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getSubject(), EnumFieldCheckType.PC, EnumTestFieldName.subject, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getTestId(), EnumFieldCheckType.PC, EnumTestFieldName.testId, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P, EnumTestFieldName.bankKey, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P, EnumTestFieldName.contract, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC, EnumTestFieldName.grade, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P, EnumTestFieldName.assessmentType, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P, EnumTestFieldName.academicYear, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC, EnumTestFieldName.assessmentVersion, testPackage);
 
 		} catch (Exception e) {
 			logger.error("analyze exception: ", e);
-		}
-	}
-
-	private void validateField(Test tdsTest, EnumFieldCheckType enumFieldCheckType, EnumTestFieldName enumFieldName,
-			FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(tdsTest, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				String uniqueid = tdsTest.getName(); // String uniqueid = "(SBAC_PT)SBAC-Mathematics-11-Spring-2013-2015";
-				Testpackage testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
-				checkP(tdsTest, enumFieldName, fieldCheckType);
-				checkC(tdsTest, enumFieldName, fieldCheckType, testPackage);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkP exception: ", e);
 		}
 	}
 
@@ -283,11 +185,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 	}
 
 	private void processC_TestId(Test test, Testpackage testpackage, FieldCheckType fieldCheckType) {
-		try {
-			// TODO Auto-generated method stub
-		} catch (Exception e) {
-			logger.error("processTestId exception: ", e);
-		}
 
 	}
 	
@@ -309,6 +206,4 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				fieldCheckType.setCorrectValue(true);
 		}
 	}
-	
-
 }

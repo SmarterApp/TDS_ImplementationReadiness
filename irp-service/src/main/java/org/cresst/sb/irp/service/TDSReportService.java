@@ -15,9 +15,7 @@ public interface TDSReportService {
 	TDSReport.Examinee getExaminee();
 	
 	List<ExamineeAttribute> getExamineeAttributes(Examinee examinee);
-	
-	List<ExamineeRelationship> getExamineeRelationships(Examinee examinee);
-	
+
 	TDSReport.Opportunity getOpportunity();
 	
 	List<TDSReport.Opportunity.Score> getOpportunityScores();

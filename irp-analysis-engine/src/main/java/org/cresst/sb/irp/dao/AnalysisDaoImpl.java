@@ -1,10 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
-import javax.xml.transform.stream.StreamSource;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -15,6 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
+
+import javax.xml.transform.stream.StreamSource;
+import java.io.IOException;
+import java.nio.file.Path;
 
 @Repository
 public class AnalysisDaoImpl implements AnalysisDao {

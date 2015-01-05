@@ -1,9 +1,11 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
 public class IndividualResponse {
 
@@ -12,7 +14,7 @@ public class IndividualResponse {
 	private TDSReport tdsReport; //
 	private String status; //No errors, Contains xx errors 
 
-	private List<CellCategory> testPropertyCategories = new ArrayList<>();
+	private TestPropertiesCategory testPropertiesCategory;
 	private ExamineeCategory examineeCategory;
 	private List<ExamineeAttributeCategory> examineeAttributeCategories = new ArrayList<>();
 	private List<ExamineeRelationshipCategory> examineeRelationshipCategories = new ArrayList<>();
@@ -44,12 +46,12 @@ public class IndividualResponse {
 		this.isValidXMLfile = isValidXMLfile;
 	}
 	
-	public List<CellCategory> getTestPropertyCategories() {
-		return testPropertyCategories;
+	public TestPropertiesCategory getTestPropertiesCategory() {
+		return testPropertiesCategory;
 	}
 
-	public void setTestPropertyCategories(List<CellCategory> testPropertyCategories) {
-		this.testPropertyCategories = testPropertyCategories;
+	public void setTestPropertiesCategory(TestPropertiesCategory testPropertiesCategory) {
+		this.testPropertiesCategory = testPropertiesCategory;
 	}
 
 	public ExamineeCategory getExamineeCategory() {
@@ -60,22 +62,14 @@ public class IndividualResponse {
 		this.examineeCategory = examineeCategory;
 	}
 
-	public List<ExamineeAttributeCategory> getExamineeAttributeCategories() {
-		return examineeAttributeCategories;
+	public ImmutableList<ExamineeAttributeCategory> getExamineeAttributeCategories() {
+		return ImmutableList.copyOf(examineeAttributeCategories);
 	}
 
-	public void setExamineeAttributeCategories(List<ExamineeAttributeCategory> examineeAttributeCategories) {
-		this.examineeAttributeCategories = examineeAttributeCategories;
-	}
-	
-	public List<ExamineeRelationshipCategory> getExamineeRelationshipCategories() {
-		return examineeRelationshipCategories;
+	public ImmutableList<ExamineeRelationshipCategory> getExamineeRelationshipCategories() {
+		return ImmutableList.copyOf(examineeRelationshipCategories);
 	}
 
-	public void setExamineeRelationshipCategories(List<ExamineeRelationshipCategory> examineeRelationshipCategories) {
-		this.examineeRelationshipCategories = examineeRelationshipCategories;
-	}
-	
 	public OpportunityCategory getOpportunityCategory() {
 		return opportunityCategory;
 	}
@@ -109,17 +103,32 @@ public class IndividualResponse {
 		this.toolUsageCategories = toolUsageCategories;
 	}
 
-	@Override
-	public String toString() {
-		return "IndividualResponse [fileName=" + fileName + ", isValidXMLfile=" + isValidXMLfile + ", tdsReport=" + tdsReport
-				+ ", status=" + status + ", testPropertyCategories=" + testPropertyCategories + ", examineeCategory="
-				+ examineeCategory + ", examineeAttributeCategories=" + examineeAttributeCategories
-				+ ", examineeRelationshipCategories=" + examineeRelationshipCategories + ", opportunityCategory="
-				+ opportunityCategory + ", commentCategories=" + commentCategories + ", toolUsageCategories="
-				+ toolUsageCategories + "]";
-	}
-
 	public void addExamineeAttributeCategory(ExamineeAttributeCategory examineeAttributeCategory) {
 		examineeAttributeCategories.add(examineeAttributeCategory);
+	}
+
+	public void addExamineeRelationshipCategory(ExamineeRelationshipCategory examineeRelationshipCategory) {
+		examineeRelationshipCategories.add(examineeRelationshipCategory);
+	}
+
+	public void addToolUsageCategory(ToolUsageCategory toolUsageCategory) {
+		toolUsageCategories.add(toolUsageCategory);
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this)
+				.append("fileName", fileName)
+				.append("isValidXMLfile", isValidXMLfile)
+				.append("tdsReport", tdsReport)
+				.append("status", status)
+				.append("testPropertiesCategory", testPropertiesCategory)
+				.append("examineeCategory", examineeCategory)
+				.append("examineeAttributeCategories", examineeAttributeCategories)
+				.append("examineeRelationshipCategories", examineeRelationshipCategories)
+				.append("opportunityCategory", opportunityCategory)
+				.append("commentCategories", commentCategories)
+				.append("toolUsageCategories", toolUsageCategories)
+				.toString();
 	}
 }

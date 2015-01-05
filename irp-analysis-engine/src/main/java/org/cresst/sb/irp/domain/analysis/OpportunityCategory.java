@@ -1,9 +1,9 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.collect.ImmutableList;
 
 public class OpportunityCategory extends Category {
 
@@ -13,7 +13,7 @@ public class OpportunityCategory extends Category {
 	private List<ScoreCategory> scoreCategories = new ArrayList<>();
 	private List<ItemCategory> itemCategories = new ArrayList<>();
 
-	public List<SegmentCategory> getSegmentCategories() {
+	public ImmutableList<SegmentCategory> getSegmentCategories() {
 		return ImmutableList.copyOf(segmentCategories);
 	}
 
@@ -21,7 +21,7 @@ public class OpportunityCategory extends Category {
 		this.segmentCategories = segmentCategories;
 	}
 
-	public List<AccommodationCategory> getAccommodationCategories() {
+	public ImmutableList<AccommodationCategory> getAccommodationCategories() {
 		return ImmutableList.copyOf(accommodationCategories);
 	}
 
@@ -29,7 +29,7 @@ public class OpportunityCategory extends Category {
 		this.accommodationCategories = accommodationCategories;
 	}
 
-	public List<ScoreCategory> getScoreCategories() {
+	public ImmutableList<ScoreCategory> getScoreCategories() {
 		return ImmutableList.copyOf(scoreCategories);
 	}
 
@@ -37,7 +37,7 @@ public class OpportunityCategory extends Category {
 		this.scoreCategories = scoreCategories;
 	}
 
-	public List<ItemCategory> getItemCategories() {
+	public ImmutableList<ItemCategory> getItemCategories() {
 		return ImmutableList.copyOf(itemCategories);
 	}
 

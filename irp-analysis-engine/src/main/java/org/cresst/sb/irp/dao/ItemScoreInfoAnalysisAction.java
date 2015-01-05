@@ -1,8 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -13,6 +10,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, ItemScoreInfoAnalysisAction.EnumItemScoreInfoFieldName, ItemCategory> {

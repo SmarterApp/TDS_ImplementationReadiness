@@ -1,12 +1,10 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.springframework.stereotype.Service;
@@ -22,10 +20,10 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
 	@Override
 	public void analyze(IndividualResponse individualResponse) {
 		TDSReport tdsReport = individualResponse.getTDSReport();
+		Opportunity opportunity = tdsReport.getOpportunity();
 
 		OpportunityCategory opportunityCategory = new OpportunityCategory();
 		individualResponse.setOpportunityCategory(opportunityCategory);
-		Opportunity opportunity = tdsReport.getOpportunity();
 
 		validate(opportunityCategory, opportunity, opportunity.getServer(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.server, null);
 		validate(opportunityCategory, opportunity, opportunity.getDatabase(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.database, null);

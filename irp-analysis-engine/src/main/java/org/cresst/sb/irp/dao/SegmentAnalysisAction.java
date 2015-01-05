@@ -1,20 +1,18 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
 import org.cresst.sb.irp.domain.analysis.SegmentCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Segment;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalysisAction.EnumSegmentFieldName, Object> {
@@ -28,105 +26,31 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
 	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<SegmentCategory> listSegmentCategory = opportunityCategory.getSegmentCategories();
 
-			SegmentCategory segmentCategory;
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Segment> listSegment = opportunity.getSegment();
-			for (Segment s : listSegment) {
-				segmentCategory = new SegmentCategory();
+
+			List<SegmentCategory> listSegmentCategory = new ArrayList<>();
+			for (Segment segment : listSegment) {
+				SegmentCategory segmentCategory = new SegmentCategory();
 				listSegmentCategory.add(segmentCategory);
-				analysisEachSegment(segmentCategory, s);
+				analysisEachSegment(segmentCategory, segment);
 			}
+
+			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
+			opportunityCategory.setSegmentCategories(listSegmentCategory);
 		} catch (Exception e) {
-			logger.error("analyze exception: ", e);
+			logger.error("Analyze exception", e);
 		}
 	}
 
-	private void analysisEachSegment(SegmentCategory segmentCategory, Segment segment){
-		try {
-			List<CellCategory> listCellCategory = segmentCategory.getCellCategories();
-			CellCategory cellCategory;
-			FieldCheckType fieldCheckType;
-
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.id.toString());
-			cellCategory.setTdsFieldNameValue(segment.getId());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.id, fieldCheckType);
-			
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.position.toString());
-			cellCategory.setTdsFieldNameValue(Short.toString(segment.getPosition()));
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.position, fieldCheckType);
-
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.formId.toString());
-			cellCategory.setTdsFieldNameValue(segment.getFormId());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.D, EnumSegmentFieldName.formId, fieldCheckType);
-			
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.formKey.toString());
-			cellCategory.setTdsFieldNameValue(segment.getFormKey());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.D);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.D, EnumSegmentFieldName.formKey, fieldCheckType);
-			
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.algorithm.toString());
-			cellCategory.setTdsFieldNameValue(segment.getAlgorithm());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.algorithm, fieldCheckType);
-			
-			cellCategory = new CellCategory();
-			listCellCategory.add(cellCategory);
-			cellCategory.setTdsFieldName(EnumSegmentFieldName.algorithmVersion.toString());
-			cellCategory.setTdsFieldNameValue(segment.getAlgorithmVersion());
-			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-			cellCategory.setFieldCheckType(fieldCheckType);
-			validateField(segment, EnumFieldCheckType.P, EnumSegmentFieldName.algorithmVersion, fieldCheckType);
-			
-		} catch (Exception e) {
-			logger.error("analysisEachSegment exception: ", e);
-		}
-		
-	}
-
-	private void validateField(Segment segment, EnumFieldCheckType enumFieldCheckType,
-			EnumSegmentFieldName enumFieldName, FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(segment, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(segment, enumFieldName, fieldCheckType);
-				//checkC(segment, enumFieldName, fieldCheckType);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
-		}
+	private void analysisEachSegment(SegmentCategory segmentCategory, Segment segment) {
+		validate(segmentCategory, segment, segment.getId(), EnumFieldCheckType.P, EnumSegmentFieldName.id, null);
+		validate(segmentCategory, segment, segment.getPosition(), EnumFieldCheckType.P, EnumSegmentFieldName.position, null);
+		validate(segmentCategory, segment, segment.getFormId(), EnumFieldCheckType.D, EnumSegmentFieldName.formId, null);
+		validate(segmentCategory, segment, segment.getFormKey(), EnumFieldCheckType.D, EnumSegmentFieldName.formKey, null);
+		validate(segmentCategory, segment, segment.getAlgorithm(), EnumFieldCheckType.P, EnumSegmentFieldName.algorithm, null);
+		validate(segmentCategory, segment, segment.getAlgorithmVersion(), EnumFieldCheckType.P, EnumSegmentFieldName.algorithmVersion, null);
 	}
 
 	/**
