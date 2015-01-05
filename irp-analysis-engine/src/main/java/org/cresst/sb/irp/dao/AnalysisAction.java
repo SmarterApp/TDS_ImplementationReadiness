@@ -136,10 +136,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
         return testPackageService.getGradePropertyValueFromListProperty(listProperty);
     }
 
-    public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
-        return tdsReportService.getExamineeAttributes(examinee);
-    }
-
     public Student getStudent(long key) throws NotFoundException {
         return studentService.getStudentByStudentSSID(key);
     }

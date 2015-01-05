@@ -52,25 +52,6 @@ public class TDSReportDaoImpl implements TDSReportDao {
 	}
 
 	@Override
-	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
-		List<ExamineeAttribute> listExamineeAttribute = new ArrayList<ExamineeAttribute>();
-		try {
-			if (examinee != null) {
-				// ExamineeAttributes and ExamineeRelationships
-				List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
-				for (Object o : listObject) {
-					if (o instanceof ExamineeAttribute) {
-						listExamineeAttribute.add((ExamineeAttribute) o);
-					}
-				}
-			}
-		} catch (Exception e) {
-			logger.error("getExamineeAttributes exception: ", e);
-		}
-		return listExamineeAttribute;
-	}
-
-	@Override
 	public TDSReport.Opportunity getOpportunity() {
 		TDSReport.Opportunity opportunity = tdsReport.getOpportunity();
 		if (opportunity == null) {

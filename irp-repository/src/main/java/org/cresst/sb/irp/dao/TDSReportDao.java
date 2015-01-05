@@ -14,8 +14,6 @@ public interface TDSReportDao {
 	
 	TDSReport.Examinee getExaminee();
 	
-	List<ExamineeAttribute> getExamineeAttributes(Examinee examinee);
-	
 	TDSReport.Opportunity getOpportunity();
 	
 	List<TDSReport.Opportunity.Score> getOpportunityScores();

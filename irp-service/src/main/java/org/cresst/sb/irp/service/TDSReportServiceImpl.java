@@ -33,11 +33,6 @@ public class TDSReportServiceImpl implements TDSReportService {
 	}
 
 	@Override
-	public List<ExamineeAttribute> getExamineeAttributes(Examinee examinee) {
-		return tDSReportDao.getExamineeAttributes(examinee);
-	}
-
-	@Override
 	public TDSReport.Opportunity getOpportunity() {
 		return tDSReportDao.getOpportunity();
 	}
