@@ -88,7 +88,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
             fieldCheckType = new FieldCheckType();
             fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
             scoreInfoCategory.setConfLevelFieldCheckType(fieldCheckType);
-            validateField(scoreInfoType, EnumFieldCheckType.P, EnumItemScoreInfoFieldName.confLevel, fieldCheckType, itemCategory);
+            validateField(scoreInfoType, EnumFieldCheckType.P, EnumItemScoreInfoFieldName.confLevel, fieldCheckType);
 
         } catch (Exception e) {
             logger.error("analysisItemScoreInfo exception: ", e);
@@ -208,10 +208,15 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
     @Override
     protected void checkC(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName,
                           FieldCheckType fieldCheckType, ItemCategory itemCategory) {
+
+    }
+
+    protected void checkC(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName,
+                          FieldCheckType fieldCheckType, ItemCategory itemCategory, String itemFormat) {
         try {
             switch (enumFieldName) {
                 case scorePoint:
-                    processC(scoreInfoType.getScorePoint(), fieldCheckType, itemCategory);
+                    processC(scoreInfoType, fieldCheckType, itemCategory, itemFormat);
                     break;
                 case maxScore:
                     break;
