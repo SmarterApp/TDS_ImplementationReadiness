@@ -124,6 +124,8 @@ public class ItemDaoImpl implements ItemDao {
 
 	@Override
 	public Attriblist getItemAttriblistFromIRPitem(Item item) {
+		System.out.println("item" + item.getBankkey());
+		System.out.println("item tostring() " + item.toString());
 		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
 		if (listAttriblist == null || listAttriblist.size() == 0)
 			return null;

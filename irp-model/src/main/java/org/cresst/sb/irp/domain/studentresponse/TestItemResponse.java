@@ -28,4 +28,9 @@ public class TestItemResponse {
 		this.studentResponses = studentResponses;
 	}
 
+	@Override
+	public String toString() {
+		return "TestItemResponse [studentID=" + studentID + ", studentResponses=" + studentResponses + "]";
+	}
+
 }

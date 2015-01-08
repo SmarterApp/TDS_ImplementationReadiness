@@ -31,6 +31,9 @@ public class StudentResponseUtil {
 			while (cellHeaderIterator.hasNext()) {
 				// get cell object
 				Cell cell = cellHeaderIterator.next();
+				if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+					cell.setCellType(Cell.CELL_TYPE_STRING);
+				} 
 				headerMap.put(Integer.valueOf(cell.getColumnIndex()), cell.getStringCellValue().trim());
 			}
 		} catch (Exception e) {
