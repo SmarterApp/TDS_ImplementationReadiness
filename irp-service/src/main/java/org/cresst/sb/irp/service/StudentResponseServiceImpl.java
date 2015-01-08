@@ -14,6 +14,10 @@ public class StudentResponseServiceImpl implements StudentResponseService {
 	@Autowired
 	private StudentResponseDao studentResponseDao;
 
+	public StudentResponseServiceImpl(){
+		logger.info("initializing");
+	}
+	
 	@Override
 	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
 		return studentResponseDao.getTestItemResponseByStudentID(studentID);

@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.springframework.stereotype.Service;
@@ -125,7 +124,7 @@ public class StudentResponseUtil {
 		try {
 			boolean blnStart = false;
 			for (Map.Entry<Integer, String> entry : map.entrySet()) {
-				int key = entry.getKey();
+				//int key = entry.getKey();
 				String columnName = entry.getValue();
 				if (blnStart) {
 					TestItemResponse testItemResponse = new TestItemResponse();

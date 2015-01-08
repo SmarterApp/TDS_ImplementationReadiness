@@ -35,22 +35,13 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	
 	@PostConstruct
 	public void loadData() throws Exception {
-	
-		System.out.println("insde of loadData....");
 		XSSFWorkbook workbook = new XSSFWorkbook(studentResponseResource.getInputStream());
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		studentResponseUtil.getHeaderColumn(headerMap, sheet);
-		for(Map.Entry<Integer, String> entry: headerMap.entrySet()){
-			Integer key = entry.getKey();
-			String value = entry.getValue();
-			System.out.println("key -->" + key + " value ->" + value);
-		}
 		studentResponseUtil.initialTestItemResponse(headerMap, testItemStudentResponseMap);
 		if(testItemStudentResponseMap.size() > 0){
-			System.out.println("1111111111111111111");
 			studentResponseUtil.processSheet(testItemStudentResponseMap, headerMap, sheet);
-		}else
-			System.out.println("22222222222222222222");
+		}
 	}
 	
 	@Override

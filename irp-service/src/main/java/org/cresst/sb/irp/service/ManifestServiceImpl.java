@@ -16,7 +16,7 @@ public class ManifestServiceImpl implements ManifestService {
 	private ManifestDao manifestDao;
 	
 	public ManifestServiceImpl(){
-
+		logger.info("initializing");
 	}
 	
 	@Override
