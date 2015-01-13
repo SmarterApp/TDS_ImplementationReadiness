@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.service;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.StudentResponseDao;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
@@ -19,6 +21,16 @@ public class StudentResponseServiceImpl implements StudentResponseService {
 	}
 	
 	@Override
+	public Map<Integer, String> getHeaderMap() {
+		return studentResponseDao.getHeaderMap();
+	}
+
+	@Override
+	public Map<String, TestItemResponse> getTestItemStudentResponseMap() {
+		return studentResponseDao.getTestItemStudentResponseMap();
+	}
+	
+	@Override
 	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
 		return studentResponseDao.getTestItemResponseByStudentID(studentID);
 	}
@@ -27,5 +39,7 @@ public class StudentResponseServiceImpl implements StudentResponseService {
 	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String id) {
 		return studentResponseDao.getStudentResponseByStudentIDandBankKeyID(studentID, id);
 	}
+
+
 	
 }

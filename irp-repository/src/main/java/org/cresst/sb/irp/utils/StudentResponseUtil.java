@@ -25,7 +25,7 @@ public class StudentResponseUtil {
 	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet) {
 		try {
 			// get header
-			Row headerRow = sheet.getRow(1); // 0 Test Packages , Student Responses (Alternate ID)
+			Row headerRow = sheet.getRow(1); // row 0 -  Test Packages , Student Responses (SSID)
 			Iterator<Cell> cellHeaderIterator = headerRow.cellIterator();
 			while (cellHeaderIterator.hasNext()) {
 				// get cell object
@@ -33,6 +33,9 @@ public class StudentResponseUtil {
 				if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 					cell.setCellType(Cell.CELL_TYPE_STRING);
 				} 
+				if (cell.getStringCellValue().trim().equals("Item: ITS ID")) { //break loop after the last column of SSID response
+					break;
+				}
 				headerMap.put(Integer.valueOf(cell.getColumnIndex()), cell.getStringCellValue().trim());
 			}
 		} catch (Exception e) {
@@ -40,6 +43,25 @@ public class StudentResponseUtil {
 		}
 	}
 
+	public void initialTestItemResponse(Map<Integer, String> map, Map<String, TestItemResponse> testItemStudentResponseMap) {
+		try {
+			boolean blnStart = false;
+			for (Map.Entry<Integer, String> entry : map.entrySet()) {
+				//int key = entry.getKey();
+				String columnName = entry.getValue();
+				if (blnStart) {
+					TestItemResponse testItemResponse = new TestItemResponse();
+					testItemResponse.setStudentID(columnName);
+					testItemStudentResponseMap.put(columnName, testItemResponse);
+				}
+				if (columnName.trim().equals("Training Test Item"))
+					blnStart = true;
+			}
+		} catch (Exception e) {
+			logger.error("initialTestItemResponse(); exception: ", e);
+		}
+	}
+	
 	public void processSheet(Map<String, TestItemResponse> testItemStudentResponseMap, Map<Integer, String> headerMap,
 			XSSFSheet sheet) {
 		try {
@@ -48,6 +70,8 @@ public class StudentResponseUtil {
 				if (detailRow != null && !isEmptyRow(detailRow)) {
 					List<StudentResponse> currStudentResponses = createStudentResponses(testItemStudentResponseMap);
 					createStudentResponseObject(detailRow, headerMap, currStudentResponses);
+				}else{
+					break;
 				}
 			}
 		} catch (Exception e) {
@@ -65,8 +89,7 @@ public class StudentResponseUtil {
 				StudentResponse studentResponse = new StudentResponse();
 				studentResponse.setStudentID(key);
 				listStudentResponse.add(studentResponse);
-				List<StudentResponse> tmpStudentResponse = testItemResponse.getStudentResponses();
-				tmpStudentResponse.add(studentResponse);
+				testItemResponse.getStudentResponses().add(studentResponse);
 			}
 		} catch (Exception e) {
 			logger.error("createStudentResponses(); exception: ", e);
@@ -118,25 +141,6 @@ public class StudentResponseUtil {
 			logger.error("isEmptyRow(); exception: ", e);
 		}
 		return bln;
-	}
-
-	public void initialTestItemResponse(Map<Integer, String> map, Map<String, TestItemResponse> testItemStudentResponseMap) {
-		try {
-			boolean blnStart = false;
-			for (Map.Entry<Integer, String> entry : map.entrySet()) {
-				//int key = entry.getKey();
-				String columnName = entry.getValue();
-				if (blnStart) {
-					TestItemResponse testItemResponse = new TestItemResponse();
-					testItemResponse.setStudentID(columnName);
-					testItemStudentResponseMap.put(columnName, testItemResponse);
-				}
-				if (columnName.trim().equals("Training Test Item"))
-					blnStart = true;
-			}
-		} catch (Exception e) {
-			logger.error("initialTestItemResponse(); exception: ", e);
-		}
 	}
 
 	private void setStudentResponseFieldData(StudentResponse studentResponse, String columnName, String cellStringValue) {

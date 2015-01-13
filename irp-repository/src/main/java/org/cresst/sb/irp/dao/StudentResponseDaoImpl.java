@@ -23,7 +23,7 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private Map<String, TestItemResponse> testItemStudentResponseMap = new HashMap<String, TestItemResponse>();
 	
-	@Value("classpath:irp-package/PT10thGradeMathItemsWithStudentResponses.xlsx")  //12/23/14
+	@Value("classpath:irp-package/PT10thGradeMathItemsWithStudentResponses_1_13_15.xlsx")  //1/13/15 use 1 file only
 	private Resource studentResponseResource;
 	
 	@Autowired
@@ -68,7 +68,14 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 		return null;
 	}
 
+	@Override
+	public Map<Integer, String> getHeaderMap() {
+		return headerMap;
+	}
 
-	
-	
+	@Override
+	public Map<String, TestItemResponse> getTestItemStudentResponseMap() {
+		return testItemStudentResponseMap;
+	}
+
 }

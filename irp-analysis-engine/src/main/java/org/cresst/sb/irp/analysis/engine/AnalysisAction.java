@@ -178,11 +178,18 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
 	}
 
+	/**
+	 * @param studentID - SSID
+	 */
 	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
 		return studentResponseService.getTestItemResponseByStudentID(studentID);
 	}
-	
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String bankKeyKey){
+
+	/*
+	 * @param studentID - SSID
+	 * @param bankKeyKey - value in ID column e.g 174
+	 */
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String bankKeyKey) {
 		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKeyKey);
 	}
 
