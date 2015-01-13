@@ -1,13 +1,9 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.log4j.Logger;
-import org.cresst.sb.irp.dao.StudentResponseDao;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
-import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.utils.XMLValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +15,6 @@ import javax.xml.transform.stream.StreamSource;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Map;
 
 @Service
 public class TdsReportAnalysisEngine implements AnalysisEngine {
