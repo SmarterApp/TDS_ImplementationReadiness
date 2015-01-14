@@ -71,10 +71,18 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
+		<dependency>
+			<groupId>org.opentestsystem.delivery</groupId>
+			<artifactId>item-scoring-engine</artifactId>
+			<version>R01.00.12</version>
+		</dependency>
 	</dependencies>
 
-
-
+	<repositories>
+		<repository>
+			<id>sbcresst</id>
+			<name>sbcresst</name>
+			<url>http://54.191.9.12:8080/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 </project>
