@@ -75,6 +75,12 @@
 			<groupId>org.opentestsystem.delivery</groupId>
 			<artifactId>item-scoring-engine</artifactId>
 			<version>R01.00.12</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.opentestsystem.shared</groupId>
+					<artifactId>shared-web</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
