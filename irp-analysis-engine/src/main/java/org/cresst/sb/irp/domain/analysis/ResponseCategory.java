@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
+
 
 public class ResponseCategory {
 
@@ -9,6 +11,8 @@ public class ResponseCategory {
     private FieldCheckType dateFieldCheckType;
     private FieldCheckType typeFieldCheckType;
     private FieldCheckType contentFieldCheckType;
+    
+    private StudentResponse studentResponse; 
 
     public String getDate() {
         return date;
@@ -34,7 +38,15 @@ public class ResponseCategory {
         this.content = content;
     }
 
-    public FieldCheckType getDateFieldCheckType() {
+    public StudentResponse getStudentResponse() {
+		return studentResponse;
+	}
+
+	public void setStudentResponse(StudentResponse studentResponse) {
+		this.studentResponse = studentResponse;
+	}
+
+	public FieldCheckType getDateFieldCheckType() {
         return dateFieldCheckType;
     }
 
@@ -58,10 +70,12 @@ public class ResponseCategory {
         this.contentFieldCheckType = contentFieldCheckType;
     }
 
-    @Override
-    public String toString() {
-        return "ResponseCategory [date=" + date + ", type=" + type + ", dateFieldCheckType="
-                + dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
-                + contentFieldCheckType + "]";
-    }
+	@Override
+	public String toString() {
+		return "ResponseCategory [date=" + date + ", type=" + type + ", content=" + content + ", dateFieldCheckType="
+				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
+				+ contentFieldCheckType + ", studentResponse=" + studentResponse + "]";
+	}
+
+ 
 }

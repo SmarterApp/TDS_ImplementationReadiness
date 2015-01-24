@@ -2,21 +2,39 @@ package org.cresst.sb.irp.domain.studentresponse;
 
 public class StudentResponse {
 
-	private String testFileName; //(SBAC_PT)SBAC Math HS-MATH-10-Spring-2014-2015
-	private String type; //item
-	private String itemName; //item-187-174.xml
-	private String bankKey; //187
-	private String id; //174
-	private String source; //4867
+	private String testFileName; // (SBAC_PT)SBAC Math HS-MATH-10-Spring-2014-2015
+	private String type; // item
+	private String itemName; // item-187-174.xml
+	private String bankKey; // 187
+	private String id; // 174
+	private String source; // 4867
 	private String subject;
-	private String itemType; //ER, MI
-	private String lookup; //174
-	private String traningTestItem; //2
-	private String studentID; //11190
-	private String responseContent; //YES for 2 and -7; NO for -2 and 7
-	
-	public StudentResponse(){
-		
+	private String itemType; // ER, MI
+	private String lookup; // 174
+	private String traningTestItem; // 2
+	private String studentID; // 11190
+	private String responseContent; // YES for 2 and -7; NO for -2 and 7
+	private String tdsResponseContent; // corresponding actual response content in tds report xml file
+	private String status; // result of comparing responseContent with tdsResponseContent
+
+	public StudentResponse() {
+
+	}
+
+	public String getTdsResponseContent() {
+		return tdsResponseContent;
+	}
+
+	public void setTdsResponseContent(String tdsResponseContent) {
+		this.tdsResponseContent = tdsResponseContent;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getTestFileName() {
@@ -120,7 +138,7 @@ public class StudentResponse {
 		return "StudentResponse [testFileName=" + testFileName + ", type=" + type + ", itemName=" + itemName + ", bankKey="
 				+ bankKey + ", id=" + id + ", source=" + source + ", subject=" + subject + ", itemType=" + itemType + ", lookup="
 				+ lookup + ", traningTestItem=" + traningTestItem + ", studentID=" + studentID + ", responseContent="
-				+ responseContent + "]";
+				+ responseContent + ", tdsResponseContent=" + tdsResponseContent + ", status=" + status + "]";
 	}
-	
+
 }

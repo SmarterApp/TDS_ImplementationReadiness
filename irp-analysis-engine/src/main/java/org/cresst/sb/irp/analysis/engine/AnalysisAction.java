@@ -20,6 +20,8 @@ import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -121,6 +123,15 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
 	}
 
+	@SuppressWarnings("unchecked")
+	protected <U> U getTdsFieldNameValueByFieldName(ImmutableList<CellCategory> cellCategories, U key) {
+		for (CellCategory cellCategory : cellCategories) {
+			if (cellCategory.getTdsFieldName().equals(key))
+				return (U) cellCategory.getTdsFieldNameValue();
+		}
+		return null;
+	}
+
 	/**
 	 * Checks the field
 	 *
@@ -179,15 +190,17 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	/**
-	 * @param studentID - SSID
+	 * @param studentID
+	 *            - SSID
 	 */
 	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
 		return studentResponseService.getTestItemResponseByStudentID(studentID);
 	}
 
-	/*
+	/**
 	 * @param studentID - SSID
-	 * @param bankKeyKey - value in ID column e.g 174
+	 * 
+	 * @param bankKeyKey - value in ID column e.g 174, NOT using bankKey
 	 */
 	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String bankKeyKey) {
 		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKeyKey);
