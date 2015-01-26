@@ -25,6 +25,13 @@ import com.google.common.collect.ImmutableList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Base class for various TDS Report XML analyzers.
+ *
+ * @param <T> Any object that contains the fields being analyzed.
+ * @param <E> An enum to represent the field that is being analyzed.
+ * @param <O> Any object that needs to be passed through to help validate a field.
+ */
 public abstract class AnalysisAction<T, E extends Enum, O> {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
 
