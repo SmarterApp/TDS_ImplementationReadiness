@@ -5,18 +5,18 @@ import java.util.List;
 
 public class TestItemResponse {
 	
-	private String studentID; //8598 - SSID
+	private Long studentID; //8598 - SSID
 	private List<StudentResponse> studentResponses;
 	
 	public TestItemResponse(){
 		studentResponses =  new ArrayList<StudentResponse>();
 	}
 	
-	public String getStudentID() {
+	public Long getStudentID() {
 		return studentID;
 	}
 	
-	public void setStudentID(String studentID) {
+	public void setStudentID(Long studentID) {
 		this.studentID = studentID;
 	}
 	

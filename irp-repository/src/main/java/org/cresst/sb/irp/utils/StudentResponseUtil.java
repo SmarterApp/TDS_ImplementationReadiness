@@ -43,16 +43,17 @@ public class StudentResponseUtil {
 		}
 	}
 
-	public void initialTestItemResponse(Map<Integer, String> map, Map<String, TestItemResponse> testItemStudentResponseMap) {
+	public void initialTestItemResponse(Map<Integer, String> map, Map<Long, TestItemResponse> testItemStudentResponseMap) {
 		try {
 			boolean blnStart = false;
 			for (Map.Entry<Integer, String> entry : map.entrySet()) {
-				//int key = entry.getKey();
+				int key = entry.getKey();
 				String columnName = entry.getValue();
+				System.out.println("key ->" + key + " columnName ->" + columnName);
 				if (blnStart) {
 					TestItemResponse testItemResponse = new TestItemResponse();
-					testItemResponse.setStudentID(columnName);
-					testItemStudentResponseMap.put(columnName, testItemResponse);
+					testItemResponse.setStudentID(Long.parseLong(columnName));
+					testItemStudentResponseMap.put(Long.parseLong(columnName), testItemResponse);
 				}
 				if (columnName.trim().equals("Training Test Item"))
 					blnStart = true;
@@ -62,7 +63,7 @@ public class StudentResponseUtil {
 		}
 	}
 	
-	public void processSheet(Map<String, TestItemResponse> testItemStudentResponseMap, Map<Integer, String> headerMap,
+	public void processSheet(Map<Long, TestItemResponse> testItemStudentResponseMap, Map<Integer, String> headerMap,
 			XSSFSheet sheet) {
 		try {
 			for (int rowCount = 2; rowCount <= sheet.getLastRowNum(); rowCount++) {
@@ -79,12 +80,12 @@ public class StudentResponseUtil {
 		}
 	}
 
-	private List<StudentResponse> createStudentResponses(Map<String, TestItemResponse> testItemStudentResponseMap) {
+	private List<StudentResponse> createStudentResponses(Map<Long, TestItemResponse> testItemStudentResponseMap) {
 		List<StudentResponse> listStudentResponse = null;
 		try {
 			listStudentResponse = new ArrayList<StudentResponse>();
-			for (Map.Entry<String, TestItemResponse> entry : testItemStudentResponseMap.entrySet()) {
-				String key = entry.getKey();
+			for (Map.Entry<Long, TestItemResponse> entry : testItemStudentResponseMap.entrySet()) {
+				Long key = entry.getKey();
 				TestItemResponse testItemResponse = entry.getValue();
 				StudentResponse studentResponse = new StudentResponse();
 				studentResponse.setStudentID(key);
@@ -115,8 +116,9 @@ public class StudentResponseUtil {
 							setStudentResponseFieldData(sr, columnName, cell.getStringCellValue());
 						}
 						else {
-							if (sr.getStudentID().equals(columnName))
+							if (sr.getStudentID().toString().equals(columnName)){
 								sr.setResponseContent(cell.getStringCellValue());
+							}
 						}
 					}
 				}

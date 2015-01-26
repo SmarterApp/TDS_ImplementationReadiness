@@ -12,7 +12,7 @@ public class StudentResponse {
 	private String itemType; // ER, MI
 	private String lookup; // 174
 	private String traningTestItem; // 2
-	private String studentID; // 11190
+	private long studentID; // 8599
 	private String responseContent; // YES for 2 and -7; NO for -2 and 7
 	private String tdsResponseContent; // corresponding actual response content in tds report xml file
 	private String status; // result of comparing responseContent with tdsResponseContent
@@ -117,11 +117,11 @@ public class StudentResponse {
 		this.traningTestItem = traningTestItem;
 	}
 
-	public String getStudentID() {
+	public Long getStudentID() {
 		return studentID;
 	}
 
-	public void setStudentID(String studentID) {
+	public void setStudentID(Long studentID) {
 		this.studentID = studentID;
 	}
 

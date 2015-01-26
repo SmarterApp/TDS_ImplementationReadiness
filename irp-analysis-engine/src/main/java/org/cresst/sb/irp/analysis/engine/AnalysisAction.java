@@ -130,11 +130,16 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
 	}
 
-	@SuppressWarnings("unchecked")
-	protected <U> U getTdsFieldNameValueByFieldName(ImmutableList<CellCategory> cellCategories, U key) {
+	/**
+	 * 
+	 * @param cellCategories The cellCategories store the list CellCategory
+	 * @param key The tdsFieldName used to retrieve tdsFieldValue in CellCategory
+	 * @return the tdsFieldNameValue in CellCategory object
+	 */
+	protected String getTdsFieldNameValueByFieldName(ImmutableList<CellCategory> cellCategories, String key) {
 		for (CellCategory cellCategory : cellCategories) {
 			if (cellCategory.getTdsFieldName().equals(key))
-				return (U) cellCategory.getTdsFieldNameValue();
+				return cellCategory.getTdsFieldNameValue();
 		}
 		return null;
 	}
@@ -200,7 +205,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	 * @param studentID
 	 *            - SSID
 	 */
-	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
+	public TestItemResponse getTestItemResponseByStudentID(Long studentID) {
 		return studentResponseService.getTestItemResponseByStudentID(studentID);
 	}
 
@@ -209,7 +214,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	 * 
 	 * @param bankKeyKey - value in ID column e.g 174, NOT using bankKey
 	 */
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String bankKeyKey) {
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKeyKey) {
 		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKeyKey);
 	}
 

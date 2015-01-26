@@ -9,11 +9,11 @@ public interface StudentResponseDao {
 	
 	Map<Integer, String> getHeaderMap();
 	
-	Map<String, TestItemResponse> getTestItemStudentResponseMap();
+	Map<Long, TestItemResponse> getTestItemStudentResponseMap();
 	
-	TestItemResponse getTestItemResponseByStudentID(String studentID);
+	TestItemResponse getTestItemResponseByStudentID(Long studentID);
 	
-	StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String id);
+	StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id);
 
 
 	

@@ -26,17 +26,17 @@ public class StudentResponseServiceImpl implements StudentResponseService {
 	}
 
 	@Override
-	public Map<String, TestItemResponse> getTestItemStudentResponseMap() {
+	public Map<Long, TestItemResponse> getTestItemStudentResponseMap() {
 		return studentResponseDao.getTestItemStudentResponseMap();
 	}
 	
 	@Override
-	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
+	public TestItemResponse getTestItemResponseByStudentID(Long studentID) {
 		return studentResponseDao.getTestItemResponseByStudentID(studentID);
 	}
 
 	@Override
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String id) {
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id) {
 		return studentResponseDao.getStudentResponseByStudentIDandBankKeyID(studentID, id);
 	}
 

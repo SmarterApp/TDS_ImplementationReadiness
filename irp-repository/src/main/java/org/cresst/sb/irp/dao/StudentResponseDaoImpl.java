@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 public class StudentResponseDaoImpl implements StudentResponseDao {
 	private static Logger logger = Logger.getLogger(StudentResponseDaoImpl.class);
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
-	private Map<String, TestItemResponse> testItemStudentResponseMap = new HashMap<String, TestItemResponse>();
+	private Map<Long, TestItemResponse> testItemStudentResponseMap = new HashMap<Long, TestItemResponse>();
 	
 	@Value("classpath:irp-package/PT10thGradeMathItemsWithStudentResponses_1_13_15.xlsx")  //1/13/15 use 1 file only
 	private Resource studentResponseResource;
@@ -45,7 +45,7 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	}
 	
 	@Override
-	public TestItemResponse getTestItemResponseByStudentID(String studentID) {
+	public TestItemResponse getTestItemResponseByStudentID(Long studentID) {
 		TestItemResponse testItemResponse = testItemStudentResponseMap.get(studentID);
 		if (testItemResponse == null){
 			return null;
@@ -54,7 +54,7 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	}
 
 	@Override
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(String studentID, String id) {
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id) {
 		TestItemResponse testItemResponse = testItemStudentResponseMap.get(studentID);
 		if (testItemResponse == null){
 			return null;
@@ -74,7 +74,7 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	}
 
 	@Override
-	public Map<String, TestItemResponse> getTestItemStudentResponseMap() {
+	public Map<Long, TestItemResponse> getTestItemStudentResponseMap() {
 		return testItemStudentResponseMap;
 	}
 

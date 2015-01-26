@@ -38,7 +38,7 @@ public class ItemResponseAnalysisAction extends
 			for (Item i : listItem) {
 				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
 				analysisItemResponse(itemCategory, i);
-				analysisItemResponseWithStudentReponse(itemCategory, i, examineeKey);
+				analysisItemResponseWithStudentReponse(itemCategory, i, Long.parseLong(examineeKey));
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
@@ -90,7 +90,7 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Item tdsItem, String examineeKey) {
+	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Item tdsItem, Long examineeKey) {
 		try {
 			ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
 			String format = getTdsFieldNameValueByFieldName(iList, "format");
@@ -99,6 +99,7 @@ public class ItemResponseAnalysisAction extends
 			String key = "666";
 			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, key);
 			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())){
+				System.out.println("format ---->" + format + " key ===>" + key);
 				System.out.println("studentResponse ====>" + studentResponse.toString());
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
@@ -114,13 +115,15 @@ public class ItemResponseAnalysisAction extends
 	private void validateStudentResponse (StudentResponse studentResponse){
 		try{
 			String format = studentResponse.getItemType().toLowerCase();
+			String status; 
 			switch(format){
 			case "mc":
 			case "ms":
 				//TODO
 				break;
 			case "er":
-				//TODO
+				//if (studentResponse.getResponseContent())
+				status = validateER(studentResponse);
 				break;
 			case "mi":
 				//TODO
@@ -139,7 +142,11 @@ public class ItemResponseAnalysisAction extends
 		}catch (Exception e) {
 			logger.error("validateStudentResponse exception: ", e);
 		}
-		
+	}
+	
+	private String validateER(StudentResponse studentResponse) {
+		System.out.println("studentResponse --->" + studentResponse);
+		return null;
 	}
 	
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
