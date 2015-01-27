@@ -49,7 +49,6 @@ public class StudentResponseUtil {
 			for (Map.Entry<Integer, String> entry : map.entrySet()) {
 				int key = entry.getKey();
 				String columnName = entry.getValue();
-				System.out.println("key ->" + key + " columnName ->" + columnName);
 				if (blnStart) {
 					TestItemResponse testItemResponse = new TestItemResponse();
 					testItemResponse.setStudentID(Long.parseLong(columnName));

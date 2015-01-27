@@ -94,60 +94,174 @@ public class ItemResponseAnalysisAction extends
 		try {
 			ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
 			String format = getTdsFieldNameValueByFieldName(iList, "format");
-			String bankKey = getTdsFieldNameValueByFieldName(iList, "bankKey");
-			//String key = getTdsFieldNameValueByFieldName(iList, "key");
-			String key = "666";
+			// String bankKey = getTdsFieldNameValueByFieldName(iList, "bankKey");
+			String key = getTdsFieldNameValueByFieldName(iList, "key");
 			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, key);
-			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())){
+			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())) {
 				System.out.println("format ---->" + format + " key ===>" + key);
-				System.out.println("studentResponse ====>" + studentResponse.toString());
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
 				studentResponse.setTdsResponseContent(responseCategory.getContent());
 				validateStudentResponse(studentResponse);
 			}
-			
+
 		} catch (Exception e) {
 			logger.error("analysisItemResponseWithStudentReponse exception: ", e);
 		}
 	}
 
-	private void validateStudentResponse (StudentResponse studentResponse){
-		try{
+	private void validateStudentResponse(StudentResponse studentResponse) {
+		try {
 			String format = studentResponse.getItemType().toLowerCase();
-			String status; 
-			switch(format){
-			case "mc":
-			case "ms":
-				//TODO
-				break;
+			switch (format) {
 			case "er":
-				//if (studentResponse.getResponseContent())
-				status = validateER(studentResponse);
+				validateER(studentResponse);
 				break;
 			case "mi":
-				//TODO
+				validateMI(studentResponse);
 				break;
 			case "eq":
-				//TODO
+				validateEQ(studentResponse);
 				break;
 			case "gi":
-				//TODO
+				validateGI(studentResponse);
+				break;	
+			case "ms":
+				validateMS(studentResponse);
+				break;
+			case "mc":
+				validateMC(studentResponse);
 				break;
 			case "ti":
-				//TODO
-				break;	
+				validateTI(studentResponse);
+				break;
 			}
-			//////////////////////studentResponse.setStatus(status);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			logger.error("validateStudentResponse exception: ", e);
 		}
 	}
-	
-	private String validateER(StudentResponse studentResponse) {
-		System.out.println("studentResponse --->" + studentResponse);
-		return null;
+
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 */
+	private void validateER(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("2")) {
+			if (responseContent.equals("any text") && tdsResponseContent.length() > 0)
+				studentResponse.setStatus("true");
+		}
 	}
+
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 */
+	private void validateMI(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("3")) {
+			System.out.println("tdsResponseContent ----->" + tdsResponseContent);
+			//TODO
+			//xml parse to parse tdsResponseContent
+		}
+	}
+
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 */
+	private void validateEQ(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("4")) {
+			System.out.println("validateEQ 44444444444444");
+		
+		} else if (studentResponse.getTraningTestItem().equals("not present")) {
+			System.out.println("validateEQ not present");
+		}
+		System.out.println("studentResponse validateEQ --->" + studentResponse);
+		studentResponse.setStatus("result");
+	}
+
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 */
+	private void validateGI(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("1")) {
+			System.out.println("validateGI 111111111111111");
+		} else if (studentResponse.getTraningTestItem().equals("5")) {
+			System.out.println("validateGI 55555555555555");
+		} else if (studentResponse.getTraningTestItem().equals("8")) {
+			System.out.println("validateGI 888888888888888");
+		}
+		System.out.println("studentResponse validateGI --->" + studentResponse);
+		studentResponse.setStatus("result");
+	}
+
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 * 
+	 */
+	private void validateMS(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("6")) {
+			System.out.println("validateMS 11111");
+		}
+		System.out.println("studentResponse validateMS --->" + studentResponse);
+		studentResponse.setStatus("result");
+	}
+	
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 * 
+	 */
+	private void validateMC(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("not present")) {
+			System.out.println("MC.............111");
+		}
+		System.out.println("studentResponse validateMC --->" + studentResponse);
+		studentResponse.setStatus("result");
+	}
+	
+	/**
+	 * Static method against specific student response file. No generic method implementation for the time being
+	 * 
+	 * @param studentResponse
+	 *            StudentResponse stores data for a student's item information of a test
+	 * 
+	 */
+	private void validateTI(StudentResponse studentResponse) {
+		String responseContent = studentResponse.getResponseContent(); 
+		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		if (studentResponse.getTraningTestItem().equals("7")) {
+			System.out.println("validateTI.............111");
+		}
+		System.out.println("studentResponse validateTI --->" + studentResponse);
+		studentResponse.setStatus("result");
+	}
+	
 	
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
