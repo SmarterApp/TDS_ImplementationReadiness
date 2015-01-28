@@ -207,13 +207,12 @@ public class ItemResponseAnalysisAction extends
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("4")) {
-			System.out.println("validateEQ 44444444444444");
+			//TODO
 		
 		} else if (studentResponse.getTraningTestItem().equals("not present")) {
-			System.out.println("validateEQ not present");
+			//TODO
 		}
-		System.out.println("studentResponse validateEQ --->" + studentResponse);
-		//studentResponse.setStatus("result");
+		studentResponse.setStatus(false);
 	}
 
 	/**
@@ -226,14 +225,13 @@ public class ItemResponseAnalysisAction extends
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("1")) {
-			System.out.println("validateGI 111111111111111");
+			//TODO
 		} else if (studentResponse.getTraningTestItem().equals("5")) {
-			System.out.println("validateGI 55555555555555");
+			//TODO
 		} else if (studentResponse.getTraningTestItem().equals("8")) {
-			System.out.println("validateGI 888888888888888");
+			//TODO
 		}
-		System.out.println("studentResponse validateGI --->" + studentResponse);
-		//studentResponse.setStatus("result");
+		studentResponse.setStatus(false);
 	}
 
 	/**
@@ -247,10 +245,11 @@ public class ItemResponseAnalysisAction extends
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("6")) {
-			System.out.println("validateMS 11111");
+			if (responseContent.equals(tdsResponseContent))
+				studentResponse.setStatus(true);
+			else
+				studentResponse.setStatus(false);
 		}
-		System.out.println("studentResponse validateMS --->" + studentResponse);
-		//studentResponse.setStatus("result");
 	}
 	
 	/**
@@ -262,12 +261,15 @@ public class ItemResponseAnalysisAction extends
 	 */
 	private void validateMC(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent(); 
+		System.out.println("responseContent --->" + responseContent);
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		System.out.println("tdsResponseContent --->" + tdsResponseContent);
 		if (studentResponse.getTraningTestItem().equals("not present")) {
-			System.out.println("MC.............111");
+			if (responseContent.equals(tdsResponseContent))
+				studentResponse.setStatus(true);
+			else
+				studentResponse.setStatus(false);
 		}
-		System.out.println("studentResponse validateMC --->" + studentResponse);
-		//studentResponse.setStatus("result");
 	}
 	
 	/**
@@ -281,10 +283,9 @@ public class ItemResponseAnalysisAction extends
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("7")) {
-			System.out.println("validateTI.............111");
+			//TODO
 		}
-		System.out.println("studentResponse validateTI --->" + studentResponse);
-		//studentResponse.setStatus("result");
+		studentResponse.setStatus(false);
 	}
 	
 	
