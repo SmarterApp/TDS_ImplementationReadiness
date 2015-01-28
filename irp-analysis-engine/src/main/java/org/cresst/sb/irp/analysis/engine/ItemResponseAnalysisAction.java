@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ItemResponseAnalysisAction extends
@@ -152,7 +153,7 @@ public class ItemResponseAnalysisAction extends
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("2")) {
 			if (responseContent.equals("any text") && tdsResponseContent.length() > 0)
-				studentResponse.setStatus("true");
+				studentResponse.setStatus(true);
 		}
 	}
 
@@ -164,11 +165,35 @@ public class ItemResponseAnalysisAction extends
 	 */
 	private void validateMI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent(); 
+		
+		// This part will be removed when an additional column added in student responses file
+		// This column store CDATA content.
+		String[] parts = responseContent.split(";");
+		String strYesValue ="";
+		for(int i=0; i< parts.length; i++){
+			String strTmp = parts[i];
+			if (strTmp.contains("YES"))
+			{
+				String strRemoveYESfor = strTmp.replace("YES for", "");
+				String[] choiceArr = strRemoveYESfor.split("and");
+				for(int j=0; j<choiceArr.length; j++){
+					strYesValue += choiceArr[j].trim();
+					if (j < choiceArr.length - 1)
+						strYesValue += ",";
+				}
+				break;
+			}
+		}
+		
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		if (studentResponse.getTraningTestItem().equals("3")) {
-			System.out.println("tdsResponseContent ----->" + tdsResponseContent);
-			//TODO
-			//xml parse to parse tdsResponseContent
+		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
+		if (studentResponse.getTraningTestItem().equals("3") && identifiersAndResponses != null) {
+				if(strYesValue.equals(identifiersAndResponses.get("RESPONSE"))){
+					studentResponse.setStatus(true);
+				}
+				else{
+					studentResponse.setStatus(false);
+				}
 		}
 	}
 
@@ -188,7 +213,7 @@ public class ItemResponseAnalysisAction extends
 			System.out.println("validateEQ not present");
 		}
 		System.out.println("studentResponse validateEQ --->" + studentResponse);
-		studentResponse.setStatus("result");
+		//studentResponse.setStatus("result");
 	}
 
 	/**
@@ -208,7 +233,7 @@ public class ItemResponseAnalysisAction extends
 			System.out.println("validateGI 888888888888888");
 		}
 		System.out.println("studentResponse validateGI --->" + studentResponse);
-		studentResponse.setStatus("result");
+		//studentResponse.setStatus("result");
 	}
 
 	/**
@@ -225,7 +250,7 @@ public class ItemResponseAnalysisAction extends
 			System.out.println("validateMS 11111");
 		}
 		System.out.println("studentResponse validateMS --->" + studentResponse);
-		studentResponse.setStatus("result");
+		//studentResponse.setStatus("result");
 	}
 	
 	/**
@@ -242,7 +267,7 @@ public class ItemResponseAnalysisAction extends
 			System.out.println("MC.............111");
 		}
 		System.out.println("studentResponse validateMC --->" + studentResponse);
-		studentResponse.setStatus("result");
+		//studentResponse.setStatus("result");
 	}
 	
 	/**
@@ -259,7 +284,7 @@ public class ItemResponseAnalysisAction extends
 			System.out.println("validateTI.............111");
 		}
 		System.out.println("studentResponse validateTI --->" + studentResponse);
-		studentResponse.setStatus("result");
+		//studentResponse.setStatus("result");
 	}
 	
 	

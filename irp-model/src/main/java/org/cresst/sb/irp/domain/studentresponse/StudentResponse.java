@@ -15,7 +15,7 @@ public class StudentResponse {
 	private long studentID; // 8599
 	private String responseContent; // YES for 2 and -7; NO for -2 and 7
 	private String tdsResponseContent; // corresponding actual response content in tds report xml file
-	private String status; // result of comparing responseContent with tdsResponseContent
+	private Boolean status; // result of comparing responseContent with tdsResponseContent
 
 	public StudentResponse() {
 
@@ -29,11 +29,11 @@ public class StudentResponse {
 		this.tdsResponseContent = tdsResponseContent;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 

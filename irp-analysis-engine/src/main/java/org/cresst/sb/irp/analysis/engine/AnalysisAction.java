@@ -18,19 +18,32 @@ import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
+import org.jdom2.Document;
+import org.jdom2.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import tds.itemscoringengine.ScoringStatus;
+import AIR.Common.xml.XmlElement;
+import AIR.Common.xml.XmlReader;
 
 import com.google.common.collect.ImmutableList;
 
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
  * Base class for various TDS Report XML analyzers.
  *
- * @param <T> Any object that contains the fields being analyzed.
- * @param <E> An enum to represent the field that is being analyzed.
- * @param <O> Any object that needs to be passed through to help validate a field.
+ * @param <T>
+ *            Any object that contains the fields being analyzed.
+ * @param <E>
+ *            An enum to represent the field that is being analyzed.
+ * @param <O>
+ *            Any object that needs to be passed through to help validate a field.
  */
 public abstract class AnalysisAction<T, E extends Enum, O> {
 	private static Logger logger = Logger.getLogger(AnalysisAction.class);
@@ -132,8 +145,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	/**
 	 * 
-	 * @param cellCategories The cellCategories store the list CellCategory
-	 * @param key The tdsFieldName used to retrieve tdsFieldValue in CellCategory
+	 * @param cellCategories
+	 *            The cellCategories store the list CellCategory
+	 * @param key
+	 *            The tdsFieldName used to retrieve tdsFieldValue in CellCategory
 	 * @return the tdsFieldNameValue in CellCategory object
 	 */
 	protected String getTdsFieldNameValueByFieldName(ImmutableList<CellCategory> cellCategories, String key) {
@@ -142,6 +157,46 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 				return cellCategory.getTdsFieldNameValue();
 		}
 		return null;
+	}
+
+	/**
+	 * This method created/modified based on AIR open source QTIItemScorer.java in item-scoring-engine
+	 * 
+	 * @param studentResponse
+	 *            The CDATA content from tds Report xml file
+	 * @return Map<String, String> Store response id and value result separatored by ','
+	 */
+	protected Map<String, String> retrieveItemResponse(String studentResponse) {
+		Map<String, String> identifiersAndResponses = new HashMap<>();
+		// first try to retrieve the item response, and the identifier
+		try {
+			XmlReader reader = new XmlReader(new StringReader(studentResponse));
+			Document doc = reader.getDocument();
+			List<Element> responseNodes = new XmlElement(doc.getRootElement()).selectNodes("//itemResponse/response");
+			for (Element elem : responseNodes) {
+				String identifier = elem.getAttributeValue("id");
+				List<String> responses = new ArrayList<String>();
+				List<Element> valueNodes = new XmlElement(elem).selectNodes("value");
+				for (Element valElem : valueNodes) {
+					responses.add(valElem.getText());
+				}
+
+				// if (!identifiersAndResponses.containsKey(identifier)) {
+				identifiersAndResponses.put(identifier, StringUtils.join(responses, ','));
+				// } else {
+				// identifiersAndResponses.put (identifier, StringUtils.join(",",
+				// responses));
+				// }
+			}
+		} catch (final Exception e) {
+			logger.info("Error loading response");
+		}
+
+		if (identifiersAndResponses.size() == 0) {
+			logger.info("No responses found");
+			return null;
+		}
+		return identifiersAndResponses;
 	}
 
 	/**
@@ -210,9 +265,11 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	/**
-	 * @param studentID - SSID
+	 * @param studentID
+	 *            - SSID
 	 * 
-	 * @param bankKeyKey - value in ID column e.g 174, NOT using bankKey
+	 * @param bankKeyKey
+	 *            - value in ID column e.g 174, NOT using bankKey
 	 */
 	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKeyKey) {
 		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKeyKey);
