@@ -160,46 +160,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	/**
-	 * This method created/modified based on AIR open source QTIItemScorer.java in item-scoring-engine
-	 * 
-	 * @param studentResponse
-	 *            The CDATA content from tds Report xml file
-	 * @return Map<String, String> Store response id and value result separatored by ','
-	 */
-	protected Map<String, String> retrieveItemResponse(String studentResponse) {
-		Map<String, String> identifiersAndResponses = new HashMap<>();
-		// first try to retrieve the item response, and the identifier
-		try {
-			XmlReader reader = new XmlReader(new StringReader(studentResponse));
-			Document doc = reader.getDocument();
-			List<Element> responseNodes = new XmlElement(doc.getRootElement()).selectNodes("//itemResponse/response");
-			for (Element elem : responseNodes) {
-				String identifier = elem.getAttributeValue("id");
-				List<String> responses = new ArrayList<String>();
-				List<Element> valueNodes = new XmlElement(elem).selectNodes("value");
-				for (Element valElem : valueNodes) {
-					responses.add(valElem.getText());
-				}
-
-				// if (!identifiersAndResponses.containsKey(identifier)) {
-				identifiersAndResponses.put(identifier, StringUtils.join(responses, ','));
-				// } else {
-				// identifiersAndResponses.put (identifier, StringUtils.join(",",
-				// responses));
-				// }
-			}
-		} catch (final Exception e) {
-			logger.info("Error loading response");
-		}
-
-		if (identifiersAndResponses.size() == 0) {
-			logger.info("No responses found");
-			return null;
-		}
-		return identifiersAndResponses;
-	}
-
-	/**
 	 * Checks the field
 	 *
 	 * @param checkObj

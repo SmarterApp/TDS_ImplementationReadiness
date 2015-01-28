@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -9,10 +10,18 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
+import org.jdom2.Document;
+import org.jdom2.Element;
 import org.springframework.stereotype.Service;
+
+import AIR.Common.xml.XmlElement;
+import AIR.Common.xml.XmlReader;
 
 import com.google.common.collect.ImmutableList;
 
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -206,6 +215,10 @@ public class ItemResponseAnalysisAction extends
 	private void validateEQ(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		
+		//need methods or classes to parse tdsResponseContent (CDATA content)
+		//provoided by AIR
+		
 		if (studentResponse.getTraningTestItem().equals("4")) {
 			//TODO
 		
@@ -224,6 +237,10 @@ public class ItemResponseAnalysisAction extends
 	private void validateGI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		
+		//need methods or classes to parse tdsResponseContent (CDATA content)
+		//provoided by AIR
+		
 		if (studentResponse.getTraningTestItem().equals("1")) {
 			//TODO
 		} else if (studentResponse.getTraningTestItem().equals("5")) {
@@ -282,6 +299,9 @@ public class ItemResponseAnalysisAction extends
 	private void validateTI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent(); 
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		
+		//need methods or classes to parse tdsResponseContent (CDATA content)
+		//provoided by AIR
 		if (studentResponse.getTraningTestItem().equals("7")) {
 			//TODO
 		}
@@ -417,4 +437,47 @@ public class ItemResponseAnalysisAction extends
 			logger.error("processC exception: ", e);
 		}
 	}
+	
+	/**
+	 * This method created/modified based on AIR open source QTIItemScorer.java in item-scoring-engine
+	 * 
+	 * @param studentResponse
+	 *            The CDATA content from tds Report xml file
+	 * @return Map<String, String> Store response id and value result separatored by ','
+	 */
+	protected Map<String, String> retrieveItemResponse(String studentResponse) {
+		Map<String, String> identifiersAndResponses = new HashMap<>();
+		// first try to retrieve the item response, and the identifier
+		try {
+			XmlReader reader = new XmlReader(new StringReader(studentResponse));
+			Document doc = reader.getDocument();
+			List<Element> responseNodes = new XmlElement(doc.getRootElement()).selectNodes("//itemResponse/response");
+			for (Element elem : responseNodes) {
+				String identifier = elem.getAttributeValue("id");
+				List<String> responses = new ArrayList<String>();
+				List<Element> valueNodes = new XmlElement(elem).selectNodes("value");
+				for (Element valElem : valueNodes) {
+					responses.add(valElem.getText());
+				}
+
+				// if (!identifiersAndResponses.containsKey(identifier)) {
+				identifiersAndResponses.put(identifier, StringUtils.join(responses, ','));
+				// } else {
+				// identifiersAndResponses.put (identifier, StringUtils.join(",",
+				// responses));
+				// }
+			}
+		} catch (final Exception e) {
+			logger.info("Error loading response");
+		}
+
+		if (identifiersAndResponses.size() == 0) {
+			logger.info("No responses found");
+			return null;
+		}
+		return identifiersAndResponses;
+	}
+
+	
+	
 }
