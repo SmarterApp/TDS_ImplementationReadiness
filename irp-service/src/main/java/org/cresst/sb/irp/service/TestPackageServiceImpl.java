@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.TestpackageDao;
@@ -22,6 +23,11 @@ public class TestPackageServiceImpl implements TestPackageService {
 
 	@Autowired
 	private TestpackageDao testpackageDao;
+	
+	@Override
+	public Map<String, Testspecification> getMapTestpackage() {
+		return testpackageDao.getMapTestpackage();
+	}
 	
 	@Override
 	public Testspecification getTestpackage(String uniqueid) {
@@ -102,6 +108,8 @@ public class TestPackageServiceImpl implements TestPackageService {
 	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
 		return testpackageDao.getGradePropertyValueFromListProperty(listProperty);
 	}
+
+
 
 
 }

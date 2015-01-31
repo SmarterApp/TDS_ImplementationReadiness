@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
@@ -15,6 +16,8 @@ import org.cresst.sb.irp.domain.testpackage.Testspecification;
 
 public interface TestPackageService {
 
+	Map<String, Testspecification> getMapTestpackage();
+	
 	Testspecification getTestpackage(String uniqueid);
 
 	Testspecification getTestpackageByIdentifierUniqueid(String uniqueid);

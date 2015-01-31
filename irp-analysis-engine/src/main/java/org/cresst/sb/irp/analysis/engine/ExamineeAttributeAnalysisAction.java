@@ -150,10 +150,13 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             BeanInfo info = Introspector.getBeanInfo(student.getClass());
             PropertyDescriptor[] properties = info.getPropertyDescriptors();
             for (PropertyDescriptor descriptor : properties) {
+            	System.out.println("descriptor.getName90 -------------->" + descriptor.getName());
+            	System.out.println("enumFieldName.name() ----->" + enumFieldName.name());
                 if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name())) {
                     Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(student);
+                        System.out.println("value .............." + value);
                         processSameValue(value, examineeAttribute.getValue(), fieldCheckType);
                     }
                 }
@@ -168,4 +171,107 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             setCcorrect(fieldCheckType);
         }
     }
+    
+    /**
+     * Uses the IRP Student object to populate the expected value of the field being analyzed
+     *
+     * @param student       IRP Student with the expected values
+     * @param enumFieldName Specifies the field to check
+     * @return The value of the Student object that is expected for the given EnumTestFieldName
+     */
+	@Override
+	protected String expectedValue(Student student, EnumExamineeAttributeFieldName enumFieldName) {
+		
+		String strReturn ="";
+		try {
+			switch (enumFieldName) {
+			case LastOrSurname:
+				strReturn = student.getLastOrSurname();
+				break;
+			case FirstName:
+				strReturn = student.getFirstName();
+				break;
+			case MiddleName:
+				strReturn = student.getMiddleName();
+				break;
+			case Birthdate:
+				strReturn = student.getBirthdate();
+				break;
+			case AlternateSSID:
+				strReturn = student.getAlternateSSID();
+				break;
+			case GradeLevelWhenAssessed:
+				strReturn = student.getGradeLevelWhenAssessed();
+				break;
+			case Sex:
+				strReturn = student.getSex();
+				break;
+			case HispanicOrLatinoEthnicity:
+				strReturn = student.getHispanicOrLatinoEthnicity();
+				break;
+			case AmericanIndianOrAlaskaNative:
+				strReturn = student.getAmericanIndianOrAlaskaNative();
+				break;
+			case Asian:
+				strReturn = student.getAsian();
+				break;
+			case BlackOrAfricanAmerican:
+				strReturn = student.getBlackOrAfricanAmerican();
+				break;
+			case White:
+				strReturn = student.getWhite();
+				break;	
+			case NativeHawaiianOrOtherPacificIslander:
+				strReturn = student.getNativeHawaiianOrOtherPacificIslander();
+				break;
+			case DemographicRaceTwoOrMoreRaces:
+				strReturn = student.getDemographicRaceTwoOrMoreRaces();
+				break;
+			case IDEAIndicator:
+				strReturn = student.getIDEAIndicator();
+				break;
+			case LEPStatus:
+				strReturn = student.getLEPStatus();
+				break;
+			case Section504Status:
+				strReturn = student.getSection504Status();
+				break;
+			case EconomicDisadvantageStatus:
+				strReturn = student.getEconomicDisadvantageStatus();
+				break;
+			case LanguageCode:
+				strReturn = student.getLanguageCode();
+				break;				
+			case EnglishLanguageProficiencyLevel:
+				strReturn = student.getEnglishLanguageProficiencyLevel();
+				break;
+			case MigrantStatus:
+				strReturn = student.getMigrantStatus();
+				break;
+			case FirstEntryDateIntoUSSchool:
+				strReturn = student.getFirstEntryDateIntoUSSchool();
+				break;
+			case LimitedEnglishProficiencyEntryDate:
+				strReturn = student.getLimitedEnglishProficiencyEntryDate();
+				break;				
+			case LEPExitDate:
+				strReturn = student.getLEPExitDate();
+				break;
+			case TitleIIILanguageInstructionProgramType:
+				strReturn = student.getTitleIIILanguageInstructionProgramType();
+				break;
+			case PrimaryDisabilityType:
+				strReturn = student.getPrimaryDisabilityType();
+				break;				
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("expectedValue exception: ", e);
+		}
+
+		return strReturn;
+	}
+    
+    
 }

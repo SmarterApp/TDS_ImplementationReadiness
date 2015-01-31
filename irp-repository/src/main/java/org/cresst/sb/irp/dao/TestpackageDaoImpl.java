@@ -299,15 +299,18 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 
 	@Override
 	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
+		StringBuilder sbStr = new StringBuilder();
 		try {
 			for (Property property : listProperty) {
 				if (property.getName().trim().toLowerCase().equals("grade")) {
-					return property.getValue();
+					sbStr.append(property.getValue() + ", ");
 				}
 			}
 		} catch (Exception e) {
 			logger.error("getGradePropertyValueFromListProperty exception: ", e);
 		}
-		return null;
+		
+		
+		return sbStr.toString().trim().substring(0, sbStr.toString().trim().length() -1);
 	}
 }

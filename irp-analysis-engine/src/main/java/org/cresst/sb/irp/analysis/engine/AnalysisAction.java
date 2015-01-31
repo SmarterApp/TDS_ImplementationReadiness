@@ -199,6 +199,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testPackageService.getGradePropertyValueFromListProperty(listProperty);
 	}
 
+	public Map<String, Testspecification> getMapTestpackage(){
+		return testPackageService.getMapTestpackage();
+	}
+	
 	public Student getStudent(long key) throws NotFoundException {
 		return studentService.getStudentByStudentSSID(key);
 	}

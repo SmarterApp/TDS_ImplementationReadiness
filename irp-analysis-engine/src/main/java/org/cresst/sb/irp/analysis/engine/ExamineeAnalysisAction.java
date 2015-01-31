@@ -1,6 +1,9 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.cresst.sb.irp.analysis.engine.TestAnalysisAction.EnumTestFieldName;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -8,6 +11,9 @@ import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
+import org.cresst.sb.irp.domain.testpackage.Identifier;
+import org.cresst.sb.irp.domain.testpackage.Property;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 
