@@ -1,13 +1,16 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import builders.CellCategoryBuilder;
 import builders.ExamineeAttributeBuilder;
 import builders.StudentBuilder;
 import com.google.common.collect.Lists;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -105,6 +109,44 @@ public class ExamineeAttributeAnalysisActionTest {
         }
 
         assertThat(actualCellCategories.size(), is(26));
+    }
+
+    /**
+     * Verifies that the fields of an Examinee are marked as having an error when the Examinee key doesn't match
+     * an IRP student.
+     */
+    @Test
+    public void whenExamineeKeyDoesNotMatchExistingIRPStudent_IncorrectField() {
+
+        // Arrange
+        final long SSID = 9999L;
+        final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
+                new ExamineeAttributeBuilder()
+                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
+                        .value("N")
+                        .context(Context.FINAL)
+                        .toExamineeAttribute());
+        final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
+
+        when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
+
+        // Act
+        underTest.analyze(individualResponse);
+
+        // Assert
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+                .correctValue(false)
+                .correctDataType(true)
+                .acceptableValue(true)
+                .tdsExpectedValue(null)
+                .isFieldEmpty(false)
+                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
+                .tdsFieldNameValue("N")
+                .toCellCategory();
+
+        assertEquals(expectedCellCategory, actualCellCategories.get(0));
     }
 
     /**

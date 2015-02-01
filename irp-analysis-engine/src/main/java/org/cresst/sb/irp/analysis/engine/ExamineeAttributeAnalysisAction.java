@@ -148,16 +148,15 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
         }
 
         try {
+            // Dynamically lookup the Student's property that matches the Attribute enumFieldName
             BeanInfo info = Introspector.getBeanInfo(student.getClass());
             PropertyDescriptor[] properties = info.getPropertyDescriptors();
             for (PropertyDescriptor descriptor : properties) {
-            	System.out.println("descriptor.getName90 -------------->" + descriptor.getName());
-            	System.out.println("enumFieldName.name() ----->" + enumFieldName.name());
+                // Compares the property name to the enum field name in order to perform a proper field check
                 if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name())) {
                     Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(student);
-                        System.out.println("value .............." + value);
                         processSameValue(value, examineeAttribute.getValue(), fieldCheckType);
                     }
                 }
@@ -182,10 +181,14 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
      */
 	@Override
 	protected String expectedValue(Student student, EnumExamineeAttributeFieldName enumFieldName) {
-		
-		String strReturn ="";
-		try {
-			switch (enumFieldName) {
+
+        if (student == null) {
+            return null;
+        }
+
+		String strReturn = null;
+
+        switch (enumFieldName) {
 			case LastOrSurname:
 				strReturn = student.getLastOrSurname();
 				break;
@@ -266,9 +269,6 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 				break;				
 			default:
 				break;
-			}
-		} catch (Exception e) {
-			logger.error("expectedValue exception: ", e);
 		}
 
 		return strReturn;

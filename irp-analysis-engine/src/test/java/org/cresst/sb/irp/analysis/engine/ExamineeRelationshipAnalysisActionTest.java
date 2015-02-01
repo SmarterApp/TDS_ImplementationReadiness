@@ -343,7 +343,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
 
-        // Create a Student with the same State Abbreviation as the ExamineeRelationship
+        // Create a scenario where the student is not found
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 
         // Act
