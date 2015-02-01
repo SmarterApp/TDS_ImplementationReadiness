@@ -46,10 +46,10 @@ public class ItemResponseAnalysisAction extends
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
 			int indexOfItemCategory = 0;
-			for (Item i : listItem) {
+			for (Item item : listItem) {
 				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
-				analysisItemResponse(itemCategory, i);
-				analysisItemResponseWithStudentReponse(itemCategory, i, Long.parseLong(examineeKey));
+				analysisItemResponse(itemCategory, item);
+				analysisItemResponseWithStudentReponse(itemCategory, item, Long.parseLong(examineeKey));
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
