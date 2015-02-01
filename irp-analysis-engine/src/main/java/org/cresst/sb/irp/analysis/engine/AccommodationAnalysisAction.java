@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AccommodationCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -11,6 +10,8 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Service
 public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName, Student> {
-    private static Logger logger = Logger.getLogger(AccommodationAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(AccommodationAnalysisAction.class);
 
     static public enum EnumAccommodationFieldName {
         type, value, code, segment

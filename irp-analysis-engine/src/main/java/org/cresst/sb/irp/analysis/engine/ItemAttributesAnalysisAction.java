@@ -1,12 +1,13 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Service
 public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Object> {
-    private static Logger logger = Logger.getLogger(ItemAttributesAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ItemAttributesAnalysisAction.class);
 
     static public enum EnumItemFieldName {
         position, segmentId, bankKey, key, operational, isSelected, format, score, scoreStatus, adminDate, numberVisits, mimeType, clientId, strand, contentLevel, pageNumber, pageVisits, pageTime, dropped

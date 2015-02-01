@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
 import org.cresst.sb.irp.domain.testpackage.Identifier;
@@ -17,6 +16,8 @@ import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.utils.RetrieveFileUtil;
 import org.cresst.sb.irp.utils.XMLValidate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
-	private static Logger logger = Logger.getLogger(TestpackageDaoImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(TestpackageDaoImpl.class);
 	private Map<String, Testspecification> mapTestpackage = new HashMap<>();
 
 	@Value("classpath:irp-package/TestPackages")

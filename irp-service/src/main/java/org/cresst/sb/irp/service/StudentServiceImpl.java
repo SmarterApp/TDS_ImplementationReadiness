@@ -2,16 +2,17 @@ package org.cresst.sb.irp.service;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.StudentDao;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-	private static Logger logger = Logger.getLogger(StudentServiceImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
 
 	@Autowired
 	private StudentDao studentDao;

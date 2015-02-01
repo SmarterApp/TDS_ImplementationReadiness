@@ -2,7 +2,6 @@ package org.cresst.sb.irp.rest;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.TDSReportService;
@@ -10,6 +9,8 @@ import org.jsondoc.core.annotation.Api;
 import org.jsondoc.core.annotation.ApiMethod;
 import org.jsondoc.core.annotation.ApiResponseObject;
 import org.jsondoc.core.pojo.ApiVerb;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping(value = "/tdsreport")
 public class TDSReportController {
-	private static Logger logger = Logger.getLogger(TDSReportController.class);
+	private final static Logger logger = LoggerFactory.getLogger(TDSReportController.class);
 
 	@Autowired
 	private TDSReportService tDSReportService;

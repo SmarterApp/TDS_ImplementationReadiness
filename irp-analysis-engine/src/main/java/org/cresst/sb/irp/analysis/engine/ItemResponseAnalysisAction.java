@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.items.Itemrelease;
@@ -12,6 +11,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import AIR.Common.xml.XmlElement;
@@ -28,7 +29,7 @@ import java.util.Map;
 @Service
 public class ItemResponseAnalysisAction extends
 		AnalysisAction<Response, ItemResponseAnalysisAction.EnumItemResponseFieldName, Itemrelease.Item.Attriblist> {
-	private static Logger logger = Logger.getLogger(ItemResponseAnalysisAction.class);
+	private final static Logger logger = LoggerFactory.getLogger(ItemResponseAnalysisAction.class);
 
 	static public enum EnumItemResponseFieldName {
 		date, type, content

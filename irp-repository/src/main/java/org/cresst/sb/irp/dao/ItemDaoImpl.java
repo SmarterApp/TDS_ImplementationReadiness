@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;
@@ -13,6 +12,8 @@ import org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item.Tutorial;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -24,7 +25,7 @@ import javax.xml.transform.stream.StreamSource;
 
 @Repository
 public class ItemDaoImpl implements ItemDao {
-	private static Logger logger = Logger.getLogger(ItemDaoImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(ItemDaoImpl.class);
 	private static Map<Integer, Itemrelease.Item> map = new ConcurrentHashMap<Integer, Itemrelease.Item>();
 	private static Map<String, Itemrelease.Item> map2 = new ConcurrentHashMap<String, Itemrelease.Item>();
 	private String rootResourceFolderName = "irp-package/TrainingTestContent";
@@ -124,8 +125,6 @@ public class ItemDaoImpl implements ItemDao {
 
 	@Override
 	public Attriblist getItemAttriblistFromIRPitem(Item item) {
-		System.out.println("item" + item.getBankkey());
-		System.out.println("item tostring() " + item.toString());
 		List<Itemrelease.Item.Attriblist> listAttriblist = item.getAttriblist();
 		if (listAttriblist == null || listAttriblist.size() == 0)
 			return null;

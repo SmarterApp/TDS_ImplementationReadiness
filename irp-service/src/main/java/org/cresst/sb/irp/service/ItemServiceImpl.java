@@ -2,7 +2,6 @@ package org.cresst.sb.irp.service;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.ItemDao;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
@@ -13,13 +12,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ItemServiceImpl implements ItemService {
-	private static Logger logger = Logger.getLogger(ItemServiceImpl.class);
 
 	@Autowired
 	private ItemDao itemDao;
 	
 	public ItemServiceImpl(){
-		logger.info("initializing");
 	}
 	
 	@Override

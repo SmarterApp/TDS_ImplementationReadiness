@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import com.google.common.collect.ImmutableList;
-import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;

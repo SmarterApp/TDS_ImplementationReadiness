@@ -5,10 +5,11 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class TDSReportDaoImpl implements TDSReportDao {
-	private static Logger logger = Logger.getLogger(TDSReportDaoImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(TDSReportDaoImpl.class);
 	private TDSReport tdsReport;
 
 	@Value("classpath:TestScoreBatching.xml")

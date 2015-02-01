@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.Category;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -18,19 +17,12 @@ import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
-import org.jdom2.Document;
-import org.jdom2.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import tds.itemscoringengine.ScoringStatus;
-import AIR.Common.xml.XmlElement;
-import AIR.Common.xml.XmlReader;
 
 import com.google.common.collect.ImmutableList;
 
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -46,7 +38,7 @@ import java.util.Objects;
  *            Any object that needs to be passed through to help validate a field.
  */
 public abstract class AnalysisAction<T, E extends Enum, O> {
-	private static Logger logger = Logger.getLogger(AnalysisAction.class);
+	private final static Logger logger = LoggerFactory.getLogger(AnalysisAction.class);
 
 	@Autowired
 	public TestPackageService testPackageService;

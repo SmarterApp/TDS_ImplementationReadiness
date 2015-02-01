@@ -6,12 +6,13 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.utils.StudentResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class StudentResponseDaoImpl implements StudentResponseDao {
-	private static Logger logger = Logger.getLogger(StudentResponseDaoImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(StudentResponseDaoImpl.class);
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private Map<Long, TestItemResponse> testItemStudentResponseMap = new HashMap<Long, TestItemResponse>();
 	

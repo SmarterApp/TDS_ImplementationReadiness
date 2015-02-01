@@ -2,7 +2,6 @@ package org.cresst.sb.irp.rest;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.ManifestService;
@@ -12,11 +11,11 @@ import org.jsondoc.core.annotation.ApiParam;
 import org.jsondoc.core.annotation.ApiResponseObject;
 import org.jsondoc.core.pojo.ApiParamType;
 import org.jsondoc.core.pojo.ApiVerb;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +28,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Api(name = "Manifest API", description = "REST API for the Manifest")
 @Controller
 public class ManifestController {
-	private static Logger logger = Logger.getLogger(ManifestController.class);
+	private final static Logger logger = LoggerFactory.getLogger(ManifestController.class);
 	
 	@Autowired
 	private ManifestService manifestService;

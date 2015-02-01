@@ -3,20 +3,19 @@ package org.cresst.sb.irp.rest;
 import java.util.List;
 
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.exceptions.ValidationException;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.validation.StudentValidator;
-import org.cresst.sb.irp.validation.StudentValidator;
 import org.jsondoc.core.annotation.*;
 import org.jsondoc.core.pojo.ApiParamType;
 import org.jsondoc.core.pojo.ApiVerb;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -30,7 +29,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Api(name = "Student API", description = "REST API for Student data")
 @Controller
 public class StudentController {
-	private static Logger logger = Logger.getLogger(StudentController.class);
+	private final static Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 	@Autowired
 	private StudentService studentService;

@@ -2,15 +2,16 @@ package org.cresst.sb.irp.service;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.TDSReportDao;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TDSReportServiceImpl implements TDSReportService {
-	private static Logger logger = Logger.getLogger(TDSReportServiceImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(TDSReportServiceImpl.class);
 
 	@Autowired
 	private TDSReportDao tDSReportDao;

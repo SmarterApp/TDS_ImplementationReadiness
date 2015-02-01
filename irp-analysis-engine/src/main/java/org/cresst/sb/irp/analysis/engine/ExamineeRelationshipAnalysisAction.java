@@ -2,7 +2,6 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeRelationshipCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -14,6 +13,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @Service
 public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName, Student> {
-    private final Logger logger = Logger.getLogger(ExamineeRelationshipAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ExamineeRelationshipAnalysisAction.class);
 
     // This is the list found in the project tdsdll_release file ReportingDLL.java
     static public enum EnumExamineeRelationshipFieldName {
@@ -201,7 +202,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
      *
      * @param student       IRP Student containing the field with the expected value
      * @param enumFieldName Specifies the field to check
-     * @return
+     * @return The value of the student that is expected for the given Relationship field
      */
     @Override
     protected String expectedValue(Student student, EnumExamineeRelationshipFieldName enumFieldName) {

@@ -1,17 +1,18 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, OpportunityAnalysisAction.EnumOpportunityPropertyFieldName, Object> {
-    private static final Logger logger = Logger.getLogger(OpportunityAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(OpportunityAnalysisAction.class);
 
     static public enum EnumOpportunityPropertyFieldName {
         server, database, clientName, key, oppId, startDate, status, opportunity, statusDate, dateCompleted, pauseCount, itemCount, ftCount, abnormalStarts, gracePeriodRestarts, taId, taName, sessionId, windowId, windowOpportunity, dateForceCompleted, qaLevel, assessmentParticipantSessionPlatformUserAgent, effectiveDate

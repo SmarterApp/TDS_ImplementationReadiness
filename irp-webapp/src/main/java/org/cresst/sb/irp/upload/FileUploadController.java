@@ -1,20 +1,17 @@
 package org.cresst.sb.irp.upload;
 
-import com.google.common.collect.Iterables;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.AnalysisService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.oxm.XmlMappingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.*;
@@ -29,7 +26,7 @@ import java.util.Map;
  */
 @Controller
 public class FileUploadController {
-    private static Logger logger = Logger.getLogger(FileUploadController.class);
+    private final static Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
 	@Autowired
 	public AnalysisService analysisService;

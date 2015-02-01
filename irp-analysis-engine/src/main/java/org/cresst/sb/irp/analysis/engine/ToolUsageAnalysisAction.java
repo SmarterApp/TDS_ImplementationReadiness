@@ -1,12 +1,13 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ToolUsageCategory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.ToolUsage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Service
 public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsageAnalysisAction.EnumToolUsageFieldName, Object> {
-    private static Logger logger = Logger.getLogger(ToolUsageAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ToolUsageAnalysisAction.class);
 
     static public enum EnumToolUsageFieldName {
         type, code

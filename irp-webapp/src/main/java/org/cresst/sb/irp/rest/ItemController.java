@@ -3,7 +3,6 @@ package org.cresst.sb.irp.rest;
 import java.util.List;
 
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.exceptions.NotFoundException;
@@ -11,6 +10,8 @@ import org.cresst.sb.irp.service.ItemService;
 import org.jsondoc.core.annotation.*;
 import org.jsondoc.core.pojo.ApiParamType;
 import org.jsondoc.core.pojo.ApiVerb;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping(value = "/items")
 public class ItemController {
-	private static Logger logger = Logger.getLogger(ItemController.class);
+	private final static Logger logger = LoggerFactory.getLogger(ItemController.class);
 
 	@Autowired
 	private ItemService itemService;

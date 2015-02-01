@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.items.Itemrelease;
@@ -9,13 +8,15 @@ import org.cresst.sb.irp.domain.tdsreport.ScoreInfoType.ScoreRationale;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, ItemScoreInfoAnalysisAction.EnumItemScoreInfoFieldName, ItemCategory> {
-    private static Logger logger = Logger.getLogger(ItemScoreInfoAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ItemScoreInfoAnalysisAction.class);
 
     static public enum EnumItemScoreInfoFieldName {
         scorePoint, maxScore, scoreDimension, scoreStatus, confLevel

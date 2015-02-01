@@ -1,11 +1,12 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.ToolPageCategory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.ToolUsage.ToolPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 public class ToolPageAnalysisAction extends AnalysisAction<ToolPage, ToolPageAnalysisAction.EnumToolPageFieldName, Object> {
-    private static Logger logger = Logger.getLogger(ToolPageAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ToolPageAnalysisAction.class);
 
     static public enum EnumToolPageFieldName {
         page, groupId, count

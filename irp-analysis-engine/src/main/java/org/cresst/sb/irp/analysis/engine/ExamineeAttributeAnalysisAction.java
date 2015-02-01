@@ -2,7 +2,6 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -14,6 +13,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.beans.BeanInfo;
@@ -25,7 +26,7 @@ import java.util.List;
 
 @Service
 public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName, Student> {
-    private final Logger logger = Logger.getLogger(ExamineeAttributeAnalysisAction.class);
+    private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
 
     static public enum EnumExamineeAttributeFieldName {
         LastOrSurname, FirstName, MiddleName, Birthdate, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType

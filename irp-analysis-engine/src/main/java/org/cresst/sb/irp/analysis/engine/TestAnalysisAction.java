@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -11,6 +10,8 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Test;
 import org.cresst.sb.irp.domain.testpackage.Identifier;
 import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 @Service
 public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.EnumTestFieldName, Testspecification> {
-	private static Logger logger = Logger.getLogger(TestAnalysisAction.class);
+	private final static Logger logger = LoggerFactory.getLogger(TestAnalysisAction.class);
 
 	static public enum EnumTestFieldName {
 		name, subject, testId, bankKey, contract, mode, grade, assessmentType, academicYear, assessmentVersion

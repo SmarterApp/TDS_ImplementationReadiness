@@ -3,7 +3,6 @@ package org.cresst.sb.irp.service;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.dao.TestpackageDao;
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Adminsegment;
@@ -14,12 +13,14 @@ import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TestPackageServiceImpl implements TestPackageService {
-	private static Logger logger = Logger.getLogger(TestPackageServiceImpl.class);
+	private final static Logger logger = LoggerFactory.getLogger(TestPackageServiceImpl.class);
 
 	@Autowired
 	private TestpackageDao testpackageDao;

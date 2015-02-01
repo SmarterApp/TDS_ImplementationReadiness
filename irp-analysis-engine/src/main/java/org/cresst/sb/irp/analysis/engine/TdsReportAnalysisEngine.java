@@ -1,10 +1,11 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.log4j.Logger;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.utils.XMLValidate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -18,7 +19,7 @@ import java.nio.file.Path;
 
 @Service
 public class TdsReportAnalysisEngine implements AnalysisEngine {
-	private static Logger logger = Logger.getLogger(TdsReportAnalysisEngine.class);
+	private final static Logger logger = LoggerFactory.getLogger(TdsReportAnalysisEngine.class);
 
 	@Autowired
 	public TestAnalysisAction testAnalysisAction;

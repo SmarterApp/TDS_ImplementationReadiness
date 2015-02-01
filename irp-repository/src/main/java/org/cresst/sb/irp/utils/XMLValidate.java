@@ -9,7 +9,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +18,7 @@ import org.xml.sax.SAXException;
 
 @Service
 public class XMLValidate {
-	private static Logger logger = Logger.getLogger(XMLValidate.class);
+	private final static Logger logger = LoggerFactory.getLogger(XMLValidate.class);
 
 	public boolean validateXMLSchema(String xsdPath, String xmlPath)
 			throws IOException {
