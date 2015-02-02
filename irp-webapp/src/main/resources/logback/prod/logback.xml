@@ -7,7 +7,7 @@
         </rollingPolicy>
 
         <encoder>
-            <pattern>[%highlight(%-5level)] %date %cyan(%C) - %msg %n</pattern>
+            <pattern>[%-5level] %date %C - %msg %n</pattern>
         </encoder>
     </appender>
 
