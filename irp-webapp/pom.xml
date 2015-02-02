@@ -184,6 +184,17 @@
 
     <build>
         <finalName>IReadinessPackage</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>logback/**</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/logback/${envName}</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -267,7 +278,19 @@
 
     <profiles>
         <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <envName>dev</envName>
+            </properties>
+        </profile>
+        <profile>
             <id>ci</id>
+            <properties>
+                <envName>prod</envName>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
