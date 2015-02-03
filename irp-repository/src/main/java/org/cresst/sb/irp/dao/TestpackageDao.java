@@ -25,10 +25,6 @@ public interface TestpackageDao {
 	
 	List<Property> getListProperty(String testpackageUniqueid);
 	
-	String getSubjectPropertyValueFromListProperty(List<Property> listProperty);
-	
-	String getGradePropertyValueFromListProperty(List<Property> listProperty);
-	
 	Administration getAdministration(String testpackageUniqueid);
 	
 	String getPublisher(String uniqueid);

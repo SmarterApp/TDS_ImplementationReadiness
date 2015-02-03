@@ -99,18 +99,4 @@ public class TestPackageServiceImpl implements TestPackageService {
 	public List<Adminsegment> getAdminsegment(String testpackageUniqueid) {
 		return testpackageDao.getAdminsegment(testpackageUniqueid);
 	}
-
-	@Override
-	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty) {
-		return testpackageDao.getSubjectPropertyValueFromListProperty(listProperty);
-	}
-
-	@Override
-	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
-		return testpackageDao.getGradePropertyValueFromListProperty(listProperty);
-	}
-
-
-
-
 }

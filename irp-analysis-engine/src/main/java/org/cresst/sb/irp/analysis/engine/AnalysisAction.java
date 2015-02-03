@@ -183,14 +183,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testPackageService.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 
-	public String getSubjectPropertyValueFromListProperty(List<Property> listProperty) {
-		return testPackageService.getSubjectPropertyValueFromListProperty(listProperty);
-	}
-
-	public String getGradePropertyValueFromListProperty(List<Property> listProperty) {
-		return testPackageService.getGradePropertyValueFromListProperty(listProperty);
-	}
-
 	public Map<String, Testspecification> getMapTestpackage(){
 		return testPackageService.getMapTestpackage();
 	}

@@ -1,5 +1,10 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -14,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +42,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			Test tdsTest = tdsReport.getTest();
 
 			String uniqueid = tdsTest.getName();
-			System.out.println("uniqueid ---->" + uniqueid);
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 
 			if (testPackage == null) {
@@ -50,26 +55,16 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			TestPropertiesCategory testPropertiesCategory = new TestPropertiesCategory();
 			individualResponse.setTestPropertiesCategory(testPropertiesCategory);
 
-			validate(testPropertiesCategory, tdsTest, tdsTest.getName(), EnumFieldCheckType.PC, EnumTestFieldName.name,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getSubject(), EnumFieldCheckType.PC, EnumTestFieldName.subject,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getTestId(), EnumFieldCheckType.PC, EnumTestFieldName.testId,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P, EnumTestFieldName.bankKey,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P, EnumTestFieldName.contract,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC, EnumTestFieldName.grade,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P,
-					EnumTestFieldName.assessmentType, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P,
-					EnumTestFieldName.academicYear, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
-					EnumTestFieldName.assessmentVersion, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getName(), EnumFieldCheckType.PC, EnumTestFieldName.name, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getSubject(), EnumFieldCheckType.PC, EnumTestFieldName.subject, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getTestId(), EnumFieldCheckType.PC, EnumTestFieldName.testId, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P, EnumTestFieldName.bankKey, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P, EnumTestFieldName.contract, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC, EnumTestFieldName.grade, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P, EnumTestFieldName.assessmentType, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P, EnumTestFieldName.academicYear, testPackage);
+			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC, EnumTestFieldName.assessmentVersion, testPackage);
 
 		} catch (Exception e) {
 			logger.error("analyze exception: ", e);
@@ -124,7 +119,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				break;
 			case grade:
 				// <xs:attribute name="grade" use="required" />
-				if (listGradeAcceptValues.contains(tdsTest.getGrade())) {
+				if (gradeHasAcceptableValues(tdsTest.getGrade())) {
 					setPcorrect(fieldCheckType);
 				}
 				break;
@@ -201,39 +196,38 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 	}
 
 	private void processC_Subject(Test tdsTest, Testspecification testpackage, FieldCheckType fieldCheckType) {
-		try {
-			String testSubject = tdsTest.getSubject();
-			List<Property> listProperty = testpackage.getProperty();
-			String subjectValueFromTestPackage = getSubjectPropertyValueFromListProperty(listProperty);
-			if (subjectValueFromTestPackage != null) {
-				if (subjectValueFromTestPackage.equals("MATH") && testSubject.equals("MA")
-						|| subjectValueFromTestPackage.equals("ELA") && testSubject.equals("ELA")) {
-					fieldCheckType.setCorrectValue(true);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processSubject exception: ", e);
-		}
+        final List<Property> testPackageProperties = testpackage.getProperty();
+        final String testPackageSubject = getSubjectPropertyValue(testPackageProperties);
 
+        final String tdsTestSubject = tdsTest.getSubject();
+
+        final boolean math = testPackageSubject.equalsIgnoreCase("MATH")
+                && ("MA".equalsIgnoreCase(tdsTestSubject) || "MATH".equalsIgnoreCase(tdsTestSubject));
+        final boolean ela = testPackageSubject.equals("ELA") && "ELA".equalsIgnoreCase(tdsTestSubject);
+
+        if (math || ela) {
+            fieldCheckType.setCorrectValue(true);
+        }
 	}
 
 	private void processC_TestId(Test test, Testspecification testpackage, FieldCheckType fieldCheckType) {
-		fieldCheckType.setCorrectValue(StringUtils.equalsIgnoreCase(test.getTestId(), testpackage.getIdentifier().getName()));
+		fieldCheckType.setCorrectValue(StringUtils.equalsIgnoreCase(test.getTestId(), testpackage.getIdentifier().getUniqueid()));
 	}
 
-	private void processC_Grade(Test test, Testspecification testpackage, FieldCheckType fieldCheckType) {
-		String testGrade = test.getGrade();
+	private void processC_Grade(Test tdsTest, Testspecification testpackage, FieldCheckType fieldCheckType) {
+		String tdsTestGrade = tdsTest.getGrade();
 		List<Property> listProperty = testpackage.getProperty();
-		String gradeValueFromTestPackage = getGradePropertyValueFromListProperty(listProperty);
-		if (gradeValueFromTestPackage != null) {
-			if (gradeValueFromTestPackage.equals(testGrade))
-				fieldCheckType.setCorrectValue(true);
-		}
+        List<String> testPackageGrades = getGradePropertyValue(listProperty);
+
+        if (gradeHasCorrectValues(testPackageGrades, tdsTestGrade)) {
+            fieldCheckType.setCorrectValue(true);
+        }
 	}
 
 	private void processC_AssessmentVersion(Test tdsTest, Testspecification testpackage, FieldCheckType fieldCheckType) {
 		String assessmentVersion = tdsTest.getAssessmentVersion();
 		String version = testpackage.getIdentifier().getVersion();
+
 		if (assessmentVersion != null && assessmentVersion.length() > 0 && version != null && version.length() > 0) {
 			if (assessmentVersion.trim().toLowerCase().equals(version.trim().toLowerCase()))
 				fieldCheckType.setCorrectValue(true);
@@ -249,7 +243,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
      */
 	@Override
 	protected String expectedValue(Testspecification testPackage, EnumTestFieldName enumFieldName) {
-		String strReturn ="";
+		String strReturn = null;
 		Identifier identifier;
 		List<Property> listProperty;
 		
@@ -261,8 +255,8 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				break;
 			case subject:
 				listProperty = testPackage.getProperty();
-				String subjectValueFromTestPackage = getSubjectPropertyValueFromListProperty(listProperty);
-				strReturn = subjectValueFromTestPackage;
+				String subjectValueFromTestPackage = getSubjectPropertyValue(listProperty);
+                strReturn = subjectValueFromTestPackage;
 				break;
 			case testId:
 				identifier = testPackage.getIdentifier();
@@ -276,8 +270,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				break;
 			case grade:
 				listProperty = testPackage.getProperty();
-				String gradeValueFromTestPackage = getGradePropertyValueFromListProperty(listProperty);
-				strReturn = gradeValueFromTestPackage;
+				strReturn = Joiner.on(",").join(getGradePropertyValue(listProperty));
 				break;
 			case assessmentType:
 				break;
@@ -297,5 +290,99 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 		return strReturn;
 	}
 
-	
+    /**
+     * Gets the IRP Test Package's subject
+     *
+     * @param testPackageProperties List of the IRP Test Package properties
+     * @return The subject or null if the subject is not found
+     */
+    private String getSubjectPropertyValue(List<Property> testPackageProperties) {
+        for (Property property : testPackageProperties) {
+            if ("subject".equalsIgnoreCase(property.getName())) {
+                return property.getValue();
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the IRP Test Package's grades as a list.
+     *
+     * @param testPackageProperties List of IRP Test Package properties
+     * @return A string containing all the grades listed in the Test Package or null if none found.
+     */
+    private List<String> getGradePropertyValue(List<Property> testPackageProperties) {
+        List<String> grades = new ArrayList<>();
+
+        for (Property property : testPackageProperties) {
+            if ("grade".equalsIgnoreCase(property.getName())) {
+                grades.add(Strings.padStart(property.getValue(), 2, '0'));
+            }
+        }
+
+        return grades;
+    }
+
+    private boolean gradeHasAcceptableValues(String tdsGrade) {
+        if (tdsGrade == null) { return false; }
+
+        if (tdsGrade.contains("-")) {
+            // Handle grades defined as ranges
+            List<String> range = Lists.newArrayList(Splitter.on('-').limit(2).trimResults().split(tdsGrade));
+
+            if (range.size() == 2) {
+                String first = range.get(0);
+                String second = range.get(1);
+                int start = listGradeAcceptValues.indexOf(first);
+                int end = listGradeAcceptValues.indexOf(second);
+
+                return (!first.isEmpty() && !second.isEmpty() && start != -1 && end != -1 && start < end) ||
+                        (first.isEmpty() && !second.isEmpty() && start == -1 && end != -1) ||
+                        (!first.isEmpty() && second.isEmpty() && start != -1 && end == -1);
+            }
+        } else {
+            // Handle grades as single item or as comma separated list
+            for (String grade : Splitter.on(',').trimResults().split(tdsGrade)) {
+                if (!listGradeAcceptValues.contains(grade)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean gradeHasCorrectValues(List<String> testPackageGrades, String tdsGrade) {
+        if (tdsGrade == null) { return false; }
+
+        if (tdsGrade.contains("-")) {
+            // Handle grades defined as ranges
+            List<String> range = Lists.newArrayList(Splitter.on('-').limit(2).trimResults().split(tdsGrade));
+
+            if (range.size() == 2) {
+                String first = range.get(0);
+                String second = range.get(1);
+                int start = listGradeAcceptValues.indexOf(first);
+                int end = listGradeAcceptValues.indexOf(second);
+                boolean containsFirst = testPackageGrades.contains(first);
+                boolean containsSecond = testPackageGrades.contains(second);
+
+                return (!first.isEmpty() && !second.isEmpty() && start != -1 && end != -1 && start < end && containsFirst && containsSecond) ||
+                        (first.isEmpty() && !second.isEmpty() && start == -1 && end != -1 && containsSecond) ||
+                        (!first.isEmpty() && second.isEmpty() && start != -1 && end == -1 && containsFirst);
+            }
+        } else {
+            // Handle grades as single item or as comma separated list
+            for (String grade : Splitter.on(',').trimResults().split(tdsGrade)) {
+                if (!testPackageGrades.contains(grade)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        return false;
+    }
 }

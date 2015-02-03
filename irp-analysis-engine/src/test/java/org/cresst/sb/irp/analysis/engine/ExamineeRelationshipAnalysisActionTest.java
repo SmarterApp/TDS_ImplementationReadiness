@@ -47,9 +47,9 @@ public class ExamineeRelationshipAnalysisActionTest {
 
     /**
      * Helper method to create an IndividualResponse with a TDSReport containing an Examinee and ExamineeRelationships
-     * @param examineeKey
-     * @param examineeRelationships
-     * @return
+     * @param examineeKey Student's SSID
+     * @param examineeRelationships List of ExamineeRelationship objects
+     * @return A pre-populated IndividualResponse
      */
     private IndividualResponse generateIndividualResponse(Long examineeKey,
                                                           List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships) {
@@ -95,14 +95,14 @@ public class ExamineeRelationshipAnalysisActionTest {
         // Assert
         List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
         CellCategory expectedCellCategory = new CellCategoryBuilder()
+                .tdsFieldName(STATE_ABBREVIATION)
+                .tdsFieldNameValue("HI")
+                .tdsExpectedValue("HI")
+                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .correctValue(true)
                 .correctDataType(true)
                 .acceptableValue(true)
                 .isFieldEmpty(false)
-                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-                .tdsExpectedValue("HI")
-                .tdsFieldName(STATE_ABBREVIATION)
-                .tdsFieldNameValue("HI")
                 .toCellCategory();
 
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
