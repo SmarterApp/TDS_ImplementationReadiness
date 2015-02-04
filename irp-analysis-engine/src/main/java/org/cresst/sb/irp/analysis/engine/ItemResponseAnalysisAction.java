@@ -15,12 +15,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import tinygrscoringengine.GRObject;
 import AIR.Common.xml.XmlElement;
 import AIR.Common.xml.XmlReader;
 
 import com.google.common.collect.ImmutableList;
 
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -136,7 +138,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			case "gi":
 				validateGI(studentResponse);
-				break;	
+				break;
 			case "ms":
 				validateMS(studentResponse);
 				break;
@@ -159,7 +161,7 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores data for a student's item information of a test
 	 */
 	private void validateER(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("2")) {
 			if (responseContent.equals("any text") && tdsResponseContent.length() > 0)
@@ -174,19 +176,18 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores data for a student's item information of a test
 	 */
 	private void validateMI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
-		
+		String responseContent = studentResponse.getResponseContent();
+
 		// This part will be removed when an additional column added in student responses file
 		// This column store CDATA content.
 		String[] parts = responseContent.split(";");
-		String strYesValue ="";
-		for(int i=0; i< parts.length; i++){
+		String strYesValue = "";
+		for (int i = 0; i < parts.length; i++) {
 			String strTmp = parts[i];
-			if (strTmp.contains("YES"))
-			{
+			if (strTmp.contains("YES")) {
 				String strRemoveYESfor = strTmp.replace("YES for", "");
 				String[] choiceArr = strRemoveYESfor.split("and");
-				for(int j=0; j<choiceArr.length; j++){
+				for (int j = 0; j < choiceArr.length; j++) {
 					strYesValue += choiceArr[j].trim();
 					if (j < choiceArr.length - 1)
 						strYesValue += ",";
@@ -194,16 +195,15 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		}
-		
+
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
 		if (studentResponse.getTraningTestItem().equals("3") && identifiersAndResponses != null) {
-				if(strYesValue.equals(identifiersAndResponses.get("RESPONSE"))){
-					studentResponse.setStatus(true);
-				}
-				else{
-					studentResponse.setStatus(false);
-				}
+			if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
+				studentResponse.setStatus(true);
+			} else {
+				studentResponse.setStatus(false);
+			}
 		}
 	}
 
@@ -214,17 +214,17 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores data for a student's item information of a test
 	 */
 	private void validateEQ(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		
-		//need methods or classes to parse tdsResponseContent (CDATA content)
-		//provoided by AIR
-		
+
+		// need methods or classes to parse tdsResponseContent (CDATA content)
+		// provoided by AIR
+
 		if (studentResponse.getTraningTestItem().equals("4")) {
-			//TODO
-		
+			// TODO
+
 		} else if (studentResponse.getTraningTestItem().equals("not present")) {
-			//TODO
+			// TODO
 		}
 		studentResponse.setStatus(false);
 	}
@@ -236,20 +236,34 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores data for a student's item information of a test
 	 */
 	private void validateGI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		
-		//need methods or classes to parse tdsResponseContent (CDATA content)
-		//provoided by AIR
-		
-		if (studentResponse.getTraningTestItem().equals("1")) {
-			//TODO
-		} else if (studentResponse.getTraningTestItem().equals("5")) {
-			//TODO
-		} else if (studentResponse.getTraningTestItem().equals("8")) {
-			//TODO
+		System.out.println("responseContent -->" + responseContent);
+		try {
+			//TODO - need to update getObjectStrings method to handle different type of GI
+			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><RegionGroupObjec
+			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{curve(325,239)}
+			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><Object><PointVector>{(
+			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
+			if (listGRObject != null){
+				//TODO
+				for(GRObject go: listGRObject){
+					System.out.println("strxml --->" + go.getXmlString());
+					System.out.println("typeofObject --->" + go.getTypeOfObject());
+				}
+				
+				if (studentResponse.getTraningTestItem().equals("1")) {
+					// TODO
+				} else if (studentResponse.getTraningTestItem().equals("5")) {
+					// TODO
+				} else if (studentResponse.getTraningTestItem().equals("8")) {
+					// TODO
+				}
+				studentResponse.setStatus(false);
+			}
+		} catch (Exception e) {
+			System.out.println("e --->" + e);
 		}
-		studentResponse.setStatus(false);
 	}
 
 	/**
@@ -260,7 +274,7 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMS(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("6")) {
 			if (responseContent.equals(tdsResponseContent))
@@ -269,7 +283,7 @@ public class ItemResponseAnalysisAction extends
 				studentResponse.setStatus(false);
 		}
 	}
-	
+
 	/**
 	 * Static method against specific student response file. No generic method implementation for the time being
 	 * 
@@ -278,7 +292,7 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMC(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		System.out.println("responseContent --->" + responseContent);
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		System.out.println("tdsResponseContent --->" + tdsResponseContent);
@@ -289,7 +303,7 @@ public class ItemResponseAnalysisAction extends
 				studentResponse.setStatus(false);
 		}
 	}
-	
+
 	/**
 	 * Static method against specific student response file. No generic method implementation for the time being
 	 * 
@@ -298,18 +312,17 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateTI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent(); 
+		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		
-		//need methods or classes to parse tdsResponseContent (CDATA content)
-		//provoided by AIR
+
+		// need methods or classes to parse tdsResponseContent (CDATA content)
+		// provoided by AIR
 		if (studentResponse.getTraningTestItem().equals("7")) {
-			//TODO
+			// TODO
 		}
 		studentResponse.setStatus(false);
 	}
-	
-	
+
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
@@ -438,7 +451,7 @@ public class ItemResponseAnalysisAction extends
 			logger.error("processC exception: ", e);
 		}
 	}
-	
+
 	/**
 	 * This method created/modified based on AIR open source QTIItemScorer.java in item-scoring-engine
 	 * 
@@ -479,6 +492,63 @@ public class ItemResponseAnalysisAction extends
 		return identifiersAndResponses;
 	}
 
-	
-	
+	/**
+	 * This method created/modified based on AIR open source TinyGR.java in item-scoring-eingine
+	 * 
+	 * @param answerSet
+	 *            The student response from tds report xml file (item format: GI )
+	 * @return List<String> objects stores xml elements data
+	 */
+	public List<GRObject> getObjectStrings(String answerSet) {
+		List<GRObject> objects = null;
+		try {
+			objects = new ArrayList<GRObject>();
+			StringWriter sw = new StringWriter();
+			// StringBuilder sb = null; //throws none pointer exception
+			StringBuilder sb = new StringBuilder();
+			sb.append(sw);
+			// XmlWriter xw = new XmlWriter(null); //IllegalArgumentException: Null OutputStream is not a valid argument
+			StringReader sr = new StringReader(answerSet);
+			XmlReader reader = new XmlReader(sr);
+			Document doc = new Document();
+			doc = reader.getDocument();
+			// List<Element> objectSet = new XmlElement (doc.getRootElement ()).selectNodes
+			// ("//AnswerSet//Question//QuestionPart//ObjectSet"); //not able to reach RegionGroupObject
+			List<Element> objectSet = new XmlElement(doc.getRootElement())
+					.selectNodes("//AnswerSet//Question//QuestionPart//ObjectSet//RegionGroupObject");
+			for (Element child : objectSet) {
+				GRObject obj = GRObject.createFromNode(child);
+				//objects.add(obj.getXmlString());
+				objects.add(obj);
+				if (child.getName().equals("RegionGroupObject")) {
+					for (Element region : child.getChildren()) {
+						GRObject objRegion = GRObject.createFromNode(region);
+						objects.add(objRegion);
+						// outputObjectString(region, sw, objects, sb);
+					}
+				}
+			}
+
+		} catch (Exception exp) {
+			logger.error("getObjectStrings exception: ", exp);
+		}
+		return objects;
+	}
+
+	/**
+	 * this method is from TinyGR.java
+	 * @param child
+	 * @param sw
+	 * @param objects
+	 * @param sb
+	 */
+	private static void outputObjectString(Element child, StringWriter sw, List<String> objects, StringBuilder sb) {
+		String objString = sw.toString();
+		if (objString != null) {
+
+			objects.add(sw.toString());
+		}
+		sb.delete(0, sb.length());
+	}
+
 }
