@@ -15,7 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import qtiscoringengine.cs2java.StringHelper;
 import tinygrscoringengine.GRObject;
+import tinygrscoringengine.GeoObject;
+import tinygrscoringengine.Point;
+import tinygrscoringengine.TinyGRException;
+import tinygrscoringengine.Vector;
 import AIR.Common.xml.XmlElement;
 import AIR.Common.xml.XmlReader;
 
@@ -240,18 +245,17 @@ public class ItemResponseAnalysisAction extends
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		System.out.println("responseContent -->" + responseContent);
 		try {
-			//TODO - need to update getObjectStrings method to handle different type of GI
-			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><RegionGroupObjec
-			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{curve(325,239)}
-			//<AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><Object><PointVector>{(
+			System.out.println("tdsResponseContent -->" + tdsResponseContent);
+			// still need to implement by tomorrow for
+			// <AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{curve(325,239)}
 			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
-			if (listGRObject != null){
-				//TODO
-				for(GRObject go: listGRObject){
+			if (listGRObject != null) {
+				// TODO
+				for (GRObject go : listGRObject) {
 					System.out.println("strxml --->" + go.getXmlString());
 					System.out.println("typeofObject --->" + go.getTypeOfObject());
 				}
-				
+
 				if (studentResponse.getTraningTestItem().equals("1")) {
 					// TODO
 				} else if (studentResponse.getTraningTestItem().equals("5")) {
@@ -512,19 +516,25 @@ public class ItemResponseAnalysisAction extends
 			XmlReader reader = new XmlReader(sr);
 			Document doc = new Document();
 			doc = reader.getDocument();
-			// List<Element> objectSet = new XmlElement (doc.getRootElement ()).selectNodes
-			// ("//AnswerSet//Question//QuestionPart//ObjectSet"); //not able to reach RegionGroupObject
 			List<Element> objectSet = new XmlElement(doc.getRootElement())
-					.selectNodes("//AnswerSet//Question//QuestionPart//ObjectSet//RegionGroupObject");
+					.selectNodes("//AnswerSet//Question//QuestionPart//ObjectSet");
 			for (Element child : objectSet) {
-				GRObject obj = GRObject.createFromNode(child);
-				//objects.add(obj.getXmlString());
-				objects.add(obj);
-				if (child.getName().equals("RegionGroupObject")) {
-					for (Element region : child.getChildren()) {
-						GRObject objRegion = GRObject.createFromNode(region);
-						objects.add(objRegion);
-						// outputObjectString(region, sw, objects, sb);
+				for (Element childOfObjectSet : child.getChildren()) {
+					if (childOfObjectSet.getName().equals("Object")) {
+						// not able to use GRObject.createFromNode(childOfObjectSet); due to bugs metioned
+						// in http://forum.opentestsystem.org/viewtopic.php?f=9&t=3276&sid=695b38a99415bf126009cdf998c43a49
+						GRObject obj = createFromNode(childOfObjectSet);
+						// GRObject obj = GRObject.createFromNode(childOfObjectSet);
+						objects.add(obj);
+					} else if (childOfObjectSet.getName().equals("RegionGroupObject")) {
+						GRObject obj = GRObject.createFromNode(childOfObjectSet);
+						// objects.add(obj.getXmlString());
+						objects.add(obj);
+						for (Element region : childOfObjectSet.getChildren()) {
+							GRObject objRegion = GRObject.createFromNode(region);
+							objects.add(objRegion);
+							// outputObjectString(region, sw, objects, sb);
+						}
 					}
 				}
 			}
@@ -536,7 +546,95 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
+	 * This method created/modified based on AIR open source TinyGR.java and GRObject.java. It handles the item format = GI with
+	 * <AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><Object><PointVector>{(
+	 * 
+	 * @param node
+	 * @return GRObject or null
+	 */
+	private GRObject createFromNode(Element node) throws TinyGRException {
+		switch (node.getName()) {
+		case "Object":
+			return GeoObjectFromXml(node);
+		default:
+			return null;
+		}
+	}
+
+	/**
+	 * This method created/modified based on AIR open source GeoObject.java
+	 * 
+	 * @param node
+	 * @return
+	 */
+	private GRObject GeoObjectFromXml(Element node) throws TinyGRException {
+		char[] toTrim = { ' ', '{', '}' };
+		Element vectorNode = node.getChild("EdgeVector");
+		Element pointNode = node.getChild("PointVector");
+		String pointText = StringHelper.trim(pointNode.getText(), toTrim);
+		String vectorText = vectorNode.getText().trim();
+
+		List<Point> points = getPointObjects(pointText);
+		int start = vectorText.indexOf('{');
+		int end = vectorText.lastIndexOf('}');
+
+		List<Vector> vectors = null;
+
+		if ((start >= 0) && (end > 0)) {
+			vectorText = vectorText.substring(start + 1, end - start);
+			vectors = getVectorObjects(vectorText);
+		}
+
+		switch (vectors.size()) {
+		case 0:
+			if (points.size() == 1)
+				return points.get(0);
+			else {
+				throw new TinyGRException(3, "What kind of object has multiple points but no vectors?");
+			}
+		case 1:
+			return vectors.get(0);
+		default:
+			return new GeoObject(points, vectors);
+		}
+	}
+
+	/**
+	 * This method is from GeoObject.java provided by AIR
+	 * @param vectorText
+	 * @return
+	 */
+	private List<Vector> getVectorObjects(String vectorText) {
+		int endOfPoint = 0;
+		List<Vector> vectors = new ArrayList<Vector>();
+		while (vectorText.contains("{")) // wrong thing to check...
+		{
+			vectors.add(Vector.getVectorObj(vectorText));
+			endOfPoint = vectorText.indexOf("}");
+			vectorText = vectorText.substring(endOfPoint + 1);
+		}
+		return vectors;
+	}
+
+	/**
+	 * This method is from GeoObject.java provided by AIR
+	 * @param pointText
+	 * @return
+	 */
+	private List<Point> getPointObjects(String pointText) {
+		int endOfPoint = 0;
+		List<Point> points = new ArrayList<Point>();
+		while (pointText.contains("(")) {
+			points.add(Point.getPointObj(pointText));
+			endOfPoint = pointText.indexOf(")");
+			pointText = pointText.substring(endOfPoint + 1);
+		}
+		return points;
+	}
+
+	/**
 	 * this method is from TinyGR.java
+	 * 
 	 * @param child
 	 * @param sw
 	 * @param objects
