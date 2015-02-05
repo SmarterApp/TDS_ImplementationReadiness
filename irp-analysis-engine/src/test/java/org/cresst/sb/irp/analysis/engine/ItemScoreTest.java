@@ -16,8 +16,7 @@ public class ItemScoreTest {
      * Not an actual unit test. This is just a feasibility test for using ItemScoreManager
      * to Score an EQ item type.
      */
-    // This is failing in CI due to missing dependency so commenting out @Test until resolved
-    //@Test
+    @Test
     public void equationScoreTest() {
         Map<String, IItemScorer> engines = new HashMap<>();
         engines.put("EQ", new QTIItemScorer());
