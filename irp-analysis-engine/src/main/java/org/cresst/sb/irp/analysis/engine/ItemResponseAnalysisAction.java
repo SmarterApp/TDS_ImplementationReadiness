@@ -252,8 +252,9 @@ public class ItemResponseAnalysisAction extends
 			if (listGRObject != null) {
 				// TODO
 				for (GRObject go : listGRObject) {
-					System.out.println("strxml --->" + go.getXmlString());
-					System.out.println("typeofObject --->" + go.getTypeOfObject());
+					logger.info(String.format("strxml -->%s", go.getXmlString()));
+					logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
+					
 				}
 
 				if (studentResponse.getTraningTestItem().equals("1")) {
@@ -535,6 +536,9 @@ public class ItemResponseAnalysisAction extends
 							objects.add(objRegion);
 							// outputObjectString(region, sw, objects, sb);
 						}
+					} else if (childOfObjectSet.getName().equals("AtomicObject")) {
+						GRObject obj = GRObject.createFromNode(childOfObjectSet);
+						objects.add(obj);
 					}
 				}
 			}
