@@ -9,6 +9,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
+import org.cresst.sb.irp.domain.tinytablescoringengine.Table2;
+import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell2;
+import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector2;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.slf4j.Logger;
@@ -21,6 +24,9 @@ import tinygrscoringengine.GeoObject;
 import tinygrscoringengine.Point;
 import tinygrscoringengine.TinyGRException;
 import tinygrscoringengine.Vector;
+import tinytablescoringengine.Table;
+import tinytablescoringengine.TableCell;
+import tinytablescoringengine.TableVector;
 import AIR.Common.xml.XmlElement;
 import AIR.Common.xml.XmlReader;
 
@@ -254,7 +260,7 @@ public class ItemResponseAnalysisAction extends
 				for (GRObject go : listGRObject) {
 					logger.info(String.format("strxml -->%s", go.getXmlString()));
 					logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
-					
+
 				}
 
 				if (studentResponse.getTraningTestItem().equals("1")) {
@@ -267,7 +273,7 @@ public class ItemResponseAnalysisAction extends
 				studentResponse.setStatus(false);
 			}
 		} catch (Exception e) {
-			System.out.println("e --->" + e);
+			logger.error("validateGI exception: ", e);
 		}
 	}
 
@@ -319,11 +325,28 @@ public class ItemResponseAnalysisAction extends
 	private void validateTI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-
-		// need methods or classes to parse tdsResponseContent (CDATA content)
-		// provoided by AIR
-		if (studentResponse.getTraningTestItem().equals("7")) {
-			// TODO
+		logger.info("responseContent -->" + responseContent);
+		try {
+			logger.info("tdsResponseContent -->" + tdsResponseContent);
+			Table2 table = getTableObject(tdsResponseContent);
+			if (table != null) {
+				for (int i = 0; i < table.getRowCount(); i++) {
+					TableVector2 tableVector2 = table.getRowIndex(i);
+					// boolean isHeader = tableVector2.isHeader;
+					// int elemCount = tableVector2.getElementCount();
+					TableCell2[] tc2Array = tableVector2.getElements();
+					for (int j = 0; j < tc2Array.length; j++) {
+						TableCell2 tcTmp = tc2Array[j];
+						String context = tcTmp.getContext();
+						logger.info(String.format("context -->%s and isHead %s", context, tcTmp.getIsHeader()));
+					}
+				}
+				if (studentResponse.getTraningTestItem().equals("7")) {
+					// TODO
+				}
+			}
+		} catch (Exception e) {
+			logger.error("validateTI exception: ", e);
 		}
 		studentResponse.setStatus(false);
 	}
@@ -498,13 +521,41 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
+	 * This method create/modified based on AIR related classes in package tinytablescoringengine
+	 * 
+	 * @param responseContent
+	 *            The student response from tds report xml file (item type : TI)
+	 * @return Table2 object
+	 * 			  Table 2 is subclass of TableObject2
+	 */
+	protected Table2 getTableObject(String responseContent) {
+		Table2 table2 = null;
+		try {
+			StringReader sr = new StringReader(responseContent);
+			XmlReader reader = new XmlReader(sr);
+			Document doc = new Document();
+			doc = reader.getDocument();
+			List<Element> responseSpec = new XmlElement(doc.getRootElement()).selectNodes("//responseSpec");
+			for (Element child : responseSpec) {
+				if (child.getName().equals("responseSpec")) {
+					return Table2.fromXml(child.getChild("responseTable"));
+				}
+			}
+		} catch (Exception exp) {
+			logger.error("getTableObject exception: ", exp);
+		}
+
+		return table2;
+	}
+
+	/**
 	 * This method created/modified based on AIR open source TinyGR.java in item-scoring-eingine
 	 * 
 	 * @param answerSet
 	 *            The student response from tds report xml file (item format: GI )
 	 * @return List<String> objects stores xml elements data
 	 */
-	public List<GRObject> getObjectStrings(String answerSet) {
+	protected List<GRObject> getObjectStrings(String answerSet) {
 		List<GRObject> objects = null;
 		try {
 			objects = new ArrayList<GRObject>();
@@ -605,6 +656,7 @@ public class ItemResponseAnalysisAction extends
 
 	/**
 	 * This method is from GeoObject.java provided by AIR
+	 * 
 	 * @param vectorText
 	 * @return
 	 */
@@ -622,6 +674,7 @@ public class ItemResponseAnalysisAction extends
 
 	/**
 	 * This method is from GeoObject.java provided by AIR
+	 * 
 	 * @param pointText
 	 * @return
 	 */
