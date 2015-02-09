@@ -4,7 +4,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.XMLOutputter;
 
-public abstract class TableObject2 {
+public abstract class TableObject {
 	
 	public Element toXml() {
 		return toXml(new Document());
@@ -12,16 +12,16 @@ public abstract class TableObject2 {
 
 	public abstract Element toXml(Document doc);
 
-	public static TableObject2 create(Document doc) {
+	public static TableObject create(Document doc) {
 		Element node = doc.getRootElement();
 		switch (node.getName()) {
 		case "responseSpec":
 			node = node.getChild("responseTable");
-			return Table2.fromXml(node);
+			return Table.fromXml(node);
 		case "responseTable":
-			return Table2.fromXml(node);
+			return Table.fromXml(node);
 		case "tr":
-			return TableVector2.fromXml(node);
+			return TableVector.fromXml(node);
 		default:
 			return null;
 		}
@@ -34,11 +34,11 @@ public abstract class TableObject2 {
 		return tr.toString();
 	}
 
-	protected TableVector2 getColumn(String name) {
+	protected TableVector getColumn(String name) {
 		return null;
 	}
 
-	protected TableVector2 getColumn(int i) {
+	protected TableVector getColumn(int i) {
 		return null;
 	}
 
@@ -46,7 +46,7 @@ public abstract class TableObject2 {
 		return Double.NaN;
 	}
 
-	protected TableVector2 getHeaderRow() {
+	protected TableVector getHeaderRow() {
 		return null;
 	}
 }

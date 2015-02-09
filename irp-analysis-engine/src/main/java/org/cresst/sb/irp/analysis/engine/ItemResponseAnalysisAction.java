@@ -9,9 +9,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
-import org.cresst.sb.irp.domain.tinytablescoringengine.Table2;
-import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell2;
-import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector2;
+import org.cresst.sb.irp.domain.tinytablescoringengine.Table;
+import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell;
+import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.slf4j.Logger;
@@ -19,14 +19,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import qtiscoringengine.cs2java.StringHelper;
+import tinyequationscoringengine.MathExpression;
+import tinyequationscoringengine.MathExpressionInfo;
+import tinyequationscoringengine.MathExpressionSet;
+import tinyequationscoringengine.MathMLParser;
 import tinygrscoringengine.GRObject;
 import tinygrscoringengine.GeoObject;
 import tinygrscoringengine.Point;
 import tinygrscoringengine.TinyGRException;
 import tinygrscoringengine.Vector;
-import tinytablescoringengine.Table;
-import tinytablescoringengine.TableCell;
-import tinytablescoringengine.TableVector;
 import AIR.Common.xml.XmlElement;
 import AIR.Common.xml.XmlReader;
 
@@ -166,10 +167,10 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type ER and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *            StudentResponse stores the student response for item type ER in tds report xml file
 	 */
 	private void validateER(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
@@ -181,10 +182,10 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type MI and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *            StudentResponse stores the student response for item type MI in tds report xml file
 	 */
 	private void validateMI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
@@ -219,41 +220,60 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type EQ and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *            StudentResponse stores the student response for item type EQ in tds report xml file
 	 */
 	private void validateEQ(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		System.out.println("responseContent -->" + responseContent);
+		try {
+			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
+			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(tdsResponseContent.trim());
+			if (mathExpressionSet.size() > 0) {
+				for (MathExpression me : mathExpressionSet) {
+					System.out.println("me.toString() ->" + me.toString());
+					MathExpressionInfo meinfo = me.toMathExpressionInfo();
+					System.out.println("AppliedCorrection ->" + meinfo.getAppliedCorrection());
+					List<String> lsOvercorrectedSympyResponse = meinfo.getOvercorrectedSympyResponse();
+					if(lsOvercorrectedSympyResponse != null)
+						for(String s:meinfo.getOvercorrectedSympyResponse())
+							System.out.println("OvercorrectedSympyResponse ->" + s);
+					for(String s:meinfo.getSympyResponseNotSimplified())
+						System.out.println("SympyResponseNotSimplified ->" + s);
+					System.out.println("TriedToApplyCorrection ->" + meinfo.getTriedToApplyCorrection());
+					for(String s:meinfo.getSympyResponse())
+						System.out.println("SympyResponse  ->" + s);
+				}
 
-		// need methods or classes to parse tdsResponseContent (CDATA content)
-		// provoided by AIR
+				if (studentResponse.getTraningTestItem().equals("4")) {
+					// TODO
+				} else if (studentResponse.getTraningTestItem().equals("not present")) {
+					// TODO
+				}
+			} else
+				studentResponse.setStatus(false);
 
-		if (studentResponse.getTraningTestItem().equals("4")) {
-			// TODO
-
-		} else if (studentResponse.getTraningTestItem().equals("not present")) {
-			// TODO
+		} catch (Exception e) {
+			logger.error("validateEQ exception: ", e);
 		}
-		studentResponse.setStatus(false);
+
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type GI and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *            StudentResponse stores the student response for item type GI in tds report xml file
 	 */
 	private void validateGI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		System.out.println("responseContent -->" + responseContent);
+		logger.info(String.format("responseContent -->%s", responseContent));
 		try {
-			System.out.println("tdsResponseContent -->" + tdsResponseContent);
-			// still need to implement by tomorrow for
-			// <AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><AtomicObject>{curve(325,239)}
+			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
 			if (listGRObject != null) {
 				// TODO
@@ -278,10 +298,10 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type MS and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *           StudentResponse stores the student response for item type MS in tds report xml file
 	 * 
 	 */
 	private void validateMS(StudentResponse studentResponse) {
@@ -296,10 +316,10 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type MC and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *             StudentResponse stores the student response for item type MC in tds report xml file
 	 * 
 	 */
 	private void validateMC(StudentResponse studentResponse) {
@@ -316,10 +336,10 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * Static method against specific student response file. No generic method implementation for the time being
+	 * Parsing student response for item type TI and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *            StudentResponse stores data for a student's item information of a test
+	 *             StudentResponse stores the student response for item type TI in tds report xml file
 	 * 
 	 */
 	private void validateTI(StudentResponse studentResponse) {
@@ -328,15 +348,15 @@ public class ItemResponseAnalysisAction extends
 		logger.info("responseContent -->" + responseContent);
 		try {
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
-			Table2 table = getTableObject(tdsResponseContent);
+			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
 				for (int i = 0; i < table.getRowCount(); i++) {
-					TableVector2 tableVector2 = table.getRowIndex(i);
-					// boolean isHeader = tableVector2.isHeader;
-					// int elemCount = tableVector2.getElementCount();
-					TableCell2[] tc2Array = tableVector2.getElements();
-					for (int j = 0; j < tc2Array.length; j++) {
-						TableCell2 tcTmp = tc2Array[j];
+					TableVector tableVector = table.getRowIndex(i);
+					// boolean isHeader = tableVector.isHeader;
+					// int elemCount = tableVector.getElementCount();
+					TableCell[] tcArray = tableVector.getElements();
+					for (int j = 0; j < tcArray.length; j++) {
+						TableCell tcTmp = tcArray[j];
 						String context = tcTmp.getContext();
 						logger.info(String.format("context -->%s and isHead %s", context, tcTmp.getIsHeader()));
 					}
@@ -525,11 +545,10 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 * @param responseContent
 	 *            The student response from tds report xml file (item type : TI)
-	 * @return Table2 object
-	 * 			  Table 2 is subclass of TableObject2
+	 * @return Table object Table is subclass of TableObject
 	 */
-	protected Table2 getTableObject(String responseContent) {
-		Table2 table2 = null;
+	protected Table getTableObject(String responseContent) {
+		Table table = null;
 		try {
 			StringReader sr = new StringReader(responseContent);
 			XmlReader reader = new XmlReader(sr);
@@ -538,14 +557,14 @@ public class ItemResponseAnalysisAction extends
 			List<Element> responseSpec = new XmlElement(doc.getRootElement()).selectNodes("//responseSpec");
 			for (Element child : responseSpec) {
 				if (child.getName().equals("responseSpec")) {
-					return Table2.fromXml(child.getChild("responseTable"));
+					return Table.fromXml(child.getChild("responseTable"));
 				}
 			}
 		} catch (Exception exp) {
 			logger.error("getTableObject exception: ", exp);
 		}
 
-		return table2;
+		return table;
 	}
 
 	/**

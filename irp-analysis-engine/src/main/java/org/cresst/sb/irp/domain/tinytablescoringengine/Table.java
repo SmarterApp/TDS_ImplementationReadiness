@@ -7,14 +7,14 @@ import org.jdom2.Element;
 
 import AIR.Common.xml.XmlElement;
 
-public class Table2 extends TableObject2 {
+public class Table extends TableObject {
 
-	private TableVector2[] _rows;
+	private TableVector[] _rows;
 	private int _rowCount = 0;
 	private int _columnCount = 0;
 	private int _headerRows = 0;
 
-	public Table2(TableVector2[] rows) {
+	public Table(TableVector[] rows) {
 		_rowCount = rows.length;
 		_rows = rows;
 		for (int i = 0; i < _rowCount; i++) {
@@ -26,7 +26,7 @@ public class Table2 extends TableObject2 {
 	}
 
 	@Override
-	public TableVector2 getColumn(String colName) {
+	public TableVector getColumn(String colName) {
 		int colIdx = getColumnIndex(colName);
 		if (colIdx == -1) {
 			return null;
@@ -36,9 +36,9 @@ public class Table2 extends TableObject2 {
 	}
 
 	@Override
-	public TableVector2 getColumn(int i) {
+	public TableVector getColumn(int i) {
 		int size = _rowCount - _headerRows;
-		TableVector2 column = new TableVector2(size);
+		TableVector column = new TableVector(size);
 		for (int j = 0; j < size; j++) {
 			column.setElement(j, _rows[_headerRows + j].getElement(i));
 		}
@@ -46,11 +46,11 @@ public class Table2 extends TableObject2 {
 		return column;
 	}
 
-	public TableVector2 getHeaderRow() {
+	public TableVector getHeaderRow() {
 		return (_rowCount > 0) ? _rows[0] : null;
 	}
 
-	public TableVector2 getRowIndex(int idx) {
+	public TableVector getRowIndex(int idx) {
 		return _rows[idx];
 	}
 
@@ -65,22 +65,22 @@ public class Table2 extends TableObject2 {
 		return -1;
 	}
 
-	public static Table2 fromXml(Element node) // tales a responseTable node as
+	public static Table fromXml(Element node) // tales a responseTable node as
 	// input
 	{
 		List<Element> rowNodes = new XmlElement(node).selectNodes("tr");
 		int rowCount = rowNodes.size();
-		TableVector2[] rows = new TableVector2[rowCount];
+		TableVector[] rows = new TableVector[rowCount];
 		for (int i = 0; i < rowCount; i++) {
-			rows[i] = TableVector2.fromXml(rowNodes.get(i));
+			rows[i] = TableVector.fromXml(rowNodes.get(i));
 		}
-		return new Table2(rows);
+		return new Table(rows);
 	}
 
 	@Override
 	public Element toXml(Document doc) {
 		Element table = new Element("responseTable");
-		for (TableVector2 v : _rows) {
+		for (TableVector v : _rows) {
 			Element row = v.toXml(doc);
 			table.addContent(row);
 		}

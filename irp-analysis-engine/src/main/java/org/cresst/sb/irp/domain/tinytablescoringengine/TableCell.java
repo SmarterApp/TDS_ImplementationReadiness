@@ -3,12 +3,12 @@ package org.cresst.sb.irp.domain.tinytablescoringengine;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
-public class TableCell2 extends TableObject2 {
+public class TableCell extends TableObject {
 
 	public boolean _isHeader = false;
 	protected String _content = "";
 
-	public TableCell2(String content) {
+	public TableCell(String content) {
 		_content = content;
 	}
 
