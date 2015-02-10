@@ -24,6 +24,7 @@ import tinyequationscoringengine.MathExpressionInfo;
 import tinyequationscoringengine.MathExpressionSet;
 import tinyequationscoringengine.MathMLParser;
 import tinygrscoringengine.GRObject;
+import tinygrscoringengine.GRObject.ObjectType;
 import tinygrscoringengine.GeoObject;
 import tinygrscoringengine.Point;
 import tinygrscoringengine.TinyGRException;
@@ -123,7 +124,7 @@ public class ItemResponseAnalysisAction extends
 			String key = getTdsFieldNameValueByFieldName(iList, "key");
 			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, key);
 			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())) {
-				System.out.println("format ---->" + format + " key ===>" + key);
+				logger.info(String.format("format %s and key %s", format, key));
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
 				studentResponse.setTdsResponseContent(responseCategory.getContent());
@@ -176,8 +177,9 @@ public class ItemResponseAnalysisAction extends
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("2")) {
-			if (responseContent.equals("any text") && tdsResponseContent.length() > 0)
+			if (responseContent.equals("any text") && tdsResponseContent.length() > 0) {
 				studentResponse.setStatus(true);
+			}
 		}
 	}
 
@@ -211,10 +213,10 @@ public class ItemResponseAnalysisAction extends
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
 		if (studentResponse.getTraningTestItem().equals("3") && identifiersAndResponses != null) {
+			logger.info(String.format("identifiersAndResponses.get(RESPONSE) ->%s", identifiersAndResponses.get("RESPONSE")));
+			logger.info(String.format("strYesValue %s ->", strYesValue));
 			if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
 				studentResponse.setStatus(true);
-			} else {
-				studentResponse.setStatus(false);
 			}
 		}
 	}
@@ -238,24 +240,25 @@ public class ItemResponseAnalysisAction extends
 					MathExpressionInfo meinfo = me.toMathExpressionInfo();
 					System.out.println("AppliedCorrection ->" + meinfo.getAppliedCorrection());
 					List<String> lsOvercorrectedSympyResponse = meinfo.getOvercorrectedSympyResponse();
-					if(lsOvercorrectedSympyResponse != null)
-						for(String s:meinfo.getOvercorrectedSympyResponse())
+					if (lsOvercorrectedSympyResponse != null)
+						for (String s : meinfo.getOvercorrectedSympyResponse())
 							System.out.println("OvercorrectedSympyResponse ->" + s);
-					for(String s:meinfo.getSympyResponseNotSimplified())
+					for (String s : meinfo.getSympyResponseNotSimplified())
 						System.out.println("SympyResponseNotSimplified ->" + s);
 					System.out.println("TriedToApplyCorrection ->" + meinfo.getTriedToApplyCorrection());
-					for(String s:meinfo.getSympyResponse())
+					for (String s : meinfo.getSympyResponse())
 						System.out.println("SympyResponse  ->" + s);
 				}
-
-				if (studentResponse.getTraningTestItem().equals("4")) {
-					// TODO
-				} else if (studentResponse.getTraningTestItem().equals("not present")) {
+				if (studentResponse.getTraningTestItem().equals("not present")) {
 					// TODO
 				}
-			} else
-				studentResponse.setStatus(false);
-
+			} else if (!tdsResponseContent.trim().startsWith("<response>") && tdsResponseContent.trim().length() > 0) {
+				if (studentResponse.getTraningTestItem().equals("4")) {
+					if (tdsResponseContent.trim().equals(responseContent)) {
+						studentResponse.setStatus(true);
+					}
+				}
+			}
 		} catch (Exception e) {
 			logger.error("validateEQ exception: ", e);
 		}
@@ -276,11 +279,34 @@ public class ItemResponseAnalysisAction extends
 			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
 			if (listGRObject != null) {
-				// TODO
+				ObjectType objectType = null;
 				for (GRObject go : listGRObject) {
 					logger.info(String.format("strxml -->%s", go.getXmlString()));
 					logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
+					objectType = go.getTypeOfObject();
+					break;
+				}
 
+				switch (objectType) {
+				case Atomic:
+					logger.info("Atomic");
+					//studentResponse.setStatus(false);
+					break;
+				case Point:
+					logger.info("Point");
+					//studentResponse.setStatus(false);
+					break;
+				case Geometric:
+					logger.info("Geometric");
+					//studentResponse.setStatus(false);
+					break;	
+				case RegionGroup:
+					logger.info("RegionGroup");
+					//studentResponse.setStatus(false);
+					break;
+				default:
+					break;	
+					
 				}
 
 				if (studentResponse.getTraningTestItem().equals("1")) {
@@ -290,7 +316,7 @@ public class ItemResponseAnalysisAction extends
 				} else if (studentResponse.getTraningTestItem().equals("8")) {
 					// TODO
 				}
-				studentResponse.setStatus(false);
+				
 			}
 		} catch (Exception e) {
 			logger.error("validateGI exception: ", e);
@@ -301,7 +327,7 @@ public class ItemResponseAnalysisAction extends
 	 * Parsing student response for item type MS and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *           StudentResponse stores the student response for item type MS in tds report xml file
+	 *            StudentResponse stores the student response for item type MS in tds report xml file
 	 * 
 	 */
 	private void validateMS(StudentResponse studentResponse) {
@@ -319,14 +345,14 @@ public class ItemResponseAnalysisAction extends
 	 * Parsing student response for item type MC and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *             StudentResponse stores the student response for item type MC in tds report xml file
+	 *            StudentResponse stores the student response for item type MC in tds report xml file
 	 * 
 	 */
 	private void validateMC(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
-		System.out.println("responseContent --->" + responseContent);
+		logger.info(String.format("responseContent->%s", responseContent));
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		System.out.println("tdsResponseContent --->" + tdsResponseContent);
+		logger.info(String.format("tdsResponseContent->%s", tdsResponseContent));
 		if (studentResponse.getTraningTestItem().equals("not present")) {
 			if (responseContent.equals(tdsResponseContent))
 				studentResponse.setStatus(true);
@@ -339,7 +365,7 @@ public class ItemResponseAnalysisAction extends
 	 * Parsing student response for item type TI and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
-	 *             StudentResponse stores the student response for item type TI in tds report xml file
+	 *            StudentResponse stores the student response for item type TI in tds report xml file
 	 * 
 	 */
 	private void validateTI(StudentResponse studentResponse) {
