@@ -23,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.common.collect.ImmutableList;
 
+import java.text.Collator;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -183,10 +185,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testPackageService.getTestpackageByIdentifierUniqueid(uniqueid);
 	}
 
-	public Map<String, Testspecification> getMapTestpackage(){
+	public Map<String, Testspecification> getMapTestpackage() {
 		return testPackageService.getMapTestpackage();
 	}
-	
+
 	public Student getStudent(long key) throws NotFoundException {
 		return studentService.getStudentByStudentSSID(key);
 	}
@@ -241,6 +243,16 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	public boolean isCorrectValue(String v1, String v2) {
 		return v1.trim().toLowerCase().equals(v2.trim().toLowerCase());
+	}
+
+	public boolean compare(List<String> list1, List<String> list2) {
+		 if (list1==null && list2==null) 
+			 return true;
+		 if ((list1!=null && list2==null) || (list1==null && list2!=null) || ( list1.size()!=list2.size() ))
+			 return false;
+		 Collections.sort(list1, Collator.getInstance());
+		 Collections.sort(list2, Collator.getInstance());
+		 return list1.equals(list2);
 	}
 
 	public void processP_Positive32bit(String inputValue, FieldCheckType fieldCheckType) {

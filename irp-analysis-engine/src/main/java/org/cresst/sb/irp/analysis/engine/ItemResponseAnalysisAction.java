@@ -32,7 +32,9 @@ import tinygrscoringengine.Vector;
 import AIR.Common.xml.XmlElement;
 import AIR.Common.xml.XmlReader;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -64,7 +66,7 @@ public class ItemResponseAnalysisAction extends
 			for (Item item : listItem) {
 				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
 				analysisItemResponse(itemCategory, item);
-				analysisItemResponseWithStudentReponse(itemCategory, item, Long.parseLong(examineeKey));
+				analysisItemResponseWithStudentReponse(itemCategory, Long.parseLong(examineeKey));
 				indexOfItemCategory++;
 			}
 		} catch (Exception e) {
@@ -116,7 +118,7 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Item tdsItem, Long examineeKey) {
+	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Long examineeKey) {
 		try {
 			ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
 			String format = getTdsFieldNameValueByFieldName(iList, "format");
@@ -333,11 +335,14 @@ public class ItemResponseAnalysisAction extends
 	private void validateMS(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
+		logger.info(String.format("responseContent -->%s", responseContent));
+		logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 		if (studentResponse.getTraningTestItem().equals("6")) {
-			if (responseContent.equals(tdsResponseContent))
+			List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings().splitToList(responseContent.toLowerCase()));
+			List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings().splitToList(tdsResponseContent.toLowerCase()));
+			if (compare(list1, list2)){
 				studentResponse.setStatus(true);
-			else
-				studentResponse.setStatus(false);
+			}
 		}
 	}
 
@@ -354,10 +359,8 @@ public class ItemResponseAnalysisAction extends
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		logger.info(String.format("tdsResponseContent->%s", tdsResponseContent));
 		if (studentResponse.getTraningTestItem().equals("not present")) {
-			if (responseContent.equals(tdsResponseContent))
+			if (responseContent.equalsIgnoreCase(tdsResponseContent))
 				studentResponse.setStatus(true);
-			else
-				studentResponse.setStatus(false);
 		}
 	}
 
@@ -732,23 +735,6 @@ public class ItemResponseAnalysisAction extends
 			pointText = pointText.substring(endOfPoint + 1);
 		}
 		return points;
-	}
-
-	/**
-	 * this method is from TinyGR.java
-	 * 
-	 * @param child
-	 * @param sw
-	 * @param objects
-	 * @param sb
-	 */
-	private static void outputObjectString(Element child, StringWriter sw, List<String> objects, StringBuilder sb) {
-		String objString = sw.toString();
-		if (objString != null) {
-
-			objects.add(sw.toString());
-		}
-		sb.delete(0, sb.length());
 	}
 
 }
