@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>566</Identifier>
+    <SecurityStatus>Secure</SecurityStatus>
+    <SmarterAppItemDescriptor>MATH.11.1.A-REI.1I</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>MATH</Subject>
+    <Version>16</Version>
+    <ItemAuthorIdentifier>Teddy_Xiong</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Shashank_Abhyankar</LastModifiedBy>
+    <IntendedGrade>11</IntendedGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <MathematicalPractice>7</MathematicalPractice>
+    <DepthOfKnowledge>1</DepthOfKnowledge>
+    <AchievementQuintile>1</AchievementQuintile>
+    <AllowCalculator>N</AllowCalculator>
+    <InteractionType>EQ</InteractionType>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <ScorePoints>"0, 1"</ScorePoints>
+    <ScoringEngine>Automatic with Machine Rubric</ScoringEngine>
+    <PresentationFormat>Text</PresentationFormat>
+    <AdministrationDate>Field Test</AdministrationDate>
+    <ContentTaskModel>TM1a_Rpdv</ContentTaskModel>
+    <AlgebraFunctionDescriptor>Linear</AlgebraFunctionDescriptor>
+    <BrailleType>BRF</BrailleType>
+    <AccessibilityTagsASLLanguage>Y</AccessibilityTagsASLLanguage>
+    <StandardPublication>
+      <Publication>SBAC-MA-v4</Publication>
+      <PrimaryStandard>SBAC-MA-v4:1|A-REI|I|m|A-REI.3</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-MA-v6</Publication>
+      <PrimaryStandard>SBAC-MA-v6:1|P|TS03|I</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>67863</AssociatedTutorial>
+    <AssociatedWordlist>57073</AssociatedWordlist>
+    <Language>eng</Language>
+    <Language>spa</Language>
+  </smarterAppMetadata>
+</metadata>

@@ -122,9 +122,9 @@ public class ItemResponseAnalysisAction extends
 		try {
 			ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
 			String format = getTdsFieldNameValueByFieldName(iList, "format");
-			// String bankKey = getTdsFieldNameValueByFieldName(iList, "bankKey");
+			String bankKey = getTdsFieldNameValueByFieldName(iList, "bankKey");
 			String key = getTdsFieldNameValueByFieldName(iList, "key");
-			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, key);
+			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, bankKey, key);
 			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())) {
 				logger.info(String.format("format %s and key %s", format, key));
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
@@ -292,23 +292,23 @@ public class ItemResponseAnalysisAction extends
 				switch (objectType) {
 				case Atomic:
 					logger.info("Atomic");
-					//studentResponse.setStatus(false);
+					// studentResponse.setStatus(false);
 					break;
 				case Point:
 					logger.info("Point");
-					//studentResponse.setStatus(false);
+					// studentResponse.setStatus(false);
 					break;
 				case Geometric:
 					logger.info("Geometric");
-					//studentResponse.setStatus(false);
-					break;	
+					// studentResponse.setStatus(false);
+					break;
 				case RegionGroup:
 					logger.info("RegionGroup");
-					//studentResponse.setStatus(false);
+					// studentResponse.setStatus(false);
 					break;
 				default:
-					break;	
-					
+					break;
+
 				}
 
 				if (studentResponse.getTraningTestItem().equals("1")) {
@@ -318,7 +318,7 @@ public class ItemResponseAnalysisAction extends
 				} else if (studentResponse.getTraningTestItem().equals("8")) {
 					// TODO
 				}
-				
+
 			}
 		} catch (Exception e) {
 			logger.error("validateGI exception: ", e);
@@ -335,12 +335,12 @@ public class ItemResponseAnalysisAction extends
 	private void validateMS(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		logger.info(String.format("responseContent -->%s", responseContent));
-		logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 		if (studentResponse.getTraningTestItem().equals("6")) {
-			List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings().splitToList(responseContent.toLowerCase()));
-			List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings().splitToList(tdsResponseContent.toLowerCase()));
-			if (compare(list1, list2)){
+			List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+					.splitToList(responseContent.toLowerCase()));
+			List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+					.splitToList(tdsResponseContent.toLowerCase()));
+			if (compare(list1, list2)) {
 				studentResponse.setStatus(true);
 			}
 		}
@@ -355,9 +355,7 @@ public class ItemResponseAnalysisAction extends
 	 */
 	private void validateMC(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
-		logger.info(String.format("responseContent->%s", responseContent));
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		logger.info(String.format("tdsResponseContent->%s", tdsResponseContent));
 		if (studentResponse.getTraningTestItem().equals("not present")) {
 			if (responseContent.equalsIgnoreCase(tdsResponseContent))
 				studentResponse.setStatus(true);
@@ -374,30 +372,39 @@ public class ItemResponseAnalysisAction extends
 	private void validateTI(StudentResponse studentResponse) {
 		String responseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		logger.info("responseContent -->" + responseContent);
+		logger.info("responseContent-->" + responseContent);
 		try {
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
 			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
-				for (int i = 0; i < table.getRowCount(); i++) {
-					TableVector tableVector = table.getRowIndex(i);
-					// boolean isHeader = tableVector.isHeader;
-					// int elemCount = tableVector.getElementCount();
-					TableCell[] tcArray = tableVector.getElements();
-					for (int j = 0; j < tcArray.length; j++) {
-						TableCell tcTmp = tcArray[j];
-						String context = tcTmp.getContext();
-						logger.info(String.format("context -->%s and isHead %s", context, tcTmp.getIsHeader()));
-					}
-				}
-				if (studentResponse.getTraningTestItem().equals("7")) {
-					// TODO
-				}
+				if(matchTI(table, responseContent))
+					studentResponse.setStatus(true);
 			}
 		} catch (Exception e) {
 			logger.error("validateTI exception: ", e);
 		}
-		studentResponse.setStatus(false);
+	}
+
+	protected boolean matchTI(Table table, String studentResponse) {
+		int rowCountWithHeader = table.getRowCount() - 1;
+		int rowCountStudentResponse = 2; // need to discuss how to get row count for student response
+		int columnCountStudentResponse = 2; // need to discuss how to get col count for student response
+		if ((rowCountWithHeader != rowCountStudentResponse) || (table.getColumnCount() != columnCountStudentResponse))
+			return false;
+
+		for (int i = 0; i < table.getRowCount(); i++) {
+			TableVector tableVector = table.getRowIndex(i);
+			if (!tableVector.isHeader){ //skip header
+				TableCell[] tcArray = tableVector.getElements();
+				for (int j = 0; j < tcArray.length; j++) {
+					TableCell tcTmp = tcArray[j];
+					String context = tcTmp.getContext();
+					logger.info("context -->" + context);
+					//TODO -- need to match cell value in student response
+				}
+			}
+		}
+		return true;
 	}
 
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,

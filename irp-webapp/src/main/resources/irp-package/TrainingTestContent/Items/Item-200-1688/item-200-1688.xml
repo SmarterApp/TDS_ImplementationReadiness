@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1688" version="5" bankkey="200">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1688</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MATH.11.1.A-APR.1F</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>Platform::MG11::12.3 (193);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val>CAT::MG11::ONnoCALC-S2-D::SP14 (89); FAKE MATH FORM (622); CAT::MG11::CA-ONNoCalc::D::SP14 (89); CAT::MG11::CA-ONNoCalc::D (89);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="67863" bankkey="200" />
+    <resourceslist>
+      <resource type="wordList" id="116322" index="1" bankkey="200" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1688_v5.qrx" />
+    <RendererSpec filename="Item_1688_v5.eax" />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1688_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1688_TAG_4" data-tag-boundary="end"></span> an expression equivalent to <span id="item_1688_TAG_1_BEGIN">(5<span style="font-style:italic; ">x</span><span style="vertical-align:super; font-size: 58%;">2</span> + 3<span style="font-style:italic; ">x</span> – 2) – (3<span style="font-style:italic; ">x</span> + 7)</span> using the <span id="item_1688_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>fewest<span class="its-tag" data-tag-ref="item_1688_TAG_5" data-tag-boundary="end"></span> number of <span id="item_1688_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>possible<span class="its-tag" data-tag-ref="item_1688_TAG_6" data-tag-boundary="end"></span> <span id="item_1688_TAG_2_BEGIN">terms.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style=""><span style="font-weight:bold; ">Exemplar</span>: 5<span style="font-style:italic; ">x</span><span style="vertical-align:super; font-size: 58%;">2</span> – 9<br /><br /><span style="font-weight:bold; ">For this item, a full-credit response includes:<br /></span>The response demonstrates a full and complete understanding of writing the sum or difference of two or more polynomials using the fewest number of terms possible. The response contains the following evidence:</p><p style="">&#xA0;</p><ul style="padding-left:1.4550em; "><li><p style="">The student correctly writes an equivalent expression using the fewest number of terms.</p></li></ul><p style=""><br />Partial credit- none</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1688_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1688_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>open parenthesis, 5 x squared plus 3 x minus 2, closed parenthesis minus open parenthesis, 3 x plus 7, closed parenthesis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(5x2 + 3x – 2) – (3x + 7)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1688_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>terms. The equation tool has two sections.  In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>terms.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="5">
+      <stem><![CDATA[<p style="">Escribe una expresión equivalente a (5<span style="font-style:italic; ">x</span><span style="vertical-align:super; font-size: 58%;">2</span> + 3<span style="font-style:italic; ">x</span> – 2) – (3<span style="font-style:italic; ">x</span> + 7) usando el menor número posible de términos.</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1688_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1688_TAG_4" data-tag-boundary="end"></span> an expression equivalent to <span id="item_1688_TAG_1_BEGIN">(5<span style="font-style:italic; ">x</span><span style="vertical-align:super; font-size: 58%;">2</span> + 3<span style="font-style:italic; ">x</span> – 2) – (3<span style="font-style:italic; ">x</span> + 7)</span> using the <span id="item_1688_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>fewest<span class="its-tag" data-tag-ref="item_1688_TAG_5" data-tag-boundary="end"></span> number of <span id="item_1688_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>possible<span class="its-tag" data-tag-ref="item_1688_TAG_6" data-tag-boundary="end"></span> <span id="item_1688_TAG_2_BEGIN">terms.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1688_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>open parenthesis, 5 x squared plus 3 x minus 2, closed parenthesis minus open parenthesis, 3 x plus 7, closed parenthesis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(5x2 + 3x – 2) – (3x + 7)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1688_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>terms. The equation tool has two sections.  In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>terms.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

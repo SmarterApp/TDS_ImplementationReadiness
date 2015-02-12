@@ -218,11 +218,13 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	 * @param studentID
 	 *            - SSID
 	 * 
-	 * @param bankKeyKey
-	 *            - value in ID column e.g 174, NOT using bankKey
+	 * @param bankKey
+	 *            - value in Bank Key column e.g 187
+	 * @param Key
+	 *            - value in ID column e.g 174
 	 */
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKeyKey) {
-		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKeyKey);
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKey, String Key) {
+		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKey, Key);
 	}
 
 	public void setPcorrect(FieldCheckType fieldCheckType) {
@@ -245,7 +247,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return v1.trim().toLowerCase().equals(v2.trim().toLowerCase());
 	}
 
-	public boolean compare(List<String> list1, List<String> list2) {
+	public <U> boolean compare(List<U> list1, List<U> list2) {
 		 if (list1==null && list2==null) 
 			 return true;
 		 if ((list1!=null && list2==null) || (list1==null && list2!=null) || ( list1.size()!=list2.size() ))

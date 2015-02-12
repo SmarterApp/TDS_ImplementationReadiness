@@ -55,14 +55,14 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	}
 
 	@Override
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id) {
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKey, String id) {
 		TestItemResponse testItemResponse = testItemStudentResponseMap.get(studentID);
 		if (testItemResponse == null){
 			return null;
 		}
 		List<StudentResponse> studentResponses = testItemResponse.getStudentResponses();
 		for(StudentResponse sr: studentResponses){
-			if (sr.getId().equals(id)){
+			if (sr.getBankKey().equals(bankKey) && sr.getId().equals(id)){
 				return sr;
 			}
 		}

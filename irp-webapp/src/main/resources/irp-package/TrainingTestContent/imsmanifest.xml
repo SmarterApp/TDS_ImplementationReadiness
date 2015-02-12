@@ -6,6 +6,224 @@
   </metadata>
   <organizations />
   <resources>
+     <resource identifier="item-200-1448" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-1448/item-200-1448.xml" />
+      <dependency identifierref="Item_1448_v10_eax" />
+      <dependency identifierref="Item_1448_v10_qrx" />
+      <dependency identifierref="item_1448_enu_nemeth_brf" />
+      <dependency identifierref="item_1448_ASL_STEM_MP4" />
+      <dependency identifierref="item_1448_v10_Object1_png16malpha_xml" />
+      <dependency identifierref="item_1448_v10_Object1_png16malpha_png" />
+      <dependency identifierref="item_1448_v10_Object2_png16malpha_xml" />
+      <dependency identifierref="item_1448_v10_Object2_png16malpha_png" />
+      <dependency identifierref="item-200-67863" />
+      <dependency identifierref="item-200-51976" />
+      <dependency identifierref="item-200-1448_metadata" />
+    </resource>
+    <resource identifier="item-200-1448_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-1448/metadata.xml" />
+    </resource>
+    <resource identifier="item_1448_v10_Object2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_v10_Object2_png16malpha.png" />
+    </resource>
+    <resource identifier="item_1448_v10_Object2_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_v10_Object2_png16malpha.xml" />
+    </resource>
+    <resource identifier="item_1448_v10_Object1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_v10_Object1_png16malpha.png" />
+    </resource>
+    <resource identifier="item_1448_v10_Object1_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_v10_Object1_png16malpha.xml" />
+    </resource>
+    <resource identifier="item_1448_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_ASL_STEM.MP4" />
+    </resource>
+    <resource identifier="item_1448_enu_nemeth_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/item_1448_enu_nemeth.brf" />
+    </resource>
+    <resource identifier="Item_1448_v10_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/Item_1448_v10.qrx" />
+    </resource>
+    <resource identifier="Item_1448_v10_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1448/Item_1448_v10.eax" />
+    </resource>
+    <resource identifier="item-200-1676" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-1676/item-200-1676.xml" />
+      <dependency identifierref="Item_1676_v7_gax" />
+      <dependency identifierref="Item_1676_v7_qrx" />
+      <dependency identifierref="item_1676_v7_Object1_png16malpha_xml" />
+      <dependency identifierref="item_1676_v7_Object1_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_1_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_2_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_3_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_4_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_5_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_6_png16malpha_png" />
+      <dependency identifierref="Item_1676_v7_Background_png16malpha_png" />
+      <dependency identifierref="item-200-67858" />
+      <dependency identifierref="item-200-68929" />
+      <dependency identifierref="item-200-1676_metadata" />
+    </resource>
+    <resource identifier="item-200-1676_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-1676/metadata.xml" />
+    </resource>
+    <resource identifier="Item_1676_v7_Background_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_Background_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_6_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_6_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_5_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_5_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_4_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_4_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_3_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_3_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_2_png16malpha.png" />
+    </resource>
+    <resource identifier="Item_1676_v7_1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7_1_png16malpha.png" />
+    </resource>
+    <resource identifier="item_1676_v7_Object1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/item_1676_v7_Object1_png16malpha.png" />
+    </resource>
+    <resource identifier="item_1676_v7_Object1_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/item_1676_v7_Object1_png16malpha.xml" />
+    </resource>
+    <resource identifier="Item_1676_v7_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7.qrx" />
+    </resource>
+    <resource identifier="Item_1676_v7_gax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1676/Item_1676_v7.gax" />
+    </resource>
+    <resource identifier="item-200-1688" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-1688/item-200-1688.xml" />
+      <dependency identifierref="Item_1688_v5_eax" />
+      <dependency identifierref="Item_1688_v5_qrx" />
+      <dependency identifierref="item_1688_ASL_STEM_MP4" />
+      <dependency identifierref="item-200-67863" />
+      <dependency identifierref="item-200-116322" />
+      <dependency identifierref="item-200-1688_metadata" />
+    </resource>
+    <resource identifier="item-200-1688_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-1688/metadata.xml" />
+    </resource>
+    <resource identifier="item_1688_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1688/item_1688_ASL_STEM.MP4" />
+    </resource>
+    <resource identifier="Item_1688_v5_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1688/Item_1688_v5.qrx" />
+    </resource>
+    <resource identifier="Item_1688_v5_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-1688/Item_1688_v5.eax" />
+    </resource>
+    <resource identifier="item-200-566" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-566/item-200-566.xml" />
+      <dependency identifierref="Item_566_v15_eax" />
+      <dependency identifierref="Item_566_v15_qrx" />
+      <dependency identifierref="item_566_enu_nemeth_brf" />
+      <dependency identifierref="item_566_v15_Object2_png16malpha_xml" />
+      <dependency identifierref="item_566_v15_Object2_png16malpha_png" />
+      <dependency identifierref="item_566_v15_Object1_png16malpha_xml" />
+      <dependency identifierref="item_566_v15_Object1_png16malpha_png" />
+      <dependency identifierref="item-200-67863" />
+      <dependency identifierref="item-200-57073" />
+      <dependency identifierref="item-200-566_metadata" />
+    </resource>
+    <resource identifier="item-200-566_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-566/metadata.xml" />
+    </resource>
+    <resource identifier="item_566_v15_Object1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/item_566_v15_Object1_png16malpha.png" />
+    </resource>
+    <resource identifier="item_566_v15_Object1_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/item_566_v15_Object1_png16malpha.xml" />
+    </resource>
+    <resource identifier="item_566_v15_Object2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/item_566_v15_Object2_png16malpha.png" />
+    </resource>
+    <resource identifier="item_566_v15_Object2_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/item_566_v15_Object2_png16malpha.xml" />
+    </resource>
+    <resource identifier="item_566_enu_nemeth_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/item_566_enu_nemeth.brf" />
+    </resource>
+    <resource identifier="Item_566_v15_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/Item_566_v15.qrx" />
+    </resource>
+    <resource identifier="Item_566_v15_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-566/Item_566_v15.eax" />
+    </resource>
+    <resource identifier="item-200-666" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-666/item-200-666.xml" />
+      <dependency identifierref="Item_666_v13_eax" />
+      <dependency identifierref="Item_666_v13_qrx" />
+      <dependency identifierref="item-200-67863" />
+      <dependency identifierref="item-200-67367" />
+      <dependency identifierref="item-200-666_metadata" />
+    </resource>
+    <resource identifier="item-200-666_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-666/metadata.xml" />
+    </resource>
+    <resource identifier="Item_666_v13_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-666/Item_666_v13.qrx" />
+    </resource>
+    <resource identifier="Item_666_v13_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-666/Item_666_v13.eax" />
+    </resource>
+    <resource identifier="item-200-766" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-200-766/item-200-766.xml" />
+      <dependency identifierref="Item_766_v22_eax" />
+      <dependency identifierref="Item_766_v22_qrx" />
+      <dependency identifierref="item_766_v22_Object1_png16malpha_xml" />
+      <dependency identifierref="item_766_v22_Object1_png16malpha_png" />
+      <dependency identifierref="item_766_v22_Object2_png16malpha_xml" />
+      <dependency identifierref="item_766_v22_Object2_png16malpha_png" />
+      <dependency identifierref="item_766_enu_nemeth_prn" />
+      <dependency identifierref="item_766_ASL_STEM_MP4" />
+      <dependency identifierref="item_766_v22_graphics1_png256_png" />
+      <dependency identifierref="item_766_v22_stem_png256_png" />
+      <dependency identifierref="item-200-67863" />
+      <dependency identifierref="item-200-64566" />
+      <dependency identifierref="item-200-766_metadata" />
+    </resource>
+    <resource identifier="item-200-766_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-200-766/metadata.xml" />
+    </resource>
+    <resource identifier="item_766_v22_stem_png256_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_stem_png256.png" />
+    </resource>
+    <resource identifier="item_766_v22_graphics1_png256_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_graphics1_png256.png" />
+    </resource>
+    <resource identifier="item_766_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_ASL_STEM.MP4" />
+    </resource>
+    <resource identifier="item_766_enu_nemeth_prn" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_enu_nemeth.prn" />
+    </resource>
+    <resource identifier="item_766_v22_Object2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_Object2_png16malpha.png" />
+    </resource>
+    <resource identifier="item_766_v22_Object2_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_Object2_png16malpha.xml" />
+    </resource>
+    <resource identifier="item_766_v22_Object1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_Object1_png16malpha.png" />
+    </resource>
+    <resource identifier="item_766_v22_Object1_png16malpha_xml" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/item_766_v22_Object1_png16malpha.xml" />
+    </resource>
+    <resource identifier="Item_766_v22_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/Item_766_v22.qrx" />
+    </resource>
+    <resource identifier="Item_766_v22_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-200-766/Item_766_v22.eax" />
+    </resource>
     <resource identifier="item-187-1059" type="imsqti_apipitem_xmlv2p2">
       <file href="Items/Item-187-1059/item-187-1059.xml" />
       <dependency identifierref="item_1059_enu_nemeth_brf" />

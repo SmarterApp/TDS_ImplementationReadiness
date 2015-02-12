@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>766</Identifier>
+    <SecurityStatus>Secure</SecurityStatus>
+    <SmarterAppItemDescriptor>MATH.8.1.EE.1C</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>MATH</Subject>
+    <Version>23</Version>
+    <ItemAuthorIdentifier>Teddy_Xiong</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Shashank_Abhyankar</LastModifiedBy>
+    <IntendedGrade>8</IntendedGrade>
+    <MinimumGrade>7</MinimumGrade>
+    <MaximumGrade>8</MaximumGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <AchievementQuintile>1</AchievementQuintile>
+    <AllowCalculator>N</AllowCalculator>
+    <InteractionType>EQ</InteractionType>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <ScorePoints>"0, 1"</ScorePoints>
+    <ScoringEngine>Automatic with Machine Rubric</ScoringEngine>
+    <PresentationFormat>Text With Graphics</PresentationFormat>
+    <AdministrationDate>Field Test</AdministrationDate>
+    <ContentTaskModel>TM5b_rpdv</ContentTaskModel>
+    <BrailleType>PRN</BrailleType>
+    <AccessibilityTagsASLLanguage>Y</AccessibilityTagsASLLanguage>
+    <StandardPublication>
+      <Publication>SBAC-MA-v4</Publication>
+      <PrimaryStandard>SBAC-MA-v4:1|EE|C-8|m|8.EE.6</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-MA-v6</Publication>
+      <PrimaryStandard>SBAC-MA-v6:1|P|TS01|C-8</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>67863</AssociatedTutorial>
+    <AssociatedWordlist>64566</AssociatedWordlist>
+    <Language>eng</Language>
+    <Language>spa</Language>
+  </smarterAppMetadata>
+</metadata>

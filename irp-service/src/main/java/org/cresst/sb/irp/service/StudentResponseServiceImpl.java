@@ -37,8 +37,8 @@ public class StudentResponseServiceImpl implements StudentResponseService {
 	}
 
 	@Override
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id) {
-		return studentResponseDao.getStudentResponseByStudentIDandBankKeyID(studentID, id);
+	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKey, String id) {
+		return studentResponseDao.getStudentResponseByStudentIDandBankKeyID(studentID, bankKey, id);
 	}
 
 

@@ -13,7 +13,7 @@ public interface StudentResponseDao {
 	
 	TestItemResponse getTestItemResponseByStudentID(Long studentID);
 	
-	StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String id);
+	StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKey, String id);
 
 
 	
