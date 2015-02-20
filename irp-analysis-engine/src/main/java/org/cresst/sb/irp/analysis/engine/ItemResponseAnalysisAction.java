@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.items.Itemrelease;
+import org.cresst.sb.irp.domain.manifest.Manifest;
+import org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource.Dependency;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
@@ -12,10 +14,12 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.cresst.sb.irp.domain.tinytablescoringengine.Table;
 import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell;
 import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector;
+import org.cresst.sb.irp.service.ManifestService;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import qtiscoringengine.cs2java.StringHelper;
@@ -36,6 +40,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
+import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -51,6 +56,9 @@ public class ItemResponseAnalysisAction extends
 	static public enum EnumItemResponseFieldName {
 		date, type, content
 	}
+
+	@Autowired
+	public ManifestService manifestService;
 
 	@Override
 	public void analyze(IndividualResponse individualResponse) {
@@ -100,14 +108,29 @@ public class ItemResponseAnalysisAction extends
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
 			String format = tdsItem.getFormat();
+			// TODO need to re organize this part of code once scoring item function implemented
 			if (format.trim().toLowerCase().equals("mc") || format.trim().toLowerCase().equals("ms")) {// handle MC, MS
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
 				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
-				itemCategory.setIrpItem(irpItem);
-				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-				itemCategory.setAttriblist(attriblist);
-				validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
+				if (irpItem != null) {
+					itemCategory.setIrpItem(irpItem);
+					Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+					itemCategory.setAttriblist(attriblist);
+					validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
+				}
+			} else if (format.trim().toLowerCase().equals("gi")) { // TODO developing
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+				responseCategory.setContentFieldCheckType(fieldCheckType);
+				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
+				if (irpItem != null) {
+					itemCategory.setIrpItem(irpItem);
+					Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+					itemCategory.setAttriblist(attriblist);
+					ItemScoreTest(itemCategory.getItemBankKeyKey()); // TODO
+					// validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+					// attriblist);
+				}
 			} else {
 				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				responseCategory.setContentFieldCheckType(fieldCheckType);
@@ -116,6 +139,24 @@ public class ItemResponseAnalysisAction extends
 		} catch (Exception e) {
 			logger.error("analysisItemResponse exception: ", e);
 		}
+	}
+
+	private void ItemScoreTest(String bankKeyKey) {
+		logger.info("bankKeyKey ->" + bankKeyKey);
+		String qrxID = "";
+		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce1 = manifestService.getResource(bankKeyKey);
+		List<Dependency> listDependency = resouce1.getDependency();
+		for (Dependency d : listDependency) {
+			String id = d.getIdentifierref();
+			logger.info("id ->" + id);
+			if (id.endsWith("qrx"))
+				qrxID = id;
+		}
+		logger.info("qrx ->" + qrxID);
+		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
+		Manifest.Resources.Resource.File file = resouceQRX.getFile().get(0);
+		logger.info("url  ->" + file.getHref());
+
 	}
 
 	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Long examineeKey) {
@@ -377,7 +418,7 @@ public class ItemResponseAnalysisAction extends
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
 			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
-				if(matchTI(table, responseContent))
+				if (matchTI(table, responseContent))
 					studentResponse.setStatus(true);
 			}
 		} catch (Exception e) {
@@ -394,13 +435,13 @@ public class ItemResponseAnalysisAction extends
 
 		for (int i = 0; i < table.getRowCount(); i++) {
 			TableVector tableVector = table.getRowIndex(i);
-			if (!tableVector.isHeader){ //skip header
+			if (!tableVector.isHeader) { // skip header
 				TableCell[] tcArray = tableVector.getElements();
 				for (int j = 0; j < tcArray.length; j++) {
 					TableCell tcTmp = tcArray[j];
 					String context = tcTmp.getContext();
 					logger.info("context -->" + context);
-					//TODO -- need to match cell value in student response
+					// TODO -- need to match cell value in student response
 				}
 			}
 		}

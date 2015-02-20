@@ -68,6 +68,7 @@
       <resource type="wordList" id="1342" index="1" bankkey="187" />
     </resourceslist>
     <statistic />
+    <MachineRubric filename="Item_766_v26.qrx" />
     <RendererSpec filename="Item_766_v26.gax" />
     <content language="ENU" version="2.0" approvedVersion="26">
       <rationaleoptlist />

@@ -1,3 +1,3 @@
-<![CDATA[
+
 					<Question id="769" ITSVer="1" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons></ShowButtons><GridColor>None</GridColor><GridSpacing>10,N</GridSpacing><CenterImage>true</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons><IconSpec><FileSpec>item_769_v19_1_png16malpha.png</FileSpec><Label>1</Label></IconSpec><IconSpec><FileSpec>item_769_v19_2_png16malpha.png</FileSpec><Label>2</Label></IconSpec></ObjectMenuIcons><ImageSpec><FileSpec>item_769_v19_Background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="769"><QuestionPart id="1"><ObjectSet><AtomicObject>{1(149,2)}</AtomicObject><AtomicObject>{2(320,3)}</AtomicObject></ObjectSet><SnapPoint>40@29,120;60,119;90,120;120,119;151,120;180,120;209,120;239,120;269,120;299,120;329,120;360,120;389,119;420,120;449,120;478,120;149,408;320,407</SnapPoint></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
-						]]>
+						
