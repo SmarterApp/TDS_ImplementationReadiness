@@ -13,7 +13,19 @@ public class ItemCategory extends Category {
     private org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem;
     private Itemrelease.Item.Attriblist attriblist;
 
-    public ResponseCategory getResponseCategory() {
+    public enum ItemStatusEnum{ FOUND, MISSING, EXTRA }
+    
+    private ItemStatusEnum status;
+    
+    public ItemStatusEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(ItemStatusEnum status) {
+		this.status = status;
+	}
+
+	public ResponseCategory getResponseCategory() {
         return responseCategory;
     }
 

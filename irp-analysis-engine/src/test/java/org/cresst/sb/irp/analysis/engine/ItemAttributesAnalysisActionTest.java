@@ -3,8 +3,11 @@ package org.cresst.sb.irp.analysis.engine;
 import builders.CellCategoryBuilder;
 import builders.ItemAttributeBuilder;
 import builders.StudentResponseBuilder;
+
 import com.google.common.collect.Lists;
+
 import org.cresst.sb.irp.domain.analysis.*;
+import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
@@ -56,6 +59,9 @@ public class ItemAttributesAnalysisActionTest {
 
         individualResponse.setExamineeCategory(examineeCategory);
 
+        final OpportunityCategory opportunityCategory = new OpportunityCategory();
+        individualResponse.setOpportunityCategory(opportunityCategory);
+        
         return individualResponse;
     }
 
@@ -91,8 +97,8 @@ public class ItemAttributesAnalysisActionTest {
 
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
-        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).status);
-        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(1).status);
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(1).getStatus());
     }
 
     /**
@@ -126,8 +132,8 @@ public class ItemAttributesAnalysisActionTest {
 
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
-        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).status);
-        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(1).status);
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(1).getStatus());
     }
 
     /**
@@ -161,8 +167,8 @@ public class ItemAttributesAnalysisActionTest {
 
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
-        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).status);
-        assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).status);
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
     }
 
     /**
@@ -199,8 +205,8 @@ public class ItemAttributesAnalysisActionTest {
 
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
-        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).status);
-        assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).status);
-        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(3).status);
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
+        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(3).getStatus());
     }
 }

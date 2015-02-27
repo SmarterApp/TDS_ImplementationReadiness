@@ -3,10 +3,12 @@ package org.cresst.sb.irp.analysis.engine;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource.Dependency;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
+import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
@@ -40,7 +42,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -70,12 +71,19 @@ public class ItemResponseAnalysisAction extends
 			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
-			int indexOfItemCategory = 0;
+
+			int index = 0;
 			for (Item item : listItem) {
-				ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
-				analysisItemResponse(itemCategory, item);
-				analysisItemResponseWithStudentReponse(itemCategory, Long.parseLong(examineeKey));
-				indexOfItemCategory++;
+				logger.info("bankkey {} and id {} listItem. size {} ", item.getBankKey(), item.getKey(), listItem.size());
+				ItemCategory itemCategory = listItemCategory.get(index);
+				ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
+				if (itemCategory.getStatus() == ItemStatusEnum.FOUND) {// does item (bankKey & key) exist in IRP package (Excel) ?
+					logger.info("bankkey ....{} and id .....{} ", item.getBankKey(), item.getKey());
+					analysisItemResponse(itemCategory, item);
+					analysisItemResponseWithStudentReponse(itemCategory, Long.parseLong(examineeKey));
+				} 
+
+				index++;
 			}
 		} catch (Exception e) {
 			logger.error("analyze exception: ", e);
