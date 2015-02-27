@@ -15,6 +15,7 @@
     "ajax-form": "~1.4.0",
     "core-item": "Polymer/core-item#~0.5.2",
     "paper-spinner": "Polymer/paper-spinner#~0.5.2",
+    "paper-tabs": "Polymer/paper-tabs#~0.5.2",
     "core-toolbar": "Polymer/core-toolbar#~0.5.2",
     "core-drawer-panel": "Polymer/core-drawer-panel#~0.5.2",
     "core-header-panel": "Polymer/core-header-panel#~0.5.2",
@@ -32,6 +33,23 @@
         "bower_components/core-ajax/core-ajax.html",
         "bower_components/core-ajax/core-xhr.html"
       ],
+      "core-animated-pages": [
+        "bower_components/core-animated-pages/core-animated-pages.html",
+        "bower_components/core-animated-pages/core-animated-pages.css",
+        "bower_components/core-animated-pages/metadata.html",
+        "bower_components/core-animated-pages/transitions/cascade-transition.html",
+        "bower_components/core-animated-pages/transitions/core-transition-pages.html",
+        "bower_components/core-animated-pages/transitions/cross-fade.html",
+        "bower_components/core-animated-pages/transitions/hero-transition.css",
+        "bower_components/core-animated-pages/transitions/hero-transition.html",
+        "bower_components/core-animated-pages/transitions/list-cascade.html",
+        "bower_components/core-animated-pages/transitions/scale-up.html",
+        "bower_components/core-animated-pages/transitions/slide-down.html",
+        "bower_components/core-animated-pages/transitions/slide-from-bottom.html",
+        "bower_components/core-animated-pages/transitions/slide-from-right.html",
+        "bower_components/core-animated-pages/transitions/slide-up.html",
+        "bower_components/core-animated-pages/transitions/tile-cascade.html"
+      ],
       "core-collapse": [
         "bower_components/core-collapse/core-collapse.html",
         "bower_components/core-collapse/core-collapse.css"
@@ -42,6 +60,11 @@
       "core-drawer-panel": [
         "bower_components/core-drawer-panel/core-drawer-panel.html",
         "bower_components/core-drawer-panel/core-drawer-panel.css"
+      ],
+      "core-focusable": [
+        "bower_components/core-focusable/core-focusable.html",
+        "bower_components/core-focusable/core-focusable.js",
+        "bower_components/core-focusable/polymer-mixin.js"
       ],
       "core-header-panel": [
         "bower_components/core-header-panel/core-header-panel.html",
@@ -94,6 +117,14 @@
       "core-meta": [
         "bower_components/core-meta/core-meta.html"
       ],
+      "core-pages": [
+        "bower_components/core-pages/core-pages.html",
+        "bower_components/core-pages/core-pages.css",
+        "bower_components/core-pages/metadata.html"
+      ],
+      "core-resizable": [
+        "bower_components/core-resizable/core-resizable.html"
+      ],
       "core-selection": [
         "bower_components/core-selection/core-selection.html"
       ],
@@ -101,20 +132,72 @@
         "bower_components/core-selector/core-selector.html",
         "bower_components/core-menu/metadata.html"
       ],
+      "core-style": [
+        "bower_components/core-style/core-style.html"
+      ],
       "core-toolbar": [
         "bower_components/core-toolbar/core-toolbar.html",
         "bower_components/core-toolbar/core-toolbar.css",
         "bower_components/core-menu/metadata.html"
       ],
+      "core-transition": [
+        "bower_components/core-transition/core-transition.html",
+        "bower_components/core-transition/core-transition-css.html",
+        "bower_components/core-transition/core-transition-overlay.css"
+      ],
+      "paper-button": [
+        "bower_components/paper-button/paper-button.html",
+        "bower_components/paper-button/paper-button-base.html",
+        "bower_components/paper-button/metadata.html"
+      ],
+      "paper-icon-button": [
+        "bower_components/paper-icon-button/paper-icon-button.html",
+        "bower_components/paper-icon-button/metadata.html"
+      ],
+      "paper-ripple": [
+        "bower_components/paper-ripple/paper-ripple.html",
+        "bower_components/paper-ripple/metadata.html"
+      ],
       "paper-spinner": [
         "bower_components/paper-spinner/paper-spinner.html",
         "bower_components/paper-spinner/paper-spinner.css"
+      ],
+      "paper-tabs": [
+        "bower_components/paper-spinner/paper-tab.html",
+        "bower_components/paper-spinner/paper-tab.css",
+        "bower_components/paper-spinner/paper-tabs.html",
+        "bower_components/paper-spinner/paper-tabs.css",
+        "bower_components/paper-spinner/metadata.html"
       ],
       "polymer": [
         "bower_components/polymer/polymer.html",
         "bower_components/polymer/layout.html",
         "bower_components/polymer/polymer.js",
         "bower_components/polymer/polymer.min.js"
+      ],
+      "polymer-expressions": [
+        "bower_components/polymer-expressions/polymer-expressions.html",
+        "bower_components/polymer-expressions/src/polymer-expressions.js",
+        "bower_components/polymer-expressions/third_party/esprima/esprima.js"
+      ],
+      "polymer-gestures": [
+        "bower_components/polymer-gestures/polymer-gestures.html",
+        "bower_components/polymer-gestures/polymer-gestures.js",
+        "bower_components/polymer-gestures/src/dispatcher.js",
+        "bower_components/polymer-gestures/src/eventFactory.js",
+        "bower_components/polymer-gestures/src/hold.js",
+        "bower_components/polymer-gestures/src/mouse.js",
+        "bower_components/polymer-gestures/src/ms.js",
+        "bower_components/polymer-gestures/src/pinch.js",
+        "bower_components/polymer-gestures/src/platform-events.js",
+        "bower_components/polymer-gestures/src/pointer.js",
+        "bower_components/polymer-gestures/src/pointermap.js",
+        "bower_components/polymer-gestures/src/scope.js",
+        "bower_components/polymer-gestures/src/tap.js",
+        "bower_components/polymer-gestures/src/targetfind.js",
+        "bower_components/polymer-gestures/src/touch.js",
+        "bower_components/polymer-gestures/src/touch-action.js",
+        "bower_components/polymer-gestures/src/track.js"
       ],
       "webcomponentsjs": [
         "bower_components/webcomponentsjs/webcomponents.js",

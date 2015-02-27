@@ -1,9 +1,10 @@
-<link rel="import" href="deps/polymer/polymer.html">
-<link rel="import" href="deps/core-item/core-item.html">
-<link rel="import" href="deps/ajax-form/ajax-form.html">
-<link rel="import" href="deps/paper-spinner/paper-spinner.html">
-<link rel="import" href="irp-response-scaffold.html">
-<link rel="import" href="report-summary.html">
+
+<link rel="import" href="../../deps/polymer/polymer.html">
+<link rel="import" href="../../deps/core-item/core-item.html">
+<link rel="import" href="../../deps/ajax-form/ajax-form.html">
+<link rel="import" href="../../deps/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../irp-response-scaffold.html">
+<link rel="import" href="../../report-summary.html">
 
 <polymer-element name="irp-scaffold" attributes="label responsiveWidth">
     <template>
@@ -15,7 +16,7 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <irp-response-scaffold label="Implementation Readiness Package">
 
-            <div home>
+            <div home xmlns:th="http://www.thymeleaf.org">
                 <ul>
                     <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the IRP package</a> and read the Implementation Readiness Package Usage Guide (PDF).</li>
                     <li>Step 2: Load data from the IRP package into your system.</li>
@@ -30,6 +31,8 @@
                 <template if="{{responses}}">
                     <report-summary id="reportSummary" responses="{{responses}}"></report-summary>
                 </template>
+
+                <footer>Version: <span th:text="${irpVersion}">version</span></footer>
             </div>
 
             <core-item label="Home" tag="home"></core-item>
