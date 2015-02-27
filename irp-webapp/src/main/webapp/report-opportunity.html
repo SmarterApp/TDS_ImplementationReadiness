@@ -1,0 +1,279 @@
+<polymer-element name="report-opportunity" attributes="response">
+    <template>
+        <style>
+            .tableAnalysis {
+                margin:0px;padding:0px;
+                width:100%;
+                border:1px solid #000000;
+
+                -moz-border-radius-bottomleft:0px;
+                -webkit-border-bottom-left-radius:0px;
+                border-bottom-left-radius:0px;
+
+                -moz-border-radius-bottomright:0px;
+                -webkit-border-bottom-right-radius:0px;
+                border-bottom-right-radius:0px;
+
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }.tableAnalysis table{
+                 border-collapse: collapse;
+                 border-spacing: 0;
+                 width:100%;
+                 height:100%;
+                 margin:0px;padding:0px;
+             }.tableAnalysis tr:last-child td:last-child {
+                  -moz-border-radius-bottomright:0px;
+                  -webkit-border-bottom-right-radius:0px;
+                  border-bottom-right-radius:0px;
+              }
+            .tableAnalysis table tr:first-child td:first-child {
+                -moz-border-radius-topleft:0px;
+                -webkit-border-top-left-radius:0px;
+                border-top-left-radius:0px;
+            }
+            .tableAnalysis table tr:first-child td:last-child {
+                -moz-border-radius-topright:0px;
+                -webkit-border-top-right-radius:0px;
+                border-top-right-radius:0px;
+            }.tableAnalysis tr:last-child td:first-child{
+                 -moz-border-radius-bottomleft:0px;
+                 -webkit-border-bottom-left-radius:0px;
+                 border-bottom-left-radius:0px;
+             }.tableAnalysis tr:hover td{
+
+              }
+            .tableAnalysis tr:nth-child(odd){ background-color:#e5e5e5; }
+            .tableAnalysis tr:nth-child(even)    { background-color:#ffffff; }.tableAnalysis td{
+                                                                                  vertical-align:middle;
+
+
+                                                                                  border:1px solid #000000;
+                                                                                  border-width:0px 1px 1px 0px;
+                                                                                  text-align:left;
+                                                                                  padding:7px;
+                                                                                  font-size:10px;
+                                                                                  font-family:Arial;
+                                                                                  font-weight:normal;
+                                                                                  color:#000000;
+                                                                              }.tableAnalysis tr:last-child td{
+                                                                                   border-width:0px 1px 0px 0px;
+                                                                               }.tableAnalysis tr td:last-child{
+                                                                                    border-width:0px 0px 1px 0px;
+                                                                                }.tableAnalysis tr:last-child td:last-child{
+                                                                                     border-width:0px 0px 0px 0px;
+                                                                                 }
+            .tableAnalysis tr:first-child td{
+                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+                background-color:#cccccc;
+                border:0px solid #000000;
+                text-align:center;
+                border-width:0px 0px 1px 1px;
+                font-size:14px;
+                font-family:Arial;
+                font-weight:bold;
+                color:#000000;
+            }
+            .tableAnalysis tr:first-child:hover td{
+                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+                background-color:#cccccc;
+            }
+            .tableAnalysis tr:first-child td:first-child{
+                border-width:0px 0px 1px 0px;
+            }
+            .tableAnalysis tr:first-child td:last-child{
+                border-width:0px 0px 1px 1px;
+            }
+
+            p {
+                font-family: serif;
+                font-size: smaller;
+            }
+        </style>
+
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Expected Value</th>
+                <th>Returned Value</th>
+                <th>Status</th>
+                <th>Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <template bind="{{response.opportunityCategory as category}}">
+                <template repeat="{{cell in category.cellCategories}}">
+                    <tr>
+                        <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{cell.fieldCheckType | status}}</td>
+                        <td>{{cell.fieldCheckType | explanation}}</td>
+                    </tr>
+                </template>
+                <template repeat="{{segment in category.segmentCategories}}">
+                    <template repeat="{{cell in segment.cellCategories}}">
+                        <tr>
+                            <td>Opportunity Segment: {{cell.tdsFieldName}}</td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+                <template repeat="{{accommodation in category.accommodationCategories}}">
+                    <template repeat="{{cell in accommodation.cellCategories}}">
+                        <tr>
+                            <td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+                <template repeat="{{score in category.scoreCategories}}">
+                    <template repeat="{{cell in score.cellCategories}}">
+                        <tr>
+                            <td>Opportunity Score: {{cell.tdsFieldName}}</td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+                <template repeat="{{item in category.itemCategories}}">
+                    <template repeat="{{cell in item.cellCategories}}">
+                        <tr>
+                            <td>Opportunity Item: {{cell.tdsFieldName}}</td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{cell.fieldCheckType | status}}</td>
+                            <td>{{cell.fieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                    <template bind="{{item.responseCategory as rc}}">
+                        <tr>
+                            <td>Opportunity Item Response: date</td>
+                            <td></td>
+                            <td>{{rc.date}}</td>
+                            <td>{{rc.dateFieldCheckType | status}}</td>
+                            <td>{{rc.dateFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item Response: type</td>
+                            <td></td>
+                            <td>{{rc.type}}</td>
+                            <td>{{rc.typeFieldCheckType | status}}</td>
+                            <td>{{rc.typeFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item Response: content</td>
+                            <td></td>
+                            <td>Check file for content</td>
+                            <td>{{rc.contentFieldCheckType | status}}</td>
+                            <td>{{rc.contentFieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                    <template bind="{{item.scoreInfoCategory as si}}">
+                        <tr>
+                            <td>Opportunity Item ScoreInfo: scorePoint</td>
+                            <td></td>
+                            <td>{{si.scorePoint}}</td>
+                            <td>{{si.scorePointFieldCheckType | status}}</td>
+                            <td>{{si.scorePointFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item ScoreInfo: maxScore</td>
+                            <td></td>
+                            <td>{{si.maxScore}}</td>
+                            <td>{{si.maxScoreFieldCheckType | status}}</td>
+                            <td>{{si.maxScoreFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item ScoreInfo: scoreDimension</td>
+                            <td></td>
+                            <td>{{si.scoreDimension}}</td>
+                            <td>{{si.scoreDimensionFieldCheckType | status}}</td>
+                            <td>{{si.scoreDimensionFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item ScoreInfo: scoreStatus</td>
+                            <td></td>
+                            <td>{{si.scoreStatus}}</td>
+                            <td>{{si.scoreStatusFieldCheckType | status}}</td>
+                            <td>{{si.scoreStatusFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr>
+                            <td>Opportunity Item ScoreInfo: confLevel</td>
+                            <td></td>
+                            <td>{{si.confLevel}}</td>
+                            <td>{{si.confLevelFieldCheckType | status}}</td>
+                            <td>{{si.confLevelFieldCheckType | explanation}}</td>
+                        </tr>
+                        <template bind="{{si.scoreRationaleCategory as sr}}">
+                            <tr>
+                                <td>Opportunity Item ScoreRationale: message</td>
+                                <td></td>
+                                <td>{{sr.message}}</td>
+                                <td>{{sr.messageFieldCheckType | status}}</td>
+                                <td>{{sr.messageFieldCheckType | explanation}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                </template>
+            </template>
+
+            </tbody>
+        </table>
+    </template>
+    <script>
+        Polymer("report-opportunity", {
+            created: function() {
+                this.response = {};
+            },
+            status: function(input) {
+                if (!input) { return ""; }
+                if (input.enumfieldCheckType == 'D') { return "Ignored"; }
+
+                var valid = !input.fieldEmpty && input.correctDataType && input.acceptableValue;
+
+                if (input.enumfieldCheckType == 'PC') {
+                    valid = valid && input.correctValue;
+                }
+
+                return valid ? "No Errors" : "Errors Found";
+            },
+            explanation: function(input) {
+                if (!input) { return ""; }
+                if (input.enumfieldCheckType == 'D') { return ""; }
+
+                var reasons = [input.enumfieldCheckType];
+                if (input.fieldEmpty) reasons.push("Field Empty");
+                if (!input.correctDataType) reasons.push("Incorrect Data Type");
+                if (!input.acceptableValue) reasons.push("Unacceptable Value");
+
+                if (input.enumfieldCheckType == 'PC') {
+                    if (!input.correctValue) reasons.push("Incorrect Value");
+                }
+
+                return reasons.join();
+            }
+        });
+    </script>
+</polymer-element>
