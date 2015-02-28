@@ -22,6 +22,11 @@ public class StudentResponseBuilder {
         return this;
     }
 
+    public StudentResponseBuilder itemType(String itemType){
+    	studentResponse.setItemType(itemType);
+    	return this;
+    }
+    
     public StudentResponse toStudentResponse() {
         return studentResponse;
     }

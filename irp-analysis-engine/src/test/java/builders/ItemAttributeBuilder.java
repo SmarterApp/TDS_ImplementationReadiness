@@ -20,6 +20,11 @@ public class ItemAttributeBuilder {
         return this;
     }
 
+    public ItemAttributeBuilder format(String format){
+    	opportunityItem.setFormat(format);
+    	return this;
+    }
+    
     public TDSReport.Opportunity.Item toOpportunityItem() {
         return opportunityItem;
     }

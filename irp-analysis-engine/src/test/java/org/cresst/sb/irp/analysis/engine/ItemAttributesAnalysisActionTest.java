@@ -207,6 +207,52 @@ public class ItemAttributesAnalysisActionTest {
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
-        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(3).getStatus());
+        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(2).getStatus());
     }
+    
+    /**
+     * TDS Report Item does exist in the IRP package then mark the item
+     * from the TDS Report as FOUND.
+     * TDS Report Item format matches the IRP package format then mark the item
+     * isItemFormatCorrect to true
+     */
+    @Test
+    public void tdsReportItemFoundItemMarkedAsFound_FormatMatchIRPPackage_isItemFormatCorrectAsTrue() {
+        // Arrange
+        // Represents all the Items in the IRP package
+        List<StudentResponse> irpPackageItems = Lists.newArrayList(
+                new StudentResponseBuilder(9999).bankKey(1).id(1).itemType("ER").toStudentResponse(),
+                new StudentResponseBuilder(9999).bankKey(2).id(2).itemType("MI").toStudentResponse()
+        );
+
+        // The TDS Report has same Items than the IRP package but one of the TDS Report Items
+        // does not exist in the IRP package
+        final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+                new ItemAttributeBuilder().bankKey(1).key(1).format("ER").toOpportunityItem(),
+                new ItemAttributeBuilder().bankKey(2).key(2).format("MS").toOpportunityItem(),
+                new ItemAttributeBuilder().bankKey(3).key(3).format("GI").toOpportunityItem()
+        );
+
+        final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
+
+        TestItemResponse testItemResponse = new TestItemResponse();
+        testItemResponse.setStudentID(9999L);
+        testItemResponse.setStudentResponses(irpPackageItems);
+
+        when(studentResponseService.getTestItemResponseByStudentID(9999L)).thenReturn(testItemResponse);
+
+        // Act
+        underTest.analyze(individualResponse);
+
+        // Assert
+        List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(true, itemCategories.get(0).isItemFormatCorrect());
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(1).getStatus());
+        assertEquals(false, itemCategories.get(1).isItemFormatCorrect());
+        assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(2).getStatus());
+        assertEquals(false, itemCategories.get(2).isItemFormatCorrect());
+    }
+    
+    
 }
