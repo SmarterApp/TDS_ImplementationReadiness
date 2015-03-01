@@ -15,7 +15,17 @@ public class ItemCategory extends Category {
 
     public enum ItemStatusEnum{ FOUND, MISSING, EXTRA }
     
-    private ItemStatusEnum status;
+    private boolean isItemFormatCorrect = false;
+    
+    public boolean isItemFormatCorrect() {
+		return isItemFormatCorrect;
+	}
+
+	public void setIsItemFormatCorrect(boolean isItemFormatCorrect) {
+		this.isItemFormatCorrect = isItemFormatCorrect;
+	}
+
+	private ItemStatusEnum status;
     
     public ItemStatusEnum getStatus() {
 		return status;

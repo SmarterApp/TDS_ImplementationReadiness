@@ -8,7 +8,6 @@ import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource.Dependency;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
-import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
@@ -69,21 +68,21 @@ public class ItemResponseAnalysisAction extends
 			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
+			logger.info("listItemCategory SSSSSSSSSSSSS size {}", listItemCategory.size());
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> listItem = opportunity.getItem();
 
-			int index = 0;
 			for (Item item : listItem) {
 				logger.info("bankkey {} and id {} listItem. size {} ", item.getBankKey(), item.getKey(), listItem.size());
-				ItemCategory itemCategory = listItemCategory.get(index);
-				ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
-				if (itemCategory.getStatus() == ItemStatusEnum.FOUND) {// does item (bankKey & key) exist in IRP package (Excel) ?
+				// ItemCategory itemCategory = listItemCategory.get(index);
+				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
+						Long.toString(item.getKey()), listItemCategory);
+				//ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
+				if (itemCategory != null){
 					logger.info("bankkey ....{} and id .....{} ", item.getBankKey(), item.getKey());
 					analysisItemResponse(itemCategory, item);
 					analysisItemResponseWithStudentReponse(itemCategory, Long.parseLong(examineeKey));
-				} 
-
-				index++;
+				}
 			}
 		} catch (Exception e) {
 			logger.error("analyze exception: ", e);
@@ -114,36 +113,48 @@ public class ItemResponseAnalysisAction extends
 			itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
 
 			responseCategory.setContent(response.getContent());
-			fieldCheckType = new FieldCheckType();
-			String format = tdsItem.getFormat();
-			// TODO need to re organize this part of code once scoring item function implemented
-			if (format.trim().toLowerCase().equals("mc") || format.trim().toLowerCase().equals("ms")) {// handle MC, MS
-				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-				responseCategory.setContentFieldCheckType(fieldCheckType);
-				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
-				if (irpItem != null) {
-					itemCategory.setIrpItem(irpItem);
-					Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-					itemCategory.setAttriblist(attriblist);
-					validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
-				}
-			} else if (format.trim().toLowerCase().equals("gi")) { // TODO developing
-				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-				responseCategory.setContentFieldCheckType(fieldCheckType);
-				org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
-				if (irpItem != null) {
-					itemCategory.setIrpItem(irpItem);
-					Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-					itemCategory.setAttriblist(attriblist);
-					ItemScoreTest(itemCategory.getItemBankKeyKey()); // TODO
-					// validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-					// attriblist);
+			logger.info("bKey ->{}, key->{} and format {} ", tdsItem.getBankKey(), tdsItem.getKey(), tdsItem.getFormat());
+			if (isValidStudentResponse(tdsItem, response.getContent())) {
+				logger.info("1111111111111111");
+				responseCategory.setIsResponseValid(true);
+				fieldCheckType = new FieldCheckType();
+				String format = tdsItem.getFormat();
+				// TODO need to re organize this part of code once scoring item function implemented
+				if (format.trim().toLowerCase().equals("mc") || format.trim().toLowerCase().equals("ms")) {// handle MC, MS
+					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+					responseCategory.setContentFieldCheckType(fieldCheckType);
+					org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory
+							.getItemBankKeyKey());
+					if (irpItem != null) {
+						itemCategory.setIrpItem(irpItem);
+						Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+						itemCategory.setAttriblist(attriblist);
+						validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+								attriblist);
+					}
+				} else if (format.trim().toLowerCase().equals("gi")) { // TODO developing
+					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+					responseCategory.setContentFieldCheckType(fieldCheckType);
+					org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory
+							.getItemBankKeyKey());
+					if (irpItem != null) {
+						itemCategory.setIrpItem(irpItem);
+						Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+						itemCategory.setAttriblist(attriblist);
+						ItemScoreTest(itemCategory.getItemBankKeyKey()); // TODO
+						// validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+						// attriblist);
+					}
+				} else {
+					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+					responseCategory.setContentFieldCheckType(fieldCheckType);
+					validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
 				}
 			} else {
-				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-				responseCategory.setContentFieldCheckType(fieldCheckType);
-				validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
+				logger.info("22222222222222222222");
+				responseCategory.setIsResponseValid(false);
 			}
+
 		} catch (Exception e) {
 			logger.error("analysisItemResponse exception: ", e);
 		}
@@ -234,6 +245,10 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
+	protected boolean validateER(String studentResponse) {
+		return StringUtils.isNotBlank(studentResponse);
+	}
+
 	/**
 	 * Parsing student response for item type MI and match its corresponding student's response in excel file
 	 * 
@@ -270,6 +285,13 @@ public class ItemResponseAnalysisAction extends
 				studentResponse.setStatus(true);
 			}
 		}
+	}
+
+	protected boolean validateMI(String studentResponse) {
+		Map<String, String> identifiersAndResponses = retrieveItemResponse(studentResponse);
+		if (identifiersAndResponses != null)
+			return true;
+		return false;
 	}
 
 	/**
@@ -314,6 +336,19 @@ public class ItemResponseAnalysisAction extends
 			logger.error("validateEQ exception: ", e);
 		}
 
+	}
+
+	protected boolean validateEQ(String studentResponse) {
+		try {
+			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(studentResponse.trim());
+			if (mathExpressionSet != null) {
+				logger.info("NOT nulllllll");
+				return true;
+			}
+		} catch (Exception e) {
+			logger.error("validateEQ exception: ", e);
+		}
+		return false;
 	}
 
 	/**
@@ -791,6 +826,46 @@ public class ItemResponseAnalysisAction extends
 			pointText = pointText.substring(endOfPoint + 1);
 		}
 		return points;
+	}
+
+	protected boolean isValidStudentResponse(Item item, String response) {
+		String format = item.getFormat().toLowerCase();
+		boolean bln = false;
+		switch (format) {
+		case "er":
+			bln = validateER(response);
+			logger.info("bln for ERER --->{}", bln);
+			break;
+		case "mi":
+			bln = validateMI(response);
+			logger.info("bln for MIMI --->{}", bln);
+			break;
+		case "eq":
+			bln = validateEQ(response);
+			logger.info("bln for EQEQ --->{}", bln);
+			break;
+		/*
+		 * case "gi": validateGI(studentResponse); break; case "ms": validateMS(studentResponse); break; case "mc":
+		 * validateMC(studentResponse); break; case "ti": validateTI(studentResponse); break;
+		 */
+		}
+		return bln;
+	}
+
+	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory) {
+		for (ItemCategory itemCategory : listItemCategory) {
+			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
+			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
+			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
+			logger.info("_bankKey {} and _key {} ", _bankKey, _key);
+			logger.info("bankKey {} and key {} ", bankKey, key);
+			if (bankKey.equalsIgnoreCase(_bankKey) && key.equalsIgnoreCase(_key) 
+					&& itemCategory.getStatus() == ItemStatusEnum.FOUND && itemCategory.isItemFormatCorrect()) {
+				logger.info("vvvvvvvvvvvvvv");
+				return itemCategory;
+			}
+		}
+		return null;
 	}
 
 }

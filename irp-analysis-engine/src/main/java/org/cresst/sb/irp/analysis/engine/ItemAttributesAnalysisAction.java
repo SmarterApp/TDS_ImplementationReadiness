@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
@@ -41,36 +42,43 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 			TestItemResponse testItemResponse = getTestItemResponseByStudentID(Long.parseLong(examineeKey));
 			List<StudentResponse> listStudentResponse = testItemResponse.getStudentResponses();
-			
+
 			List<Item> removedList = new ArrayList<Item>();
-			
+
 			List<ItemCategory> itemCategories = new ArrayList<>();
-			for(StudentResponse sr: listStudentResponse){
+			for (StudentResponse sr : listStudentResponse) {
 				ItemCategory itemCategory = new ItemCategory();
 				itemCategories.add(itemCategory);
-				logger.info("bankkey {} and id {} listItem. size {} ", sr.getBankKey(), sr.getId(), listItem.size());
 				Item item = itemExistByIRPpackageBankKeyKey(sr.getBankKey(), sr.getId(), listItem);
-				if(item != null){
+				if (item != null) {
+					logger.info("2222222222222222 item bank kye {} and key {} ", item.getBankKey(), item.getKey());
 					analyzeItemAttributes(itemCategory, item);
 					itemCategory.setStatus(ItemStatusEnum.FOUND);
-					//listItem.remove(item);
 					removedList.add(item);
-					logger.info("removedList size --->{} ", removedList.size());
-				}else {
-					logger.info("else else bankKey {} abd ID {}.", sr.getBankKey(), sr.getId());
+					if (isItemFormatMatch(item, sr)) {
+						logger.info("3333333333333333");
+						itemCategory.setIsItemFormatCorrect(true);
+					}
+				} else {
+					logger.info("sr item bank kye {} and key {} ", sr.getBankKey(), sr.getId());
 					analyzeItemAttributes(itemCategory, sr);
 					itemCategory.setStatus(ItemStatusEnum.MISSING);
+					itemCategory.setIsItemFormatCorrect(false);
 				}
 			}
-			
+
 			for (Item item : listItem) {
-				logger.info("BBkey {} abd Key....", item.getBankKey(), item.getKey());
-				ItemCategory itemCategory = new ItemCategory();
-				itemCategories.add(itemCategory);
-				analyzeItemAttributes2(itemCategory, item);
-				itemCategory.setStatus(ItemStatusEnum.EXTRA);
+				logger.info("4444444444444 item bank kye {} and key {} ", item.getBankKey(), item.getKey());
+				if (!isItemExistInList(item, removedList)) {
+					logger.info("55555555 ");
+					ItemCategory itemCategory = new ItemCategory();
+					itemCategories.add(itemCategory);
+					analyzeItemAttributes2(itemCategory, item);
+					itemCategory.setStatus(ItemStatusEnum.EXTRA);
+					itemCategory.setIsItemFormatCorrect(false);
+				}
 			}
-			
+
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			opportunityCategory.setItemCategories(itemCategories);
 		} catch (Exception ex) {
@@ -78,21 +86,10 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		}
 	}
 
-	protected Item itemExistByIRPpackageBankKeyKey(String bankKey, String key, List<Item> listItem){
-		for (Item item : listItem) {
-			String itemBankKey = Long.toString(item.getBankKey()).trim();
-			String itemKey = Long.toString(item.getKey()).trim();
-			if (itemBankKey.equalsIgnoreCase(bankKey) && itemKey.equalsIgnoreCase(key)){
-				return item;
-			}
-		}
-		return null;
-	}
-	
 	private void analyzeItemAttributes(Category itemCategory, StudentResponse sr) {
 		FieldCheckType fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-		
+
 		CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.bankKey.toString());
 		cellCategory.setTdsFieldNameValue(sr.getBankKey());
@@ -102,7 +99,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 		fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-		
+
 		cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.key.toString());
 		cellCategory.setTdsFieldNameValue(sr.getId());
@@ -110,7 +107,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		cellCategory.setFieldCheckType(fieldCheckType);
 		itemCategory.addCellCategory(cellCategory);
 	}
-	
+
 	/**
 	 * Analyzes each of the given item's fields.
 	 *
@@ -153,7 +150,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey, null);
 		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
 	}
-	
+
 	/**
 	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable
 	 * values
@@ -300,5 +297,28 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			logger.error("processAcceptableEnum exception: ", e);
 		}
 	}
-	
+
+	protected Item itemExistByIRPpackageBankKeyKey(String bankKey, String key, List<Item> listItem) {
+		for (Item item : listItem) {
+			String itemBankKey = Long.toString(item.getBankKey()).trim();
+			String itemKey = Long.toString(item.getKey()).trim();
+			if (itemBankKey.equalsIgnoreCase(bankKey) && itemKey.equalsIgnoreCase(key)) {
+				return item;
+			}
+		}
+		return null;
+	}
+
+	protected boolean isItemExistInList(Item item, List<Item> list) {
+		for (Item itemTmp : list) {
+			if (itemTmp.equals(item))
+				return true;
+		}
+		return false;
+	}
+
+	protected boolean isItemFormatMatch(Item item, StudentResponse sr) {
+		return StringUtils.equalsIgnoreCase(sr.getItemType(), item.getFormat());
+	}
+
 }

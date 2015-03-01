@@ -12,7 +12,17 @@ public class ResponseCategory {
     private FieldCheckType typeFieldCheckType;
     private FieldCheckType contentFieldCheckType;
     
-    private StudentResponse studentResponse; 
+    public boolean isResponseValid;
+    
+    public boolean isResponseValid() {
+		return isResponseValid;
+	}
+
+	public void setIsResponseValid(boolean isResponseValid) {
+		this.isResponseValid = isResponseValid;
+	}
+
+	private StudentResponse studentResponse; 
 
     public String getDate() {
         return date;
