@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 @Service
 public class ItemResponseAnalysisAction extends
@@ -67,21 +68,23 @@ public class ItemResponseAnalysisAction extends
 			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
 			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
-			logger.info("listItemCategory SSSSSSSSSSSSS size {}", listItemCategory.size());
+			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING AND
+																							// EXTRA see
+																							// ItemAttributesAnalysisAction
 			Opportunity opportunity = tdsReport.getOpportunity();
-			List<Item> listItem = opportunity.getItem();
-
-			for (Item item : listItem) {
-				logger.info("bankkey {} and id {} listItem. size {} ", item.getBankKey(), item.getKey(), listItem.size());
-				// ItemCategory itemCategory = listItemCategory.get(index);
+			List<Item> tdsItems = opportunity.getItem(); // tdsItems has items exist only in tds report xml file
+			for (Item item : tdsItems) {
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
-						Long.toString(item.getKey()), listItemCategory);
-				//ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
-				if (itemCategory != null){
+						Long.toString(item.getKey()), listItemCategory, ItemStatusEnum.FOUND);
+				if (itemCategory != null) {
 					logger.info("bankkey ....{} and id .....{} ", item.getBankKey(), item.getKey());
-					analysisItemResponse(itemCategory, item);
-					analysisItemResponseWithStudentReponse(itemCategory, Long.parseLong(examineeKey));
+					StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(Long.parseLong(examineeKey),
+							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
+					if (studentResponse != null) {
+						logger.info("AAAAAAAAAAAAAAA");
+						analysisItemResponse(itemCategory, item, studentResponse);
+						analysisItemResponseWithStudentReponse(itemCategory, studentResponse);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -89,7 +92,7 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void analysisItemResponse(ItemCategory itemCategory, Item tdsItem) {
+	private void analysisItemResponse(ItemCategory itemCategory, Item tdsItem, StudentResponse studentResponse) {
 		try {
 			ResponseCategory responseCategory = new ResponseCategory();
 			itemCategory.setResponseCategory(responseCategory);
@@ -114,7 +117,7 @@ public class ItemResponseAnalysisAction extends
 
 			responseCategory.setContent(response.getContent());
 			logger.info("bKey ->{}, key->{} and format {} ", tdsItem.getBankKey(), tdsItem.getKey(), tdsItem.getFormat());
-			if (isValidStudentResponse(tdsItem, response.getContent())) {
+			if (isValidStudentResponse(tdsItem, studentResponse)) {
 				logger.info("1111111111111111");
 				responseCategory.setIsResponseValid(true);
 				fieldCheckType = new FieldCheckType();
@@ -178,15 +181,10 @@ public class ItemResponseAnalysisAction extends
 
 	}
 
-	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, Long examineeKey) {
+	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
 		try {
-			ImmutableList<CellCategory> iList = itemCategory.getCellCategories();
-			String format = getTdsFieldNameValueByFieldName(iList, "format");
-			String bankKey = getTdsFieldNameValueByFieldName(iList, "bankKey");
-			String key = getTdsFieldNameValueByFieldName(iList, "key");
-			StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(examineeKey, bankKey, key);
-			if (studentResponse != null && format.toLowerCase().equals(studentResponse.getItemType().toLowerCase())) {
-				logger.info(String.format("format %s and key %s", format, key));
+			if (studentResponse != null) {
+				//logger.info(String.format("format %s and key %s", format, key));
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
 				studentResponse.setTdsResponseContent(responseCategory.getContent());
@@ -287,9 +285,9 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	protected boolean validateMI(String studentResponse) {
-		Map<String, String> identifiersAndResponses = retrieveItemResponse(studentResponse);
-		if (identifiersAndResponses != null)
+	protected boolean validateMI(String tdsStudentResponse) {
+		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsStudentResponse);
+		if (identifiersAndResponses.size() > 0 )
 			return true;
 		return false;
 	}
@@ -341,8 +339,7 @@ public class ItemResponseAnalysisAction extends
 	protected boolean validateEQ(String studentResponse) {
 		try {
 			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(studentResponse.trim());
-			if (mathExpressionSet != null) {
-				logger.info("NOT nulllllll");
+			if (mathExpressionSet.size() > 0) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -410,6 +407,47 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
+	 * this method parse student response in studentResponse to get sub format (ObjectType like RegionGroup
+	 * then parse tds student response in tdsStudentResponse to get ObjectType
+	 * 
+	 * @param tdsStudentResponse - student re;pose in tds report xml file
+	 * @param studentResponse - student response in IRP package (Excel)
+	 * 
+	 * @return
+	 */
+	protected boolean validateGI(String tdsStudentResponse, StudentResponse studentResponse){
+		
+		List<GRObject> listGRObject = null;
+		ObjectType excelObjectType = null;
+		//parse excelStudentResponse to get the sub format like RegionGroupObject, AtomicObject, Object
+		//String excelStudentResponse = studentResponse.getStudentResponse() //the real student response column does not EXIST now
+		/*listGRObject = getObjectStrings(excelStudentResponse);
+		if (listGRObject != null) {
+			for (GRObject go : listGRObject) {
+				logger.info(String.format("strxml -->%s", go.getXmlString()));
+				logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
+				excelObjectType = go.getTypeOfObject();
+				break;
+			}
+		}*/
+		
+		ObjectType tdsObjectType = null;
+		listGRObject = getObjectStrings(tdsStudentResponse);
+		if (listGRObject != null) {
+			for (GRObject go : listGRObject) {
+				logger.info(String.format("strxml -->%s", go.getXmlString()));
+				logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
+				tdsObjectType = go.getTypeOfObject();
+				break;
+			}
+		}
+		
+		if (excelObjectType != null && tdsObjectType != null && excelObjectType.equals(tdsObjectType))
+			return true;
+		return false;
+	}
+	
+	/**
 	 * Parsing student response for item type MS and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
@@ -431,6 +469,21 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
+	 * 
+	 * @param tdsStudentResponse
+	 * 			tdsStudentResponse stores the student response for item type MS in tds report xml file
+	 * @return
+	 */
+	protected boolean validateMS(String tdsStudentResponse){
+		List<String> list = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+				.splitToList(tdsStudentResponse.toLowerCase()));
+		if (list.size() > 0)
+			return true;
+		return false;
+	}
+	
+	
+	/**
 	 * Parsing student response for item type MC and match its corresponding student's response in excel file
 	 * 
 	 * @param studentResponse
@@ -444,6 +497,20 @@ public class ItemResponseAnalysisAction extends
 			if (responseContent.equalsIgnoreCase(tdsResponseContent))
 				studentResponse.setStatus(true);
 		}
+	}
+	
+	/**
+	 * 
+	 * @param tdsStudentResponse
+	 * 			tdsStudentResponse stores the student response for item type MC in tds report xml file
+	 * @return 
+	 * 			return true if tdsStudentResponse includes only one digit or only one letter (uppercase/lowercase) 
+	 */
+	protected boolean validateMC(String tdsStudentResponse){
+		boolean bln = Pattern.matches("[\\dA-Za-z]{1}", tdsStudentResponse);
+		if (bln)
+			return true;
+		return false;
 	}
 
 	/**
@@ -828,39 +895,57 @@ public class ItemResponseAnalysisAction extends
 		return points;
 	}
 
-	protected boolean isValidStudentResponse(Item item, String response) {
+	/**
+	 * this method using student response in studentResponse (IRP package in Excel) including
+	 * format and sub format to validate item.getResponse().getContent() is valid or not
+	 * e.g format GI includes sub format RegionGroupObject, AtomicObject, Object
+	 * 
+	 * @param item - 
+	 * 		item.getResponse().getContent() - tds report xml student response
+	 * @param studentResponse - IRP package (Excel) student response
+	 * 		
+	 * @return boolean
+	 */
+	protected boolean isValidStudentResponse(Item item, StudentResponse studentResponse) {
+		String response = item.getResponse().getContent();
 		String format = item.getFormat().toLowerCase();
 		boolean bln = false;
 		switch (format) {
 		case "er":
 			bln = validateER(response);
-			logger.info("bln for ERER --->{}", bln);
 			break;
 		case "mi":
 			bln = validateMI(response);
-			logger.info("bln for MIMI --->{}", bln);
 			break;
 		case "eq":
 			bln = validateEQ(response);
-			logger.info("bln for EQEQ --->{}", bln);
 			break;
-		/*
-		 * case "gi": validateGI(studentResponse); break; case "ms": validateMS(studentResponse); break; case "mc":
-		 * validateMC(studentResponse); break; case "ti": validateTI(studentResponse); break;
-		 */
+		case "gi":
+			bln = validateGI(response, studentResponse); //need to hand sub format like RegionGroupObject, AtomicObject
+			break;	
+		case "ms":
+			bln = validateMS(response);
+			break;	
+		case "mc":
+			bln = validateMC(response);
+			break;
+		case "ti":
+			//validateTI(studentResponse);
+			break;
 		}
 		return bln;
 	}
 
-	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory) {
+	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
+			ItemCategory.ItemStatusEnum itemStatusEnum) {
 		for (ItemCategory itemCategory : listItemCategory) {
 			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
 			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
 			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
 			logger.info("_bankKey {} and _key {} ", _bankKey, _key);
 			logger.info("bankKey {} and key {} ", bankKey, key);
-			if (bankKey.equalsIgnoreCase(_bankKey) && key.equalsIgnoreCase(_key) 
-					&& itemCategory.getStatus() == ItemStatusEnum.FOUND && itemCategory.isItemFormatCorrect()) {
+			if (bankKey.equalsIgnoreCase(_bankKey) && key.equalsIgnoreCase(_key) && itemCategory.getStatus() == itemStatusEnum
+					&& itemCategory.isItemFormatCorrect()) {
 				logger.info("vvvvvvvvvvvvvv");
 				return itemCategory;
 			}

@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Object> {
@@ -51,16 +50,13 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				itemCategories.add(itemCategory);
 				Item item = itemExistByIRPpackageBankKeyKey(sr.getBankKey(), sr.getId(), listItem);
 				if (item != null) {
-					logger.info("2222222222222222 item bank kye {} and key {} ", item.getBankKey(), item.getKey());
 					analyzeItemAttributes(itemCategory, item);
 					itemCategory.setStatus(ItemStatusEnum.FOUND);
 					removedList.add(item);
 					if (isItemFormatMatch(item, sr)) {
-						logger.info("3333333333333333");
 						itemCategory.setIsItemFormatCorrect(true);
 					}
 				} else {
-					logger.info("sr item bank kye {} and key {} ", sr.getBankKey(), sr.getId());
 					analyzeItemAttributes(itemCategory, sr);
 					itemCategory.setStatus(ItemStatusEnum.MISSING);
 					itemCategory.setIsItemFormatCorrect(false);
@@ -68,9 +64,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			}
 
 			for (Item item : listItem) {
-				logger.info("4444444444444 item bank kye {} and key {} ", item.getBankKey(), item.getKey());
 				if (!isItemExistInList(item, removedList)) {
-					logger.info("55555555 ");
 					ItemCategory itemCategory = new ItemCategory();
 					itemCategories.add(itemCategory);
 					analyzeItemAttributes2(itemCategory, item);
