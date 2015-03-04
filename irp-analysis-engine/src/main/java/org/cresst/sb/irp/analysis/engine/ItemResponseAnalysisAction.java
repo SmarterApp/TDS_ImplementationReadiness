@@ -50,8 +50,10 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
+import java.io.FileNotFoundException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -126,7 +128,9 @@ public class ItemResponseAnalysisAction extends
 			if (isValidStudentResponse(tdsItem, studentResponse)) {
 				responseCategory.setIsResponseValid(true);
 				fieldCheckType = new FieldCheckType();
-				analysisItemAIRitemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
+				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+				responseCategory.setContentFieldCheckType(fieldCheckType);
+				analysisItemResponseItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
 			}
 		} catch (Exception e) {
 			logger.error("analysisItemResponse exception: ", e);
@@ -152,11 +156,20 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	protected void analysisItemAIRitemScoring(Item tdsItem, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
-			ItemCategory itemCategory) {
+	/**
+	 * 
+	 * @param tdsItem
+	 *            Item object stores Item attributes data for tds report xml item tag
+	 * @param fieldCheckType
+	 *            This is where the results are stored
+	 * @param responseCategory
+	 *            ResponseCategory object stores ItemScoreInfo itemScoreInfo
+	 * @param itemCategory
+	 *            itemCategory object
+	 */
+	protected void analysisItemResponseItemScoring(Item tdsItem, FieldCheckType fieldCheckType,
+			ResponseCategory responseCategory, ItemCategory itemCategory) {
 		try {
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-			responseCategory.setContentFieldCheckType(fieldCheckType);
 			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
 			if (irpItem != null) {
 				itemCategory.setIrpItem(irpItem);
@@ -175,34 +188,51 @@ public class ItemResponseAnalysisAction extends
 							attriblist);
 					break;
 				case "gi":
-					validateFieldGI(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-							responseCategory);
+				case "ti":
+				case "mi":
+				case "eq":
+				case "er":
+					validateFieldItemScoring(tdsItem, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+							responseCategory, itemCategory);
 					break;
 				default:
 					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 					responseCategory.setContentFieldCheckType(fieldCheckType);
 					validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
 					break;
-
 				}
 			}
 		} catch (Exception e) {
-			logger.error("analysisItemAIRitemScoring exception: ", e);
+			logger.error("analysisItemResponseItemScoring exception: ", e);
 		}
 	}
 
-	private void validateFieldGI(Response response, EnumFieldCheckType enumFieldCheckType,
-			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, ResponseCategory responseCategory) {
+	/**
+	 * 
+	 * @param tdsItem
+	 *            Item object stores Item attributes data for tds report xml item tag
+	 * @param enumFieldCheckType
+	 *            enum EnumFieldCheckType
+	 * @param enumFieldName
+	 *            Specifies the field to check
+	 * @param fieldCheckType
+	 *            This is where the results are stored
+	 * @param responseCategory
+	 *            ResponseCategory object stores ItemScoreInfo itemScoreInfo
+	 */
+	private void validateFieldItemScoring(Item tdsItem, EnumFieldCheckType enumFieldCheckType,
+			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
+			ItemCategory itemCategory) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
 				break;
 			case P:
-				checkP(response, enumFieldName, fieldCheckType);
+				checkP(tdsItem.getResponse(), enumFieldName, fieldCheckType);
 				break;
 			case PC:
-				checkP(response, enumFieldName, fieldCheckType);
-				checkC4GI(response, enumFieldName, fieldCheckType, responseCategory);
+				checkP(tdsItem.getResponse(), enumFieldName, fieldCheckType);
+				checkC4ItemScoring(tdsItem, enumFieldName, fieldCheckType, responseCategory, itemCategory);
 				break;
 			}
 		} catch (Exception e) {
@@ -323,8 +353,8 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	protected void checkC4GI(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			ResponseCategory responseCategory) {
+	protected void checkC4ItemScoring(Item tdsItem, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			ResponseCategory responseCategory, ItemCategory itemCategory) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -333,7 +363,7 @@ public class ItemResponseAnalysisAction extends
 				setCcorrect(fieldCheckType);
 				break;
 			case content:
-				processC4GI(response.getContent(), fieldCheckType, responseCategory);
+				processC4ItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
 				break;
 			default:
 				break;
@@ -399,18 +429,35 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void processC4GI(String tdsResponseContent, FieldCheckType fieldCheckType, ResponseCategory responseCategory) {
+	private void processC4ItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
+			ItemCategory itemCategory) {
 		try {
+			Long itemKey = tdsItem.getKey();
+			Response response = tdsItem.getResponse();
+			String itemFormat = tdsItem.getFormat();
 			Map<String, IItemScorer> engines = new HashMap<>();
-			engines.put("EQ", new QTIItemScorer());
+			// engines.put("EQ", new QTIItemScorer());
+			engines.put(itemFormat.toUpperCase(), new QTIItemScorer());
+
 			IItemScorerManager scorerManager = new ItemScorerManagerImpl(engines, 1, 2, 1);
 
-			ResponseInfo responseInfo = new ResponseInfo(
-					"EQ",
-					"1483",
-					"<itemResponse><response id=\"RESPONSE\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"255\"><mstyle><mn>255</mn></mstyle></math></response></itemResponse>",
-					"<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><outcomeDeclaration identifier=\"correctans\" baseType=\"string\" cardinality=\"ordered\" /><outcomeDeclaration identifier=\"correctansCount\" baseType=\"integer\" cardinality=\"single\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"EQ\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue><setOutcomeValue identifier=\"correctans\"><customOperator type=\"CTRL\" functionName=\"mapExpression\" container=\"PP_RESPONSE\"><or><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq( ,59)\" simplify=\"False\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"59\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(59,59)\" simplify=\"True\" /><and><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(55,55)\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"55\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"4\" /></and></or></customOperator></setOutcomeValue><setOutcomeValue identifier=\"correctansCount\"><containerSize><variable identifier=\"correctans\" /></containerSize></setOutcomeValue><responseCondition><responseIf><equal><variable identifier=\"correctansCount\" /><baseValue baseType=\"float\">1</baseValue></equal><setOutcomeValue identifier=\"SCORE\"><baseValue baseType=\"integer\">1</baseValue></setOutcomeValue></responseIf></responseCondition></responseProcessing></assessmentItem>",
-					RubricContentType.ContentString, null, false);
+			URI rubricUri = new URI(
+					"file:///C:/Users/mzhang/Desktop/SBAC/SampleContentPackage/Items/Item-187-769/Item_769_v19.qrx");
+
+			//will be used to retrieve qrx file in IRP
+			Manifest.Resources.Resource.File qrxFile = getQRXfile(itemCategory.getItemBankKeyKey());
+			
+			
+			ResponseInfo responseInfo = new ResponseInfo(itemFormat.toLowerCase(), Long.toString(itemKey), response.getContent(),
+					rubricUri, RubricContentType.Uri, "abc", false);
+
+			/*
+			 * ResponseInfo responseInfo = new ResponseInfo( "EQ", "1483",
+			 * "<itemResponse><response id=\"RESPONSE\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"255\"><mstyle><mn>255</mn></mstyle></math></response></itemResponse>"
+			 * ,
+			 * "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><outcomeDeclaration identifier=\"correctans\" baseType=\"string\" cardinality=\"ordered\" /><outcomeDeclaration identifier=\"correctansCount\" baseType=\"integer\" cardinality=\"single\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"EQ\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue><setOutcomeValue identifier=\"correctans\"><customOperator type=\"CTRL\" functionName=\"mapExpression\" container=\"PP_RESPONSE\"><or><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq( ,59)\" simplify=\"False\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"59\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(59,59)\" simplify=\"True\" /><and><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(55,55)\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"55\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"4\" /></and></or></customOperator></setOutcomeValue><setOutcomeValue identifier=\"correctansCount\"><containerSize><variable identifier=\"correctans\" /></containerSize></setOutcomeValue><responseCondition><responseIf><equal><variable identifier=\"correctansCount\" /><baseValue baseType=\"float\">1</baseValue></equal><setOutcomeValue identifier=\"SCORE\"><baseValue baseType=\"integer\">1</baseValue></setOutcomeValue></responseIf></responseCondition></responseProcessing></assessmentItem>"
+			 * , RubricContentType.ContentString, null, false);
+			 */
 
 			ItemScore itemScore = scorerManager.ScoreItem(responseInfo, null);
 			ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
@@ -421,7 +468,7 @@ public class ItemResponseAnalysisAction extends
 			scorerManager.shutdown();
 
 			ScoringStatus sStatus = itemScoreInfo.getStatus();
-			if(sStatus.Scored == ScoringStatus.Scored){
+			if (sStatus.Scored == ScoringStatus.Scored) {
 				setCcorrect(fieldCheckType);
 			}
 		} catch (Exception e) {
@@ -462,25 +509,6 @@ public class ItemResponseAnalysisAction extends
 		} catch (Exception e) {
 			logger.error("processC4MS exception: ", e);
 		}
-	}
-
-	// /////////////////////////////////////TODO testing......
-	private void ItemScoreTest(String bankKeyKey) {
-		logger.info("bankKeyKey ->" + bankKeyKey);
-		String qrxID = "";
-		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce1 = manifestService.getResource(bankKeyKey);
-		List<Dependency> listDependency = resouce1.getDependency();
-		for (Dependency d : listDependency) {
-			String id = d.getIdentifierref();
-			logger.info("id ->" + id);
-			if (id.endsWith("qrx"))
-				qrxID = id;
-		}
-		logger.info("qrx ->" + qrxID);
-		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
-		Manifest.Resources.Resource.File file = resouceQRX.getFile().get(0);
-		logger.info("url  ->" + file.getHref());
-
 	}
 
 	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
@@ -1125,6 +1153,33 @@ public class ItemResponseAnalysisAction extends
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * This method retrieves qrx file based on item-xxx-xxx identifier in irp imsmanifest.xml 
+	 * 			
+	 * @param ItemBankKeyKey
+	 * 			identifier - e.g "item-200-1448";
+	 * @return qrx file
+	 * @throws FileNotFoundException
+	 */
+	protected Manifest.Resources.Resource.File getQRXfile(String ItemBankKeyKey) throws FileNotFoundException {
+		Manifest.Resources.Resource.File file = null;
+		String qrxID = "";
+		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce = manifestService.getResource(ItemBankKeyKey);
+		List<Dependency> listDependency = resouce.getDependency();
+		for (Dependency d : listDependency) {
+			String id = d.getIdentifierref();
+			logger.info("id ->" + id);
+			if (id.endsWith("qrx"))
+				qrxID = id;
+		}
+		logger.info("qrx ->" + qrxID);
+		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
+		file = resouceQRX.getFile().get(0);
+		logger.info("url  ->" + file.getHref());
+
+		return file;
 	}
 
 }
