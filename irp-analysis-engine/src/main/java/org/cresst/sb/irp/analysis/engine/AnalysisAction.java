@@ -244,7 +244,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	public boolean isCorrectValue(String v1, String v2) {
-		return v1.trim().toLowerCase().equals(v2.trim().toLowerCase());
+		return StringUtils.equalsIgnoreCase(v1.trim(), v2.trim());
 	}
 
 	public <U> boolean compare(List<U> list1, List<U> list2) {

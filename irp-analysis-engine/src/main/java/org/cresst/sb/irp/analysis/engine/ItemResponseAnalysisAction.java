@@ -24,6 +24,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import qtiscoringengine.cs2java.StringHelper;
+import tds.itemscoringengine.IItemScorer;
+import tds.itemscoringengine.IItemScorerManager;
+import tds.itemscoringengine.ItemScore;
+import tds.itemscoringengine.ItemScoreInfo;
+import tds.itemscoringengine.ItemScorerManagerImpl;
+import tds.itemscoringengine.ResponseInfo;
+import tds.itemscoringengine.RubricContentType;
+import tds.itemscoringengine.ScoringStatus;
+import tds.itemscoringengine.itemscorers.QTIItemScorer;
 import tinyequationscoringengine.MathExpression;
 import tinyequationscoringengine.MathExpressionInfo;
 import tinyequationscoringengine.MathExpressionSet;
@@ -77,11 +86,9 @@ public class ItemResponseAnalysisAction extends
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
 						Long.toString(item.getKey()), listItemCategory, ItemStatusEnum.FOUND);
 				if (itemCategory != null) {
-					logger.info("bankkey ....{} and id .....{} ", item.getBankKey(), item.getKey());
 					StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(Long.parseLong(examineeKey),
 							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
 					if (studentResponse != null) {
-						logger.info("AAAAAAAAAAAAAAA");
 						analysisItemResponse(itemCategory, item, studentResponse);
 						analysisItemResponseWithStudentReponse(itemCategory, studentResponse);
 					}
@@ -116,53 +123,348 @@ public class ItemResponseAnalysisAction extends
 			itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
 
 			responseCategory.setContent(response.getContent());
-			logger.info("bKey ->{}, key->{} and format {} ", tdsItem.getBankKey(), tdsItem.getKey(), tdsItem.getFormat());
 			if (isValidStudentResponse(tdsItem, studentResponse)) {
-				logger.info("1111111111111111");
 				responseCategory.setIsResponseValid(true);
 				fieldCheckType = new FieldCheckType();
-				String format = tdsItem.getFormat();
-				// TODO need to re organize this part of code once scoring item function implemented
-				if (format.trim().toLowerCase().equals("mc") || format.trim().toLowerCase().equals("ms")) {// handle MC, MS
-					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-					responseCategory.setContentFieldCheckType(fieldCheckType);
-					org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory
-							.getItemBankKeyKey());
-					if (irpItem != null) {
-						itemCategory.setIrpItem(irpItem);
-						Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-						itemCategory.setAttriblist(attriblist);
-						validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-								attriblist);
-					}
-				} else if (format.trim().toLowerCase().equals("gi")) { // TODO developing
-					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-					responseCategory.setContentFieldCheckType(fieldCheckType);
-					org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory
-							.getItemBankKeyKey());
-					if (irpItem != null) {
-						itemCategory.setIrpItem(irpItem);
-						Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
-						itemCategory.setAttriblist(attriblist);
-						ItemScoreTest(itemCategory.getItemBankKeyKey()); // TODO
-						// validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-						// attriblist);
-					}
-				} else {
-					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-					responseCategory.setContentFieldCheckType(fieldCheckType);
-					validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
-				}
-			} else {
-				logger.info("22222222222222222222");
-				responseCategory.setIsResponseValid(false);
+				analysisItemAIRitemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
 			}
-
 		} catch (Exception e) {
 			logger.error("analysisItemResponse exception: ", e);
 		}
 	}
 
+	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
+			FieldCheckType fieldCheckType) {
+		try {
+			switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				checkP(response, enumFieldName, fieldCheckType);
+				break;
+			case PC:
+				checkP(response, enumFieldName, fieldCheckType);
+				checkC(response, enumFieldName, fieldCheckType, null);
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("validateField exception: ", e);
+		}
+	}
+
+	protected void analysisItemAIRitemScoring(Item tdsItem, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
+			ItemCategory itemCategory) {
+		try {
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+			responseCategory.setContentFieldCheckType(fieldCheckType);
+			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
+			if (irpItem != null) {
+				itemCategory.setIrpItem(irpItem);
+				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
+				itemCategory.setAttriblist(attriblist);
+
+				String format = tdsItem.getFormat().toLowerCase();
+				Response response = tdsItem.getResponse();
+				switch (format) {
+				case "ms":
+					validateFieldMS(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+							attriblist);
+					break;
+				case "mc":
+					validateFieldMC(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+							attriblist);
+					break;
+				case "gi":
+					validateFieldGI(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
+							responseCategory);
+					break;
+				default:
+					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+					responseCategory.setContentFieldCheckType(fieldCheckType);
+					validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
+					break;
+
+				}
+			}
+		} catch (Exception e) {
+			logger.error("analysisItemAIRitemScoring exception: ", e);
+		}
+	}
+
+	private void validateFieldGI(Response response, EnumFieldCheckType enumFieldCheckType,
+			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, ResponseCategory responseCategory) {
+		try {
+			switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				checkP(response, enumFieldName, fieldCheckType);
+				break;
+			case PC:
+				checkP(response, enumFieldName, fieldCheckType);
+				checkC4GI(response, enumFieldName, fieldCheckType, responseCategory);
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("validateField exception: ", e);
+		}
+	}
+
+	private void validateFieldMC(Response response, EnumFieldCheckType enumFieldCheckType,
+			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+		try {
+			switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				checkP(response, enumFieldName, fieldCheckType);
+				break;
+			case PC:
+				checkP(response, enumFieldName, fieldCheckType);
+				checkC4MC(response, enumFieldName, fieldCheckType, attriblist);
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("validateField exception: ", e);
+		}
+	}
+
+	private void validateFieldMS(Response response, EnumFieldCheckType enumFieldCheckType,
+			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+		try {
+			switch (enumFieldCheckType) {
+			case D:
+				break;
+			case P:
+				checkP(response, enumFieldName, fieldCheckType);
+				break;
+			case PC:
+				checkP(response, enumFieldName, fieldCheckType);
+				checkC4MS(response, enumFieldName, fieldCheckType, attriblist);
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("validateField exception: ", e);
+		}
+	}
+
+	/**
+	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable
+	 * values
+	 *
+	 * @param response
+	 *            Response with fields to check
+	 * @param enumFieldName
+	 *            Specifies the field to check
+	 * @param fieldCheckType
+	 *            This is where the results are stored
+	 */
+	@Override
+	protected void checkP(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
+		try {
+			switch (enumFieldName) {
+			case date:
+				// Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
+				if (response.getDate() != null && response.getDate().toString().length() > 0)
+					setPcorrect(fieldCheckType);
+				break;
+			case type:
+				// <xs:attribute name="type">
+				// <xs:simpleType>
+				// <xs:restriction base="xs:token">
+				// <xs:enumeration value="value" />
+				// <xs:enumeration value="reference" />
+				// <xs:enumeration value="" />
+				// </xs:restriction>
+				// </xs:simpleType>
+				processP(response.getType(), fieldCheckType, false); // Required N
+				break;
+			case content:
+				processP(response.getContent(), fieldCheckType, false); // Required N
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("checkP exception: ", e);
+		}
+	}
+
+	/**
+	 * Checks if the field has the correct value
+	 *
+	 * @param response
+	 *            Response object with field to check
+	 * @param enumFieldName
+	 *            enum EnumItemResponseFieldName
+	 * @param fieldCheckType
+	 *            This is where the results are stored
+	 * @param attriblist
+	 *            Attriblist to compare against Response
+	 */
+	@Override
+	protected void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			Itemrelease.Item.Attriblist attriblist) {
+		try {
+			switch (enumFieldName) {
+			case date:
+				break;
+			case type:
+				setCcorrect(fieldCheckType);
+				break;
+			case content:
+				processC(response.getContent(), fieldCheckType, attriblist);
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("checkC exception: ", e);
+		}
+	}
+
+	protected void checkC4GI(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			ResponseCategory responseCategory) {
+		try {
+			switch (enumFieldName) {
+			case date:
+				break;
+			case type:
+				setCcorrect(fieldCheckType);
+				break;
+			case content:
+				processC4GI(response.getContent(), fieldCheckType, responseCategory);
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("checkC exception: ", e);
+		}
+	}
+
+	protected void checkC4MC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			Itemrelease.Item.Attriblist attriblist) {
+		try {
+			switch (enumFieldName) {
+			case date:
+				break;
+			case type:
+				setCcorrect(fieldCheckType);
+				break;
+			case content:
+				processC4MC(response.getContent(), fieldCheckType, attriblist);
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("checkC exception: ", e);
+		}
+	}
+
+	protected void checkC4MS(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+			Itemrelease.Item.Attriblist attriblist) {
+		try {
+			switch (enumFieldName) {
+			case date:
+				break;
+			case type:
+				setCcorrect(fieldCheckType);
+				break;
+			case content:
+				processC4MS(response.getContent(), fieldCheckType, attriblist);
+				break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("checkC exception: ", e);
+		}
+	}
+
+	private void processC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+		try {
+			if (attriblist != null) {
+				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
+						"itm_att_Answer Key");
+				String irpItemAnswerKey = attrib.getVal();
+				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
+				if (blnCorrectAnswer) {
+					setCcorrect(fieldCheckType);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("processC exception: ", e);
+		}
+	}
+
+	private void processC4GI(String tdsResponseContent, FieldCheckType fieldCheckType, ResponseCategory responseCategory) {
+		try {
+			Map<String, IItemScorer> engines = new HashMap<>();
+			engines.put("EQ", new QTIItemScorer());
+			IItemScorerManager scorerManager = new ItemScorerManagerImpl(engines, 1, 2, 1);
+
+			ResponseInfo responseInfo = new ResponseInfo(
+					"EQ",
+					"1483",
+					"<itemResponse><response id=\"RESPONSE\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"255\"><mstyle><mn>255</mn></mstyle></math></response></itemResponse>",
+					"<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><outcomeDeclaration identifier=\"correctans\" baseType=\"string\" cardinality=\"ordered\" /><outcomeDeclaration identifier=\"correctansCount\" baseType=\"integer\" cardinality=\"single\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"EQ\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue><setOutcomeValue identifier=\"correctans\"><customOperator type=\"CTRL\" functionName=\"mapExpression\" container=\"PP_RESPONSE\"><or><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq( ,59)\" simplify=\"False\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"59\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(59,59)\" simplify=\"True\" /><and><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(55,55)\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"55\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"4\" /></and></or></customOperator></setOutcomeValue><setOutcomeValue identifier=\"correctansCount\"><containerSize><variable identifier=\"correctans\" /></containerSize></setOutcomeValue><responseCondition><responseIf><equal><variable identifier=\"correctansCount\" /><baseValue baseType=\"float\">1</baseValue></equal><setOutcomeValue identifier=\"SCORE\"><baseValue baseType=\"integer\">1</baseValue></setOutcomeValue></responseIf></responseCondition></responseProcessing></assessmentItem>",
+					RubricContentType.ContentString, null, false);
+
+			ItemScore itemScore = scorerManager.ScoreItem(responseInfo, null);
+			ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+
+			logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale()
+					.getMsg());
+			responseCategory.setItemScoreInfo(itemScoreInfo);
+			scorerManager.shutdown();
+
+			ScoringStatus sStatus = itemScoreInfo.getStatus();
+			if(sStatus.Scored == ScoringStatus.Scored){
+				setCcorrect(fieldCheckType);
+			}
+		} catch (Exception e) {
+			logger.error("processC4GI exception: ", e);
+		}
+	}
+
+	private void processC4MC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+		try {
+			if (attriblist != null) {
+				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
+						"itm_att_Answer Key");
+				String irpItemAnswerKey = attrib.getVal();
+				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
+				if (blnCorrectAnswer) {
+					setCcorrect(fieldCheckType);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("processC4MC exception: ", e);
+		}
+	}
+
+	private void processC4MS(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+		try {
+			if (attriblist != null) {
+				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
+						"itm_att_Answer Key");
+				String irpItemAnswerKey = attrib.getVal();
+				List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+						.splitToList(irpItemAnswerKey.toLowerCase()));
+				List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+						.splitToList(tdsResponseContent.toLowerCase()));
+				if (compare(list1, list2)) {
+					setCcorrect(fieldCheckType);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("processC4MS exception: ", e);
+		}
+	}
+
+	// /////////////////////////////////////TODO testing......
 	private void ItemScoreTest(String bankKeyKey) {
 		logger.info("bankKeyKey ->" + bankKeyKey);
 		String qrxID = "";
@@ -184,7 +486,7 @@ public class ItemResponseAnalysisAction extends
 	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
 		try {
 			if (studentResponse != null) {
-				//logger.info(String.format("format %s and key %s", format, key));
+				// logger.info(String.format("format %s and key %s", format, key));
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
 				studentResponse.setTdsResponseContent(responseCategory.getContent());
@@ -287,7 +589,7 @@ public class ItemResponseAnalysisAction extends
 
 	protected boolean validateMI(String tdsStudentResponse) {
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsStudentResponse);
-		if (identifiersAndResponses.size() > 0 )
+		if (identifiersAndResponses.size() > 0)
 			return true;
 		return false;
 	}
@@ -389,7 +691,6 @@ public class ItemResponseAnalysisAction extends
 					break;
 				default:
 					break;
-
 				}
 
 				if (studentResponse.getTraningTestItem().equals("1")) {
@@ -407,32 +708,31 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * this method parse student response in studentResponse to get sub format (ObjectType like RegionGroup
-	 * then parse tds student response in tdsStudentResponse to get ObjectType
+	 * this method parse student response in studentResponse to get sub format (ObjectType like RegionGroup then parse tds student
+	 * response in tdsStudentResponse to get ObjectType
 	 * 
-	 * @param tdsStudentResponse - student re;pose in tds report xml file
-	 * @param studentResponse - student response in IRP package (Excel)
+	 * @param tdsStudentResponse
+	 *            - student re;pose in tds report xml file
+	 * @param studentResponse
+	 *            - student response in IRP package (Excel)
 	 * 
 	 * @return
 	 */
-	protected boolean validateGI(String tdsStudentResponse, StudentResponse studentResponse){
-		
+	protected boolean validateGI(String tdsResponseContent, StudentResponse studentResponse) {
+
 		List<GRObject> listGRObject = null;
 		ObjectType excelObjectType = null;
-		//parse excelStudentResponse to get the sub format like RegionGroupObject, AtomicObject, Object
-		//String excelStudentResponse = studentResponse.getStudentResponse() //the real student response column does not EXIST now
-		/*listGRObject = getObjectStrings(excelStudentResponse);
-		if (listGRObject != null) {
-			for (GRObject go : listGRObject) {
-				logger.info(String.format("strxml -->%s", go.getXmlString()));
-				logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
-				excelObjectType = go.getTypeOfObject();
-				break;
-			}
-		}*/
-		
+		// parse excelStudentResponse to get the sub format like RegionGroupObject, AtomicObject, Object
+		// String excelStudentResponse = studentResponse.getStudentResponse() //the real student response column does not EXIST
+		// now
+		/*
+		 * listGRObject = getObjectStrings(excelStudentResponse); if (listGRObject != null) { for (GRObject go : listGRObject) {
+		 * logger.info(String.format("strxml -->%s", go.getXmlString())); logger.info(String.format("typeofObject -->%s",
+		 * go.getTypeOfObject())); excelObjectType = go.getTypeOfObject(); break; } }
+		 */
+
 		ObjectType tdsObjectType = null;
-		listGRObject = getObjectStrings(tdsStudentResponse);
+		listGRObject = getObjectStrings(tdsResponseContent);
 		if (listGRObject != null) {
 			for (GRObject go : listGRObject) {
 				logger.info(String.format("strxml -->%s", go.getXmlString()));
@@ -441,12 +741,12 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		}
-		
+
 		if (excelObjectType != null && tdsObjectType != null && excelObjectType.equals(tdsObjectType))
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 * Parsing student response for item type MS and match its corresponding student's response in excel file
 	 * 
@@ -455,11 +755,11 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMS(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("6")) {
 			List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-					.splitToList(responseContent.toLowerCase()));
+					.splitToList(excelResponseContent.toLowerCase()));
 			List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
 					.splitToList(tdsResponseContent.toLowerCase()));
 			if (compare(list1, list2)) {
@@ -471,18 +771,17 @@ public class ItemResponseAnalysisAction extends
 	/**
 	 * 
 	 * @param tdsStudentResponse
-	 * 			tdsStudentResponse stores the student response for item type MS in tds report xml file
+	 *            tdsStudentResponse stores the student response for item type MS in tds report xml file
 	 * @return
 	 */
-	protected boolean validateMS(String tdsStudentResponse){
+	protected boolean validateMS(String tdsResponseContent) {
 		List<String> list = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-				.splitToList(tdsStudentResponse.toLowerCase()));
+				.splitToList(tdsResponseContent.toLowerCase()));
 		if (list.size() > 0)
 			return true;
 		return false;
 	}
-	
-	
+
 	/**
 	 * Parsing student response for item type MC and match its corresponding student's response in excel file
 	 * 
@@ -491,23 +790,22 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMC(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		if (studentResponse.getTraningTestItem().equals("not present")) {
-			if (responseContent.equalsIgnoreCase(tdsResponseContent))
+			if (excelResponseContent.equalsIgnoreCase(tdsResponseContent))
 				studentResponse.setStatus(true);
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param tdsStudentResponse
-	 * 			tdsStudentResponse stores the student response for item type MC in tds report xml file
-	 * @return 
-	 * 			return true if tdsStudentResponse includes only one digit or only one letter (uppercase/lowercase) 
+	 *            tdsStudentResponse stores the student response for item type MC in tds report xml file
+	 * @return return true if tdsStudentResponse includes only one digit or only one letter (uppercase/lowercase)
 	 */
-	protected boolean validateMC(String tdsStudentResponse){
-		boolean bln = Pattern.matches("[\\dA-Za-z]{1}", tdsStudentResponse);
+	protected boolean validateMC(String tdsResponseContent) {
+		boolean bln = Pattern.matches("[\\dA-Za-z]{1}", tdsResponseContent);
 		if (bln)
 			return true;
 		return false;
@@ -521,19 +819,25 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateTI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		logger.info("responseContent-->" + responseContent);
 		try {
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
 			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
-				if (matchTI(table, responseContent))
+				if (matchTI(table, excelResponseContent))
 					studentResponse.setStatus(true);
 			}
 		} catch (Exception e) {
 			logger.error("validateTI exception: ", e);
 		}
+	}
+
+	protected boolean validateTI(String tdsResponseContent) {
+		Table table = getTableObject(tdsResponseContent);
+		if (table != null)
+			return true;
+		return false;
 	}
 
 	protected boolean matchTI(Table table, String studentResponse) {
@@ -556,135 +860,6 @@ public class ItemResponseAnalysisAction extends
 			}
 		}
 		return true;
-	}
-
-	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
-			FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(response, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(response, enumFieldName, fieldCheckType);
-				checkC(response, enumFieldName, fieldCheckType, null);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
-		}
-	}
-
-	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
-			FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(response, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(response, enumFieldName, fieldCheckType);
-				checkC(response, enumFieldName, fieldCheckType, attriblist);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
-		}
-	}
-
-	/**
-	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable
-	 * values
-	 *
-	 * @param response
-	 *            Response with fields to check
-	 * @param enumFieldName
-	 *            Specifies the field to check
-	 * @param fieldCheckType
-	 *            This is where the results are stored
-	 */
-	@Override
-	protected void checkP(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
-		try {
-			switch (enumFieldName) {
-			case date:
-				// Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
-				if (response.getDate() != null && response.getDate().toString().length() > 0)
-					setPcorrect(fieldCheckType);
-				break;
-			case type:
-				// <xs:attribute name="type">
-				// <xs:simpleType>
-				// <xs:restriction base="xs:token">
-				// <xs:enumeration value="value" />
-				// <xs:enumeration value="reference" />
-				// <xs:enumeration value="" />
-				// </xs:restriction>
-				// </xs:simpleType>
-				processP(response.getType(), fieldCheckType, false); // Required N
-				break;
-			case content:
-				processP(response.getContent(), fieldCheckType, false); // Required N
-				break;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkP exception: ", e);
-		}
-	}
-
-	/**
-	 * Checks if the field has the correct value
-	 *
-	 * @param response
-	 *            Object with field to check
-	 * @param enumFieldName
-	 *            Specifies the field to check
-	 * @param fieldCheckType
-	 *            This is where the results are stored
-	 * @param attriblist
-	 *            Attriblist to compare against Response
-	 */
-	@Override
-	protected void checkC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldName) {
-			case date:
-				break;
-			case type:
-				setCcorrect(fieldCheckType);
-				break;
-			case content:
-				processC(response.getContent(), fieldCheckType, attriblist);
-				break;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkC exception: ", e);
-		}
-	}
-
-	private void processC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			if (attriblist != null) {
-				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
-						"itm_att_Answer Key");
-				String irpItemAnswerKey = attrib.getVal();
-				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
-				if (blnCorrectAnswer) {
-					setCcorrect(fieldCheckType);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processC exception: ", e);
-		}
 	}
 
 	/**
@@ -735,7 +910,7 @@ public class ItemResponseAnalysisAction extends
 	 * @return Table object Table is subclass of TableObject
 	 */
 	protected Table getTableObject(String responseContent) {
-		Table table = null;
+		// Table table = null;
 		try {
 			StringReader sr = new StringReader(responseContent);
 			XmlReader reader = new XmlReader(sr);
@@ -751,7 +926,7 @@ public class ItemResponseAnalysisAction extends
 			logger.error("getTableObject exception: ", exp);
 		}
 
-		return table;
+		return null;
 	}
 
 	/**
@@ -896,14 +1071,14 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * this method using student response in studentResponse (IRP package in Excel) including
-	 * format and sub format to validate item.getResponse().getContent() is valid or not
-	 * e.g format GI includes sub format RegionGroupObject, AtomicObject, Object
+	 * this method using student response in studentResponse (IRP package in Excel) including format and sub format to validate
+	 * item.getResponse().getContent() is valid or not e.g format GI includes sub format RegionGroupObject, AtomicObject, Object
 	 * 
-	 * @param item - 
-	 * 		item.getResponse().getContent() - tds report xml student response
-	 * @param studentResponse - IRP package (Excel) student response
-	 * 		
+	 * @param item
+	 *            - item.getResponse().getContent() - tds report xml student response
+	 * @param studentResponse
+	 *            - IRP package (Excel) student response
+	 * 
 	 * @return boolean
 	 */
 	protected boolean isValidStudentResponse(Item item, StudentResponse studentResponse) {
@@ -921,16 +1096,18 @@ public class ItemResponseAnalysisAction extends
 			bln = validateEQ(response);
 			break;
 		case "gi":
-			bln = validateGI(response, studentResponse); //need to hand sub format like RegionGroupObject, AtomicObject
-			break;	
+			bln = validateGI(response, studentResponse); // need to hand sub format like RegionGroupObject, AtomicObject
+			break;
 		case "ms":
 			bln = validateMS(response);
-			break;	
+			break;
 		case "mc":
 			bln = validateMC(response);
 			break;
 		case "ti":
-			//validateTI(studentResponse);
+			bln = validateTI(response);
+			break;
+		default:
 			break;
 		}
 		return bln;
@@ -942,11 +1119,8 @@ public class ItemResponseAnalysisAction extends
 			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
 			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
 			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
-			logger.info("_bankKey {} and _key {} ", _bankKey, _key);
-			logger.info("bankKey {} and key {} ", bankKey, key);
 			if (bankKey.equalsIgnoreCase(_bankKey) && key.equalsIgnoreCase(_key) && itemCategory.getStatus() == itemStatusEnum
 					&& itemCategory.isItemFormatCorrect()) {
-				logger.info("vvvvvvvvvvvvvv");
 				return itemCategory;
 			}
 		}
