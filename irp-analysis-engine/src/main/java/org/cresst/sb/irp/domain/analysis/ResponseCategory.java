@@ -14,8 +14,8 @@ public class ResponseCategory {
 	private FieldCheckType contentFieldCheckType;
 
 	public boolean isResponseValid;
-
 	private ItemScoreInfo itemScoreInfo;
+	private StudentResponse studentResponse;
 
 	public ItemScoreInfo getItemScoreInfo() {
 		return itemScoreInfo;
@@ -32,8 +32,6 @@ public class ResponseCategory {
 	public void setIsResponseValid(boolean isResponseValid) {
 		this.isResponseValid = isResponseValid;
 	}
-
-	private StudentResponse studentResponse;
 
 	public String getDate() {
 		return date;

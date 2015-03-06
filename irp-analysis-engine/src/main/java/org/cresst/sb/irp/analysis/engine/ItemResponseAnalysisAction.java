@@ -137,6 +137,23 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
+	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
+		try {
+			String bKey = itemCategory.getItemBankKeyKey();
+
+			String sbKey = studentResponse.getBankKey();
+			String sKey = studentResponse.getId();
+			if (studentResponse != null) {
+				ResponseCategory responseCategory = itemCategory.getResponseCategory();
+				responseCategory.setStudentResponse(studentResponse);
+				studentResponse.setTdsResponseContent(responseCategory.getContent());
+				validateStudentResponse(studentResponse);
+			}
+		} catch (Exception e) {
+			logger.error("analysisItemResponseWithStudentReponse exception: ", e);
+		}
+	}
+
 	private void validateField(Response response, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName,
 			FieldCheckType fieldCheckType) {
 		try {
@@ -219,6 +236,8 @@ public class ItemResponseAnalysisAction extends
 	 *            This is where the results are stored
 	 * @param responseCategory
 	 *            ResponseCategory object stores ItemScoreInfo itemScoreInfo
+	 * @param itemCategory
+	 *            itemCategory object
 	 */
 	private void validateFieldItemScoring(Item tdsItem, EnumFieldCheckType enumFieldCheckType,
 			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
@@ -236,7 +255,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
+			logger.error("validateFieldItemScoring exception: ", e);
 		}
 	}
 
@@ -255,7 +274,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
+			logger.error("validateFieldMC exception: ", e);
 		}
 	}
 
@@ -274,7 +293,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("validateField exception: ", e);
+			logger.error("validateFieldMS exception: ", e);
 		}
 	}
 
@@ -369,7 +388,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC exception: ", e);
+			logger.error("checkC4ItemScoring exception: ", e);
 		}
 	}
 
@@ -389,7 +408,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC exception: ", e);
+			logger.error("checkC4MC exception: ", e);
 		}
 	}
 
@@ -409,7 +428,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC exception: ", e);
+			logger.error("checkC4MS exception: ", e);
 		}
 	}
 
@@ -444,10 +463,9 @@ public class ItemResponseAnalysisAction extends
 			URI rubricUri = new URI(
 					"file:///C:/Users/mzhang/Desktop/SBAC/SampleContentPackage/Items/Item-187-769/Item_769_v19.qrx");
 
-			//will be used to retrieve qrx file in IRP
+			// will be used to retrieve qrx file in IRP
 			Manifest.Resources.Resource.File qrxFile = getQRXfile(itemCategory.getItemBankKeyKey());
-			
-			
+
 			ResponseInfo responseInfo = new ResponseInfo(itemFormat.toLowerCase(), Long.toString(itemKey), response.getContent(),
 					rubricUri, RubricContentType.Uri, "abc", false);
 
@@ -472,7 +490,7 @@ public class ItemResponseAnalysisAction extends
 				setCcorrect(fieldCheckType);
 			}
 		} catch (Exception e) {
-			logger.error("processC4GI exception: ", e);
+			logger.error("processC4ItemScoring exception: ", e);
 		}
 	}
 
@@ -508,21 +526,6 @@ public class ItemResponseAnalysisAction extends
 			}
 		} catch (Exception e) {
 			logger.error("processC4MS exception: ", e);
-		}
-	}
-
-	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
-		try {
-			if (studentResponse != null) {
-				// logger.info(String.format("format %s and key %s", format, key));
-				ResponseCategory responseCategory = itemCategory.getResponseCategory();
-				responseCategory.setStudentResponse(studentResponse);
-				studentResponse.setTdsResponseContent(responseCategory.getContent());
-				validateStudentResponse(studentResponse);
-			}
-
-		} catch (Exception e) {
-			logger.error("analysisItemResponseWithStudentReponse exception: ", e);
 		}
 	}
 
@@ -564,13 +567,15 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores the student response for item type ER in tds report xml file
 	 */
 	private void validateER(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		if (studentResponse.getTraningTestItem().equals("2")) {
-			if (responseContent.equals("any text") && tdsResponseContent.length() > 0) {
-				studentResponse.setStatus(true);
-			}
+
+		// TODO - need to modify following code after above excelResponseContent update
+		if (excelResponseContent.equals("any text") && tdsResponseContent.length() > 0) {
+			studentResponse.setStatus(true);
 		}
+
 	}
 
 	protected boolean validateER(String studentResponse) {
@@ -584,11 +589,12 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores the student response for item type MI in tds report xml file
 	 */
 	private void validateMI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
+		String excelResponseContent = studentResponse.getResponseContent();
 
-		// This part will be removed when an additional column added in student responses file
+		// TODO This part will be removed when an additional column added in student responses file
 		// This column store CDATA content.
-		String[] parts = responseContent.split(";");
+		String[] parts = excelResponseContent.split(";");
 		String strYesValue = "";
 		for (int i = 0; i < parts.length; i++) {
 			String strTmp = parts[i];
@@ -604,11 +610,11 @@ public class ItemResponseAnalysisAction extends
 			}
 		}
 
+		// TODO need to update following if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
-		if (studentResponse.getTraningTestItem().equals("3") && identifiersAndResponses != null) {
+		if (identifiersAndResponses.size() > 0) {
 			logger.info(String.format("identifiersAndResponses.get(RESPONSE) ->%s", identifiersAndResponses.get("RESPONSE")));
-			logger.info(String.format("strYesValue %s ->", strYesValue));
 			if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
 				studentResponse.setStatus(true);
 			}
@@ -629,13 +635,15 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores the student response for item type EQ in tds report xml file
 	 */
 	private void validateEQ(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		System.out.println("responseContent -->" + responseContent);
+
 		try {
 			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(tdsResponseContent.trim());
 			if (mathExpressionSet.size() > 0) {
+				// TODO update following code to validate excelResponseContent
 				for (MathExpression me : mathExpressionSet) {
 					System.out.println("me.toString() ->" + me.toString());
 					MathExpressionInfo meinfo = me.toMathExpressionInfo();
@@ -650,15 +658,13 @@ public class ItemResponseAnalysisAction extends
 					for (String s : meinfo.getSympyResponse())
 						System.out.println("SympyResponse  ->" + s);
 				}
-				if (studentResponse.getTraningTestItem().equals("not present")) {
-					// TODO
-				}
+
 			} else if (!tdsResponseContent.trim().startsWith("<response>") && tdsResponseContent.trim().length() > 0) {
-				if (studentResponse.getTraningTestItem().equals("4")) {
-					if (tdsResponseContent.trim().equals(responseContent)) {
-						studentResponse.setStatus(true);
-					}
+				// TODO need to update once excelResponseContent retrieved from another column in excel file
+				if (tdsResponseContent.trim().equals(excelResponseContent)) {
+					studentResponse.setStatus(true);
 				}
+
 			}
 		} catch (Exception e) {
 			logger.error("validateEQ exception: ", e);
@@ -685,13 +691,15 @@ public class ItemResponseAnalysisAction extends
 	 *            StudentResponse stores the student response for item type GI in tds report xml file
 	 */
 	private void validateGI(StudentResponse studentResponse) {
-		String responseContent = studentResponse.getResponseContent();
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
+		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		logger.info(String.format("responseContent -->%s", responseContent));
+
 		try {
 			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
 			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
 			if (listGRObject != null) {
+				// TODO need to update following to validate excelResponseContent
 				ObjectType objectType = null;
 				for (GRObject go : listGRObject) {
 					logger.info(String.format("strxml -->%s", go.getXmlString()));
@@ -720,15 +728,6 @@ public class ItemResponseAnalysisAction extends
 				default:
 					break;
 				}
-
-				if (studentResponse.getTraningTestItem().equals("1")) {
-					// TODO
-				} else if (studentResponse.getTraningTestItem().equals("5")) {
-					// TODO
-				} else if (studentResponse.getTraningTestItem().equals("8")) {
-					// TODO
-				}
-
 			}
 		} catch (Exception e) {
 			logger.error("validateGI exception: ", e);
@@ -750,6 +749,7 @@ public class ItemResponseAnalysisAction extends
 
 		List<GRObject> listGRObject = null;
 		ObjectType excelObjectType = null;
+		// TODO
 		// parse excelStudentResponse to get the sub format like RegionGroupObject, AtomicObject, Object
 		// String excelStudentResponse = studentResponse.getStudentResponse() //the real student response column does not EXIST
 		// now
@@ -783,17 +783,18 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMS(StudentResponse studentResponse) {
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
 		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		if (studentResponse.getTraningTestItem().equals("6")) {
-			List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-					.splitToList(excelResponseContent.toLowerCase()));
-			List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-					.splitToList(tdsResponseContent.toLowerCase()));
-			if (compare(list1, list2)) {
-				studentResponse.setStatus(true);
-			}
+
+		List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+				.splitToList(excelResponseContent.toLowerCase()));
+		List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+				.splitToList(tdsResponseContent.toLowerCase()));
+		if (compare(list1, list2)) {
+			studentResponse.setStatus(true);
 		}
+
 	}
 
 	/**
@@ -818,12 +819,13 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateMC(StudentResponse studentResponse) {
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
 		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		if (studentResponse.getTraningTestItem().equals("not present")) {
-			if (excelResponseContent.equalsIgnoreCase(tdsResponseContent))
-				studentResponse.setStatus(true);
-		}
+
+		if (excelResponseContent.equalsIgnoreCase(tdsResponseContent))
+			studentResponse.setStatus(true);
+
 	}
 
 	/**
@@ -847,12 +849,14 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 */
 	private void validateTI(StudentResponse studentResponse) {
+		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
 		String excelResponseContent = studentResponse.getResponseContent();
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		try {
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
 			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
+				//TODO
 				if (matchTI(table, excelResponseContent))
 					studentResponse.setStatus(true);
 			}
@@ -1156,28 +1160,31 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * This method retrieves qrx file based on item-xxx-xxx identifier in irp imsmanifest.xml 
-	 * 			
+	 * This method retrieves qrx file based on item-xxx-xxx identifier in irp imsmanifest.xml
+	 * 
 	 * @param ItemBankKeyKey
-	 * 			identifier - e.g "item-200-1448";
+	 *            identifier - e.g "item-200-1448";
 	 * @return qrx file
-	 * @throws FileNotFoundException
 	 */
-	protected Manifest.Resources.Resource.File getQRXfile(String ItemBankKeyKey) throws FileNotFoundException {
+	protected Manifest.Resources.Resource.File getQRXfile(String ItemBankKeyKey) {
 		Manifest.Resources.Resource.File file = null;
-		String qrxID = "";
-		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce = manifestService.getResource(ItemBankKeyKey);
-		List<Dependency> listDependency = resouce.getDependency();
-		for (Dependency d : listDependency) {
-			String id = d.getIdentifierref();
-			logger.info("id ->" + id);
-			if (id.endsWith("qrx"))
-				qrxID = id;
+		try {
+			String qrxID = "";
+			org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce = manifestService.getResource(ItemBankKeyKey);
+			List<Dependency> listDependency = resouce.getDependency();
+			for (Dependency d : listDependency) {
+				String id = d.getIdentifierref();
+				logger.info("id ->" + id);
+				if (id.endsWith("qrx"))
+					qrxID = id;
+			}
+			logger.info("qrx ->" + qrxID);
+			org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
+			file = resouceQRX.getFile().get(0);
+			logger.info("url  ->" + file.getHref());
+		} catch (Exception exp) {
+			logger.error("getQRXfile exception: ", exp);
 		}
-		logger.info("qrx ->" + qrxID);
-		org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
-		file = resouceQRX.getFile().get(0);
-		logger.info("url  ->" + file.getHref());
 
 		return file;
 	}
