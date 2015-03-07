@@ -79,14 +79,12 @@ public class ItemResponseAnalysisAction extends
 			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
 			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING AND
-																							// EXTRA see
-																							// ItemAttributesAnalysisAction
+			List<ItemCategory> itemCategories = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING, EXTRA
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> tdsItems = opportunity.getItem(); // tdsItems has items exist only in tds report xml file
 			for (Item item : tdsItems) {
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
-						Long.toString(item.getKey()), listItemCategory, ItemStatusEnum.FOUND);
+						Long.toString(item.getKey()), itemCategories, ItemStatusEnum.FOUND);
 				if (itemCategory != null) {
 					StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(Long.parseLong(examineeKey),
 							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
@@ -108,7 +106,7 @@ public class ItemResponseAnalysisAction extends
 			Response response = tdsItem.getResponse();
 			FieldCheckType fieldCheckType;
 
-			responseCategory.setDate(response.getDate().toString());
+			responseCategory.setDate((response.getDate() != null) ? response.getDate().toString() : "");
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			responseCategory.setDateFieldCheckType(fieldCheckType);
@@ -139,10 +137,6 @@ public class ItemResponseAnalysisAction extends
 
 	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
 		try {
-			String bKey = itemCategory.getItemBankKeyKey();
-
-			String sbKey = studentResponse.getBankKey();
-			String sKey = studentResponse.getId();
 			if (studentResponse != null) {
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
 				responseCategory.setStudentResponse(studentResponse);
@@ -856,7 +850,7 @@ public class ItemResponseAnalysisAction extends
 			logger.info("tdsResponseContent -->" + tdsResponseContent);
 			Table table = getTableObject(tdsResponseContent);
 			if (table != null) {
-				//TODO
+				// TODO
 				if (matchTI(table, excelResponseContent))
 					studentResponse.setStatus(true);
 			}

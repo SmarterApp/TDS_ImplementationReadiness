@@ -208,7 +208,8 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				break;
 			case adminDate:
 				// <xs:attribute name="adminDate" use="required" type="xs:dateTime" />
-				processP(item.getAdminDate().toString(), fieldCheckType, true);
+				if (item.getAdminDate() != null)
+					processP(item.getAdminDate().toString(), fieldCheckType, true);
 				break;
 			case numberVisits:
 				// <xs:attribute name="numberVisits" use="required" type="xs:unsignedInt" />
