@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Object> {
+public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, StudentResponse> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemAttributesAnalysisAction.class);
 
 	static public enum EnumItemFieldName {
@@ -45,19 +45,29 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			List<Item> removedList = new ArrayList<Item>();
 
 			List<ItemCategory> itemCategories = new ArrayList<>();
-			for (StudentResponse sr : listStudentResponse) {
+			for (StudentResponse studentResponse : listStudentResponse) {
 				ItemCategory itemCategory = new ItemCategory();
 				itemCategories.add(itemCategory);
-				Item item = itemExistByIRPpackageBankKeyKey(sr.getBankKey(), sr.getId(), listItem);
+				Item item = itemExistByIRPpackageBankKeyKey(studentResponse.getBankKey(), studentResponse.getId(), listItem);
 				if (item != null) {
-					analyzeItemAttributes(itemCategory, item);
-					itemCategory.setStatus(ItemStatusEnum.FOUND);
+                    StringBuilder itemIdentifier = new StringBuilder();
+                    itemIdentifier.append("item-").append(item.getBankKey()).append("-").append(item.getKey());
+                    itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
+
+					analyzeItemAttributes(itemCategory, item, studentResponse);
+
+                    itemCategory.setStatus(ItemStatusEnum.FOUND);
 					removedList.add(item);
-					if (isItemFormatMatch(item, sr)) {
+					if (isItemFormatMatch(item, studentResponse)) {
 						itemCategory.setIsItemFormatCorrect(true);
 					}
 				} else {
-					analyzeItemAttributes(itemCategory, sr);
+                    StringBuilder itemIdentifier = new StringBuilder();
+                    itemIdentifier.append("item-").append(studentResponse.getBankKey()).append("-").append(studentResponse.getId());
+                    itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
+
+					analyzeItemAttributes(itemCategory, studentResponse);
+
 					itemCategory.setStatus(ItemStatusEnum.MISSING);
 					itemCategory.setIsItemFormatCorrect(false);
 				}
@@ -67,7 +77,15 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				if (!isItemExistInList(item, removedList)) {
 					ItemCategory itemCategory = new ItemCategory();
 					itemCategories.add(itemCategory);
-					analyzeItemAttributes2(itemCategory, item);
+
+                    StringBuilder itemIdentifier = new StringBuilder();
+                    itemIdentifier.append("item-").append(item.getBankKey()).append("-").append(item.getKey());
+                    itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
+
+                    // insert only bankKey and key into cell categories so that report will display them with errors
+                    validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey, null);
+                    validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
+
 					itemCategory.setStatus(ItemStatusEnum.EXTRA);
 					itemCategory.setIsItemFormatCorrect(false);
 				}
@@ -80,23 +98,23 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		}
 	}
 
-	private void analyzeItemAttributes(Category itemCategory, StudentResponse sr) {
+	private void analyzeItemAttributes(Category itemCategory, StudentResponse studentResponse) {
 		FieldCheckType fieldCheckType = new FieldCheckType();
-		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 
 		CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.bankKey.toString());
-		cellCategory.setTdsFieldNameValue(sr.getBankKey());
+		cellCategory.setTdsFieldNameValue(studentResponse.getBankKey());
 		cellCategory.setTdsExpectedValue(expectedValue(null, EnumItemFieldName.bankKey));
 		cellCategory.setFieldCheckType(fieldCheckType);
 		itemCategory.addCellCategory(cellCategory);
 
 		fieldCheckType = new FieldCheckType();
-		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 
 		cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.key.toString());
-		cellCategory.setTdsFieldNameValue(sr.getId());
+		cellCategory.setTdsFieldNameValue(studentResponse.getId());
 		cellCategory.setTdsExpectedValue(expectedValue(null, EnumItemFieldName.key));
 		cellCategory.setFieldCheckType(fieldCheckType);
 		itemCategory.addCellCategory(cellCategory);
@@ -110,15 +128,15 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 * @param item
 	 *            The item to analyze
 	 */
-	private void analyzeItemAttributes(Category itemCategory, Item item) {
+	private void analyzeItemAttributes(Category itemCategory, Item item, StudentResponse studentResponse) {
 		validate(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position, null);
 		validate(itemCategory, item, item.getSegmentId(), EnumFieldCheckType.P, EnumItemFieldName.segmentId, null);
-		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey, null);
-		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
+		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.PC, EnumItemFieldName.bankKey, studentResponse);
+		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.PC, EnumItemFieldName.key, studentResponse);
 		validate(itemCategory, item, item.getClientId(), EnumFieldCheckType.D, EnumItemFieldName.clientId, null);
 		validate(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational, null);
-		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.PC, EnumItemFieldName.isSelected, null);
-		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, null);
+		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.P, EnumItemFieldName.isSelected, null);
+		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, studentResponse);
 		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null);
 		validate(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, null);
 		validate(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate, null);
@@ -130,19 +148,6 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		validate(itemCategory, item, item.getPageVisits(), EnumFieldCheckType.P, EnumItemFieldName.pageVisits, null);
 		validate(itemCategory, item, item.getPageTime(), EnumFieldCheckType.P, EnumItemFieldName.pageTime, null);
 		validate(itemCategory, item, item.getDropped(), EnumFieldCheckType.P, EnumItemFieldName.dropped, null);
-	}
-
-	/**
-	 * Analyzes each of the given item's fields.
-	 *
-	 * @param itemCategory
-	 *            The ItemCategory to store the results of the analyze
-	 * @param item
-	 *            The item to analyze
-	 */
-	private void analyzeItemAttributes2(Category itemCategory, Item item) {
-		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.P, EnumItemFieldName.bankKey, null);
-		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
 	}
 
 	/**
@@ -274,11 +279,30 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 *            Specifies the field to check
 	 * @param fieldCheckType
 	 *            This is where results are stored
-	 * @param unused
-	 *            Unused parameter
+	 * @param studentResponse
+	 *            IRP Package Student Response to compare TDS results against
 	 */
 	@Override
-	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
+	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, StudentResponse studentResponse) {
+        switch (enumFieldName) {
+            case bankKey:
+                if (StringUtils.equalsIgnoreCase(Long.toString(item.getBankKey()), studentResponse.getBankKey())) {
+                    setCcorrect(fieldCheckType);
+                }
+                break;
+            case key:
+                if (StringUtils.equalsIgnoreCase(Long.toString(item.getKey()), studentResponse.getId())) {
+                    setCcorrect(fieldCheckType);
+                }
+                break;
+            case format:
+                if (isItemFormatMatch(item, studentResponse)) {
+                    setCcorrect(fieldCheckType);
+                }
+                break;
+            default:
+                break;
+        }
 	}
 
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType, Class<EnumFormatAcceptValues> class1) {
@@ -312,8 +336,8 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		return false;
 	}
 
-	protected boolean isItemFormatMatch(Item item, StudentResponse sr) {
-		return StringUtils.equalsIgnoreCase(sr.getItemType(), item.getFormat());
+	protected boolean isItemFormatMatch(Item item, StudentResponse studentResponse) {
+		return StringUtils.equalsIgnoreCase(studentResponse.getItemType(), item.getFormat());
 	}
 
 }

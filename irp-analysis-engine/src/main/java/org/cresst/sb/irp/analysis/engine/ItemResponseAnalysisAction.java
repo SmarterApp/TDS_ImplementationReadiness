@@ -50,7 +50,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-import java.io.FileNotFoundException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.URI;
@@ -76,18 +75,24 @@ public class ItemResponseAnalysisAction extends
 	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
+
 			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
 			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
-			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
+
+            OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> itemCategories = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING, EXTRA
-			Opportunity opportunity = tdsReport.getOpportunity();
+
+            Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> tdsItems = opportunity.getItem(); // tdsItems has items exist only in tds report xml file
-			for (Item item : tdsItems) {
+
+            for (Item item : tdsItems) {
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
 						Long.toString(item.getKey()), itemCategories, ItemStatusEnum.FOUND);
-				if (itemCategory != null) {
+
+                if (itemCategory != null) {
 					StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(Long.parseLong(examineeKey),
 							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
+
 					if (studentResponse != null) {
 						analysisItemResponse(itemCategory, item, studentResponse);
 						analysisItemResponseWithStudentReponse(itemCategory, studentResponse);
@@ -117,10 +122,6 @@ public class ItemResponseAnalysisAction extends
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			responseCategory.setTypeFieldCheckType(fieldCheckType);
 			validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.type, fieldCheckType);
-
-			StringBuilder itemIdentifier = new StringBuilder();
-			itemIdentifier.append("item-").append(tdsItem.getBankKey()).append("-").append(tdsItem.getKey());
-			itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
 
 			responseCategory.setContent(response.getContent());
 			if (isValidStudentResponse(tdsItem, studentResponse)) {
@@ -1141,15 +1142,20 @@ public class ItemResponseAnalysisAction extends
 
 	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
 			ItemCategory.ItemStatusEnum itemStatusEnum) {
+
 		for (ItemCategory itemCategory : listItemCategory) {
 			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
 			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
 			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
-			if (bankKey.equalsIgnoreCase(_bankKey) && key.equalsIgnoreCase(_key) && itemCategory.getStatus() == itemStatusEnum
+
+			if (bankKey.equalsIgnoreCase(_bankKey)
+                    && key.equalsIgnoreCase(_key)
+                    && itemCategory.getStatus() == itemStatusEnum
 					&& itemCategory.isItemFormatCorrect()) {
 				return itemCategory;
 			}
 		}
+
 		return null;
 	}
 
