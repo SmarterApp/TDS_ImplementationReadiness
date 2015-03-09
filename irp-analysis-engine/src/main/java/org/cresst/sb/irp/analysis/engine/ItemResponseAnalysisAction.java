@@ -608,7 +608,7 @@ public class ItemResponseAnalysisAction extends
 		// TODO need to update following if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
 		String tdsResponseContent = studentResponse.getTdsResponseContent();
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
-		if (identifiersAndResponses.size() > 0) {
+		if (identifiersAndResponses != null && identifiersAndResponses.size() > 0) {
 			logger.info(String.format("identifiersAndResponses.get(RESPONSE) ->%s", identifiersAndResponses.get("RESPONSE")));
 			if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
 				studentResponse.setStatus(true);
@@ -618,7 +618,7 @@ public class ItemResponseAnalysisAction extends
 
 	protected boolean validateMI(String tdsStudentResponse) {
 		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsStudentResponse);
-		if (identifiersAndResponses.size() > 0)
+		if (identifiersAndResponses != null && identifiersAndResponses.size() > 0)
 			return true;
 		return false;
 	}
