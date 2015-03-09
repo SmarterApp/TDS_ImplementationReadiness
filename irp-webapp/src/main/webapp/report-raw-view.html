@@ -1,106 +1,6 @@
 <polymer-element name="report-raw-view" attributes="response">
     <template>
-        <style>
-            .tableAnalysis {
-                margin:0px;padding:0px;
-                width:100%;
-                border:1px solid #000000;
-
-                -moz-border-radius-bottomleft:0px;
-                -webkit-border-bottom-left-radius:0px;
-                border-bottom-left-radius:0px;
-
-                -moz-border-radius-bottomright:0px;
-                -webkit-border-bottom-right-radius:0px;
-                border-bottom-right-radius:0px;
-
-                -moz-border-radius-topright:0px;
-                -webkit-border-top-right-radius:0px;
-                border-top-right-radius:0px;
-
-                -moz-border-radius-topleft:0px;
-                -webkit-border-top-left-radius:0px;
-                border-top-left-radius:0px;
-            }.tableAnalysis table{
-                 border-collapse: collapse;
-                 border-spacing: 0;
-                 width:100%;
-                 height:100%;
-                 margin:0px;padding:0px;
-             }.tableAnalysis tr:last-child td:last-child {
-                  -moz-border-radius-bottomright:0px;
-                  -webkit-border-bottom-right-radius:0px;
-                  border-bottom-right-radius:0px;
-              }
-            .tableAnalysis table tr:first-child td:first-child {
-                -moz-border-radius-topleft:0px;
-                -webkit-border-top-left-radius:0px;
-                border-top-left-radius:0px;
-            }
-            .tableAnalysis table tr:first-child td:last-child {
-                -moz-border-radius-topright:0px;
-                -webkit-border-top-right-radius:0px;
-                border-top-right-radius:0px;
-            }.tableAnalysis tr:last-child td:first-child{
-                 -moz-border-radius-bottomleft:0px;
-                 -webkit-border-bottom-left-radius:0px;
-                 border-bottom-left-radius:0px;
-             }.tableAnalysis tr:hover td{
-
-              }
-            .tableAnalysis tr:nth-child(odd){ background-color:#e5e5e5; }
-            .tableAnalysis tr:nth-child(even)    { background-color:#ffffff; }.tableAnalysis td{
-                                                                                  vertical-align:middle;
-
-
-                                                                                  border:1px solid #000000;
-                                                                                  border-width:0px 1px 1px 0px;
-                                                                                  text-align:left;
-                                                                                  padding:7px;
-                                                                                  font-size:10px;
-                                                                                  font-family:Arial;
-                                                                                  font-weight:normal;
-                                                                                  color:#000000;
-                                                                              }.tableAnalysis tr:last-child td{
-                                                                                   border-width:0px 1px 0px 0px;
-                                                                               }.tableAnalysis tr td:last-child{
-                                                                                    border-width:0px 0px 1px 0px;
-                                                                                }.tableAnalysis tr:last-child td:last-child{
-                                                                                     border-width:0px 0px 0px 0px;
-                                                                                 }
-            .tableAnalysis tr:first-child td{
-                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
-                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
-                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
-
-                background-color:#cccccc;
-                border:0px solid #000000;
-                text-align:center;
-                border-width:0px 0px 1px 1px;
-                font-size:14px;
-                font-family:Arial;
-                font-weight:bold;
-                color:#000000;
-            }
-            .tableAnalysis tr:first-child:hover td{
-                background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
-                background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
-                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
-
-                background-color:#cccccc;
-            }
-            .tableAnalysis tr:first-child td:first-child{
-                border-width:0px 0px 1px 0px;
-            }
-            .tableAnalysis tr:first-child td:last-child{
-                border-width:0px 0px 1px 1px;
-            }
-
-            p {
-                font-family: serif;
-                font-size: smaller;
-            }
-        </style>
+        <link rel="stylesheet" href="css/report.css"/>
 
         <table class="tableAnalysis">
             <thead>
@@ -113,9 +13,14 @@
             </tr>
             </thead>
             <tbody>
+
+            <tr class="category">
+                <td colspan="5">Test Properties</td>
+            </tr>
+
             <template bind="{{response.testPropertiesCategory as category}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="testPropertiesRows {{oddOrEvenClass(index)}}">
                         <td>Test Properties: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -125,9 +30,13 @@
                 </template>
             </template>
 
+            <tr class="category">
+                <td colspan="5">Examinee</td>
+            </tr>
+
             <template bind="{{response.examineeCategory as category}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="examineeRows {{oddOrEvenClass(index)}}">
                         <td>Examinee: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -137,9 +46,9 @@
                 </template>
             </template>
 
-            <template repeat="{{category in response.examineeAttributeCategories}}">
+            <template repeat="{{category, index in response.examineeAttributeCategories}}">
                 <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                    <tr class="examineeAttributeRows {{oddOrEvenClass(index)}}">
                         <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -149,9 +58,9 @@
                 </template>
             </template>
 
-            <template repeat="{{category in response.examineeRelationshipCategories}}">
+            <template repeat="{{category, index in response.examineeRelationshipCategories}}">
                 <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                    <tr class="examineeRelationshipRows {{oddOrEvenClass(index)}}">
                         <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -161,9 +70,13 @@
                 </template>
             </template>
 
+            <tr class="category">
+                <td colspan="5">Opportunity</td>
+            </tr>
+
             <template bind="{{response.opportunityCategory as category}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="opportunityPropertiesRows {{oddOrEvenClass(index)}}">
                         <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -171,9 +84,12 @@
                         <td>{{cell.fieldCheckType | explanation}}</td>
                     </tr>
                 </template>
+                <tr class="category">
+                    <td colspan="5">Opportunity Segments</td>
+                </tr>
                 <template repeat="{{segment in category.segmentCategories}}">
-                    <template repeat="{{cell in segment.cellCategories}}">
-                        <tr>
+                    <template repeat="{{cell, index in segment.cellCategories}}">
+                        <tr class="opportunitySegmentRows {{oddOrEvenClass(index)}}">
                             <td>Opportunity Segment: {{cell.tdsFieldName}}</td>
                             <td>{{cell.tdsExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
@@ -182,9 +98,12 @@
                         </tr>
                     </template>
                 </template>
+                <tr class="category">
+                    <td colspan="5">Opportunity Accommodation</td>
+                </tr>
                 <template repeat="{{accommodation in category.accommodationCategories}}">
-                    <template repeat="{{cell in accommodation.cellCategories}}">
-                    <tr>
+                    <template repeat="{{cell, index in accommodation.cellCategories}}">
+                    <tr class="opportunityAccommodation {{oddOrEvenClass(index)}}">
                         <td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -193,9 +112,12 @@
                     </tr>
                     </template>
                 </template>
+                <tr class="category">
+                    <td colspan="5">Opportunity Scores</td>
+                </tr>
                 <template repeat="{{score in category.scoreCategories}}">
-                    <template repeat="{{cell in score.cellCategories}}">
-                        <tr>
+                    <template repeat="{{cell, index in score.cellCategories}}">
+                        <tr class="opportunityScore {{oddOrEvenClass(index)}}">
                             <td>Opportunity Score: {{cell.tdsFieldName}}</td>
                             <td>{{cell.tdsExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
@@ -204,9 +126,12 @@
                         </tr>
                     </template>
                 </template>
+                <tr class="category">
+                    <td colspan="5">Opportunity Items</td>
+                </tr>
                 <template repeat="{{item in category.itemCategories}}">
-                    <template repeat="{{cell in item.cellCategories}}">
-                        <tr>
+                    <template repeat="{{cell, index in item.cellCategories}}">
+                        <tr class="opportunityItem {{oddOrEvenClass(index)}}">
                             <td>Opportunity Item: {{cell.tdsFieldName}}</td>
                             <td>{{cell.tdsExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
@@ -286,9 +211,13 @@
                 </template>
             </template>
 
+            <tr class="category">
+                <td colspan="5">Comments</td>
+            </tr>
+
             <template repeat="{{category in response.commentCategories}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="comment {{oddOrEvenClass(index)}}">
                         <td>Comment: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -298,9 +227,13 @@
                 </template>
             </template>
 
+            <tr class="category">
+                <td colspan="5">Tool Usage</td>
+            </tr>
+
             <template repeat="{{category in response.toolUsageCategories}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="toolUsage {{oddOrEvenClass(index)}}">
                         <td>ToolUsage: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -309,8 +242,8 @@
                     </tr>
                 </template>
                 <template repeat="{{pageCategory in category.toolPageCategories}}">
-                    <template repeat="{{cell in pageCategory.cellCategories}}">
-                        <tr>
+                    <template repeat="{{cell, index in pageCategory.cellCategories}}">
+                        <tr class="toolPage {{oddOrEvenClass(index)}}">
                             <td>ToolPage: {{cell.tdsFieldName}}</td>
                             <td>{{cell.tdsExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
@@ -354,6 +287,9 @@
                 }
 
                 return reasons.join();
+            },
+            oddOrEvenClass: function(index) {
+                return index % 2 == 0 ? 'even' : 'odd';
             }
         });
     </script>
