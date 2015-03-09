@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import builders.CellCategoryBuilder;
 import builders.ItemAttributeBuilder;
 import builders.StudentResponseBuilder;
 

@@ -244,17 +244,17 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	public boolean isCorrectValue(String v1, String v2) {
-		return v1.trim().toLowerCase().equals(v2.trim().toLowerCase());
+		return StringUtils.equalsIgnoreCase(v1.trim(), v2.trim());
 	}
 
 	public <U> boolean compare(List<U> list1, List<U> list2) {
-		 if (list1==null && list2==null) 
-			 return true;
-		 if ((list1!=null && list2==null) || (list1==null && list2!=null) || ( list1.size()!=list2.size() ))
-			 return false;
-		 Collections.sort(list1, Collator.getInstance());
-		 Collections.sort(list2, Collator.getInstance());
-		 return list1.equals(list2);
+		if (list1 == null && list2 == null)
+			return true;
+		if ((list1 != null && list2 == null) || (list1 == null && list2 != null) || (list1.size() != list2.size()))
+			return false;
+		Collections.sort(list1, Collator.getInstance());
+		Collections.sort(list2, Collator.getInstance());
+		return list1.equals(list2);
 	}
 
 	public void processP_Positive32bit(String inputValue, FieldCheckType fieldCheckType) {
@@ -275,7 +275,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	public void processP_PritableASCIIone(String inputValue, FieldCheckType fieldCheckType) {
-		if (inputValue.length() > 0 && StringUtils.isAsciiPrintable(inputValue)) {
+		if (StringUtils.isNotBlank(inputValue) && StringUtils.isAsciiPrintable(inputValue)) {
 			setPcorrect(fieldCheckType);
 		}
 	}
@@ -312,9 +312,11 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	public void validateUnsignedFloat(String inputValue, FieldCheckType fieldCheckType, int allowedValue) {
 		try {
-			float fValue = Float.parseFloat(inputValue);
-			if (fValue >= 0 || fValue == allowedValue) {
-				setPcorrect(fieldCheckType);
+			if (inputValue != null) {
+				float fValue = Float.parseFloat(inputValue.trim());
+				if (fValue >= 0 || fValue == allowedValue) {
+					setPcorrect(fieldCheckType);
+				}
 			}
 		} catch (NumberFormatException e) {
 			logger.info("Not a float: " + inputValue);

@@ -27,6 +27,11 @@ public class StudentResponseBuilder {
     	return this;
     }
     
+    public StudentResponseBuilder excelResponse(String value){
+    	studentResponse.setResponseContent(value);
+    	return this;
+    }
+    
     public StudentResponse toStudentResponse() {
         return studentResponse;
     }
