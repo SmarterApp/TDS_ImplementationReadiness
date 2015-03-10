@@ -1,4 +1,5 @@
 <link rel="import" href="deps/polymer/polymer.html">
+<link rel="import" href="deps/core-ajax/core-xhr.html">
 
 <polymer-element name="report-summary" attributes="responses">
     <template>
@@ -101,6 +102,11 @@
         </style>
 
         <div>
+            <!--<core-xhr id="xhr"></core-xhr>-->
+            <form id="bb" action="/pdfreport.html" method="post">
+                <input type="hidden" name="individualResponses" value="">
+                <button id="pdf" type="button">PDF</button>
+            </form>
             <table class="reportSummary">
                 <thead>
                     <tr>
@@ -123,6 +129,18 @@
         Polymer("report-summary", {
             created: function() {
                 this.responses = {};
+            },
+            ready: function() {
+                var that = this;
+                this.$.pdf.addEventListener('click', function(event) {
+                    var body = JSON.stringify({"individualResponses":that.responses});
+                    that.$.bb.children[0].value = body;
+                    that.$.bb.submit();
+//                    that.$.xhr.request({url:'/pdfreport.html', method:'POST', body:body, headers:{'Content-Type':'application/json'}, responseType:'blob',
+//                        callback:function(response) {
+//                            that.$.aa.src = 'url';
+//                        }});
+                });
             },
             status: function(input) {
                 return input ? "Yes" : "No";

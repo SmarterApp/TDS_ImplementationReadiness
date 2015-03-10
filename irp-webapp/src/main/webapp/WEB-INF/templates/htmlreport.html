@@ -1,0 +1,277 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Implementation Readiness Package Report</title>
+    <link rel="stylesheet" href="css/report.css"/>
+</head>
+<body>
+    <table class="tableAnalysis">
+        <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Expected Value</th>
+            <th>Returned Value</th>
+            <th>Status</th>
+            <th>Explanation</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="category">
+            <td colspan="5">Test Properties</td>
+        </tr>
+
+        <template bind="{{response.testPropertiesCategory as category}}">
+            <template repeat="{{cell, index in category.cellCategories}}">
+                <tr class="testPropertiesRows {{oddOrEvenClass(index)}}">
+                    <td>Test Properties: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+        </template>
+
+        <tr class="category">
+            <td colspan="5">Examinee</td>
+        </tr>
+
+        <template bind="{{response.examineeCategory as category}}">
+            <template repeat="{{cell, index in category.cellCategories}}">
+                <tr class="examineeRows {{oddOrEvenClass(index)}}">
+                    <td>Examinee: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+        </template>
+
+        <template repeat="{{category, index in response.examineeAttributeCategories}}">
+            <template repeat="{{cell in category.cellCategories}}">
+                <tr class="examineeAttributeRows {{oddOrEvenClass(index)}}">
+                    <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+        </template>
+
+        <template repeat="{{category, index in response.examineeRelationshipCategories}}">
+            <template repeat="{{cell in category.cellCategories}}">
+                <tr class="examineeRelationshipRows {{oddOrEvenClass(index)}}">
+                    <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+        </template>
+
+        <tr class="category">
+            <td colspan="5">Opportunity</td>
+        </tr>
+
+        <template bind="{{response.opportunityCategory as category}}">
+            <template repeat="{{cell, index in category.cellCategories}}">
+                <tr class="opportunityPropertiesRows {{oddOrEvenClass(index)}}">
+                    <td>Opportunity Properties: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+            <tr class="category">
+                <td colspan="5">Opportunity Segments</td>
+            </tr>
+            <template repeat="{{segment in category.segmentCategories}}">
+                <template repeat="{{cell, index in segment.cellCategories}}">
+                    <tr class="opportunitySegmentRows {{oddOrEvenClass(index)}}">
+                        <td>Opportunity Segment: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{cell.fieldCheckType | status}}</td>
+                        <td>{{cell.fieldCheckType | explanation}}</td>
+                    </tr>
+                </template>
+            </template>
+            <tr class="category">
+                <td colspan="5">Opportunity Accommodation</td>
+            </tr>
+            <tr>
+                <td colspan="5">This section is still under development.</td>
+            </tr>
+            <!--<template repeat="{{accommodation in category.accommodationCategories}}">-->
+            <!--<template repeat="{{cell, index in accommodation.cellCategories}}">-->
+            <!--<tr class="opportunityAccommodation {{oddOrEvenClass(index)}}">-->
+            <!--<td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>-->
+            <!--<td>{{cell.tdsExpectedValue}}</td>-->
+            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+            <!--<td>{{cell.fieldCheckType | status}}</td>-->
+            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+            <!--</tr>-->
+            <!--</template>-->
+            <!--</template>-->
+            <tr class="category">
+                <td colspan="5">Opportunity Scores</td>
+            </tr>
+            <tr>
+                <td colspan="5">This section is still under development.</td>
+            </tr>
+            <!--<template repeat="{{score in category.scoreCategories}}">-->
+            <!--<template repeat="{{cell, index in score.cellCategories}}">-->
+            <!--<tr class="opportunityScore {{oddOrEvenClass(index)}}">-->
+            <!--<td>Opportunity Score: {{cell.tdsFieldName}}</td>-->
+            <!--<td>{{cell.tdsExpectedValue}}</td>-->
+            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+            <!--<td>{{cell.fieldCheckType | status}}</td>-->
+            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+            <!--</tr>-->
+            <!--</template>-->
+            <!--</template>-->
+            <tr class="category">
+                <td colspan="5">Opportunity Items</td>
+            </tr>
+            <template repeat="{{item, index in category.itemCategories}}">
+                <tr class="opportunityItem even">
+                    <td colspan="3">{{item.itemBankKeyKey}}</td>
+                    <td>{{item | itemStatus}}</td>
+                    <td>{{item | itemExplanation}}</td>
+                </tr>
+                <template repeat="{{cell in item.cellCategories}}">
+                    <tr class="opportunityItem">
+                        <td>Opportunity Item: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{cell.fieldCheckType | status}}</td>
+                        <td>{{cell.fieldCheckType | explanation}}</td>
+                    </tr>
+                </template>
+                <template if="{{item.responseCategory}}">
+                    <template bind="{{item.responseCategory as rc}}">
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item Response: date</td>
+                            <td></td>
+                            <td>{{rc.date}}</td>
+                            <td>{{rc.dateFieldCheckType | status}}</td>
+                            <td>{{rc.dateFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item Response: type</td>
+                            <td></td>
+                            <td>{{rc.type}}</td>
+                            <td>{{rc.typeFieldCheckType | status}}</td>
+                            <td>{{rc.typeFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item Response: content</td>
+                            <td></td>
+                            <td>Check file for content</td>
+                            <td>{{rc.contentFieldCheckType | status}}</td>
+                            <td>{{rc.contentFieldCheckType | explanation}}</td>
+                        </tr>
+                    </template>
+                </template>
+                <template if="{{item.scoreInfoCategory}}">
+                    <template bind="{{item.scoreInfoCategory as si}}">
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scorePoint</td>
+                            <td></td>
+                            <td>{{si.scorePoint}}</td>
+                            <td>{{si.scorePointFieldCheckType | status}}</td>
+                            <td>{{si.scorePointFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: maxScore</td>
+                            <td></td>
+                            <td>{{si.maxScore}}</td>
+                            <td>{{si.maxScoreFieldCheckType | status}}</td>
+                            <td>{{si.maxScoreFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scoreDimension</td>
+                            <td></td>
+                            <td>{{si.scoreDimension}}</td>
+                            <td>{{si.scoreDimensionFieldCheckType | status}}</td>
+                            <td>{{si.scoreDimensionFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scoreStatus</td>
+                            <td></td>
+                            <td>{{si.scoreStatus}}</td>
+                            <td>{{si.scoreStatusFieldCheckType | status}}</td>
+                            <td>{{si.scoreStatusFieldCheckType | explanation}}</td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: confLevel</td>
+                            <td></td>
+                            <td>{{si.confLevel}}</td>
+                            <td>{{si.confLevelFieldCheckType | status}}</td>
+                            <td>{{si.confLevelFieldCheckType | explanation}}</td>
+                        </tr>
+                        <template bind="{{si.scoreRationaleCategory as sr}}">
+                            <tr class="opportunityItem">
+                                <td>Opportunity Item ScoreRationale: message</td>
+                                <td></td>
+                                <td>{{sr.message}}</td>
+                                <td>{{sr.messageFieldCheckType | status}}</td>
+                                <td>{{sr.messageFieldCheckType | explanation}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                </template>
+            </template>
+        </template>
+
+        <tr class="category">
+            <td colspan="5">Comments</td>
+        </tr>
+
+        <template repeat="{{category in response.commentCategories}}">
+            <template repeat="{{cell, index in category.cellCategories}}">
+                <tr class="comment {{oddOrEvenClass(index)}}">
+                    <td>Comment: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+        </template>
+
+        <tr class="category">
+            <td colspan="5">Tool Usage</td>
+        </tr>
+
+        <template repeat="{{category in response.toolUsageCategories}}">
+            <template repeat="{{cell, index in category.cellCategories}}">
+                <tr class="toolUsage {{oddOrEvenClass(index)}}">
+                    <td>ToolUsage: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{cell.fieldCheckType | status}}</td>
+                    <td>{{cell.fieldCheckType | explanation}}</td>
+                </tr>
+            </template>
+            <template repeat="{{pageCategory in category.toolPageCategories}}">
+                <template repeat="{{cell, index in pageCategory.cellCategories}}">
+                    <tr class="toolPage {{oddOrEvenClass(index)}}">
+                        <td>ToolPage: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{cell.fieldCheckType | status}}</td>
+                        <td>{{cell.fieldCheckType | explanation}}</td>
+                    </tr>
+                </template>
+            </template>
+        </template>
+        </tbody>
+    </table>
+</body>
+</html>
