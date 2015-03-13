@@ -50,4 +50,6 @@
         <property name="templateEngine" ref="templateEngine" />
         <property name="order" value="1" />
     </bean>
+
+    <bean id="pdfObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
 </beans>
