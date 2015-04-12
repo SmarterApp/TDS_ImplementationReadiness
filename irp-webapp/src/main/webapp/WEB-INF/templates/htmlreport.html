@@ -6,27 +6,11 @@
     <title>Implementation Readiness Package Report</title>
     <style>
         .tableAnalysis {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             width: 100%;
             border: 1px solid #000000;
             border-spacing: 0;
-
-            -moz-border-radius-bottomleft: 0px;
-            -webkit-border-bottom-left-radius: 0px;
-            border-bottom-left-radius: 0px;
-
-            -moz-border-radius-bottomright: 0px;
-            -webkit-border-bottom-right-radius: 0px;
-            border-bottom-right-radius: 0px;
-
-            -moz-border-radius-topright: 0px;
-            -webkit-border-top-right-radius: 0px;
-            border-top-right-radius: 0px;
-
-            -moz-border-radius-topleft: 0px;
-            -webkit-border-top-left-radius: 0px;
-            border-top-left-radius: 0px;
         }
 
         .tableAnalysis table {
@@ -34,36 +18,29 @@
             border-spacing: 0;
             width: 100%;
             height: 100%;
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
         }
 
         .tableAnalysis th {
-            border: 1px solid #000000;
-            border-width: 0px 1px 1px 0px;
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #000000;
         }
 
         .tableAnalysis tr:last-child td:last-child {
-            -moz-border-radius-bottomright: 0px;
-            -webkit-border-bottom-right-radius: 0px;
             border-bottom-right-radius: 0px;
         }
 
         .tableAnalysis table tr:first-child td:first-child {
-            -moz-border-radius-topleft: 0px;
-            -webkit-border-top-left-radius: 0px;
             border-top-left-radius: 0px;
         }
 
         .tableAnalysis table tr:first-child td:last-child {
-            -moz-border-radius-topright: 0px;
-            -webkit-border-top-right-radius: 0px;
             border-top-right-radius: 0px;
         }
 
         .tableAnalysis tr:last-child td:first-child {
-            -moz-border-radius-bottomleft: 0px;
-            -webkit-border-bottom-left-radius: 0px;
             border-bottom-left-radius: 0px;
         }
 
@@ -105,51 +82,49 @@
         .tableAnalysis td {
             vertical-align: middle;
 
-            border: 1px solid #000000;
-            border-width: 0px 1px 1px 0px;
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #000000;
             text-align: left;
             padding: 7px;
             font-size: 10px;
-            font-family: Arial;
+            font-family: Arial, Helvetica, Geneva, sans-serif;
             font-weight: normal;
             color: #000000;
         }
 
         .tableAnalysis tr:last-child td {
-            border-width: 0px 1px 0px 0px;
+            border-width: 0 1px 0 0;
         }
 
         .tableAnalysis tr td:last-child {
-            border-width: 0px 0px 1px 0px;
+            border-width: 0 0 1px 0;
         }
 
         .tableAnalysis tr:last-child td:last-child {
-            border-width: 0px 0px 0px 0px;
+            border-width: 0 0 0 0;
         }
 
-        .tableAnalysis thead th {
-            background: -o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2));
-            background: -moz-linear-gradient(center top, #cccccc 5%, #b2b2b2 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");
-            background: -o-linear-gradient(top, #cccccc, b2b2b2);
+        .tableAnalysis thead {display: table-header-group;}
 
+        .tableAnalysis thead th {
             background-color: #cccccc;
-            border: 0px solid #000000;
             text-align: center;
-            border-width: 0px 0px 1px 1px;
+            border: 0 solid #000000;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
             font-size: 14px;
-            font-family: Arial;
+            font-family: Arial, Helvetica, Geneva, sans-serif;
             font-weight: bold;
             color: #000000;
         }
 
         .tableAnalysis tr:first-child td:first-child {
-            border-width: 0px 0px 1px 0px;
+            border-width: 0 0 1px 0;
         }
 
         .tableAnalysis tr:first-child td:last-child {
-            border-width: 0px 0px 1px 1px;
+            border-width: 0 0 1px 1px;
         }
 
         .tableAnalysis .category td {
@@ -166,264 +141,238 @@
     </style>
 </head>
 <body>
-    <div th:each="response : ${responses.individualResponses}" th:remove="tag">
-        <table class="tableAnalysis">
-            <thead>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Expected Value</th>
-                    <th>Returned Value</th>
-                    <th>Status</th>
-                    <th>Explanation</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="category">
-                    <td colspan="5">Test Properties</td>
-                </tr>
+    <th:block th:each="response : ${responses.individualResponses}">
+        <table>
+            <tr>
+                <td>Filename</td>
+                <td th:text="${response.fileName}"></td>
+            </tr>
+            <tr>
+                <td>XML Valid</td>
+                <td th:text="${response.validXMLfile}"></td>
+            </tr>
+        </table>
+    <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Expected Value</th>
+                <th>Returned Value</th>
+                <th>Status</th>
+                <th>Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="category">
+                <td colspan="5">Test Properties</td>
+            </tr>
 
-                <tr th:each="cell,iterStat : ${response.testPropertiesCategory.cellCategories}" class="testPropertiesRows" th:classappend="${iterStat.even}? 'even'">
-                    <td>Test Properties: <span th:text=" ${cell.tdsFieldName}"></span></td>
+            <tr th:each="cell : ${response.testPropertiesCategory.cellCategories}" class="testPropertiesRows" th:classappend="${cellStat.even}? 'even'">
+                <td>Test Properties: <span th:text=" ${cell.tdsFieldName}"></span></td>
+                <td th:text="${cell.tdsExpectedValue}"></td>
+                <td th:text="${cell.tdsFieldNameValue}"></td>
+                <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+            </tr>
+
+            <tr class="category">
+                <td colspan="5">Examinee</td>
+            </tr>
+
+            <tr th:each="cell : ${response.examineeCategory.cellCategories}" class="examineeRows" th:classappend="${cellStat.even}? 'even'">
+                <td>Examinee: <span th:text="${cell.tdsFieldName}"></span></td>
+                <td th:text="${cell.tdsExpectedValue}"></td>
+                <td th:text="${cell.tdsFieldNameValue}"></td>
+                <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+            </tr>
+
+            <th:block th:each="category : ${response.examineeAttributeCategories}" th:with="categoryIndex=${categoryStat}">
+                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
+                    <td>ExamineeAttribute: <span th:text="${cell.tdsFieldName}"></span></td>
                     <td th:text="${cell.tdsExpectedValue}"></td>
                     <td th:text="${cell.tdsFieldNameValue}"></td>
                     <td th:text="${helper.status(cell.fieldCheckType)}"></td>
                     <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                 </tr>
+            </th:block>
 
-                <tr class="category">
-                    <td colspan="5">Examinee</td>
-                </tr>
-
-                <tr th:each="cell,iterStat : ${response.examineeCategory.cellCategories}" class="examineeRows" th:classappend="${iterStat.even}? 'even'">
-                    <td>Examinee: <span th:text="${cell.tdsFieldName}"></span></td>
+            <th:block th:each="category : ${response.examineeRelationshipCategories}" th:with="categoryIndex=${categoryStat}">
+                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
+                    <td>ExamineeRelationship: <span th:text="${cell.tdsFieldName}"></span></td>
                     <td th:text="${cell.tdsExpectedValue}"></td>
                     <td th:text="${cell.tdsFieldNameValue}"></td>
                     <td th:text="${helper.status(cell.fieldCheckType)}"></td>
                     <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                 </tr>
+            </th:block>
 
-                <div th:each="category,iterStat : ${response.examineeAttributeCategories}" th:remove="tag">
-                    <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${iterStat.even}? 'even'">
-                        <td>ExamineeAttribute: <span th:text="${cell.tdsFieldName}"></span></td>
+            <tr class="category">
+                <td colspan="5">Opportunity</td>
+            </tr>
+            <tr th:each="cell : ${response.opportunityCategory.cellCategories}" class="opportunityPropertiesRows" th:classappend="${cellStat.even}? 'even'">
+                <td>Opportunity Properties: <span th:text="${cell.tdsFieldName}"></span></td>
+                <td th:text="${cell.tdsExpectedValue}"></td>
+                <td th:text="${cell.tdsFieldNameValue}"></td>
+                <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+            </tr>
+
+            <tr class="category">
+                <td colspan="5">Opportunity Segments</td>
+            </tr>
+            <th:block th:each="segment : ${response.opportunityCategory.segmentCategories}">
+                <tr th:each="cell : ${segment.cellCategories}" class="opportunitySegmentRows" th:classappend="${cellStat.even}? 'even'">
+                    <td>Opportunity Segment: <span th:text="${cell.tdsFieldName}"></span></td>
+                    <td th:text="${cell.tdsExpectedValue}"></td>
+                    <td th:text="${cell.tdsFieldNameValue}"></td>
+                    <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                    <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                </tr>
+            </th:block>
+
+            <tr class="category">
+                <td colspan="5">Opportunity Accommodation</td>
+            </tr>
+            <tr>
+                <td colspan="5">This section is still under development.</td>
+            </tr>
+
+            <tr class="category">
+                <td colspan="5">Opportunity Scores</td>
+            </tr>
+            <tr>
+                <td colspan="5">This section is still under development.</td>
+            </tr>
+
+            <tr class="category">
+                <td colspan="5">Opportunity Items</td>
+            </tr>
+            <th:block th:each="item : ${response.opportunityCategory.itemCategories}">
+                <tr class="opportunityItem even">
+                    <td colspan="3" th:text="${item.itemBankKeyKey}"></td>
+                    <td th:text="${helper.itemStatus(item)}"></td>
+                    <td th:text="${helper.itemExplanation(item)}"></td>
+                </tr>
+
+                <th:block th:if="${helper.itemFound(item)}">
+
+                    <tr th:each="cell : ${item.cellCategories}" class="opportunityItem">
+                        <td>Opportunity Item: <span th:text="${cell.tdsFieldName}"></span></td>
                         <td th:text="${cell.tdsExpectedValue}"></td>
                         <td th:text="${cell.tdsFieldNameValue}"></td>
                         <td th:text="${helper.status(cell.fieldCheckType)}"></td>
                         <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                     </tr>
-                </div>
 
-                <!--<template repeat="{{category, index in response.examineeRelationshipCategories}}">-->
-                    <!--<template repeat="{{cell in category.cellCategories}}">-->
-                        <!--<tr class="examineeRelationshipRows {{oddOrEvenClass(index)}}">-->
-                            <!--<td>ExamineeRelationship: {{cell.tdsFieldName}}</td>-->
-                            <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                        <!--</tr>-->
-                    <!--</template>-->
-                <!--</template>-->
+                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
+                        <td>Opportunity Item Response: date</td>
+                        <td></td>
+                        <td th:text="${rc.date}"></td>
+                        <td th:text="${helper.status(rc.dateFieldCheckType)}"></td>
+                        <td th:text="${helper.explanation(rc.dateFieldCheckType)}"></td>
+                    </tr>
+                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
+                        <td>Opportunity Item Response: type</td>
+                        <td></td>
+                        <td th:text="${rc.type}"></td>
+                        <td th:text="${helper.status(rc.typeFieldCheckType)}"></td>
+                        <td th:text="${helper.explanation(rc.typeFieldCheckType)}"></td>
+                    </tr>
+                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
+                        <td>Opportunity Item Response: content</td>
+                        <td></td>
+                        <td>Check file for content</td>
+                        <td th:text="${helper.status(rc.contentFieldCheckType)}"></td>
+                        <td th:text="${helper.explanation(rc.contentFieldCheckType)}"></td>
+                    </tr>
+                    <th:block th:if="${item.scoreInfoCategory}" th:with="si=${item.scoreInfoCategory}">
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scorePoint</td>
+                            <td></td>
+                            <td th:text="${si.scorePoint}"></td>
+                            <td th:text="${helper.status(si.scorePointFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.scorePointFieldCheckType)}"></td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: maxScore</td>
+                            <td></td>
+                            <td th:text="${si.maxScore}"></td>
+                            <td th:text="${helper.status(si.maxScoreFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.maxScoreFieldCheckType)}"></td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scoreDimension</td>
+                            <td></td>
+                            <td th:text="${si.scoreDimension}"></td>
+                            <td th:text="${helper.status(si.scoreDimensionFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.scoreDimensionFieldCheckType)}"></td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: scoreStatus</td>
+                            <td></td>
+                            <td th:text="${si.scoreStatus}"></td>
+                            <td th:text="${helper.status(si.scoreStatusFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.scoreStatusFieldCheckType)}"></td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: confLevel</td>
+                            <td></td>
+                            <td th:text="${si.confLevel}"></td>
+                            <td th:text="${helper.status(si.confLevelFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.confLevelFieldCheckType)}"></td>
+                        </tr>
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreRationale: message</td>
+                            <td></td>
+                            <td th:text="${si.scoreRationaleCategory.message}"></td>
+                            <td th:text="${helper.status(si.scoreRationaleCategory.messageFieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(si.scoreRationaleCategory.messageFieldCheckType)}"></td>
+                        </tr>
+                    </th:block>
 
-                <!--<tr class="category">-->
-                    <!--<td colspan="5">Opportunity</td>-->
-                <!--</tr>-->
+                </th:block>
+            </th:block>
 
-                <!--<template bind="{{response.opportunityCategory as category}}">-->
-                    <!--<template repeat="{{cell, index in category.cellCategories}}">-->
-                        <!--<tr class="opportunityPropertiesRows {{oddOrEvenClass(index)}}">-->
-                            <!--<td>Opportunity Properties: {{cell.tdsFieldName}}</td>-->
-                            <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                        <!--</tr>-->
-                    <!--</template>-->
-                    <!--<tr class="category">-->
-                        <!--<td colspan="5">Opportunity Segments</td>-->
-                    <!--</tr>-->
-                    <!--<template repeat="{{segment in category.segmentCategories}}">-->
-                        <!--<template repeat="{{cell, index in segment.cellCategories}}">-->
-                            <!--<tr class="opportunitySegmentRows {{oddOrEvenClass(index)}}">-->
-                                <!--<td>Opportunity Segment: {{cell.tdsFieldName}}</td>-->
-                                <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                                <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                            <!--</tr>-->
-                        <!--</template>-->
-                    <!--</template>-->
-                    <!--<tr class="category">-->
-                        <!--<td colspan="5">Opportunity Accommodation</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td colspan="5">This section is still under development.</td>-->
-                    <!--</tr>-->
-                    <!--<template repeat="{{accommodation in category.accommodationCategories}}">-->
-                    <!--<template repeat="{{cell, index in accommodation.cellCategories}}">-->
-                    <!--<tr class="opportunityAccommodation {{oddOrEvenClass(index)}}">-->
-                    <!--<td>Opportunity Accommodation: {{cell.tdsFieldName}}</td>-->
-                    <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                    <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                    <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                    <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                    <!--</tr>-->
-                    <!--</template>-->
-                    <!--</template>-->
-                    <!--<tr class="category">-->
-                        <!--<td colspan="5">Opportunity Scores</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td colspan="5">This section is still under development.</td>-->
-                    <!--</tr>-->
-                    <!--<template repeat="{{score in category.scoreCategories}}">-->
-                    <!--<template repeat="{{cell, index in score.cellCategories}}">-->
-                    <!--<tr class="opportunityScore {{oddOrEvenClass(index)}}">-->
-                    <!--<td>Opportunity Score: {{cell.tdsFieldName}}</td>-->
-                    <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                    <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                    <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                    <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                    <!--</tr>-->
-                    <!--</template>-->
-                    <!--</template>-->
-                    <!--<tr class="category">-->
-                        <!--<td colspan="5">Opportunity Items</td>-->
-                    <!--</tr>-->
-                    <!--<template repeat="{{item, index in category.itemCategories}}">-->
-                        <!--<tr class="opportunityItem even">-->
-                            <!--<td colspan="3">{{item.itemBankKeyKey}}</td>-->
-                            <!--<td>{{item | itemStatus}}</td>-->
-                            <!--<td>{{item | itemExplanation}}</td>-->
-                        <!--</tr>-->
-                        <!--<template repeat="{{cell in item.cellCategories}}">-->
-                            <!--<tr class="opportunityItem">-->
-                                <!--<td>Opportunity Item: {{cell.tdsFieldName}}</td>-->
-                                <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                                <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                            <!--</tr>-->
-                        <!--</template>-->
-                        <!--<template if="{{item.responseCategory}}">-->
-                            <!--<template bind="{{item.responseCategory as rc}}">-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item Response: date</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{rc.date}}</td>-->
-                                    <!--<td>{{rc.dateFieldCheckType | status}}</td>-->
-                                    <!--<td>{{rc.dateFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item Response: type</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{rc.type}}</td>-->
-                                    <!--<td>{{rc.typeFieldCheckType | status}}</td>-->
-                                    <!--<td>{{rc.typeFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item Response: content</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>Check file for content</td>-->
-                                    <!--<td>{{rc.contentFieldCheckType | status}}</td>-->
-                                    <!--<td>{{rc.contentFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                            <!--</template>-->
-                        <!--</template>-->
-                        <!--<template if="{{item.scoreInfoCategory}}">-->
-                            <!--<template bind="{{item.scoreInfoCategory as si}}">-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item ScoreInfo: scorePoint</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{si.scorePoint}}</td>-->
-                                    <!--<td>{{si.scorePointFieldCheckType | status}}</td>-->
-                                    <!--<td>{{si.scorePointFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item ScoreInfo: maxScore</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{si.maxScore}}</td>-->
-                                    <!--<td>{{si.maxScoreFieldCheckType | status}}</td>-->
-                                    <!--<td>{{si.maxScoreFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item ScoreInfo: scoreDimension</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{si.scoreDimension}}</td>-->
-                                    <!--<td>{{si.scoreDimensionFieldCheckType | status}}</td>-->
-                                    <!--<td>{{si.scoreDimensionFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item ScoreInfo: scoreStatus</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{si.scoreStatus}}</td>-->
-                                    <!--<td>{{si.scoreStatusFieldCheckType | status}}</td>-->
-                                    <!--<td>{{si.scoreStatusFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<tr class="opportunityItem">-->
-                                    <!--<td>Opportunity Item ScoreInfo: confLevel</td>-->
-                                    <!--<td></td>-->
-                                    <!--<td>{{si.confLevel}}</td>-->
-                                    <!--<td>{{si.confLevelFieldCheckType | status}}</td>-->
-                                    <!--<td>{{si.confLevelFieldCheckType | explanation}}</td>-->
-                                <!--</tr>-->
-                                <!--<template bind="{{si.scoreRationaleCategory as sr}}">-->
-                                    <!--<tr class="opportunityItem">-->
-                                        <!--<td>Opportunity Item ScoreRationale: message</td>-->
-                                        <!--<td></td>-->
-                                        <!--<td>{{sr.message}}</td>-->
-                                        <!--<td>{{sr.messageFieldCheckType | status}}</td>-->
-                                        <!--<td>{{sr.messageFieldCheckType | explanation}}</td>-->
-                                    <!--</tr>-->
-                                <!--</template>-->
-                            <!--</template>-->
-                        <!--</template>-->
-                    <!--</template>-->
-                <!--</template>-->
+            <tr class="category">
+                <td colspan="5">Comments</td>
+            </tr>
 
-                <!--<tr class="category">-->
-                    <!--<td colspan="5">Comments</td>-->
-                <!--</tr>-->
+            <th:block th:each="category : ${response.commentCategories}">
+                <tr th:each="cell : ${category.cellCategories}" class="comment" th:classappend="${cellStat.even}? 'even'">
+                    <td>Comment: <span th:text="${cell.tdsFieldName}"></span></td>
+                    <td th:text="${cell.tdsExpectedValue}"></td>
+                    <td th:text="${cell.tdsFieldNameValue}"></td>
+                    <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                    <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                </tr>
+            </th:block>
 
-                <!--<template repeat="{{category in response.commentCategories}}">-->
-                    <!--<template repeat="{{cell, index in category.cellCategories}}">-->
-                        <!--<tr class="comment {{oddOrEvenClass(index)}}">-->
-                            <!--<td>Comment: {{cell.tdsFieldName}}</td>-->
-                            <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                        <!--</tr>-->
-                    <!--</template>-->
-                <!--</template>-->
+            <tr class="category">
+                <td colspan="5">Tool Usage</td>
+            </tr>
 
-                <!--<tr class="category">-->
-                    <!--<td colspan="5">Tool Usage</td>-->
-                <!--</tr>-->
-
-                <!--<template repeat="{{category in response.toolUsageCategories}}">-->
-                    <!--<template repeat="{{cell, index in category.cellCategories}}">-->
-                        <!--<tr class="toolUsage {{oddOrEvenClass(index)}}">-->
-                            <!--<td>ToolUsage: {{cell.tdsFieldName}}</td>-->
-                            <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                            <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                            <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                        <!--</tr>-->
-                    <!--</template>-->
-                    <!--<template repeat="{{pageCategory in category.toolPageCategories}}">-->
-                        <!--<template repeat="{{cell, index in pageCategory.cellCategories}}">-->
-                            <!--<tr class="toolPage {{oddOrEvenClass(index)}}">-->
-                                <!--<td>ToolPage: {{cell.tdsFieldName}}</td>-->
-                                <!--<td>{{cell.tdsExpectedValue}}</td>-->
-                                <!--<td>{{cell.tdsFieldNameValue}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | status}}</td>-->
-                                <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
-                            <!--</tr>-->
-                        <!--</template>-->
-                    <!--</template>-->
-                <!--</template>-->
-            </tbody>
-        </table>
-    </div>
+            <th:block th:each="category : ${response.toolUsageCategories}">
+                <tr th:each="cell : ${category.cellCategories}" class="toolUsage" th:classappend="${cellStat.even}? 'even'">
+                    <td>ToolUsage: <span th:text="${cell.tdsFieldName}"></span></td>
+                    <td th:text="${cell.tdsExpectedValue}"></td>
+                    <td th:text="${cell.tdsFieldNameValue}"></td>
+                    <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                    <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                </tr>
+                <th:block th:each="pageCategory : ${category.toolPageCategories}">
+                    <tr th:each="cell : ${pageCategory.cellCategories}" class="toolPage" th:classappend="${cellStat.even}? 'even'">
+                        <td>ToolPage: <span th:text="${cell.tdsFieldName}"></span></td>
+                        <td th:text="${cell.tdsExpectedValue}"></td>
+                        <td th:text="${cell.tdsFieldNameValue}"></td>
+                        <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                        <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                    </tr>
+                </th:block>
+            </th:block>
+        </tbody>
+    </table>
+        <div style="page-break-before:always">&nbsp;</div>
+    </th:block>
 </body>
 </html>

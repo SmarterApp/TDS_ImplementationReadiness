@@ -29,7 +29,7 @@ public class PDFController {
     private static final Logger log = LoggerFactory.getLogger(PDFController.class);
 
     @Autowired
-    private ObjectMapper pdfObjectMapper;
+    private ObjectMapper jacksonObjectMapper;
 
     @Autowired
     private TemplateEngine templateEngine;
@@ -39,29 +39,23 @@ public class PDFController {
         try {
             String analysisResponseParameter = request.getParameter("analysisResponses");
 
-            pdfObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            AnalysisResponse analysisResponse = pdfObjectMapper.readValue(analysisResponseParameter, AnalysisResponse.class);
+            AnalysisResponse analysisResponse = jacksonObjectMapper.readValue(analysisResponseParameter, AnalysisResponse.class);
 
             WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
             context.setVariable("responses", analysisResponse);
             context.setVariable("helper", new DisplayHelper());
 
+            templateEngine.clearTemplateCache();
             String htmlReport = templateEngine.process("htmlreport", context);
 
             response.setContentType("application/x-download");
             response.setHeader("Content-Disposition", "attachment; filename=report.pdf");
 
-            // step 1
             Document document = new Document();
-            // step 2
             PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
-            // step 3
             document.open();
-            // step 4
             XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
-            //step 5
             document.close();
-
         } catch (Exception ex) {
             log.error("pdf error", ex);
         }
@@ -101,8 +95,12 @@ public class PDFController {
             return (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) ? "Match" : "Errors Found";
         }
 
+        public boolean itemFound(ItemCategory item) {
+            return item.getStatus() == ItemCategory.ItemStatusEnum.FOUND;
+        }
+
         public String itemExplanation(ItemCategory item) {
-            if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) { return "This Item matches a given IRP Item. See detailed analysis below."; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) { return "This Item matches a given IRP Item. The detailed analysis follows."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && !item.isItemFormatCorrect()) { return "The Item's format is incorrect"; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.MISSING) { return "This Item is missing from the TDS Report."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is not part of the IRP Package and cannot be analyzed"; }

@@ -6,6 +6,7 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class IndividualResponse {
 
@@ -130,5 +131,28 @@ public class IndividualResponse {
                 .append("commentCategories", commentCategories)
                 .append("toolUsageCategories", toolUsageCategories)
                 .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IndividualResponse that = (IndividualResponse) o;
+        return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
+                Objects.equals(fileName, that.fileName) &&
+                Objects.equals(tdsReport, that.tdsReport) &&
+                Objects.equals(status, that.status) &&
+                Objects.equals(testPropertiesCategory, that.testPropertiesCategory) &&
+                Objects.equals(examineeCategory, that.examineeCategory) &&
+                Objects.equals(examineeAttributeCategories, that.examineeAttributeCategories) &&
+                Objects.equals(examineeRelationshipCategories, that.examineeRelationshipCategories) &&
+                Objects.equals(opportunityCategory, that.opportunityCategory) &&
+                Objects.equals(commentCategories, that.commentCategories) &&
+                Objects.equals(toolUsageCategories, that.toolUsageCategories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fileName, isValidXMLfile, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
     }
 }

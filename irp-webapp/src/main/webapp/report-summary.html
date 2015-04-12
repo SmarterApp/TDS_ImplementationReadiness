@@ -102,9 +102,8 @@
         </style>
 
         <div>
-            <!--<core-xhr id="xhr"></core-xhr>-->
             <form id="bb" action="/pdfreport.html" method="post">
-                <input type="hidden" name="individualResponses" value="">
+                <input type="hidden" name="analysisResponses" value="">
                 <button id="pdf" type="button">PDF</button>
             </form>
             <table class="reportSummary">
@@ -136,10 +135,6 @@
                     var body = JSON.stringify({"individualResponses":that.responses});
                     that.$.bb.children[0].value = body;
                     that.$.bb.submit();
-//                    that.$.xhr.request({url:'/pdfreport.html', method:'POST', body:body, headers:{'Content-Type':'application/json'}, responseType:'blob',
-//                        callback:function(response) {
-//                            that.$.aa.src = 'url';
-//                        }});
                 });
             },
             status: function(input) {

@@ -15,7 +15,11 @@
 
     <mvc:resources mapping="/**" location="/" />
 
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <ref bean="mappingJackson2HttpMessageConverter" />
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <context:component-scan base-package="org.cresst.sb.irp.*" use-default-filters="false">
         <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation" />
@@ -51,5 +55,28 @@
         <property name="order" value="1" />
     </bean>
 
-    <bean id="pdfObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+    <bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <constructor-arg ref="jacksonObjectMapper"/>
+    </bean>
+
+    <bean id="jaxb2AnnotationIntrospector" class="com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector" />
+
+    <bean id="jacksonObjectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+        <property name="annotationIntrospector" ref="jaxb2AnnotationIntrospector" />
+        <property name="defaultViewInclusion" value="false" />
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1" />
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                    <property name="objectMapper" ref="jacksonObjectMapper" />
+                </bean>
+                <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+                    <property name="marshaller" ref="marshaller" />
+                </bean>
+            </list>
+        </property>
+    </bean>
 </beans>
