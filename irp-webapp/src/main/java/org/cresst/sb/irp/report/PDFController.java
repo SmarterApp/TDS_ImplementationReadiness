@@ -102,8 +102,8 @@ public class PDFController {
         public String itemExplanation(ItemCategory item) {
             if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) { return "This Item matches a given IRP Item. The detailed analysis follows."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && !item.isItemFormatCorrect()) { return "The Item's format is incorrect"; }
-            if (item.getStatus() == ItemCategory.ItemStatusEnum.MISSING) { return "This Item is missing from the TDS Report."; }
-            if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is not part of the IRP Package and cannot be analyzed"; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.MISSING) { return "This IRP Item is missing from the TDS Report."; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is unknown to IRP or a duplicate of an existing."; }
             return "";
         }
     }
