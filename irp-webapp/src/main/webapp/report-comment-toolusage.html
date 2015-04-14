@@ -1,3 +1,4 @@
+<script src="js/irp.js"></script>
 <polymer-element name="report-comment-toolusage" attributes="response">
     <template>
         <link rel="stylesheet" href="css/report.css"/>
@@ -15,8 +16,8 @@
             <tbody>
 
             <template repeat="{{category in response.commentCategories}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="comment {{oddOrEvenClass(index)}}">
                         <td>Comment: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -27,8 +28,8 @@
             </template>
 
             <template repeat="{{category in response.toolUsageCategories}}">
-                <template repeat="{{cell in category.cellCategories}}">
-                    <tr>
+                <template repeat="{{cell, index in category.cellCategories}}">
+                    <tr class="toolUsage {{oddOrEvenClass(index)}}">
                         <td>ToolUsage: {{cell.tdsFieldName}}</td>
                         <td>{{cell.tdsExpectedValue}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
@@ -37,8 +38,8 @@
                     </tr>
                 </template>
                 <template repeat="{{pageCategory in category.toolPageCategories}}">
-                    <template repeat="{{cell in pageCategory.cellCategories}}">
-                        <tr>
+                    <template repeat="{{cell, index in pageCategory.cellCategories}}">
+                        <tr class="toolPage {{oddOrEvenClass(index)}}">
                             <td>ToolPage: {{cell.tdsFieldName}}</td>
                             <td>{{cell.tdsExpectedValue}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
@@ -53,37 +54,6 @@
         </table>
     </template>
     <script>
-        Polymer("report-comment-toolusage", {
-            created: function() {
-                this.response = {};
-            },
-            status: function(input) {
-                if (!input) { return ""; }
-                if (input.enumfieldCheckType == 'D') { return "Ignored"; }
-
-                var valid = !input.fieldEmpty && input.correctDataType && input.acceptableValue;
-
-                if (input.enumfieldCheckType == 'PC') {
-                    valid = valid && input.correctValue;
-                }
-
-                return valid ? "No Errors" : "Errors Found";
-            },
-            explanation: function(input) {
-                if (!input) { return ""; }
-                if (input.enumfieldCheckType == 'D') { return ""; }
-
-                var reasons = [input.enumfieldCheckType];
-                if (input.fieldEmpty) reasons.push("Field Empty");
-                if (!input.correctDataType) reasons.push("Incorrect Data Type");
-                if (!input.acceptableValue) reasons.push("Unacceptable Value");
-
-                if (input.enumfieldCheckType == 'PC') {
-                    if (!input.correctValue) reasons.push("Incorrect Value");
-                }
-
-                return reasons.join();
-            }
-        });
+        Polymer("report-comment-toolusage", irp);
     </script>
 </polymer-element>
