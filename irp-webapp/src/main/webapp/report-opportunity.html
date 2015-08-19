@@ -18,7 +18,7 @@
             <tr class="category">
                 <td colspan="5">Opportunity</td>
             </tr>
-            
+
             <template bind="{{response.opportunityCategory as category}}">
                 <template repeat="{{cell, index in category.cellCategories}}">
                     <tr class="opportunityPropertiesRows {{oddOrEvenClass(index)}}">

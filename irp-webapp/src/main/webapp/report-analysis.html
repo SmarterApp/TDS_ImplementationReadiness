@@ -50,7 +50,7 @@
             <p>IRP was unable to validate and analyze this file.</p>
         </template>
 
-        <p>To download a PDF version of the IRP analysis</p>
+        <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
 
         <p>Explanation Key: <em>P</em> - Field is not empty with correct data type and acceptable value, <em>PC</em> - Same as P plus verified the value is correct</p>
 
@@ -95,10 +95,13 @@
                 this.response = {};
             }
         });
-        document.querySelector('#mediaQuery').addEventListener('core-media-change',
-                function(e) {
-                    document.body.classList.toggle('core-narrow', e.detail.matches);
-                    document.querySelector('#scrollableTabs').updateBar();
-                });
+        var mediaQuery = document.querySelector('#mediaQuery');
+        if (mediaQuery) {
+            mediaQuery.addEventListener('core-media-change',
+                    function (e) {
+                        document.body.classList.toggle('core-narrow', e.detail.matches);
+                        document.querySelector('#scrollableTabs').updateBar();
+                    });
+        }
     </script>
 </polymer-element>

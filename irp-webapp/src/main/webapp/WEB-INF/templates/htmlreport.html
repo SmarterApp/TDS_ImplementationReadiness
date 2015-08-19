@@ -141,6 +141,17 @@
     </style>
 </head>
 <body>
+    <table>
+        <tr>
+            <td>Vendor Name</td>
+            <td th:text="${responses.vendorName}"></td>
+        </tr>
+        <tr>
+            <td>Date and Time Analyzed</td>
+            <td th:text="${responses.dateTimeAnalyzed}"></td>
+        </tr>
+    </table>
+
     <th:block th:each="response : ${responses.individualResponses}">
         <table>
             <tr>
