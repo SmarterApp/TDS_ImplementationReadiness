@@ -20,7 +20,7 @@
 	</modules>
 
 	<properties>
-		<irp.version>0.0.1-SNAPSHOT</irp.version>
+		<irp.version>1.0.0-SNAPSHOT</irp.version>
 		<spring.version>4.1.1.RELEASE</spring.version>
 		<guava.version>18.0</guava.version>
 		<joda.version>2.7</joda.version>
