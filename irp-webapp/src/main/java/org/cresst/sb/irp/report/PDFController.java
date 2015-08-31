@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.report;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -42,6 +41,8 @@ public class PDFController {
             AnalysisResponse analysisResponse = jacksonObjectMapper.readValue(analysisResponseParameter, AnalysisResponse.class);
 
             WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
+            log.debug(analysisResponse.getIrpVersion());
+            log.debug(analysisResponse.getVendorName());
             context.setVariable("responses", analysisResponse);
             context.setVariable("helper", new DisplayHelper());
 
@@ -53,9 +54,18 @@ public class PDFController {
 
             Document document = new Document();
             PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
+            writer.setPageEvent(new PageStamper());
+
+            document.addAuthor("Smarter Balanced IRP");
+            document.addCreationDate();
+            document.addTitle("Implementation Readiness Package Report");
             document.open();
+
             XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
+
             document.close();
+            writer.close();
+
         } catch (Exception ex) {
             log.error("pdf error", ex);
         }
@@ -80,12 +90,12 @@ public class PDFController {
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return ""; }
 
             StringBuilder reasons = new StringBuilder(input.getEnumfieldCheckType().toString());
-            if (input.isFieldEmpty()) reasons.append("Field Empty");
-            if (!input.isCorrectDataType()) reasons.append("Incorrect Data Type");
-            if (!input.isAcceptableValue()) reasons.append("Unacceptable Value");
+            if (input.isFieldEmpty()) reasons.append(" Field Empty");
+            if (!input.isCorrectDataType()) reasons.append(" Incorrect Data Type");
+            if (!input.isAcceptableValue()) reasons.append(" Unacceptable Value");
 
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
-                if (!input.isCorrectValue()) reasons.append("Incorrect Value");
+                if (!input.isCorrectValue()) reasons.append(" Incorrect Value");
             }
 
             return reasons.toString();

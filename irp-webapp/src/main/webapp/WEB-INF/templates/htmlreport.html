@@ -138,10 +138,18 @@
             font-family: serif;
             font-size: smaller;
         }
+
+        tr.border_bottom td {
+            border-bottom:1pt solid black;
+        }
     </style>
 </head>
 <body>
     <table>
+        <tr>
+            <td>Implementation Readiness Package</td>
+            <td th:text="${responses.irpVersion}"></td>
+        </tr>
         <tr>
             <td>Vendor Name</td>
             <td th:text="${responses.vendorName}"></td>
@@ -149,6 +157,15 @@
         <tr>
             <td>Date and Time Analyzed</td>
             <td th:text="${responses.dateTimeAnalyzed}"></td>
+        </tr>
+        <tr class="border_bottom">
+            <td colspan="2">
+                <em>Explanation</em> Codes - Each field is analyzed according to its type.
+                <ul>
+                    <li><em>P</em> type: Field is not empty with correct data type and acceptable value.</li>
+                    <li><em>PC</em> type: Same as P plus verified the value is correct</li>
+                </ul>
+            </td>
         </tr>
     </table>
 
@@ -166,11 +183,11 @@
     <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
         <thead>
             <tr>
-                <th>Parameter</th>
+                <th>Field</th>
                 <th>Expected Value</th>
                 <th>Returned Value</th>
-                <th>Status</th>
-                <th>Explanation</th>
+                <th width="10%">Status</th>
+                <th width="20%">Explanation</th>
             </tr>
         </thead>
         <tbody>

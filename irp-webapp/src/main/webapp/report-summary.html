@@ -102,7 +102,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <template repeat="{{response in responses}}">
+                <template repeat="{{response in responses.individualResponses}}">
                     <tr>
                         <td>{{response.fileName}}</td>
                         <td>{{response.validXMLfile | status}}</td>
@@ -120,7 +120,7 @@
             ready: function() {
                 var that = this;
                 this.$.pdf.addEventListener('click', function(event) {
-                    var body = JSON.stringify({"individualResponses":that.responses});
+                    var body = JSON.stringify(that.responses);
                     that.$.bb.children[0].value = body;
                     that.$.bb.submit();
                 });

@@ -43,7 +43,7 @@
 
             <core-item label="Home" tag="home"></core-item>
 
-            <template id="tmplIndividualResponses" repeat="{{response in responses}}">
+            <template id="tmplIndividualResponses" repeat="{{response in responses.individualResponses}}">
                 <core-item label="{{response.fileName}}" tag="{{response.fileName}}" response="{{response | stringify}}"></core-item>
             </template>
 
@@ -65,8 +65,8 @@
                     that.$.uploadSpinner.active = false;
 
                     if (event.detail.status == 200) {
-                        var individualResponses = JSON.parse(event.detail.responseText).individualResponses;
-                        that.responses = individualResponses;
+                        var analysisResponse = JSON.parse(event.detail.responseText);
+                        that.responses = analysisResponse;
                     } else {
                         that.$.fileUploadErrorDialog.toggle();
                     }
