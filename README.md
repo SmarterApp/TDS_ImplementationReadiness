@@ -9,7 +9,7 @@ For more information visit http://www.smarterapp.org.
 ### What is this repository for? ###
 
 * Implementation Readiness Package
-* Version: 0.0.1-SNAPSHOT
+* Version: 1.0.0-SNAPSHOT
 
 ### Technology Used ###
 * Maven
