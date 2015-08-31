@@ -66,7 +66,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
 
     @When("^I upload the file as an unknown file type$")
     public void I_upload_the_file_as_an_unknown_file_type() throws Throwable {
-        resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml));
+        resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml).param("name", "test name"));
     }
 
     @Then("^The result of the upload should give me an error response$")
