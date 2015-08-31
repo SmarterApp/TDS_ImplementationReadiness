@@ -1,3 +1,4 @@
+<script src="js/irp.js"></script>
 <polymer-element name="report-raw-view" attributes="response">
     <template>
         <link rel="stylesheet" href="css/report.css"/>
@@ -5,7 +6,7 @@
         <table class="tableAnalysis">
             <thead>
             <tr>
-                <th>Parameter</th>
+                <th>Field</th>
                 <th>Expected Value</th>
                 <th>Returned Value</th>
                 <th>Status</th>
@@ -141,85 +142,87 @@
                         <td>{{item | itemStatus}}</td>
                         <td>{{item | itemExplanation}}</td>
                     </tr>
-                    <template repeat="{{cell in item.cellCategories}}">
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item: {{cell.tdsFieldName}}</td>
-                            <td>{{cell.tdsExpectedValue}}</td>
-                            <td>{{cell.tdsFieldNameValue}}</td>
-                            <td>{{cell.fieldCheckType | status}}</td>
-                            <td>{{cell.fieldCheckType | explanation}}</td>
-                        </tr>
-                    </template>
-                    <template if="{{item.responseCategory}}">
-                        <template bind="{{item.responseCategory as rc}}">
+                    <template if="{{item | itemFound}}">
+                        <template repeat="{{cell in item.cellCategories}}">
                             <tr class="opportunityItem">
-                                <td>Opportunity Item Response: date</td>
-                                <td></td>
-                                <td>{{rc.date}}</td>
-                                <td>{{rc.dateFieldCheckType | status}}</td>
-                                <td>{{rc.dateFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item Response: type</td>
-                                <td></td>
-                                <td>{{rc.type}}</td>
-                                <td>{{rc.typeFieldCheckType | status}}</td>
-                                <td>{{rc.typeFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item Response: content</td>
-                                <td></td>
-                                <td>Check file for content</td>
-                                <td>{{rc.contentFieldCheckType | status}}</td>
-                                <td>{{rc.contentFieldCheckType | explanation}}</td>
+                                <td>Opportunity Item: {{cell.tdsFieldName}}</td>
+                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{cell.fieldCheckType | status}}</td>
+                                <td>{{cell.fieldCheckType | explanation}}</td>
                             </tr>
                         </template>
-                    </template>
-                    <template if="{{item.scoreInfoCategory}}">
-                        <template bind="{{item.scoreInfoCategory as si}}">
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item ScoreInfo: scorePoint</td>
-                                <td></td>
-                                <td>{{si.scorePoint}}</td>
-                                <td>{{si.scorePointFieldCheckType | status}}</td>
-                                <td>{{si.scorePointFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item ScoreInfo: maxScore</td>
-                                <td></td>
-                                <td>{{si.maxScore}}</td>
-                                <td>{{si.maxScoreFieldCheckType | status}}</td>
-                                <td>{{si.maxScoreFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item ScoreInfo: scoreDimension</td>
-                                <td></td>
-                                <td>{{si.scoreDimension}}</td>
-                                <td>{{si.scoreDimensionFieldCheckType | status}}</td>
-                                <td>{{si.scoreDimensionFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item ScoreInfo: scoreStatus</td>
-                                <td></td>
-                                <td>{{si.scoreStatus}}</td>
-                                <td>{{si.scoreStatusFieldCheckType | status}}</td>
-                                <td>{{si.scoreStatusFieldCheckType | explanation}}</td>
-                            </tr>
-                            <tr class="opportunityItem">
-                                <td>Opportunity Item ScoreInfo: confLevel</td>
-                                <td></td>
-                                <td>{{si.confLevel}}</td>
-                                <td>{{si.confLevelFieldCheckType | status}}</td>
-                                <td>{{si.confLevelFieldCheckType | explanation}}</td>
-                            </tr>
-                            <template bind="{{si.scoreRationaleCategory as sr}}">
+                        <template if="{{item.responseCategory}}">
+                            <template bind="{{item.responseCategory as rc}}">
                                 <tr class="opportunityItem">
-                                    <td>Opportunity Item ScoreRationale: message</td>
+                                    <td>Opportunity Item Response: date</td>
                                     <td></td>
-                                    <td>{{sr.message}}</td>
-                                    <td>{{sr.messageFieldCheckType | status}}</td>
-                                    <td>{{sr.messageFieldCheckType | explanation}}</td>
+                                    <td>{{rc.date}}</td>
+                                    <td>{{rc.dateFieldCheckType | status}}</td>
+                                    <td>{{rc.dateFieldCheckType | explanation}}</td>
                                 </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item Response: type</td>
+                                    <td></td>
+                                    <td>{{rc.type}}</td>
+                                    <td>{{rc.typeFieldCheckType | status}}</td>
+                                    <td>{{rc.typeFieldCheckType | explanation}}</td>
+                                </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item Response: content</td>
+                                    <td></td>
+                                    <td>Check file for content</td>
+                                    <td>{{rc.contentFieldCheckType | status}}</td>
+                                    <td>{{rc.contentFieldCheckType | explanation}}</td>
+                                </tr>
+                            </template>
+                        </template>
+                        <template if="{{item.scoreInfoCategory}}">
+                            <template bind="{{item.scoreInfoCategory as si}}">
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item ScoreInfo: scorePoint</td>
+                                    <td></td>
+                                    <td>{{si.scorePoint}}</td>
+                                    <td>{{si.scorePointFieldCheckType | status}}</td>
+                                    <td>{{si.scorePointFieldCheckType | explanation}}</td>
+                                </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item ScoreInfo: maxScore</td>
+                                    <td></td>
+                                    <td>{{si.maxScore}}</td>
+                                    <td>{{si.maxScoreFieldCheckType | status}}</td>
+                                    <td>{{si.maxScoreFieldCheckType | explanation}}</td>
+                                </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item ScoreInfo: scoreDimension</td>
+                                    <td></td>
+                                    <td>{{si.scoreDimension}}</td>
+                                    <td>{{si.scoreDimensionFieldCheckType | status}}</td>
+                                    <td>{{si.scoreDimensionFieldCheckType | explanation}}</td>
+                                </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item ScoreInfo: scoreStatus</td>
+                                    <td></td>
+                                    <td>{{si.scoreStatus}}</td>
+                                    <td>{{si.scoreStatusFieldCheckType | status}}</td>
+                                    <td>{{si.scoreStatusFieldCheckType | explanation}}</td>
+                                </tr>
+                                <tr class="opportunityItem">
+                                    <td>Opportunity Item ScoreInfo: confLevel</td>
+                                    <td></td>
+                                    <td>{{si.confLevel}}</td>
+                                    <td>{{si.confLevelFieldCheckType | status}}</td>
+                                    <td>{{si.confLevelFieldCheckType | explanation}}</td>
+                                </tr>
+                                <template bind="{{si.scoreRationaleCategory as sr}}">
+                                    <tr class="opportunityItem">
+                                        <td>Opportunity Item ScoreRationale: message</td>
+                                        <td></td>
+                                        <td>{{sr.message}}</td>
+                                        <td>{{sr.messageFieldCheckType | status}}</td>
+                                        <td>{{sr.messageFieldCheckType | explanation}}</td>
+                                    </tr>
+                                </template>
                             </template>
                         </template>
                     </template>
@@ -272,51 +275,6 @@
         </table>
     </template>
     <script>
-        Polymer("report-raw-view", {
-            created: function() {
-                this.response = {};
-            },
-            status: function(input) {
-                if (!input) { return ""; }
-                if (input.enumfieldCheckType == 'D') { return "Ignored"; }
-
-                var valid = !input.fieldEmpty && input.correctDataType && input.acceptableValue;
-
-                if (input.enumfieldCheckType == 'PC') {
-                    valid = valid && input.correctValue;
-                }
-
-                return valid ? "No Errors" : "Errors Found";
-            },
-            explanation: function(input) {
-                if (!input) { return ""; }
-                if (input.enumfieldCheckType == 'D') { return ""; }
-
-                var reasons = [input.enumfieldCheckType];
-                if (input.fieldEmpty) reasons.push("Field Empty");
-                if (!input.correctDataType) reasons.push("Incorrect Data Type");
-                if (!input.acceptableValue) reasons.push("Unacceptable Value");
-
-                if (input.enumfieldCheckType == 'PC') {
-                    if (!input.correctValue) reasons.push("Incorrect Value");
-                }
-
-                return reasons.join();
-            },
-            oddOrEvenClass: function(index) {
-                return index % 2 == 0 ? 'even' : 'odd';
-            },
-            itemStatus: function(item) {
-                return (item.status == 'FOUND' && item.itemFormatCorrect) ? "Match" : "Errors Found";
-
-            },
-            itemExplanation: function(item) {
-                if (item.status == 'FOUND' && item.itemFormatCorrect) { return 'This Item matches a given IRP Item. See detailed analysis below.'; }
-                if (item.status == 'FOUND' && !item.itemFormatCorrect) { return "The Item's format is incorrect"; }
-                if (item.status == 'MISSING') { return 'This Item is missing from the TDS Report.'; }
-                if (item.status == 'EXTRA') { return 'This Item is not part of the IRP Package and cannot be analyzed'; }
-                return '';
-            }
-        });
+        Polymer("report-raw-view", irp);
     </script>
 </polymer-element>

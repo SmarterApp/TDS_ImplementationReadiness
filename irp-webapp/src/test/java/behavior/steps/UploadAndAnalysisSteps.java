@@ -1,7 +1,6 @@
 package behavior.steps;
 
 import behavior.steps.utils.TdsReportFactory;
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

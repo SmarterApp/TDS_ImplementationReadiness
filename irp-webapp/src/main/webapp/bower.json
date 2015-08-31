@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.2",
-    "ajax-form": "~1.4.0",
+    "ajax-form": "~2.0.2",
     "core-item": "Polymer/core-item#~0.5.2",
     "paper-spinner": "Polymer/paper-spinner#~0.5.2",
     "paper-tabs": "Polymer/paper-tabs#~0.5.2",
@@ -22,7 +22,7 @@
     "core-menu": "Polymer/core-menu#~0.5.2",
     "core-icon-button": "Polymer/core-icon-button#~0.5.2"
   },
-  "install" : {
+  "install": {
     "path": "deps",
     "sources": {
       "ajax-form": [
@@ -211,7 +211,9 @@
         "bower_components/webcomponentsjs/ShadowDOM.js",
         "bower_components/webcomponentsjs/ShadowDOM.min.js"
       ]
-
     }
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.6.0"
   }
 }

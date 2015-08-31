@@ -50,7 +50,15 @@
             <p>IRP was unable to validate and analyze this file.</p>
         </template>
 
-        <p>Explanation Key: <em>P</em> - Field is not empty with correct data type and acceptable value, <em>PC</em> - Same as P plus verified the value is correct</p>
+        <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
+
+        <p>
+            <em>Explanation</em> Codes - Each field is analyzed according to its type.
+            <ul>
+                <li><em>P</em> type: Field is not empty with correct data type and acceptable value.</li>
+                <li><em>PC</em> type: Same as P plus verified the value is correct</li>
+            </ul>
+        </p>
 
         <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable>
             <paper-tab>Test Properties</paper-tab>
@@ -93,10 +101,13 @@
                 this.response = {};
             }
         });
-        document.querySelector('#mediaQuery').addEventListener('core-media-change',
-                function(e) {
-                    document.body.classList.toggle('core-narrow', e.detail.matches);
-                    document.querySelector('#scrollableTabs').updateBar();
-                });
+        var mediaQuery = document.querySelector('#mediaQuery');
+        if (mediaQuery) {
+            mediaQuery.addEventListener('core-media-change',
+                    function (e) {
+                        document.body.classList.toggle('core-narrow', e.detail.matches);
+                        document.querySelector('#scrollableTabs').updateBar();
+                    });
+        }
     </script>
 </polymer-element>

@@ -6,7 +6,7 @@
 <link rel="import" href="deps/core-icon-button/core-icon-button.html">
 <link rel="import" href="report-analysis.html">
 
-<polymer-element name="irp-response-scaffold" attributes="label responsiveWidth">
+<polymer-element name="irp-response-scaffold" attributes="label version responsiveWidth">
     <template>
 
         <style>
@@ -16,6 +16,8 @@
             #drawerPanel, [drawer] {
                 background-color: #eee;
             }
+
+            small {font-size:xx-small;}
 
             [drawer] {
                 -webkit-transform: translateZ(0);
@@ -196,7 +198,8 @@
                 <core-toolbar class="{{ {'medium-tall' : !narrow} | tokenList }}">
                     <div class="bottom main-label fit">
                         <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" />
-                        {{label}}
+                        {{label}}<br />
+                        <small>{{version}}</small>
                     </div>
                 </core-toolbar>
 
@@ -283,7 +286,7 @@
                     this.async(function() {
                         this.$.card.classList.add('move-up');
                         this.moveCard(null);
-                    }, null, 300);
+                    }, null, 100);
                 });
             },
 

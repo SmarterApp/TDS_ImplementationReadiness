@@ -3,9 +3,12 @@ package org.cresst.sb.irp.upload;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.AnalysisService;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.oxm.XmlMappingException;
 import org.springframework.stereotype.Controller;
@@ -28,12 +31,15 @@ import java.util.Map;
 public class FileUploadController {
     private final static Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
+    @Value("${irp.version}")
+    String irpVersion;
+
 	@Autowired
-	public AnalysisService analysisService;
+	private AnalysisService analysisService;
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public AnalysisResponse upload(@RequestParam("file") MultipartFile file) throws FileUploadException {
+    public AnalysisResponse upload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) throws FileUploadException {
 
         if (!file.isEmpty()) {
             try {
@@ -42,6 +48,9 @@ public class FileUploadController {
 
                 // Analyze the TDS Report files
                 AnalysisResponse analysisResponse = analysisService.analysisProcess(tdsReportPaths);
+                analysisResponse.setVendorName(name);
+                analysisResponse.setIrpVersion(irpVersion);
+                analysisResponse.setDateTimeAnalyzed(DateTime.now(DateTimeZone.forID("America/Los_Angeles")).toString());
 
                 return analysisResponse;
 

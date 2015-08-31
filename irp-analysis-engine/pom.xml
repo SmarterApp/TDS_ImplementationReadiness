@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.cresst.sb.irp</groupId>
 		<artifactId>irp-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>irp-analysis-engine</artifactId>
@@ -40,6 +40,11 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
 		</dependency>
 
         <dependency>

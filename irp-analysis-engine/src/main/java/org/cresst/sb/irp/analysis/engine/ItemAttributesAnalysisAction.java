@@ -59,7 +59,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
                     itemCategory.setStatus(ItemStatusEnum.FOUND);
 					removedList.add(item);
 					if (isItemFormatMatch(item, studentResponse)) {
-						itemCategory.setIsItemFormatCorrect(true);
+						itemCategory.setItemFormatCorrect(true);
 					}
 				} else {
                     StringBuilder itemIdentifier = new StringBuilder();
@@ -69,7 +69,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 					analyzeItemAttributes(itemCategory, studentResponse);
 
 					itemCategory.setStatus(ItemStatusEnum.MISSING);
-					itemCategory.setIsItemFormatCorrect(false);
+					itemCategory.setItemFormatCorrect(false);
 				}
 			}
 
@@ -87,7 +87,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
                     validate(itemCategory, item, item.getKey(), EnumFieldCheckType.P, EnumItemFieldName.key, null);
 
 					itemCategory.setStatus(ItemStatusEnum.EXTRA);
-					itemCategory.setIsItemFormatCorrect(false);
+					itemCategory.setItemFormatCorrect(false);
 				}
 			}
 
