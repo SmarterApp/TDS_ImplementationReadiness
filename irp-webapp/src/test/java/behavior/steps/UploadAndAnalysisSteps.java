@@ -36,23 +36,24 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
 
     @When("^I upload the document$")
     public void I_upload_the_document() throws Throwable {
-        resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml));
+        resultActions = mockMvc.perform(fileUpload("/upload").file(tdsReportXml).param("name", "test name"));
     }
 
-    @Then("^The analyze report should indicate my TDS Report is (malformed|valid)$")
+    @Then("^The analysis report should indicate my TDS Report is (malformed|valid)$")
     public void The_analysis_report_should_indicate_my_TDS_Report_is(String type) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.individualResponses", hasSize(1)))
-                .andExpect(jsonPath("$.individualResponses[0].validXMLfile").value("malformed".equals(type) ? false : true));
+                .andExpect(jsonPath("$.individualResponses[0].validXMLfile").value(!"malformed".equals(type)))
+                .andExpect(jsonPath("$.vendorName").value("test name"));
     }
 
     @Given("^I have a ZIP file containing (\\d+) TDS Report XML documents$")
     public void I_have_a_ZIP_file_containing_TDS_Report_XML_documents(int numberOfDocumentsInZip) throws Throwable {
-         tdsReportXml = TdsReportFactory.getZippedTdsReport();
+        tdsReportXml = TdsReportFactory.getZippedTdsReport();
     }
 
-    @Then("^The analyze report should indicate that (\\d+) TDS Reports have been uploaded$")
+    @Then("^The analysis report should indicate that (\\d+) TDS Reports have been uploaded$")
     public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -75,4 +76,5 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.error").value("true"));
     }
+
 }
