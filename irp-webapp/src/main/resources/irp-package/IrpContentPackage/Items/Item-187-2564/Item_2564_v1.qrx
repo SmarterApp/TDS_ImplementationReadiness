@@ -1,0 +1,38 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_99374" title="Item 99374" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" cardinality="ordered" baseType="identifier" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single" />
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <match>
+          <variable identifier="1" />
+          <ordered>
+            <baseValue baseType="identifier">4</baseValue>
+            <baseValue baseType="identifier">1</baseValue>
+            <baseValue baseType="identifier">2</baseValue>
+            <baseValue baseType="identifier">5</baseValue>
+            <baseValue baseType="identifier">3</baseValue>
+          </ordered>
+        </match>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElse>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseElse>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item99374_bc2774ea-47c5-4be4-aa1e-71535566f982">T4: Mrs. Baxter moved from her house into an apartment.</p>
+    <p id="Item99374_3c89f904-a9b8-4c7c-8a46-0bdb0cdb6ef1">T1: Jessie saw four speckled blue eggs in the nest.</p>
+    <p id="Item99374_e19a0759-71aa-484c-abb0-1ca86b5b300a">T2: Jessie calls Mrs. Baxter to tell her about the nest.</p>
+    <p id="Item99374_1d7ba334-6576-49ec-9039-2e1fa6a4db38">T5: The movers arrive to remove Mrs. Baxter's belongings.</p>
+    <p id="Item99374_0323a80c-3ac2-4e14-aa2e-ae050f9b8ddd">T3: Jessie unlocked the side door to Mrs. Baxter's house.</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

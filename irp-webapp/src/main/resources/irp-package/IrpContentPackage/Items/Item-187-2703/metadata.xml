@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2703</Identifier>
+    <Version>4</Version>
+    <Subject>ELA</Subject>
+    <AssociatedStimulus>3759</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Mandatory Financial Literacy Classes - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>4</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>WER</InteractionType>
+    <EducationalDifficulty>Hard</EducationalDifficulty>
+    <MaximumNumberOfPoints>10</MaximumNumberOfPoints>
+    <EvidenceStatement>The student will write full arguments about topics or sources, attending to purpose and audience: establish and support a claim, organize and cite supporting evidence from credible sources, provide appropriate transitional strategies for coherence, and develop a conclusion that is appropriate to purpose and audience and follows from and supports the argument(s) presented.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>The student will write full arguments about topics or sources, attending to purpose and audience: establish and support a claim, organize and cite supporting evidence from credible sources, provide appropriate transitional strategies for coherence, and develop a conclusion that is appropriate to purpose and audience and follows from and supports the argument(s) presented.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <Notes>Item 4</Notes>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <PtWritingType>Argumentative</PtWritingType>
+    <ScorePoints>"0,1,2,3,4,5,6,7,8,9,10"</ScorePoints>
+    <StimulusName>Mandatory Financial Literacy Classes</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:4-CR|6-11|11-12.L.1a</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

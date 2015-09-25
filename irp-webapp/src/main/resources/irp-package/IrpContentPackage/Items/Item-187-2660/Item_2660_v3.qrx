@@ -1,0 +1,53 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_99381" title="Item 99381" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" baseType="identifier" cardinality="multiple" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single">
+    <defaultValue>
+      <value>0</value>
+    </defaultValue>
+  </outcomeDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="1" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElseIf>
+        <and>
+          <equal toleranceMode="exact">
+            <baseValue baseType="integer">3</baseValue>
+            <containerSize>
+              <variable identifier="1" />
+            </containerSize>
+          </equal>
+          <contains>
+            <multiple>
+              <baseValue baseType="identifier">2</baseValue>
+              <baseValue baseType="identifier">5</baseValue>
+              <baseValue baseType="identifier">6</baseValue>
+            </multiple>
+            <variable identifier="1" />
+          </contains>
+        </and>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseElseIf>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item99381_d34517a6-2dbf-453c-9801-bc807650d8b0">A. T1: They must protect trees. - The student may have selected this due to faulty reasoning about the holes tapped into the tree</p>
+    <p id="Item99381_1bc22ff3-ef7f-49ae-832d-068f3e1b2452">B. T2: They must pay attention to nature. - CORRECT. This conclusion is drawn based upon the content of the text.</p>
+    <p id="Item99381_2a6eeaf1-2a8b-402c-8014-f050a5ec1a20">C. T3: They must work outdoors all of the time. - The student may have selected this because the tapping of the trees and collection of sap occurs outside.</p>
+    <p id="Item99381_23bc0a31-8a05-402f-8cbf-b2d827bf20a9">D. T4: They must like the taste of maple syrup. The student may have selected this erroneously.</p>
+    <p id="Item99381_270b3426-bb16-49b6-8a3e-c808dac4793f">Part B</p>
+    <p id="Item99381_a83d4712-4fc2-47be-93bc-253b4a145f3e">T5: CORRECT. People who make maple syrup must read the signs of the season to know when to get to work.</p>
+    <p id="Item99381_5092982d-ab56-44de-ba56-936d785c19ff">T6: CORRECT. People must use the day and night temperatures to know when the trees can be tapped.</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

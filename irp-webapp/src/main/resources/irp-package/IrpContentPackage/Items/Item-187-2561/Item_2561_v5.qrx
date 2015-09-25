@@ -1,0 +1,54 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_59111" title="Item 59111" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" baseType="identifier" cardinality="multiple" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single">
+    <defaultValue>
+      <value>0</value>
+    </defaultValue>
+  </outcomeDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="1" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElseIf>
+        <and>
+          <equal toleranceMode="exact">
+            <baseValue baseType="integer">2</baseValue>
+            <containerSize>
+              <variable identifier="1" />
+            </containerSize>
+          </equal>
+          <contains>
+            <multiple>
+              <baseValue baseType="identifier">2</baseValue>
+              <baseValue baseType="identifier">6</baseValue>
+            </multiple>
+            <variable identifier="1" />
+          </contains>
+        </and>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseElseIf>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item59111_2c610be5-9381-4bf9-93a1-25f97307a373">
+      <span class="underline">Rationales</span>:</p>
+    <p id="Item59111_b3898a89-1e35-40d8-b6d1-8c0258419609">T1: This sentence is the student's opinion.</p>
+    <p id="Item59111_59058d9a-9bdc-4f30-abba-3f18a0a7b89f">T2: CORRECT. This sentence is a plagiarized fact that is not given credit to the source in the student writing.</p>
+    <p id="Item59111_97675356-7472-4d40-9bf3-e2283059bcbc">T3: This sentence poses an idea similar to an idea posed in the sources.</p>
+    <p id="Item59111_e54a83f7-b240-448e-bbee-8456bb3ba8a6">T4: This sentence is common knowledge.</p>
+    <p id="Item59111_67f7a553-a9bc-4569-96be-0f528241a6df">T5: This sentence is common knowledge that is stated in the sources.</p>
+    <p id="Item59111_001603ed-1156-41b1-b1ae-d3a56ef7edcf">T6: CORRECT. This sentence is a plagiarized idea that is not given credit to the original author in the student writing.</p>
+    <p id="Item59111_1fce5234-dd81-43c5-8578-613e0086ec62">T7: This sentence is speculation by the student based on common knowledge.</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

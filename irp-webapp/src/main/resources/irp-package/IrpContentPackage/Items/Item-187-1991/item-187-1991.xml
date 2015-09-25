@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1991" version="8" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1991</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>PT_03m_C1_TI1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (11); PracTest::MG3::S1::SP14::Braille (11); PracTest::MG3::S1::SP14::ESN (11);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2168" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1991_v8.qrx" />
+    <RendererSpec filename="Item_1991_v8.eax" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="color:#000000; ">This figure <span id="item_1991_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>is made by joining<span class="its-tag" data-tag-ref="item_1991_TAG_3" data-tag-boundary="end"></span> two rectangles.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1991_Stem:(d=png16malpha)" src="item_1991_v8_Stem_png16malpha.png" width="250" height="175" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1991_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Enter<span class="its-tag" data-tag-ref="item_1991_TAG_4" data-tag-boundary="end"></span> the area, in square feet, of the <span id="item_1991_TAG_1_BEGIN">figure</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="color:#000000; "><span style="font-weight:bold; ">Exemplar:</span> 20</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student enters the number 20, or any equivalent number. (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1991_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1991_Stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>From top to bottom the figure is labeled, 2 feet, 3 feet, 5 feet, 2 feet, 7 feet.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1991_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>figure. From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>figure</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>figure</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="color:#000000; ">Esta figura se forma uniendo dos rectángulos.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1991_graphics1" src="item_1991_v8_graphics1_png256.png" width="335" height="235" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Escribe el área, en pies cuadrados, de la figura.</p><p class="languagedivider">&#xA0;</p><p style="color:#000000; ">This figure <span id="item_1991_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>is made by joining<span class="its-tag" data-tag-ref="item_1991_TAG_3" data-tag-boundary="end"></span> two rectangles.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1991_Stem:(d=png16malpha)" src="item_1991_v8_Stem_png16malpha.png" width="250" height="175" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1991_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Enter<span class="its-tag" data-tag-ref="item_1991_TAG_4" data-tag-boundary="end"></span> the area, in square feet, of the <span id="item_1991_TAG_1_BEGIN">figure</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1991_Stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>From top to bottom the figure is labeled, 2 feet, 3 feet, 5 feet, 2 feet, 7 feet.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1991_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>figure. From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>figure</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>figure</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

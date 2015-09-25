@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testspecification purpose="registration" publisher="SBAC_PT" publishdate="Aug 19 2015  3:43PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)SBAC-IRP-CAT-MATH-11-Summer-2015-2016" name="SBAC-IRP-CAT-MATH-11" label="Grade 11 MATH" version="8185" />
+  <property name="subject" value="MATH" label="MATH" />
+  <property name="grade" value="11" label="grade 11" />
+  <property name="type" value="summative" label="summative" />
+  <registration>
+    <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="6" />
+    <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="3" />
+    <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="3" />
+    <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="2" />
+    <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="3" />
+    <poolproperty property="--ITEMTYPE--" value="TI" label="TI" itemcount="1" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="18" />
+    <registrationsegment position="1" itemselection="adaptive2" minitems="8" maxitems="8">
+      <identifier uniqueid="(SBAC_PT)SBAC-IRP-CAT-MATH-11-Summer-2015-2016" name="SBAC-IRP-CAT-MATH-11" version="8185" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="6" />
+      <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="3" />
+      <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="3" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="3" />
+      <poolproperty property="--ITEMTYPE--" value="TI" label="TI" itemcount="1" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="18" />
+    </registrationsegment>
+  </registration>
+</testspecification>

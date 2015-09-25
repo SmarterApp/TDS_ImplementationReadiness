@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1979" version="8" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1979</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Clone of Practice Test 558</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (20); PracTest::MG3::S1::SP14::ESN (20);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2163" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1979_v8.qrx" />
+    <RendererSpec filename="Item_1979_v8.gax" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="color:#000000; ">Robert says,</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">“When comparing two fractions with a numerator of 1, the fraction with the bigger denominator is greater.”</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1979_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_1979_TAG_9" data-tag-boundary="end"></span> <span id="item_1979_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>each<span class="its-tag" data-tag-ref="item_1979_TAG_10" data-tag-boundary="end"></span> fraction to the correct <span id="item_1979_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>location<span class="its-tag" data-tag-ref="item_1979_TAG_11" data-tag-boundary="end"></span> on the number line <span id="item_1979_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>to find out<span class="its-tag" data-tag-ref="item_1979_TAG_12" data-tag-boundary="end"></span> if Robert's <span id="item_1979_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>statement<span class="its-tag" data-tag-ref="item_1979_TAG_13" data-tag-boundary="end"></span> is <span id="item_1979_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span id="item_1979_TAG_1_BEGIN">true.</span><span class="its-tag" data-tag-ref="item_1979_TAG_14" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1979_exemplar" src="item_1979_v8_exemplar_png256.png" width="348" height="65" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">No</p></li></ul><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">The response demonstrates a full and complete understanding of comparing fractions with a like numerator. The response contains the following evidence:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student can plot fractions on a number line and draw a conclusion about comparing fractions. -2 points</p><p style="color:#000000; ">&#xA0;</p></li></ul><p style="color:#000000; ">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Partial Credit:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student graphs the fractions in an incorrect position but answers the question correctly. – 1 point</p><p style="color:#000000; ">OR</p></li><li><p style="color:#000000; background-color:transparent; ">The student incorrectly answers the question but graphs the fractions correctly. - 1 point.</p><p style="color:#000000; background-color:transparent; ">OR</p></li><li><p style="color:#000000; background-color:transparent; ">The student does not graph the fractions but answers the question correctly.- 1 point</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1979_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1979_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>true. This is an interactive image. The blue button above the image reeds, delete.  From top to bottom the rectangle along the left side of the image reeds, 1 half, 1 fourth, 1 eighth. The main answer space contains a number line. From left to right the numbers reed, 0, 1. The text below the number line reeds, is roberts statement true, box yes, box no.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>true.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>true.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="color:#000000; ">Robert dice que:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span style="language:es; country:ES; ">“Al comparar dos fracciones cuyo numerador es 1, la fracción con el denominador más grande es la mayor</span>”.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; language:es; country:ES; ">Arrastra cada fracción a la ubicación correcta sobre la recta numérica para encontrar si la afirmación de Robert es verdadera.</p><p class="languagedivider">&#xA0;</p><p style="color:#000000; ">Robert says,</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">“When comparing two fractions with a numerator of 1, the fraction with the bigger denominator is greater.”</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1979_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_1979_TAG_9" data-tag-boundary="end"></span> <span id="item_1979_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>each<span class="its-tag" data-tag-ref="item_1979_TAG_10" data-tag-boundary="end"></span> fraction to the correct <span id="item_1979_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>location<span class="its-tag" data-tag-ref="item_1979_TAG_11" data-tag-boundary="end"></span> on the number line <span id="item_1979_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>to find out<span class="its-tag" data-tag-ref="item_1979_TAG_12" data-tag-boundary="end"></span> if Robert's <span id="item_1979_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>statement<span class="its-tag" data-tag-ref="item_1979_TAG_13" data-tag-boundary="end"></span> is <span id="item_1979_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span id="item_1979_TAG_1_BEGIN">true.</span><span class="its-tag" data-tag-ref="item_1979_TAG_14" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1979_graphics1" src="item_1979_v8_graphics1_png256.png" width="348" height="65" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">No</p></li></ul><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">The response demonstrates a full and complete understanding of comparing fractions with a like numerator. The response contains the following evidence:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student can plot fractions on a number line and draw a conclusion about comparing fractions. </p><p style="color:#000000; ">&#xA0;</p></li></ul><p style="color:#000000; ">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Partial Credit:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student graphs the fractions incorrectly but answers the question correctly. – 2 points</p><p style="color:#000000; ">AND</p></li><li><p style="color:#000000; background-color:transparent; ">The student incorrectly answers the question but graphs the fractions correctly. - 1 point.</p></li></ul><p style="color:#000000; background-color:transparent; ">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1979_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>true. This is an interactive image. The blue button above the image reeds, delete.  From top to bottom the rectangle along the left side of the image reeds, 1 half, 1 fourth, 1 eighth. The main answer space contains a number line. From left to right the numbers reed, 0, 1. The text below the number line reeds, is roberts statement true, box yes, box no.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>true.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>true.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1882" version="13" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1882</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>cloned from 1162</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S2::SP14 (13); PracTest::MG7::S2::SP14::Braille (13); PracTest::MG7::S2::SP14::ESN (13);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2310" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1882_v13.qrx" />
+    <RendererSpec filename="Item_1882_v13.eax" />
+    <content language="ENU" version="2.0" approvedVersion="13">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">John needs to <span id="item_1882_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_17" data-tag-boundary="end"></span> one <span id="item_1882_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span class="its-tag" data-tag-ref="item_1882_TAG_8" data-tag-boundary="end"></span> in his school. He knows that 1 <span id="item_1882_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>can<span class="its-tag" data-tag-ref="item_1882_TAG_9" data-tag-boundary="end"></span> of <span id="item_1882_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_18" data-tag-boundary="end"></span> <span id="item_1882_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>covers<span class="its-tag" data-tag-ref="item_1882_TAG_10" data-tag-boundary="end"></span> an area of 24 square feet. John <span id="item_1882_TAG_4_BEGIN">uses</span> a meter stick to measure the dimensions of the <span id="item_1882_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span class="its-tag" data-tag-ref="item_1882_TAG_11" data-tag-boundary="end"></span> as shown. </p><p style="">&#xA0;</p><p style="text-align:center; "><img id="item_1882_graphics1" src="item_1882_v13_graphics1_png256.png" width="317" height="316" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="item_1882_TAG_1_BEGIN">[1</span> meter = approximately 39 <span id="item_1882_TAG_2_BEGIN">inches]</span></p><p style="">&#xA0;</p><p style=""><span id="item_1882_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>What<span class="its-tag" data-tag-ref="item_1882_TAG_12" data-tag-boundary="end"></span> is the <span id="item_1882_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span style="font-weight:bold; ">fewest</span><span class="its-tag" data-tag-ref="item_1882_TAG_13" data-tag-boundary="end"></span> number of <span id="item_1882_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>cans<span class="its-tag" data-tag-ref="item_1882_TAG_14" data-tag-boundary="end"></span> of <span id="item_1882_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_19" data-tag-boundary="end"></span> John <span id="item_1882_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>can <span id="item_1882_TAG_5_BEGIN">use</span><span class="its-tag" data-tag-ref="item_1882_TAG_15" data-tag-boundary="end"></span> to <span id="item_1882_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_20" data-tag-boundary="end"></span> the <span id="item_1882_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span id="item_1882_TAG_7_BEGIN">?</span><span class="its-tag" data-tag-ref="item_1882_TAG_16" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">4 cans</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">the correct number of cans (1 point). </p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1882_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eweses</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>uses</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>uses</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>From top to bottom left to right, the figure is labeled, 1 meter, 1 meter, 1 meter, 1 meter, 1 meter, 1 meter.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>open bracket, 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>inches, closed bracket.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>ewes</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>? From left to right top to bottom, the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, zero, point.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="13">
+      <stem><![CDATA[<p style="">John necesita pintar una pared de su escuela. Él sabe que 1 lata de pintura cubre un área de 24 pies cuadrados. John usa una regla de un metro para medir las dimensiones de la pared, como se muestra. </p><p style="">&#xA0;</p><p style="text-align:center; "><img id="item_1882_graphics2" src="item_1882_v13_graphics2_png256.png" width="317" height="316" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">[1 metro = 39 pulgadas aproximadamente]</p><p style="">&#xA0;</p><p style="">¿Cuál es el <span style="font-weight:bold; ">menor</span> número de latas de pintura que John puede usar para pintar la pared?</p><p class="languagedivider">&#xA0;</p><p style="">John needs to <span id="item_1882_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_17" data-tag-boundary="end"></span> one <span id="item_1882_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span class="its-tag" data-tag-ref="item_1882_TAG_8" data-tag-boundary="end"></span> in his school. He knows that 1 <span id="item_1882_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>can<span class="its-tag" data-tag-ref="item_1882_TAG_9" data-tag-boundary="end"></span> of <span id="item_1882_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_18" data-tag-boundary="end"></span> <span id="item_1882_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>covers<span class="its-tag" data-tag-ref="item_1882_TAG_10" data-tag-boundary="end"></span> an area of 24 square feet. John <span id="item_1882_TAG_4_BEGIN">uses</span> a meter stick to measure the dimensions of the <span id="item_1882_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span class="its-tag" data-tag-ref="item_1882_TAG_11" data-tag-boundary="end"></span> as shown. </p><p style="">&#xA0;</p><p style="text-align:center; "><img id="item_1882_graphics1" src="item_1882_v13_graphics1_png256.png" width="317" height="316" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="item_1882_TAG_1_BEGIN">[1</span> meter = approximately 39 <span id="item_1882_TAG_2_BEGIN">inches]</span></p><p style="">&#xA0;</p><p style=""><span id="item_1882_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>What<span class="its-tag" data-tag-ref="item_1882_TAG_12" data-tag-boundary="end"></span> is the <span id="item_1882_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span style="font-weight:bold; ">fewest</span><span class="its-tag" data-tag-ref="item_1882_TAG_13" data-tag-boundary="end"></span> number of <span id="item_1882_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>cans<span class="its-tag" data-tag-ref="item_1882_TAG_14" data-tag-boundary="end"></span> of <span id="item_1882_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_19" data-tag-boundary="end"></span> John <span id="item_1882_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>can <span id="item_1882_TAG_5_BEGIN">use</span><span class="its-tag" data-tag-ref="item_1882_TAG_15" data-tag-boundary="end"></span> to <span id="item_1882_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>paint<span class="its-tag" data-tag-ref="item_1882_TAG_20" data-tag-boundary="end"></span> the <span id="item_1882_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>wall<span id="item_1882_TAG_7_BEGIN">?</span><span class="its-tag" data-tag-ref="item_1882_TAG_16" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eweses</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>uses</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>uses</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>From top to bottom left to right, the figure is labeled, 1 meter, 1 meter, 1 meter, 1 meter, 1 meter, 1 meter.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>open bracket, 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>inches, closed bracket.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>ewes</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_1882_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>? From left to right top to bottom, the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, zero, point.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

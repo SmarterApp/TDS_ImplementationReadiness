@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2150" version="21" bankkey="187">
+    <keywordList>
+      <keyword text="Decide" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Decide </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style=""><span style="font-size:1.0000em; ">قرر، حدد</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Lựa chọn </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">判断, 決定 &#xA0;</p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="">判断, 判斷</p><p style="">&#xA0;</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="">Pagpasyahan &#xA0;, Ikeddeng </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">Реши </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">결정하다 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਨਿਰਧਾਰਤ ਕਰੋ &#xA0;&#xA0;, فیصلہ کرو </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">Вирішіть </p>]]></html>
+      </keyword>
+      <keyword text="if" index="2">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">si </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">إن,إذا </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">xem </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style=""> 系咪,  係咪 </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="">是否 </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style=""><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; ">kung &#xA0;, no </span></p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">является ли </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style=""><span style="">인지</span> </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਜੇਕਰ &#xA0;, جے </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">чи </p>]]></html>
+      </keyword>
+      <keyword text="each" index="3">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">cada </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">كل </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">từng, mỗi </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style=""> 每个,  每個 </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style=""><span style="font-size:1.0000em; font-family:'Times New Roman'; ">每个，各个，</span><span style="font-size:1.0000em; font-family:'Times New Roman'; ">每個</span><span style="font-size:1.0000em; font-family:'Times New Roman'; ">, </span><span style="font-size:1.0000em; font-family:'Times New Roman'; ">各個</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="">bawat &#xA0;, tunggal </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">каждое </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">각각의 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਹਰ ਇੱਕ &#xA0;, ہر اک </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">Кожне, <span style="language:uk; country:UA; font-size:1.0000em; font-family:'Times New Roman', serif; ">кожного</span> </p>]]></html>
+      </keyword>
+      <keyword text="true" index="4">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">verdadera </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style=""><span style="font-size:1.0000em; ">&#xA0;&#xA0;صحيحة</span> </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">đúng </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">成立,  真 </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-size:1.0000em; "><span style="">正确，成立，</span><span style="">正確</span> &#xA0;</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="line-height:1.15em; "><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; ">tama &#xA0;, usto </span></p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">верным </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">진실의 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਸਹੀ &#xA0;, درست </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">істинне </p>]]></html>
+      </keyword>
+      <keyword text="false" index="5">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">falsa <a href="item_2150_v21_2150_08spanish_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">خطأ <a href="item_2150_v21_2150_05arabic_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">sai <a href="item_2150_v21_2150_05vietnamese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">不成立,  假 <a href="item_2150_v21_2150_05cantonese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="font-family:'Times New Roman'; "><span style="">错误，不成立，</span><span style="">錯誤</span> <a href="item_2150_v21_2150_05mandarin_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="line-height:1.15em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; font-size:1.0000em; ">hindi tama </span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; "><a href="item_2150_v21_2150_05atagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; "> , haan nga usto</span> <a href="item_2150_v21_2150_05btagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">неверным <a href="item_2150_v21_2150_05russian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">거짓의 <a href="item_2150_v21_2150_05korean_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">ਗਲਤ <a href="item_2150_v21_2150_05bpunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> , غلط <a href="item_2150_v21_2150_05apunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="font-family:'Times New Roman'; ">хибне </p>]]></html>
+      </keyword>
+      <keyword text="Click" index="6">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style=""><span style="font-size:1.0000em; font-family:'Times New Roman'; ">Haz clic</span> </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">انقر </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Chọn, Nhấp </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style=""> 点击,  點擊 </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style=""><span style="">点击，按，</span><span style="">点擊</span> </p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="">i-click </p><p style="">&#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">Щелкни </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">클릭하다 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਕਲਿੱਕ ਕਰੋ &#xA0;, کلک کرو</p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">Клацніть </p>]]></html>
+      </keyword>
+      <keyword text="True" index="7">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Verdadera </p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">حقيقية,صحيحة </p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Đúng </p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">成立,  真 </p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style=""><span style="">正确，成立，</span><span style="">正確</span> &#xA0;</p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style=""><span style="color:#000000; language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman'; ">Tama &#xA0;, Usto </span>&#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">Верно </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">진실의 </p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਸਹੀ &#xA0;, درست </p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">істина </p>]]></html>
+      </keyword>
+      <keyword text="False" index="8">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Falsa <a href="item_2150_v21_2150_08spanish_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">خاطئة <a href="item_2150_v21_2150_08arabic_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Sai <a href="item_2150_v21_2150_08vietnamese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">不成立,  假 <a href="item_2150_v21_2150_08cantonese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style=""><span style="">错误，不成立，</span><span style="">錯誤</span> &#xA0;<a href="item_2150_v21_2150_08mandarin_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="line-height:1.15em; font-family:'Times New Roman'; "><span style="color:#000000; language:es; country:MX; font-size:1.0000em; ">Hindi tama </span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; "><a href="item_2150_v21_2150_08atagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; "> &#xA0;, Haan nga usto </span><span style="color:#000000; language:es; country:MX; font-size:1.0000em; "><a href="item_2150_v21_2150_08btagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span></p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">Неверно <a href="item_2150_v21_2150_08russian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">거짓의 <a href="item_2150_v21_2150_08korean_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਗਲਤ <a href="item_2150_v21_2150_08bpunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> , غلط <a href="item_2150_v21_2150_08apunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">хиба <a href="item_2150_v21_2150_08ukrainian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

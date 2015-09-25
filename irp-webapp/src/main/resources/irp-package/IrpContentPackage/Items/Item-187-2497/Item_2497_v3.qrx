@@ -1,0 +1,45 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_71536" title="Item 71536" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="RESPONSE" baseType="directedPair" cardinality="multiple">
+    <correctResponse>
+      <value>4 a</value>
+      <value>1 b</value>
+      <value>3 b</value>
+      <value>2 c</value>
+    </correctResponse>
+    <mapping defaultValue="0">
+      <mapEntry mapKey="4 a" mappedValue="0.25" />
+      <mapEntry mapKey="1 b" mappedValue="0.25" />
+      <mapEntry mapKey="3 b" mappedValue="0.25" />
+      <mapEntry mapKey="2 c" mappedValue="0.25" />
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single" />
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="RESPONSE" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0.0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElse>
+        <setOutcomeValue identifier="SCORE">
+          <truncate>
+            <mapResponse identifier="RESPONSE" />
+          </truncate>
+        </setOutcomeValue>
+      </responseElse>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item71536_ac50e022-602f-497d-a88b-7cec52ca2992">Note 1 supports Main Idea B because it addresses how much food elephants eat.</p>
+    <p id="Item71536_f96d260d-a22e-4dda-ae94-f0f77aa1b42a">Note 2 supports Main Idea C because it describes what an elephant's nose looks like.</p>
+    <p id="Item71536_a25f03e3-c893-4022-9c14-228ac5ac1013">Note 3 supports Main Idea B because it addresses what kind of food elephants eat.</p>
+    <p id="Item71536_9e943c16-ad2a-4c31-a5ae-fdb4c9f3ba34">Note 4 supports Main Idea A because it addresses where elephants live.</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

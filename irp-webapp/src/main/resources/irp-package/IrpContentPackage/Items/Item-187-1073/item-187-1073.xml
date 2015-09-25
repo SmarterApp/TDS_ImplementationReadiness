@@ -19,7 +19,7 @@
       </attrib>
       <attrib attid="itm_FTUse">
         <name>Fieldtest Use</name>
-        <val>Student Help::SP13 (8); SS TT 2014 (5); Student Help::SP14 (2);</val>
+        <val>Student Help::SP13 (8); SS TT 2014 (5); Student Help::SP14 (38); Student Help::SP15 (38); SS TT 2015 (2); Student Help::IRP (67);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_OPUse">
@@ -58,7 +58,7 @@
     <content language="ENU" version="2.0" approvedVersion="11">
       <rationaleoptlist />
       <illustration><![CDATA[<p style="">&#xA0;</p>]]></illustration>
-      <stem><![CDATA[<p style=""><a href="item_1073_v11_tutorial_ms.swf" type="application/x-shockwave-flash" class="flashvideo" autoplay="True" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
+      <stem><![CDATA[<p style=""><a href="item_1073_v11_tutorial_ms.html" type="text/html" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
       <rubriclist />
       <attachmentlist />
     </content>

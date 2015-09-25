@@ -1,23 +1,28 @@
 package org.cresst.sb.irp.utils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
-import org.cresst.sb.irp.domain.testpackage.ObjectFactory;
+import javax.xml.transform.stream.StreamSource;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.oxm.Unmarshaller;
 
 @Service
 public class RetrieveFileUtil {
-	public void walk(String testPackagePath, Map<String, Testspecification> mapTestpackage) throws JAXBException {
-		
-		JAXBContext ctx = JAXBContext.newInstance(ObjectFactory.class);
-		Unmarshaller unmarshaller = ctx.createUnmarshaller();
-		
+	private final static Logger logger = LoggerFactory.getLogger(RetrieveFileUtil.class);
+
+	@Autowired
+	private Unmarshaller unmarshaller;
+
+	public void walk(String testPackagePath, Map<String, Testspecification> mapTestpackage, Resource resource,
+			XMLValidate xmlValidate) {
+
 		File root = new File(testPackagePath);
 		File[] list = root.listFiles();
 
@@ -26,14 +31,22 @@ public class RetrieveFileUtil {
 
 		for (File f : list) {
 			if (f.isDirectory()) {
-				walk(f.getAbsolutePath(), mapTestpackage);
+				walk(f.getAbsolutePath(), mapTestpackage, resource, xmlValidate);
 			} else {
-				Testspecification testpackage = (Testspecification) unmarshaller.unmarshal(f);
-				String uniqueid = testpackage.getIdentifier().getUniqueid();
-				mapTestpackage.put(uniqueid, testpackage);
+				try {
+					if (xmlValidate.validateXMLSchema(resource, f.getCanonicalPath())) {
+						Testspecification testpackage =
+								(Testspecification) unmarshaller.unmarshal(new StreamSource(f.getCanonicalPath()));
+						String uniqueid = testpackage.getIdentifier().getUniqueid();
+						mapTestpackage.put(uniqueid, testpackage);
+					} else {
+						logger.info("file: " + f.getCanonicalPath() + " not valid.");
+					}
+				} catch (IOException e) {
+					logger.error("walk exception: ", e);
+				}
 			}
 		}
 	}
-
 
 }

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="EBSR" id="2492" version="10" bankkey="187">
+    <associatedpassage>3738</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2492</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Sustainable Fashion - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (5); PracTest::ELAG11::SP14::Braille (5); PracTest::ELAG11::SP15 (5); PratTest::ELAG11::SP15::BRL (5);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>C</val>
+        <desc>C</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EBSR</val>
+        <desc>Evidence-Based Selected Response 4</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EBSR</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3738</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices (Part II)">
+        <name>Item:Max Choices (Part II)</name>
+        <val>1</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1769" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2492_v10.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <qti spec="itemBody"><![CDATA[<itemBody><p style="">This question has two parts. First, answer part A. Then, answer part B.</p><choiceInteraction responseIdentifier="EBSR1" shuffle="false" maxChoice="1"><prompt><p style="">Based on the text, what conclusion can be drawn about the fashion industry?</p></prompt><simpleChoice identifier="A"><p style="">It causes less harm than other industries.</p></simpleChoice><simpleChoice identifier="B"><p style="">It is likely to continue its non-eco-friendly practices.</p></simpleChoice><simpleChoice identifier="C"><p style="">It changes when the attitudes of consumers change.</p></simpleChoice><simpleChoice identifier="D"><p style="">It is likely to convince consumers to buy non-eco-friendly products.</p></simpleChoice></choiceInteraction><choiceInteraction responseIdentifier="EBSR2" shuffle="false" maxChoice="1"><prompt><p style="">Which sentence from the text <span id="item_2492_TAG_1_BEGIN"><span style="font-weight:bold; ">best</span></span> supports your answer for part A?</p></prompt><simpleChoice identifier="A"><p style="">“As the idea of living a sustainable lifestyle has become more widespread in recent years, consumers have begun to demand that the products they buy are produced in sustainable ways.”</p></simpleChoice><simpleChoice identifier="B"><p style="">“Consider that Americans threw away an estimated <span id="item_2492_TAG_5_BEGIN">13.1</span> million pounds of clothing and textiles in <span id="item_2492_TAG_6_BEGIN">2010,</span> or <span id="item_2492_TAG_4_BEGIN">5.3%</span> of all solid wastes that made it into <span id="item_2492_TAG_2_BEGIN">U.S.</span> landfills that year (according to the <span id="item_2492_TAG_3_BEGIN">EPA).”</span></p></simpleChoice><simpleChoice identifier="C"><p style="">“According to the Audubon Society, about <span id="item_2492_TAG_8_BEGIN">60%</span> of the energy cost of a T-shirt comes from washing and drying it<span id="item_2492_TAG_7_BEGIN">—</span>and washing adds a water cost as well.”</p></simpleChoice><simpleChoice identifier="D"><p style="">“Given this rush to capitalize on eco-fashion’s newfound popularity, consumers who seek true sustainability in the products they buy would do well to remember the old Latin phrase<span style="font-style:normal; "> caveat emptor: </span>let the buyer beware.”</p></simpleChoice></choiceInteraction></itemBody>]]></qti>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>13 point 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>13.1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>13.1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>2 thousand 10,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2010,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2010,</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>5 point 3 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5.3%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5.3%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>U S</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>U.S.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>U.S.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>E P A. ;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>EPA).”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>EPA).”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>60 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>60%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>60%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2492_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

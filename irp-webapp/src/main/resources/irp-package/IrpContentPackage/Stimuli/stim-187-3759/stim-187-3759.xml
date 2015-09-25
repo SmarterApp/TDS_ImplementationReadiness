@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3759" version="30" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3759</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>10069 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <content language="ENU" version="2.0" approvedVersion="30">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style=""><span style="font-weight:bold; ">Student </span><span id="passage_3759_TAG_1_BEGIN"><span style="font-weight:bold; ">Directions</span></span><br /> <br /><span style="font-weight:bold; ">Mandatory Financial Literacy Classes Argumentative Performance </span><span id="passage_3759_TAG_2_BEGIN"><span style="font-weight:bold; ">Task</span></span><br /> <br /><span style="font-weight:bold; ">Task:<br /></span>In your economics class, you are discussing the importance of making smart financial decisions. Your teacher tells you that, in some school districts, students are required to take a financial literacy class before graduating. Your school board is hosting a meeting to decide whether to offer such a course for graduation and wants students to contribute their perspectives. As part of your initial research, you have found four sources about financial literacy classes.<br /> <br />After you have reviewed these sources, you will answer some questions about them. Briefly scan the sources and the three questions that follow. Then, go back and read the sources carefully so you will have the information you will need to answer the questions and finalize your research. You may click on the Global Notes button to take notes on the information you find in the sources as you read. You may also use scratch paper to take notes.<br /> <br />In Part 2, you will write an argumentative essay on a topic related to the sources.<br /> <br /><span style="font-weight:bold; ">Directions for Beginning:</span></p><p style="">You will now examine several sources. You can re-examine any of the sources as often as you like.<br /> <br /><span style="font-weight:bold; ">Research Questions:</span></p><p style="">After examining the research sources, use the rest of the time in Part 1 to answer three questions about them. Your answers to these questions will be scored. Also, your answers will help you think about the information you have read and viewed, which should help you write your argumentative essay.<br /> <br />You may click on the Global Notes button or refer back to your scratch paper to review your notes when you think it would be helpful. Answer the questions in the spaces below the items.<br /> <br />Both the Global Notes on the computer and your written notes on scratch paper will be available to you in Part 1 and Part 2 of the performance task.<br /> <br /><span style="font-weight:bold; ">Part </span><span id="passage_3759_TAG_3_BEGIN"><span style="font-weight:bold; ">1</span></span><br /> <br /><span style="font-weight:bold; ">Sources for Performance Task:</span><br /> <br /><span style="font-weight:bold; ">Source </span><span id="passage_3759_TAG_4_BEGIN"><span style="font-weight:bold; ">#1</span></span></p><p style="">This article, from April 9, 2010, is from the <span style="font-style:italic; ">New York Times</span>, and is about the potential benefits of financial literacy courses.</p><p style="font-weight:bold; ">&#xA0;</p><p style="text-align:center; "><span style="font-weight:bold; ">Working Financial Literacy in With the Three </span><span id="passage_3759_TAG_5_BEGIN"><span style="font-weight:bold; ">R's</span></span><br /><span id="passage_3759_TAG_6_BEGIN"> by Tara Siegel Bernard</span></p><p style="text-align:center; ">&#xA0;</p><p style="">Most Americans aren't fluent in the language of money. Yet we're expected to make big financial decisions as early as our teens—Should I take on thousands of dollars of student debt? Should I buy a car?—even though most of us received no formal instruction on financial matters until it was too late.<br /> <br />While no course in personal finance could have prevented many Americans from getting caught up in the housing <span id="passage_3759_TAG_7_BEGIN">bubble<span style="vertical-align:super; font-size: 58%;">1</span>,</span> it's clear that most of us need some help, preferably starting when we're still in school. And I'm not just talking about learning to balance your checkbook. It's understanding concepts like the time value of money, risk and reward, and, yes, the importance of savings.<br /> <br />All of this raises the question: What's happening inside our classrooms? And how many schools even broach the topic? As it turns out, for a country that prizes personal responsibility, we're doing very little.<br /> <br />"We need to teach the basics of economics and finances so people can make financial decisions in a changing world," said Annamaria Lusardi, economics professor at Dartmouth College and a research associate at the National Bureau of Economic Research. "It's the compounding of <span id="passage_3759_TAG_8_BEGIN">interest<span style="vertical-align:super; font-size: 58%;">2</span>,</span> the problem of <span id="passage_3759_TAG_9_BEGIN">inflation<span style="vertical-align:super; font-size: 58%;">3</span>.</span> These are the principles. And these are really scientific topics."<br /> <br />While more states are beginning to require some sort of personal finance instruction, there aren't enough that do, financial literacy experts say, and there is little consistency in the quality of the education. Just 13 states require students to take a personal finance course or include the subject in an economics course before they graduate from high school, up from seven states in 2007, according to the Council for Economic Education. Meanwhile, 34 states (including those 13) have personal finance within their curriculum guidelines, up from 28 states in 2007. <span id="passage_3759_TAG_10_BEGIN">. . .</span><br /> <br />But that hasn't stopped enterprising teachers like Mathew Frost, who teaches 11th and 12th graders American history and economics at Sunset High School in Dallas, from working the topic into his student's school day. The Texas economics curriculum carves out time for personal finance, but it doesn't test students on the material. <span id="passage_3759_TAG_59_BEGIN">Mr.</span> Frost says it's just too important to ignore. So he tries to bring the lesson to life for his students by pairing them up as married couples and giving them a couple of children. The students must then create a budget based on the average income range for their neighborhood, or about <span id="passage_3759_TAG_11_BEGIN">$21,000</span> to <span id="passage_3759_TAG_13_BEGIN">$40,000</span> a year. As in the board game "Life," the students are dealt real-world circumstances. <span id="passage_3759_TAG_60_BEGIN">Mr.</span> Frost has them randomly pick "chance cards" from a bag, which might tell them they need new brakes for their car, broke an arm, suffered a death in the family, or found $20.<br /> <br />"I try to make it as realistic as possible," he said. "We talk about building budgets, expenses, investing money," he added, as well as "how to use credit wisely, insurance and careers."<br /> <br />One of his students later wrote about the experience. The 11th grader, who simulated life with a wife and two children on <span id="passage_3759_TAG_12_BEGIN">$21,000</span> a year, told of balancing needs versus wants, trying to find an apartment in a safe neighborhood that fit the family budget, and the effect of an unexpected rent increase on their savings.<br /> <br />"I first learned that real life isn't going to be as nice as this game," he said. "I also learned that good budgeting has to be maintained throughout a person's life no matter the income, no matter the living conditions."<br /> <br />Research shows that this type of financial education tends to resonate with the students later.<br /> <br />Michael S. Gutter, an assistant professor of family financial management at the University of Florida, studied the issue in 2009, after he surveyed 15,700 students at 15 universities who came from states with different (or nonexistent) personal finance schooling requirements. The study was financed by the National Endowment for Financial Education, a nonprofit organization in Denver that provides financial education curriculums.<br /> <br />"College students who came from states where there was a course required were more likely to budget, were more likely to be saving, and were less likely to have maxed out their credit cards in the last year and were more likely to be paying off their credit cards fully," Professor Gutter said. But his research also suggested that "social learning is also very powerful as well," he said. "What your parents tell you matters." <span id="passage_3759_TAG_14_BEGIN">. . .</span><br /> <br />"It's hard because there is no silver bullet to get this into every school," said Matthew Yale, deputy chief of staff to Education Secretary Arne Duncan. "It's not as simple as saying, ‘We're going to institute this in the 100,000 public schools in America.' But our plan for reauthorization does make room for financial literacy in schools, which is a really big, big deal." <span id="passage_3759_TAG_61_BEGIN">Mr.</span> Yale was referring to the Obama administration's plan to revise the Elementary and Secondary Education Act, commonly known as No Child Left Behind.<br /> <br />He said the Department of Education's next step is to work with districts and teachers and help them find the money they need, whether it's through the many literacy-minded nonprofits or the private sector. <span id="passage_3759_TAG_62_BEGIN">Mr.</span> Yale also said that department officials were working on competitive grant programs, which would allow schools to compete for money to pay for the financial literacy programs. As a joint effort with the Treasury Department, the Education Department is currently running the National Financial Capability Challenge, an online exam for high school students that measures financial know-how and recognizes outstanding performers, to help raise awareness.<br /> <br />President Bush created the first Advisory Council on Financial Literacy in 2008, and President Obama plans to assemble his own team. In its annual report, the first council recommended that Congress or state legislatures mandate financial education in all schools for students in kindergarten through 12th grade. But will the new administration follow through with that recommendation? <span id="passage_3759_TAG_63_BEGIN">Mr.</span> Yale said education officials were "not interested in introducing unfunded mandates."<br /> <br />So what can we do? According to Scott Truelove, who teaches personal finance as part of a work-study program for seniors at Chesterton High School in Indiana, "It will take a parent movement."<br /> <br /><span id="passage_3759_TAG_64_BEGIN">Mr.</span> Truelove has already seen the power of financial education in his school's hallways, where a student told him and another personal finance teacher that she set up a Roth <span id="passage_3759_TAG_21_BEGIN">I.R.A.<span style="vertical-align:super; font-size: 58%;">4</span></span> given what she learned in class.<br /> <br />"That, to me, is huge," <span id="passage_3759_TAG_65_BEGIN">Mr.</span> Truelove said.<br /> <br /><span id="passage_3759_TAG_22_BEGIN"><span style="vertical-align:super; font-size: 58%;">1</span>housing</span> bubble: when housing prices rapidly increase to unsustainable levels and then collapse<br /><span id="passage_3759_TAG_23_BEGIN"><span style="vertical-align:super; font-size: 58%;">2</span>compound</span> interest: interest paid on both the original amount of money invested and on the interest it has already earned<br /><span id="passage_3759_TAG_24_BEGIN"><span style="vertical-align:super; font-size: 58%;">3</span>inflation:</span> a general increase in prices that decrease the purchasing power of money<br /><span id="passage_3759_TAG_25_BEGIN"><span style="vertical-align:super; font-size: 58%;">4</span>Roth</span> I.R.A.: a type of individual retirement <span id="passage_3759_TAG_68_BEGIN">account</span><br /> </p><p style="">Bernard Siegal, Tara. (2010, April 9). Working Financial Literacy in With the Three R's. <span style="font-style:italic; ">The New York Times. </span><span style="font-style:normal; ">Retrieved from http://www.nytimes.com/2010/04/10/your-money/10money.html. </span></p><p style=""><br /> <span style="font-weight:bold; ">Source </span><span id="passage_3759_TAG_17_BEGIN"><span style="font-weight:bold; ">#2</span></span><br />In this article from February 6, 2009, the <span style="font-style:italic; ">Chicago Tribune</span> discusses problems with financial literacy education.</p><p style="font-weight:bold; ">&#xA0;</p><p style="text-align:center; "><span style="font-weight:bold; ">Financial Education Leaving Americans </span><span id="passage_3759_TAG_18_BEGIN"><span style="font-weight:bold; ">Behind</span></span><br /><span id="passage_3759_TAG_19_BEGIN">by Greg Burns</span></p><p style="">&#xA0;</p><p style="">With so many personal finance decisions turning into disasters, a chorus of voices is singing the praises of financial-literacy education.<br /> <br />Make every American a financial whiz, the thinking goes, and credit bubbles never will bedevil us again.<br /> <br />Trouble is, growing evidence suggests that financial-literacy courses don't work. Worse, they may actually hurt, in part by making their graduates overconfident about limited skills.<br /> <br />Few want to hear that message, according to Lauren Willis, a professor at Loyola Law School in Los Angeles, whose recent paper, "Against Financial Literacy Education," shook up all sorts of vested interests. <span id="passage_3759_TAG_20_BEGIN">. . .</span><br /> <br />Plenty of people make a living off these courses, and lawmakers love them, since they give the impression that something is being done about the intractable problem of financial ignorance.<br /> <br />Utah, Missouri, and Tennessee require students to take a semester-long personal-finance class before graduating from high school. Illinois and 16 other states incorporate financial education into other subjects—by decree, of course.<br /> <br />The Indiana Senate this month approved a bill that would require "personal financial responsibility" to be taught from kindergarten through high school. Its sponsor described it as an appropriate response to "difficult times." Other states are mulling expanded mandates.<br /> <br />These measures don't affect only youth. Adults face similar obligatory instruction when they seek bankruptcy protection or, in some cases, apply for loans.<br /> <br />Academics have known for years about the scant evidence in support of the programs, but few are willing to go as far as Willis in bluntly denouncing them as a counterproductive racket.<span id="passage_3759_TAG_67_BEGIN"><span style="vertical-align:super; font-size: 58%;">1</span></span><br /> <br />She cites examples, such as the high school students who took a semester-long personal-finance course and tested worse than those who didn't. Or the graduates of retirement-planning classes who thought their literacy had increased, when their financial test scores had not.<br /> <br />Now comes a study from Harvard Business School raising more doubts. Using rigorous methodology, it concluded that programs in widespread use during the past two decades were no use at all.<br /> <br />"They weren't effective in changing people's financial decisions," said Shawn Cole, one of two professors behind the report, titled "If You Are So Smart, Why Aren't You Rich?"<br /> <br />"We find no effect," he said. "My gut feeling is that teaching math or statistics would be more useful."<br /> <br />Still, Cole believes it may be possible to design an effective program. That's a common theme among those who favor financial education: Just because no one has proven these courses work is no reason to give up searching for the right formula.<br /> <br />Willis has other ideas. She wants to forget about making Americans capable of handling their credit and investment needs—most will never get there, especially given the fast-moving, complicated nature of financial services.<br /> <br />She favors pro-consumer regulation and one-on-one counseling with unbiased advisers. Sure, those could be tough to come by. But no one said saving Americans from themselves would be easy.<br /> <br /><span id="passage_3759_TAG_66_BEGIN"><span style="vertical-align:super; font-size: 58%;">1</span>racket:</span> a dishonest scheme or business <span id="passage_3759_TAG_69_BEGIN">activity</span></p><p style="">&#xA0;</p><p style="">Burns, Greg. (2009, February 6). Financial Education Leaving Americans Behind. <span style="font-style:italic; ">Chicago Tribune. </span><span style="font-style:normal; ">Retrieved from http://articles.chicagotribune.com/2009-02-16/news/0902150143_1_financial-literacy-financial-literacy-education-financial-ignorance.</span><br /> <br /> <br /><span style="font-weight:bold; ">Source </span><span id="passage_3759_TAG_28_BEGIN"><span style="font-weight:bold; ">#3</span></span><br />This October 6, 2013 article from the <span style="font-style:italic; ">New York Times</span> is about the drawbacks of financial literacy courses, and what the research shows about teaching financial literacy skills.</p><p style="font-weight:bold; ">&#xA0;</p><p style="text-align:center; "><span style="font-weight:bold; ">F</span><span style="font-weight:bold; ">inancial Literacy, Beyond the </span><span id="passage_3759_TAG_30_BEGIN"><span style="font-weight:bold; ">Classroom</span></span><br /><span id="passage_3759_TAG_29_BEGIN">by Richard H. Thaler</span></p><p style="">&#xA0;</p><p style="">Even if we grade on a very generous curve, many Americans flunk when it comes to financial literacy. Consider this three-item quiz:<br /> <br />• Suppose you had $100 in a savings account and the interest rate was 2 percent a year. After five years, how much do you think you would have if you left the money to grow? More than $102, exactly $102 or less than $102? <br />• Imagine that the interest rate on your savings account was 1 percent a year and that inflation was 2 percent. After one year, would you be able to buy more than, the same as, or less than you could today with the money? <br />• Do you think this statement is true or false: "Buying a single company stock usually provides a safer return than a stock mutual fund"?<br /> <br />Anyone with even a basic understanding of compound interest, inflation and <span id="passage_3759_TAG_33_BEGIN">diversification<span style="vertical-align:super; font-size: 58%;">1</span></span> should know that the answers to these questions are "more than," "less than" and "false." Yet in a survey of Americans over age 50 conducted by the economists Annamaria Lusardi of George Washington University and Olivia S. Mitchell of the Wharton School of the University of Pennsylvania, only a third could answer all three questions correctly.<br /> <br />This is particularly troubling given the inherent complexity of our modern economy. Whether in taking out a student loan, buying a house, or saving for retirement, people are being asked to make decisions that are difficult even if they have graduate training in finance and economics. Throwing the financially illiterate into that maelstrom is like taking students currently enrolled in driver's education and asking them to compete in the Indianapolis 500.<br /> <br />A popular approach to this problem is to work harder to improve financial literacy—for example, by including household finance in the basic high school curriculum. One reason to think this solution will have big payoffs is that people who are more knowledgeable about financial matters, as measured by a test, perform better at tasks like saving for retirement and staying out of debt. This may seem a straightforward argument in support of financial literacy courses. Unfortunately, it isn't.<br /> <br />The problem is that measured financial literacy is highly correlated with other factors, most notably higher education in general, so it's hard to sort out causes. (The ability to solve the Sunday crossword puzzle is probably also positively correlated with good financial outcomes.) So to see whether a financial education curriculum is likely to pay dividends, we should review specific efforts to shore up financial skills in those who are deficient, and not just measure what people already know.<br /> <br />A new paper by three business school professors—Daniel Fernandes of Erasmus University in the Netherlands and the Catholic University of Portugal, John G. Lynch <span id="passage_3759_TAG_72_BEGIN">Jr.</span> of the University of Colorado, and Richard Netemeyer of the University of Virginia—presents a discouraging assessment of attempts to teach people how to deal with money. Their article uses a technique called meta-analysis,<span id="passage_3759_TAG_34_BEGIN"><span style="vertical-align:super; font-size: 58%;">2</span></span> looking at results from 168 scientific studies of efforts to teach people to be financially astute, or at least less clueless.<br /> <br />The authors' conclusions are clear: over all, financial education is laudable,<span id="passage_3759_TAG_35_BEGIN"><span style="vertical-align:super; font-size: 58%;">3</span></span> but not particularly helpful. Those who receive it do not perform noticeably better when it comes to saving more, for example, or avoiding ruinous debt. <span id="passage_3759_TAG_32_BEGIN">. . .</span><br /> <br />Don't get me wrong. I am all for trying to teach household finance in schools, starting as early as possible. And when it comes to high school, I think learning about compound interest is at least as important as trigonometry or memorizing the names of all 50 state capitals. If we try enough approaches, and evaluate what works, we may improve such programs' effectiveness. But we shouldn't fool ourselves into thinking that adding a household finance class to a high school curriculum will in itself create knowledgeable consumers who can understand today's wide array of financial products.<br /> <br /><span id="passage_3759_TAG_31_BEGIN">. . .</span> In the meta-analysis, even the most time-intensive programs—those with more than 24 hours of education and training, almost the length of a college course—had no discernible effects just two years later.<br /> <br />It would be premature to conclude that all efforts at improving financial literacy are futile. But it is a fair conclusion that simply doing more of the training commonly used now will not produce significant results. So what else might we try? Although no approach offers a panacea,<span id="passage_3759_TAG_36_BEGIN"><span style="vertical-align:super; font-size: 58%;">4</span></span> three types of efforts seem worthy of more attention.<br /> <br />The first is what Professor Lynch, one of the authors of the meta-analysis, calls just-in-time education. Because learning decays quickly, it's best to provide assistance just before a decision is made. High school seniors should receive help in how to think about a student loan and how to make sure that the education bought with the loan offers good prospects for repayment. Just-in-time education can be offered at other crucial moments—when taking out a mortgage or figuring out when to retire. But unless such education is compulsory, many of the consumers most in need of help don't take advantage of it. And we need to be sure not to confuse self-serving <span id="passage_3759_TAG_37_BEGIN">marketing<span style="vertical-align:super; font-size: 58%;">5</span></span> with objective advice.<br /> <br />Another approach is to offer simple rules of thumb to help people cope. Because few people can calculate how much they need to save for a comfortable retirement, it might help to offer simple guidelines like "invest as much as possible in your 401(k) plan,"<span id="passage_3759_TAG_38_BEGIN"><span style="vertical-align:super; font-size: 58%;">6</span> </span>"save 15 percent of your income," or "get a 15-year mortgage if you are over 50."<br /> <br />One example comes from a field experiment involving <span id="passage_3759_TAG_39_BEGIN">microentrepreneurs<span style="vertical-align:super; font-size: 58%;">7</span></span> in the Dominican Republic. Of those who expressed an interest in receiving help, some were offered training in basic accounting principles while others were given simple rules of thumb. The accounting education did not have apparent effects, but simple rules—like keeping personal money and business money in separate drawers—led to better outcomes. This seemingly trivial concept helped small-business owners keep better track of how their businesses were faring.<br /> <br />The third approach, and the one I believe offers the best prospects of immediate help, is to make our financial system more user-friendly. You don't need to be a computer scientist to use a smartphone. If we made choosing a suitable mortgage as easy as checking the weather in Timbuktu, fewer households would find themselves underwater<span style="vertical-align:super; font-size: 58%;">8</span> when real estate markets tumble. <span id="passage_3759_TAG_48_BEGIN">. . .</span><br /> <br />The same principle can be used in other areas, from credit cards to checking accounts. The financial services industry—either on its own or as required by government regulators—needs to find ways to make it easier for people to make sound decisions. And those financial firms that engage in fraudulent practices should be prosecuted and stopped.<br /> <br /><span id="passage_3759_TAG_40_BEGIN"><span style="vertical-align:super; font-size: 58%;">1</span>diversification</span>: investing in different assets in order to minimize risk<br /><span id="passage_3759_TAG_41_BEGIN"><span style="vertical-align:super; font-size: 58%;">2</span>meta</span>-analysis: an analysis of several separate but similar studies to determine if an observed effect is not due to chance alone<br /><span id="passage_3759_TAG_42_BEGIN"><span style="vertical-align:super; font-size: 58%;">3</span>laudable</span>: praiseworthy<br /><span id="passage_3759_TAG_43_BEGIN"><span style="vertical-align:super; font-size: 58%;">4</span>panacea</span>: a solution or remedy for all difficulties or diseases <br /><span id="passage_3759_TAG_44_BEGIN"><span style="vertical-align:super; font-size: 58%;">5</span>self-serving</span> marketing: surveys, top 10 lists, and technical papers that contain seemingly useful consumer information but are being used as a marketing strategy<br /><span id="passage_3759_TAG_45_BEGIN"><span style="vertical-align:super; font-size: 58%;">6</span>401(k)</span> plan: a retirement savings plan in which deductions are automatically made from an employee's paycheck before taxes are deducted and that are sometimes matched by the <span id="passage_3759_TAG_70_BEGIN">employer</span></p><p style="vertical-align: 0%;font-size: 100%;"><span style="vertical-align:super; font-size: 58%;">7</span><span style="">microentrepreneur: operator of a microenterprise, or very small business; microenterprises typically employ fewer than ten people and have relatively low start-up costs</span></p><p style="vertical-align: 0%;font-size: 100%;"><span style="vertical-align:super; font-size: 58%;">8</span><span style=""> underwater: when an individual owes more on a loan than the market value of the loan; this term is typically applied to home mortgages</span></p><p style="">&#xA0;</p><p style=""><span style="">Thaler, Richard H. (2013, October 6). Financial Literacy, Beyond the Classroom. </span><span style="font-style:italic; ">New York Times. </span><span style="font-style:normal; ">Retrieved from http://www.nytimes.com/2013/10/06/business/financial-literacy-beyond-the-classroom.html. </span><span style=""><br /><br /></span><span style="font-weight:bold; "> </span><span style="font-weight:bold; ">Source </span><span id="passage_3759_TAG_49_BEGIN"><span style="font-weight:bold; ">#4</span></span></p><p style="">This article, from October 15, 2006, is from the <span style="font-style:italic; ">Baltimore Sun </span>and is about concerns surrounding mandated financial literacy classes.</p><p style="font-weight:bold; ">&#xA0;</p><p style="text-align:center; "><span style="font-weight:bold; ">Finance Course Prompts </span><span id="passage_3759_TAG_50_BEGIN"><span style="font-weight:bold; ">Debate</span></span><br /><span id="passage_3759_TAG_51_BEGIN">by Gina Davis</span></p><p style="">&#xA0;</p><p style="">While Carroll County students will be required to take a financial literacy course to graduate starting next year, concerns linger over whether mandating the course is the most effective way to teach money matters to teens.<br /> <br />"The course is likely a good thing, but I am convinced it is not the best thing," school board President Thomas G. Hiltz said last week. "One course is not a panacea and, alone, will not make our students financially literate." </p><p style="">&#xA0;</p><p style="">After a lengthy debate about requiring the class, board members voted <span id="passage_3759_TAG_52_BEGIN">4–1</span> to require students beginning next school year to take the half-credit course. It will cover concepts such as money management, consumer rights and responsibilities, credit, savings, and investing.<br /> <br />Carroll joins a handful of Maryland school systems—including Harford, <span id="passage_3759_TAG_73_BEGIN">St.</span> Mary's, Talbot and Baltimore counties—with a similar requirement.<br /> <br />The financial course was one of several changes to the high school program of studies that the board approved.<br /> <br />During last week's meeting, Hiltz joined Cynthia L. Foley in supporting a motion to amend the proposal that would have eliminated financial literacy as a required course. The motion to amend failed in a <span id="passage_3759_TAG_53_BEGIN">3–2</span> vote.<br /> <br />Foley was the lone <span id="passage_3759_TAG_55_BEGIN">dissenter<span style="vertical-align:super; font-size: 58%;">1</span></span> when the original proposal came to a vote. Hiltz said he voted to approve the high school program of studies that included the financial literacy requirement because he supported the overall plan.<br /> <br />"While it did not turn out the way I may have wanted <span id="passage_3759_TAG_54_BEGIN">. . .</span> unless I believe there has been an egregious mistake in judgment, a vote against the entire high school program of studies is, in my view, sour grapes," Hiltz said in an email.<br /> <br />During the meeting, Hiltz suggested the board needed more time to consider alternatives, such as incorporating elements of the course into already required classes or developing a comprehensive "financial literacy program," not a single course.<br /> <br />Hiltz also said a required course would necessitate about 10 teachers each year and cost the system about $600,000 annually.<br /> <br />"My overwhelming concern is not cost—it is effectiveness," Hiltz said. "The $600,000 is a low cost if the course is effective. An effective course will return that investment. It is a high cost if it is ineffective."<br /> <br />School officials said statistics suggest teens and young adults are assuming too much credit card debt and are not knowledgeable about finances.<br /> <br />About one in five students gets a personal finance course during high school, according to the JumpStart Coalition for Personal Financial Literacy, which surveys high school seniors every other year to gauge financial aptitude.<br /> <br />Of the 5,775 high school seniors in 37 states who participated in that survey this year, students on average scored 52.4 percent on 30 questions, according to the group.<br /> <br />A 2004 poll of college administrators found that excessive credit card debt was the primary reason students dropped out and the secondary reason was low grades, according to the Maryland Coalition for Financial Literacy.<br /> <br />Carroll school officials said last week that in a "pre-test" given to about 30 students taking the financial literacy elective this semester, the highest score was about 60 percent—with some students scoring much lower.<br /> <br />"Personal finances are not being taught in the home," said Patricia Hummel, a parent who also teaches financial literacy at Winters Mill High as a permanent substitute. "Studies have shown that only 26 percent of 13- to 21-year-olds reported that their parents actively taught them how to manage money.”<br /> <br />Hummel supported a required financial literacy course because, "unless this class is mandated, students will not take advantage of the class."<br /> <br />Hiltz said that while the district has piloted [tested] a financial literacy course, no local data has been collected on its effectiveness.<br /> <br />"We all agree that financial literacy is essential," he said. "The lack of a real consideration of other options <span id="passage_3759_TAG_74_BEGIN">. . .</span> troubled me greatly. I am concerned that we picked low-hanging fruit, which may be the most expensive and least effective option."<br /> <br /><span id="passage_3759_TAG_56_BEGIN"><span style="vertical-align:super; font-size: 58%;">1</span>dissenter:</span> someone who disagrees with a particular <span id="passage_3759_TAG_71_BEGIN">view</span></p><p style="">&#xA0;</p><p style="">Davis, Gina. (2006, October 15). Finance Course Prompts Debate. <span style="font-style:italic; ">Baltimore Sun.</span> Retrieved from http://articles.baltimoresun.com/2006-10-15/news/0610140104_1_hiltz-high-school-program-financial-literacy.</p>]]></stem>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Directions.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Directions</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Directions</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Task.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Task</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Task</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 1.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>R's.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>R's</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>R's</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>By Tara Siegel Bernard.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate> by Tara Siegel Bernard</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString> by Tara Siegel Bernard</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>bubble, footnote 1,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>bubble1,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>bubble1,</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>interest, footnote 2,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>interest2,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>interest2,</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>inflation, footnote 3.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>inflation3.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>inflation3.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_59_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>21 thousand dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$21,000</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$21,000</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>40 thousand dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$40,000</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$40,000</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_60_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>21 thousand dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$21,000</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$21,000</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_61_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_62_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_63_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_64_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_21_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>I.R.A. , footnote 4,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>I.R.A.4</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>I.R.A.4</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_65_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_22_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 1, housing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1housing</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1housing</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_23_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 2, compound</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2compound</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2compound</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae25">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_24_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 3, inflation:</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3inflation:</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3inflation:</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae26">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_25_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 4, Roth</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>4Roth</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>4Roth</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae27">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_68_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>account.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>account</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>account</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae28">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 2.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae29">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Behind.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Behind</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Behind</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae30">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_19_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>By Greg Burns.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>by Greg Burns</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>by Greg Burns</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae31">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_20_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae32">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_67_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 1,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae33">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_66_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 1, racket:</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1racket:</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1racket:</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae34">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_69_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>activity.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>activity</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>activity</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae35">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_28_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 3.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#3</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#3</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae36">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_30_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Classroom.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Classroom</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Classroom</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae37">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_29_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>By Richard H. Thaler.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>by Richard H. Thaler</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>by Richard H. Thaler</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae38">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_33_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>diversification, footnote 1,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>diversification1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>diversification1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae39">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_72_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>junior</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Jr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Jr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae40">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_34_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 2,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae41">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_35_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 3,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae42">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_32_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dot dot dot.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae43">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_31_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, dot dot dot,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae44">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_36_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 4,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>4</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>4</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae45">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_37_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>marketing, footnote 5,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>marketing5</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>marketing5</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae46">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_38_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 6,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>6</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>6</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae47">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_39_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>micro entrepreneurs</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>microentrepreneurs</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>microentrepreneurs</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae48">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_48_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, dot dot dot,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae49">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_40_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 1, diversification</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1diversification</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1diversification</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae50">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_41_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 2, meta</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2meta</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2meta</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae51">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_42_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 3, laudable</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3laudable</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3laudable</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae52">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_43_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 4, panacea</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>4panacea</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>4panacea</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae53">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_44_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,footnote 5, self-serving</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5self-serving</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5self-serving</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae54">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_45_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 6, 401(k)</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>6401(k)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>6401(k)</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae55">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_70_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>employer.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>employer</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>employer</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae56">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_49_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 4.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#4</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#4</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae57">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_50_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Debate.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Debate</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Debate</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae58">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_51_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>By Gina Davis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>by Gina Davis</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>by Gina Davis</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae59">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_52_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>4 to 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>4–1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>4–1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae60">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_73_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Saint</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>St.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>St.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae61">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_53_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 to 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3–2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3–2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae62">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_55_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>dissenter, footnote 1,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>dissenter1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>dissenter1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae63">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_54_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, dot dot dot,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae64">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_74_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, dot dot dot,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. . .</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>. . .</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae65">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_56_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, footnote 1, dissenter:</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1dissenter:</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1dissenter:</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae66">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3759_TAG_71_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>view.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>view</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>view</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

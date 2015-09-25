@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="htq" id="2561" version="5" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2561</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>59111_Practice Test Refresh</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (28); PracTest::ELAG11::SP14::Braille (27);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HTQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HTQ</val>
+        <desc>Hottext with QTI rubric</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2561_v5.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A student is writing a research report about different ways people can be environmentally conscious for environmental biology class. Read the credible sources that the student found and the directions that follow.</p><p style=""><br /><span style="font-weight:bold; ">Source 1: Article from the magazine </span><span style="font-style:italic; font-weight:bold; ">Family </span><span id="item_2561_TAG_8_BEGIN"><span style="font-style:italic; font-weight:bold; ">Life</span></span><span style="font-style:italic; font-weight:bold; "> </span></p><p style=""><br />Being environmentally aware does not have to be difficult. Recycling has been a common practice for many years. In fact a recent study funded by a paper association shows that over <span id="item_2561_TAG_10_BEGIN">87%</span> of Americans have access to recycling opportunities. Not every item needs to be sent away to be recycled. Recycling at home is as easy as asking yourself a simple question before throwing something away: “Can this item be used for anything else?” It is surprising to find that the answer is usually “yes.” Recycling items that would ordinarily be trash by altering their original function is known as <span id="item_2561_TAG_11_BEGIN">repurposing</span>.</p><p style=""><br /><span style="font-weight:bold; ">Source 2: Environment column from </span><span style="font-style:italic; font-weight:bold; ">City </span><span id="item_2561_TAG_9_BEGIN"><span style="font-style:italic; font-weight:bold; ">Times</span></span></p><p style=""><br />Waste Management reports that more than <span id="item_2561_TAG_12_BEGIN">40%</span> of America's landfill waste is made up of paper products. Many Americans are attempting to lower that percentage by recycling or <span id="item_2561_TAG_13_BEGIN">repurposing</span>. Cereal boxes can be cut into dresser-sized organizers and used to sort dress socks, athletic socks, and odd socks. Magazine holders can be created by cutting cereal boxes on a diagonal. The uses of this single piece of trash are endless. As long as the <span id="item_2561_TAG_14_BEGIN">repurposed</span> item stays out of the landfill, it does not matter how it is transformed or used.</p><p style=""><br />The student wants to include information from the sources in her report but does not want to plagiarize the authors' ideas. Read the paragraph from the report and click on the <span style="font-weight:bold; ">two </span>sentences that are plagiarized.</p><p style=""><br /><span id="item_2561_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1">People sometimes throw away things without regard for the environment.</span></span><span id="item_2561_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1"> Forty percent of waste in America's landfills are recyclable paper products.</span></span><span id="item_2561_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1"> There are many ways of being environmentally conscious that do not cost money but require a little extra effort.</span></span><span id="item_2561_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1"> Many people are aware that recycling can reduce the amount of landfill waste.</span></span><span id="item_2561_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1"> When trash is converted into something useful, it is called <span id="item_2561_TAG_15_BEGIN">repurposing</span>.</span></span><span id="item_2561_TAG_6_BEGIN"><span class="interaction selectable" data-its-identifier="6" data-its-group="1"> For example, cereal boxes can be used to organize dresser drawers or store magazines.</span></span><span id="item_2561_TAG_7_BEGIN"><span class="interaction selectable" data-its-identifier="7" data-its-group="1"> Recycling and <span id="item_2561_TAG_16_BEGIN">repurposing</span> can have a positive impact on the environment.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1 st point here&gt; (1 point) </p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 2 ndpoint here&gt; (2 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 3 rdpoint here&gt; (3 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 4 thpoint here&gt; (4 point). </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <constraints>
+        <cardinality target="1" min="0" max="0" />
+        <cardinality target="" min="1" max="0" />
+      </constraints>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Life.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Life</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Life</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>87 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>87%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>87%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>re-purposing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>repurposing</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>repurposing</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Times.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Times</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Times</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>40 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>40%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>40%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>re-purposing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>repurposing</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>repurposing</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>re-purposing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>repurposed</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>repurposed</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>re-purposing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>repurposing</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>repurposing</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_2561_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>re-purposing</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>repurposing</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>repurposing</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

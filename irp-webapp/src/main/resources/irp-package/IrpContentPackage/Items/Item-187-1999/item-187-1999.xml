@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1999" version="8" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1999</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned from 1149</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (16); PracTest::MG11::S2::SP14::Braille (16); PracTest::MG11::S2::SP14::ESN (16);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2379" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1999_v8.qrx" />
+    <RendererSpec filename="Item_1999_v8.eax" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Determine values of <span style="font-style:italic; ">c </span><span style="font-style:normal; ">and </span><span style="font-style:italic; ">d </span><span style="font-style:normal; ">for which the equation </span><span style="font-style:normal; "><img id="item_1999_Object1" style="vertical-align:middle;" src="item_1999_v8_Object1_png16malpha.png" width="200" height="21" /></span><span style="font-style:normal; "> has no solution. </span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span id="item_1999_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_1999_TAG_3" data-tag-boundary="end"></span><span style="font-style:normal; "> a value for </span><span style="font-style:italic; ">c </span><span style="font-style:normal; ">in the </span><span id="item_1999_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; ">first response box</span><span class="its-tag" data-tag-ref="item_1999_TAG_4" data-tag-boundary="end"></span><span style="font-style:normal; ">. </span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span id="item_1999_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_1999_TAG_5" data-tag-boundary="end"></span><span style="font-style:normal; "> a value for </span><span style="font-style:italic; ">d </span><span style="font-style:normal; ">in the </span><span id="item_1999_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; ">second response </span><span id="item_1999_TAG_2_BEGIN"><span style="font-style:normal; ">box</span></span><span class="its-tag" data-tag-ref="item_1999_TAG_6" data-tag-boundary="end"></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar: 1<span style="vertical-align:super; font-size: 58%;">st</span> box: 3</p><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;2<span style="vertical-align:super; font-size: 58%;">nd</span> box: any value not equal to 1.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">1 point: The student enters values for c and d that would result in the equation having no solution.</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1999_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1999_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, The square root of 3x plus 1, minus, the square root of c x plus d, equals 0,</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1999_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>box. The equation tool has two sections. In the left section from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="">Determina los valores de <span style="font-style:italic; ">c </span><span style="font-style:normal; ">y </span><span style="font-style:italic; ">d</span><span style="font-style:normal; "> para los cuales la ecuación </span><span style="font-style:normal; "><img id="item_1999_Object2" style="vertical-align:middle;" src="item_1999_v8_Object2_png16malpha.png" width="200" height="21" /></span><span style="font-style:normal; "> no tiene solución.</span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; ">Escribe un valor para </span><span style="font-style:italic; ">c </span><span style="font-style:normal; ">en la primera casilla de respuestas. </span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; ">Escribe un valor para </span><span style="font-style:italic; ">d </span><span style="font-style:normal; ">en la segunda casilla de respuestas.</span></p><p class="languagedivider">&#xA0;</p><p style="">Determine values of <span style="font-style:italic; ">c </span><span style="font-style:normal; ">and </span><span style="font-style:italic; ">d </span><span style="font-style:normal; ">for which the equation </span><span style="font-style:normal; "><img id="item_1999_Object1" style="vertical-align:middle;" src="item_1999_v8_Object1_png16malpha.png" width="200" height="21" /></span><span style="font-style:normal; "> has no solution. </span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span id="item_1999_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_1999_TAG_3" data-tag-boundary="end"></span><span style="font-style:normal; "> a value for </span><span style="font-style:italic; ">c </span><span style="font-style:normal; ">in the </span><span id="item_1999_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; ">first response box</span><span class="its-tag" data-tag-ref="item_1999_TAG_4" data-tag-boundary="end"></span><span style="font-style:normal; ">. </span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span id="item_1999_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_1999_TAG_5" data-tag-boundary="end"></span><span style="font-style:normal; "> a value for </span><span style="font-style:italic; ">d </span><span style="font-style:normal; ">in the </span><span id="item_1999_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; ">second response </span><span id="item_1999_TAG_2_BEGIN"><span style="font-style:normal; ">box</span></span><span class="its-tag" data-tag-ref="item_1999_TAG_6" data-tag-boundary="end"></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1999_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, The square root of 3x plus 1, minus, the square root of c x plus d, equals 0,</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth" />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1999_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>box. The equation tool has two sections. In the left section from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

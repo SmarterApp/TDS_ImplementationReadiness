@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1916" version="8" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1916</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP15 (1); PracTest::MG11::S1::SP15::Braille (1); PracTest::MG11::S1::SP15::ESN (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2359" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1916_v8.qrx" />
+    <RendererSpec filename="Item_1916_v8.eax" />
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="">Escribe una expresión equivalente a <img id="item_1916_Object4" style="vertical-align:middle;" src="item_1916_v8_Object4_png16malpha.png" width="37" height="57" /> en la forma <img id="item_1916_Object5" style="vertical-align:middle;" src="item_1916_v8_Object5_png16malpha.png" width="23" height="18" />.</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1916_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1916_TAG_5" data-tag-boundary="end"></span> an expression equivalent to <img id="item_1916_Object1" style="vertical-align:middle;" src="item_1916_v8_Object1_png16malpha.png" width="37" height="57" /> in the form <img id="item_1916_Object2" style="vertical-align:middle;" src="item_1916_v8_Object2_png16malpha.png" width="23" height="18" />.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1916_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, A., raised to the ninth power over A., cubed.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>absolute value of the fraction a  raised to the power of 9  over a  raised to the power of 3 ,</brailleTextString>
+                <brailleCode type="Nemeth">(?a~9"/a~3"#)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1916_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>A., raised to the M power.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>a  raised to the power of m</brailleTextString>
+                <brailleCode type="Nemeth">a~m"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1916_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1916_TAG_5" data-tag-boundary="end"></span> an expression equivalent to <img id="item_1916_Object1" style="vertical-align:middle;" src="item_1916_v8_Object1_png16malpha.png" width="37" height="57" /> in the form <img id="item_1916_Object2" style="vertical-align:middle;" src="item_1916_v8_Object2_png16malpha.png" width="23" height="18" />.</p><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style=""><span style="font-weight:bold; ">Exemplar:</span> <img id="item_1916_Object3" style="vertical-align:middle;" src="item_1916_v8_Object3_png16malpha.png" width="19" height="20" /></p><p style="">&#xA0;</p><p style=""><span style="font-weight:bold; ">1 Point:</span> <span style="">Student enters an equivalent expression in the correct form.</span></p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1916_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1916_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, A., raised to the ninth power over A., cubed.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>absolute value of the fraction a  raised to the power of 9  over a  raised to the power of 3 ,</brailleTextString>
+                <brailleCode type="Nemeth">(?a~9"/a~3"#)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1916_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>A., raised to the M power.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>a  raised to the power of m</brailleTextString>
+                <brailleCode type="Nemeth">a~m"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1916_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>a  raised to the power of 6</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>a  raised to the power of 6</brailleTextString>
+                <brailleCode type="Nemeth">a~6"
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

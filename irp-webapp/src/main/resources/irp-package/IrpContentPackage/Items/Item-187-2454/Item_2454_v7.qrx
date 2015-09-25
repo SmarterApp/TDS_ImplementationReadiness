@@ -1,0 +1,51 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_69560" title="Item 69560" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="RESPONSE" baseType="directedPair" cardinality="multiple">
+    <correctResponse>
+      <value>3 a</value>
+      <value>4 a</value>
+      <value>1 b</value>
+      <value>3 b</value>
+      <value>1 c</value>
+      <value>2 c</value>
+    </correctResponse>
+    <mapping defaultValue="0">
+      <mapEntry mapKey="3 a" mappedValue="0.17" />
+      <mapEntry mapKey="4 a" mappedValue="0.17" />
+      <mapEntry mapKey="1 b" mappedValue="0.17" />
+      <mapEntry mapKey="3 b" mappedValue="0.17" />
+      <mapEntry mapKey="1 c" mappedValue="0.16" />
+      <mapEntry mapKey="2 c" mappedValue="0.16" />
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single" />
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="RESPONSE" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0.0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElse>
+        <setOutcomeValue identifier="SCORE">
+          <truncate>
+            <mapResponse identifier="RESPONSE" />
+          </truncate>
+        </setOutcomeValue>
+      </responseElse>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item69560_6eb01ce3-a68a-4e38-889e-ad9e3c52f5ba">
+      <span class="underline"> Rationales</span>:</p>
+    <p id="Item69560_ef8e5850-d627-490d-8fb2-ac0a9661327f">Claim 1- This claim is supported by the information in Sources 2 and 3.</p>
+    <p id="Item69560_bfa370e4-1bb7-4e1e-ab62-5e45052a2855">Claim 2- This claim is supported by the information in Source 3.</p>
+    <p id="Item69560_12600269-2a19-41bb-a2fe-8471d7d3ba87">Claim 3- This claim is supported by the information in Sources 1 and 2.</p>
+    <p id="Item69560_d0849565-5eff-4c51-b610-1c6d01a90377">Claim 4- This claim is supported by the information in Source 1.</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

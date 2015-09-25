@@ -14,12 +14,12 @@
       </attrib>
       <attrib attid="itm_item_desc">
         <name>Item: Item Description</name>
-        <val>Graphic Response Item Tutorial (GI) - SB OP</val>
+        <val>Graphic Response Item Tutorial (GI All Types) - SB OP</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_FTUse">
         <name>Fieldtest Use</name>
-        <val>Student Help::SP13 (10); SS TT 2014 (7); Student Help::SP14 (4);</val>
+        <val>Student Help::SP13 (10); SS TT 2014 (7); Student Help::SP14 (40); MathReasoningStudentHelp::S14 (1); Student Help::SP15 (40); SS TT 2015 (4); Student Help::IRP (71);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_OPUse">
@@ -58,7 +58,7 @@
     <content language="ENU" version="2.0" approvedVersion="17">
       <rationaleoptlist />
       <illustration><![CDATA[<p style="">&#xA0;</p>]]></illustration>
-      <stem><![CDATA[<p style=""><a href="item_1075_v17_tutorial_gi.swf" type="application/x-shockwave-flash" class="flashvideo" autoplay="True" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
+      <stem><![CDATA[<p style=""><a href="item_1075_v17_tutorial_gi.html" type="text/html" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
       <rubriclist />
       <attachmentlist />
     </content>

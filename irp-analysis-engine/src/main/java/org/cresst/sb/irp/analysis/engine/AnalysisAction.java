@@ -131,7 +131,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
 		cellCategory.setTdsExpectedValue(expectedValue(comparisonData, enumFieldName));
 		cellCategory.setFieldCheckType(fieldCheckType);
-
+		
 		category.addCellCategory(cellCategory);
 
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);

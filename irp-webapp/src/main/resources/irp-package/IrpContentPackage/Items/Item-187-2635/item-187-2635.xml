@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2635" version="2" bankkey="187">
+    <associatedpassage>3750</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2635</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Napping - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG7::Perf::S1::SP14 (1); PracTest::ELAG7::Perf::S1::SP14::Braille (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3750</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="2">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Explain how the table in Source <span id="item_2635_TAG_1_BEGIN">#1</span> supports information provided in the <span id="item_2635_TAG_2_BEGIN"><span style="font-weight:bold; ">two</span></span><span style="font-weight:bold; "> </span>other sources. Cite evidence and identify the source of each piece of information by title or number.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">Response is an evidence-based explanation of how the table supports two other sources with two pieces of evidence from different sources and that explains how each example supports the idea. Student cites the source for each example.<br />Key Elements<br />Source #2: <br />-The human body has an internal clock that operates according to Earth's patterns of day and night.<br />-When your internal clock is not in sync with your habits, you don't get the amount of good night's sleep you need.<br />-A deep sleep, whether it is nighttime sleep or a daytime nap, primes the brain to function at a higher level, allowing us to come up with better ideas, find solutions to puzzles more quickly, identify patterns faster, and recall information more accurately.<br />Source #3:<br />-"I'm a 12-year-old middle school student who usually gets about eight hours of sleep a night. I often feel tired when I get home from school at 3:30..."<br />-The doctor says:<br />--The author of the letter is not getting enough sleep at night for someone his or her age.<br />--The most important thing the letter writer can do is sleep more at night. <br />--On nights when the letter writer doesn't get enough sleep, napping can help recharge the letter writer's body and increase his or her mental alertness.<br /><span style="font-weight:bold; ">Scoring Note:</span> Students may reference either "he" or "she"; examples from the sources are not always gender-specific.</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The table in Source #1 shows the amount of sleep that people of different age groups need every day to function well. This supports the claim in Source #2 that says everyone has an internal clock that follows day and night patterns. If your internal clock gets out of sync because of your habits, your sleep patterns will get messed up and you don't get the good night's sleep your body needs. In Source #3 a 12-year-old middle school student says she gets 8 hours of sleep a night and feels tired after school. Long naps just make her groggy. She writes to a doctor for advice about how to get more energy. The doctor tells her that a short nap might help, but she really needs to get more sleep at night. The table in Source #1 supports the doctor's advice. According to the table, a school-aged person should get 9-10 hours of sleep a day.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">Response is an evidence-based explanation of how the table supports two other sources with two pieces of &#xA0;evidence from different sources but doesn't explain how each example supports the idea. Student cites the sources.<br />OR<br />Response is an evidence-based explanation of how the table supports only one of the sources with two pieces of evidence from a single source and that explains how that example supports the idea. Student cites the &#xA0;source.</p><p style="">OR</p><p style="">Response is an evidence-based explanation of how the table supports only one of the sources with only one piece of evidence from a single source and that explains how that example supports the idea. Student cites the source.</p><p style="">OR</p><p style="">Response is an evidence-based explanation of how the table supports two other sources with two pieces of evidence from different sources and that explains how each example supports the idea. Student does not cite sources.</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The table in Source #1 shows how much sleep people of different ages need every day. In Source #3, a 12-year-old girl writes that she only gets 8 hours of sleep a day and is tired. She wants to know what to do to get more energy. The doctor replies that she should get more sleep at night. The table in Source #1 supports the doctor's advice because, according to the table, a school age person should have 9-10 hours of sleep each night.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">Response is an explanation that is incorrect, irrelevant or blank.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The table in Source #1 shows that people need to sleep, or they will get tired.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2635_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2635_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

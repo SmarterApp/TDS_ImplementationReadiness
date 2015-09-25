@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2603" version="5" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2603</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>100869 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (17); PracTest::ELAG11::SP14::Braille (17);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>C</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2755" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A student is writing a report on a science project for astronomy class about the planet Jupiter. The student wants to revise the draft to have a better conclusion. <span id="item_2603_TAG_5_BEGIN">Read</span> the draft of the report and complete the task that follows.</p><p style=""><br />Orbiting the sun at an average distance of 500 million miles, Jupiter is the largest planet in our solar system. To gain an understanding of truly how massive Jupiter is, we can compare it to the very planet we inhabit: Earth. With a mass of <span id="item_2603_TAG_3_BEGIN">5.97219</span> <span id="item_2603_TAG_9_BEGIN">×</span> <span id="item_2603_TAG_2_BEGIN">1024</span> <span id="item_2603_TAG_7_BEGIN">kg</span>, Earth is approximately <span id="item_2603_TAG_1_BEGIN">318</span> times less massive than Jupiter, which also has a volume equivalent to <span id="item_2603_TAG_8_BEGIN">1,321</span> Earths.<br /><br />In fact, Jupiter is so large that its mass is more than twice that of all the other planets in our solar system combined. Even from 400 million miles away, the planet is large enough to be seen in the night sky and is bright enough to cast a shadow on Earth. <br /><br />Moreover, the famous red spot we have seen in countless satellite images and artist depictions is, at its widest, around 3 times wider than our planet. Meanwhile, one of Jupiter’s 67 moons, Ganymede, has a diameter <span id="item_2603_TAG_4_BEGIN">8%</span> larger than that of the planet Mercury.</p><p style=""><br />Choose the conclusion that <span id="item_2603_TAG_6_BEGIN"><span style="font-weight:bold; ">best</span></span> explains the significance of the informational text.</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">However, in 2013, astronomers discovered a new planet, HD 106906b, which was estimated to have a mass 11 times greater than that of Jupiter.</p>]]></val>
+          <feedback><![CDATA[<p style="">Answer choice offers new information, but doesn't articulate the significance of Jupiter's size.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">After Mercury, Venus, Earth, and Mars, Jupiter is the fifth planet from the sun. Indeed, the larger planets—Jupiter, Saturn, Uranus, and Neptune—are the four most distant.</p>]]></val>
+          <feedback><![CDATA[<p style="">Answer choice offers new information, but doesn't articulate the significance of Jupiter's size.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">It is partially because of Jupiter’s enormous size that the Earth is not frequently bombarded by large meteorites. Meteors of this kind are often diverted away from Earth’s <span id="item_2603_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>trajectory<span class="its-tag" data-tag-ref="item_2603_TAG_10" data-tag-boundary="end"></span> by Jupiter’s substantial <span id="item_2603_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>gravitational<span class="its-tag" data-tag-ref="item_2603_TAG_11" data-tag-boundary="end"></span> field. In this regard, Jupiter is Earth’s protector.</p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT. Answer choice articulates the significance of Jupiter's size.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">In 1994, a large comet broke apart and collided with Jupiter in what was the first direct observation of two Solar System objects colliding. The impact left a scar that remained visible for several months afterward.</p>]]></val>
+          <feedback><![CDATA[<p style="">Answer choice partially articulates the significance of Jupiter's size, but does not go into further detail.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>5 point 9 7 2 1 9</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5.97219</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5.97219</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>times</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>×</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>×</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1 thousand 24</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1024</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1024</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>kilograms</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>kg</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>kg</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 hundred 18</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>318</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>318</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1 thousand 3 hundred 21</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1,321</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1,321</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>8 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>8%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>8%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2603_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

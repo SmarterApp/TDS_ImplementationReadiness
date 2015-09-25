@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="2059" version="7" bankkey="187">
+    <associatedpassage>3720</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2059</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Using Water Wisely Item 1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::Perf::SP14 (1); PracTest::MG7::Perf::SP14::Braille (1); PracTest::MG7::Perf::SP14::ESN (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3720</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2437" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2059_v7.qrx" />
+    <RendererSpec filename="Item_2059_v7.eax" />
+    <content language="ENU" version="2.0" approvedVersion="7">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">What <span id="item_2059_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>percentage<span class="its-tag" data-tag-ref="item_2059_TAG_2" data-tag-boundary="end"></span> of the <span id="item_2059_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>average<span class="its-tag" data-tag-ref="item_2059_TAG_3" data-tag-boundary="end"></span> American's <span id="item_2059_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>daily<span class="its-tag" data-tag-ref="item_2059_TAG_4" data-tag-boundary="end"></span> <span id="item_2059_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>water usage<span class="its-tag" data-tag-ref="item_2059_TAG_5" data-tag-boundary="end"></span> is described as “various other <span id="item_2059_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span id="item_2059_TAG_1_BEGIN">purposes”?</span><span class="its-tag" data-tag-ref="item_2059_TAG_6" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">32</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student finds the correct percentage.</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2059_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2059_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>purposes”?  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>purposes”?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="7">
+      <stem><![CDATA[<p style="">¿Qué porcentaje del promedio de uso de agua diario de los norteamericanos se describe como “otros propósitos diversos”?</p><p class="languagedivider">&#xA0;</p><p style="">What <span id="item_2059_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>percentage<span class="its-tag" data-tag-ref="item_2059_TAG_2" data-tag-boundary="end"></span> of the <span id="item_2059_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>average<span class="its-tag" data-tag-ref="item_2059_TAG_3" data-tag-boundary="end"></span> American's <span id="item_2059_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>daily<span class="its-tag" data-tag-ref="item_2059_TAG_4" data-tag-boundary="end"></span> <span id="item_2059_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>water usage<span class="its-tag" data-tag-ref="item_2059_TAG_5" data-tag-boundary="end"></span> is described as “various other <span id="item_2059_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span id="item_2059_TAG_1_BEGIN">purposes”?</span><span class="its-tag" data-tag-ref="item_2059_TAG_6" data-tag-boundary="end"></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2059_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>purposes”?  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>purposes”?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

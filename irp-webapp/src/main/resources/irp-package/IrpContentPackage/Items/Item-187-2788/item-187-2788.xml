@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ti" id="2788" version="8" bankkey="187">
+    <associatedpassage>3700</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2788</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MA03_PT_LEMONADE_Q1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::Perf::SP13::ENU::Refresh (1); PracTest::MG3::Perf::SP13::BRL::Refresh (1); PracTest::MG3::Perf::SP13::ESN::Refresh (1); PracTest::MG3::Perf::SP15 (1); PracTest::MG3::Perf::SP15::Braille (1); PracTest::MG3::Perf::SP15::ESN (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val>IRP::MathG3::Perf::SP15 (1); IRP::MathG3::Perf::SP15::COMBINED (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>TI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>TI</val>
+        <desc>Table Item</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableInput</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val>72, 42, 54, 50 (in descending order)</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3700</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc>NA</desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1768" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="1614" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2788_v8.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="orphans:2; background-color:transparent; ">The bar graph shows how many cups of lemonade Jaleen sold in July.</p><p style="orphans:2; background-color:transparent; ">&#xA0;</p><p style="orphans:2; background-color:transparent; ">Complete the table to show how many cups Jaleen sold each week.</p><p style="orphans:2; background-color:transparent; ">&#xA0;</p><div align="left"><table class="newtable" id="item_2788_Table5" style="width:18.916800000000002em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:18.9168em; " /><tbody><tr><td style="padding:0.2292em; vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; text-decoration:underline; font-weight:bold; ">July Lemonade Sales</p></td></tr></tbody></table></div><div align="left"><table class="tableItem" style="width:18.958199999999998em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:5.0832em; " /><colgroup style="width:13.8750em; " /><thead><tr><th data-its-identifier="col0" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; font-weight:bold; ">Week</p></th><th data-its-identifier="col1" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; font-weight:bold; ">Cups Sold</p></th></tr></thead><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">1</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">2</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">3</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">4</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr></tbody></table></div>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="orphans:2; background-color:transparent; ">Exemplar:</p><p style="orphans:2; background-color:transparent; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="orphans:2; background-color:transparent; ">&#xA0;</p></li></ul><div align="left"><table class="newtable" id="item_2788_Table3" style="width:11.4168em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:4.1250em; " /><colgroup style="width:7.2918em; " /><thead><tr><th colspan="2" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; font-weight:bold; ">July Lemonade Sales</p></th></tr></thead><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; font-weight:bold; ">Week</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; font-weight:bold; ">Cups Sold</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">1</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">72</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">2</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">42</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">3</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">54</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">4</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="orphans:2; background-color:transparent; text-align:center; ">50</p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="orphans:2; background-color:transparent; ">Other Correct Responses:</p><p style="orphans:2; background-color:transparent; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="orphans:2; background-color:transparent; ">N/A</p></li></ul><p style="orphans:2; background-color:transparent; ">&#xA0;</p><p style="orphans:2; background-color:transparent; ">For this item, a full-credit response includes</p><p style="orphans:2; background-color:transparent; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="orphans:2; background-color:transparent; ">the correct response (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2788_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo />
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="3">
+      <stem><![CDATA[<p style="">La gráfica de barras muestra cuántos vasos de limonada vendió Jaleen en julio.</p><p style="">&#xA0;</p><p style="">Completa la tabla para mostrar cuántos vasos vendió Jaleen cada semana.</p><p class="languagedivider">&#xA0;</p><p style="">The bar graph shows how many cups of lemonade Jaleen sold in July.</p><p style="">&#xA0;</p><p style="">Complete the table to show how many cups Jaleen sold each week.</p><div align="left"><table class="tableItem" style="width:16.9164em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:4.7916em; " /><colgroup style="width:12.1248em; " /><thead><tr><th data-its-identifier="col0" colspan="2" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Ventas de limonada en julio</p><p class="languagedivider">&#xA0;</p><p style="text-align:center; font-weight:bold; ">July Lemonade Sales</p></th></tr></thead><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Semana</p><p class="languagedivider">&#xA0;</p><p style="text-align:center; font-weight:bold; ">Week</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Vasos vendidos</p><p class="languagedivider">&#xA0;</p><p style="text-align:center; font-weight:bold; ">Cups Sold</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">1</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">2</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr style=""><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">3</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">4</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly"></span></p></td></tr></tbody></table></div>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&#xA0;</p></li></ul><div align="left"><table class="newtable" id="item_2788_Table4" style="width:9em; border-spacing:0;margin-left:0.7201in; " cellpadding="0" cellspacing="0"><colgroup span="2" style="width:4.5000em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">&#xA0;</p></td><td style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="">&#xA0;</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">&#xA0;</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">&#xA0;</p></td></tr></tbody></table></div><ul style="padding-left:1.5000em; "><li><p style="">&#xA0;</p><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1st point here&gt; (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+    </content>
+  </item>
+</itemrelease>

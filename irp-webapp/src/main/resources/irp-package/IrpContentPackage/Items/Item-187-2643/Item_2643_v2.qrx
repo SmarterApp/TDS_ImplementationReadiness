@@ -1,0 +1,40 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_99879" title="Item 99879" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="RESPONSE" baseType="directedPair" cardinality="multiple">
+    <correctResponse>
+      <value>2 a</value>
+      <value>3 a</value>
+      <value>1 b</value>
+    </correctResponse>
+    <mapping defaultValue="0">
+      <mapEntry mapKey="2 a" mappedValue="0.34" />
+      <mapEntry mapKey="3 a" mappedValue="0.33" />
+      <mapEntry mapKey="1 b" mappedValue="0.33" />
+    </mapping>
+  </responseDeclaration>
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single" />
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="RESPONSE" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0.0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElse>
+        <setOutcomeValue identifier="SCORE">
+          <truncate>
+            <mapResponse identifier="RESPONSE" />
+          </truncate>
+        </setOutcomeValue>
+      </responseElse>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item99879_c0ef7bb5-1bd4-40d8-8a23-7f27ef9e8041">Rationales:<br />“Astronauts feel weak when they come back from space.” This statement is supported by Source 2.<br />“Since objects are also able to float in space, astronauts can easily lift things in space that are heavy on Earth.” This statement is supported by Source 1.<br />“Astronauts have a special view of Earth from space.” This statement is supported by Source 1. </p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

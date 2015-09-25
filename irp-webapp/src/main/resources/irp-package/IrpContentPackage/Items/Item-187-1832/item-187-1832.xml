@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1832" version="3" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1832</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>7th Grade Practice Test Item #7</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S1::SP14 (1); PracTest::MG7::S1::SP14::Braille (1); PracTest::MG7::S1::SP14::ESN (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2295" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1832_v3.qrx" />
+    <RendererSpec filename="Item_1832_v3.eax" />
+    <content language="ENU" version="2.0" approvedVersion="3">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1832_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1832_TAG_3" data-tag-boundary="end"></span> the value of <img id="item_1832_Object1" style="vertical-align:middle;" src="item_1832_v3_Object1_png16malpha.png" width="125" height="39" />.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar: <img id="item_1832_Object2" style="vertical-align:middle;" src="item_1832_v3_Object2_png16malpha.png" width="28" height="39" /></p><p style="">&#xA0;</p><p style="">1 point: Student enters 5 1/3 or the equivalent.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1832_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1832_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 fourths plus 7 over twelve minus, open parenthesis, negative four, closed parenthesis.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 4,    plus     the fraction 7 over 12,    minus     the quantity  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#+?7/12#-(-4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1832_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>5 the fraction 1 over 3,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5 the fraction 1 over 3,</brailleTextString>
+                <brailleCode type="Nemeth">#5_?1/3#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="3">
+      <stem><![CDATA[<p style="">Escribe el valor de <img id="item_1832_Object3" style="vertical-align:middle;" src="item_1832_v3_Object3_png16malpha.png" width="125" height="39" />.</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1832_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1832_TAG_3" data-tag-boundary="end"></span> the value of <img id="item_1832_Object1" style="vertical-align:middle;" src="item_1832_v3_Object1_png16malpha.png" width="125" height="39" />.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1832_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 fourths plus 7 over twelve minus, open parenthesis, negative four, closed parenthesis.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 4,    plus     the fraction 7 over 12,    minus     the quantity  minus  4  ,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#+?7/12#-(-4)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

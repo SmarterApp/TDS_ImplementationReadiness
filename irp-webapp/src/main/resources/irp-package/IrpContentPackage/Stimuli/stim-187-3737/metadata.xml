@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>3737</Identifier>
+    <Subject>ELA</Subject>
+    <Version>6</Version>
+    <InteractionType>Stimulus</InteractionType>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>SBAC_G11_C3_P_Practice Test_The Carter Center</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <MaximumGrade>11</MaximumGrade>
+    <MinimumGrade>11</MinimumGrade>
+    <IntendedGrade>11</IntendedGrade>
+    <StimulusLength>Short</StimulusLength>
+    <StimulusGenre>Listening</StimulusGenre>
+    <StimulusGraphic>N</StimulusGraphic>
+    <BrailleType>BRF</BrailleType>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

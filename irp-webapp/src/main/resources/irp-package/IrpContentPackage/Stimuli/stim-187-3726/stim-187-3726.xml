@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3726" version="2" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3726</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>SBAC_G07_C3_P_Practice Test_Archaeologists</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <content language="ENU" version="2.0" approvedVersion="2">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="font-weight:bold; "><span id="passage_3726_TAG_1_BEGIN">Archaeologists</span></p><p style="">&#xA0;</p><p style="">Listen to the presentation. Then answer the questions.</p><p style="">&#xA0;</p><p style=""><div class="slides_config hidden"><div class="slides_container"><div class="slide " data-begin="0"><img data-filetype="jpg" src="passage_3726_v2_image_Artifacts.jpg" alt="" />
+</div><div class="slide hidden" data-begin="000019"><img data-filetype="jpg" src="passage_3726_v2_image_Etruscan bust.jpg" alt="" />
+</div><div class="slide hidden" data-begin="000034"><img data-filetype="jpg" src="passage_3726_v2_image_Hieroglyphs.jpg" alt="" />
+</div><div class="slide hidden" data-begin="000118"><img data-filetype="jpg" src="passage_3726_v2_image_Serpent Mound.jpg" alt="" />
+</div></div><audio autoplay="autoplay" visible="true" class="slides_audio sound_repeat"><source src="passage_3726_v2_7872_Audio1.m4a" type="audio/mp4" class="inline-playable" data-filetype="m4a" /><source src="passage_3726_v2_7872_Audio1.ogg" type="audio/ogg; codecs=vorbis" class="inline-playable" data-filetype="ogg" /><track src="passage_3726_v2_7872_Audio1.vtt" kind="captions" label="English" data-filetype="vtt" srclang="en" /></audio></div></p><p style="">&#xA0;</p><p style="">Excerpt from <span style="font-style:italic; ">National Geographic Investigates: Ancient China</span> by Jacqueline Ball and Richard H Levey. Copyright <span id="passage_3726_TAG_2_BEGIN">© 2006</span> by National Geographic Books. Reused by permission of National Geographic Books.</p><p style="">&#xA0;</p><p style="">Photograph of Balsamarium in the form of a deity with Winged Helmet, Walters Art Museum. http://commons.wikimedia.org/wiki/File:Etruscan_-_Balsamarium_in_the_Form_of_a_Deity_with_Winged_Helmet_-_Walters_543004.jpg. Used under authorization of Creative Commons License CC-BY-SA 3.0 Unported.</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3726_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3726_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Archaeologists;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Archaeologists</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Archaeologists</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3726_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>2 thousand 6</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>© 2006</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>© 2006</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

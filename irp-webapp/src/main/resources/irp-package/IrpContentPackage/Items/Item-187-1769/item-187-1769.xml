@@ -19,7 +19,7 @@
       </attrib>
       <attrib attid="itm_FTUse">
         <name>Fieldtest Use</name>
-        <val>SS TT 2014 (58); Student Help::SP14 (12);</val>
+        <val>SS TT 2014 (58); Student Help::SP14 (294); Student Help::SP15 (294); SS TT 2015 (36); Student Help::IRP (72);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_OPUse">
@@ -47,13 +47,18 @@
         <val>NA</val>
         <desc>Not Applicable</desc>
       </attrib>
+      <attrib attid="itm_att_Strand">
+        <name>Item: Strand</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
     </attriblist>
     <resourceslist />
     <statistic />
     <content language="ENU" version="2.0" approvedVersion="4">
       <rationaleoptlist />
       <illustration><![CDATA[<p style="">&#xA0;</p>]]></illustration>
-      <stem><![CDATA[<p style=""><a href="item_1769_v4_tutorial_ebsr.swf" type="application/x-shockwave-flash" class="flashvideo" autoplay="True" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
+      <stem><![CDATA[<p style=""><a href="item_1769_v4_tutorial_ebsr.html" type="text/html" width="yes" height="480" data-anim-html5="true"></a></p>]]></stem>
       <rubriclist />
       <attachmentlist />
     </content>

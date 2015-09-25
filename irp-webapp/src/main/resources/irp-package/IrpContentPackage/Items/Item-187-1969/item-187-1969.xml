@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1969" version="7" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1969</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Cloned from 662</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14 (1); PracTest::MG11::S1::SP14::ESN (1);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2368" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1969_v7.qrx" />
+    <RendererSpec filename="Item_1969_v7.gax" />
+    <content language="ENU" version="2.0" approvedVersion="7">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="line-height:1.5em; ">The graph of <img id="item_1969_Object1" style="vertical-align:middle;" src="item_1969_v7_Object1_png16malpha.png" width="47" height="19" /> is shown on the grid. </p><p style="line-height:1.5em; ">&#xA0;</p><p style="line-height:1.5em; "><span id="item_1969_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_1969_TAG_8" data-tag-boundary="end"></span> the graph to show the graph of <img id="item_1969_Object2" style="vertical-align:middle;" src="item_1969_v7_Object2_png16malpha.png" width="121" height="19" /></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The correct graph has a minimum point at (4, 2) so the parent function of <img id="item_1969_Object3" style="vertical-align:middle;" src="item_1969_v7_Object3_png16malpha.png" width="47" height="19" /> should be moved to the right 4 units and up 2.</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">a correct placement of the graph (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1969_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals x squared</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth">y .k x~2"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals, open parenthesis, x minus four, closed parenthesis, squared, plus two. This is an interactive image.  The X axis has a range from negative ten to ten, increasing in increments of two. The why axis has a range from negative ten to ten, increasing in increments of two.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth">y .k (x-4)~2"+2 4</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y    is equal to     x  raised to the power of 2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to     x  raised to the power of 2</brailleTextString>
+                <brailleCode type="Nemeth">y .k x~2"
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y    is equal to     x  raised to the power of 2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to     x  raised to the power of 2</brailleTextString>
+                <brailleCode type="Nemeth">y .k x~2"
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="7">
+      <stem><![CDATA[<p style="line-height:150%; "><span style="language:es; country:ES; ">La gráfica de </span><span style="language:es; country:ES; "><img id="item_1969_Objeto2" style="vertical-align:middle;" src="item_1969_v7_Objeto2_png16malpha.png" width="47" height="19" /></span><span style="language:es; country:ES; "> se muestra en el plano.</span></p><p style="line-height:150%; language:es; country:ES; ">&#xA0;</p><p style="line-height:150%; language:es; country:ES; ">Arrastra la curva para mostrar la gráfica de <img id="item_1969_Object5" style="vertical-align:middle;" src="item_1969_v7_Object5_png16malpha.png" width="121" height="19" /></p><p class="languagedivider">&#xA0;</p><p style="line-height:150%; ">The graph of <img id="item_1969_Object1" style="vertical-align:middle;" src="item_1969_v7_Object1_png16malpha.png" width="47" height="19" /> is shown on the grid. </p><p style="line-height:150%; ">&#xA0;</p><p style="line-height:150%; "><span id="item_1969_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Drag<span class="its-tag" data-tag-ref="item_1969_TAG_8" data-tag-boundary="end"></span> the graph to show the graph of <img id="item_1969_Object2" style="vertical-align:middle;" src="item_1969_v7_Object2_png16malpha.png" width="121" height="19" /></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The correct graph has a minimum point at (4, 2) so the parent function of <img id="item_1969_Object4" style="vertical-align:middle;" src="item_1969_v7_Object4_png16malpha.png" width="47" height="19" /> should be moved to the right 4 units and up 2.</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="text-align:left; ">a correct placement of the graph (1 point).</p></li></ul><p style="text-align:left; ">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals x squared</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth">y .k x~2"</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y equals, open parenthesis, x minus four, closed parenthesis, squared, plus two. This is an interactive image.  The X axis has a range from negative ten to ten, increasing in increments of two. The why axis has a range from negative ten to ten, increasing in increments of two.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth">y .k (x-4)~2"+2 4</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y    is equal to     x  raised to the power of 2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to     x  raised to the power of 2</brailleTextString>
+                <brailleCode type="Nemeth">y .k x~2"
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1969_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>y    is equal to     x  raised to the power of 2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>y    is equal to     x  raised to the power of 2</brailleTextString>
+                <brailleCode type="Nemeth">y .k x~2"
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

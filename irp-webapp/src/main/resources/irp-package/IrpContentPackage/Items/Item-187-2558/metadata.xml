@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2558</Identifier>
+    <Version>5</Version>
+    <Subject>ELA</Subject>
+    <AssociatedStimulus>3743</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Astronauts - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>3</IntendedGrade>
+    <DepthOfKnowledge>4</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>WER</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>10</MaximumNumberOfPoints>
+    <EvidenceStatement>The student will write full informational texts on a topic, attending to purpose and audience; organize ideas by stating a focus (main idea); include structures and appropriate transitional strategies for coherence; include supporting details (from sources when appropriate to the assignment) and an appropriate conclusion.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>The student will write full informational texts on a topic, attending to purpose and audience; organize ideas by stating a focus (main idea); include structures and appropriate transitional strategies for coherence; include supporting details (from sources when appropriate to the assignment) and an appropriate conclusion.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <Notes>Item 4</Notes>
+    <MinimumGrade>3</MinimumGrade>
+    <MaximumGrade>3</MaximumGrade>
+    <PtWritingType>Informative</PtWritingType>
+    <ScorePoints>"0,1,2,3,4,5,6,7,8,9,10"</ScorePoints>
+    <StimulusName>Astronauts</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:4-CR|2-3|3.RI.7</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

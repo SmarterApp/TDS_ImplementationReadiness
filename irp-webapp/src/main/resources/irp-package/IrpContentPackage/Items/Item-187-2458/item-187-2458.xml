@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="EBSR" id="2458" version="3" bankkey="187">
+    <associatedpassage>3732</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2458</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Northern Lights 9594 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG3::SP14 (27); PracTest::ELAG3::SP14::Braille (27);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>B</val>
+        <desc>B</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EBSR</val>
+        <desc>Evidence-Based Selected Response 4</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EBSR</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3732</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1769" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2458_v3.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="3">
+      <qti spec="itemBody"><![CDATA[<itemBody><p style=""><p style="">The following question has two parts. First, answer part <span id="item_2458_TAG_1_BEGIN">A.</span> Then, answer part B.</p></p><choiceInteraction responseIdentifier="EBSR1" shuffle="false" maxChoice="1"><prompt><p style="">Which statement is supported by the presentation?</p></prompt><simpleChoice identifier="A"><p style="">Weather may change the Northern Lights.</p></simpleChoice><simpleChoice identifier="B"><p style="">The Northern Lights can look different at different times.</p></simpleChoice><simpleChoice identifier="C"><p style="">The Northern Lights are brighter than the lights around the South Pole.</p></simpleChoice><simpleChoice identifier="D"><p style="">People in Canada and Alaska like the Northern Lights better than stars and planets.</p></simpleChoice></choiceInteraction><choiceInteraction responseIdentifier="EBSR2" shuffle="false" maxChoice="0"><prompt><p style="">Which sentence from the presentation <span style="font-weight:bold; ">best</span> supports your answer in part A?</p></prompt><simpleChoice identifier="A"><p style="">“In some places on Earth, people see more than stars and planets in the sky.”</p></simpleChoice><simpleChoice identifier="B"><p style="">“The Northern Lights are the most exciting light show you could ever see.”</p></simpleChoice><simpleChoice identifier="C"><p style="">“Sometimes, they become beautiful, bright sheets of light dancing across the night sky.”</p></simpleChoice><simpleChoice identifier="D"><p style="">“The South Pole is on the frozen continent of Antarctica.”</p></simpleChoice></choiceInteraction></itemBody>]]></qti>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="Targeted" target="EBSR2" file="item_2458_ASL_EBSR2.MP4" />
+        <attachment pass="true" id="aslfile2" type="ASL" subtype="Targeted" target="EBSR1" file="item_2458_ASL_EBSR1.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2458_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. ,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>A.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

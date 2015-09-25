@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2119" version="0" bankkey="187">
+    <keywordList>
+      <keyword text="artifacts" index="1">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">objects made by people who lived in the past </p>]]></html>
+      </keyword>
+      <keyword text="cultures" index="2">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">groups of people with particular beliefs and customs </p>]]></html>
+      </keyword>
+      <keyword text="archaeologists" index="3">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">scientists who dig up bones and ruins to study ancient times </p>]]></html>
+      </keyword>
+      <keyword text="accurate" index="4">
+        <html listType="glossary" listCode="TDS_WL_Glossary"><![CDATA[<p style="">correct, factual </p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

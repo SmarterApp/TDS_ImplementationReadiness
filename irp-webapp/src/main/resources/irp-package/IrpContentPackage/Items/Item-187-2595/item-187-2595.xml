@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2595" version="4" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2595</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>58590 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (18); PracTest::ELAG11::SP14::Braille (18);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [7.2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2748" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="4">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A student is writing a letter to the school board about its plan to require students to wear electronic identification tags. <span id="item_2595_TAG_1_BEGIN">Read</span> the beginning of the letter and complete the task that follows.</p><p style=""><br />I am writing in support of the school board's plan to require students at my school to wear electronic identification tags <span id="item_2595_TAG_2_BEGIN">(EIDs)</span> that will allow the administration to track the location of all students. Although the proposal may raise privacy concerns, its implementation would uphold and defend the school's very reason for being—teaching. As anyone at my school can attest, teachers and school administrators waste precious instructional time tracking down students who skip class to hangout with their friends. The purpose of school is to give young people the opportunity to learn skills and information required to succeed in life. We learn not only how to read, write, and understand math, but also how to interact with others. For these reasons, school is the most important place in a young person's life, and the achievement of its mission should not be hindered by unruly students. <span id="item_2595_TAG_4_BEGIN">EIDs</span> would help ensure that it isn't by allowing educators to focus on education.</p><p style=""><br />Some may contend that requiring students to wear <span id="item_2595_TAG_3_BEGIN">EIDs</span> constitutes a warrantless search and so runs afoul of the Fourth Amendment.</p><p style=""><br /><span style="font-weight:bold; ">Student Notes:</span></p><p style=""><br />The student has taken these notes from credible sources:</p><p style=""><br />• Fourth Amendment to the United States Constitution states: “The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no warrants shall issue but upon probable cause, supported by oath or <span id="item_2595_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>affirmation<span class="its-tag" data-tag-ref="item_2595_TAG_5" data-tag-boundary="end"></span> and particularly describing the place to be searched, and the persons or things to be seized.”</p><p style=""><br />• US Supreme Court in United States v. Jones—police must obtain a warrant before attaching a global positioning system (GPS) tracker to the car of a suspected drug trafficker.</p><p style=""><br />• US Supreme Court in New Jersey v. T.L.O.—schools have a responsibility to maintain order, which can override Fourth Amendment rights when there is “reasonable suspicion” that a school rule has been violated.</p><p style=""><br />• US Supreme Court in Vernonia School District 47J v. Acton—schools have a responsibility to maintain order in the “special situation” of public schools and that that responsibility overrides the student’s right to privacy.</p><p style=""><br />• National technology <span id="item_2595_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>blogger<span class="its-tag" data-tag-ref="item_2595_TAG_6" data-tag-boundary="end"></span>—EIDs can be hacked to show wrong locations for people wearing them.</p><p style=""><br />• Study of several Los Angeles high schools—students at schools using EIDs trust teachers less than students at schools not using EIDs.</p><p style=""><br />• Study of crime rates in areas around high schools—no significant relationship between use of EIDs and crime near campus.</p><p style=""><br />The writer wants to acknowledge a counterclaim to the argument introduced in the first paragraph. Using the student's notes, complete the second paragraph by writing the counterargument.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">The response:<br />• provides logical arguments supporting the claim about electronic identification tags and relevant evidence<br />• clearly and effectively addresses counterarguments<br />• clearly and effectively elaborates arguments using precise words/language</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">That amendment guarantees “the right of people to be secure in their persons...against unreasonable searches.” In interpreting this amendment, the United States Supreme Court has ruled that police must obtain a warrant from a judge before tracking a suspected drug trafficker using GPS. If it is illegal to track someone suspected of a felony without a warrant, opponents to the board's EID plan may argue, how can it be legal to track a student who may be guilty of nothing more than staying in bed with a cold? But the Supreme Court also has ruled that Fourth Amendment rights do not apply to students in schools in the same way as they apply to adults. According to recent Court rulings, schools have a responsibility to maintain order in the “special situation” of public schools, and this overrides students’ privacy rights. Opponents of EIDs also may argue that their use undermines trust. According to one study, students at high schools where EIDs were required were less likely to trust their teachers than were students at schools where the devices were not used. However, EIDs are relatively new. Being suspicious about “Big Brother watching” is understandable but will diminish in time.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">The response:<br />• provides discernible arguments supporting the claim about electronic identification tags and mostly general and/or limited evidence. The arguments may be illogical and/or the evidence may be extraneous or loosely related to the arguments and/or the claim.<br />• addresses counterarguments<br />• elaborates arguments using general words/language</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">That amendment says people have a right against unreasonable searches. The Supreme Court has said that cops can't use GPS to track criminals, how can it be right to use it to track kids who aren't doing anything wrong? Also, EIDs will make students not trust their teachers if they think they're always being watched.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response:<br />• provides illogical arguments or no discernible argument for the claim and minimal or no supporting evidence. The evidence that is included may be vague, repetitive, incorrect, or interfere with the meaning of the text.<br />• does not address counterarguments<br />• conveys arguments using inappropriate words/language</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">But everyone knows it's not right to spy on people. The Constitution says so.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2595_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2595_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, E I Dees,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(EIDs)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>(EIDs)</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2595_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>E I Dees</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>EIDs</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>EIDs</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2595_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>E I Dees</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>EIDs</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>EIDs</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

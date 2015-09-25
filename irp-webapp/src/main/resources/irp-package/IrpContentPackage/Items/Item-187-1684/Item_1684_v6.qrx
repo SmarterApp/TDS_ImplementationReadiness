@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<assessmentItem identifier="1684" title="66513" adaptive="false" timeDependent="false" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/imsqti_v2p1.xsd" xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair" />
-  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float" />
-  <itemBody />
-  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response" />
-</assessmentItem>

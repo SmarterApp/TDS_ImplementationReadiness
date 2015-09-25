@@ -83,7 +83,7 @@ public class ItemResponseAnalysisAction extends
 			List<ItemCategory> itemCategories = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING, EXTRA
 
             Opportunity opportunity = tdsReport.getOpportunity();
-			List<Item> tdsItems = opportunity.getItem(); // tdsItems has items exist only in tds report xml file
+			List<Item> tdsItems = opportunity.getItem();
 
             for (Item item : tdsItems) {
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),

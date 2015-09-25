@@ -113,7 +113,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, A
      */
     @Override
     protected void checkC(Accommodation accommodation, EnumAccommodationFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
-        // Need to get student accommodation file from AIR in order to checkC
+        //TODO Need to get student accommodation file from AIR in order to checkC
     }
 
     private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType,

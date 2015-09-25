@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1835" version="19" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1835</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>7th Grade Practice Test Item #9</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S1::SP14 (15); PracTest::MG7::S1::SP14::Braille (15); PracTest::MG7::S1::SP14::ESN (15);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2297" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1835_v19.qrx" />
+    <RendererSpec filename="Item_1835_v19.eax" />
+    <content language="ENU" version="2.0" approvedVersion="19">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1835_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1835_TAG_3" data-tag-boundary="end"></span> the value of <span style="font-style:italic; ">n</span><span style="font-style:normal; "> so the expression </span><span id="item_1835_TAG_1_BEGIN"><span style="font-style:normal; ">(-</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + 5.3) + (7.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> – 9)</span></span><span style="font-style:normal; "> is equivalent to </span><span id="item_1835_TAG_2_BEGIN"><span style="font-style:normal; ">6.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + </span><span style="font-style:italic; ">n</span></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar: -3.7</p><p style="">&#xA0;</p><p style="">1 point: the student enters -3.7.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1835_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1835_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, open parenthesis, negative why plus 5 point 3, closed parenthesis, plus, open parenthesis, 7 point 2 why minus 9, closed parenthesis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(-y + 5.3) + (7.2y – 9)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1835_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>6 point 2 why plus N;  from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>6.2y + n</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="19">
+      <stem><![CDATA[<p style="">Escribe el valor de <span style="font-style:italic; ">n</span><span style="font-style:normal; "> para que la expresión (-</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + 5.3) + (7.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> – 9) sea equivalente a 6.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + </span><span style="font-style:italic; ">n</span><span style="font-style:normal; ">.</span></p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1835_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1835_TAG_3" data-tag-boundary="end"></span> the value of <span style="font-style:italic; ">n</span><span style="font-style:normal; "> so the expression </span><span id="item_1835_TAG_1_BEGIN"><span style="font-style:normal; ">(-</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + 5.3) + (7.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> – 9)</span></span><span style="font-style:normal; "> is equivalent to </span><span id="item_1835_TAG_2_BEGIN"><span style="font-style:normal; ">6.2</span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> + </span><span style="font-style:italic; ">n</span></span><span style="font-style:normal; ">.</span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1835_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, open parenthesis, negative why plus 5 point 3, closed parenthesis, plus, open parenthesis, 7 point 2 why minus 9, closed parenthesis.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>(-y + 5.3) + (7.2y – 9)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1835_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>6 point 2 why plus N;  from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>6.2y + n</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>
