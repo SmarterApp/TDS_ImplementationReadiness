@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1876" version="15" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1876</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>cloned from 749</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S1::SP14 (14); PracTest::MG7::S1::SP14::ESN (14); PracTest::MG7::S1::SP15 (14); PracTest::MG7::S1::SP15::ESN (14);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val>IRP::MathG7NoCalc::CAT::SP15 (8);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2309" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1876_v15.qrx" />
+    <RendererSpec filename="Item_1876_v15.gax" />
+    <content language="ENU" version="2.0" approvedVersion="15">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="color:#000000; ">Tim <span id="item_1876_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>makes<span class="its-tag" data-tag-ref="item_1876_TAG_2" data-tag-boundary="end"></span> 80 gallons of paint by mixing 48 gallons of gray paint with 32 gallons of white paint.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1876_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>What<span class="its-tag" data-tag-ref="item_1876_TAG_3" data-tag-boundary="end"></span> <span id="item_1876_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>part<span class="its-tag" data-tag-ref="item_1876_TAG_4" data-tag-boundary="end"></span> of <span id="item_1876_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>every<span class="its-tag" data-tag-ref="item_1876_TAG_5" data-tag-boundary="end"></span> gallon is gray paint?</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">The model represents 1 gallon of mixed paint.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1876_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>Select<span class="its-tag" data-tag-ref="item_1876_TAG_6" data-tag-boundary="end"></span> the bars to show <span id="item_1876_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>how much<span class="its-tag" data-tag-ref="item_1876_TAG_7" data-tag-boundary="end"></span> of the gallon is gray <span id="item_1876_TAG_1_BEGIN">paint</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><p style="">1 point</p><p style="">&#xA0;</p><p style=""><img id="item_1876_examplar1:(d=png16malpha)" src="item_1876_v15_examplar1_png16malpha.png" width="210" height="250" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">at 0.60 </p><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><p style=""><img id="item_1876_examplar2:(d=png16malpha)" src="item_1876_v15_examplar2_png16malpha.png" width="210" height="250" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">1 point: Student selects 0.60 part green paint.</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1876_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1876_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>paint. This is an interactive image. The main answer space contains a figure, titled, one gallon. The figure has a range from 0 point 1 0 to 1 point 0 0, increasing in increments of 0 point 1 0.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="15">
+      <stem><![CDATA[<p style="color:#000000; ">Tim prepara 80 galones de pintura mezclando 48 galones de pintura gris con 32 galones de pintura blanca.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">¿Qué parte de cada galón es pintura gris?</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">El modelo representa 1 galón de mezcla de pintura.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Selecciona las barras para mostrar cuánto del galón es pintura gris.</p><p class="languagedivider">&#xA0;</p><p style="color:#000000; ">Tim <span id="item_1876_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>makes<span class="its-tag" data-tag-ref="item_1876_TAG_2" data-tag-boundary="end"></span> 80 gallons of paint by mixing 48 gallons of gray paint with 32 gallons of white paint.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1876_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>What<span class="its-tag" data-tag-ref="item_1876_TAG_3" data-tag-boundary="end"></span> <span id="item_1876_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>part<span class="its-tag" data-tag-ref="item_1876_TAG_4" data-tag-boundary="end"></span> of <span id="item_1876_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>every<span class="its-tag" data-tag-ref="item_1876_TAG_5" data-tag-boundary="end"></span> gallon is gray paint?</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">The model represents 1 gallon of mixed paint.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1876_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>Select<span class="its-tag" data-tag-ref="item_1876_TAG_6" data-tag-boundary="end"></span> the bars to show <span id="item_1876_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>how much<span class="its-tag" data-tag-ref="item_1876_TAG_7" data-tag-boundary="end"></span> of the gallon is gray <span id="item_1876_TAG_1_BEGIN">paint</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="color:#000000; ">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1876_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>paint. This is an interactive image. The main answer space contains a figure, titled, one gallon. The figure has a range from 0 point 1 0 to 1 point 0 0, increasing in increments of 0 point 1 0.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

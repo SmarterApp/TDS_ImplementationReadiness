@@ -28,7 +28,7 @@ public class ItemDaoImpl implements ItemDao {
 	private final static Logger logger = LoggerFactory.getLogger(ItemDaoImpl.class);
 	private static Map<Integer, Itemrelease.Item> map = new ConcurrentHashMap<Integer, Itemrelease.Item>();
 	private static Map<String, Itemrelease.Item> map2 = new ConcurrentHashMap<String, Itemrelease.Item>();
-	private String rootResourceFolderName = "irp-package/TrainingTestContent";
+	private String rootResourceFolderName = "irp-package/IrpContentPackage";
 	private String resourceType = "imsqti_apipitem_xmlv2p2";
 	private List<Manifest.Resources.Resource> listResource;
 

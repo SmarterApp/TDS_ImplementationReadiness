@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="htq" id="2565" version="10" bankkey="187">
+    <associatedpassage>3738</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2565</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Sustainable Fashion - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (6); PracTest::ELAG11::SP14::Braille (6);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HTQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HTQ</val>
+        <desc>Hottext with QTI rubric</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3738</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2565_v10.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">This question has two parts. First, answer part A. Then, answer part B.</p><p style=""><br /> <span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2565_TAG_10_BEGIN"><span style="font-style:italic; font-weight:bold; ">A</span></span></p><p style=""><br />Click on the statement that <span id="item_2565_TAG_9_BEGIN"><span style="font-weight:bold; ">best</span></span><span style="font-weight:bold; "> </span>describes what the use of the cotton t-shirt example shows about the fashion industry's attempt at becoming a sustainable industry.</p><p style=""><br /><span id="item_2565_TAG_14_BEGIN">A.</span> <span id="item_2565_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="9">There is an increased cost in energy related to the cleaning of cotton products.</span></span></p><p style=""><br /><span id="item_2565_TAG_15_BEGIN">B.</span> <span id="item_2565_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">There is more to a sustainable industry than just recycling; there is also production to consider.</span></span></p><p style=""><br /><span id="item_2565_TAG_16_BEGIN">C.</span> <span id="item_2565_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">The fashion industry is already very sustainable; cotton use proves the industry presently uses natural fibers.</span></span></p><p style="">&#xA0;</p><p style=""><span id="item_2565_TAG_17_BEGIN">D.</span> <span id="item_2565_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">The fashion industry must move away from natural fibers and toward man-made materials to be more sustainable.</span></span></p><p style=""><br /> <span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2565_TAG_11_BEGIN"><span style="font-style:italic; font-weight:bold; ">B</span></span></p><p style=""><br />Click on the sentences that <span id="item_2565_TAG_12_BEGIN"><span style="font-weight:bold; ">best</span></span> support your answer in part <span id="item_2565_TAG_13_BEGIN">A.</span></p><p style=""><br /><span id="item_2565_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">But the environmental impact of clothing involves more than just where our used clothes end up.</span></span> To calculate the true impact of, say, a cotton T-shirt, we must go back to the beginning: to the farm where the cotton was grown. <span id="item_2565_TAG_6_BEGIN"><span class="interaction selectable" data-its-identifier="6" data-its-group="1">Cotton is a very water-intensive crop that is typically grown with heavy application of insecticides; in fact, cotton accounts for more insecticide use than any other single crop in the world.</span></span> Cotton that is grown in the <span id="item_2565_TAG_21_BEGIN">U.S.</span> is often shipped off to other countries, such as China and Honduras, where it is processed with chemicals and dyes before being made into our T-shirt. The completed shirt is then shipped back to America, where it is sold. While all that shipping back and forth uses up a lot of energy, shipping actually accounts for less than half of the energy that will eventually be used on that T-shirt over its lifetime. According to the Audubon Society, about <span id="item_2565_TAG_22_BEGIN">60%</span> of the energy cost of a T-shirt comes from washing and drying it<span id="item_2565_TAG_18_BEGIN">—</span>and washing adds a water cost as well.<br /><br /><span id="item_2565_TAG_7_BEGIN"><span class="interaction selectable" data-its-identifier="7" data-its-group="1">Given this environmental impact, it’s easy to see why many consumers are bypassing cotton T-shirts for clothing that is produced in more sustainable ways.</span></span> And where consumer dollars have gone, clothing makers have followed. <span id="item_2565_TAG_8_BEGIN"><span class="interaction selectable" data-its-identifier="8" data-its-group="1">Many companies have started using organic cotton that is grown without pesticides or chemicals.</span></span> <span class="interaction selectable" data-its-identifier="1" data-its-group="9">Others use natural fibers that require less water than cotton, such as bamboo or hemp.</span> A wide array of natural fibers<span id="item_2565_TAG_19_BEGIN">—</span>some old, some new<span id="item_2565_TAG_20_BEGIN">—</span>have become increasingly popular with consumers and manufacturers, including wool, silk, jute, corn, flax, and soy.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1 st point here&gt; (1 point) </p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 2 ndpoint here&gt; (2 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 3 rdpoint here&gt; (3 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 4 thpoint here&gt; (4 point). </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <constraints>
+        <cardinality target="9" min="0" max="0" />
+        <cardinality target="1" min="0" max="0" />
+        <cardinality target="" min="1" max="0" />
+      </constraints>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. ;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>A</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. ,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>A.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>B. ,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>B.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>B.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>C. ,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>C.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>C.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>D. ,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>D.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>D.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>B. ;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>B</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>B</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A. ;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>A.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_21_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>U S</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>U.S.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>U.S.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_22_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>60 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>60%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>60%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_19_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="item_2565_TAG_20_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

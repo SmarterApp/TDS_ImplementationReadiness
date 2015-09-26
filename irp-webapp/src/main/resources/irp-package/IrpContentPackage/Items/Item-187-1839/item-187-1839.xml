@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1839" version="11" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1839</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>7th Grade Practice Test Item #16</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S2::SP14 (11); PracTest::MG7::S2::SP14::Braille (11); PracTest::MG7::S2::SP14::ESN (11);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2304" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1839_v11.qrx" />
+    <RendererSpec filename="Item_1839_v11.eax" />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A scale factor of <span id="item_1839_TAG_1_BEGIN">3.5</span> <span id="item_1839_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>maps<span class="its-tag" data-tag-ref="item_1839_TAG_8" data-tag-boundary="end"></span> Figure <span id="item_1839_TAG_4_BEGIN">A</span> <span id="item_1839_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>onto<span class="its-tag" data-tag-ref="item_1839_TAG_6" data-tag-boundary="end"></span> Figure B. </p><p style="">&#xA0;</p><p style=""><img id="item_1839_stem:(d=png16malpha)" src="item_1839_v11_stem_png16malpha.png" width="280" height="280" style="vertical-align:baseline;" /></p><p style=""><span id="item_1839_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Enter<span class="its-tag" data-tag-ref="item_1839_TAG_7" data-tag-boundary="end"></span> the value of <span id="item_1839_TAG_3_BEGIN"><span style="font-style:italic; ">x</span><span style="font-style:normal; ">.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">17.5</p></li></ul><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Student enters correct value of the variable. (1 point).</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1839_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 point five</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3.5</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A,.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The figure on the left is titled, figure A., and is labeled, five.  The figure on the right is titled, figure be, and is labeled, X.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>X;  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>x.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="11">
+      <stem><![CDATA[<p style="">La figura B se traza a partir de la figura A con un factor de escala de 3.5. </p><p style="">&#xA0;</p><p style=""><img id="item_1839_graphics1" src="item_1839_v11_graphics1_png256.png" width="375" height="375" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">Escribe el valor de <span style="font-style:italic; ">x</span><span style="font-style:normal; ">.</span></p><p class="languagedivider">&#xA0;</p><p style="">A scale factor of <span id="item_1839_TAG_1_BEGIN">3.5</span> <span id="item_1839_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>maps<span class="its-tag" data-tag-ref="item_1839_TAG_8" data-tag-boundary="end"></span> Figure <span id="item_1839_TAG_4_BEGIN">A</span> <span id="item_1839_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>onto<span class="its-tag" data-tag-ref="item_1839_TAG_6" data-tag-boundary="end"></span> Figure B. </p><p style="">&#xA0;</p><p style=""><img id="item_1839_stem:(d=png16malpha)" src="item_1839_v11_stem_png16malpha.png" width="280" height="280" style="vertical-align:baseline;" /></p><p style=""><span id="item_1839_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Enter<span class="its-tag" data-tag-ref="item_1839_TAG_7" data-tag-boundary="end"></span> the value of <span id="item_1839_TAG_3_BEGIN"><span style="font-style:italic; ">x</span><span style="font-style:normal; ">.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>3 point five</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3.5</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A,.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The figure on the left is titled, figure A., and is labeled, five.  The figure on the right is titled, figure be, and is labeled, X.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1839_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>X;  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>x.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>x.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

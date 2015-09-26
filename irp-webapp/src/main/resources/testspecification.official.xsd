@@ -1,0 +1,484 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="testspecification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="description" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+        <xs:choice>
+          <xs:element ref="administration" />
+          <xs:element ref="registration" />
+          <xs:element ref="reporting" />
+          <xs:element ref="scoring" />
+          <xs:element ref="complete" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="publisher" type="xs:string" use="required" />
+      <xs:attribute name="publishdate" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="purpose" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="administration" />
+            <xs:enumeration value="registration" />
+            <xs:enumeration value="simulation" />
+            <xs:enumeration value="reporting" />
+            <xs:enumeration value="scoring" />
+            <xs:enumeration value="complete" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="comment" type="xs:string" />
+  <xs:element name="description" type="xs:string" />
+  <xs:element name="identifier">
+    <xs:complexType>
+      <xs:attribute name="uniqueid" type="xs:string" use="required" />
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="label" type="xs:string" />
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:string" use="required" />
+      <xs:attribute name="label" type="xs:string" />
+      <xs:attribute name="sequence" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="complete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="testblueprint" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+        <xs:element ref="itempool" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="testform" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="adminsegment" />
+        <xs:element ref="performancelevels" />
+        <xs:element ref="scoringrules" />
+        <xs:element ref="reportingmeasures" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="registration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="registrationform" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="registrationsegment" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="administration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="testblueprint" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+        <xs:element ref="itempool" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="testform" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="adminsegment" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scoring">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="testblueprint" />
+        <xs:element ref="itempool" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="testform" />
+        <xs:element ref="performancelevels" />
+        <xs:element ref="scoringrules" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reporting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="testblueprint" />
+        <xs:element ref="performancelevels" />
+        <xs:element ref="reportingmeasures" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="itempool" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="testform" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reportingmeasures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="reportingmeasure" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reportingmeasure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="scoretype" />
+      </xs:sequence>
+      <xs:attribute name="bpelementid" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scoretype">
+    <xs:complexType>
+      <xs:attribute name="scorename" type="xs:string" use="required" />
+      <xs:attribute name="scorelabel" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="testform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="formpartition" />
+      </xs:sequence>
+      <xs:attribute name="length" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="formpartition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="itemgroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="registrationform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+      </xs:sequence>
+      <xs:attribute name="length" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="testblueprint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bpelement" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bpelement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="elementtype" type="xs:string" use="required" />
+      <xs:attribute name="parentid" type="xs:string" />
+      <xs:attribute name="minopitems" type="xs:string" />
+      <xs:attribute name="maxopitems" type="xs:string" />
+      <xs:attribute name="minftitems" type="xs:string" />
+      <xs:attribute name="maxftitems" type="xs:string" />
+      <xs:attribute name="opitemcount" type="xs:string" />
+      <xs:attribute name="ftitemcount" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bpref" type="xs:string" />
+  <xs:element name="poolproperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="comment" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="description" />
+      </xs:sequence>
+      <xs:attribute name="property" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:string" use="required" />
+      <xs:attribute name="label" type="xs:string" />
+      <xs:attribute name="itemcount" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itempool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="passage" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="testitem" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="enemylist" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="passage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="filename" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enemylist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="enemy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enemy">
+    <xs:complexType>
+      <xs:attribute name="objectid" type="xs:string" use="required" />
+      <xs:attribute name="objecttype" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="item" />
+            <xs:enumeration value="passage" />
+            <xs:enumeration value="itemgroup" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="testitem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="bpref" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="passageref" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="itemscoredimension" />
+      </xs:sequence>
+      <xs:attribute name="filename" type="xs:string" />
+      <xs:attribute name="itemtype" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemscoredimension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="itemscoreparameter" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="measurementmodel" type="xs:string" use="required" />
+      <xs:attribute name="scorepoints" type="xs:string" use="required" />
+      <xs:attribute name="dimension" type="xs:string" />
+      <xs:attribute name="weight" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemscoreparameter">
+    <xs:complexType>
+      <xs:attribute name="measurementparameter" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="registrationsegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="poolproperty" />
+      </xs:sequence>
+      <xs:attribute name="position" type="xs:string" use="required" />
+      <xs:attribute name="itemselection" type="xs:string" use="required" />
+      <xs:attribute name="minitems" type="xs:string" />
+      <xs:attribute name="maxitems" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adminsegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="segmentblueprint" />
+        <xs:element ref="itemselector" />
+        <xs:choice>
+          <xs:element ref="segmentpool" />
+          <xs:element minOccurs="1" maxOccurs="unbounded" ref="segmentform" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="segmentid" type="xs:string" use="required" />
+      <xs:attribute name="position" type="xs:string" use="required" />
+      <xs:attribute name="itemselection" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="segmentblueprint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="segmentbpelement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="segmentbpelement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="bpelementid" type="xs:string" />
+      <xs:attribute name="minopitems" type="xs:string" />
+      <xs:attribute name="maxopitems" type="xs:string" />
+      <xs:attribute name="minftitems" type="xs:string" />
+      <xs:attribute name="maxftitems" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemselector">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="itemselectionparameter" />
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemselectionparameter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="bpelementid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="segmentform">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="formpartitionid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="segmentpool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="itemgroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="passageref" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="groupitem" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+      </xs:sequence>
+      <xs:attribute name="maxresponses" type="xs:string" use="required" />
+      <xs:attribute name="formposition" type="xs:string" />
+      <xs:attribute name="maxitems" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="passageref" type="xs:string" />
+  <xs:element name="groupitem">
+    <xs:complexType>
+      <xs:attribute name="itemid" type="xs:string" use="required" />
+      <xs:attribute name="formposition" type="xs:string" />
+      <xs:attribute name="groupposition" type="xs:string" use="required" />
+      <xs:attribute default="false" name="adminrequired">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="responserequired">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="isfieldtest" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="isactive" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="true" />
+            <xs:enumeration value="false" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="blockid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scoringrules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="computationrule" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="conversiontable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="computationrule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="computationruleparameter" />
+      </xs:sequence>
+      <xs:attribute name="bpelementid" type="xs:string" use="required" />
+      <xs:attribute name="computationorder" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="computationruleparameter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="property" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="computationruleparametervalue" />
+      </xs:sequence>
+      <xs:attribute name="position" type="xs:string" use="required" />
+      <xs:attribute name="parametertype">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="int" />
+            <xs:enumeration value="double" />
+            <xs:enumeration value="string" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="computationruleparametervalue">
+    <xs:complexType>
+      <xs:attribute name="value" type="xs:string" use="required" />
+      <xs:attribute name="index" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="performancelevels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="performancelevel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="performancelevel">
+    <xs:complexType>
+      <xs:attribute name="bpelementid" type="xs:string" use="required" />
+      <xs:attribute name="plevel" type="xs:string" use="required" />
+      <xs:attribute name="scaledlo" type="xs:string" use="required" />
+      <xs:attribute name="scaledhi" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="conversiontable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identifier" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="conversiontuple" />
+      </xs:sequence>
+      <xs:attribute name="bpelementid" type="xs:string" use="required" />
+      <xs:attribute name="measureid" type="xs:string" use="required" />
+      <xs:attribute name="purpose" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="score" />
+            <xs:enumeration value="standarderror" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="formid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="conversiontuple">
+    <xs:complexType>
+      <xs:attribute name="invalue" type="xs:string" use="required" />
+      <xs:attribute name="outvalue" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

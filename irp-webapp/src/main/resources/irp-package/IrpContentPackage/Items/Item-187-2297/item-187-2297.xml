@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2297" version="4" bankkey="187">
+    <keywordList>
+      <keyword text="Enter" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Escribe <a href="item_2297_v4_2297_01spanish_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">أدخل <a href="item_2297_v4_2297_01arabic_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">Nào <a href="item_2297_v4_2297_01vietnamese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style=""> 输入,  輸入 <a href="item_2297_v4_2297_01cantonese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style=""><span style="">輸入</span><span style="font-size:0.6667em; font-family:SimSun; ">, </span><span style="">填寫</span><span style="">，</span><span style="">输入，填写</span> &#xA0;<a href="item_2297_v4_2297_01mandarin_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style="">Ilagay,<a href="item_2297_v4_2297_01btagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> &#xA0;&#xA0;Ikabil <a href="item_2297_v4_2297_01atagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> </p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="line-height:1.15em; "><span style="color:#000000; language:ru; country:RU; font-weight:normal; font-size:1.0000em; font-family:'Times New Roman'; ">Введите </span><span style="color:#000000; language:ru; country:RU; font-weight:normal; font-size:1.0000em; font-family:'Times New Roman'; "><a href="item_2297_v4_2297_01russian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span> </p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">쓰다, 입력하다 <a href="item_2297_v4_2297_01korean_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਦਾਖਲ ਕਰੋ , <a href="item_2297_v4_2297_01bpunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a> پاؤ <a href="item_2297_v4_2297_01apunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style="">Введіть<a href="item_2297_v4_2297_01ukrainian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

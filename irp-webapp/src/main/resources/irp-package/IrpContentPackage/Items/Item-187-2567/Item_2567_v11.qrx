@@ -1,0 +1,53 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_95330" title="Item 95330" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" baseType="identifier" cardinality="multiple" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single">
+    <defaultValue>
+      <value>0</value>
+    </defaultValue>
+  </outcomeDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="1" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElseIf>
+        <and>
+          <equal toleranceMode="exact">
+            <baseValue baseType="integer">2</baseValue>
+            <containerSize>
+              <variable identifier="1" />
+            </containerSize>
+          </equal>
+          <contains>
+            <multiple>
+              <baseValue baseType="identifier">4</baseValue>
+              <baseValue baseType="identifier">6</baseValue>
+            </multiple>
+            <variable identifier="1" />
+          </contains>
+        </and>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseElseIf>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item95330_2d92bf1d-2032-42e1-9afd-fd224be7d7c3">Rationales:</p>
+    <p id="Item95330_284d25af-5131-4e96-81eb-4c81bd62c4f6">T1- This sentence describes the problem but does not support the analysis.</p>
+    <p id="Item95330_edb17180-ed78-49b1-9cba-3f1fe2cc6403">T2- This sentence is related to the topic but does not support the analysis.</p>
+    <p id="Item95330_0c5c2d3f-7390-4766-92a1-2cdc5433d3fe">T3- This sentence is related to the topic but does not support the analysis.</p>
+    <p id="Item95330_33615dfd-40bb-4408-9375-ec7b2bedaef1">T4- CORRECT. This sentence supports the analysis that Harrison's solution to the longitude problem saved lives.</p>
+    <p id="Item95330_5d9aa4e6-1263-4cba-80cb-347bbc727afc">T5- This sentence is an interesting fact but does not support the analysis.</p>
+    <p id="Item95330_76ddd741-794e-4efd-9bcd-533d03b81a19">T6- CORRECT. This sentence supports the analysis that Harrison's solution to the longitude problem was useful for sailors.</p>
+    <p id="Item95330_14cfe406-b6ce-4e5b-b3af-abf5e7e88d9d" />
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mi" id="1793" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1793</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>PT_03m_C1_TC1</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (19); PracTest::MG3::S1::SP14::Braille (19); PracTest::MG3::S1::SP14::ESN (19);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableMatch</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1080" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2150" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1793_v10.qrx" xmlns:its-scripts="urn:its-scripts" />
+    <content language="ENU" version="2.0" xmlns:its-scripts="urn:its-scripts" approvedVersion="10">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1"><p style=""><img id="item_1793_Object1" style="vertical-align:middle;" src="item_1793_v10_Object1_png16malpha.png" width="104" height="15" /></p></simpleAssociableChoice><simpleAssociableChoice identifier="2"><p style=""><img id="item_1793_Object2" style="vertical-align:middle;" src="item_1793_v10_Object2_png16malpha.png" width="105" height="15" /></p></simpleAssociableChoice><simpleAssociableChoice identifier="3"><p style=""><img id="item_1793_Object3" style="vertical-align:middle;" src="item_1793_v10_Object3_png16malpha.png" width="104" height="15" /></p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a"><p style=""><span id="item_1793_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>True<span class="its-tag" data-tag-ref="item_1793_TAG_14" data-tag-boundary="end"></span></p></simpleAssociableChoice><simpleAssociableChoice identifier="b"><p style=""><span id="item_1793_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>False<span class="its-tag" data-tag-ref="item_1793_TAG_15" data-tag-boundary="end"></span></p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style=""><span id="item_1793_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Decide<span class="its-tag" data-tag-ref="item_1793_TAG_5" data-tag-boundary="end"></span> <span id="item_1793_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>if<span class="its-tag" data-tag-ref="item_1793_TAG_6" data-tag-boundary="end"></span> <span id="item_1793_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>each<span class="its-tag" data-tag-ref="item_1793_TAG_7" data-tag-boundary="end"></span> equation is <span id="item_1793_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1793_TAG_8" data-tag-boundary="end"></span> or <span id="item_1793_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>false<span class="its-tag" data-tag-ref="item_1793_TAG_9" data-tag-boundary="end"></span>. <span id="item_1793_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Click<span class="its-tag" data-tag-ref="item_1793_TAG_10" data-tag-boundary="end"></span> <span id="item_1793_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>True<span class="its-tag" data-tag-ref="item_1793_TAG_11" data-tag-boundary="end"></span> or <span id="item_1793_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>False<span class="its-tag" data-tag-ref="item_1793_TAG_12" data-tag-boundary="end"></span> for <span id="item_1793_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>each<span class="its-tag" data-tag-ref="item_1793_TAG_13" data-tag-boundary="end"></span> <span id="item_1793_TAG_4_BEGIN">equation.</span></p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1793_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1793_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>equation. the table has two columns and three rows. From left to right the column headings reed; true, false. the first row reeds; three times six equals eighteen divided by two. the second row reeds; four times nine equals thirty-six divided by four. the third row reeds; two times five equals twenty divided by two.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>equation.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1793_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 times  6  is equal to  18 divided by  2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 times  6  is equal to  18 divided by  2</brailleTextString>
+                <brailleCode type="Nemeth">#3*6 .k #18`/2
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_1793_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>4 times  9  is equal to  36 divided by  4</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>4 times  9  is equal to  36 divided by  4</brailleTextString>
+                <brailleCode type="Nemeth">#4*9 .k #36`/4
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_1793_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>2 times  5  is equal to  20 divided by  2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>2 times  5  is equal to  20 divided by  2</brailleTextString>
+                <brailleCode type="Nemeth">#2*5 .k #20`/2
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="10">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1" matchMax="0"><p style=""><img id="item_1793_Object4" style="vertical-align:middle;" src="item_1793_v10_Object4_png16malpha.png" width="104" height="15" /></p></simpleAssociableChoice><simpleAssociableChoice identifier="2" matchMax="0"><p style=""><img id="item_1793_Object5" style="vertical-align:middle;" src="item_1793_v10_Object5_png16malpha.png" width="105" height="15" /></p></simpleAssociableChoice><simpleAssociableChoice identifier="3" matchMax="0"><p style=""><img id="item_1793_Object6" style="vertical-align:middle;" src="item_1793_v10_Object6_png16malpha.png" width="104" height="15" /></p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a" matchMax="0"><p style="">Verdadera</p></simpleAssociableChoice><simpleAssociableChoice identifier="b" matchMax="0"><p style="">Falsa</p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">Decide si cada ecuación es verdadera o falsa. Haz clic en verdadera o falsa para cada ecuación.</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1793_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Decide<span class="its-tag" data-tag-ref="item_1793_TAG_5" data-tag-boundary="end"></span> <span id="item_1793_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>if<span class="its-tag" data-tag-ref="item_1793_TAG_6" data-tag-boundary="end"></span> <span id="item_1793_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>each<span class="its-tag" data-tag-ref="item_1793_TAG_7" data-tag-boundary="end"></span> equation is <span id="item_1793_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1793_TAG_8" data-tag-boundary="end"></span> or <span id="item_1793_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>false<span class="its-tag" data-tag-ref="item_1793_TAG_9" data-tag-boundary="end"></span>. <span id="item_1793_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Click<span class="its-tag" data-tag-ref="item_1793_TAG_10" data-tag-boundary="end"></span> <span id="item_1793_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>True<span class="its-tag" data-tag-ref="item_1793_TAG_11" data-tag-boundary="end"></span> or <span id="item_1793_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>False<span class="its-tag" data-tag-ref="item_1793_TAG_12" data-tag-boundary="end"></span> for <span id="item_1793_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>each<span class="its-tag" data-tag-ref="item_1793_TAG_13" data-tag-boundary="end"></span> <span id="item_1793_TAG_4_BEGIN">equation.</span></p>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1793_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>equation. the table has two columns and three rows. From left to right the column headings reed; true, false. the first row reeds; three times six equals eighteen divided by two. the second row reeds; four times nine equals thirty-six divided by four. the third row reeds; two times five equals twenty divided by two.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>equation.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

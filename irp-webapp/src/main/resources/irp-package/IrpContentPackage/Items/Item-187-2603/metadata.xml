@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2603</Identifier>
+    <Version>5</Version>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>100869 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>MC</InteractionType>
+    <EducationalDifficulty>Hard</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <SufficientEvidenceOfClaim>1.	 (Organization) The student will revise informational/explanatory text by identifying improved organizational elements such as d.	providing a conclusion that follows from and supports the information or explanation presented (e.g., articulating implications or the significance of a topic).</SufficientEvidenceOfClaim>
+    <EvidenceStatement>1.	 (Organization) The student will revise informational/explanatory text by identifying improved organizational elements such as d.	providing a conclusion that follows from and supports the information or explanation presented (e.g., articulating implications or the significance of a topic).</EvidenceStatement>
+    <BrailleType>BRF</BrailleType>
+    <Claim2Category>O</Claim2Category>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <Claim2RevisionCategory>R</Claim2RevisionCategory>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:2-W|3-11|11-12.W.2f</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1072</AssociatedTutorial>
+    <AssociatedWordlist>2755</AssociatedWordlist>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

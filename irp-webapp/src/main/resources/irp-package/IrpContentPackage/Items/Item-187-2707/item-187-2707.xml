@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="htq" id="2707" version="11" bankkey="187">
+    <associatedpassage>3760</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2707</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Life of Pi 2/10133 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (8); PracTest::ELAG11::SP14::Braille (8);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HTQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HTQ</val>
+        <desc>Hottext with QTI rubric</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3760</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2707_v11.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_2707_TAG_6_BEGIN">Read</span> this statement about the text and the directions that follow.</p><p style=""><br />Despite the fact that Richard Parker is a dangerous tiger, the narrator cares about his well-being.</p><p style=""><br />Click the detail that <span id="item_2707_TAG_7_BEGIN"><span style="font-weight:bold; ">best</span></span> supports this inference.</p><p style=""><br />I slept in fits that night. Shortly before sunrise I gave up trying to fall asleep again and lifted myself on an elbow. I spied with my little eye a tiger. <span id="item_2707_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1">Richard Parker was restless.</span></span> <span id="item_2707_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">He was moaning and growling and pacing about the lifeboat.</span></span> It was impressive. I assessed the situation. He couldn't be hungry. Or at least not dangerously hungry. Was he thirsty? His tongue hung from his mouth, but only on occasion, and he was not panting. And his stomach and paws were still wet. But they were not dripping wet. There probably wasn't much water left in the boat. Soon he would be thirsty. I looked up at the sky. <span id="item_2707_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">The cloud cover had vanished.</span></span> But for a few wisps on the horizon, the sky was clear. It would be another hot, rainless day. The sea moved in a lethargic way, as if already exhausted by the oncoming heat. I sat against the mast and thought over our problem. <span id="item_2707_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">The biscuits and the fishing gear assured us of the solid part of our diet.</span></span> It was the liquid part that was the rub. It all came down to what was so abundant around us but marred by salt. I could perhaps mix some sea water with his fresh water, but I had to procure more fresh water to start with. <span id="item_2707_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">The cans would not last long between the two of us—in fact, I was loath to share even one with Richard Parker—and it would be foolish to rely on rainwater.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1 st point here&gt; (1 point) </p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 2 ndpoint here&gt; (2 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 3 rdpoint here&gt; (3 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 4 thpoint here&gt; (4 point). </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <constraints>
+        <cardinality target="1" min="0" max="0" />
+        <cardinality target="" min="1" max="0" />
+      </constraints>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2707_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

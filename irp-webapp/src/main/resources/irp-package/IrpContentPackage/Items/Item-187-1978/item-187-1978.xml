@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1978" version="5" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1978</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Clone of Practice Test 565</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (28); PracTest::MG3::S1::SP14::Braille (28); PracTest::MG3::S1::SP14::ESN (28);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2162" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1978_v5.qrx" />
+    <RendererSpec filename="Item_1978_v5.eax" />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Lisa has 3 pizzas. <span id="item_1978_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Each<span class="its-tag" data-tag-ref="item_1978_TAG_4" data-tag-boundary="end"></span> pizza <span id="item_1978_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>is cut into<span class="its-tag" data-tag-ref="item_1978_TAG_17" data-tag-boundary="end"></span> <span id="item_1978_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>8 pieces<span class="its-tag" data-tag-ref="item_1978_TAG_18" data-tag-boundary="end"></span>. Lisa eats 2 <span id="item_1978_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_7" data-tag-boundary="end"></span>. <span id="item_1978_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>How many<span class="its-tag" data-tag-ref="item_1978_TAG_10" data-tag-boundary="end"></span> <span id="item_1978_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_8" data-tag-boundary="end"></span> <span id="item_1978_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>are left<span class="its-tag" data-tag-ref="item_1978_TAG_12" data-tag-boundary="end"></span>?</p><p style=""><br />Write an equation to show <span id="item_1978_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>how many<span class="its-tag" data-tag-ref="item_1978_TAG_19" data-tag-boundary="end"></span> <span id="item_1978_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_9" data-tag-boundary="end"></span> <span id="item_1978_TAG_14_BEGIN"><span id="item_1978_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>are left<span class="its-tag" data-tag-ref="item_1978_TAG_14" data-tag-boundary="end"></span></span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">2 Point Text:</p><p style="">Student includes both operations and steps of the problem to derive the correct answer.</p><p style="">&#xA0;</p><p style="">2 Point Sample Answer:</p><p style="">&#xA0;<img id="item_1978_Object1" style="vertical-align:middle;" src="item_1978_v5_Object1_png16malpha.png" width="80" height="12" /></p><p style="">&#xA0;</p><p style="">1 Point Text:</p><p style="">Student only includes the first operation/step in the multi-step problem.<span style="font-weight:bold; ">OR</span>Student states the correct number of slices remaining, but does not correctly complete the equation.</p><p style="">&#xA0;</p><p style="">1 Point Sample Answer:</p><p style="">&#xA0;<img id="item_1978_Object4" style="vertical-align:middle;" src="item_1978_v5_Object4_png16malpha.png" width="51" height="12" /><span style="font-weight:bold; ">OR </span>22</p><p style="">&#xA0;</p><p style="">0 Point Text:</p><p style="">No correct answer</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1978_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>are left. 
+The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, box over box. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>are left</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 times  8  minus  2  is equal to  22</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 times  8  minus  2  is equal to  22</brailleTextString>
+                <brailleCode type="Nemeth">#3*8-2 .k #22
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 times  8  minus  2  is equal to  22</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 times  8  minus  2  is equal to  22</brailleTextString>
+                <brailleCode type="Nemeth">#3*8-2 .k #22
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 times  8  minus  2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 times  8  minus  2</brailleTextString>
+                <brailleCode type="Nemeth">#3*8-2
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>3 times  8  minus  2</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>3 times  8  minus  2</brailleTextString>
+                <brailleCode type="Nemeth">#3*8-2
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="5">
+      <stem><![CDATA[<p style="">Lisa <span style="language:es; country:ES; ">tenía 3 pizzas. Cada pizza estaba cortada en 8 rebanadas. Lisa se comió 2</span> <span style="language:es; country:ES; ">rebanadas</span>. <span style="language:es; country:ES; ">¿Cuántas rebanadas quedaron</span>?</p><p style=""><br /><span style="language:es; country:ES; ">Escribe una ecuación para mostrar cuántas rebanadas quedaron</span>.</p><p class="languagedivider">&#xA0;</p><p style="">Lisa has 3 pizzas. <span id="item_1978_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Each<span class="its-tag" data-tag-ref="item_1978_TAG_4" data-tag-boundary="end"></span> pizza <span id="item_1978_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>is cut into<span class="its-tag" data-tag-ref="item_1978_TAG_17" data-tag-boundary="end"></span> <span id="item_1978_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>8 pieces<span class="its-tag" data-tag-ref="item_1978_TAG_18" data-tag-boundary="end"></span>. Lisa eats 2 <span id="item_1978_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_7" data-tag-boundary="end"></span>. <span id="item_1978_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>How many<span class="its-tag" data-tag-ref="item_1978_TAG_10" data-tag-boundary="end"></span> <span id="item_1978_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_8" data-tag-boundary="end"></span> <span id="item_1978_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>are left<span class="its-tag" data-tag-ref="item_1978_TAG_12" data-tag-boundary="end"></span>?</p><p style=""><br />Write an equation to show <span id="item_1978_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>how many<span class="its-tag" data-tag-ref="item_1978_TAG_19" data-tag-boundary="end"></span> <span id="item_1978_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>pieces<span class="its-tag" data-tag-ref="item_1978_TAG_9" data-tag-boundary="end"></span> <span id="item_1978_TAG_14_BEGIN"><span id="item_1978_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>are left<span class="its-tag" data-tag-ref="item_1978_TAG_14" data-tag-boundary="end"></span></span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1978_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>are left. 
+The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, box over box. In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>are left</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

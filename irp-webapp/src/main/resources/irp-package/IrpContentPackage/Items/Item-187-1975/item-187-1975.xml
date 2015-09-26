@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1975" version="4" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1975</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Clone of Practice Test 566</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (26); PracTest::MG3::S1::SP14::Braille (26); PracTest::MG3::S1::SP14::ESN (26);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2159" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1975_v4.qrx" />
+    <RendererSpec filename="Item_1975_v4.eax" />
+    <content language="ENU" version="2.0" approvedVersion="4">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1975_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>What<span class="its-tag" data-tag-ref="item_1975_TAG_5" data-tag-boundary="end"></span> unknown number <span id="item_1975_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>makes<span class="its-tag" data-tag-ref="item_1975_TAG_6" data-tag-boundary="end"></span> this equation <span id="item_1975_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>true<span class="its-tag" data-tag-ref="item_1975_TAG_7" data-tag-boundary="end"></span>?</p><p style=""><br /><img id="item_1975_graphics1" src="item_1975_v4_graphics1_png256.png" width="144" height="23" style="vertical-align:baseline;" /></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Correct Responses: 648</p><p style="">&#xA0;</p><p style="">1 Point Text:</p><p style="">The student shows a thorough understanding of place values and properties of arithmetic to perform multi-digit arithmetic. Student finds the correct difference.</p><p style="">&#xA0;</p><p style="">1 Point Sample Answer:</p><p style="">648, or equivalent number [Use equation scoring: provide digits 0-9]</p><p style="">&#xA0;</p><p style="">0 Point Text:</p><p style="">The student shows little or no understanding of place values and properties of arithmetic to perform multi-digit arithmetic. Student does not find the correct difference.</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1975_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1975_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>9 hundred 4 minus 2 hundred 56 equals box. From left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, box over box.</audioText>
+              </readAloud>
+              <brailleText>
+                <brailleCode type="Nemeth">#904-256 .k $4</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="4">
+      <stem><![CDATA[<p style="">¿Qué número desconocido hace que esta ecuación sea verdadera?</p><p style=""><br /><img id="item_1975_graphics2" src="item_1975_v4_graphics2_png256.png" width="144" height="23" style="vertical-align:baseline;" /></p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1975_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>What<span class="its-tag" data-tag-ref="item_1975_TAG_5" data-tag-boundary="end"></span> unknown number <span id="item_1975_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>makes<span class="its-tag" data-tag-ref="item_1975_TAG_6" data-tag-boundary="end"></span> this equation <span id="item_1975_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>true<span class="its-tag" data-tag-ref="item_1975_TAG_7" data-tag-boundary="end"></span>?</p><p style=""><br /><img id="item_1975_graphics1" src="item_1975_v4_graphics1_png256.png" width="144" height="23" style="vertical-align:baseline;" /></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">Correct responses:</p><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">2 Point Text:</p><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">1 Point Text:</p><p style="">The student shows a thorough understanding of place values and properties of arithmetic to perform multi-digit arithmetic. Student finds the correct difference.</p><p style="">&#xA0;</p><p style="">1 Point Sample Answer:</p><p style="">648[Use equation scoring: provide digits 0-9]</p><p style="">&#xA0;</p><p style="">0 Point Text:</p><p style="">The student shows little or no understanding of place values and properties of arithmetic to perform multi-digit arithmetic. Student does not find the correct difference.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1975_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>9 hundred 4 minus 2 hundred 56 equals box. From left to right and top to bottom the equation tool reeds, one, two, three, four, five, six, seven, eight, nine, zero, point, box over box.</audioText>
+              </readAloud>
+              <brailleText>
+                <brailleCode type="Nemeth">#904-256 .k $4</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

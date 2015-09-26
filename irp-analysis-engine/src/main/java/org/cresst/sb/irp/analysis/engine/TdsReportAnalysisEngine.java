@@ -57,7 +57,7 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 	@Autowired
 	public ToolUsageAnalysisAction toolUsageAnalysisAction;
 
-	// http://www.smarterapp.org/specs/TestResultsTransmissionFormat.html Date 2015-01-28
+	// http://www.smarterapp.org/specs/TestResultsTransmissionFormat.html Date 2015-06-17
 	@Value("classpath:TestResultsTransmissionFormat_Schema.xsd")
 	private Resource TDSReportXSDResource;
 
@@ -91,7 +91,7 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 					segmentAnalysisAction.analyze(individualResponse);
 					accommodationAnalysisAction.analyze(individualResponse);
 					itemAttributesAnalysisAction.analyze(individualResponse);
-					itemResponseAnalysisAction.analyze(individualResponse);
+					itemResponseAnalysisAction.analyze(individualResponse);		
 					itemScoreInfoAnalysisAction.analyze(individualResponse);
 					commentAnalysisAction.analyze(individualResponse);
 					toolUsageAnalysisAction.analyze(individualResponse);

@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="htq" id="2601" version="2" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2601</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>97634 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (16);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HTQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HTQ</val>
+        <desc>Hottext with QTI rubric</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2749" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2601_v2.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="2">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A student is writing a memoir for a class assignment. Read the draft from the memoir and complete the task that follows.</p><p style=""> </p><ul class="interaction order-group" id="interaction-1" data-its-identifier="1"><li class="interaction order-choice" data-its-identifier="1" data-its-group="1"><span id="item_2601_TAG_1_BEGIN">The magnitude of the heat seemed overwhelming as I crawled among the flowers in my aunt's garden.</span></li><li class="interaction order-choice" data-its-identifier="2" data-its-group="1"><span id="item_2601_TAG_2_BEGIN">My <span id="item_2601_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>tedious<span class="its-tag" data-tag-ref="item_2601_TAG_11" data-tag-boundary="end"></span> task was to eliminate the invasive weeds that had overtaken the garden.</span></li><li class="interaction order-choice" data-its-identifier="3" data-its-group="1"><span id="item_2601_TAG_3_BEGIN">As I started near the lilies, my mind began to drift to a different place and time until a loud buzzing noise jolted me back to the present.</span></li><li class="interaction order-choice" data-its-identifier="4" data-its-group="1"><span id="item_2601_TAG_4_BEGIN">I began scouring the garden for the culprit that had startled me.</span></li><li class="interaction order-choice" data-its-identifier="5" data-its-group="1"><span id="item_2601_TAG_5_BEGIN">From a distance I spotted a creature near a flower, and a thought occurred to me.</span></li><li class="interaction order-choice" data-its-identifier="6" data-its-group="1"><span id="item_2601_TAG_6_BEGIN">The buzzing noise might not necessarily be from a <span id="item_2601_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>menacing<span class="its-tag" data-tag-ref="item_2601_TAG_12" data-tag-boundary="end"></span> insect, as I had assumed, but rather from a hummingbird.</span></li><li class="interaction order-choice" data-its-identifier="7" data-its-group="1"><span id="item_2601_TAG_7_BEGIN">Excitedly, I maintained my watch among the Columbine stalks.</span></li><li class="interaction order-choice" data-its-identifier="8" data-its-group="1"><span id="item_2601_TAG_8_BEGIN">The hummingbird hovered above one blossom and then darted to the next.</span></li><li class="interaction order-choice" data-its-identifier="9" data-its-group="1"><span id="item_2601_TAG_9_BEGIN"><span style="text-decoration:underline; ">And then the smallest of birds appeared, glistening with </span><span id="item_2601_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="text-decoration:underline; ">iridescent</span><span class="its-tag" data-tag-ref="item_2601_TAG_13" data-tag-boundary="end"></span><span style="text-decoration:underline; "> emerald and silver.</span></span></li><li class="interaction order-choice" data-its-identifier="10" data-its-group="1"><span id="item_2601_TAG_10_BEGIN"><span id="item_2601_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Miniscule<span class="its-tag" data-tag-ref="item_2601_TAG_14" data-tag-boundary="end"></span> in the scheme of the garden, it <span id="item_2601_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>siphoned<span class="its-tag" data-tag-ref="item_2601_TAG_15" data-tag-boundary="end"></span> the sweet nectar before retreating to the shade of a tree.</span></li></ul><p style=""> </p><p style="">The <span style="text-decoration:underline; ">underlined</span> sentence is out of order and should be moved. Move the <span style="text-decoration:underline; ">underlined</span> sentence to another place in the narrative that would <span style="font-weight:bold; ">best </span>maintain coherence.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1 st point here&gt; (1 point) </p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 2 ndpoint here&gt; (2 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 3 rdpoint here&gt; (3 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 4 thpoint here&gt; (4 point). </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2601_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

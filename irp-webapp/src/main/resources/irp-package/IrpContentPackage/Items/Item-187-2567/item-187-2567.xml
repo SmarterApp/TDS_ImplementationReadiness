@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="htq" id="2567" version="11" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2567</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>95330_Practice Test Refresh</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG7::SP14 (30); PracTest::ELAG7::SP14::Braille (30);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>HTQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>HTQ</val>
+        <desc>Hottext with QTI rubric</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HotText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val>NA</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1076" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2739" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2567_v11.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">A student is writing a research report about early sea navigation. She found a trustworthy source. Read <span style="font-weight:bold; ">Source 1</span> and the directions that follow.</p><p style=""><br /><span style="font-weight:bold; ">Source 1: “Harrison's Marvelous Clock,” from </span><span style="font-style:italic; font-weight:bold; ">The Story of Longitude</span><span style="font-weight:bold; "> by H. O. Bellevue, history </span><span id="item_2567_TAG_7_BEGIN"><span style="font-weight:bold; ">professor</span></span></p><p style=""><br />Before the use of planes and trains became popular forms of transportation, many people relied upon boats to travel from one destination to the next. Sailors were a group of individuals who helped to guide and navigate boats. Before the mid-<span id="item_2567_TAG_9_BEGIN">1700s</span>, there was not a dependable or practical way to determine a boat's east-west position, or longitude. Knowing a boat's longitude was essential to its safely reaching its destination. The key was being able to keep accurate time at sea. Although clocks kept the correct time on land, they did not work well on a rolling ship's deck. After years of effort, John Harrison of England invented the marine chronometer. The marine chronometer is a clock that allows a ship to determine its longitude at sea. Solving the longitude problem meant that ships could navigate more safely and accurate maps could be made. It is hardly an understatement to say that Harrison's success saved lives and continues to allow people to find their way around the world.</p><p style=""><br />The student found another source. Read <span style="font-weight:bold; ">Source 2</span> and click on <span style="font-weight:bold; ">two </span>facts that support the author's point of view about Harrison's clock in <span style="font-weight:bold; ">Source 1</span>.</p><p style=""><br /><span style="font-weight:bold; ">Source 2: from the diary of J. R. Smythe, sailor aboard the </span><span style="font-style:italic; font-weight:bold; ">Resolution</span><span style="font-weight:bold; ">, </span><span id="item_2567_TAG_8_BEGIN"><span style="font-weight:bold; ">1775</span></span></p><p style=""><br />Tomorrow we shall arrive home from our <span id="item_2567_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>voyage<span class="its-tag" data-tag-ref="item_2567_TAG_11" data-tag-boundary="end"></span>. <span id="item_2567_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1"> Like previous sailors, we could not figure our longitude accurately.</span></span> <span id="item_2567_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">We navigated with charts of the moon and stars and big, bulky telescopes that were hard to use.</span></span> Twice we ran into islands that our maps did not show. Fortunately, injury to the ship was fixable. We carried a clock, but it stopped working during a storm. <span id="item_2567_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1"> Finally, we were able to secure <span id="item_2567_TAG_10_BEGIN">Mr.</span> John Harrison's newest invention.</span></span> <span id="item_2567_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">Because it kept nearly perfect time, we plotted our position most accurately and thus kept from running aground or worse.</span></span> <span id="item_2567_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">This has made everyone on the ship very happy.</span></span> <span id="item_2567_TAG_6_BEGIN"><span class="interaction selectable" data-its-identifier="6" data-its-group="1">Now, our captain can draw updated maps that should be useful for sailors far into the future.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">&lt;show or explain one particular correct answer&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;if applicable, list all the correct answers or give a rule for all the correct answers&gt;</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 1 st point here&gt; (1 point) </p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">&lt;explain what is required for the 2 ndpoint here&gt; (2 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 3 rdpoint here&gt; (3 point) </p><p style="">AND</p></li><li><p style="">&lt;explain what is required for the 4 thpoint here&gt; (4 point). </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <constraints>
+        <cardinality target="1" min="0" max="0" />
+        <cardinality target="" min="1" max="0" />
+      </constraints>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>professor.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>professor</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>professor</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>17 hundreds</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1700s</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1700s</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>17 75.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1775</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1775</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Mister</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Mr.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Mr.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2567_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud />
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

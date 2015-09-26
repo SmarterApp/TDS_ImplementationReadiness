@@ -1,3 +1,0 @@
-
-					<Question id="653" ITSVer="5" ScoreEngineVer="1" version="2.0"><Description></Description><QuestionPart id="1"><Options><ShowButtons>delete,point,connect</ShowButtons><GridColor>LightBlue</GridColor><GridSpacing>20,Y</GridSpacing><CenterImage>false</CenterImage><ScaleImage>false</ScaleImage></Options><Text></Text><ObjectMenuIcons></ObjectMenuIcons><ImageSpec><FileSpec>item_653_v22_background_png16malpha.png</FileSpec><Position>0,0</Position></ImageSpec></QuestionPart><PreSetAnswerPart><AnswerSet><Question id="653"><QuestionPart id="1"><ObjectSet /><SnapPoint /></QuestionPart></Question></AnswerSet></PreSetAnswerPart></Question>
-						

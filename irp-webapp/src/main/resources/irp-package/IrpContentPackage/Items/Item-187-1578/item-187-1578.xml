@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1578" version="18" bankkey="187">
+    <associatedpassage>3700</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1578</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>MA03_PT_LEMONADE_Q4</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::Perf::SP13 (4); PracTest::MG3::Perf::SP13::ENU::Refresh (4); PracTest::MG3::Perf::SP13::ESN::Refresh (4); PracTest::MG3::Perf::SP15 (4); PracTest::MG3::Perf::SP15::ESN (4);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3700</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="1617" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1578_v18.qrx" />
+    <RendererSpec filename="Item_1578_v18.gax" />
+    <content language="ENU" version="2.0" approvedVersion="18">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1578_TAG_25" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_1578_TAG_25" data-tag-boundary="end"></span> the <span style="font-weight:bold; ">August Lemonade </span><span id="item_1578_TAG_7_BEGIN"><span id="item_1578_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-weight:bold; ">Sales</span><span class="its-tag" data-tag-ref="item_1578_TAG_7" data-tag-boundary="end"></span></span> from Item 3 <span id="item_1578_TAG_26" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>to complete<span class="its-tag" data-tag-ref="item_1578_TAG_26" data-tag-boundary="end"></span> this <span id="item_1578_TAG_27" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>task<span class="its-tag" data-tag-ref="item_1578_TAG_27" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><span id="item_1578_TAG_5_BEGIN">Create</span> a picture graph that shows the number of cups of lemonade Jaleen <span id="item_1578_TAG_28" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>sold<span class="its-tag" data-tag-ref="item_1578_TAG_28" data-tag-boundary="end"></span> <span id="item_1578_TAG_29" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="item_1578_TAG_29" data-tag-boundary="end"></span> week in August.</p><p style="">&#xA0;</p><p style=""><span id="item_1578_TAG_4_BEGIN">In</span> the graph you may use whole and half pictures for <span id="item_1578_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="item_1578_TAG_30" data-tag-boundary="end"></span> cup.</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_1578_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span id="item_1578_TAG_2_BEGIN">First</span><span class="its-tag" data-tag-ref="item_1578_TAG_31" data-tag-boundary="end"></span> <span id="item_1578_TAG_33" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>click on<span class="its-tag" data-tag-ref="item_1578_TAG_33" data-tag-boundary="end"></span> the key to show <span id="item_1578_TAG_34" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>the scale<span class="its-tag" data-tag-ref="item_1578_TAG_34" data-tag-boundary="end"></span> that you <span id="item_1578_TAG_35" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>will use<span class="its-tag" data-tag-ref="item_1578_TAG_35" data-tag-boundary="end"></span> for your graph.</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">Then <span id="item_1578_TAG_37" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>click on<span class="its-tag" data-tag-ref="item_1578_TAG_37" data-tag-boundary="end"></span> the cups to create the <span id="item_1578_TAG_1_BEGIN">graph.</span></p></li></ul><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">[Insert image of correct answer here]</p></li></ul><p style="">&#xA0;</p><p style="">Other Correct Responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">N/A</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">&lt;explain what is required for the 1</span> <span style="vertical-align:super; font-size: 58%;background-color:transparent; ">st</span> <span style="background-color:transparent; ">point here&gt; </span>(1 point) </p></li></ul><p style="">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND </p><ul style="padding-left:1.5000em; "><li><p style="background-color:transparent; ">&lt;explain what is required for the 2 <span style="vertical-align:super; font-size: 58%;">nd</span>point here&gt; (1 point) </p><p style="">AND</p></li><li><p style="background-color:transparent; ">&lt;explain what is required for the 3 <span style="vertical-align:super; font-size: 58%;">rd</span>point here&gt; (1 point) </p><p style="">AND</p></li><li><p style="background-color:transparent; ">&lt;explain what is required for the 4 <span style="vertical-align:super; font-size: 58%;">th</span>point here&gt; (1 point). </p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1578_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Sales,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Sales</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Sales</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, Create</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Create</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Create</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, In</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>In</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>In</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, First</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>First</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>First</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>graph. This is an interactive image. 
+The image is divided into 2 sections.
+The top section is titled: A. , Select the key you will ewes.
+From left to right the top section reeds: equals 4 cups, equals 10 cups, equals 20 cups.
+The bottom section is titled: B; New picture graph.
+The title of the picture graph is: August lemonade sales. The graph has 2 columns and 4 rows. From left to right the column headings reed: Week, Lemonade. From top to bottom the row headings reed: Week 1, Week 2, Week 3, Week4.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>graph.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>graph.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="17">
+      <stem><![CDATA[<p style="">Usa las <span style="font-weight:bold; ">Ventas de limonada en agosto</span> de la pregunta 3 para completar esta tarea.</p><p style="">&#xA0;</p><p style="">Haz una<span style=""> </span><span style="">ilustración gráfica </span><span style="">que muestre el número de vasos de limonada que vendió Jaleen cada semana de agosto.</span></p><p style="">&#xA0;</p><p style="">En la gráfica puedes usar dibujos de vasos enteros y de medios vasos.</p><ul style="padding-left:1.5000em; "><li><p style="">Primero, haz clic en la clave para mostrar la escala que vas a usar en tu gráfica.</p></li></ul><ul style="padding-left:1.5000em; "><li><p style="">Luego, haz clic en los vasos para crear la gráfica.</p></li></ul><p style="">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1578_TAG_25" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_1578_TAG_25" data-tag-boundary="end"></span> the <span style="font-weight:bold; ">August Lemonade </span><span id="item_1578_TAG_7_BEGIN"><span id="item_1578_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-weight:bold; ">Sales</span><span class="its-tag" data-tag-ref="item_1578_TAG_7" data-tag-boundary="end"></span></span> from Item 3 <span id="item_1578_TAG_26" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>to complete<span class="its-tag" data-tag-ref="item_1578_TAG_26" data-tag-boundary="end"></span> this <span id="item_1578_TAG_27" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>task<span class="its-tag" data-tag-ref="item_1578_TAG_27" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style=""><span id="item_1578_TAG_5_BEGIN">Create</span> a picture graph that shows the number of cups of lemonade Jaleen <span id="item_1578_TAG_28" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>sold<span class="its-tag" data-tag-ref="item_1578_TAG_28" data-tag-boundary="end"></span> <span id="item_1578_TAG_29" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="item_1578_TAG_29" data-tag-boundary="end"></span> week in August.</p><p style="">&#xA0;</p><p style=""><span id="item_1578_TAG_4_BEGIN">In</span> the graph you may use whole and half pictures for <span id="item_1578_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="item_1578_TAG_30" data-tag-boundary="end"></span> cup.</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_1578_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span id="item_1578_TAG_2_BEGIN">First</span><span class="its-tag" data-tag-ref="item_1578_TAG_31" data-tag-boundary="end"></span> <span id="item_1578_TAG_33" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>click on<span class="its-tag" data-tag-ref="item_1578_TAG_33" data-tag-boundary="end"></span> the key to show <span id="item_1578_TAG_34" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>the scale<span class="its-tag" data-tag-ref="item_1578_TAG_34" data-tag-boundary="end"></span> that you <span id="item_1578_TAG_35" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>will use<span class="its-tag" data-tag-ref="item_1578_TAG_35" data-tag-boundary="end"></span> for your graph.</p></li></ul><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_1578_TAG_36" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span><span id="item_1578_TAG_3_BEGIN">Then</span><span class="its-tag" data-tag-ref="item_1578_TAG_36" data-tag-boundary="end"></span> <span id="item_1578_TAG_37" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>click on<span class="its-tag" data-tag-ref="item_1578_TAG_37" data-tag-boundary="end"></span> the cups to create the <span id="item_1578_TAG_1_BEGIN">graph.</span></p></li></ul><p style="">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Sales,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Sales</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Sales</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, Create</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Create</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Create</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, In</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>In</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>In</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, First</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>First</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>First</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, Then</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Then</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Then</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="item_1578_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>graph. This is an interactive image. 
+The image is divided into 2 sections.
+The top section is titled: A. , Select the key you will ewes.
+From left to right the top section reeds: equals 4 cups, equals 10 cups, equals 20 cups.
+The bottom section is titled: B; New picture graph.
+The title of the picture graph is: August lemonade sales. The graph has 2 columns and 4 rows. From left to right the column headings reed: Week, Lemonade. From top to bottom the row headings reed: Week 1, Week 2, Week 3, Week4.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>graph.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>graph.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

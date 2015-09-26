@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2635</Identifier>
+    <Version>2</Version>
+    <Subject>ELA</Subject>
+    <AssociatedStimulus>3750</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Napping - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>7</IntendedGrade>
+    <DepthOfKnowledge>4</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>ER</InteractionType>
+    <EducationalDifficulty>Hard</EducationalDifficulty>
+    <MaximumNumberOfPoints>2</MaximumNumberOfPoints>
+    <EvidenceStatement>The student will analyze information within and among multiple sources of information.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>The student will analyze information within and among multiple sources of information.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <Notes>Item 1</Notes>
+    <MinimumGrade>7</MinimumGrade>
+    <MaximumGrade>7</MaximumGrade>
+    <PtWritingType>Explanatory</PtWritingType>
+    <ScorePoints>"0,1,2"</ScorePoints>
+    <StimulusName>Napping</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:1-LT|3-7|7.L.4b</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1078</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

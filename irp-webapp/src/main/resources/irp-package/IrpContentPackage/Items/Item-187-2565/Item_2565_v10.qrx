@@ -1,0 +1,52 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_95988" title="Item 95988" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" baseType="identifier" cardinality="multiple" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single">
+    <defaultValue>
+      <value>0</value>
+    </defaultValue>
+  </outcomeDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="1" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElseIf>
+        <and>
+          <equal toleranceMode="exact">
+            <baseValue baseType="integer">3</baseValue>
+            <containerSize>
+              <variable identifier="1" />
+            </containerSize>
+          </equal>
+          <contains>
+            <multiple>
+              <baseValue baseType="identifier">2</baseValue>
+              <baseValue baseType="identifier">5</baseValue>
+              <baseValue baseType="identifier">6</baseValue>
+            </multiple>
+            <variable identifier="1" />
+          </contains>
+        </and>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseElseIf>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item95988_64cf38ec-c799-40fc-9306-0b6ea94a2565">A. The student who chooses this may not have read the entire text.</p>
+    <p id="Item95988_716975e6-44f4-498c-92b4-a2c7e433f279">B. CORRECT. The t-shirt example proves that beyond recycling.</p>
+    <p id="Item95988_50948df4-dc29-4d51-9341-48188b8ce323">C. The student who chooses this does not read carefully and missed all of the other useful, natural fibers.</p>
+    <p id="Item95988_4dda4e34-363f-4c9d-b836-727d6470fca8">D. Though this is a true statement, it is not the reason for including it. The student misunderstands the author's purpose.</p>
+    <p id="Item95988_f51582e0-63ca-4913-b369-9dffc51a9eef">T5 [But the environmental impact of clothing involves more than just where our used clothes end up.]</p>
+    <p id="Item95988_ed66f7f8-9aba-4cb1-8fa0-84c5140ad3b8">T6 [Cotton is a very water-intensive crop that is typically grown with heavy application of insecticides; in fact, cotton accounts for more insecticide use than any other single crop in the world.]</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

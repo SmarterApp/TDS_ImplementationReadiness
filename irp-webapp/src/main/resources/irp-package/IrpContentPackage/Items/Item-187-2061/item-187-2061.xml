@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="sa" id="2061" version="11" bankkey="187">
+    <associatedpassage>3720</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2061</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Using Water Wisely Item 3</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::Perf::SP14 (3); PracTest::MG7::Perf::SP14::Braille (3); PracTest::MG7::Perf::SP14::ESN (3);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>SA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>SA</val>
+        <desc>SA [6]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>HTMLEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3720</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2439" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Now, you will start investigating <span id="item_2061_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>ways<span class="its-tag" data-tag-ref="item_2061_TAG_1" data-tag-boundary="end"></span> to <span id="item_2061_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>save<span class="its-tag" data-tag-ref="item_2061_TAG_2" data-tag-boundary="end"></span> water. Taking <span id="item_2061_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>shorter<span class="its-tag" data-tag-ref="item_2061_TAG_3" data-tag-boundary="end"></span> <span id="item_2061_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>showers<span class="its-tag" data-tag-ref="item_2061_TAG_4" data-tag-boundary="end"></span> is one <span id="item_2061_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>way<span class="its-tag" data-tag-ref="item_2061_TAG_5" data-tag-boundary="end"></span> to <span id="item_2061_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>save<span class="its-tag" data-tag-ref="item_2061_TAG_6" data-tag-boundary="end"></span> water.</p><p style="font-weight:normal; ">&#xA0;</p><p style="font-weight:normal; ">What is the range for the amount of water, in gallons, that <span id="item_2061_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>is saved<span class="its-tag" data-tag-ref="item_2061_TAG_7" data-tag-boundary="end"></span> if a <span id="item_2061_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>shower<span class="its-tag" data-tag-ref="item_2061_TAG_8" data-tag-boundary="end"></span> <span id="item_2061_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>lasts<span class="its-tag" data-tag-ref="item_2061_TAG_9" data-tag-boundary="end"></span> for 5 minutes <span id="item_2061_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>instead<span class="its-tag" data-tag-ref="item_2061_TAG_10" data-tag-boundary="end"></span> of 11 minutes?</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">A full-credit (2 point) response includes:</p><ul style="padding-left:1.5000em; "><li><p style="">Student enters the correct range of values (equivalent forms receive credit, e.g., between 9.09 and 11.36 gallons)</p></li></ul><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="OtherExemplar" scorepoint="2">
+            <name>2-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">9.09 to 11.36 gallons</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">A partial-credit (1 points) response includes:</p><ul style="padding-left:1.5000em; "><li><p style="">Student enters the range of what is being used, not saved </p></li></ul><p style="">OR</p><ul style="padding-left:1.5000em; "><li><p style="">Student finds the difference in the range values </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response does not meet the criteria required to earn one point. The response indicates inadequate or no understanding of the task and/or the idea or concept needed to answer the item. It may only repeat information given in the test item. The response may provide an incorrect solution/response and the provided supportive information may be irrelevant to the item, or possibly, no other information is shown. The student may have written on a different topic or written, “I don't know.”</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">NA</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2061_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo />
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="11">
+      <stem><![CDATA[<p style="">Ahora, vas a comenzar a investigar maneras de ahorrar agua. Ducharse rápidamente es una manera de ahorrar agua.</p><p style="font-weight:normal; ">&#xA0;</p><p style="font-weight:normal; ">¿Cuál es el rango de la cantidad de agua, en galones, que se ahorra si la ducha dura 5 minutos en lugar de 11 minutos?</p><p class="languagedivider">&#xA0;</p><p style="">Now, you will start investigating <span id="item_2061_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>ways<span class="its-tag" data-tag-ref="item_2061_TAG_1" data-tag-boundary="end"></span> to <span id="item_2061_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>save<span class="its-tag" data-tag-ref="item_2061_TAG_2" data-tag-boundary="end"></span> water. Taking <span id="item_2061_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>shorter<span class="its-tag" data-tag-ref="item_2061_TAG_3" data-tag-boundary="end"></span> <span id="item_2061_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>showers<span class="its-tag" data-tag-ref="item_2061_TAG_4" data-tag-boundary="end"></span> is one <span id="item_2061_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>way<span class="its-tag" data-tag-ref="item_2061_TAG_5" data-tag-boundary="end"></span> to <span id="item_2061_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>save<span class="its-tag" data-tag-ref="item_2061_TAG_6" data-tag-boundary="end"></span> water.</p><p style="font-weight:normal; ">&#xA0;</p><p style="font-weight:normal; ">What is the range for the amount of water, in gallons, that <span id="item_2061_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>is saved<span class="its-tag" data-tag-ref="item_2061_TAG_7" data-tag-boundary="end"></span> if a <span id="item_2061_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>shower<span class="its-tag" data-tag-ref="item_2061_TAG_8" data-tag-boundary="end"></span> <span id="item_2061_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>lasts<span class="its-tag" data-tag-ref="item_2061_TAG_9" data-tag-boundary="end"></span> for 5 minutes <span id="item_2061_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>instead<span class="its-tag" data-tag-ref="item_2061_TAG_10" data-tag-boundary="end"></span> of 11 minutes?</p>]]></stem>
+      <rubriclist />
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo />
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

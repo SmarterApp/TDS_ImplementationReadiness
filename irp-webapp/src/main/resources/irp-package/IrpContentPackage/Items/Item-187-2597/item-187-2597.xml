@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2597" version="3" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2597</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>56194 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (21); PracTest::ELAG11::SP14::Braille (21);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>B</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2756" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="3">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">Brad is writing a research paper on bats for his biology class. <span id="item_2597_TAG_1_BEGIN">Read</span> the draft of the paper and then complete the task that follows.</p><p style=""><br />Bats are an important part of our <span id="item_2597_TAG_6_BEGIN">ecosystem</span>. <span style="text-decoration:underline; ">T</span><span style="text-decoration:underline; ">he bat population is decreasing because people are destroying its natural habitat. Consequently, the bats' homes are disappearing.</span> The need to replicate their shelter is great. Providing bat houses is one way to achieve this goal. Bat houses, like bird houses, are easy to construct and <span id="item_2597_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>virtually<span class="its-tag" data-tag-ref="item_2597_TAG_7" data-tag-boundary="end"></span> maintenance free, and their benefits are monumental.</p><p style=""><br />Brad wants to join the <span style="text-decoration:underline; ">underlined</span> sentences. Choose the sentence that is punctuated correctly.</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><span id="item_2597_TAG_2_BEGIN">The bat population is decreasing because people are destroying its natural habitat; consequently the bats' homes are disappearing.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">Student may be attracted to this choice because the semicolon is in the correct place. But the student may fail to look for the comma after the conjunctive adverb.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><span id="item_2597_TAG_3_BEGIN">The bat population is decreasing because people are destroying its natural habitat; consequently, the bats' homes are disappearing.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><span id="item_2597_TAG_4_BEGIN">The bat population is decreasing because people are destroying its natural habitat consequently; the bats' homes are disappearing.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">Some students may think that the semicolon should replace the comma.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><span id="item_2597_TAG_5_BEGIN">The bat population is decreasing because people are destroying its natural habitat, consequently; the bats' homes are disappearing.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">Some students may reverse the order of the comma and semicolon.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>The bat population is decreasing because people are destroying its natural habitat; consequently the bats' homes are disappearing.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>The bat population is decreasing because people are destroying its natural habitat; consequently the bats' homes are disappearing.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>The bat population is decreasing because people are destroying its natural habitat; consequently, the bats' homes are disappearing.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>The bat population is decreasing because people are destroying its natural habitat; consequently, the bats' homes are disappearing.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>The bat population is decreasing because people are destroying its natural habitat consequently; the bats' homes are disappearing.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>The bat population is decreasing because people are destroying its natural habitat consequently; the bats' homes are disappearing.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2597_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>The bat population is decreasing because people are destroying its natural habitat, consequently; the bats' homes are disappearing.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>The bat population is decreasing because people are destroying its natural habitat, consequently; the bats' homes are disappearing.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

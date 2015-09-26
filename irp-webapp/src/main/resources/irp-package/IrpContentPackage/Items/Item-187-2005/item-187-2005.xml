@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2005" version="11" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2005</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (9); PracTest::MG11::S2::SP14::Braille (9); PracTest::MG11::S2::SP14::ESN (9);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2380" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">Ashley <span id="item_2005_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>claims<span class="its-tag" data-tag-ref="item_2005_TAG_5" data-tag-boundary="end"></span> that when you multiply two different <span style="font-weight:bold; ">square roots </span><span id="item_2005_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-weight:normal; ">together</span><span class="its-tag" data-tag-ref="item_2005_TAG_6" data-tag-boundary="end"></span><span style="font-weight:normal; ">, the product is always </span><span style="font-weight:bold; ">rational</span><span style="font-style:normal; font-weight:normal; ">. For example, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object1" style="vertical-align:middle;" src="item_2005_v11_Object1_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; "> and </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object2" style="vertical-align:middle;" src="item_2005_v11_Object2_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; font-weight:normal; ">She </span><span id="item_2005_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; font-weight:normal; ">also</span><span class="its-tag" data-tag-ref="item_2005_TAG_7" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; "> </span><span id="item_2005_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; font-weight:normal; ">claims</span><span class="its-tag" data-tag-ref="item_2005_TAG_8" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; "> that when you multiply two different </span><span style="font-style:normal; font-weight:bold; ">cube roots</span><span style="font-style:normal; font-weight:normal; "> </span><span id="item_2005_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; font-weight:normal; ">together</span><span class="its-tag" data-tag-ref="item_2005_TAG_9" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; ">, the product is always </span><span style="font-style:normal; font-weight:bold; ">irrational</span><span style="font-style:normal; font-weight:normal; ">. For example, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object3" style="vertical-align:middle;" src="item_2005_v11_Object3_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; "> and </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object4" style="vertical-align:middle;" src="item_2005_v11_Object4_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style="font-style:normal; font-weight:normal; "><span id="item_2005_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Which<span class="its-tag" data-tag-ref="item_2005_TAG_10" data-tag-boundary="end"></span> <span id="item_2005_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>statement<span class="its-tag" data-tag-ref="item_2005_TAG_16" data-tag-boundary="end"></span> correctly classifies Ashley's <span id="item_2005_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>claims<span class="its-tag" data-tag-ref="item_2005_TAG_17" data-tag-boundary="end"></span> and <span id="item_2005_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>provides<span class="its-tag" data-tag-ref="item_2005_TAG_15" data-tag-boundary="end"></span> <span id="item_2005_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>appropriate<span class="its-tag" data-tag-ref="item_2005_TAG_14" data-tag-boundary="end"></span> reasoning?</p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Ashley is correct because her examples support both claims.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Ashley is correct about the product of square roots always being rational, but the product of cube roots can sometimes be rational.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Ashley is incorrect about the product of square roots always being rational, but she is correct that the product of cube roots is always irrational.</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">Ashley is incorrect because sometimes the product of square roots can be irrational and sometimes the product of cube roots can be rational.</p>]]></val>
+          <feedback><![CDATA[<p style="">Correct</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2005_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the square root of 2 times the square root of 18 equals the square root of 36, which equals 6,</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is equal to     6</brailleTextString>
+                <brailleCode type="Nemeth">&gt;2}*&gt;18} .k &gt;36} .k #6</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the square root of 3 times the square root of 27 equals the square root of 81, which equals 9</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is equal to     9</brailleTextString>
+                <brailleCode type="Nemeth">&gt;3}*&gt;27} .k &gt;81} .k #9</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the cube root of 2 times the cube root of 18 equals the cube root of 36, which is approximately equal to 3 point 3 zero 1 9,</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is approximately equal to     3.3019</brailleTextString>
+                <brailleCode type="Nemeth">&lt;3&gt;2}*&lt;3&gt;18} .k &lt;3&gt;36}'\x2248'3.3019</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the cube root of 3 times the cube root of 27 equals the cube root of 81, which is approximately equal to 4 point 3 2 6 7</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is approximately equal to     4.3267</brailleTextString>
+                <brailleCode type="Nemeth">&lt;3&gt;3}*&lt;3&gt;27} .k &lt;3&gt;81}'\x2248'4.3267</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="11">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">Ashley afirma que cuando multiplicas dos <span style="font-weight:bold; ">raíces cuadradas</span> diferentes<span style="font-weight:normal; ">, el producto siempre es </span><span style="font-weight:bold; ">racional</span><span style="font-style:normal; font-weight:normal; ">. Por ejemplo, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object5" style="vertical-align:middle;" src="item_2005_v11_Object5_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; "> y </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object6" style="vertical-align:middle;" src="item_2005_v11_Object6_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; font-weight:normal; ">Ella también afirma que cuando multiplicas dos </span><span style="font-style:normal; font-weight:bold; ">raíces cúbicas</span><span style="font-style:normal; font-weight:normal; "> diferentes, el producto siempre es </span><span style="font-style:normal; font-weight:bold; ">irracional</span><span style="font-style:normal; font-weight:normal; ">. Por ejemplo, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object7" style="vertical-align:middle;" src="item_2005_v11_Object7_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; "> y </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object8" style="vertical-align:middle;" src="item_2005_v11_Object8_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style="font-style:normal; font-weight:normal; ">¿Cuál afirmación clasifica correctamente las afirmaciones de Ashley y proporciona un razonamiento apropiado?</p><p class="languagedivider">&#xA0;</p><p style="">Ashley <span id="item_2005_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>claims<span class="its-tag" data-tag-ref="item_2005_TAG_5" data-tag-boundary="end"></span> that when you multiply two different <span style="font-weight:bold; ">square roots </span><span id="item_2005_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-weight:normal; ">together</span><span class="its-tag" data-tag-ref="item_2005_TAG_6" data-tag-boundary="end"></span><span style="font-weight:normal; ">, the product is always </span><span style="font-weight:bold; ">rational</span><span style="font-style:normal; font-weight:normal; ">. For example, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object1" style="vertical-align:middle;" src="item_2005_v11_Object1_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; "> and </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object2" style="vertical-align:middle;" src="item_2005_v11_Object2_png16malpha.png" width="164" height="21" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; font-weight:normal; ">She </span><span id="item_2005_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; font-weight:normal; ">also</span><span class="its-tag" data-tag-ref="item_2005_TAG_7" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; "> </span><span id="item_2005_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; font-weight:normal; ">claims</span><span class="its-tag" data-tag-ref="item_2005_TAG_8" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; "> that when you multiply two different </span><span style="font-style:normal; font-weight:bold; ">cube roots</span><span style="font-style:normal; font-weight:normal; "> </span><span id="item_2005_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; font-weight:normal; ">together</span><span class="its-tag" data-tag-ref="item_2005_TAG_9" data-tag-boundary="end"></span><span style="font-style:normal; font-weight:normal; ">, the product is always </span><span style="font-style:normal; font-weight:bold; ">irrational</span><span style="font-style:normal; font-weight:normal; ">. For example, </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object3" style="vertical-align:middle;" src="item_2005_v11_Object3_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; "> and </span><span style="font-style:normal; font-weight:normal; "><img id="item_2005_Object4" style="vertical-align:middle;" src="item_2005_v11_Object4_png16malpha.png" width="218" height="22" /></span><span style="font-style:normal; font-weight:normal; ">.</span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p><p style="font-style:normal; font-weight:normal; "><span id="item_2005_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Which<span class="its-tag" data-tag-ref="item_2005_TAG_10" data-tag-boundary="end"></span> <span id="item_2005_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>statement<span class="its-tag" data-tag-ref="item_2005_TAG_16" data-tag-boundary="end"></span> correctly classifies Ashley's <span id="item_2005_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>claims<span class="its-tag" data-tag-ref="item_2005_TAG_17" data-tag-boundary="end"></span> and <span id="item_2005_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>provides<span class="its-tag" data-tag-ref="item_2005_TAG_15" data-tag-boundary="end"></span> <span id="item_2005_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>appropriate<span class="its-tag" data-tag-ref="item_2005_TAG_14" data-tag-boundary="end"></span> reasoning?</p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Ashley está en lo correcto porque sus ejemplos apoyan ambas afirmaciones.</p><p class="languagedivider">&#xA0;</p><p style="">Ashley is correct because her examples support both claims.</p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Ashley está en lo correcto acerca de que el producto de raíces cuadradas siempre es racional, pero el producto de raíces cúbicas algunas veces puede ser racional.</p><p class="languagedivider">&#xA0;</p><p style="">Ashley is correct about the product of square roots always being rational, but the product of cube roots can sometimes be rational.</p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Ashley está equivocada acerca de que el producto de raíces cuadradas siempre es racional, pero está en lo correcto en que el producto de raíces cúbicas siempre es racional.</p><p class="languagedivider">&#xA0;</p><p style="">Ashley is incorrect about the product of square roots always being rational, but she is correct that the product of cube roots is always irrational.</p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">Ashley está equivocada porque algunas veces el producto de raíces cuadradas puede ser irracional y algunas veces el producto de raíces cúbicas puede ser racional.</p><p class="languagedivider">&#xA0;</p><p style="">Ashley is incorrect because sometimes the product of square roots can be irrational and sometimes the product of cube roots can be rational.</p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the square root of 2 times the square root of 18 equals the square root of 36, which equals 6,</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is equal to     6</brailleTextString>
+                <brailleCode type="Nemeth">&gt;2}*&gt;18} .k &gt;36} .k #6</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the square root of 3 times the square root of 27 equals the square root of 81, which equals 9</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is equal to     9</brailleTextString>
+                <brailleCode type="Nemeth">&gt;3}*&gt;27} .k &gt;81} .k #9</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the cube root of 2 times the cube root of 18 equals the cube root of 36, which is approximately equal to 3 point 3 zero 1 9,</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is approximately equal to     3.3019</brailleTextString>
+                <brailleCode type="Nemeth">&lt;3&gt;2}*&lt;3&gt;18} .k &lt;3&gt;36}'\x2248'3.3019</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2005_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the cube root of 3 times the cube root of 27 equals the cube root of 81, which is approximately equal to 4 point 3 2 6 7</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>UNKNOWN    times     UNKNOWN    is equal to     UNKNOWN    is approximately equal to     4.3267</brailleTextString>
+                <brailleCode type="Nemeth">&lt;3&gt;3}*&lt;3&gt;27} .k &lt;3&gt;81}'\x2248'4.3267</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

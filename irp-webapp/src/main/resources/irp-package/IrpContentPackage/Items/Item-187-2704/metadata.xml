@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2704</Identifier>
+    <Subject>ELA</Subject>
+    <Version>4</Version>
+    <AssociatedStimulus>3760</AssociatedStimulus>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>Life of Pi 2/10133 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>EBSR</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <EvidenceStatement>The student will summarize a central idea of a text using supporting evidence.</EvidenceStatement>
+    <SufficientEvidenceOfClaim>The student will summarize a central idea of a text using supporting evidence.</SufficientEvidenceOfClaim>
+    <BrailleType>BRF</BrailleType>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StimulusName>Life of Pi</StimulusName>
+    <StimulusType>Text</StimulusType>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:1-LT|2-11|11-12.RL.2</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1769</AssociatedTutorial>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

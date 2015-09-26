@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2463" version="2" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2463</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>87403_Practice Test Refresh</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG3::SP14 (30); PracTest::ELAG3::SP14::Braille (30);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2750" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="2">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A student is writing a report about how to build a tree house. Which source would <span id="item_2463_TAG_2_BEGIN"><span style="font-weight:bold; ">most likely</span></span> have information for the report?</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="font-style:italic; ">Tree House <span id="item_2463_TAG_1_BEGIN">Fun</span></p><p style=""><br />A book of games and <span id="item_2463_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>activities<span class="its-tag" data-tag-ref="item_2463_TAG_6" data-tag-boundary="end"></span> that can be played in tree houses.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. This source is a book of games and would not have information about how to build a tree house.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">“Tree House <span id="item_2463_TAG_3_BEGIN">Surprise”</span></p><p style=""><br />A <span id="item_2463_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>magazine<span class="its-tag" data-tag-ref="item_2463_TAG_7" data-tag-boundary="end"></span> story about a group of children who find a tree house behind a neighbor's home.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. This source is a fictional story about kids who find a tree house but it would not give information about how to build a tree house.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="text-decoration:underline; "><span id="item_2463_TAG_4_BEGIN">www.worldtreehouses.org</span></p><p style=""><br />There are many different kinds of tree houses across the world. See photos of some of the most interesting ones.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. This source is about tree houses in the world but would not give information about how to build a tree house.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="text-decoration:underline; "><span id="item_2463_TAG_5_BEGIN">www.makeatreehouse.com</span></p><p style=""><br />Learn how to make different kinds of tree houses. We give you lists of <span id="item_2463_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>materials<span class="its-tag" data-tag-ref="item_2463_TAG_8" data-tag-boundary="end"></span> needed and directions.</p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT. This source would give the directions for building a tree house.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2463_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, most likely,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>most likely</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>most likely</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2463_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Fun.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Fun</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Fun</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2463_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Surprise.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Surprise”</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Surprise”</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2463_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>w w w dot world tree houses dot org.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>www.worldtreehouses.org</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>www.worldtreehouses.org</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2463_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>w w w dot make a tree house dot com.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>www.makeatreehouse.com</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>www.makeatreehouse.com</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

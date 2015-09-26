@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mi" id="2702" version="1" bankkey="187">
+    <associatedpassage>3759</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2702</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Mandatory Financial Literacy Classes - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::Perf::S1::SP14 (3); PracTest::ELAG11::Perf::S1::SP14::Braille (3);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableMatch</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1pt</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3759</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1080" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2702_v1.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="1">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1" matchMax="0"><p style="font-weight:bold; ">People should take financial literacy classes when they are young so they are prepared to make good financial decisions as young adults.</p></simpleAssociableChoice><simpleAssociableChoice identifier="2" matchMax="0"><p style="font-weight:bold; ">Some people support financial literacy despite evidence that it does not work. </p></simpleAssociableChoice><simpleAssociableChoice identifier="3" matchMax="0"><p style="font-weight:bold; ">Financial literacy education could be effective if we rethink the way it is taught. </p></simpleAssociableChoice><simpleAssociableChoice identifier="4" matchMax="0"><p style="font-weight:bold; ">Resources for improving financial literacy should be spent on financial regulation instead. </p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a" matchMax="0"><p style="font-weight:bold; ">Source #1: Working Financial Literacy in With the Three R's<br /></p></simpleAssociableChoice><simpleAssociableChoice identifier="b" matchMax="0"><p style="font-weight:bold; ">Source #2: Financial Education Leaving Americans Behind </p></simpleAssociableChoice><simpleAssociableChoice identifier="c" matchMax="0"><p style="font-weight:bold; ">Source #3: Financial Literacy, Beyond the Classroom</p></simpleAssociableChoice><simpleAssociableChoice identifier="d" matchMax="0"><p style="font-weight:bold; ">Source #4: Finance Course Prompts Debate<br /></p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">Click on the boxes to show the <span id="item_2702_TAG_1_BEGIN">claim(s)</span> that each source supports. Some sources will have more than one box <span id="item_2702_TAG_2_BEGIN">selected.</span></p>]]></stem>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2702_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>claim or claims</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>claim(s)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>claim(s)</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2702_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>selected. The table has four rows and four columns:
+From left to right the column headings reed:   Source #1: Working Financial Literacy in With the Three R's; Source #2: Financial Education Leaving Americans Behind;  Source #3: Financial Literacy, Beyond the Classroom;  Source #4: Finance Course Prompts Debate
+From top to bottom the row headings reed:   People should take financial literacy classes when they are young so they are prepared to make good financial decisions as young adults. Some people support financial literacy despite evidence that it does not work.  Financial literacy education could be effective if we rethink the way it is taught.  Resources for improving financial literacy should be spent on financial regulation instead.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>selected.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>selected.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

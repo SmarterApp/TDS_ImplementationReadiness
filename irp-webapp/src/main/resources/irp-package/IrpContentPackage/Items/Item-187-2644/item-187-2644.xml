@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2644" version="1" bankkey="187">
+    <associatedpassage>3743</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2644</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Astronauts - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG3::Perf::S1::SP14 (2); PracTest::ELAG3::Perf::S1::SP14::Braille (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3743</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="1">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Which source <span id="item_2644_TAG_1_BEGIN"><span style="font-weight:bold; ">most likely</span></span> has the most useful information about the kinds of work that astronauts do while they are in space? Explain why this source <span id="item_2644_TAG_2_BEGIN"><span style="font-weight:bold; ">most likely</span></span> has the most useful information about the kinds of work that astronauts do while they are in space. Support your explanation with <span id="item_2644_TAG_3_BEGIN"><span style="font-weight:bold; ">two</span></span><span style="font-weight:bold; "> </span>details from the source.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">The response is an evidence-based explanation that correctly identifies the most useful source, AND includes two details from that source that support this evaluation and explains why each detail supports the idea that it is the useful source.<br /><br />Key Elements:<br />Source # 1 (What is an Astronaut?)<br />-Astronauts fix things that are broken on the spaceship.<br />-Some astronauts are pilots who know how to fly airplanes. They learn how to turn the spaceship and how to guide it through space.<br />-Some astronauts are leaders and are in charge of all the people on the ship. They make sure that everybody is doing the right job.<br />-Astronauts who learn about space are responsible for learning how living things change when they are in space.</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">Source #1 has the most useful information about the kinds of work that astronauts do while they are in space. This source is the most useful because it describes the different kinds of training that astronauts receive before going into space and how this training gets the astronauts ready for the jobs that they will do in space. Source #1 says that some astronauts learn how to put things together and become good at fixing things. This is important because it tells the reader that the job of some astronauts is to fix broken things on spaceships. This source also says that some astronauts are pilots who study how to fly and steer a spaceship. This is important because the job of these astronauts is to turn and guide the spaceship through space.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">The response is an evidence-based explanation that correctly identifies the most useful source, AND includes one detail from that source that support this evaluation and explains why the detail supports the idea that it is the most useful source.<br />OR<br />The response is an evidence-based explanation that correctly identifies the most useful source, AND includes two details from that source that support this evaluation but does not explain why each detail supports the idea that it is the most useful source.<br />OR<br />The response is an evidence-based explanation that does not identify a source or correctly identify the most useful source, but includes two details from the correct source and explains why each detail supports the idea that it is the most useful source.</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">Source #1 has the most useful information about the kinds of work that astronauts do while they are in space. This source is the most useful because it describes the different kinds of training that astronauts receive before going into space and how this training gets the astronauts ready for the jobs that they will do in space. Source #1 says that some astronauts learn how to put things together and become good at fixing things. This is important because it tells the reader that the job of some astronauts is to fix broken things on spaceships.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response is an explanation that is incorrect, irrelevant, or blank.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">Source #2 has the most useful information about the work that astronauts do while they are in space. This source is the most useful because it describes what astronauts do in order to become used to being weightless.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2644_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, most likely,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>most likely</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>most likely</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2644_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, most likely,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>most likely</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>most likely</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2644_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="2032" version="5" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2032</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Clone of 50055 in Pilot. HS Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (12); PracTest::MG11::S2::SP14::Braille (12); PracTest::MG11::S2::SP14::ESN (12);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2381" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2032_v5.qrx" />
+    <RendererSpec filename="Item_2032_v5.eax" />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">The diagram shows the <span id="item_2032_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>end view<span class="its-tag" data-tag-ref="item_2032_TAG_10" data-tag-boundary="end"></span> of a roll of <span id="item_2032_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_13" data-tag-boundary="end"></span> when it is <span id="item_2032_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>full<span class="its-tag" data-tag-ref="item_2032_TAG_14" data-tag-boundary="end"></span> and the <span id="item_2032_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>end view<span class="its-tag" data-tag-ref="item_2032_TAG_11" data-tag-boundary="end"></span> of the <span id="item_2032_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>roll<span class="its-tag" data-tag-ref="item_2032_TAG_15" data-tag-boundary="end"></span> <span id="item_2032_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>after<span class="its-tag" data-tag-ref="item_2032_TAG_16" data-tag-boundary="end"></span> <span id="item_2032_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>some<span class="its-tag" data-tag-ref="item_2032_TAG_17" data-tag-boundary="end"></span> of the <span id="item_2032_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_18" data-tag-boundary="end"></span> have been used. &#xA0;</p><p style=""><br /></p><p style="text-align:center; "><img id="item_2032_50055_prompt1:(d=png256)" src="item_2032_v5_50055_prompt1_png256.png" width="415" height="267" style="vertical-align:baseline;" /><br /></p><p style=""><br />When the <span id="item_2032_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>full roll<span class="its-tag" data-tag-ref="item_2032_TAG_7" data-tag-boundary="end"></span> of <span id="item_2032_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_19" data-tag-boundary="end"></span> is <span id="item_2032_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>unrolled<span class="its-tag" data-tag-ref="item_2032_TAG_9" data-tag-boundary="end"></span>, it has a length of 528 inches of <span id="item_2032_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_20" data-tag-boundary="end"></span> of uniform width and <span id="item_2032_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>thickness<span class="its-tag" data-tag-ref="item_2032_TAG_21" data-tag-boundary="end"></span>. <span id="item_2032_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>Enter<span class="its-tag" data-tag-ref="item_2032_TAG_22" data-tag-boundary="end"></span> the length, in inches, of the <span id="item_2032_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_23" data-tag-boundary="end"></span> <span id="item_2032_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>remaining<span class="its-tag" data-tag-ref="item_2032_TAG_12" data-tag-boundary="end"></span> on the <span id="item_2032_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>partial<span class="its-tag" data-tag-ref="item_2032_TAG_8" data-tag-boundary="end"></span> <span id="item_2032_TAG_2_BEGIN"><span id="item_2032_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>roll.<span class="its-tag" data-tag-ref="item_2032_TAG_2" data-tag-boundary="end"></span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">1 Point Text:</p><p style="">Full Credit (1 point):The response demonstrates a full and complete understanding of modeling scenarios of this type. The response contains the following evidence:</p><p style="">&#xA0;</p><p style="">1 Point Sample Answer:</p><p style="">204</p><p style="">&#xA0;</p><p style="">Other correct responses:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">any value between 203 and 205, inclusive (due to rounding)</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2032_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2032_50055_prompt1:(d=png256)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The figure on the left is titled, full roll of paper towels. From top to bottom the figure is labeled, 2 point 5 inches, 1 point 5 inches. The figure on the right is titled, partial roll of paper towels. From top to bottom the figure is labeled, 1 point 2 5 inches, 1 point 5 inches .</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_2032_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>roll. The equation tool has two sections. In the left section, from top to bottom and left to right the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative. In the right section mathematical functions are displayed.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>roll?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>roll?</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="5">
+      <stem><![CDATA[<p style="language:es; country:ES; ">El diagrama muestra la vista de un rollo de toallas de papel cuando está completo y la vista del rollo después de que se han usado algunas de las toallas de papel. &#xA0;</p><p style="language:es; country:ES; "><br /></p><p style="text-align:center; language:es; country:ES; "><img id="item_2032_50055_prompt1_ESN:(d=png256)" src="item_2032_v5_50055_prompt1_png256_ESN.png" width="416" height="267" style="vertical-align:baseline;" /></p><p style="language:es; country:ES; ">&#xA0;</p><p style="language:es; country:ES; ">&#xA0;</p><p style="language:es; country:ES; ">Cuando el rollo completo de toallas de papel se desenrolla, tiene una longitud de 528 pulgadas de toallas de papel de ancho y espesor uniformes. Escribe la longitud, en pulgadas, de las toallas de papel que quedan en el rollo parcial.</p><p class="languagedivider">&#xA0;</p><p style="">The diagram shows the <span id="item_2032_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>end view<span class="its-tag" data-tag-ref="item_2032_TAG_10" data-tag-boundary="end"></span> of a roll of <span id="item_2032_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_13" data-tag-boundary="end"></span> when it is <span id="item_2032_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>full<span class="its-tag" data-tag-ref="item_2032_TAG_14" data-tag-boundary="end"></span> and the <span id="item_2032_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>end view<span class="its-tag" data-tag-ref="item_2032_TAG_11" data-tag-boundary="end"></span> of the <span id="item_2032_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>roll<span class="its-tag" data-tag-ref="item_2032_TAG_15" data-tag-boundary="end"></span> <span id="item_2032_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>after<span class="its-tag" data-tag-ref="item_2032_TAG_16" data-tag-boundary="end"></span> <span id="item_2032_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>some<span class="its-tag" data-tag-ref="item_2032_TAG_17" data-tag-boundary="end"></span> of the <span id="item_2032_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_18" data-tag-boundary="end"></span> have been used. &#xA0;</p><p style=""><br /></p><p style="text-align:center; "><img id="item_2032_50055_prompt1:(d=png256)" src="item_2032_v5_50055_prompt1_png256.png" width="415" height="267" style="vertical-align:baseline;" /><br /></p><p style=""><br />When the <span id="item_2032_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>full roll<span class="its-tag" data-tag-ref="item_2032_TAG_7" data-tag-boundary="end"></span> of <span id="item_2032_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_19" data-tag-boundary="end"></span> is <span id="item_2032_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>unrolled<span class="its-tag" data-tag-ref="item_2032_TAG_9" data-tag-boundary="end"></span>, it has a length of 528 inches of <span id="item_2032_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_20" data-tag-boundary="end"></span> of uniform width and <span id="item_2032_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>thickness<span class="its-tag" data-tag-ref="item_2032_TAG_21" data-tag-boundary="end"></span>. <span id="item_2032_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>Enter<span class="its-tag" data-tag-ref="item_2032_TAG_22" data-tag-boundary="end"></span> the length, in inches, of the <span id="item_2032_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>paper towels<span class="its-tag" data-tag-ref="item_2032_TAG_23" data-tag-boundary="end"></span> <span id="item_2032_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>remaining<span class="its-tag" data-tag-ref="item_2032_TAG_12" data-tag-boundary="end"></span> on the <span id="item_2032_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>partial<span class="its-tag" data-tag-ref="item_2032_TAG_8" data-tag-boundary="end"></span> <span id="item_2032_TAG_2_BEGIN"><span id="item_2032_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>roll.<span class="its-tag" data-tag-ref="item_2032_TAG_2" data-tag-boundary="end"></span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">1 Point Text:</p><p style="">Full Credit (1 point):The response demonstrates a full and complete understanding of modeling scenarios of this type. The response contains the following evidence:</p><p style="">&#xA0;</p><p style="">1 Point Sample Answer:</p><p style="">204</p><p style="">&#xA0;</p><p style="">*Note: &#xA0;This answer assumes the student uses the exact value of π throughout his/her calculations.</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2032_50055_prompt1:(d=png256)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The figure on the left is titled, full roll of paper towels. From top to bottom the figure is labeled, 2 point 5 inches, 1 point 5 inches. The figure on the right is titled, partial roll of paper towels. From top to bottom the figure is labeled, 1 point 2 5 inches, 1 point 5 inches .</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_2032_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>roll. The equation tool has two sections. In the left section, from top to bottom and left to right the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative. In the right section mathematical functions are displayed.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>roll?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>roll?</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ms" id="2015" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2015</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Multiple Selection Item. MAT.03.SR.1.000NF.F.xxx - SB OP</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (7); PracTest::MG3::S1::SP14::Braille (7); PracTest::MG3::S1::SP14::ESN (7);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>A,D</val>
+        <desc>,</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1073" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2173" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="font-style:normal; "><span id="item_2015_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_2015_TAG_30" data-tag-boundary="end"></span> this number line to solve the problem.</p><p style=""><br /><img id="item_2015_Image_17487" src="item_2015_v10_Image_17487_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p><p style=""><br /><span id="item_2015_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Choose<span class="its-tag" data-tag-ref="item_2015_TAG_31" data-tag-boundary="end"></span> <span id="item_2015_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_2015_TAG_32" data-tag-boundary="end"></span> the number lines that show a number equal to the number shown by point <span style="font-style:italic; ">P.</span></p>]]></stem>
+      <optionlist minChoices="1" maxChoices="0">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_2015_Image_17488" src="item_2015_v10_Image_17488_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Correct response</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17491" src="item_2015_v10_17491_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object2" style="vertical-align:middle;" src="item_2015_v10_Object2_png16malpha.png" width="11" height="33" />.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_2015_Image_17490" src="item_2015_v10_Image_17490_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object1" style="vertical-align:middle;" src="item_2015_v10_Object1_png16malpha.png" width="11" height="33" />.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17489" src="item_2015_v10_17489_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Correct Response</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17492" src="item_2015_v10_17492_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object3" style="vertical-align:middle;" src="item_2015_v10_Object3_png16malpha.png" width="12" height="33" />.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2015_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17487" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled, Pea. From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17488" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled A, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17491" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled bee . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction UNKNOWN  over UNKNOWN ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  over UNKNOWN ,</brailleTextString>
+                <brailleCode type="Nemeth">?1/3#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 1 over 3,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 over 3,</brailleTextString>
+                <brailleCode type="Nemeth">?1/3#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17490" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled sea . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction UNKNOWN  over UNKNOWN ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  over UNKNOWN ,</brailleTextString>
+                <brailleCode type="Nemeth">?3/5#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 5,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 5,</brailleTextString>
+                <brailleCode type="Nemeth">?3/5#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17489" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled D, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17492" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled E, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction UNKNOWN  over UNKNOWN ,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction UNKNOWN  over UNKNOWN ,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object3" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 4,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 4,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="font-style:normal; "><span style="language:es; country:ES; ">Usa esta recta numérica para contestar la pregunta que sigue</span>.</p><p style=""><br /><img id="item_2015_graphics6" src="item_2015_v10_graphics6_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p><p style=""><br /><span style="language:es; country:ES; ">Selecciona todas las rectas numéricas que muestren una fracción igual a la fracción representada por el punto </span><span style="font-style:italic; ">P.</span></p><p class="languagedivider">&#xA0;</p><p style="font-style:normal; "><span id="item_2015_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_2015_TAG_30" data-tag-boundary="end"></span> this number line to solve the problem.</p><p style=""><br /><img id="item_2015_Image_17487" src="item_2015_v10_Image_17487_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p><p style=""><br /><span id="item_2015_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Choose<span class="its-tag" data-tag-ref="item_2015_TAG_31" data-tag-boundary="end"></span> <span id="item_2015_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_2015_TAG_32" data-tag-boundary="end"></span> the number lines that show a number equal to the number shown by point <span style="font-style:italic; ">P.</span></p>]]></stem>
+      <optionlist minChoices="1" maxChoices="0">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><img id="item_2015_Image_17488" src="item_2015_v10_Image_17488_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Correct response</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17491" src="item_2015_v10_17491_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Correct response</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><img id="item_2015_Image_17490" src="item_2015_v10_Image_17490_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object4" style="vertical-align:middle;" src="item_2015_v10_Object4_png16malpha.png" width="11" height="33" />.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17489" src="item_2015_v10_17489_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object5" style="vertical-align:middle;" src="item_2015_v10_Object5_png16malpha.png" width="11" height="33" />.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style=""><img id="item_2015_17492" src="item_2015_v10_17492_png256.png" width="205" height="45" style="vertical-align:baseline;" /></p>]]></val>
+          <feedback><![CDATA[<p style="">Student chooses a number line that models <img id="item_2015_Object6" style="vertical-align:middle;" src="item_2015_v10_Object6_png16malpha.png" width="12" height="33" />.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17487" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled, Pea. From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17488" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled A, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17491" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled bee . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Image_17490" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled sea . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17489" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled D, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_17492" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>The point on the number line is labeled E, . From left to right the numbers below the line reed, 0, 1.</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 5,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 5,</brailleTextString>
+                <brailleCode type="Nemeth">?3/5#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object4" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 5,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 5,</brailleTextString>
+                <brailleCode type="Nemeth">?3/5#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 1 over 3,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 over 3,</brailleTextString>
+                <brailleCode type="Nemeth">?1/3#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object5" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 1 over 3,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 over 3,</brailleTextString>
+                <brailleCode type="Nemeth">?1/3#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 4,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 4,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2015_Object6" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>the fraction 3 over 4,</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 3 over 4,</brailleTextString>
+                <brailleCode type="Nemeth">?3/4#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

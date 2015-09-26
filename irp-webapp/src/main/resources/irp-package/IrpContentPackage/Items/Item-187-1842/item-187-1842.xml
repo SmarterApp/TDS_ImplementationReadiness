@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mi" id="1842" version="7" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1842</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>7th Grade Practice Test Item #28</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S2::SP14 (4); PracTest::MG7::S2::SP14::ESN (4);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableMatch</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1080" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2315" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1842_v7.qrx" xmlns:its-scripts="urn:its-scripts" />
+    <content language="ENU" version="2.0" xmlns:its-scripts="urn:its-scripts" approvedVersion="7">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1"><p style="font-weight:normal; ">Two vertical angles <span id="item_1842_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>form<span class="its-tag" data-tag-ref="item_1842_TAG_11" data-tag-boundary="end"></span> a linear pair.</p></simpleAssociableChoice><simpleAssociableChoice identifier="2"><p style="font-weight:normal; ">If two angles are supplementary and congruent, <span id="item_1842_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>then<span class="its-tag" data-tag-ref="item_1842_TAG_12" data-tag-boundary="end"></span> they are right angles.</p></simpleAssociableChoice><simpleAssociableChoice identifier="3"><p style="font-weight:normal; ">The sum of two adjacent angles is 90<span style="">°.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="4"><p style="font-weight:normal; ">The measure of an exterior angle of a triangle is greater than <span id="item_1842_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>every<span class="its-tag" data-tag-ref="item_1842_TAG_13" data-tag-boundary="end"></span> interior angle of the triangle.</p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a"><p style="text-align:left; "><span id="item_1842_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>True<span class="its-tag" data-tag-ref="item_1842_TAG_14" data-tag-boundary="end"></span><span id="item_1842_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>for all cases<span class="its-tag" data-tag-ref="item_1842_TAG_15" data-tag-boundary="end"></span></p></simpleAssociableChoice><simpleAssociableChoice identifier="b"><p style="text-align:left; "><span id="item_1842_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>True<span class="its-tag" data-tag-ref="item_1842_TAG_16" data-tag-boundary="end"></span><span id="item_1842_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>for some cases<span class="its-tag" data-tag-ref="item_1842_TAG_17" data-tag-boundary="end"></span></p></simpleAssociableChoice><simpleAssociableChoice identifier="c"><p style="text-align:left; ">Not <span id="item_1842_TAG_18" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_18" data-tag-boundary="end"></span><span id="item_1842_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>for any cases<span class="its-tag" data-tag-ref="item_1842_TAG_19" data-tag-boundary="end"></span></p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">Determine <span id="item_1842_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>whether<span class="its-tag" data-tag-ref="item_1842_TAG_2" data-tag-boundary="end"></span> <span id="item_1842_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>each<span class="its-tag" data-tag-ref="item_1842_TAG_3" data-tag-boundary="end"></span> <span id="item_1842_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>statement<span class="its-tag" data-tag-ref="item_1842_TAG_4" data-tag-boundary="end"></span> is <span id="item_1842_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_5" data-tag-boundary="end"></span> <span id="item_1842_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>for all cases<span class="its-tag" data-tag-ref="item_1842_TAG_6" data-tag-boundary="end"></span>, <span id="item_1842_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_7" data-tag-boundary="end"></span> <span id="item_1842_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>for some cases<span class="its-tag" data-tag-ref="item_1842_TAG_8" data-tag-boundary="end"></span>, or not <span id="item_1842_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_9" data-tag-boundary="end"></span> <span id="item_1842_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>for any <span id="item_1842_TAG_1_BEGIN">case.</span><span class="its-tag" data-tag-ref="item_1842_TAG_10" data-tag-boundary="end"></span></p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1842_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1842_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>case.  The table has 3 columns and 4 rows.  From left to right the column headings reed, true for all cases, true for some cases, not true for any cases.  From top to bottom the row headings reed, Two vertical angles form a linear pair.
+If two angles are supplementary and congruent, then they are right angles.
+The sum of two adjacent angles is 90 degrees.
+The measure of an exterior angle of a triangle is greater than every interior angle of the triangle.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>case.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="7">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1" matchMax="0"><p style="font-weight:normal; ">Dos ángulos verticales forman un par lineal.</p></simpleAssociableChoice><simpleAssociableChoice identifier="2" matchMax="0"><p style="font-weight:normal; ">Si dos ángulos son suplementarios y congruentes, entonces son ángulos rectos.</p></simpleAssociableChoice><simpleAssociableChoice identifier="3" matchMax="0"><p style="font-weight:normal; ">La suma de dos ángulos adyacentes es de 90<span style="">°.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="4" matchMax="0"><p style="">La medida de un ángulo exterior de un triángulo es mayor que cada ángulo interior del triángulo.</p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a" matchMax="0"><p style="text-align:left; ">Verdadera para todos los casos</p></simpleAssociableChoice><simpleAssociableChoice identifier="b" matchMax="0"><p style="text-align:left; ">Verdadera para algunos casos</p></simpleAssociableChoice><simpleAssociableChoice identifier="c" matchMax="0"><p style="text-align:left; ">No es verdadera para ningún caso.</p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">Determina si cada afirmación es verdadera para todos los casos, verdadera para algunos casos o si no es verdadera para ningún caso.</p><p class="languagedivider">&#xA0;</p><p style="">Determine <span id="item_1842_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>whether<span class="its-tag" data-tag-ref="item_1842_TAG_2" data-tag-boundary="end"></span> <span id="item_1842_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>each<span class="its-tag" data-tag-ref="item_1842_TAG_3" data-tag-boundary="end"></span> <span id="item_1842_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>statement<span class="its-tag" data-tag-ref="item_1842_TAG_4" data-tag-boundary="end"></span> is <span id="item_1842_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_5" data-tag-boundary="end"></span> <span id="item_1842_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>for all cases<span class="its-tag" data-tag-ref="item_1842_TAG_6" data-tag-boundary="end"></span>, <span id="item_1842_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_7" data-tag-boundary="end"></span> <span id="item_1842_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>for some cases<span class="its-tag" data-tag-ref="item_1842_TAG_8" data-tag-boundary="end"></span>, or not <span id="item_1842_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>true<span class="its-tag" data-tag-ref="item_1842_TAG_9" data-tag-boundary="end"></span> <span id="item_1842_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>for any <span id="item_1842_TAG_1_BEGIN">case.</span><span class="its-tag" data-tag-ref="item_1842_TAG_10" data-tag-boundary="end"></span></p>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1842_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>case.  The table has 3 columns and 4 rows.  From left to right the column headings reed, true for all cases, true for some cases, not true for any cases.  From top to bottom the row headings reed, Two vertical angles form a linear pair.
+If two angles are supplementary and congruent, then they are right angles.
+The sum of two adjacent angles is 90 degrees.
+The measure of an exterior angle of a triangle is greater than every interior angle of the triangle.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>case.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

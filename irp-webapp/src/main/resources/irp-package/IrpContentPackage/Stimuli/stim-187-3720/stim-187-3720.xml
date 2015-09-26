@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3720" version="28" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3720</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>Using Water Wisely</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist>
+      <resource type="wordList" id="2436" index="1" bankkey="187" />
+    </resourceslist>
+    <content language="ESN" version="2.0" approvedVersion="28">
+      <title><![CDATA[Usando el agua de manera prudente]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">El agua es un recurso valioso que se puede desperdiciar fácilmente. En esta tarea vas a investigar cuánta agua usa cada día el norteamericano promedio. Luego vas a investigar cuánta agua podría ahorrar una familia de 4 personas usando diferentes estrategias.</p><p style="">&#xA0;</p><p style="">De acuerdo con algunas estimaciones, el norteamericano promedio usa diariamente de 80 a 100 galones de agua. De este total, el norteamericano promedio usa aproximadamente:</p><ul style="padding-left:1.5000em; "><li><p style="">27% descargando el inodoro</p></li><li><p style="">25% en la bañera o en la regadera</p></li><li><p style="">10% dejando correr el agua mientras se cepilla los dientes, se lava las manos o se rasura</p></li></ul><p style="">&#xA0;</p><p style="">El agua también se usa para otros propósitos diversos (cocinar, tomar agua, regar plantas, lavar ropa, etc.) lo cual es parte del resto del porcentaje de agua que usa el norteamericano promedio.</p><p style="">&#xA0;</p><p style=""><span style="font-weight:normal; ">La tabla 1 muestra la cantidad promedio de agua que se usa durante algunas actividades</span>.</p><p style="">&#xA0;</p><p style="font-weight:bold; ">Tabla 1. Uso de agua por actividad y duración</p><div align="left"><table class="newtable" id="passage_3720_Table2" style="width:29.5002em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:12.9378em; " /><colgroup style="width:6.3750em; " /><colgroup style="width:10.1874em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Actividad</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Duración</p></td><td style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Cantidad de agua usada</p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="">Ducharse</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">11 minutos</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">20–25 galones</p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="">Dejar correr el agua esperando que salga el agua caliente</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; "><img id="passage_3720_Object3" style="vertical-align:middle;" src="passage_3720_v28_Object3_png16malpha.png" width="11" height="33" /> minuto</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">3 galones</p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="">Llave que gotea</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">1 segundo</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">2 gotas*</p></td></tr></tbody></table></div><p style="font-weight:bold; "><span style="font-weight:normal; ">*No hay una definición estandarizada del volumen de agua en una llave que gotea, pero la Ciencia del Agua para Escuelas de </span><span style="font-style:italic; font-weight:normal; ">USGS</span><span style="font-weight:normal; "> usa </span><span style="font-weight:normal; "><img id="passage_3720_Object4" style="vertical-align:middle;" src="passage_3720_v28_Object4_png16malpha.png" width="12" height="33" /></span><span style="font-weight:normal; "> de milímetro (mL) como el volumen de agua en una llave que gotea. Por lo tanto, por estas estimaciones del goteo:</span></p><ul style="padding-left:1.5000em; "><li><p style="font-weight:normal; ">un galón = 15,140 gotas</p></li><li><p style="font-weight:normal; ">un litro = 4,000 gotas</p></li></ul>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Wisely.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Wisely</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ENU" version="2.0" approvedVersion="27">
+      <title><![CDATA[Using Water <span id="passage_3720_TAG_4_BEGIN">Wisely</span><p style="">&#xA0;</p>]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">Water is a <span id="passage_3720_TAG_28" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>valuable resource<span class="its-tag" data-tag-ref="passage_3720_TAG_28" data-tag-boundary="end"></span> that <span id="passage_3720_TAG_29" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>can easily<span class="its-tag" data-tag-ref="passage_3720_TAG_29" data-tag-boundary="end"></span> <span id="passage_3720_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>be wasted<span class="its-tag" data-tag-ref="passage_3720_TAG_30" data-tag-boundary="end"></span>. In this task you will investigate <span id="passage_3720_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>how much<span class="its-tag" data-tag-ref="passage_3720_TAG_31" data-tag-boundary="end"></span> water the <span id="passage_3720_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>average<span class="its-tag" data-tag-ref="passage_3720_TAG_32" data-tag-boundary="end"></span> American uses <span id="passage_3720_TAG_33" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>each<span class="its-tag" data-tag-ref="passage_3720_TAG_33" data-tag-boundary="end"></span> day. You will then investigate <span id="passage_3720_TAG_34" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>how much<span class="its-tag" data-tag-ref="passage_3720_TAG_34" data-tag-boundary="end"></span> water a family of 4 <span id="passage_3720_TAG_35" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>could save<span class="its-tag" data-tag-ref="passage_3720_TAG_35" data-tag-boundary="end"></span> using different strategies. </p><p style="">&#xA0;</p><p style=""><span id="passage_3720_TAG_36" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>According<span class="its-tag" data-tag-ref="passage_3720_TAG_36" data-tag-boundary="end"></span> to <span id="passage_3720_TAG_37" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>some<span class="its-tag" data-tag-ref="passage_3720_TAG_37" data-tag-boundary="end"></span> estimates, the <span id="passage_3720_TAG_38" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>average<span class="its-tag" data-tag-ref="passage_3720_TAG_38" data-tag-boundary="end"></span> American uses <span id="passage_3720_TAG_3_BEGIN">80–100</span> gallons of water <span id="passage_3720_TAG_39" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>daily<span class="its-tag" data-tag-ref="passage_3720_TAG_39" data-tag-boundary="end"></span>. <span id="passage_3720_TAG_40" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>Of this total<span class="its-tag" data-tag-ref="passage_3720_TAG_40" data-tag-boundary="end"></span>, the <span id="passage_3720_TAG_41" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>average<span class="its-tag" data-tag-ref="passage_3720_TAG_41" data-tag-boundary="end"></span> American uses <span id="passage_3720_TAG_42" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span>about<span class="its-tag" data-tag-ref="passage_3720_TAG_42" data-tag-boundary="end"></span>:</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="passage_3720_TAG_5_BEGIN">27%</span> by <span id="passage_3720_TAG_43" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="16"></span>flushing <span id="passage_3720_TAG_6_BEGIN">toilets</span><span class="its-tag" data-tag-ref="passage_3720_TAG_43" data-tag-boundary="end"></span></p></li><li><p style=""><span id="passage_3720_TAG_7_BEGIN">25%</span> while taking <span id="passage_3720_TAG_44" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="17"></span><span id="passage_3720_TAG_8_BEGIN">showers/baths</span><span class="its-tag" data-tag-ref="passage_3720_TAG_44" data-tag-boundary="end"></span></p></li><li><p style=""><span id="passage_3720_TAG_9_BEGIN">10%</span> by running the faucet while <span id="passage_3720_TAG_45" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="18"></span>brushing<span class="its-tag" data-tag-ref="passage_3720_TAG_45" data-tag-boundary="end"></span> teeth, washing hands, and <span id="passage_3720_TAG_46" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="19"></span><span id="passage_3720_TAG_10_BEGIN">shaving</span><span class="its-tag" data-tag-ref="passage_3720_TAG_46" data-tag-boundary="end"></span></p></li></ul><p style="">&#xA0;</p><p style="">Water is also used for various other <span id="passage_3720_TAG_47" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="20"></span>purposes<span class="its-tag" data-tag-ref="passage_3720_TAG_47" data-tag-boundary="end"></span> (cooking, drinking water, watering plants, washing clothes, <span id="passage_3720_TAG_11_BEGIN">etc.</span>) <span id="passage_3720_TAG_48" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="21"></span>that<span class="its-tag" data-tag-ref="passage_3720_TAG_48" data-tag-boundary="end"></span> <span id="passage_3720_TAG_49" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="22"></span>account<span class="its-tag" data-tag-ref="passage_3720_TAG_49" data-tag-boundary="end"></span> for the <span id="passage_3720_TAG_50" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="23"></span>remaining<span class="its-tag" data-tag-ref="passage_3720_TAG_50" data-tag-boundary="end"></span> <span id="passage_3720_TAG_51" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>percentage<span class="its-tag" data-tag-ref="passage_3720_TAG_51" data-tag-boundary="end"></span> of water used by the <span id="passage_3720_TAG_52" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>average<span class="its-tag" data-tag-ref="passage_3720_TAG_52" data-tag-boundary="end"></span> American. </p><p style="">&#xA0;</p><p style=""><span style="font-weight:normal; ">Table 1</span><span style="font-weight:bold; "> </span>shows the <span id="passage_3720_TAG_53" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>average<span class="its-tag" data-tag-ref="passage_3720_TAG_53" data-tag-boundary="end"></span> amount of water used during some <span id="passage_3720_TAG_12_BEGIN">activities.</span></p><p style="">&#xA0;</p><p style="font-weight:bold; ">Table <span id="passage_3720_TAG_13_BEGIN">1.</span> Water Used by Activity and <span id="passage_3720_TAG_14_BEGIN">Duration</span></p><div align="left"><table class="newtable" id="passage_3720_Table1" style="width:29.5002em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:12.9378em; " /><colgroup style="width:6.3750em; " /><colgroup style="width:10.1874em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="passage_3720_TAG_15_BEGIN">Activity</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Duration</p></td><td style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Amount of Water <span id="passage_3720_TAG_16_BEGIN">Used</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style=""><span id="passage_3720_TAG_17_BEGIN">Showering</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">11 minutes</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; "><span id="passage_3720_TAG_18_BEGIN">20–25 gallons</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style=""><span id="passage_3720_TAG_19_BEGIN">Running</span> water in bathtub while waiting for water to get hot</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; "><img id="passage_3720_Object1" style="vertical-align:middle;" src="passage_3720_v27_Object1_png16malpha.png" width="11" height="33" /> <span id="passage_3720_TAG_27_BEGIN">minute</span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">3 <span id="passage_3720_TAG_20_BEGIN">gallons</span></p></td></tr><tr><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style=""><span id="passage_3720_TAG_21_BEGIN">Leaky</span> faucet</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">1 second</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; ">2 <span id="passage_3720_TAG_22_BEGIN">drips*</span></p></td></tr></tbody></table></div><p style="font-weight:bold; "><span id="passage_3720_TAG_23_BEGIN"><span style="font-weight:normal; ">*There</span></span><span style="font-weight:normal; "> is no </span><span id="passage_3720_TAG_54" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="25"></span><span style="font-weight:normal; ">standard</span><span class="its-tag" data-tag-ref="passage_3720_TAG_54" data-tag-boundary="end"></span><span style="font-weight:normal; "> definition of the volume of a </span><span id="passage_3720_TAG_55" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="26"></span><span style="font-weight:normal; ">faucet drip</span><span class="its-tag" data-tag-ref="passage_3720_TAG_55" data-tag-boundary="end"></span><span style="font-weight:normal; ">, but the USGS Water Science School uses </span><span id="passage_3720_TAG_2_BEGIN"><span style="font-weight:normal; "><img id="passage_3720_Object2" style="vertical-align:middle;" src="passage_3720_v27_Object2_png16malpha.png" width="12" height="33" /></span></span><span style="font-weight:normal; "> milliliter </span><span id="passage_3720_TAG_24_BEGIN"><span style="font-weight:normal; ">(mL)</span></span><span style="font-weight:normal; "> as the volume of a </span><span id="passage_3720_TAG_56" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="26"></span><span style="font-weight:normal; ">faucet drip</span><span class="its-tag" data-tag-ref="passage_3720_TAG_56" data-tag-boundary="end"></span><span style="font-weight:normal; ">. </span><span id="passage_3720_TAG_57" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="27"></span><span style="font-weight:normal; ">So, by these</span><span class="its-tag" data-tag-ref="passage_3720_TAG_57" data-tag-boundary="end"></span><span style="font-weight:normal; "> </span><span id="passage_3720_TAG_58" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="28"></span><span style="font-weight:normal; ">drip</span><span class="its-tag" data-tag-ref="passage_3720_TAG_58" data-tag-boundary="end"></span><span style="font-weight:normal; "> estimates:</span></p><ul style="padding-left:1.5000em; "><li><p style="font-weight:normal; ">One gallon <span id="passage_3720_TAG_25_BEGIN">= 15,140 drips</span></p></li><li><p style="font-weight:normal; ">One liter <span id="passage_3720_TAG_26_BEGIN">= 4,000 drips</span></p></li></ul><p style="font-weight:normal; ">&#xA0;</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3720_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Wisely.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Wisely</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>80 to 1 hundred</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>80–100</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>27 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>27%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>toilets.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>toilets</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>25 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>25%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>showers slash baths.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>showers/baths</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>10 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>10%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae27">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>shaving.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>shaving</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae29">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>et cetera.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>etc.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae36">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>activities.  The title of the table is,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>activities.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae37">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae38">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Duration.  The table has 3 columns and 3 rows.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Duration</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae39">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>From left to right the column headings reed, Activity,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Activity</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae40">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>used;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Used</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae41">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>From left to right the first row reeds, Showering,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Showering</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae42">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>20 to 25 gallons.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>20–25 gallons</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae43">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_19_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The second row reeds, running</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Running</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae44">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>one half</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 1 over 2,</brailleTextString>
+                <brailleCode type="Nemeth">?1/2#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae45">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_27_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>minete</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>minute</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae46">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_20_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>gallons.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>gallons</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae47">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_21_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The third row reeds, leaky</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Leaky</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae48">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_22_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>drips, asterisk.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>drips*</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae49">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_23_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>; Asterisk, There</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>*There</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae52">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one fourth</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth">?1/4#
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae53">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_24_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation />
+                <textToSpeechPronunciationAlternate>(mL)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae57">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_25_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>equals, 15 thousand 1 hundred 40 drips.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>= 15,140 drips</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae58">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3720_TAG_26_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>equals, 4 thousand drips</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>= 4,000 drips</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

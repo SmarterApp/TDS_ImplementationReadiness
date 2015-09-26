@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<metadata>
+  <smarterAppMetadata xmlns="http://www.smarterapp.org/ns/1/assessment_item_metadata">
+    <Identifier>2601</Identifier>
+    <Version>2</Version>
+    <ItemAuthorIdentifier>Sridhar_Ravva</ItemAuthorIdentifier>
+    <ItemSpecFormat>SmarterApp</ItemSpecFormat>
+    <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
+    <SecurityStatus>Non-secure</SecurityStatus>
+    <SmarterAppItemDescriptor>97634 - SBAC_Field</SmarterAppItemDescriptor>
+    <Status>Ready for Field Test</Status>
+    <StimulusFormat>Standard</StimulusFormat>
+    <Subject>ELA</Subject>
+    <IntendedGrade>11</IntendedGrade>
+    <DepthOfKnowledge>2</DepthOfKnowledge>
+    <TargetAssessmentType>Practice Test Refresh</TargetAssessmentType>
+    <InteractionType>HTQ</InteractionType>
+    <EducationalDifficulty>Medium</EducationalDifficulty>
+    <MaximumNumberOfPoints>1</MaximumNumberOfPoints>
+    <SufficientEvidenceOfClaim>(Organization) The student will use information provided in a stimulus to revise organized narratives/narrative sections that engage and orient the reader by d. using a variety of techniques (e.g., a sense of mystery, suspense, growth, or resolution) to sequence events so that they build on one another to create a coherent whole and build toward a particular tone and outcome.</SufficientEvidenceOfClaim>
+    <EvidenceStatement>(Organization) The student will use information provided in a stimulus to revise organized narratives/narrative sections that engage and orient the reader by d. using a variety of techniques (e.g., a sense of mystery, suspense, growth, or resolution) to sequence events so that they build on one another to create a coherent whole and build toward a particular tone and outcome.</EvidenceStatement>
+    <BrailleType>BRF</BrailleType>
+    <Claim2Category>O</Claim2Category>
+    <MinimumGrade>11</MinimumGrade>
+    <MaximumGrade>11</MaximumGrade>
+    <Claim2RevisionCategory>R</Claim2RevisionCategory>
+    <ScorePoints>"0,1"</ScorePoints>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:2-W|1-11</PrimaryStandard>
+    </StandardPublication>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v3</Publication>
+      <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <AssociatedTutorial>1076</AssociatedTutorial>
+    <AssociatedWordlist>2749</AssociatedWordlist>
+    <Language>eng</Language>
+  </smarterAppMetadata>
+</metadata>

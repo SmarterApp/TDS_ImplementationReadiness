@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="2062" version="11" bankkey="187">
+    <associatedpassage>3720</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2062</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Using Water Wisely Item 4</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::Perf::SP14 (4); PracTest::MG7::Perf::SP14::Braille (4); PracTest::MG7::Perf::SP14::ESN (4);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3720</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2440" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2062_v11.qrx" />
+    <RendererSpec filename="Item_2062_v11.eax" />
+    <content language="ENU" version="2.0" approvedVersion="11">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">One of the <span id="item_2062_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>most common causes<span class="its-tag" data-tag-ref="item_2062_TAG_2" data-tag-boundary="end"></span> of <span id="item_2062_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="23"></span>wasting<span class="its-tag" data-tag-ref="item_2062_TAG_3" data-tag-boundary="end"></span> water at home is a <span id="item_2062_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>leaky faucet<span class="its-tag" data-tag-ref="item_2062_TAG_4" data-tag-boundary="end"></span>. It may <span id="item_2062_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>seem<span class="its-tag" data-tag-ref="item_2062_TAG_5" data-tag-boundary="end"></span> <span id="item_2062_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>insignificant<span class="its-tag" data-tag-ref="item_2062_TAG_6" data-tag-boundary="end"></span> but the little <span id="item_2062_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>drips<span class="its-tag" data-tag-ref="item_2062_TAG_7" data-tag-boundary="end"></span> can actually <span id="item_2062_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>add up<span class="its-tag" data-tag-ref="item_2062_TAG_8" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style="">Assume that a <span id="item_2062_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>leaky fauc<span style="font-weight:normal; ">et</span><span class="its-tag" data-tag-ref="item_2062_TAG_9" data-tag-boundary="end"></span><span style="font-weight:normal; "> </span><span id="item_2062_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span style="font-weight:normal; ">drips</span><span class="its-tag" data-tag-ref="item_2062_TAG_10" data-tag-boundary="end"></span><span style="font-weight:normal; "> 2 times </span><span id="item_2062_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span><span style="font-weight:normal; ">per</span><span class="its-tag" data-tag-ref="item_2062_TAG_11" data-tag-boundary="end"></span><span style="font-weight:normal; "> second. &#xA0;</span></p><p style="">&#xA0;</p><p style=""><span id="item_2062_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>How ma<span style="font-weight:normal; ">ny</span><span class="its-tag" data-tag-ref="item_2062_TAG_12" data-tag-boundary="end"></span><span style="font-weight:normal; "> gallons of w</span>ater <span id="item_2062_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>will be saved<span class="its-tag" data-tag-ref="item_2062_TAG_13" data-tag-boundary="end"></span> in a<span style="font-weight:bold; "> 24-hour day</span> if the <span id="item_2062_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>leak<span class="its-tag" data-tag-ref="item_2062_TAG_14" data-tag-boundary="end"></span> <span id="item_2062_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>is fixed<span class="its-tag" data-tag-ref="item_2062_TAG_15" data-tag-boundary="end"></span>? <span id="item_2062_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="14"></span>Enter<span class="its-tag" data-tag-ref="item_2062_TAG_16" data-tag-boundary="end"></span> your answer to the <span id="item_2062_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span>nearest<span class="its-tag" data-tag-ref="item_2062_TAG_17" data-tag-boundary="end"></span> whole <span id="item_2062_TAG_1_BEGIN">gallon</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">11 &#xA0;(accept 11.41)</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit(2 point) response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Student enters the correct number of gallons wasted in one day</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a partial-credit(1 point) response includes</p><ul style="padding-left:1.5000em; "><li><p style="">Student enters the total number of drips for one day (172,800)</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2062_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="item_2062_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>gallon.  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>gallon</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>gallon</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="11">
+      <stem><![CDATA[<p style="">Una de las causas más comunes del desperdicio de agua en el hogar es una llave que gotea. Puede parecer insignificante pero las pequeñas gotas acumuladas representan una cantidad enorme.</p><p style="">&#xA0;</p><p style="">Supón que una llave con fuga gotea 2 veces por segundo<span style="font-weight:normal; ">.</span></p><p style="">&#xA0;</p><p style="">¿Cuántos galones de agua se ahorrarían en las<span style="font-weight:bold; "> 24 horas de un día</span> si se repara la fuga? Escribe tu respuesta al entero de galón más cercano.</p><p class="languagedivider">&#xA0;</p><p style="">One of the <span id="item_2062_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>most common causes<span class="its-tag" data-tag-ref="item_2062_TAG_2" data-tag-boundary="end"></span> of <span id="item_2062_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="23"></span>wasting<span class="its-tag" data-tag-ref="item_2062_TAG_3" data-tag-boundary="end"></span> water at home is a <span id="item_2062_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>leaky faucet<span class="its-tag" data-tag-ref="item_2062_TAG_4" data-tag-boundary="end"></span>. It may <span id="item_2062_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>seem<span class="its-tag" data-tag-ref="item_2062_TAG_5" data-tag-boundary="end"></span> <span id="item_2062_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>insignificant<span class="its-tag" data-tag-ref="item_2062_TAG_6" data-tag-boundary="end"></span> but the little <span id="item_2062_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>drips<span class="its-tag" data-tag-ref="item_2062_TAG_7" data-tag-boundary="end"></span> can actually <span id="item_2062_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>add up<span class="its-tag" data-tag-ref="item_2062_TAG_8" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style="">Assume that a <span id="item_2062_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>leaky fauc<span style="font-weight:normal; ">et</span><span class="its-tag" data-tag-ref="item_2062_TAG_9" data-tag-boundary="end"></span><span style="font-weight:normal; "> </span><span id="item_2062_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span style="font-weight:normal; ">drips</span><span class="its-tag" data-tag-ref="item_2062_TAG_10" data-tag-boundary="end"></span><span style="font-weight:normal; "> 2 times </span><span id="item_2062_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span><span style="font-weight:normal; ">per</span><span class="its-tag" data-tag-ref="item_2062_TAG_11" data-tag-boundary="end"></span><span style="font-weight:normal; "> second. &#xA0;</span></p><p style="">&#xA0;</p><p style=""><span id="item_2062_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>How ma<span style="font-weight:normal; ">ny</span><span class="its-tag" data-tag-ref="item_2062_TAG_12" data-tag-boundary="end"></span><span style="font-weight:normal; "> gallons of w</span>ater <span id="item_2062_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>will be saved<span class="its-tag" data-tag-ref="item_2062_TAG_13" data-tag-boundary="end"></span> in a<span style="font-weight:bold; "> 24-hour day</span> if the <span id="item_2062_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>leak<span class="its-tag" data-tag-ref="item_2062_TAG_14" data-tag-boundary="end"></span> <span id="item_2062_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>is fixed<span class="its-tag" data-tag-ref="item_2062_TAG_15" data-tag-boundary="end"></span>? <span id="item_2062_TAG_16" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="14"></span>Enter<span class="its-tag" data-tag-ref="item_2062_TAG_16" data-tag-boundary="end"></span> your answer to the <span id="item_2062_TAG_17" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span>nearest<span class="its-tag" data-tag-ref="item_2062_TAG_17" data-tag-boundary="end"></span> whole <span id="item_2062_TAG_1_BEGIN">gallon</span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="item_2062_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>gallon.  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>gallon</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>gallon</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

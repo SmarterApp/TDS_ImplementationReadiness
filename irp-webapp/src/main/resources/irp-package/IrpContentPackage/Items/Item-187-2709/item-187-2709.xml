@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2709" version="1" bankkey="187">
+    <associatedpassage>3760</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2709</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Life of Pi 2/10133 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (12); PracTest::ELAG11::SP14::Braille (12);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3760</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="1">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">What do the stories of survival in the last paragraph suggest to the reader about the narrator? Support your answer using details from the text.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">A response:<br />- gives sufficient evidence of the ability to provide a conclusion about the narrator's experiences<br />- includes specific examples that make clear reference to the text. Examples may include, but are not limited to:<br />--books mentioned<br />--news stories of survival<br />- Adequately supports examples with clearly relevant information from the text</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The use of the stories of survival in the last paragraph suggest that the narrator is encouraged that he will survive this overwhelming experience of being stranded at sea. He compares his own situation to those of other known historical figures, such as the Robertson family, Captain Bligh, and Owen Chase, who were all lost at sea, but survived. The narrator specifies how long these various people survived with some impressive lengths of time at sea, such as a Korean merchant sailor who survived the Pacific for 173 days in the 1950s. Perhaps these stories, in addition to the working solar stills, bring the narrator comfort that he, too, can survive despite his circumstances.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">A response:<br />- gives limited evidence to support the conclusion about the narrator's experiences<br />- includes some examples that make clear reference to the text. Examples may include those listed in the two-point rationale.<br />- Supports examples with limited information from the text</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The stories suggest that the narrator is knowledgeable about shipwreck events. He refers to Captain Bligh's mutinous Bounty and the Essex, a whaling ship.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">A response gets no credit if it provides no evidence of the ability to provide a conclusion about the narrator's experiences, includes no relevant information from the text, or is vague.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">The narrator is very smart.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+    </content>
+  </item>
+</itemrelease>

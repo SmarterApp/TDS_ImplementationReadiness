@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2636" version="1" bankkey="187">
+    <associatedpassage>3750</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2636</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Napping - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG7::Perf::S1::SP14 (2); PracTest::ELAG7::Perf::S1::SP14::Braille (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3750</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="1">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">People whose sleep is routinely interrupted might need to pay special attention to their sleep needs. Provide <span id="item_2636_TAG_1_BEGIN"><span style="font-weight:bold; ">two</span></span><span style="font-weight:bold; "> </span>pieces of evidence from different sources that support this claim and explain how each example supports the claim. Cite evidence for each piece of information and identify the source by title or number.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">Response is an evidence-based explanation that provides two pieces of evidence from different sources that support this claim and that explains how each example supports the claim. Student cites the source for each example.<br />Key Elements<br />1. Source #1:<br />-If you routinely lose sleep or choose to sleep less than needed, the sleep loss adds up. The total sleep lost is called your "sleep debt." You can't make up your sleep deficiency.<br />-Some people sleep more on their days off than on work days. This might upset their body's sleep-wake rhythm.<br />-Sleeping when your body is ready to sleep is important. Even if you sleep the number of hours recommended for your age group but you have interruptions to your sleep, your body can be affected.<br />2. Source #2:<br />-If a person's job causes their sleep to be interrupted, the internal clock can become confused. Then the person has trouble getting enough sleep.<br />-Astronauts who averaged two hours less sleep than usual when in space became grumpy and had trouble concentrating.<br />-Doctors in training and emergency-room doctors who work long hours have trouble sleeping enough. Studies showed that even having a short nap improved their mental performance. They made fewer mistakes when they weren't so tired.<br />3. Source #3:<br />-On nights when you don't get enough sleep, a short nap can recharge your body and increase mental alertness.</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">People whose sleep is routinely interrupted might need to pay special attention to their sleep needs. According to Source #1, everyone needs a certain amount of sleep and that you need to sleep when your body is ready to sleep. If you don't get your required amount of sleep each night, you will experience "sleep debt" which can't be made up. Source #2 describes problems people might have when they don't get regular amounts of sleep. They discovered that astronauts in space who lost sleep got more grumpy and concentrated less. Doctors in training and people who work in emergency rooms often don't get regular sleep. They found that when they took naps to help catch up on sleep, they made fewer mistakes. So, it is important to get regular sleep, but if your sleep is interrupted, you might need to take a nap to help your body catch up.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">Response is an evidence-based explanation that provides two pieces of evidence from different sources that support this claim but doesn't explain how each example supports the claim. Student cites the sources.<br />OR<br />Response is an evidence-based explanation that provides two pieces of evidence from a single source that supports this claim and that explains how that example supports the claim. Student cites the source.<br />OR<br />Response is an evidence-based explanation that provides only one piece of evidence from a single source that support this claim and that explains how that example supports the claim. Student cites the source.<br />OR<br />Response is an evidence-based explanation that provides two pieces of evidence from different sources that support this claim and that explains how each example supports the claim. Student does not cite sources.</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">People whose sleep is interrupted on a regular basis might become more grumpy, be unable to concentrate, and make more mistakes because they are tired. A nap might help.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">Response is an explanation that is incorrect, irrelevant or blank.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">Everyone needs to sleep on a regular basis.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2636_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1929" version="8" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1929</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14 (5); PracTest::MG11::S1::SP14::Braille (5); PracTest::MG11::S1::SP14::ESN (5);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2363" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1929_v8.qrx" />
+    <RendererSpec filename="Item_1929_v8.eax" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Solve the following equation for <span style="font-style:italic; ">n</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1929_Object1" style="vertical-align:middle;" src="item_1929_v8_Object1_png16malpha.png" width="124" height="20" /></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><span id="item_1929_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1929_TAG_9" data-tag-boundary="end"></span> one solution in the <span id="item_1929_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>first box<span class="its-tag" data-tag-ref="item_1929_TAG_4" data-tag-boundary="end"></span>. <span id="item_1929_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>If<span class="its-tag" data-tag-ref="item_1929_TAG_5" data-tag-boundary="end"></span> <span id="item_1929_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>there are<span class="its-tag" data-tag-ref="item_1929_TAG_6" data-tag-boundary="end"></span> two </p><p style="font-style:normal; ">solutions, <span id="item_1929_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>enter<span class="its-tag" data-tag-ref="item_1929_TAG_7" data-tag-boundary="end"></span> the second solution in the <span id="item_1929_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>second <span id="item_1929_TAG_2_BEGIN">box</span><span class="its-tag" data-tag-ref="item_1929_TAG_8" data-tag-boundary="end"></span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar: n = 5/3 and n = - 5/3</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">1 point: The student enters the solutions to the equation.</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1929_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1929_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>18 N squared minus 50 equals zero.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>18 n  raised to the power of 2    minus     50   is equal to     0</brailleTextString>
+                <brailleCode type="Nemeth">#18n~2"-50 .k #0</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1929_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>box. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>box</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>box</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="">Resuelve la siguiente ecuación para <span style="font-style:italic; ">n</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1929_Object2" style="vertical-align:middle;" src="item_1929_v8_Object2_png16malpha.png" width="124" height="20" /></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; ">Escribe una solución en la primera casilla. Si hay dos soluciones, escribe la segunda solución en la segunda casilla.</p><p class="languagedivider">&#xA0;</p><p style="">Solve the following equation for <span style="font-style:italic; ">n</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1929_Object1" style="vertical-align:middle;" src="item_1929_v8_Object1_png16malpha.png" width="124" height="20" /></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><span id="item_1929_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Enter<span class="its-tag" data-tag-ref="item_1929_TAG_9" data-tag-boundary="end"></span> one solution in the <span id="item_1929_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>first box<span class="its-tag" data-tag-ref="item_1929_TAG_4" data-tag-boundary="end"></span>. <span id="item_1929_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>If<span class="its-tag" data-tag-ref="item_1929_TAG_5" data-tag-boundary="end"></span> <span id="item_1929_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>there are<span class="its-tag" data-tag-ref="item_1929_TAG_6" data-tag-boundary="end"></span> two </p><p style="font-style:normal; ">solutions, <span id="item_1929_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>enter<span class="its-tag" data-tag-ref="item_1929_TAG_7" data-tag-boundary="end"></span> the second solution in the <span id="item_1929_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>second <span id="item_1929_TAG_2_BEGIN">box</span><span class="its-tag" data-tag-ref="item_1929_TAG_8" data-tag-boundary="end"></span>.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1929_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>18 N squared minus 50 equals zero.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>18 n  raised to the power of 2    minus     50   is equal to     0</brailleTextString>
+                <brailleCode type="Nemeth">#18n~2"-50 .k #0</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1929_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>box. The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>box</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>box</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

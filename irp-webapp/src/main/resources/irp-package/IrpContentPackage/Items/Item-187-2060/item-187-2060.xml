@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="2060" version="8" bankkey="187">
+    <associatedpassage>3720</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2060</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Using Water Wisely Item 2</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::Perf::SP14 (2); PracTest::MG7::Perf::SP14::Braille (2); PracTest::MG7::Perf::SP14::ESN (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3720</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2438" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2060_v8.qrx" />
+    <RendererSpec filename="Item_2060_v8.eax" />
+    <content language="ENU" version="2.0" approvedVersion="8">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="font-weight:normal; ">How many gallons <span id="item_2060_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>per<span class="its-tag" data-tag-ref="item_2060_TAG_2" data-tag-boundary="end"></span> minute of water are used by <span id="item_2060_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>running water<span class="its-tag" data-tag-ref="item_2060_TAG_3" data-tag-boundary="end"></span> in the <span id="item_2060_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>bathtub<span class="its-tag" data-tag-ref="item_2060_TAG_4" data-tag-boundary="end"></span> <span id="item_2060_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>while<span class="its-tag" data-tag-ref="item_2060_TAG_5" data-tag-boundary="end"></span> waiting for it to get hot? &#xA0;&#xA0;</p><p style="font-weight:normal; ">&#xA0;</p><p style=""><span id="item_2060_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span style="font-weight:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_2060_TAG_6" data-tag-boundary="end"></span><span style="font-weight:normal; "> the unit rate in </span><span style="font-weight:bold; ">gallons </span><span id="item_2060_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span style="font-weight:bold; ">per</span><span class="its-tag" data-tag-ref="item_2060_TAG_7" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_2060_TAG_1_BEGIN"><span style="font-weight:bold; ">minute</span><span style="font-weight:normal; ">.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">&#xA0;</p><p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">6</p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student finds the correct unit rate.</p></li></ul><p style="">&#xA0;</p><p style="">&#xA0;</p><p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2060_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2060_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>minute.  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>minute.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>minute.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="8">
+      <stem><![CDATA[<p style="font-weight:normal; ">¿Cuántos galones de agua por minuto se usan cuando se deja correr el agua en la bañera mientras se espera a que salga el agua caliente?</p><p style="font-weight:normal; ">&#xA0;</p><p style=""><span style="font-weight:normal; ">Escribe la tasa unitaria en </span><span style="font-weight:bold; ">galones por </span><span style="font-weight:bold; ">minuto</span><span style="font-weight:normal; ">.</span></p><p class="languagedivider">&#xA0;</p><p style="font-weight:normal; ">How many gallons <span id="item_2060_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>per<span class="its-tag" data-tag-ref="item_2060_TAG_2" data-tag-boundary="end"></span> minute of water are used by <span id="item_2060_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>running water<span class="its-tag" data-tag-ref="item_2060_TAG_3" data-tag-boundary="end"></span> in the <span id="item_2060_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>bathtub<span class="its-tag" data-tag-ref="item_2060_TAG_4" data-tag-boundary="end"></span> <span id="item_2060_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>while<span class="its-tag" data-tag-ref="item_2060_TAG_5" data-tag-boundary="end"></span> waiting for it to get hot? &#xA0;&#xA0;</p><p style="font-weight:normal; ">&#xA0;</p><p style=""><span id="item_2060_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span style="font-weight:normal; ">Enter</span><span class="its-tag" data-tag-ref="item_2060_TAG_6" data-tag-boundary="end"></span><span style="font-weight:normal; "> the unit rate in </span><span style="font-weight:bold; ">gallons </span><span id="item_2060_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span><span style="font-weight:bold; ">per</span><span class="its-tag" data-tag-ref="item_2060_TAG_7" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_2060_TAG_1_BEGIN"><span style="font-weight:bold; ">minute</span><span style="font-weight:normal; ">.</span></span></p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2060_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>minute.  From left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, box over box.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>minute.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>minute.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

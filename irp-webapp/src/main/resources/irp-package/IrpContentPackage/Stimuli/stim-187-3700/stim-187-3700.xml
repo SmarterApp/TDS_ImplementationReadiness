@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3700" version="17" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3700</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>Lemonade Stand</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_att_Spanish Option Stacking">
+        <name>Stim: Spanish Option Stacking</name>
+        <val>Spanish above English</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist>
+      <resource type="wordList" id="1655" index="1" bankkey="187" />
+    </resourceslist>
+    <content language="ENU" version="2.0" approvedVersion="17">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">Jaleen has a <span id="passage_3700_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>lemonade<span class="its-tag" data-tag-ref="passage_3700_TAG_15" data-tag-boundary="end"></span> <span id="passage_3700_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>stand<span class="its-tag" data-tag-ref="passage_3700_TAG_11" data-tag-boundary="end"></span>. The bar graph <span id="passage_3700_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>below<span class="its-tag" data-tag-ref="passage_3700_TAG_12" data-tag-boundary="end"></span> shows the number of lemonade cups <span id="passage_3700_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>sold<span class="its-tag" data-tag-ref="passage_3700_TAG_13" data-tag-boundary="end"></span> in each of four weeks in <span id="passage_3700_TAG_2_BEGIN">July.</span></p><p style="">&#xA0;</p><p style="text-align:center; "><img id="passage_3700_graphics1" src="passage_3700_v17_graphics1_png256.png" width="381" height="424" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="passage_3700_TAG_3_BEGIN"><span id="passage_3700_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Use<span class="its-tag" data-tag-ref="passage_3700_TAG_3" data-tag-boundary="end"></span></span> the <span style="font-weight:bold; ">July Lemonade </span><span id="passage_3700_TAG_4_BEGIN"><span style="font-weight:bold; ">Sales</span></span> bar graph to complete this <span id="passage_3700_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>task<span class="its-tag" data-tag-ref="passage_3700_TAG_14" data-tag-boundary="end"></span>.</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3700_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3700_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>July</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>July</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>July.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3700_graphics1" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>. The title of the bar graph is, July Lemonade Sales. The horizontal axis is titled, week. From left to right, the axis reeds, Week 1, Week 2, Week 3, Week 4. The vertical axis is titled: Number of cups sold. The axis has a range from 0 to 76. increasing in increments of 4</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3700_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>. Use</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>. Use</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Use</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3700_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Sales,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Sales,</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Sales</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="17">
+      <title><![CDATA[Jaleen tiene un puesto de limonada. La siguiente gráfica de barras muestra el número de vasos de limonada vendidos en cada una de cuatro semanas de julio.<p style="">&#xA0;</p><p style="text-align:center; "><img id="passage_3700_graphics2" src="passage_3700_v17_graphics2_png256.png" width="381" height="425" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style="">Usa la gráfica de barras <span style="font-weight:bold; ">Venta de limonada en julio</span> para completar esta tarea.</p><p class="languagedivider">&#xA0;</p>&#xA0;]]></title>
+      <author><![CDATA[&#xA0;<p class="languagedivider">&#xA0;</p>&#xA0;]]></author>
+      <stem><![CDATA[<p style="">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style="">Jaleen has a <span id="passage_3700_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>lemonade<span class="its-tag" data-tag-ref="passage_3700_TAG_15" data-tag-boundary="end"></span> <span id="passage_3700_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>stand<span class="its-tag" data-tag-ref="passage_3700_TAG_11" data-tag-boundary="end"></span>. The bar graph <span id="passage_3700_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>below<span class="its-tag" data-tag-ref="passage_3700_TAG_12" data-tag-boundary="end"></span> shows the number of lemonade cups <span id="passage_3700_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>sold<span class="its-tag" data-tag-ref="passage_3700_TAG_13" data-tag-boundary="end"></span> in each of four weeks in <span id="passage_3700_TAG_2_BEGIN">July.</span></p><p style="">&#xA0;</p><p style="text-align:center; "><img id="passage_3700_graphics1" src="passage_3700_v17_graphics1_png256.png" width="381" height="424" style="vertical-align:baseline;" /></p><p style="">&#xA0;</p><p style=""><span id="passage_3700_TAG_3_BEGIN"><span id="passage_3700_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Use<span class="its-tag" data-tag-ref="passage_3700_TAG_3" data-tag-boundary="end"></span></span> the <span style="font-weight:bold; ">July Lemonade </span><span id="passage_3700_TAG_4_BEGIN"><span style="font-weight:bold; ">Sales</span></span> bar graph to complete this <span id="passage_3700_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>task<span class="its-tag" data-tag-ref="passage_3700_TAG_14" data-tag-boundary="end"></span>.</p>]]></stem>
+      <attachmentlist />
+    </content>
+  </passage>
+</itemrelease>

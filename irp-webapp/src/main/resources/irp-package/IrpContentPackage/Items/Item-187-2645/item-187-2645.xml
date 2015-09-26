@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="er" id="2645" version="1" bankkey="187">
+    <associatedpassage>3743</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2645</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Astronauts - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG3::Perf::S1::SP14 (3); PracTest::ELAG3::Perf::S1::SP14::Braille (3);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>ER</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>ER</val>
+        <desc>ER [7]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>PlainText</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3743</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1078" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="1">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Explain why it is hard to be an astronaut. Give <span id="item_2645_TAG_1_BEGIN"><span style="font-weight:bold; ">two</span></span><span style="font-weight:bold; "> </span>reasons, one from Source <span id="item_2645_TAG_2_BEGIN">#1</span> and one from Source <span id="item_2645_TAG_3_BEGIN">#2</span>. For each reason, include the source title or number.</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="4">
+          <name>
+        Rubric 4</name>
+          <val><![CDATA[<p style="">&#xA0;</p><p><dl><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">a)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">b)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">c)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Inference here.</p></dd><dt style="float: left; margin-top: 1px; margin-bottom: -1em;">d)</dt><dd style="float: top;padding-left:1.5000em; padding-left:1.5000em; "><p style="font-style:normal; font-weight:normal; ">Text-supported example: “....” (paragraph reference)</p></dd></dl></p>]]></val>
+        </rubric>
+        <samplelist maxval="4" minval="4">
+          <sample purpose="OtherExemplar" scorepoint="4">
+            <name>4-Point Other Official Sample Answers
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="3">
+          <name>
+        Rubric 3</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="3" minval="3">
+          <sample purpose="Exemplar" scorepoint="3">
+            <name>3-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">&#xA0;</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="2">
+          <name>
+        Rubric 2</name>
+          <val><![CDATA[<p style="">The response is an evidence-based explanation that provides two pieces of evidence from different sources that support this idea and that explain how each example supports the idea. The student cites the source for each example.<br /><br />Key Elements:<br />Source #1 (What is an Astronaut?)<br />-A person who wants to be an astronaut has to study for years.<br />-There are many things an astronaut must learn to do before going into space for the first time.<br />-Astronauts train for hundreds of hours.<br /> -Being in space is work for astronauts.<br /> -Astronauts must be healthy and eat right.<br />-They have to exercise and be in good shape.<br />-Astronauts have many adventures, but they work hard, too.<br /><br />Source #2 (Life in Space)<br />-They have many years of school and special training.<br />-A lot of strange things happen to the body when it feels weightless and floats for that long.<br />-Astronauts sometimes feel sick in space. Being in space also changes how blood flows in the body.<br />-Their faces get puffy and their necks get bigger.<br />-At the same time, less blood flows to their legs, making them skinny. They call this condition "bird legs."<br />-The heart does not have to work as hard to pump blood in space. A muscle that does not work hard gets weaker and smaller.<br />-Astronauts' other muscles and their bones can get weaker, too.<br />-Astronauts have to do exercises when they are in space.<br />-It takes time for them to get back their Earth legs and learn how to live with gravity again</p>]]></val>
+        </rubric>
+        <samplelist maxval="2" minval="2">
+          <sample purpose="Exemplar" scorepoint="2">
+            <name>2-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">It is hard to be an astronaut because living in space is difficult on an astronaut's body. Astronauts have to do many different things in order to keep themselves healthy. Source #1 says that astronauts must be healthy and eat right. This is important because if they do not stay healthy and eat right, they will not be able to correctly do their job. They can do this by exercising and by being in good shape. Source #2 says that being in space changes how blood flows in the body. Astronauts' faces can get puffy and their necks can get bigger. This is hard on an astronaut because it changes their body. Astronauts must do special exercises so that their bodies do not become weak.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="1">
+          <name>
+        Rubric 1</name>
+          <val><![CDATA[<p style="">The response is an evidence-based explanation that provides two pieces of evidence from different sources that support this idea but doesn't explain how each example supports the idea. the student cites the sources.<br />OR<br />The response is an evidence-based explanation that provides two pieces of evidence from a single source that supports this idea and that explains how that example supports the idea. The student cites the source.<br />OR<br />The response is an evidence-based explanation that provides only one piece of evidence from a single source that support this claim and that explains how that example supports the claim. The student cites the source.<br />OR<br />The response is an evidence-based explanation that provides two pieces of evidence from different sources that support this idea and that explain how each example supports the idea. The student does not cite sources.</p>]]></val>
+        </rubric>
+        <samplelist maxval="1" minval="1">
+          <sample purpose="Exemplar" scorepoint="1">
+            <name>1-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">It is hard to be an astronaut because living in space is difficult on an astronaut's body. Astronauts have to do many different things in order to keep themselves healthy. Source #1 says that astronauts must be healthy and eat right. This is important because if they do not stay healthy and eat right, they will not be able to correctly do their job. They can do this by exercising and by being in good shape.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+        <rubric scorepoint="0">
+          <name>
+        Rubric 0</name>
+          <val><![CDATA[<p style="">The response is an explanation that is incorrect, irrelevant, or blank.</p>]]></val>
+        </rubric>
+        <samplelist maxval="0" minval="0">
+          <sample purpose="Exemplar" scorepoint="0">
+            <name>0-Point Official Sample Answer
+      </name>
+            <annotation />
+            <samplecontent><![CDATA[<p style="">It is hard to be an astronaut because they have to go to school for a long time, and being weightless messes up their bodies.</p>]]></samplecontent>
+          </sample>
+        </samplelist>
+      </rubriclist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2645_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>two,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>two</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>two</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2645_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2645_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>number 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>#2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>#2</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

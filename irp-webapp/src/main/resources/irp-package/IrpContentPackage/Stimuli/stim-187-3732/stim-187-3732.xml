@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3732" version="6" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3732</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>SBAC_G03_C3_P_Practice Test_Northern Lights</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <content language="ENU" version="2.0" approvedVersion="6">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="font-weight:bold; ">Northern <span id="passage_3732_TAG_1_BEGIN">Lights</span></p><p style=""><br />Listen to the presentation. Then answer the questions.<br /></p><p style=""><audio><source src="passage_3732_v6_stim3732_audio1.ogg" type="audio/ogg" /><source src="passage_3732_v6_stim3732_audio1.m4a" type="audio/mp4" /><track src="passage_3732_v6_stim3732_audio1.vtt" kind="captions" label="English" srclang="en" /></audio><br /> <br />Excerpt from <span style="font-style:italic; ">Northern Lights</span> by Nick Hunter. Copyright <span id="passage_3732_TAG_2_BEGIN">©</span> 2014 by Heinemann Library. Reused by permission of Capstone Global Library, LLC.</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3732_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3732_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Lights.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Lights</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Lights</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3732_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>©</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>©</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item type="wordList" id="2300" version="4" bankkey="187">
+    <keywordList>
+      <keyword text="Which" index="1">
+        <html listType="esnGlossary" listCode="TDS_WL_ESNGlossary"><![CDATA[<p style="">Cuál <a href="item_2300_v4_2300_01spanish_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="arabicGlossary" listCode="TDS_WL_ArabicGloss"><![CDATA[<p style="">أي <a href="item_2300_v4_2300_01arabic_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="vietnameseGlossary" listCode="TDS_WL_VietnameseGloss"><![CDATA[<p style="">để chi, để chi tiêu <a href="item_2300_v4_2300_01vietnamese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="cantoneseGlossary" listCode="TDS_WL_CantoneseGloss"><![CDATA[<p style="">边条,  邊個 <a href="item_2300_v4_2300_01cantonese_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="mandarinGlossary" listCode="TDS_WL_MandarinGloss"><![CDATA[<p style="">哪条, 哪條 &#xA0;<a href="item_2300_v4_2300_01mandarin_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="tagalGlossary" listCode="TDS_WL_TagalGloss"><![CDATA[<p style=""><span style="language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman', serif; ">aling, alin, </span><span style="language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman', serif; "><a href="item_2300_v4_2300_01btagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span><span style="language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman', serif; "> ania &#xA0;</span><span style="language:es; country:MX; font-size:1.0000em; font-family:'Times New Roman', serif; "><a href="item_2300_v4_2300_01atagalog_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></span> &#xA0;</p>]]></html>
+        <html listType="russianGlossary" listCode="TDS_WL_RussianGloss"><![CDATA[<p style="">Какая <a href="item_2300_v4_2300_01russian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="koreanGlossary" listCode="TDS_WL_KoreanGloss"><![CDATA[<p style="">무엇, &#xA0;어느, 어떤 <a href="item_2300_v4_2300_01korean_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="punjabiGlossary" listCode="TDS_WL_PunjabiGloss"><![CDATA[<p style="">ਕਿਹੜਾ &#xA0;<a href="item_2300_v4_2300_01bpunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a>, &#xA0;&#xA0;کیہڑا <a href="item_2300_v4_2300_01apunjabi_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+        <html listType="ukrainianGlossary" listCode="TDS_WL_UkrainianGloss"><![CDATA[<p style=""><span style="language:uk; country:UA; font-size:1.0000em; font-family:'Times New Roman'; ">яка</span> &#xA0;<a href="item_2300_v4_2300_01ukrainian_glossary_ogg_m4a.ogg" type="audio/ogg" class="sound_explicit" autoplay="False" visible="True"></a></p>]]></html>
+      </keyword>
+    </keywordList>
+  </item>
+</itemrelease>

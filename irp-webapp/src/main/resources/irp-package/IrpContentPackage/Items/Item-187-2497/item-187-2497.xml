@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mi" id="2497" version="3" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2497</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>71536_Practice Test Refresh</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG3::SP14 (29); PracTest::ELAG3::SP14::Braille (29);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableMatch</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1pt</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1080" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2734" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2497_v3.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="3">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1" matchMax="0"><p style=""><span style="font-weight:bold; ">Note 1: </span><span style="font-weight:normal; ">Elephants need 300 pounds of food every day.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="2" matchMax="0"><p style=""><span style="font-weight:bold; ">Note 2:</span> <span style="font-weight:normal; ">An elephant has a long nose called a trunk.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="3" matchMax="0"><p style=""><span style="font-weight:bold; ">Note 3:</span> <span style="font-weight:normal; ">Elephants like grass, leaves, and roots for their meals.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="4" matchMax="0"><p style=""><span style="font-weight:bold; ">Note 4:</span> <span style="font-weight:normal; ">Elephants live in </span><span id="item_2497_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-weight:normal; ">deserts</span><span style="font-weight:normal; " /><span class="its-tag" data-tag-ref="item_2497_TAG_3" data-tag-boundary="end"></span><span style="font-weight:normal; "> and </span><span id="item_2497_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-weight:normal; ">rainforests</span><span class="its-tag" data-tag-ref="item_2497_TAG_4" data-tag-boundary="end"></span><span style="font-weight:normal; ">.</span></p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a" matchMax="0"><p style=""><span style="font-weight:bold; ">Main Idea A: </span><br /><span style="font-weight:normal; ">Where elephants are found</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="b" matchMax="0"><p style=""><span style="font-weight:bold; ">Main Idea B:</span><br /><span style="font-weight:normal; ">What elephants eat</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="c" matchMax="0"><p style=""><span style="font-weight:bold; ">Main Idea C: </span><br /><span style="font-weight:normal; ">What elephants look like</span></p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">A student is writing a research report about elephants. The student took notes and thought of three main ideas for her report. Click on the box to show the main idea that each note <span id="item_2497_TAG_2_BEGIN"><span style="font-weight:bold; ">best</span></span> <span id="item_2497_TAG_1_BEGIN">supports.</span></p>]]></stem>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2497_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2497_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>supports. The table has 3 columns and 4 rows.
+From left to right the column headings reed: Main Idea A: Where elephants are found; Main Idea B: What elephants eat;  Main Idea C: What elephants look like;
+From top to bottom the row headings reed:  Note 1: Elephants need 300 pounds of food every day; Note 2: An elephant has a long nose called a trunk; Note 3: Elephants like grass, leaves, and roots for their meals; Note 4: Elephants live in deserts and rainforests;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>supports.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>supports.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

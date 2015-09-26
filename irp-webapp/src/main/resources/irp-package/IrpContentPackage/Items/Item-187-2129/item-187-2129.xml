@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="EBSR" id="2129" version="5" bankkey="187">
+    <associatedpassage>3726</associatedpassage>
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2129</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Archaeologists - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG7::SP14 (22); PracTest::ELAG7::SP14::Braille (22);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>B</val>
+        <desc>B</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EBSR</val>
+        <desc>Evidence-Based Selected Response 4</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>21</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EBSR</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3726</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1769" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2130" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2129_v5.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <qti spec="itemBody"><![CDATA[<itemBody><p style=""><p style="">The following question has two parts. First, answer part A. Then, answer part B. </p></p><choiceInteraction responseIdentifier="EBSR1" shuffle="false" maxChoice="1"><prompt><p style="">Which statement <span id="item_2129_TAG_1_BEGIN"><span style="font-weight:bold; ">best</span></span> describes how an archaeologist chooses a site to study?</p></prompt><simpleChoice identifier="A"><p style="">Archaeologists look at maps for good places to dig.</p></simpleChoice><simpleChoice identifier="B"><p style="">Archaeologists study history for clues to determine where to dig.</p></simpleChoice><simpleChoice identifier="C"><p style="">Archaeologists keep notes of everything they find to choose a dig site.</p></simpleChoice><simpleChoice identifier="D"><p style="">Archaeologists compare photographs with written records to find a location.</p></simpleChoice></choiceInteraction><choiceInteraction responseIdentifier="EBSR2" shuffle="false" maxChoice="0"><prompt><p style="">Which detail from the presentation <span id="item_2129_TAG_2_BEGIN"><span style="font-weight:bold; ">best</span></span> supports your answer in part <span id="item_2129_TAG_3_BEGIN">A?</span></p></prompt><simpleChoice identifier="A"><p style="">“Or they may be together, in a place where a village or settlement once stood.”</p></simpleChoice><simpleChoice identifier="B"><p style="">“Sometimes archaeology <span id="item_2129_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>confirms<span class="its-tag" data-tag-ref="item_2129_TAG_12" data-tag-boundary="end"></span> the historical record.”</p></simpleChoice><simpleChoice identifier="C"><p style="">“Regardless of what they find, archaeologists keep very careful records of the site when a discovery is made, drawing or photographing <span id="item_2129_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>artifacts<span class="its-tag" data-tag-ref="item_2129_TAG_13" data-tag-boundary="end"></span> in place before removing them for further study.”</p></simpleChoice><simpleChoice identifier="D"><p style="">“Sometimes studying written and oral history points them in the right direction.”</p></simpleChoice></choiceInteraction></itemBody>]]></qti>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="Targeted" target="EBSR2" file="item_2129_ASL_EBSR2.MP4" />
+        <attachment pass="true" id="aslfile2" type="ASL" subtype="Targeted" target="EBSR1" file="item_2129_ASL_EBSR1.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2129_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2129_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2129_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>A?</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>A?</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

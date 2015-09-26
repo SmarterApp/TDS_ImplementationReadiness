@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ms" id="1997" version="12" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1997</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14 (6); PracTest::MG11::S1::SP14::Braille (6); PracTest::MG11::S1::SP14::ESN (6);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D,E,F</val>
+        <desc>,,</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1073" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2375" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="12">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">If a student chooses E,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option F</name>
+          <val><![CDATA[<p style="">If a student chooses F,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style=""><span id="item_1997_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Suppose</span><span class="its-tag" data-tag-ref="item_1997_TAG_11" data-tag-boundary="end"></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_1_BEGIN"><span style="font-style:normal; "><img id="item_1997_Object1" style="vertical-align:middle;" src="item_1997_v12_Object1_png16malpha.png" width="32" height="14" /></span></span><span style="font-style:normal; "> is an angle such that </span><span id="item_1997_TAG_2_BEGIN"><span style="font-style:normal; ">cos</span><span style="font-style:italic; ">A</span></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_3_BEGIN"><span style="font-style:normal; ">&lt; sin</span><span style="font-style:italic; ">A</span></span><span style="font-style:normal; ">.</span></p><p style=""><span id="item_1997_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; ">Select</span><span class="its-tag" data-tag-ref="item_1997_TAG_12" data-tag-boundary="end"></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_1997_TAG_13" data-tag-boundary="end"></span><span style="font-style:normal; "> angle measures that are </span><span id="item_1997_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span><span style="font-style:normal; ">possible</span><span class="its-tag" data-tag-ref="item_1997_TAG_14" data-tag-boundary="end"></span><span style="font-style:normal; "> values for </span><span id="item_1997_TAG_4_BEGIN"><span style="font-style:normal; "><img id="item_1997_Object2" style="vertical-align:middle;" src="item_1997_v12_Object2_png16malpha.png" width="36" height="14" /></span></span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p>]]></stem>
+      <optionlist minChoices="1" maxChoices="0">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_5_BEGIN">25<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_6_BEGIN">35<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_7_BEGIN">45<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_8_BEGIN">55<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">correct</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_9_BEGIN">65<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">correct</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option F</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_10_BEGIN">75<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">correct</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1997_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>angle A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>cosine A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>is less than sine A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>angle A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>25 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>35 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>45 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>55 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>65 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>75 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="12">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">If a student chooses E,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option F</name>
+          <val><![CDATA[<p style="">If a student chooses F,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style=""><span style="font-style:normal; ">Supón que el ∠</span><span style="font-style:italic; ">A</span><span style="font-style:normal; "> es un ángulo tal que el cos</span><span style="font-style:italic; ">A</span><span style="font-style:normal; "> &lt; sen</span><span style="font-style:italic; ">A</span><span style="font-style:normal; ">.</span></p><p style=""><span style="font-style:normal; ">Selecciona </span><span style="font-style:normal; font-weight:bold; ">todas</span><span style="font-style:normal; "> las medidas de ángulos que son valores posibles para el ∠</span><span style="font-style:italic; ">A.</span></p><p style="font-style:italic; ">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1997_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span><span style="font-style:normal; ">Suppose</span><span class="its-tag" data-tag-ref="item_1997_TAG_11" data-tag-boundary="end"></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_1_BEGIN"><span style="font-style:normal; "><img id="item_1997_Object1" style="vertical-align:middle;" src="item_1997_v12_Object1_png16malpha.png" width="32" height="14" /></span></span><span style="font-style:normal; "> is an angle such that </span><span id="item_1997_TAG_2_BEGIN"><span style="font-style:normal; ">cos</span><span style="font-style:italic; ">A</span></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_3_BEGIN"><span style="font-style:normal; ">&lt; sin</span><span style="font-style:italic; ">A</span></span><span style="font-style:normal; ">.</span></p><p style=""><span id="item_1997_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span><span style="font-style:normal; ">Select</span><span class="its-tag" data-tag-ref="item_1997_TAG_12" data-tag-boundary="end"></span><span style="font-style:normal; "> </span><span id="item_1997_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span><span style="font-style:normal; font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_1997_TAG_13" data-tag-boundary="end"></span><span style="font-style:normal; "> angle measures that are </span><span id="item_1997_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span><span style="font-style:normal; ">possible</span><span class="its-tag" data-tag-ref="item_1997_TAG_14" data-tag-boundary="end"></span><span style="font-style:normal; "> values for </span><span id="item_1997_TAG_4_BEGIN"><span style="font-style:normal; "><img id="item_1997_Object2" style="vertical-align:middle;" src="item_1997_v12_Object2_png16malpha.png" width="36" height="14" /></span></span></p><p style="font-style:normal; font-weight:normal; ">&#xA0;</p>]]></stem>
+      <optionlist minChoices="1" maxChoices="0">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_5_BEGIN">25<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_6_BEGIN">35<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_7_BEGIN">45<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_8_BEGIN">55<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_9_BEGIN">65<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option F</name>
+          <val><![CDATA[<p style=""><span id="item_1997_TAG_10_BEGIN">75<span style="">°</span></span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>angle A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>cosine A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>is less than sine A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>angle A.,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>25 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>35 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>45 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>55 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>65 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_1997_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>75 degrees.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

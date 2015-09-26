@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3739" version="5" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3739</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>SBAC_G03_C1_LL_P_A_Few_New_Neighbors</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist />
+    <content language="ENU" version="2.0" approvedVersion="5">
+      <title><![CDATA[&#xA0;]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="font-style:normal; ">Read the passage. Then answer the questions.</p><p style="font-style:italic; ">&#xA0;</p><p style="font-weight:bold; ">A Few New <span id="passage_3739_TAG_1_BEGIN">Neighbors</span></p><p style="">by Kerry <span id="passage_3739_TAG_2_BEGIN">McGee</span></p><p style="">&#xA0;</p><p style="">One afternoon, Jessie spotted a tiny bird fluttering around Mrs. Baxter's front door. Mrs. Baxter had just moved into an apartment.</p><p style="">&#xA0;</p><p style=""><span style="font-style:italic; ">It's probably looking for somebody to fill the bird feeders</span>, Jessie thought.</p><p style="">&#xA0;</p><p style="">The bird perched on the edge of the wreath. Then it disappeared.</p><p style="">&#xA0;</p><p style="">Disappeared? Jessie ran over to Mrs. Baxter's door. Where had it gone?</p><p style="">&#xA0;</p><p style="">A jumble of sticks and grass stuck out from the middle of the wreath. Suddenly, Jessie understood. A nest! A bird's nest sat right in the middle of Mrs. Baxter's wreath. The bird poked its head out and looked at Jessie. Then it fluttered away.</p><p style="">&#xA0;</p><p style="">Jessie crept up to the front door. Tucked inside the nest were four speckled blue eggs.</p><p style="">&#xA0;</p><p style="">Jessie ran home to call Mrs. Baxter. “Guess who moved into your old wreath!” Jessie said. “A family of birds!”</p><p style="">&#xA0;</p><p style="">Mrs. Baxter sounded just as excited as Jessie was. “Tell me what they look like. What color are the eggs?”</p><p style="">&#xA0;</p><p style="">Jessie and Mrs. Baxter talked about the birds for a while. “They sound like house finches,” Mrs. Baxter said. “Keep an eye on them for me, will you?”</p><p style="">&#xA0;</p><p style="">“<span id="passage_3739_TAG_4_BEGIN">I</span> will,” Jessie said.</p><p style="">&#xA0;</p><p style="">And she did. Jessie checked the nest whenever she could. Sometimes the mother finch was there. Other days, the red-headed papa was nearby. Jessie tried to notice everything so she could tell Mrs. Baxter.</p><p style="">&#xA0;</p><p style="">One morning, Jessie saw a pink head poking out of the nest. Babies! Jessie strained her neck to get a better look.</p><p style="">&#xA0;</p><p style="">Jessie told her dad about the baby birds at Mrs. Baxter's house.</p><p style="">&#xA0;</p><p style="">“That reminds me,” Dad said. “Mrs. Baxter has movers coming tomorrow to clear out the house. I told her I'd unlock the door for them.”</p><p style="">&#xA0;</p><p style="">“But what about the nest?”</p><p style="">&#xA0;</p><p style="">Dad shook his head. “We'll just have to tell the movers to be careful.”</p><p style="">&#xA0;</p><p style="">Jessie thought about the movers tromping in and out, squeezing heavy boxes and furniture past the tiny nest. She thought about the door swinging and slamming all day long. It seemed risky.</p><p style="">&#xA0;</p><p style="">The next morning, Jessie watched the moving truck pull up in front of Mrs. Baxter's house. </p><p style="">&#xA0;</p><p style="">Dad saw the truck, too, and came outside with the key.</p><p style="">&#xA0;</p><p style="">Jessie jumped up. She ran ahead of the movers and Dad to Mrs. Baxter's front door. “Wait!” she shouted, spinning around to face them.</p><p style="">&#xA0;</p><p style="">Behind her, the mama bird burst out of its nest. It landed in a tree. The movers looked at Jessie in surprise.</p><p style="">&#xA0;</p><p style="">“You can't use this door,” Jessie said, holding her arms out stiff.</p><p style="">&#xA0;</p><p style="">“I'm sorry,” one of the movers said. “We have a job to do.”</p><p style="">&#xA0;</p><p style="">Jessie didn't move. “There's a nest in the wreath,” Jessie explained. “If you open the door, it will fall.”</p><p style="">&#xA0;</p><p style="">The other mover sighed. “Do you have any ideas?”</p><p style="">&#xA0;</p><p style="">Jessie nodded. “I do have an idea. Dad, can I have the key?”</p><p style="">&#xA0;</p><p style="">As carefully as she could, Jessie unlocked the front door and eased it open. When it was just wide enough to slip through, she ducked into Mrs. Baxter's house.</p><p style="">&#xA0;</p><p style="">She'd been in there many times, so it didn't take her long to find the side door and unlock it from the inside.</p><p style="">&#xA0;</p><p style="">“Got it!” Jessie called, running around to the front of the house. “The side door is open!”</p><p style="">&#xA0;</p><p style="">One of the movers was peering into the wreath. “Hey,” he said. “There are babies in there.” He grinned at Jessie. “I bet that mama bird is glad you're watching out for her babies.”</p><p style="">&#xA0;</p><p style="">Jessie smiled as she and Dad thanked the movers for their help. Then she ran and disappeared into her own house. She couldn't wait to call Mrs. Baxter.</p><p style="">&#xA0;</p><p style="">“A Few New Neighbors” by Kerry McGee, from <span style="font-style:italic; ">Highlights for Children</span>. Copyright <span id="passage_3739_TAG_3_BEGIN">©</span> 2013 by Highlights for Children, Inc.</p>]]></stem>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3739_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Neighbors.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Neighbors</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Neighbors</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3739_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>McGee.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>McGee</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>McGee</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3739_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, I</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>I</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3739_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation></textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>©</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>©</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

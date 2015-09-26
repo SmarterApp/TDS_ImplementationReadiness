@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ti" id="1927" version="27" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1927</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>TM1 Example Stem 4</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (13); PracTest::MG11::S2::SP14::Braille (13); PracTest::MG11::S2::SP14::ESN (13);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>TI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>TI</val>
+        <desc>Table Item</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>13</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableInput</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>3 pts.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1768" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2373" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1927_v27.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="27">
+      <stem><![CDATA[<p style="">At a local <span id="item_1927_TAG_63" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>fair<span class="its-tag" data-tag-ref="item_1927_TAG_63" data-tag-boundary="end"></span>, the price of <span id="item_1927_TAG_20" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>admission<span class="its-tag" data-tag-ref="item_1927_TAG_20" data-tag-boundary="end"></span> includes the <span id="item_1927_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>opportunity<span class="its-tag" data-tag-ref="item_1927_TAG_21" data-tag-boundary="end"></span> for a person to <span id="item_1927_TAG_57" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>spin<span class="its-tag" data-tag-ref="item_1927_TAG_57" data-tag-boundary="end"></span> a <span id="item_1927_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>wheel<span class="its-tag" data-tag-ref="item_1927_TAG_23" data-tag-boundary="end"></span> for <span id="item_1927_TAG_24" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>free ride tickets<span class="its-tag" data-tag-ref="item_1927_TAG_24" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_1927_TAG_79" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>Each<span class="its-tag" data-tag-ref="item_1927_TAG_79" data-tag-boundary="end"></span> <span id="item_1927_TAG_82" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="23"></span>spin<span class="its-tag" data-tag-ref="item_1927_TAG_82" data-tag-boundary="end"></span> of the <span id="item_1927_TAG_84" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>wheel<span class="its-tag" data-tag-ref="item_1927_TAG_84" data-tag-boundary="end"></span> is a random event.</p></li><li><p style="">The result from <span id="item_1927_TAG_80" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>each<span class="its-tag" data-tag-ref="item_1927_TAG_80" data-tag-boundary="end"></span> <span id="item_1927_TAG_83" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="23"></span>spin<span class="its-tag" data-tag-ref="item_1927_TAG_83" data-tag-boundary="end"></span> of the <span id="item_1927_TAG_85" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>wheel<span class="its-tag" data-tag-ref="item_1927_TAG_85" data-tag-boundary="end"></span> is independent of the results of <span id="item_1927_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>previous<span class="its-tag" data-tag-ref="item_1927_TAG_31" data-tag-boundary="end"></span> <span id="item_1927_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>spins<span class="its-tag" data-tag-ref="item_1927_TAG_32" data-tag-boundary="end"></span>.</p></li><li><p style=""><span id="item_1927_TAG_81" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="28"></span>Each<span class="its-tag" data-tag-ref="item_1927_TAG_81" data-tag-boundary="end"></span> <span id="item_1927_TAG_68" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>spin<span class="its-tag" data-tag-ref="item_1927_TAG_68" data-tag-boundary="end"></span> of the <span id="item_1927_TAG_86" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>wheel<span class="its-tag" data-tag-ref="item_1927_TAG_86" data-tag-boundary="end"></span> <span id="item_1927_TAG_87" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>awards<span class="its-tag" data-tag-ref="item_1927_TAG_87" data-tag-boundary="end"></span> <span id="item_1927_TAG_72" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="25"></span>tickets<span class="its-tag" data-tag-ref="item_1927_TAG_72" data-tag-boundary="end"></span> according to the <span id="item_1927_TAG_38" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>probabilities<span class="its-tag" data-tag-ref="item_1927_TAG_38" data-tag-boundary="end"></span> shown below.</p></li></ul><p style="">&#xA0;</p><div align="left"><table class="newtable" id="item_1927_Table3" style="width:11.2956em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:5.7210em; " /><colgroup style="width:5.5752em; " /><tbody><tr><td colspan="2" style="padding:0.2292em;  border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="item_1927_TAG_61" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>Spin<span class="its-tag" data-tag-ref="item_1927_TAG_61" data-tag-boundary="end"></span> the <span id="item_1927_TAG_6_BEGIN">Wheel</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="item_1927_TAG_7_BEGIN">1</span> ticket</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; "><span id="item_1927_TAG_8_BEGIN">35%</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="item_1927_TAG_9_BEGIN">2</span> tickets</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; "><span id="item_1927_TAG_10_BEGIN">25%</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="item_1927_TAG_11_BEGIN">3</span> tickets</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; "><span id="item_1927_TAG_12_BEGIN">20%</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="item_1927_TAG_13_BEGIN">5</span> tickets</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; "><span id="item_1927_TAG_14_BEGIN">15%</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="item_1927_TAG_15_BEGIN">10</span> tickets</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; "><span id="item_1927_TAG_16_BEGIN">5%</span></p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="">Let <span style="font-style:italic; ">X</span><span style="font-style:normal; "> be the number of </span><span id="item_1927_TAG_73" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="25"></span><span style="font-style:normal; ">tickets</span><span class="its-tag" data-tag-ref="item_1927_TAG_73" data-tag-boundary="end"></span><span style="font-style:normal; "> a person wins based on 2 </span><span id="item_1927_TAG_40" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span><span style="font-style:normal; ">spins</span><span class="its-tag" data-tag-ref="item_1927_TAG_40" data-tag-boundary="end"></span><span style="font-style:normal; ">. There are 13 possible values for </span><span style="font-style:italic; ">X</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span id="item_1927_TAG_41" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span><span style="font-style:normal; ">Some</span><span class="its-tag" data-tag-ref="item_1927_TAG_41" data-tag-boundary="end"></span><span style="font-style:normal; "> values of </span><span style="font-style:italic; ">X</span><span style="font-style:normal; "> are </span><span id="item_1927_TAG_42" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="14"></span><span style="font-style:normal; ">more common</span><span class="its-tag" data-tag-ref="item_1927_TAG_42" data-tag-boundary="end"></span><span style="font-style:normal; "> than others. For example, winning only 2 </span><span id="item_1927_TAG_88" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="25"></span><span style="font-style:normal; ">tickets</span><span class="its-tag" data-tag-ref="item_1927_TAG_88" data-tag-boundary="end"></span><span style="font-style:normal; "> in 2 </span><span id="item_1927_TAG_44" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span><span style="font-style:normal; ">spins</span><span class="its-tag" data-tag-ref="item_1927_TAG_44" data-tag-boundary="end"></span><span style="font-style:normal; "> is a </span><span id="item_1927_TAG_45" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span><span style="font-style:normal; ">somewhat</span><span class="its-tag" data-tag-ref="item_1927_TAG_45" data-tag-boundary="end"></span><span style="font-style:normal; "> </span></p><p style="font-style:normal; "><span id="item_1927_TAG_46" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="16"></span>common occurrence<span class="its-tag" data-tag-ref="item_1927_TAG_46" data-tag-boundary="end"></span> with <span id="item_1927_TAG_47" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="17"></span>probability<span class="its-tag" data-tag-ref="item_1927_TAG_47" data-tag-boundary="end"></span> <span id="item_1927_TAG_17_BEGIN">0.1225</span>. It means the person wins 1 <span id="item_1927_TAG_48" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="18"></span>ticket<span class="its-tag" data-tag-ref="item_1927_TAG_48" data-tag-boundary="end"></span> on the first <span id="item_1927_TAG_75" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="26"></span>spin<span class="its-tag" data-tag-ref="item_1927_TAG_75" data-tag-boundary="end"></span> and 1 <span id="item_1927_TAG_50" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="18"></span>ticket<span class="its-tag" data-tag-ref="item_1927_TAG_50" data-tag-boundary="end"></span> on </p><p style=""><span style="font-style:normal; ">the second </span><span id="item_1927_TAG_76" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="26"></span><span style="font-style:normal; ">spin</span><span class="its-tag" data-tag-ref="item_1927_TAG_76" data-tag-boundary="end"></span><span style="font-style:normal; "> </span><span style="font-style:normal; "><img id="item_1927_Object1" style="vertical-align:middle;" src="item_1927_v27_Object1_png16malpha.png" width="78" height="17" /></span><span style="font-style:normal; ">. A list of the possible values of </span><span style="font-style:italic; ">X</span><span style="font-style:normal; "> and the </span><span id="item_1927_TAG_52" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="19"></span><span style="font-style:normal; ">corresponding probabilities</span><span class="its-tag" data-tag-ref="item_1927_TAG_52" data-tag-boundary="end"></span><span style="font-style:normal; "> for </span><span id="item_1927_TAG_53" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="20"></span><span style="font-style:normal; ">most</span><span class="its-tag" data-tag-ref="item_1927_TAG_53" data-tag-boundary="end"></span><span style="font-style:normal; "> </span></p><p style=""><span style="font-style:normal; ">values of </span><span style="font-style:italic; ">X</span><span style="font-style:normal; "> is shown below. </span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><span id="item_1927_TAG_89" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="21"></span>Fill in<span class="its-tag" data-tag-ref="item_1927_TAG_89" data-tag-boundary="end"></span> the three <span id="item_1927_TAG_55" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="22"></span>missing<span class="its-tag" data-tag-ref="item_1927_TAG_55" data-tag-boundary="end"></span> <span id="item_1927_TAG_90" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="27"></span>probability<span class="its-tag" data-tag-ref="item_1927_TAG_90" data-tag-boundary="end"></span> values in the <span id="item_1927_TAG_18_BEGIN">table</span>.</p><p style="">&#xA0;</p><div align="margins"><table class="tableItem" style="width:48.44160000000001em; border-spacing:0;margin-left:-0.0125in; margin-right:8.2958in; " cellpadding="0" cellspacing="0"><colgroup style="width:15.1500em; " /><colgroup style="width:33.2916em; " /><thead><tr><th data-its-identifier="col0" style="padding:0.2292em;  border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-style:italic; font-weight:bold; ">X <span style="font-style:normal; ">&#xA0;</span></p></th><th data-its-identifier="col1" style="padding:0.2292em;  border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-style:normal; font-weight:bold; ">Probability</p></th></tr></thead><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">2</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1225</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">3</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1750</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">4</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="None">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">5</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1000</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">6</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1450</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">7</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0750</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">8</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0600</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">10</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="None">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">11</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0350</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">12</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0250</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">13</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="None">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">15</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0150</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">20</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0025</p></td></tr></tbody></table></div>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1927_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Wheel.  The table has two columns and 5 rows.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Wheel</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>From left to right the first row reeds, 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>35 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>35%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae25">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The second row reeds, 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae26">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>25 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>25%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>25%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae27">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The third row reeds, 3</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae28">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>20 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>20%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae29">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The fourth row reeds, 5</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae30">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>15 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>15%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae31">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The fifth row reeds, 10</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>10</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae32">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>5 percent;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae42">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>0 point 1 2 2 5</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>0.1225</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae47">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, 0 point 3 5 times 0 point 3 5</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the quantity  0.35   times     0.35  ,</brailleTextString>
+                <brailleCode type="Nemeth">(0.35*0.35)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae53">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>table.  The table has two columns and 13 rows.  From left to right the column headings reed, X, probability.  From left to right the first row reeds, 2, zero point 1 2 2 5.  The second row reeds, 3, 0 point 1 7 5 0.  The third row reeds 4, box. The fourth row reeds, 5, 0 point 1 0 0 0.  The fifth row reeds, 6, 0 point 1 4 5 0. The sixth row reeds, 7, 0 point 0 7 5 0.  The seventh row reeds, 8, 0 point 0 6 0 0.  The eighth row reeds, 10, box. The ninth row reeds, 11, 0 point 0 3 5 0.  The tenth row reeds, 12, 0 point 0 2 5 0.  The eleventh row reeds, 13, box.  The twelfth row reeds, 15, 0 point 0 1 5 0.  The thirteenth row reeds, 20, 0 point 0 0 2 5.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>table</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="27">
+      <stem><![CDATA[<p style="">En una feria de la localidad, el precio de la entrada incluye la oportunidad de que la persona gire una ruleta para ganar boletos para subirse a las atracciones gratuitamente.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Cada giro de la ruleta es un evento aleatorio.</p></li><li><p style="">El resultado de cada giro de la ruleta es independiente de los resultados de los giros anteriores.</p></li><li><p style="">Cada giro de la ruleta otorga boletos de acuerdo con las probabilidades que se muestran a continuación.</p></li></ul><p style="">&#xA0;</p><div align="left"><table class="newtable" id="item_1927_Table4" style="width:11.2956em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:5.7210em; " /><colgroup style="width:5.5752em; " /><tbody><tr><td colspan="2" style="padding:0.2292em;  border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Giro de la ruleta</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">1 boleto</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; ">35%</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">2 boletos</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; ">25%</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">3 boletos</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; ">20%</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">5 boletos</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; ">15%</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">10 boletos</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:normal; ">5%</p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="">Sea <span style="font-style:italic; ">X</span><span style="font-style:normal; "> el número de boletos que una persona gana basada en 2 giros. Hay 13 valores posibles para </span><span style="font-style:italic; ">X</span><span style="font-style:normal; ">.</span></p><p style="font-style:normal; ">&#xA0;</p><p style=""><span style="font-style:normal; ">Algunos valores de </span><span style="font-style:italic; ">X</span><span style="font-style:normal; "> son más comunes que otros. Por ejemplo, ganar solo 2 boletos en 2 giros es relativamente común con una probabilidad de 0.1225. Esto significa que la persona gana 1 boleto en el primer giro y 1 boleto en el segundo giro </span><span style="font-style:normal; "><img id="item_1927_Object2" style="vertical-align:middle;" src="item_1927_v27_Object2_png16malpha.png" width="78" height="17" /></span><span style="font-style:normal; ">. A continuación se muestra una lista de los valores de </span><span style="font-style:italic; ">X</span><span style="font-style:normal; "> posibles y las probabilidades correspondientes para la mayoría de los valores de </span><span style="font-style:italic; ">X</span><span style="font-style:normal; ">. </span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; ">Completa los tres valores de probabilidades que faltan en la tabla.</p><div align="left"><table class="tableItem" style="width:14.4168em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:7.7916em; " /><colgroup style="width:6.6252em; " /><thead><tr><th data-its-identifier="col0" style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-style:italic; font-weight:bold; ">X <span style="font-style:normal; ">&#xA0;</span></p></th><th data-its-identifier="col1" style="padding:0.2292em;  border:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-style:normal; font-weight:bold; ">Probabilidad</p></th></tr></thead><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">2</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1225</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">3</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1750</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">4</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">5</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1000</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">6</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.1450</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">7</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0750</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">8</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0600</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">10</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">11</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0350</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">12</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0250</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">13</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span data-its-input="true" data-its-validationRule="numericOnly">_</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">15</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0150</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">20</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">0.0025</p></td></tr></tbody></table></div>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Wheel.  The table has two columns and 5 rows.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Wheel</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>From left to right the first row reeds, 1</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>35 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>35%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae25">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The second row reeds, 2</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>2</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae26">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>25 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>25%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>25%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae27">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The third row reeds, 3</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>3</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae28">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>20 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>20%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae29">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The fourth row reeds, 5</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae30">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>15 percent.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>15%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae31">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The fifth row reeds, 10</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>10</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae32">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>5 percent;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>5%</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>5%</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae42">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>0 point 1 2 2 5</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>0.1225</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae47">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>, 0 point 3 5 times 0 point 3 5</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the quantity  0.35   times     0.35  ,</brailleTextString>
+                <brailleCode type="Nemeth">(0.35*0.35)</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae53">
+            <contentLinkInfo itsLinkIdentifierRef="item_1927_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>table.  The table has two columns and 13 rows.  From left to right the column headings reed, X, probability.  From left to right the first row reeds, 2, zero point 1 2 2 5.  The second row reeds, 3, 0 point 1 7 5 0.  The third row reeds 4, box. The fourth row reeds, 5, 0 point 1 0 0 0.  The fifth row reeds, 6, 0 point 1 4 5 0. The sixth row reeds, 7, 0 point 0 7 5 0.  The seventh row reeds, 8, 0 point 0 6 0 0.  The eighth row reeds, 10, box. The ninth row reeds, 11, 0 point 0 3 5 0.  The tenth row reeds, 12, 0 point 0 2 5 0.  The eleventh row reeds, 13, box.  The twelfth row reeds, 15, 0 point 0 1 5 0.  The thirteenth row reeds, 20, 0 point 0 0 2 5.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>table</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

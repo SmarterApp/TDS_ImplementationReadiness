@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="1948" version="13" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1948</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S1::SP14 (7); PracTest::MG11::S1::SP14::ESN (7);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2366" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1948_v13.qrx" />
+    <RendererSpec filename="Item_1948_v13.gax" />
+    <content language="ENU" version="2.0" approvedVersion="13">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="color:#000000; ">The graphs of <span id="item_1948_TAG_1_BEGIN"><span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>)</span> and </p><p style="color:#000000; "><span id="item_1948_TAG_2_BEGIN"><span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>)</span> are shown.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1948_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_1948_TAG_6" data-tag-boundary="end"></span> the <span id="item_1948_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Add Point tool<span class="its-tag" data-tag-ref="item_1948_TAG_7" data-tag-boundary="end"></span> to add a point that <span id="item_1948_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>will satisfy<span class="its-tag" data-tag-ref="item_1948_TAG_8" data-tag-boundary="end"></span> <span id="item_1948_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>each<span class="its-tag" data-tag-ref="item_1948_TAG_9" data-tag-boundary="end"></span> <span id="item_1948_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>given<span class="its-tag" data-tag-ref="item_1948_TAG_10" data-tag-boundary="end"></span> <span id="item_1948_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>condition<span class="its-tag" data-tag-ref="item_1948_TAG_11" data-tag-boundary="end"></span>.</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">g</span> where <span id="item_1948_TAG_3_BEGIN"><span style="font-style:italic; ">x</span> = 0</span></p></li><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">g</span> where <span id="item_1948_TAG_4_BEGIN"><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) &gt; <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>)</span></p></li><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">f </span>where <span id="item_1948_TAG_5_BEGIN"><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) = 0</span></p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="color:#000000; ">Exemplar:</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><img id="item_1948_Exemplar:(d=png16malpha)" src="item_1948_v13_Exemplar_png16malpha.png" width="400" height="400" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">For this item, a full-credit response includes</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; "><span style="background-color:transparent; ">The student correctly plots two of the three points defined by the conditions.</span><span style="background-color:transparent; "> </span>(1 point) </p></li></ul><p style="color:#000000; ">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AND </p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">The student correctly plots points defined by the conditions. <span style="background-color:transparent; ">(2 point).</span></p></li><li><p style="margin-left:0.4925in; margin-right:0in; text-indent:0in; color:#000000; ">the <span style="font-style:italic; ">y</span>-intercept of <span style="font-style:italic; ">g</span></p></li><li><p style="margin-left:0.4925in; margin-right:0in; text-indent:0in; color:#000000; font-style:italic; ">any point on the graph of g sitting under the graph of f</p></li><li><p style="margin-left:0.4925in; margin-right:0in; text-indent:0in; color:#000000; ">any of the three points where the graph of f crosses the x-axis </p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1948_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why equals G of X</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y = g(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why equals F of X</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y = f(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x equals zero.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>x = 0</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>F of X is greater than G of X.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x) &gt; g(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>F of x equals zero. This is an interactive image.  From left to right the blue buttons above the image reed, delete, add point.  The main answer space contains a graph. The X axis has a range from negative 5 to 5, increasing in increments of one.  The why axis has a range from negative 5 to five, increasing in increments of one.  From top to bottom the graph is labeled, why equals g of x, y equals f of X.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x) = 0</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="13">
+      <stem><![CDATA[<p style="color:#000000; ">Se muestran las gráficas de <span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>) y</p><p style="color:#000000; "><span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>).</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Usa la herramienta Agregar punto para agregar un punto que cumpla con cada condición dada.</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">Un punto sobre la gráfica de <span style="font-style:italic; ">g</span> donde <span style="font-style:italic; ">x</span> = 0</p></li><li><p style="color:#000000; ">Un punto sobre la gráfica de <span style="font-style:italic; ">g</span> donde <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) &gt; <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>)</p></li><li><p style="color:#000000; ">Un punto sobre la gráfica de <span style="font-style:italic; ">f</span><span style="font-style:normal; "> donde </span><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) = 0</p></li></ul><p class="languagedivider">&#xA0;</p><p style="color:#000000; ">The graphs of <span id="item_1948_TAG_1_BEGIN"><span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>)</span> and </p><p style="color:#000000; "><span id="item_1948_TAG_2_BEGIN"><span style="font-style:italic; ">y</span> = <span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>)</span> are shown.</p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1948_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Use<span class="its-tag" data-tag-ref="item_1948_TAG_6" data-tag-boundary="end"></span> the <span id="item_1948_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Add Point tool<span class="its-tag" data-tag-ref="item_1948_TAG_7" data-tag-boundary="end"></span> to add a point that <span id="item_1948_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>will satisfy<span class="its-tag" data-tag-ref="item_1948_TAG_8" data-tag-boundary="end"></span> <span id="item_1948_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>each<span class="its-tag" data-tag-ref="item_1948_TAG_9" data-tag-boundary="end"></span> <span id="item_1948_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>given<span class="its-tag" data-tag-ref="item_1948_TAG_10" data-tag-boundary="end"></span> <span id="item_1948_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>condition<span class="its-tag" data-tag-ref="item_1948_TAG_11" data-tag-boundary="end"></span>.</p><p style="color:#000000; ">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">g</span> where <span id="item_1948_TAG_3_BEGIN"><span style="font-style:italic; ">x</span> = 0</span></p></li><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">g</span> where <span id="item_1948_TAG_4_BEGIN"><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) &gt; <span style="font-style:italic; ">g</span>(<span style="font-style:italic; ">x</span>)</span></p></li><li><p style="color:#000000; ">A point on the graph of <span style="font-style:italic; ">f </span>where <span id="item_1948_TAG_5_BEGIN"><span style="font-style:italic; ">f</span>(<span style="font-style:italic; ">x</span>) = 0</span></p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why equals G of X</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y = g(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>why equals F of X</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>y = f(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x equals zero.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>x = 0</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>F of X is greater than G of X.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x) &gt; g(x)</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_1948_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>F of x equals zero. This is an interactive image.  From left to right the blue buttons above the image reed, delete, add point.  The main answer space contains a graph. The X axis has a range from negative 5 to 5, increasing in increments of one.  The why axis has a range from negative 5 to five, increasing in increments of one.  From top to bottom the graph is labeled, why equals g of x, y equals f of X.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>f(x) = 0</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

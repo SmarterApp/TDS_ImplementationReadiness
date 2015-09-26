@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <passage id="3688" version="39" bankkey="187">
+    <attriblist>
+      <attrib attid="stm_pass_id">
+        <name>Stim: ITS ID</name>
+        <val>3688</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_subject">
+        <name>Stim: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_pass_desc">
+        <name>Stim: Description</name>
+        <val>Speeding Ticket</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="stm_att_Spanish Option Stacking">
+        <name>Stim: Spanish Option Stacking</name>
+        <val>Spanish above English</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <resourceslist>
+      <resource type="wordList" id="1653" index="1" bankkey="187" />
+    </resourceslist>
+    <content language="ENU" version="2.0" approvedVersion="39">
+      <title><![CDATA[Speeding <span id="passage_3688_TAG_1_BEGIN">Tickets</span>]]></title>
+      <author><![CDATA[&#xA0;]]></author>
+      <stem><![CDATA[<p style="">New York state wants <span id="passage_3688_TAG_61" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>to change<span class="its-tag" data-tag-ref="passage_3688_TAG_61" data-tag-boundary="end"></span> its system <span id="passage_3688_TAG_62" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>for assigning<span class="its-tag" data-tag-ref="passage_3688_TAG_62" data-tag-boundary="end"></span> <span id="passage_3688_TAG_83" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fines<span class="its-tag" data-tag-ref="passage_3688_TAG_83" data-tag-boundary="end"></span> to <span id="passage_3688_TAG_63" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>drivers<span class="its-tag" data-tag-ref="passage_3688_TAG_63" data-tag-boundary="end"></span>. The <span id="passage_3688_TAG_64" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>current<span class="its-tag" data-tag-ref="passage_3688_TAG_64" data-tag-boundary="end"></span> system <span id="passage_3688_TAG_65" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>allows<span class="its-tag" data-tag-ref="passage_3688_TAG_65" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_66" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>judge<span class="its-tag" data-tag-ref="passage_3688_TAG_66" data-tag-boundary="end"></span> <span id="passage_3688_TAG_67" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to assign<span class="its-tag" data-tag-ref="passage_3688_TAG_67" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_68" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>fine<span class="its-tag" data-tag-ref="passage_3688_TAG_68" data-tag-boundary="end"></span> that is <span id="passage_3688_TAG_69" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>within<span class="its-tag" data-tag-ref="passage_3688_TAG_69" data-tag-boundary="end"></span> the ranges shown in Table <span id="passage_3688_TAG_24_BEGIN">1.</span></p><p style="">&#xA0;</p><p style="font-weight:bold; ">Table 1. <span id="passage_3688_TAG_2_BEGIN">New</span> York Speeding Fines</p><div align="left"><table class="newtable" id="passage_3688_Table2" style="width:29.0628em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.2210em; " /><colgroup style="width:9.4248em; " /><colgroup style="width:9.4164em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="passage_3688_TAG_4_BEGIN">Miles</span> per Hour over <span id="passage_3688_TAG_84" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="21"></span>Speed Limit<span class="its-tag" data-tag-ref="passage_3688_TAG_84" data-tag-boundary="end"></span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Minimum Fine</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Maximum Fine</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_5_BEGIN">1 – 10</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_10_BEGIN">$45</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_11_BEGIN">$150</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_6_BEGIN">11 – 30</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_9_BEGIN">$90</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_12_BEGIN">$300</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_7_BEGIN">31 or more</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_8_BEGIN">$180</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_13_BEGIN">$600</span></p></td></tr></tbody></table></div><p style="text-align:left; ">&#xA0;</p><p style=""><span id="passage_3688_TAG_70" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>Some<span class="its-tag" data-tag-ref="passage_3688_TAG_70" data-tag-boundary="end"></span> people <span id="passage_3688_TAG_71" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>have complained<span class="its-tag" data-tag-ref="passage_3688_TAG_71" data-tag-boundary="end"></span> that the New York <span id="passage_3688_TAG_72" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_72" data-tag-boundary="end"></span> system is not <span id="passage_3688_TAG_73" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>fair<span class="its-tag" data-tag-ref="passage_3688_TAG_73" data-tag-boundary="end"></span>. The New Drivers Association (NDA) <span id="passage_3688_TAG_74" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="14"></span>is recommending<span class="its-tag" data-tag-ref="passage_3688_TAG_74" data-tag-boundary="end"></span> a new <span id="passage_3688_TAG_75" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_75" data-tag-boundary="end"></span> system. The NDA is studying the Massachusetts system because of <span id="passage_3688_TAG_76" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span>claims<span class="its-tag" data-tag-ref="passage_3688_TAG_76" data-tag-boundary="end"></span> that it is <span id="passage_3688_TAG_77" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="16"></span>fairer than<span class="its-tag" data-tag-ref="passage_3688_TAG_77" data-tag-boundary="end"></span> the New York system.</p><p style="">&#xA0;</p><p style="font-weight:bold; ">Table 2. <span id="passage_3688_TAG_14_BEGIN">Massachusetts</span> Speeding Fines</p><div align="left"><table class="newtable" id="passage_3688_Table1" style="width:28.9998em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.1874em; " /><colgroup style="width:18.8124em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="passage_3688_TAG_15_BEGIN">Miles</span> per Hour over Speed Limit</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Fine</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_16_BEGIN">1 – 10</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="passage_3688_TAG_18_BEGIN">$100</span> <span id="passage_3688_TAG_85" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="22"></span>flat charge<span class="its-tag" data-tag-ref="passage_3688_TAG_85" data-tag-boundary="end"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_17_BEGIN">11 or more</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="passage_3688_TAG_19_BEGIN">$100</span> flat charge plus <span id="passage_3688_TAG_20_BEGIN">$10</span> for each additional mph above the first <span id="passage_3688_TAG_21_BEGIN">10 mph</span></p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="">In this <span id="passage_3688_TAG_78" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="17"></span>task<span class="its-tag" data-tag-ref="passage_3688_TAG_78" data-tag-boundary="end"></span>, you will: </p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">analyze the <span id="passage_3688_TAG_79" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_79" data-tag-boundary="end"></span> systems for <span id="passage_3688_TAG_80" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="18"></span>both<span class="its-tag" data-tag-ref="passage_3688_TAG_80" data-tag-boundary="end"></span> New York and Massachusetts.</p></li><li><p style=""><span id="passage_3688_TAG_23_BEGIN"><span id="passage_3688_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="19"></span>use<span class="its-tag" data-tag-ref="passage_3688_TAG_23" data-tag-boundary="end"></span></span> data to <span id="passage_3688_TAG_86" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>propose<span class="its-tag" data-tag-ref="passage_3688_TAG_86" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_81" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="20"></span>fairer<span class="its-tag" data-tag-ref="passage_3688_TAG_81" data-tag-boundary="end"></span> <span id="passage_3688_TAG_82" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_82" data-tag-boundary="end"></span> system for New York state.</p></li></ul><p style="">&#xA0;</p>]]></stem>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="passage_3688_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Tickets;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Tickets</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Tickets</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_24_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The title of the table is: New</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>New</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>New</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The table has three rows and three columns. From left to right the column headings reed: Miles</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Miles</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Miles</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>. From left to right the first row reeds: 1 through 10,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1 – 10</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1 – 10</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>45 dollars,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$45</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$45</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1 hundred 50 dollars,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$150</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$150</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The second row reeds: 11 through 30,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>11 – 30</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>11 – 30</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>90 dollars,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$90</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$90</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>300 dollars,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$300</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$300</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The third row reeds: 31 or more,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>31 or more</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>31 or more</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>1 hundred 80 dollars,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$180</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$180</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>600  dollars;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$600</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$600</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae33">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The title of the table is: Massachusetts</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Massachusetts</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Massachusetts</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae34">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The table has two rows and two columns. From left to right the column headings reed: Miles</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Miles</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Miles</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae35">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_16_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>. From left to right the first row reeds: 1 through 10,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>1 – 10</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>1 – 10</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae36">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>100 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$100</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$100</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae38">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>The second row reeds: 11 or more,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>11 or more</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>11 or more</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae39">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_19_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>100 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$100</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$100</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae40">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_20_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>10 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$10</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$10</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae41">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_21_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>10 miles per hour.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>10 mph</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>10 mph</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae45">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_23_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, use</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>use</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>use</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="39">
+      <title><![CDATA[Multas por exceso de velocidad<p class="languagedivider">&#xA0;</p>Speeding <span id="passage_3688_TAG_1_BEGIN">Tickets</span>]]></title>
+      <author><![CDATA[&#xA0;<p class="languagedivider">&#xA0;</p>&#xA0;]]></author>
+      <stem><![CDATA[<p style="">El estado de Nueva York quiere cambiar el sistema para fijar multas por exceso de velocidad a los conductores. El sistema actual permite a un juez fijar una multa que esté dentro de los rangos que se muestran en la Tabla 1.</p><p style="">&#xA0;</p><p style="font-weight:bold; ">Tabla 1. Multas por exceso de velocidad en Nueva York</p><div align="left"><table class="newtable" id="passage_3688_Table3" style="width:29.0628em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.2210em; " /><colgroup style="width:9.4248em; " /><colgroup style="width:9.4164em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Millas por hora por encima del límite de velocidad</p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Multa mínima</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Multa máxima</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">1 – 10</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$45</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$150</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">11 – 30</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$90</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$300</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">31 o más</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$180</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">$600</p></td></tr></tbody></table></div><p style="text-align:left; ">&#xA0;</p><p style="">Algunas personas se quejan de que el sistema para las multas por exceso de velocidad de Nueva York no es justo. La Asociación de Conductores Nuevos (ACN) recomienda un sistema nuevo para las multas por exceso de velocidad. La ACN está estudiando el sistema de Massachusetts porque se dice que es más justo que el sistema de Nueva York.</p><p style="">&#xA0;</p><p style="font-weight:bold; ">Tabla 2. Multas por exceso de velocidad en Massachusetts</p><div align="left"><table class="newtable" id="passage_3688_Table4" style="width:28.9998em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.1874em; " /><colgroup style="width:18.8124em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; ">Millas por hora por encima del límite de velocidad</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Multa</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">1 – 10</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">$100 multa fija</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; ">11 o más</p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="">$100 por la multa fija más $10 por cada mph adicional por encima de las primeras 10 mph</p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="">En esta tarea, vas a:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">analizar los sistemas para las multas por exceso de velocidad de Nueva York y de Massachusetts.</p></li><li><p style="">usar datos para proponer un sistema para las multas por exceso de velocidad en el estado de Nueva York que sea más justo.</p></li></ul><p style="">&#xA0;</p><p class="languagedivider">&#xA0;</p><p style="">New York state wants <span id="passage_3688_TAG_61" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>to change<span class="its-tag" data-tag-ref="passage_3688_TAG_61" data-tag-boundary="end"></span> its system <span id="passage_3688_TAG_62" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>for assigning<span class="its-tag" data-tag-ref="passage_3688_TAG_62" data-tag-boundary="end"></span> <span id="passage_3688_TAG_83" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fines<span class="its-tag" data-tag-ref="passage_3688_TAG_83" data-tag-boundary="end"></span> to <span id="passage_3688_TAG_63" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>drivers<span class="its-tag" data-tag-ref="passage_3688_TAG_63" data-tag-boundary="end"></span>. The <span id="passage_3688_TAG_64" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>current<span class="its-tag" data-tag-ref="passage_3688_TAG_64" data-tag-boundary="end"></span> system <span id="passage_3688_TAG_65" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>allows<span class="its-tag" data-tag-ref="passage_3688_TAG_65" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_66" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>judge<span class="its-tag" data-tag-ref="passage_3688_TAG_66" data-tag-boundary="end"></span> <span id="passage_3688_TAG_67" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to assign<span class="its-tag" data-tag-ref="passage_3688_TAG_67" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_68" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>fine<span class="its-tag" data-tag-ref="passage_3688_TAG_68" data-tag-boundary="end"></span> that is <span id="passage_3688_TAG_69" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>within<span class="its-tag" data-tag-ref="passage_3688_TAG_69" data-tag-boundary="end"></span> the ranges shown in Table <span id="passage_3688_TAG_24_BEGIN">1.</span></p><p style="">&#xA0;</p><p style="font-weight:bold; ">Table 1. <span id="passage_3688_TAG_2_BEGIN">New</span> York Speeding Fines</p><div align="left"><table class="newtable" id="passage_3688_Table2" style="width:29.0628em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.2210em; " /><colgroup style="width:9.4248em; " /><colgroup style="width:9.4164em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="passage_3688_TAG_4_BEGIN">Miles</span> per Hour over <span id="passage_3688_TAG_84" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="21"></span>Speed Limit<span class="its-tag" data-tag-ref="passage_3688_TAG_84" data-tag-boundary="end"></span></p></td><td style="vertical-align:middle; padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Minimum Fine</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Maximum Fine</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_5_BEGIN">1 – 10</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_10_BEGIN">$45</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_11_BEGIN">$150</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_6_BEGIN">11 – 30</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_9_BEGIN">$90</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_12_BEGIN">$300</span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_7_BEGIN">31 or more</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_8_BEGIN">$180</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_13_BEGIN">$600</span></p></td></tr></tbody></table></div><p style="text-align:left; ">&#xA0;</p><p style=""><span id="passage_3688_TAG_70" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>Some<span class="its-tag" data-tag-ref="passage_3688_TAG_70" data-tag-boundary="end"></span> people <span id="passage_3688_TAG_71" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="12"></span>have complained<span class="its-tag" data-tag-ref="passage_3688_TAG_71" data-tag-boundary="end"></span> that the New York <span id="passage_3688_TAG_72" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_72" data-tag-boundary="end"></span> system is not <span id="passage_3688_TAG_73" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="13"></span>fair<span class="its-tag" data-tag-ref="passage_3688_TAG_73" data-tag-boundary="end"></span>. The New Drivers Association (NDA) <span id="passage_3688_TAG_74" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="14"></span>is recommending<span class="its-tag" data-tag-ref="passage_3688_TAG_74" data-tag-boundary="end"></span> a new <span id="passage_3688_TAG_75" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_75" data-tag-boundary="end"></span> system. The NDA is studying the Massachusetts system because of <span id="passage_3688_TAG_76" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="15"></span>claims<span class="its-tag" data-tag-ref="passage_3688_TAG_76" data-tag-boundary="end"></span> that it is <span id="passage_3688_TAG_77" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="16"></span>fairer than<span class="its-tag" data-tag-ref="passage_3688_TAG_77" data-tag-boundary="end"></span> the New York system.</p><p style="">&#xA0;</p><p style="font-weight:bold; ">Table 2. <span id="passage_3688_TAG_14_BEGIN">Massachusetts</span> Speeding Fines</p><div align="left"><table class="newtable" id="passage_3688_Table1" style="width:28.9998em; border-spacing:0;" cellpadding="0" cellspacing="0"><colgroup style="width:10.1874em; " /><colgroup style="width:18.8124em; " /><tbody><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-top:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; font-weight:bold; "><span id="passage_3688_TAG_15_BEGIN">Miles</span> per Hour over Speed Limit</p></td><td style="vertical-align:middle; padding:0.2292em;  border:0.06em solid #000000;"><p style="text-align:center; font-weight:bold; ">Fine</p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_16_BEGIN">1 – 10</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="passage_3688_TAG_18_BEGIN">$100</span> <span id="passage_3688_TAG_85" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="22"></span>flat charge<span class="its-tag" data-tag-ref="passage_3688_TAG_85" data-tag-boundary="end"></span></p></td></tr><tr><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style="text-align:center; "><span id="passage_3688_TAG_17_BEGIN">11 or more</span></p></td><td style="padding:0.2292em;  border-left:0.06em solid #000000; border-right:0.06em solid #000000; border-bottom:0.06em solid #000000;vertical-align:top; "><p style=""><span id="passage_3688_TAG_19_BEGIN">$100</span> flat charge plus <span id="passage_3688_TAG_20_BEGIN">$10</span> for each additional mph above the first <span id="passage_3688_TAG_21_BEGIN">10 mph</span></p></td></tr></tbody></table></div><p style="">&#xA0;</p><p style="">In this <span id="passage_3688_TAG_78" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="17"></span>task<span class="its-tag" data-tag-ref="passage_3688_TAG_78" data-tag-boundary="end"></span>, you will: </p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">analyze the <span id="passage_3688_TAG_79" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_79" data-tag-boundary="end"></span> systems for <span id="passage_3688_TAG_80" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="18"></span>both<span class="its-tag" data-tag-ref="passage_3688_TAG_80" data-tag-boundary="end"></span> New York and Massachusetts.</p></li><li><p style=""><span id="passage_3688_TAG_23_BEGIN"><span id="passage_3688_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="19"></span>use<span class="its-tag" data-tag-ref="passage_3688_TAG_23" data-tag-boundary="end"></span></span> data to <span id="passage_3688_TAG_86" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="24"></span>propose<span class="its-tag" data-tag-ref="passage_3688_TAG_86" data-tag-boundary="end"></span> a <span id="passage_3688_TAG_81" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="20"></span>fairer<span class="its-tag" data-tag-ref="passage_3688_TAG_81" data-tag-boundary="end"></span> <span id="passage_3688_TAG_82" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>speeding fine<span class="its-tag" data-tag-ref="passage_3688_TAG_82" data-tag-boundary="end"></span> system for New York state.</p></li></ul><p style="">&#xA0;</p>]]></stem>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="passage_3688_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Tickets;</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Tickets</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Tickets</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </passage>
+</itemrelease>

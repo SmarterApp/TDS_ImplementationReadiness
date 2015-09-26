@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mi" id="2454" version="7" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2454</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>69560_Practice Test Refresh</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG11::SP14 (30); PracTest::ELAG11::SP14::Braille (30);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>TableMatch</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1pt</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1080" bankkey="187" />
+    <resourceslist />
+    <statistic />
+    <MachineRubric filename="Item_2454_v7.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="7">
+      <qti spec="itemBody"><![CDATA[<matchInteraction responseIdentifier="RESPONSE" minAssociations="1" maxAssociations="0"><prompt /><simpleMatchSet><simpleAssociableChoice identifier="1" matchMax="0"><p style=""><span style="font-weight:bold; ">Claim 1:</span> <span style="font-weight:normal; ">People are a major cause of furthering the growth of invasive species.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="2" matchMax="0"><p style=""><span style="font-weight:bold; ">Claim 2:</span> <span style="font-weight:normal; ">People can help prevent the spread of invasive species before they become too damaging to an ecosystem.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="3" matchMax="0"><p style=""><span style="font-weight:bold; ">Claim 3:</span> <span style="font-weight:normal; ">When invasive species are introduced into an ecosystem, the species that belong in that ecosystem are harmed.</span></p></simpleAssociableChoice><simpleAssociableChoice identifier="4" matchMax="0"><p style=""><span style="font-weight:bold; ">Claim 4:</span> <span style="font-weight:normal; ">Invasive species not only have a negative effect on the animals and plants in an environment, but they can also negatively affect the systems put in place for human use.</span></p></simpleAssociableChoice></simpleMatchSet><simpleMatchSet><simpleAssociableChoice identifier="a" matchMax="0"><p style="font-weight:bold; ">Source 1</p></simpleAssociableChoice><simpleAssociableChoice identifier="b" matchMax="0"><p style="font-weight:bold; ">Source 2</p></simpleAssociableChoice><simpleAssociableChoice identifier="c" matchMax="0"><p style="font-weight:bold; ">Source 3</p></simpleAssociableChoice></simpleMatchSet></matchInteraction>]]></qti>
+      <stem><![CDATA[<p style="">A student is writing an argumentative research report about invasive species for ecology class. Read the possible sources the student found and the directions that follow.</p><p style=""><br /><span style="font-weight:bold; ">Source 1: “Invasive Species in the Great Lakes” by </span><span id="item_2454_TAG_5_BEGIN"><span style="font-weight:bold; ">Temh</span></span><span style="font-weight:bold; "> </span><span id="item_2454_TAG_1_BEGIN"><span style="font-weight:bold; ">Patel</span></span></p><p style=""><br />Invasive species have the ability to change entire <span id="item_2454_TAG_6_BEGIN">ecosystems</span>. Invasive species are plants and animals that are not original to an <span id="item_2454_TAG_7_BEGIN">ecosystem</span>, but when they are introduced there, the invasive species causes some kind of damage to the other plant and animal life in that <span id="item_2454_TAG_8_BEGIN">ecosystem</span>. This occurred in the <span id="item_2454_TAG_14_BEGIN">St.</span> Clair <span id="item_2454_TAG_9_BEGIN">ecosystem</span> in 1988 with the zebra mussel. The zebra mussel quickly spread through the lakes, rivers, and canals. They have gotten into the nearby power plants and water systems, clogging up the pipes and drains, which then have needed repair. Furthermore, the native clam population of this lake has become almost non-existent due to the negative impact of the zebra mussel.</p><p style=""><br /><span style="font-weight:bold; ">Source 2: “Overwhelming Plants” by Greg </span><span id="item_2454_TAG_2_BEGIN"><span style="font-weight:bold; ">Timmons</span></span></p><p style=""><br />Some of the most dangerous invasive species are plants. Invasive plant species can easily and quickly grow out of control within an <span id="item_2454_TAG_10_BEGIN">ecosystem</span>. Many invasive plant species are seed producers and the seeds can spread throughout the area and overwhelm the native plant species that exist there. Boating and fishing disturbances can also spread invasive plant species in waterways. When the invasive plant species takes over an area that was once occupied by a native plant species, an imbalance in the <span id="item_2454_TAG_11_BEGIN">ecosystem</span> can occur.</p><p style=""><br /><span style="font-weight:bold; ">Source 3: “How Are Invasive Species Introduced?” by Franklin </span><span id="item_2454_TAG_3_BEGIN"><span style="font-weight:bold; ">Black</span></span></p><p style=""><br />There are many ways that invasive species enter <span id="item_2454_TAG_13_BEGIN">ecosystems</span> they do not belong in. One way is through ballast water. Ballast water is the water that comes out of cargo ships as they load and unload their freight in harbors. On land, invasive insect species can be in wood products that are shipped throughout the world. Although people often do introduce invasive species into an <span id="item_2454_TAG_12_BEGIN">ecosystem</span>, there are things people can do to prevent the spread of invasive species. Planting plants that are native to the area helps promote species that are good for the <span id="item_2454_TAG_15_BEGIN">ecosystem</span>. In addition, reporting any non-native species to the proper authorities can help that species to not grow into a threat.</p><p style=""><br />The student wrote down some claims to use in his report. Look at the claims on the table. Determine if the information in the sources supports each claim. Click on the boxes that appropriately describe each claim. There may be more than one box selected for each claim and <span id="item_2454_TAG_4_BEGIN">source.</span></p>]]></stem>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Temeh</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Temh</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Temh</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Patel.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Patel</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Patel</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae3">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako systems</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystems</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystems</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Saint</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>St.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>St.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae8">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Timmons.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Timmons</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Timmons</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae9">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae10">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae11">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Black.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Black</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Black</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae12">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako systems</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystems</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystems</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_15_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>eako system</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>ecosystem</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>ecosystem</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2454_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>source. The table has 3 columns and 4 rows. From left to right the row headings reed: Source 1, Source 2, Source 3.
+The first row heading reeds: Claim 1: People are a major cause of furthering the growth of invasive species.
+The second row heading reeds: Claim 2: People can help prevent the spread of invasive species before they become too damaging to an eako system.
+The third row heading reeds: Claim 3: When invasive species are introduced into an eako system, the species that belong in that eako system are harmed.
+The fourth row heading reeds: Claim 4: Invasive species not only have a negative effect on the animals and plants in an environment, but they can also negatively affect the systems put in place for human use.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>source.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>source.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="eq" id="1930" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1930</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Practice Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (2); PracTest::MG11::S2::SP14::Braille (2); PracTest::MG11::S2::SP14::ESN (2);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>EQ</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc>8 [9.16]</desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>EquationEditor</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1074" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2370" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_1930_v10.qrx" />
+    <RendererSpec filename="Item_1930_v10.eax" />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style=""><span id="item_1930_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Consider<span class="its-tag" data-tag-ref="item_1930_TAG_7" data-tag-boundary="end"></span> this right triangle.</p><p style="">&#xA0;</p><p style=""><img id="item_1930_Stem:(d=png16malpha)" src="item_1930_v10_Stem_png16malpha.png" width="170" height="105" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1930_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Enter<span class="its-tag" data-tag-ref="item_1930_TAG_8" data-tag-boundary="end"></span> the measure of <span id="item_1930_TAG_2_BEGIN"><span style="font-style:italic; ">∠</span><span style="font-style:italic; ">CAB</span></span><span style="font-style:italic; "> </span><span style="font-style:normal; ">t</span>o the <span id="item_1930_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>nearest<span class="its-tag" data-tag-ref="item_1930_TAG_6" data-tag-boundary="end"></span> hundredth <span id="item_1930_TAG_3_BEGIN">degree</span>.</p><p style="color:#000000; ">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar: &#xA0;</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">53.13</p><p style="">&#xA0;</p></li></ul><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">The student enters the correct angle measure or its equivalent. (1 point).</p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1930_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_Stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>Clockwise from the top left the triangle is labeled, A., 15, B, 12, C;</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, angle C A B</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>∠CAB</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>∠CAB</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>degree.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>degree</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="10">
+      <stem><![CDATA[<p style="">Examina este triángulo rectángulo.</p><p style="">&#xA0;</p><p style=""><img id="item_1930_graphics1" src="item_1930_v10_graphics1_png256.png" width="228" height="141" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; ">Escribe la medida del <span style="font-style:italic; ">∠</span><span style="font-style:italic; ">CAB</span><span style="font-style:normal; "> al centésimo de grado más cercano</span>.</p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1930_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Consider<span class="its-tag" data-tag-ref="item_1930_TAG_7" data-tag-boundary="end"></span> this right triangle.</p><p style="">&#xA0;</p><p style=""><img id="item_1930_Stem:(d=png16malpha)" src="item_1930_v10_Stem_png16malpha.png" width="170" height="105" style="vertical-align:baseline;" /></p><p style="color:#000000; ">&#xA0;</p><p style="color:#000000; "><span id="item_1930_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>Enter<span class="its-tag" data-tag-ref="item_1930_TAG_8" data-tag-boundary="end"></span> the measure of <span id="item_1930_TAG_2_BEGIN"><span style="font-style:italic; ">∠</span><span style="font-style:italic; ">CAB</span></span><span style="font-style:italic; "> </span><span style="font-style:normal; ">t</span>o the <span id="item_1930_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>nearest<span class="its-tag" data-tag-ref="item_1930_TAG_6" data-tag-boundary="end"></span> hundredth <span id="item_1930_TAG_3_BEGIN">degree</span>.</p><p style="color:#000000; ">&#xA0;</p>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_Stem:(d=png16malpha)" type="Graphic" subtype="Generic">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioText>Clockwise from the top left the triangle is labeled, A., 15, B, 12, C;</audioText>
+              </readAloud>
+              <brailleText />
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, angle C A B</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>∠CAB</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>∠CAB</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1930_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>degree.  The equation tool has two sections. In the left section, from left to right and top to bottom the equation tool reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.  In the right section mathematical functions are shown.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>degree</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

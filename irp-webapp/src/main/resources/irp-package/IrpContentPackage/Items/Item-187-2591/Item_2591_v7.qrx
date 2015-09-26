@@ -1,0 +1,52 @@
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd" identifier="item_95975" title="Item 95975" adaptive="false" timeDependent="false" xmlns:apip="http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0">
+  <responseDeclaration identifier="1" baseType="identifier" cardinality="multiple" />
+  <outcomeDeclaration identifier="SCORE" baseType="float" cardinality="single">
+    <defaultValue>
+      <value>0</value>
+    </defaultValue>
+  </outcomeDeclaration>
+  <outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier" />
+  <itemBody />
+  <responseProcessing>
+    <responseCondition>
+      <responseIf>
+        <isNull>
+          <variable identifier="1" />
+        </isNull>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">0</baseValue>
+        </setOutcomeValue>
+      </responseIf>
+      <responseElseIf>
+        <and>
+          <equal toleranceMode="exact">
+            <baseValue baseType="integer">3</baseValue>
+            <containerSize>
+              <variable identifier="1" />
+            </containerSize>
+          </equal>
+          <contains>
+            <multiple>
+              <baseValue baseType="identifier">1</baseValue>
+              <baseValue baseType="identifier">7</baseValue>
+              <baseValue baseType="identifier">9</baseValue>
+            </multiple>
+            <variable identifier="1" />
+          </contains>
+        </and>
+        <setOutcomeValue identifier="SCORE">
+          <baseValue baseType="float">1</baseValue>
+        </setOutcomeValue>
+      </responseElseIf>
+    </responseCondition>
+  </responseProcessing>
+  <modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="solution">
+    <p id="Item95975_ba322e2f-8584-407e-943f-961114f071cb">A. CORRECT. The student understands that the boys do not know each other at first but once they meet in competitive arenas, they grow to respect and like each other. Support: T7, T8.</p>
+    <p id="Item95975_9a77a433-51a3-4daa-b2a0-c7b597a014fa">B. The student may choose this because he infers that competition makes the boys bitter.</p>
+    <p id="Item95975_5e53e696-d91a-4feb-b2bf-7e25df3a3c31">C. The student may choose this if he does not read past the first paragraph.</p>
+    <p id="Item95975_ba46b6f9-cc54-4ee2-b6b5-1502f019b6e7">D. The student may choose this if he does not read past the first paragraph and guesses how the story will progress.</p>
+    <p id="Item95975_23618484-b435-4c03-b546-498496a2fc20">T7:[No matter whose team won, Scott and Brad always shook hands and  complimented each other on the way they played.]</p>
+    <p id="Item95975_aa035e2e-cf16-4a89-a469-1fc214451a8c">T9:[ But the boys grew up admiring each others' athletic skills.]</p>
+  </modalFeedback>
+  <apip:apipAccessibility />
+</assessmentItem>

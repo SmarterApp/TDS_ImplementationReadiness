@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="1998" version="10" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1998</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Pilot Test 2014</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG11::S2::SP14 (6); PracTest::MG11::S2::SP14::Braille (6); PracTest::MG11::S2::SP14::ESN (6);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>11</val>
+        <desc>11</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2378" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style=""><span id="item_1998_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Which<span class="its-tag" data-tag-ref="item_1998_TAG_4" data-tag-boundary="end"></span> <span id="item_1998_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>statement<span class="its-tag" data-tag-ref="item_1998_TAG_5" data-tag-boundary="end"></span> is correct <span id="item_1998_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>about<span class="its-tag" data-tag-ref="item_1998_TAG_6" data-tag-boundary="end"></span> the values of <span style="font-style:italic; ">x </span><span style="font-style:normal; ">and</span><span style="font-style:italic; "> y </span><span style="font-style:normal; ">in the following equation?</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1998_Object1" style="vertical-align:middle;" src="item_1998_v10_Object1_png16malpha.png" width="167" height="18" /></p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">The equation is true for all ordered pairs <span id="item_1998_TAG_2_BEGIN">(<span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">)</span></span><span style="font-style:normal; ">.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">There are no <span id="item_1998_TAG_3_BEGIN"><span style="font-style:normal; ">(</span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">)</span></span><span style="font-style:normal; "> pairs for which this equation is true.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">For each value of </span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, there is one and only one value of </span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> that makes the equation true.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">Correct</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">For each value of </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">, there is one and only one value of </span><span style="font-style:italic; ">x</span><span style="font-style:normal; "> that makes the equation true.</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1998_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>7 x plus x y equals x y plus 21.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, x, comma, why.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, x, comma, why,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="10">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style=""><span style="font-style:normal; ">¿Qué afirmación es correcta acerca de los valores de </span><span style="font-style:italic; ">x</span><span style="font-style:normal; "> y de </span><span style="font-style:italic; ">y </span><span style="font-style:normal; ">en la siguiente ecuación?</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1998_Object2" style="vertical-align:middle;" src="item_1998_v10_Object2_png16malpha.png" width="167" height="18" /></p><p class="languagedivider">&#xA0;</p><p style=""><span id="item_1998_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>Which<span class="its-tag" data-tag-ref="item_1998_TAG_4" data-tag-boundary="end"></span> <span id="item_1998_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>statement<span class="its-tag" data-tag-ref="item_1998_TAG_5" data-tag-boundary="end"></span> is correct <span id="item_1998_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>about<span class="its-tag" data-tag-ref="item_1998_TAG_6" data-tag-boundary="end"></span> the values of <span style="font-style:italic; ">x </span><span style="font-style:normal; ">and</span><span style="font-style:italic; "> y </span><span style="font-style:normal; ">in the following equation?</span></p><p style="font-style:normal; ">&#xA0;</p><p style="font-style:normal; "><img id="item_1998_Object1" style="vertical-align:middle;" src="item_1998_v10_Object1_png16malpha.png" width="167" height="18" /></p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">La ecuación es verdadera para todos los pares ordenados (</span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">).</span></p><p class="languagedivider">&#xA0;</p><p style="">The equation is true for all ordered pairs <span id="item_1998_TAG_2_BEGIN">(<span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">)</span></span><span style="font-style:normal; ">.</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">No hay pares (</span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">) &#xA0;para los que esta ecuación sea verdadera.</span></p><p class="languagedivider">&#xA0;</p><p style="">There are no <span id="item_1998_TAG_3_BEGIN"><span style="font-style:normal; ">(</span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">)</span></span><span style="font-style:normal; "> pairs for which this equation is true.</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">Para cada valor de </span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, hay un valor y solo un valor de </span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> que hace que esta ecuación sea verdadera.</span></p><p class="languagedivider">&#xA0;</p><p style=""><span style="font-style:normal; ">For each value of </span><span style="font-style:italic; ">x</span><span style="font-style:normal; ">, there is one and only one value of </span><span style="font-style:italic; ">y</span><span style="font-style:normal; "> that makes the equation true.</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style=""><span style="font-style:normal; ">Para cada valor de </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">, hay un valor y solo un valor de </span><span style="font-style:italic; ">x</span><span style="font-style:normal; "> que hace que esta ecuación sea verdadera.</span></p><p class="languagedivider">&#xA0;</p><p style=""><span style="font-style:normal; ">For each value of </span><span style="font-style:italic; ">y</span><span style="font-style:normal; ">, there is one and only one value of </span><span style="font-style:italic; ">x</span><span style="font-style:normal; "> that makes the equation true.</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>7 x plus x y equals x y plus 21.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth" />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, x, comma, why.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae6">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, x, comma, why,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae7">
+            <contentLinkInfo itsLinkIdentifierRef="item_1998_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>7 x    plus     xy    is equal to     xy    plus     21</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>7 x    plus     xy    is equal to     xy    plus     21</brailleTextString>
+                <brailleCode type="Nemeth">#7x+xy .k xy+21
+</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

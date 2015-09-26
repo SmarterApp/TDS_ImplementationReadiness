@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="ms" id="1883" version="19" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>1883</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>cloned from 1158</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG7::S1::SP14 (7); PracTest::MG7::S1::SP14::Braille (7); PracTest::MG7::S1::SP14::ESN (7); PracTest::MG7::S1::SP15 (7); PracTest::MG7::S1::SP15::Braille (7); PracTest::MG7::S1::SP15::ESN (7);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val>IRP::MathG7NoCalc::CAT::SP15 (5);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D,E</val>
+        <desc>,</desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical MS</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices">
+        <name>Item:Max Choices</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1073" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2313" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="19">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">If a student chooses E,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option F</name>
+          <val><![CDATA[<p style="">If a student chooses F,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">George <span id="item_1883_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>earns<span class="its-tag" data-tag-ref="item_1883_TAG_19" data-tag-boundary="end"></span> <span id="item_1883_TAG_17_BEGIN">$455</span> <span id="item_1883_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>per<span class="its-tag" data-tag-ref="item_1883_TAG_32" data-tag-boundary="end"></span> week. George <span id="item_1883_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>receives<span class="its-tag" data-tag-ref="item_1883_TAG_21" data-tag-boundary="end"></span> a <span id="item_1883_TAG_18_BEGIN">20%</span> <span id="item_1883_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>raise<span class="its-tag" data-tag-ref="item_1883_TAG_22" data-tag-boundary="end"></span>. </p><p style="">&#xA0;</p><p style="">How can George <span id="item_1883_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>calculate<span class="its-tag" data-tag-ref="item_1883_TAG_23" data-tag-boundary="end"></span> his new weekly <span id="item_1883_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>pay rate<span class="its-tag" data-tag-ref="item_1883_TAG_30" data-tag-boundary="end"></span>?</p><p style="">&#xA0;</p><p style=""><span id="item_1883_TAG_25" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>Select<span class="its-tag" data-tag-ref="item_1883_TAG_25" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_1883_TAG_26" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span><span style="font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_1883_TAG_26" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_1883_TAG_27" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>calculations<span class="its-tag" data-tag-ref="item_1883_TAG_27" data-tag-boundary="end"></span> that will result in George's new weekly <span id="item_1883_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>pay rate<span class="its-tag" data-tag-ref="item_1883_TAG_31" data-tag-boundary="end"></span>. </p>]]></stem>
+      <optionlist minChoices="1" maxChoices="">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">divide <span id="item_1883_TAG_5_BEGIN">$455</span> by <span id="item_1883_TAG_6_BEGIN">0.20</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">divide <span id="item_1883_TAG_7_BEGIN">$455</span> by <span id="item_1883_TAG_8_BEGIN">1.20</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">multiply <span id="item_1883_TAG_9_BEGIN">$455</span> by <span id="item_1883_TAG_10_BEGIN">0.20</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">multiply <span id="item_1883_TAG_11_BEGIN">$455</span> by <span id="item_1883_TAG_12_BEGIN">1.20</span></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style="">solve for <span id="item_1883_TAG_13_BEGIN"><span style="font-style:italic; ">x</span>:</span> &#xA0;<img id="item_1883_Object1" style="vertical-align:middle;" src="item_1883_v19_Object1_png16malpha.png" width="83" height="36" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option F</name>
+          <val><![CDATA[<p style="">solve for <span id="item_1883_TAG_14_BEGIN"><span style="font-style:italic; ">x</span>:</span> &#xA0;&#xA0;<img id="item_1883_Object2" style="vertical-align:middle;" src="item_1883_v19_Object2_png16malpha.png" width="83" height="36" /></p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_1883_ASL_STEM.MP4" />
+      </attachmentlist>
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>4 hundred 55 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>20 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae13">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$455</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$455</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>zero point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>0.20</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>0.20</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$455</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$455</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>zero point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x over four hundred fifty five, equals, one hundred twenty over one hundred</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction x  over 4 5 5 ,  UNKNOWN  the fraction 1 2 0  over 1 0 0 ,</brailleTextString>
+                <brailleCode type="Nemeth">?x/455#  .k ?120/100#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x over 4 hundred 55 equals 1 hundred 20 over 100.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate></textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae25">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>four hundred fifty five over x, equals, twenty over one hundred</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 4 5 5  over x ,  UNKNOWN  the fraction 20 over 1 0 0 ,</brailleTextString>
+                <brailleCode type="Nemeth">?455/x#  .k ?20/100#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae26">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>4 hundred 55 over x equals 20 over 100.</audioShortDesc>
+                <audioLongDesc></audioLongDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString></brailleTextString>
+                <brailleCode type="Nemeth"></brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="18">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">If a student chooses A,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">If a student chooses B,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">If a student chooses C,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">If a student chooses D,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option E</name>
+          <val><![CDATA[<p style="">If a student chooses E,</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option F</name>
+          <val><![CDATA[<p style="">If a student chooses F,</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">George gana $455 por semana. George recibe 20% de aumento. </p><p style="">&#xA0;</p><p style="">¿Cómo puede George calcular su nuevo salario semanal?</p><p style="">&#xA0;</p><p style="">Selecciona<span style="font-weight:bold; "> todos</span><span style="font-weight:normal; "> los cálculos que dan como resultado el nuevo salario semanal de </span>George.</p><p class="languagedivider">&#xA0;</p><p style="">George <span id="item_1883_TAG_19" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>earns<span class="its-tag" data-tag-ref="item_1883_TAG_19" data-tag-boundary="end"></span> <span id="item_1883_TAG_17_BEGIN">$455</span> <span id="item_1883_TAG_32" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>per<span class="its-tag" data-tag-ref="item_1883_TAG_32" data-tag-boundary="end"></span> week. George <span id="item_1883_TAG_21" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>receives<span class="its-tag" data-tag-ref="item_1883_TAG_21" data-tag-boundary="end"></span> a <span id="item_1883_TAG_18_BEGIN">20%</span> <span id="item_1883_TAG_22" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>raise<span class="its-tag" data-tag-ref="item_1883_TAG_22" data-tag-boundary="end"></span>. </p><p style="">&#xA0;</p><p style="">How can George <span id="item_1883_TAG_23" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>calculate<span class="its-tag" data-tag-ref="item_1883_TAG_23" data-tag-boundary="end"></span> his new weekly <span id="item_1883_TAG_30" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>pay rate<span class="its-tag" data-tag-ref="item_1883_TAG_30" data-tag-boundary="end"></span>?</p><p style="">&#xA0;</p><p style=""><span id="item_1883_TAG_25" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>Select<span class="its-tag" data-tag-ref="item_1883_TAG_25" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_1883_TAG_26" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span><span style="font-weight:bold; ">all</span><span class="its-tag" data-tag-ref="item_1883_TAG_26" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span><span id="item_1883_TAG_27" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>calculations<span class="its-tag" data-tag-ref="item_1883_TAG_27" data-tag-boundary="end"></span> that <span id="item_1883_TAG_33" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>will result<span class="its-tag" data-tag-ref="item_1883_TAG_33" data-tag-boundary="end"></span> in George's new weekly <span id="item_1883_TAG_31" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>pay rate<span class="its-tag" data-tag-ref="item_1883_TAG_31" data-tag-boundary="end"></span>. </p>]]></stem>
+      <optionlist minChoices="1" maxChoices="0">
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">dividir $455 entre 0.20</p><p class="languagedivider">&#xA0;</p><p style="">divide <span id="item_1883_TAG_5_BEGIN">$455</span> by <span id="item_1883_TAG_6_BEGIN">0.20</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">dividir $455 entre 1.20</p><p class="languagedivider">&#xA0;</p><p style="">divide <span id="item_1883_TAG_7_BEGIN">$455</span> by <span id="item_1883_TAG_8_BEGIN">1.20</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">multiplicar $455 por 0.20</p><p class="languagedivider">&#xA0;</p><p style="">multiply <span id="item_1883_TAG_9_BEGIN">$455</span> by <span id="item_1883_TAG_10_BEGIN">0.20</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">multiplicar $455 por 1.20</p><p class="languagedivider">&#xA0;</p><p style="">multiply <span id="item_1883_TAG_11_BEGIN">$455</span> by <span id="item_1883_TAG_12_BEGIN">1.20</span></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option E</name>
+          <val><![CDATA[<p style="">resolver para <span style="font-style:italic; ">x</span>: <img id="item_1883_Object3" style="vertical-align:middle;" src="item_1883_v18_Object3_png16malpha.png" width="83" height="36" /></p><p class="languagedivider">&#xA0;</p><p style="">solve for <span id="item_1883_TAG_13_BEGIN"><span style="font-style:italic; ">x</span>:</span> &#xA0;<img id="item_1883_Object1" style="vertical-align:middle;" src="item_1883_v18_Object1_png16malpha.png" width="83" height="36" /></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option F</name>
+          <val><![CDATA[<p style="">resolver para <span style="font-style:italic; ">x</span>: <img id="item_1883_Object4" style="vertical-align:middle;" src="item_1883_v18_Object4_png16malpha.png" width="83" height="36" /></p><p class="languagedivider">&#xA0;</p><p style="">solve for <span id="item_1883_TAG_14_BEGIN"><span style="font-style:italic; ">x</span>:</span> &#xA0;&#xA0;<img id="item_1883_Object2" style="vertical-align:middle;" src="item_1883_v18_Object2_png16malpha.png" width="83" height="36" /></p><p class="optiondivider">&#xA0;</p>]]></val>
+          <feedback><![CDATA[<p style="">&#xA0;</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist />
+      <constraints />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_17_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>4 hundred 55 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_18_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>20 percent</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae14">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_5_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$455</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$455</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_6_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>zero point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>0.20</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>0.20</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae16">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_7_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae17">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_8_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae18">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_9_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$455</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$455</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae19">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_10_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>zero point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_11_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>four hundred fifty five dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_12_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>one point two zero</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_13_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae23">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x over four hundred fifty five, equals, one hundred twenty over one hundred</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction x  over 4 5 5 ,  UNKNOWN  the fraction 1 2 0  over 1 0 0 ,</brailleTextString>
+                <brailleCode type="Nemeth">?x/455#  .k ?120/100#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae24">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_Object1" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>x over 4 hundred 55 equals 1 hundred 20 over 100.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth" />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae25">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_TAG_14_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>x,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae26">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>four hundred fifty five over x, equals, twenty over one hundred</audioShortDesc>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>the fraction 4 5 5  over x ,  UNKNOWN  the fraction 20 over 1 0 0 ,</brailleTextString>
+                <brailleCode type="Nemeth">?455/x#  .k ?20/100#</brailleCode>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae27">
+            <contentLinkInfo itsLinkIdentifierRef="item_1883_Object2" type="Equation">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <audioShortDesc>4 hundred 55 over x equals 20 over 100.</audioShortDesc>
+                <audioLongDesc />
+              </readAloud>
+              <brailleText>
+                <brailleTextString />
+                <brailleCode type="Nemeth" />
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

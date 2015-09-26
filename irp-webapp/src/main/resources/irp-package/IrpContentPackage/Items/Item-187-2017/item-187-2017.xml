@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="gi" id="2017" version="20" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2017</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>MATH</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>Clone of Pilot 47230</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::MG3::S1::SP14 (9); PracTest::MG3::S1::SP14::ESN (9);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>GI</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>3</val>
+        <desc>3</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>GI</val>
+        <desc>GI [2]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>22</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Grid</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>2 pts.</val>
+        <desc>2 Points</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1075" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2175" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <MachineRubric filename="Item_2017_v20.qrx" />
+    <RendererSpec filename="Item_2017_v20.gax" />
+    <content language="ENU" version="2.0" approvedVersion="20">
+      <rationaleoptlist />
+      <stem><![CDATA[<p style="">Christy has <span id="item_2017_TAG_1_BEGIN">$60</span> <span id="item_2017_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>to spend<span class="its-tag" data-tag-ref="item_2017_TAG_5" data-tag-boundary="end"></span> on <span id="item_2017_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>plants<span class="its-tag" data-tag-ref="item_2017_TAG_13" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style="">She buys a peach tree for <span id="item_2017_TAG_2_BEGIN">$23</span> and a plum tree for <span id="item_2017_TAG_3_BEGIN">$19</span>.</p><p style="">&#xA0;</p><p style="">She wants to buy <span id="item_2017_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>one more<span class="its-tag" data-tag-ref="item_2017_TAG_6" data-tag-boundary="end"></span> plant.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_2017_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>Drag<span class="its-tag" data-tag-ref="item_2017_TAG_7" data-tag-boundary="end"></span> the numbers to the boxes and the <span id="item_2017_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>symbols<span class="its-tag" data-tag-ref="item_2017_TAG_14" data-tag-boundary="end"></span> to the circles to <span id="item_2017_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>create<span class="its-tag" data-tag-ref="item_2017_TAG_15" data-tag-boundary="end"></span> an equation to show how much money Christy <span id="item_2017_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>has left<span class="its-tag" data-tag-ref="item_2017_TAG_8" data-tag-boundary="end"></span> <span id="item_2017_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>to spend<span class="its-tag" data-tag-ref="item_2017_TAG_9" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p></li><li><p style=""><span id="item_2017_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Select<span class="its-tag" data-tag-ref="item_2017_TAG_10" data-tag-boundary="end"></span> one plant she <span id="item_2017_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span style="font-weight:bold; ">could</span><span class="its-tag" data-tag-ref="item_2017_TAG_11" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span>buy with the money she <span id="item_2017_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>has <span id="item_2017_TAG_4_BEGIN">left.</span><span class="its-tag" data-tag-ref="item_2017_TAG_12" data-tag-boundary="end"></span></p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="">
+          <name>
+        Rubric </name>
+          <val><![CDATA[<p style="">Exemplar:</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">60 - 23 – 19 = 18 or 60 – 19 – 23 = 18</p></li><li><p style="">Grapevines or apple tree selected </p></li></ul><p style="">&#xA0;</p><p style="">For this item, a full-credit response includes</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Student correctly completes the equation and chooses one of the correct plants. </p></li></ul><p style="">&#xA0;</p><p style="">Partial Credit: </p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span style="background-color:transparent; ">Student correctly completes the equation or </span><span style="background-color:transparent; ">chooses one of the correct plants.</span></p></li></ul>]]></val>
+        </rubric>
+        <samplelist maxval="" minval="" />
+      </rubriclist>
+      <attachmentlist>
+        <attachment pass="true" id="aslfile1" type="ASL" subtype="STEM" file="item_2017_ASL_STEM.MP4" />
+      </attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>60 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$60</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$60</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>23 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$23</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$23</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>19 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$19</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$19</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>left. This is an interactive image. The blue button above the image reeds, delete. From top to bottom the rectangle along the left side of the image reeds, plus, minus, times, divided by, 18, 19, 23, 37, 41, 60, 102. From top to bottom the main answer space reeds, grape vines 16 dollars, apple tree 18 dollars, pear tree 20 dollars, cherry tree 22 dollars.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>left.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>left.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+    <content language="ESN" version="2.0" approvedVersion="20">
+      <stem><![CDATA[<p style="">Christy tiene $60 para gastar en plantas.</p><p style="">&#xA0;</p><p style="">Ella compra un árbol de durazno por $23 y un ciruelo por $19.</p><p style="">&#xA0;</p><p style="">Ella quiere comprar una planta más.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style="">Arrastra los números a las casillas y los signos a los círculos para crear una ecuación que muestre cuánto dinero le queda a Christy para gastar.</p><p style="">&#xA0;</p></li><li><p style="">Selecciona una planta que ella <span style="font-weight:bold; ">podría</span><span style="font-weight:normal; "> comprar con el dinero que le queda</span>.</p></li></ul><p class="languagedivider">&#xA0;</p><p style="">Christy has <span id="item_2017_TAG_1_BEGIN">$60</span> <span id="item_2017_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>to spend<span class="its-tag" data-tag-ref="item_2017_TAG_5" data-tag-boundary="end"></span> on <span id="item_2017_TAG_13" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="9"></span>plants<span class="its-tag" data-tag-ref="item_2017_TAG_13" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p><p style="">She buys a peach tree for <span id="item_2017_TAG_2_BEGIN">$23</span> and a plum tree for <span id="item_2017_TAG_3_BEGIN">$19</span>.</p><p style="">&#xA0;</p><p style="">She wants to buy <span id="item_2017_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>one more<span class="its-tag" data-tag-ref="item_2017_TAG_6" data-tag-boundary="end"></span> plant.</p><p style="">&#xA0;</p><ul style="padding-left:1.5000em; "><li><p style=""><span id="item_2017_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>Drag<span class="its-tag" data-tag-ref="item_2017_TAG_7" data-tag-boundary="end"></span> the numbers to the boxes and the <span id="item_2017_TAG_14" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="10"></span>symbols<span class="its-tag" data-tag-ref="item_2017_TAG_14" data-tag-boundary="end"></span> to the circles to <span id="item_2017_TAG_15" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="11"></span>create<span class="its-tag" data-tag-ref="item_2017_TAG_15" data-tag-boundary="end"></span> an equation to show how much money Christy <span id="item_2017_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>has left<span class="its-tag" data-tag-ref="item_2017_TAG_8" data-tag-boundary="end"></span> <span id="item_2017_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span>to spend<span class="its-tag" data-tag-ref="item_2017_TAG_9" data-tag-boundary="end"></span>.</p><p style="">&#xA0;</p></li><li><p style=""><span id="item_2017_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>Select<span class="its-tag" data-tag-ref="item_2017_TAG_10" data-tag-boundary="end"></span> one plant she <span id="item_2017_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span><span style="font-weight:bold; ">could</span><span class="its-tag" data-tag-ref="item_2017_TAG_11" data-tag-boundary="end"></span><span style="font-weight:bold; "> </span>buy with the money she <span id="item_2017_TAG_12" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>has <span id="item_2017_TAG_4_BEGIN">left.</span><span class="its-tag" data-tag-ref="item_2017_TAG_12" data-tag-boundary="end"></span></p></li></ul>]]></stem>
+      <rubriclist>
+        <rubric scorepoint="_Spanish">
+          <name>
+        Rubric _Spanish</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rubric>
+        <samplelist maxval="_Spanish" minval="_Spanish" />
+      </rubriclist>
+      <attachmentlist />
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>60 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$60</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$60</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>23 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$23</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$23</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae5">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>19 dollars</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>$19</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>$19</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae15">
+            <contentLinkInfo itsLinkIdentifierRef="item_2017_TAG_4_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>left. This is an interactive image. The blue button above the image reeds, delete. From top to bottom the rectangle along the left side of the image reeds, plus, minus, times, divided by, 18, 19, 23, 37, 41, 60, 102. From top to bottom the main answer space reeds, grape vines 16 dollars, apple tree 18 dollars, pear tree 20 dollars, cherry tree 22 dollars.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>left.</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>left.</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>

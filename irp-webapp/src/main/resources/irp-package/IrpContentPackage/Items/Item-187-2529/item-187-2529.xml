@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<itemrelease version="2.0">
+  <item format="mc" id="2529" version="2" bankkey="187">
+    <attriblist>
+      <attrib attid="itm_item_id">
+        <name>Item: ITS ID</name>
+        <val>2529</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_subject">
+        <name>Item: Subject</name>
+        <val>ELA</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_item_desc">
+        <name>Item: Item Description</name>
+        <val>55648 - SBAC_Field</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_FTUse">
+        <name>Fieldtest Use</name>
+        <val>PracTest::ELAG7::SP14 (16); PracTest::ELAG7::SP14::Braille (16);</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_OPUse">
+        <name>Operational Use</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Answer Key">
+        <name>Item: Answer Key</name>
+        <val>D</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Grade">
+        <name>Item: Grade</name>
+        <val>7</val>
+        <desc>7</desc>
+      </attrib>
+      <attrib attid="itm_att_Item Format">
+        <name>Item: Item Format</name>
+        <val>MC</val>
+        <desc>MC4 [1]</desc>
+      </attrib>
+      <attrib attid="itm_att_Page Layout">
+        <name>Item: Page Layout</name>
+        <val>8</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Response Type">
+        <name>Item: Response Type</name>
+        <val>Vertical</val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Item Point">
+        <name>Item: Item Point</name>
+        <val>1 pt.</val>
+        <desc>1 Point</desc>
+      </attrib>
+    </attriblist>
+    <tutorial id="1072" bankkey="187" />
+    <resourceslist>
+      <resource type="wordList" id="2725" index="1" bankkey="187" />
+    </resourceslist>
+    <statistic />
+    <content language="ENU" version="2.0" approvedVersion="2">
+      <concept>
+        <name>What Knowledge Do Students Need to Understand This Concept?</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </concept>
+      <es>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </es>
+      <himi>
+        <name>Explanation of Correct Answer</name>
+        <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+      </himi>
+      <rationaleoptlist>
+        <rationale>
+          <name>Rationale for Option A</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option B</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option C</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+        <rationale>
+          <name>Rationale for Option D</name>
+          <val><![CDATA[<p style="">&#xA0;</p>]]></val>
+        </rationale>
+      </rationaleoptlist>
+      <stem><![CDATA[<p style="">A student is writing a story for class about camping. <span id="item_2529_TAG_2_BEGIN">Read</span> the draft of the story and complete the task that follows.</p><p style=""><br /><span style="font-weight:bold; ">Wilderness </span><span id="item_2529_TAG_1_BEGIN"><span style="font-weight:bold; ">Getaway</span></span><span style="font-weight:bold; "><br /></span></p><p style=""><br />Alexis and Simon would be leaving on a camping trip with family and friends later in the day. Simon did not know what to expect because he had never <span id="item_2529_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>pitched a tent<span class="its-tag" data-tag-ref="item_2529_TAG_4" data-tag-boundary="end"></span> or stayed in one overnight. Alexis, however, had been camping many times and loved waking up with the sun and breathing the fresh morning air. She showed Simon pictures of roasting marshmallows and hot dogs over a large campfire. Alexis and Simon woke before dawn to help pack the camping supplies—a tent, hot dogs, graham crackers, chocolate, marshmallows, and sleeping bags.</p><p style=""><br />Alexis, Simon, and their family and friends departed for the camping grounds at a nearby park. When they arrived, they searched for the perfect place to pitch the tent. Simon enjoyed the beautiful scenery. He was positive that he was going to have a great time at this getaway.</p><p style=""><br />Choose the <span id="item_2529_TAG_3_BEGIN"><span style="font-weight:bold; ">best</span></span> sentence to add descriptive detail to paragraph two.</p>]]></stem>
+      <optionlist>
+        <option>
+          <name>Option A</name>
+          <val><![CDATA[<p style="">Alexis and Simon gathered dry wood for the campfire.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. Although this sentence reveals that Alexis and Simon are near a wooded area, it does not include the best descriptive details.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option B</name>
+          <val><![CDATA[<p style="">Simon and Alexis pitched their tents in an area shaded by trees.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. Although this sentence does describe part of the setting, it does not include the best descriptive details.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option C</name>
+          <val><![CDATA[<p style="">Alexis enjoyed playing at the park and building a campfire to roast marshmallows.</p>]]></val>
+          <feedback><![CDATA[<p style="">INCORRECT. Although this sentence does state the place where Alexis is camping, it does not include the best descriptive details.</p>]]></feedback>
+        </option>
+        <option>
+          <name>Option D</name>
+          <val><![CDATA[<p style="">Simon felt the soft earth beneath his feet and noticed the glassy lake near the campsite.</p>]]></val>
+          <feedback><![CDATA[<p style="">CORRECT. This sentence uses the best descriptive language to describe the setting.</p>]]></feedback>
+        </option>
+      </optionlist>
+      <attachmentlist></attachmentlist>
+      <apipAccessibility>
+        <accessibilityInfo>
+          <accessElement identifier="ae1">
+            <contentLinkInfo itsLinkIdentifierRef="item_2529_TAG_2_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Reed</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Read</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Read</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae2">
+            <contentLinkInfo itsLinkIdentifierRef="item_2529_TAG_1_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>Getaway.</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Getaway</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>Getaway</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae4">
+            <contentLinkInfo itsLinkIdentifierRef="item_2529_TAG_3_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>, best,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>best</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>best</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+        </accessibilityInfo>
+      </apipAccessibility>
+    </content>
+  </item>
+</itemrelease>
