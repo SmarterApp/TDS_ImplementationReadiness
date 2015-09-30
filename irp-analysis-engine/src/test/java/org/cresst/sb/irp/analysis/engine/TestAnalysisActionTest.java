@@ -33,7 +33,7 @@ public class TestAnalysisActionTest {
         // Arrange
         final TDSReport.Test tdsTest = new TDSReport.Test();
         tdsTest.setName("test");
-        tdsTest.setGrade("09");
+        tdsTest.setGrade("9"); //if tdsTest.setGrade("09"); look at tdsFieldNameValue("09") in expectedCellCategory
 
         final TDSReport tdsReport = new TDSReport();
         tdsReport.setTest(tdsTest);
@@ -65,7 +65,7 @@ public class TestAnalysisActionTest {
 
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName("grade")
-                .tdsFieldNameValue("09")
+                .tdsFieldNameValue("9") // .tdsFieldNameValue("09") 
                 .tdsExpectedValue("10,11,12,13,09,PS")
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .isFieldEmpty(false)
@@ -323,6 +323,192 @@ public class TestAnalysisActionTest {
                 .correctDataType(false)
                 .correctValue(false)
                 .toCellCategory();
+
+        // Assert
+        assertEquals(expectedCellCategory, actualCellCategory);
+    }
+    
+    @Test
+    public void whenSubjectTestAcceptableValue_CellCategoryHasPassingValue(){
+        final TDSReport.Test tdsTest = new TDSReport.Test();
+        tdsTest.setName("test");
+        tdsTest.setSubject("math");
+        
+        final TDSReport tdsReport = new TDSReport();
+        tdsReport.setTest(tdsTest);
+    
+        final IndividualResponse individualResponse = new IndividualResponse();
+        individualResponse.setTDSReport(tdsReport);
+        
+        Testspecification testPackage = new Testspecification();
+        final Property testPackageProperty = new Property();
+        testPackageProperty.setName("subject");
+        testPackageProperty.setValue("math");
+        testPackage.getProperty().add(testPackageProperty);
+        
+        when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(testPackage);
+        
+        // Act
+        underTest.analyze(individualResponse);
+
+        // Search for the "subject" CellCategory
+        CellCategory actualCellCategory = null;
+        for (CellCategory cellCategory : individualResponse.getTestPropertiesCategory().getCellCategories()) {
+            if (cellCategory.getTdsFieldName().equalsIgnoreCase("subject")) {
+                actualCellCategory = cellCategory;
+                break;
+            }
+        }
+        
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .tdsFieldName("subject")
+	        .tdsFieldNameValue("math")
+	        .tdsExpectedValue("math")
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .isFieldEmpty(false)
+	        .acceptableValue(true)
+	        .correctDataType(true)
+	        .correctValue(true)
+	        .toCellCategory();
+
+        // Assert
+        assertEquals(expectedCellCategory, actualCellCategory);
+    }
+    
+    @Test
+    public void whenSubjectTestNotAcceptableValue_CellCategoryHasPassingValue(){
+        final TDSReport.Test tdsTest = new TDSReport.Test();
+        tdsTest.setName("test");
+        tdsTest.setSubject("mathX");
+        
+        final TDSReport tdsReport = new TDSReport();
+        tdsReport.setTest(tdsTest);
+    
+        final IndividualResponse individualResponse = new IndividualResponse();
+        individualResponse.setTDSReport(tdsReport);
+        
+        Testspecification testPackage = new Testspecification();
+        final Property testPackageProperty = new Property();
+        testPackageProperty.setName("subject");
+        testPackageProperty.setValue("math");
+        testPackage.getProperty().add(testPackageProperty);
+        
+        when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(testPackage);
+        
+        // Act
+        underTest.analyze(individualResponse);
+
+        // Search for the "subject" CellCategory
+        CellCategory actualCellCategory = null;
+        for (CellCategory cellCategory : individualResponse.getTestPropertiesCategory().getCellCategories()) {
+            if (cellCategory.getTdsFieldName().equalsIgnoreCase("subject")) {
+                actualCellCategory = cellCategory;
+                break;
+            }
+        }
+        
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .tdsFieldName("subject")
+	        .tdsFieldNameValue("mathX")
+	        .tdsExpectedValue("math")
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .isFieldEmpty(false)
+	        .acceptableValue(true)
+	        .correctDataType(true)
+	        .correctValue(false)
+	        .toCellCategory();
+
+        // Assert
+        assertEquals(expectedCellCategory, actualCellCategory);
+    }
+    
+    @Test
+    public void whenAssessmentVersionMatchValue(){
+        final TDSReport.Test tdsTest = new TDSReport.Test();
+        tdsTest.setName("test");
+        tdsTest.setAssessmentVersion("1234");
+        
+        final TDSReport tdsReport = new TDSReport();
+        tdsReport.setTest(tdsTest);
+    
+        final IndividualResponse individualResponse = new IndividualResponse();
+        individualResponse.setTDSReport(tdsReport);
+        
+        Testspecification testPackage = new Testspecification();
+        final Identifier identifier = new Identifier();
+        identifier.setVersion("1234");
+        testPackage.setIdentifier(identifier);
+    
+        when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(testPackage);
+        
+        // Act
+        underTest.analyze(individualResponse);
+        
+        // Search for the "assessmentVersion" CellCategory
+        CellCategory actualCellCategory = null;
+        for (CellCategory cellCategory : individualResponse.getTestPropertiesCategory().getCellCategories()) {
+            if (cellCategory.getTdsFieldName().equalsIgnoreCase("assessmentVersion")) {
+                actualCellCategory = cellCategory;
+                break;
+            }
+        }
+        
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .tdsFieldName("assessmentVersion")
+	        .tdsFieldNameValue("1234")
+	        .tdsExpectedValue("1234")
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .isFieldEmpty(false)
+	        .acceptableValue(true)
+	        .correctDataType(true)
+	        .correctValue(true)
+	        .toCellCategory();
+
+        // Assert
+        assertEquals(expectedCellCategory, actualCellCategory);
+    }
+    
+    @Test
+    public void whenAssessmentVersionNotMatchValue(){
+        final TDSReport.Test tdsTest = new TDSReport.Test();
+        tdsTest.setName("test");
+        tdsTest.setAssessmentVersion("1234");
+        
+        final TDSReport tdsReport = new TDSReport();
+        tdsReport.setTest(tdsTest);
+    
+        final IndividualResponse individualResponse = new IndividualResponse();
+        individualResponse.setTDSReport(tdsReport);
+        
+        Testspecification testPackage = new Testspecification();
+        final Identifier identifier = new Identifier();
+        identifier.setVersion("2222");
+        testPackage.setIdentifier(identifier);
+    
+        when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(testPackage);
+        
+        // Act
+        underTest.analyze(individualResponse);
+        
+        // Search for the "assessmentVersion" CellCategory
+        CellCategory actualCellCategory = null;
+        for (CellCategory cellCategory : individualResponse.getTestPropertiesCategory().getCellCategories()) {
+            if (cellCategory.getTdsFieldName().equalsIgnoreCase("assessmentVersion")) {
+                actualCellCategory = cellCategory;
+                break;
+            }
+        }
+        
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .tdsFieldName("assessmentVersion")
+	        .tdsFieldNameValue("1234")
+	        .tdsExpectedValue("2222")
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .isFieldEmpty(false)
+	        .acceptableValue(true)
+	        .correctDataType(true)
+	        .correctValue(false)
+	        .toCellCategory();
 
         // Assert
         assertEquals(expectedCellCategory, actualCellCategory);

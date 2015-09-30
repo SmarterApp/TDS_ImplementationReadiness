@@ -121,8 +121,8 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	 *            Since checkObj has many different types of values this generic parameter was introduced to account for the
 	 *            differences.
 	 */
-	protected <U> void validate(Category category, T checkObj, U value, FieldCheckType.EnumFieldCheckType enumFieldCheckType,
-			E enumFieldName, O comparisonData) {
+	protected <U> void validate(Category category, T checkObj, U value,
+			FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, O comparisonData) {
 		final FieldCheckType fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
 
@@ -131,10 +131,11 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
 		cellCategory.setTdsExpectedValue(expectedValue(comparisonData, enumFieldName));
 		cellCategory.setFieldCheckType(fieldCheckType);
-		
+
 		category.addCellCategory(cellCategory);
 
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
+		System.out.println("cellCategory ==>" + cellCategory.toString());
 	}
 
 	/**
@@ -197,12 +198,13 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return itemService.getItemByIdentifier(identifier);
 	}
 
-	public Itemrelease.Item.Attriblist getItemAttriblistFromIRPitem(org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem) {
+	public Itemrelease.Item.Attriblist getItemAttriblistFromIRPitem(
+			org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem) {
 		return itemService.getItemAttriblistFromIRPitem(irpItem);
 	}
 
-	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(Itemrelease.Item.Attriblist attriblist,
-			String attid) {
+	public Itemrelease.Item.Attriblist.Attrib getItemAttribValueFromIRPitemAttriblist(
+			Itemrelease.Item.Attriblist attriblist, String attid) {
 		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
 	}
 
@@ -259,9 +261,11 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	public void processP_Positive32bit(String inputValue, FieldCheckType fieldCheckType) {
 		try {
-			int num = Integer.parseInt(inputValue);
-			if (num > 0) {
-				setPcorrect(fieldCheckType);
+			if (inputValue != null) {
+				int num = Integer.parseInt(inputValue);
+				if (num >= 0) {
+					setPcorrect(fieldCheckType);
+				}
 			}
 		} catch (NumberFormatException e) {
 			logger.info("Number not an integer: " + inputValue);
