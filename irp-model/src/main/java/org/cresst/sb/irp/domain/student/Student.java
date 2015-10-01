@@ -18,6 +18,7 @@ public class Student implements Serializable {
 	private String FirstName;
 	private String MiddleName;
 	private String Birthdate;
+	private String StudentIdentifier;
 	private long SSID;
 	private String AlternateSSID;
 	private String GradeLevelWhenAssessed;
@@ -101,6 +102,14 @@ public class Student implements Serializable {
 
 	public void setBirthdate(String birthdate) {
 		Birthdate = birthdate;
+	}
+	
+	public String getStudentIdentifier() {
+		return StudentIdentifier;
+	}
+
+	public void setStudentIdentifier(String studentIdentifier) {
+		StudentIdentifier = studentIdentifier;
 	}
 	
 	public long getSSID() {
@@ -295,36 +304,23 @@ public class Student implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Student [StateAbbreviation=" + StateAbbreviation
-				+ ", ResponsibleDistrictIdentifier="
-				+ ResponsibleDistrictIdentifier
-				+ ", ResponsibleInstitutionIdentifier="
-				+ ResponsibleInstitutionIdentifier + ", LastOrSurname="
-				+ LastOrSurname + ", FirstName=" + FirstName + ", MiddleName="
-				+ MiddleName + ", Birthdate=" + Birthdate + ", SSID=" + SSID
-				+ ", AlternateSSID=" + AlternateSSID
-				+ ", GradeLevelWhenAssessed=" + GradeLevelWhenAssessed
-				+ ", Sex=" + Sex + ", HispanicOrLatinoEthnicity="
-				+ HispanicOrLatinoEthnicity + ", AmericanIndianOrAlaskaNative="
-				+ AmericanIndianOrAlaskaNative + ", Asian=" + Asian
-				+ ", BlackOrAfricanAmerican=" + BlackOrAfricanAmerican
-				+ ", White=" + White
-				+ ", NativeHawaiianOrOtherPacificIslander="
-				+ NativeHawaiianOrOtherPacificIslander
-				+ ", DemographicRaceTwoOrMoreRaces="
-				+ DemographicRaceTwoOrMoreRaces + ", IDEAIndicator="
-				+ IDEAIndicator + ", LEPStatus=" + LEPStatus
-				+ ", Section504Status=" + Section504Status
-				+ ", EconomicDisadvantageStatus=" + EconomicDisadvantageStatus
-				+ ", LanguageCode=" + LanguageCode
-				+ ", EnglishLanguageProficiencyLevel="
-				+ EnglishLanguageProficiencyLevel + ", MigrantStatus="
-				+ MigrantStatus + ", FirstEntryDateIntoUSSchool="
-				+ FirstEntryDateIntoUSSchool
-				+ ", LimitedEnglishProficiencyEntryDate="
-				+ LimitedEnglishProficiencyEntryDate + ", LEPExitDate="
-				+ LEPExitDate + ", TitleIIILanguageInstructionProgramType="
-				+ TitleIIILanguageInstructionProgramType
+		return "Student [StateAbbreviation=" + StateAbbreviation + ", ResponsibleDistrictIdentifier="
+				+ ResponsibleDistrictIdentifier + ", ResponsibleInstitutionIdentifier="
+				+ ResponsibleInstitutionIdentifier + ", LastOrSurname=" + LastOrSurname + ", FirstName=" + FirstName
+				+ ", MiddleName=" + MiddleName + ", Birthdate=" + Birthdate + ", StudentIdentifier="
+				+ StudentIdentifier + ", SSID=" + SSID + ", AlternateSSID=" + AlternateSSID
+				+ ", GradeLevelWhenAssessed=" + GradeLevelWhenAssessed + ", Sex=" + Sex
+				+ ", HispanicOrLatinoEthnicity=" + HispanicOrLatinoEthnicity + ", AmericanIndianOrAlaskaNative="
+				+ AmericanIndianOrAlaskaNative + ", Asian=" + Asian + ", BlackOrAfricanAmerican="
+				+ BlackOrAfricanAmerican + ", White=" + White + ", NativeHawaiianOrOtherPacificIslander="
+				+ NativeHawaiianOrOtherPacificIslander + ", DemographicRaceTwoOrMoreRaces="
+				+ DemographicRaceTwoOrMoreRaces + ", IDEAIndicator=" + IDEAIndicator + ", LEPStatus=" + LEPStatus
+				+ ", Section504Status=" + Section504Status + ", EconomicDisadvantageStatus="
+				+ EconomicDisadvantageStatus + ", LanguageCode=" + LanguageCode + ", EnglishLanguageProficiencyLevel="
+				+ EnglishLanguageProficiencyLevel + ", MigrantStatus=" + MigrantStatus
+				+ ", FirstEntryDateIntoUSSchool=" + FirstEntryDateIntoUSSchool
+				+ ", LimitedEnglishProficiencyEntryDate=" + LimitedEnglishProficiencyEntryDate + ", LEPExitDate="
+				+ LEPExitDate + ", TitleIIILanguageInstructionProgramType=" + TitleIIILanguageInstructionProgramType
 				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + "]";
 	}
 	

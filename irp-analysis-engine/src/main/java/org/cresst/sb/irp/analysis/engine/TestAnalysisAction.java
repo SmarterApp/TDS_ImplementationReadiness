@@ -42,7 +42,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			Test tdsTest = tdsReport.getTest();
 
 			String uniqueid = tdsTest.getName();
-			System.out.println("uniqueid -->" + uniqueid);
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 
 			// TODO need to check with Paul how to store info to report wrong test package id
@@ -53,8 +52,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 					break;
 				}
 			}
-
-			System.out.println("tdsTest.getHandScoreProject()===>" + tdsTest.getHandScoreProject());
 
 			TestPropertiesCategory testPropertiesCategory = new TestPropertiesCategory();
 			individualResponse.setTestPropertiesCategory(testPropertiesCategory);

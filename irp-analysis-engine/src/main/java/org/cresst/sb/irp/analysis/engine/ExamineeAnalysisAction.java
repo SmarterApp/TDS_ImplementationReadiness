@@ -17,7 +17,7 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAnalysisAction.class);
 
     static public enum EnumExamineeFieldName {
-        key
+        key, isDemo
     }
 
     @Override
@@ -40,6 +40,9 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
                 }
             }
             validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.PC, EnumExamineeFieldName.key, student);
+            //<xs:attribute name="isDemo" type="Bit"/> does not match isDemo data type in
+            //http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf 23 May 2015
+            validate(examineeCategory, examinee, examinee.getIsDemo(), EnumFieldCheckType.D, EnumExamineeFieldName.isDemo, student);
         }
     }
 
@@ -47,7 +50,7 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
     protected void checkP(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType) {
         switch (enumFieldName) {
             case key:
-                // <xs:attribute name="key" type="xs:long" />
+                // <xs:attribute name="key" type="xs:long" use="required"/>
                 processP_Positive64bit(examinee.getKey(), fieldCheckType);
                 break;
             default:

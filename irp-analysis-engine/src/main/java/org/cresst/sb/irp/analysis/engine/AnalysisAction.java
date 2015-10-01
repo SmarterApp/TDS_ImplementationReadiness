@@ -273,7 +273,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	public void processP_Positive64bit(Long inputValue, FieldCheckType fieldCheckType) {
-		if (inputValue != null && inputValue > 0) {
+		if (inputValue != null && inputValue >= 0) {
 			setPcorrect(fieldCheckType);
 		}
 	}

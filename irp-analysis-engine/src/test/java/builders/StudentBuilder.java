@@ -132,6 +132,11 @@ public class StudentBuilder {
         student.setSex(sex);
         return this;
     }
+    
+    public StudentBuilder studentIdentifier(String studentIdentifier){
+    	student.setStudentIdentifier(studentIdentifier);
+    	return this;
+    }
 
     public StudentBuilder titleIIILanguageInstructionProgramType(String titleIIILanguageInstructionProgramType) {
         student.setTitleIIILanguageInstructionProgramType(titleIIILanguageInstructionProgramType);

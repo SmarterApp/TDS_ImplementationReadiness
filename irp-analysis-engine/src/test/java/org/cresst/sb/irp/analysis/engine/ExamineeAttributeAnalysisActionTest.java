@@ -94,6 +94,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .primaryDisabilityType("None")
                 .section504Status("No")
                 .sex("M")
+                .studentIdentifier("9990001")
                 .titleIIILanguageInstructionProgramType("")
                 .white("No")
                 .toStudent());
@@ -108,7 +109,7 @@ public class ExamineeAttributeAnalysisActionTest {
             }
         }
 
-        assertThat(actualCellCategories.size(), is(26));
+        assertThat(actualCellCategories.size(), is(27));
     }
 
     /**
@@ -276,6 +277,11 @@ public class ExamineeAttributeAnalysisActionTest {
                         .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Sex.name())
                         .value("M")
                         .toExamineeAttribute(),
+                new ExamineeAttributeBuilder()
+                		.context(Context.FINAL)
+                		.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.StudentIdentifier.name()) 
+                		.value("9990001")
+                		.toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
                         .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.TitleIIILanguageInstructionProgramType.name())

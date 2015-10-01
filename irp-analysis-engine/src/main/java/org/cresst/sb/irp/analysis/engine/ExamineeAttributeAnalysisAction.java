@@ -29,7 +29,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
 
     static public enum EnumExamineeAttributeFieldName {
-        LastOrSurname, FirstName, MiddleName, Birthdate, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
+        LastOrSurname, FirstName, MiddleName, Birthdate, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
     }
 
     @Override
@@ -201,6 +201,9 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 			case Birthdate:
 				strReturn = student.getBirthdate();
 				break;
+			case StudentIdentifier:
+				strReturn = student.getStudentIdentifier();
+				break;	
 			case AlternateSSID:
 				strReturn = student.getAlternateSSID();
 				break;
