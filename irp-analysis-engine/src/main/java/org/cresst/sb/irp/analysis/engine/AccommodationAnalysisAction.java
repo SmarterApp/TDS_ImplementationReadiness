@@ -120,12 +120,32 @@ public class AccommodationAnalysisAction extends AnalysisAction<Accommodation, A
                                        Class<EnumAccommodationAcceptValues> class1, String parenthesesValue) {
         try {
             if (fieldValue != null && !fieldValue.trim().isEmpty()) {
-                if (EnumUtils.isValidEnum(class1, fieldValue) || fieldValue.toLowerCase().trim().equals(parenthesesValue.toLowerCase())) {
+            	if (searchEnum(class1, fieldValue) || fieldValue.equalsIgnoreCase(parenthesesValue)) {
+            		 setPcorrect(fieldCheckType);
+            	}
+                /*if (EnumUtils.isValidEnum(class1, fieldValue) || fieldValue.equalsIgnoreCase(parenthesesValue)) {
                     setPcorrect(fieldCheckType);
-                }
+                }*/
             }
         } catch (Exception e) {
             logger.error("processAcceptableEnum exception: ", e);
         }
     }
+    
+    /**
+     * ignoreCase and removes all whitespaces for search value e.g type="language" type="Print Size"
+     * @param enumeration
+     * @param fieldValue 
+     * @return 
+     */
+    private <T extends Enum<?>> boolean searchEnum(Class<T> enumeration, String search) {
+    	search = search.replaceAll("\\s+","");
+        for (T each : enumeration.getEnumConstants()) {
+            if (each.name().compareToIgnoreCase(search) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
