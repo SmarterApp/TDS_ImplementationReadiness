@@ -112,6 +112,44 @@ public class ExamineeAttributeAnalysisActionTest {
         assertThat(actualCellCategories.size(), is(27));
     }
 
+    @Test
+    public void whenBirthdateMatchesStudent_CorrectField() throws Exception {
+    	
+        // Arrange
+        final long SSID = 9999L;
+        final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
+                new ExamineeAttributeBuilder()
+                	.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Birthdate.name())
+                        .value("2002-10-15")
+                        .context(Context.FINAL)
+                        .toExamineeAttribute());
+        
+        final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
+
+        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
+        		.birthdate("2002-10-15")
+        		.toStudent());
+        
+        // Act
+        underTest.analyze(individualResponse);
+        
+        // Assert
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .correctValue(true)
+	        .correctDataType(true)
+	        .acceptableValue(true)
+	        .tdsExpectedValue("2002-10-15")
+	        .isFieldEmpty(false)
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Birthdate.name())
+	        .tdsFieldNameValue("2002-10-15")
+	        .toCellCategory();
+        
+        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+        
+    }
+    
     /**
      * Verifies that the fields of an Examinee are marked as having an error when the Examinee key doesn't match
      * an IRP student.
