@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd ">
 
-    <context:property-placeholder location="classpath:irp.properties"></context:property-placeholder>
+    <context:property-placeholder location="classpath:irp.properties"/>
 
     <mvc:resources mapping="/**" location="/" />
 
@@ -79,4 +79,5 @@
             </list>
         </property>
     </bean>
+
 </beans>

@@ -1,12 +1,15 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import AIR.Common.xml.XmlElement;
+import AIR.Common.xml.XmlReader;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.items.Itemrelease;
-import org.cresst.sb.irp.domain.manifest.Manifest;
-import org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource.Dependency;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
@@ -15,44 +18,24 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
 import org.cresst.sb.irp.domain.tinytablescoringengine.Table;
 import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell;
 import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector;
-import org.cresst.sb.irp.service.ManifestService;
+import org.cresst.sb.irp.itemscoring.rubric.MachineRubricLoader;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import qtiscoringengine.cs2java.StringHelper;
-import tds.itemscoringengine.IItemScorer;
-import tds.itemscoringengine.IItemScorerManager;
-import tds.itemscoringengine.ItemScore;
-import tds.itemscoringengine.ItemScoreInfo;
-import tds.itemscoringengine.ItemScorerManagerImpl;
-import tds.itemscoringengine.ResponseInfo;
-import tds.itemscoringengine.RubricContentType;
-import tds.itemscoringengine.ScoringStatus;
-import tds.itemscoringengine.itemscorers.QTIItemScorer;
+import tds.itemscoringengine.*;
 import tinyequationscoringengine.MathExpression;
 import tinyequationscoringengine.MathExpressionInfo;
 import tinyequationscoringengine.MathExpressionSet;
 import tinyequationscoringengine.MathMLParser;
-import tinygrscoringengine.GRObject;
+import tinygrscoringengine.*;
 import tinygrscoringengine.GRObject.ObjectType;
-import tinygrscoringengine.GeoObject;
-import tinygrscoringengine.Point;
-import tinygrscoringengine.TinyGRException;
-import tinygrscoringengine.Vector;
-import AIR.Common.xml.XmlElement;
-import AIR.Common.xml.XmlReader;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,12 +47,18 @@ public class ItemResponseAnalysisAction extends
 		AnalysisAction<Response, ItemResponseAnalysisAction.EnumItemResponseFieldName, Itemrelease.Item.Attriblist> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemResponseAnalysisAction.class);
 
-	static public enum EnumItemResponseFieldName {
+    static public enum EnumItemResponseFieldName {
 		date, type, content
 	}
 
-	@Autowired
-	public ManifestService manifestService;
+    private IItemScorer itemScorer;
+    private MachineRubricLoader machineRubricLoader;
+
+    @Autowired
+    public ItemResponseAnalysisAction(IItemScorer itemScorer, MachineRubricLoader machineRubricLoader) {
+        this.itemScorer = itemScorer;
+        this.machineRubricLoader = machineRubricLoader;
+    }
 
 	@Override
 	public void analyze(IndividualResponse individualResponse) {
@@ -94,8 +83,8 @@ public class ItemResponseAnalysisAction extends
 							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
 
 					if (studentResponse != null) {
-						analysisItemResponse(itemCategory, item, studentResponse);
-						analysisItemResponseWithStudentReponse(itemCategory, studentResponse);
+						analyzeItemResponse(itemCategory, item, studentResponse);
+						analyzeItemResponseWithStudentReponse(itemCategory, studentResponse);
 					}
 				}
 			}
@@ -104,7 +93,7 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void analysisItemResponse(ItemCategory itemCategory, Item tdsItem, StudentResponse studentResponse) {
+	private void analyzeItemResponse(ItemCategory itemCategory, Item tdsItem, StudentResponse studentResponse) {
 		try {
 			ResponseCategory responseCategory = new ResponseCategory();
 			itemCategory.setResponseCategory(responseCategory);
@@ -132,11 +121,11 @@ public class ItemResponseAnalysisAction extends
 				analysisItemResponseItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
 			}
 		} catch (Exception e) {
-			logger.error("analysisItemResponse exception: ", e);
+			logger.error("analyzeItemResponse exception: ", e);
 		}
 	}
 
-	private void analysisItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
+	private void analyzeItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
 		try {
 			if (studentResponse != null) {
 				ResponseCategory responseCategory = itemCategory.getResponseCategory();
@@ -145,7 +134,7 @@ public class ItemResponseAnalysisAction extends
 				validateStudentResponse(studentResponse);
 			}
 		} catch (Exception e) {
-			logger.error("analysisItemResponseWithStudentReponse exception: ", e);
+			logger.error("analyzeItemResponseWithStudentReponse exception: ", e);
 		}
 	}
 
@@ -246,7 +235,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			case PC:
 				checkP(tdsItem.getResponse(), enumFieldName, fieldCheckType);
-				checkC4ItemScoring(tdsItem, enumFieldName, fieldCheckType, responseCategory, itemCategory);
+				checkCForItemScoring(tdsItem, enumFieldName, fieldCheckType, responseCategory, itemCategory);
 				break;
 			}
 		} catch (Exception e) {
@@ -265,7 +254,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			case PC:
 				checkP(response, enumFieldName, fieldCheckType);
-				checkC4MC(response, enumFieldName, fieldCheckType, attriblist);
+				checkCForMC(response, enumFieldName, fieldCheckType, attriblist);
 				break;
 			}
 		} catch (Exception e) {
@@ -284,7 +273,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			case PC:
 				checkP(response, enumFieldName, fieldCheckType);
-				checkC4MS(response, enumFieldName, fieldCheckType, attriblist);
+				checkCForMS(response, enumFieldName, fieldCheckType, attriblist);
 				break;
 			}
 		} catch (Exception e) {
@@ -367,8 +356,8 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	protected void checkC4ItemScoring(Item tdsItem, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			ResponseCategory responseCategory, ItemCategory itemCategory) {
+	protected void checkCForItemScoring(Item tdsItem, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+                                        ResponseCategory responseCategory, ItemCategory itemCategory) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -377,18 +366,18 @@ public class ItemResponseAnalysisAction extends
 				setCcorrect(fieldCheckType);
 				break;
 			case content:
-				processC4ItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
+				processCForItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
 				break;
 			default:
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC4ItemScoring exception: ", e);
+			logger.error("checkCForItemScoring exception: ", e);
 		}
 	}
 
-	protected void checkC4MC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			Itemrelease.Item.Attriblist attriblist) {
+	protected void checkCForMC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+                               Itemrelease.Item.Attriblist attriblist) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -397,18 +386,18 @@ public class ItemResponseAnalysisAction extends
 				setCcorrect(fieldCheckType);
 				break;
 			case content:
-				processC4MC(response.getContent(), fieldCheckType, attriblist);
+				processCForMC(response.getContent(), fieldCheckType, attriblist);
 				break;
 			default:
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC4MC exception: ", e);
+			logger.error("checkCForMC exception: ", e);
 		}
 	}
 
-	protected void checkC4MS(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-			Itemrelease.Item.Attriblist attriblist) {
+	protected void checkCForMS(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
+                               Itemrelease.Item.Attriblist attriblist) {
 		try {
 			switch (enumFieldName) {
 			case date:
@@ -417,13 +406,13 @@ public class ItemResponseAnalysisAction extends
 				setCcorrect(fieldCheckType);
 				break;
 			case content:
-				processC4MS(response.getContent(), fieldCheckType, attriblist);
+				processCForMS(response.getContent(), fieldCheckType, attriblist);
 				break;
 			default:
 				break;
 			}
 		} catch (Exception e) {
-			logger.error("checkC4MS exception: ", e);
+			logger.error("checkCForMS exception: ", e);
 		}
 	}
 
@@ -443,53 +432,40 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void processC4ItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
-			ItemCategory itemCategory) {
+	private void processCForItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
+                                        ItemCategory itemCategory) {
 		try {
 			Long itemKey = tdsItem.getKey();
 			Response response = tdsItem.getResponse();
 			String itemFormat = tdsItem.getFormat();
-			Map<String, IItemScorer> engines = new HashMap<>();
-			// engines.put("EQ", new QTIItemScorer());
-			engines.put(itemFormat.toUpperCase(), new QTIItemScorer());
 
-			IItemScorerManager scorerManager = new ItemScorerManagerImpl(engines, 1, 2, 1);
+			String rubric = getMachineRubricContent(itemCategory.getIrpItem());
+            if (rubric != null) {
+                ResponseInfo responseInfo = new ResponseInfo(
+                        itemFormat,
+                        Long.toString(itemKey),
+                        response.getContent(),
+                        rubric,
+                        RubricContentType.ContentString,
+                        "",
+                        false);
 
-			URI rubricUri = new URI(
-					"file:///C:/Users/mzhang/Desktop/SBAC/SampleContentPackage/Items/Item-187-769/Item_769_v19.qrx");
+                ItemScore itemScore = itemScorer.ScoreItem(responseInfo, null);
+                ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
 
-			// will be used to retrieve qrx file in IRP
-			Manifest.Resources.Resource.File qrxFile = getQRXfile(itemCategory.getItemBankKeyKey());
+                responseCategory.setItemScoreInfo(itemScoreInfo);
 
-			ResponseInfo responseInfo = new ResponseInfo(itemFormat.toLowerCase(), Long.toString(itemKey), response.getContent(),
-					rubricUri, RubricContentType.Uri, "abc", false);
-
-			/*
-			 * ResponseInfo responseInfo = new ResponseInfo( "EQ", "1483",
-			 * "<itemResponse><response id=\"RESPONSE\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"255\"><mstyle><mn>255</mn></mstyle></math></response></itemResponse>"
-			 * ,
-			 * "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><outcomeDeclaration identifier=\"correctans\" baseType=\"string\" cardinality=\"ordered\" /><outcomeDeclaration identifier=\"correctansCount\" baseType=\"integer\" cardinality=\"single\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"EQ\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue><setOutcomeValue identifier=\"correctans\"><customOperator type=\"CTRL\" functionName=\"mapExpression\" container=\"PP_RESPONSE\"><or><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq( ,59)\" simplify=\"False\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"59\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(59,59)\" simplify=\"True\" /><and><customOperator type=\"EQ\" functionName=\"ISEQUIVALENT\" object=\"@\" exemplar=\"Eq(55,55)\" simplify=\"True\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"55\" /><customOperator type=\"EQ\" functionName=\"EXRESSIONCONTAINS\" object=\"@\" string=\"4\" /></and></or></customOperator></setOutcomeValue><setOutcomeValue identifier=\"correctansCount\"><containerSize><variable identifier=\"correctans\" /></containerSize></setOutcomeValue><responseCondition><responseIf><equal><variable identifier=\"correctansCount\" /><baseValue baseType=\"float\">1</baseValue></equal><setOutcomeValue identifier=\"SCORE\"><baseValue baseType=\"integer\">1</baseValue></setOutcomeValue></responseIf></responseCondition></responseProcessing></assessmentItem>"
-			 * , RubricContentType.ContentString, null, false);
-			 */
-
-			ItemScore itemScore = scorerManager.ScoreItem(responseInfo, null);
-			ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
-
-			logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale()
-					.getMsg());
-			responseCategory.setItemScoreInfo(itemScoreInfo);
-			scorerManager.shutdown();
-
-			ScoringStatus sStatus = itemScoreInfo.getStatus();
-			if (sStatus.Scored == ScoringStatus.Scored) {
-				setCcorrect(fieldCheckType);
-			}
+                ScoringStatus sStatus = itemScoreInfo.getStatus();
+                if (sStatus.Scored == ScoringStatus.Scored) {
+                    setCcorrect(fieldCheckType);
+                }
+            }
 		} catch (Exception e) {
-			logger.error("processC4ItemScoring exception: ", e);
+			logger.error("processCForItemScoring exception: ", e);
 		}
 	}
 
-	private void processC4MC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+	private void processCForMC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
 		try {
 			if (attriblist != null) {
 				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
@@ -501,11 +477,11 @@ public class ItemResponseAnalysisAction extends
 				}
 			}
 		} catch (Exception e) {
-			logger.error("processC4MC exception: ", e);
+			logger.error("processCForMC exception: ", e);
 		}
 	}
 
-	private void processC4MS(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
+	private void processCForMS(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
 		try {
 			if (attriblist != null) {
 				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
@@ -520,7 +496,7 @@ public class ItemResponseAnalysisAction extends
 				}
 			}
 		} catch (Exception e) {
-			logger.error("processC4MS exception: ", e);
+			logger.error("processCForMS exception: ", e);
 		}
 	}
 
@@ -733,8 +709,8 @@ public class ItemResponseAnalysisAction extends
 	 * this method parse student response in studentResponse to get sub format (ObjectType like RegionGroup then parse tds student
 	 * response in tdsStudentResponse to get ObjectType
 	 * 
-	 * @param tdsStudentResponse
-	 *            - student re;pose in tds report xml file
+	 * @param tdsResponseContent
+	 *            - student response in tds report xml file
 	 * @param studentResponse
 	 *            - student response in IRP package (Excel)
 	 * 
@@ -794,8 +770,8 @@ public class ItemResponseAnalysisAction extends
 
 	/**
 	 * 
-	 * @param tdsStudentResponse
-	 *            tdsStudentResponse stores the student response for item type MS in tds report xml file
+	 * @param tdsResponseContent
+	 *            tdsResponseContent stores the student response for item type MS in tds report xml file
 	 * @return
 	 */
 	protected boolean validateMS(String tdsResponseContent) {
@@ -825,7 +801,7 @@ public class ItemResponseAnalysisAction extends
 
 	/**
 	 * 
-	 * @param tdsStudentResponse
+	 * @param tdsResponseContent
 	 *            tdsStudentResponse stores the student response for item type MC in tds report xml file
 	 * @return return true if tdsStudentResponse includes only one digit or only one letter (uppercase/lowercase)
 	 */
@@ -941,8 +917,7 @@ public class ItemResponseAnalysisAction extends
 		try {
 			StringReader sr = new StringReader(responseContent);
 			XmlReader reader = new XmlReader(sr);
-			Document doc = new Document();
-			doc = reader.getDocument();
+			Document doc = reader.getDocument();
 			List<Element> responseSpec = new XmlElement(doc.getRootElement()).selectNodes("//responseSpec");
 			for (Element child : responseSpec) {
 				if (child.getName().equals("responseSpec")) {
@@ -966,16 +941,13 @@ public class ItemResponseAnalysisAction extends
 	protected List<GRObject> getObjectStrings(String answerSet) {
 		List<GRObject> objects = null;
 		try {
-			objects = new ArrayList<GRObject>();
+			objects = new ArrayList<>();
 			StringWriter sw = new StringWriter();
-			// StringBuilder sb = null; //throws none pointer exception
 			StringBuilder sb = new StringBuilder();
 			sb.append(sw);
-			// XmlWriter xw = new XmlWriter(null); //IllegalArgumentException: Null OutputStream is not a valid argument
 			StringReader sr = new StringReader(answerSet);
 			XmlReader reader = new XmlReader(sr);
-			Document doc = new Document();
-			doc = reader.getDocument();
+			Document doc = reader.getDocument();
 			List<Element> objectSet = new XmlElement(doc.getRootElement())
 					.selectNodes("//AnswerSet//Question//QuestionPart//ObjectSet");
 			for (Element child : objectSet) {
@@ -1069,7 +1041,7 @@ public class ItemResponseAnalysisAction extends
 	 * @return
 	 */
 	private List<Vector> getVectorObjects(String vectorText) {
-		int endOfPoint = 0;
+		int endOfPoint;
 		List<Vector> vectors = new ArrayList<Vector>();
 		while (vectorText.contains("{")) // wrong thing to check...
 		{
@@ -1087,7 +1059,7 @@ public class ItemResponseAnalysisAction extends
 	 * @return
 	 */
 	private List<Point> getPointObjects(String pointText) {
-		int endOfPoint = 0;
+		int endOfPoint;
 		List<Point> points = new ArrayList<Point>();
 		while (pointText.contains("(")) {
 			points.add(Point.getPointObj(pointText));
@@ -1160,33 +1132,27 @@ public class ItemResponseAnalysisAction extends
 	}
 
 	/**
-	 * This method retrieves qrx file based on item-xxx-xxx identifier in irp imsmanifest.xml
+	 * This method gets the machine rubric content for the given item. If no machine rubric exists for the item
+     * then null will be returned.
 	 * 
-	 * @param ItemBankKeyKey
-	 *            identifier - e.g "item-200-1448";
-	 * @return qrx file
+	 * @param item The item to get the machine rubric from
+	 *
+	 * @return Contents of the machine rubric if exists; otherwise, null
 	 */
-	protected Manifest.Resources.Resource.File getQRXfile(String ItemBankKeyKey) {
-		Manifest.Resources.Resource.File file = null;
+	String getMachineRubricContent(Itemrelease.Item item) {
+		String rubric = null;
 		try {
-			String qrxID = "";
-			org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouce = manifestService.getResource(ItemBankKeyKey);
-			List<Dependency> listDependency = resouce.getDependency();
-			for (Dependency d : listDependency) {
-				String id = d.getIdentifierref();
-				logger.info("id ->" + id);
-				if (id.endsWith("qrx"))
-					qrxID = id;
-			}
-			logger.info("qrx ->" + qrxID);
-			org.cresst.sb.irp.domain.manifest.Manifest.Resources.Resource resouceQRX = manifestService.getResource(qrxID);
-			file = resouceQRX.getFile().get(0);
-			logger.info("url  ->" + file.getHref());
+			List<Itemrelease.Item.MachineRubric> machineRubrics = item.getMachineRubric();
+
+            if (machineRubrics != null && machineRubrics.size() > 1) {
+                Itemrelease.Item.MachineRubric machineRubric = machineRubrics.get(0);
+                rubric = machineRubricLoader.getContents(machineRubric.getFilename());
+            }
 		} catch (Exception exp) {
-			logger.error("getQRXfile exception: ", exp);
+			logger.error("Unable to get rubric content", exp);
 		}
 
-		return file;
+		return rubric;
 	}
 
 }

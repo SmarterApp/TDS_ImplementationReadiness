@@ -13,10 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-	@Autowired
 	private ItemDao itemDao;
 	
-	public ItemServiceImpl(){
+	@Autowired
+	public ItemServiceImpl(ItemDao itemDao){
+		this.itemDao = itemDao;
 	}
 	
 	@Override

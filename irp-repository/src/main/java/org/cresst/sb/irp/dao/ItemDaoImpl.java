@@ -32,11 +32,12 @@ public class ItemDaoImpl implements ItemDao {
 	private String resourceType = "imsqti_apipitem_xmlv2p2";
 	private List<Manifest.Resources.Resource> listResource;
 
-	@Autowired
+
 	private Unmarshaller unmarshaller;
 
-	public ItemDaoImpl() {
-		logger.info("initializing");
+	@Autowired
+	public ItemDaoImpl(Unmarshaller unmarshaller) {
+		this.unmarshaller = unmarshaller;
 	}
 
 	@Override
