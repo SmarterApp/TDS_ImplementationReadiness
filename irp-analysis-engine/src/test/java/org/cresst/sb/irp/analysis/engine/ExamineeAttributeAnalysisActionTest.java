@@ -188,6 +188,44 @@ public class ExamineeAttributeAnalysisActionTest {
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
     }
 
+    @Test
+    public void whenEnglishLanguageProficiencLevel_Typo(){
+    	
+        final long SSID = 9999L;
+        
+        final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
+                new ExamineeAttributeBuilder()
+                	.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
+                    .value("progresS")
+                    .context(Context.FINAL)
+                    .toExamineeAttribute());
+        
+        final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
+        
+        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
+			.englishLanguageProficiencyLevel("PROGRESS")
+			.toStudent());
+        
+        // Act
+        underTest.analyze(individualResponse);
+        
+        // Assert
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+	        .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
+	        .tdsFieldNameValue("progresS")
+	        .tdsExpectedValue("PROGRESS")    
+	        .isFieldEmpty(false)
+	        .correctDataType(true)
+	        .acceptableValue(true)
+	        .correctValue(true)
+	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+	        .toCellCategory();
+        
+        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+
+    }
+    
     /**
      * Constructs a list of all the ExamineeAttributes
      *

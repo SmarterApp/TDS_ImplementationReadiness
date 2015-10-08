@@ -29,7 +29,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
 
     static public enum EnumExamineeAttributeFieldName {
-        LastOrSurname, FirstName, MiddleName, Birthdate, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
+        LastOrSurname, FirstName, MiddleName, Birthdate, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, EnglishLanguageProficiencLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
     }
 
     @Override
@@ -153,7 +153,16 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             PropertyDescriptor[] properties = info.getPropertyDescriptors();
             for (PropertyDescriptor descriptor : properties) {
                 // Compares the property name to the enum field name in order to perform a proper field check
-                if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name())) {
+                /* email 10/6/2015
+                 * No resolution on the "EnglishLanguageProficiencLevel" typo in the Open System. If they decide
+                 * to fix the code and databases, I'll have to spend time updating our system. 
+                 * If they fix the documentation and keep the typo, then we'll be OK as we can handle the typo 
+                 * in IRP. In fact, we could probably support the typo and non-typo in IRP by allowing 
+                 * either of them to be valid entries in the TDS report.
+                 */
+            	if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name())
+                	|| (StringUtils.equalsIgnoreCase(descriptor.getName(), EnumExamineeAttributeFieldName.EnglishLanguageProficiencyLevel.name())
+        			&& enumFieldName.name().equalsIgnoreCase(EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name()))) {
                     Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(student);
@@ -250,6 +259,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 				strReturn = student.getLanguageCode();
 				break;				
 			case EnglishLanguageProficiencyLevel:
+			case EnglishLanguageProficiencLevel:
 				strReturn = student.getEnglishLanguageProficiencyLevel();
 				break;
 			case MigrantStatus:
