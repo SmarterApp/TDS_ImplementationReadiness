@@ -174,7 +174,8 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
 
         switch (enumFieldName) {
             case ResponsibleDistrictIdentifier:
-                if (StringUtils.equalsIgnoreCase(student.getResponsibleDistrictIdentifier(), examineeRelationship.getValue())) {
+            	//strip left side zeros e.g 001
+                if (StringUtils.equalsIgnoreCase(StringUtils.stripStart(student.getResponsibleDistrictIdentifier(), "0"), examineeRelationship.getValue())) {
                     setCcorrect(fieldCheckType);
                 }
                 break;

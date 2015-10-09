@@ -364,4 +364,43 @@ public class ExamineeRelationshipAnalysisActionTest {
         
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
     }
+    
+    @Test
+    public void whenResponsibleDistrictIdentifierMatchesStudentWithLeadingZeros_CorrectFields() throws Exception {
+    	
+        // Arrange
+        final long SSID = 9999L;
+        final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
+                new ExamineeRelationshipBuilder()
+                        .name(RESPONSIBLE_DISTRICT_ID)
+                        .value("1")
+                        .context(Context.FINAL)
+                        .toExamineeRelationship());
+        
+        final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
+    	
+        // Create a Student with the ResponsibleDistrictIdentifier value leading zeros (HI Students1_3.xlsx)
+        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).responsibleDistrictIdentifier("001").toStudent());
+
+        // Act
+        underTest.analyze(individualResponse);
+        
+        // Assert
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        
+        CellCategory expectedCellCategory = new CellCategoryBuilder()
+        	.tdsFieldName(RESPONSIBLE_DISTRICT_ID)
+        	.tdsFieldNameValue("1")
+        	.tdsExpectedValue("001")
+        	.isFieldEmpty(false)
+		    .correctDataType(true)
+		    .acceptableValue(true)
+		    .correctValue(true)
+		    .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+		    .toCellCategory();
+        
+        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+
+    }
+    
 }
