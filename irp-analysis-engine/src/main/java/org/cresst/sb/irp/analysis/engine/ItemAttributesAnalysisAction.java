@@ -2,6 +2,7 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.cresst.sb.irp.analysis.engine.TestAnalysisAction.EnumTestFieldName;
 import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
@@ -10,6 +11,12 @@ import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
+import org.cresst.sb.irp.domain.testpackage.Administration;
+import org.cresst.sb.irp.domain.testpackage.Identifier;
+import org.cresst.sb.irp.domain.testpackage.Itempool;
+import org.cresst.sb.irp.domain.testpackage.Property;
+import org.cresst.sb.irp.domain.testpackage.Testitem;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, StudentResponse> {
+public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Testitem> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemAttributesAnalysisAction.class);
 
 	static public enum EnumItemFieldName {
@@ -33,47 +40,53 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	public void analyze(IndividualResponse individualResponse) {
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
-			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
-			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
-
+			
+			TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
+			String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
+			Testspecification testPackage = getTestpackageByIdentifierUniqueid(testName);
+			Administration administration = testPackage.getAdministration();
+			Itempool itempool = administration.getItempool();
+			List<Testitem> testitems = itempool.getTestitem();
+			
 			Opportunity opportunity = tdsReport.getOpportunity();
-			List<Item> listItem = opportunity.getItem();
-
-			TestItemResponse testItemResponse = getTestItemResponseByStudentID(Long.parseLong(examineeKey));
-			List<StudentResponse> listStudentResponse = testItemResponse.getStudentResponses();
-
+			List<Item> tdsItems = opportunity.getItem();
+			
 			List<Item> removedList = new ArrayList<Item>();
 
 			List<ItemCategory> itemCategories = new ArrayList<>();
-			for (StudentResponse studentResponse : listStudentResponse) {
+			for (Testitem testitem : testitems){
+				if (testitem.getIdentifier() == null){ //
+					continue;
+				}
+		
+				String[] uniqueidArray = getUniqueidArrayFromTestItem(testitem); 
+				Item tdsItem = itemExistByIRPpackageBankKeyKey(uniqueidArray[0], uniqueidArray[1], tdsItems);
+				
 				ItemCategory itemCategory = new ItemCategory();
 				itemCategories.add(itemCategory);
-				Item item = itemExistByIRPpackageBankKeyKey(studentResponse.getBankKey(), studentResponse.getId(), listItem);
-				if (item != null) {
-                    StringBuilder itemIdentifier = new StringBuilder();
-                    itemIdentifier.append("item-").append(item.getBankKey()).append("-").append(item.getKey());
-                    itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
-
-					analyzeItemAttributes(itemCategory, item, studentResponse);
-
+			
+				if (tdsItem != null) {
+					itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4)); // -4 count back from the end to remove .xml of "item-187-1576.xml"
+					
+					analyzeItemAttributes(itemCategory, tdsItem, testitem);
+					
                     itemCategory.setStatus(ItemStatusEnum.FOUND);
-					removedList.add(item);
-					if (isItemFormatMatch(item, studentResponse)) {
+					removedList.add(tdsItem);
+					
+					if (isItemFormatMatch(tdsItem, testitem)) {
 						itemCategory.setItemFormatCorrect(true);
 					}
 				} else {
-                    StringBuilder itemIdentifier = new StringBuilder();
-                    itemIdentifier.append("item-").append(studentResponse.getBankKey()).append("-").append(studentResponse.getId());
-                    itemCategory.setItemBankKeyKey(itemIdentifier.toString().trim());
-
-					analyzeItemAttributes(itemCategory, studentResponse);
-
+                	itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4)); 
+                    
+                    analyzeItemAttributes(itemCategory, testitem);
+                    
 					itemCategory.setStatus(ItemStatusEnum.MISSING);
 					itemCategory.setItemFormatCorrect(false);
 				}
 			}
 
-			for (Item item : listItem) {
+			for (Item item : tdsItems) {
 				if (!isItemExistInList(item, removedList)) {
 					ItemCategory itemCategory = new ItemCategory();
 					itemCategories.add(itemCategory);
@@ -97,14 +110,17 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			logger.error("Analyze exception", ex);
 		}
 	}
-
-	private void analyzeItemAttributes(Category itemCategory, StudentResponse studentResponse) {
+	
+	private void analyzeItemAttributes(Category itemCategory, Testitem testitem) {
+		String[] uniqueidArray = getUniqueidArrayFromTestItem(testitem); //<identifier uniqueid="187-1576" version="8185" />
+		
 		FieldCheckType fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 
 		CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.bankKey.toString());
-		cellCategory.setTdsFieldNameValue(studentResponse.getBankKey());
+		if(uniqueidArray != null)
+			cellCategory.setTdsFieldNameValue(uniqueidArray[0]);
 		cellCategory.setTdsExpectedValue(expectedValue(null, EnumItemFieldName.bankKey));
 		cellCategory.setFieldCheckType(fieldCheckType);
 		itemCategory.addCellCategory(cellCategory);
@@ -114,29 +130,30 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 		cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.key.toString());
-		cellCategory.setTdsFieldNameValue(studentResponse.getId());
+		if(uniqueidArray != null)
+			cellCategory.setTdsFieldNameValue(uniqueidArray[1]);
 		cellCategory.setTdsExpectedValue(expectedValue(null, EnumItemFieldName.key));
 		cellCategory.setFieldCheckType(fieldCheckType);
 		itemCategory.addCellCategory(cellCategory);
 	}
 
+
 	/**
 	 * Analyzes each of the given item's fields.
-	 *
-	 * @param itemCategory
-	 *            The ItemCategory to store the results of the analyze
-	 * @param item
-	 *            The item to analyze
+	 * 
+	 * @param itemCategory -> The ItemCategory to store the results of the analyze
+	 * @param item ->  TDSReport Item with fields to check	
+	 * @param testitem ->  <testitem> of <itempool> in Test Package
 	 */
-	private void analyzeItemAttributes(Category itemCategory, Item item, StudentResponse studentResponse) {
+	private void analyzeItemAttributes(Category itemCategory, Item item, Testitem testitem) {
 		validate(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position, null);
 		validate(itemCategory, item, item.getSegmentId(), EnumFieldCheckType.P, EnumItemFieldName.segmentId, null);
-		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.PC, EnumItemFieldName.bankKey, studentResponse);
-		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.PC, EnumItemFieldName.key, studentResponse);
+		validate(itemCategory, item, item.getBankKey(), EnumFieldCheckType.PC, EnumItemFieldName.bankKey, testitem);
+		validate(itemCategory, item, item.getKey(), EnumFieldCheckType.PC, EnumItemFieldName.key, testitem);
 		validate(itemCategory, item, item.getClientId(), EnumFieldCheckType.D, EnumItemFieldName.clientId, null);
 		validate(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational, null);
 		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.P, EnumItemFieldName.isSelected, null);
-		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, studentResponse);
+		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, testitem);
 		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null);
 		validate(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, null);
 		validate(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate, null);
@@ -149,7 +166,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		validate(itemCategory, item, item.getPageTime(), EnumFieldCheckType.P, EnumItemFieldName.pageTime, null);
 		validate(itemCategory, item, item.getDropped(), EnumFieldCheckType.P, EnumItemFieldName.dropped, null);
 	}
-
+	
 	/**
 	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable
 	 * values
@@ -270,39 +287,64 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		}
 	}
 
+	
 	/**
-	 * No op for now
-	 *
 	 * @param item
-	 *            Item with fields to check
+	 *            TDSReport Item with fields to check
 	 * @param enumFieldName
 	 *            Specifies the field to check
 	 * @param fieldCheckType
 	 *            This is where results are stored
-	 * @param studentResponse
-	 *            IRP Package Student Response to compare TDS results against
+	 * @param testitem
+	 * 			  <administration><itempool><testitem> of Test Package
 	 */
 	@Override
-	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, StudentResponse studentResponse) {
+	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, Testitem testitem) {
         switch (enumFieldName) {
             case bankKey:
-                if (StringUtils.equalsIgnoreCase(Long.toString(item.getBankKey()), studentResponse.getBankKey())) {
-                    setCcorrect(fieldCheckType);
-                }
+            	 setCcorrect(fieldCheckType);
                 break;
             case key:
-                if (StringUtils.equalsIgnoreCase(Long.toString(item.getKey()), studentResponse.getId())) {
-                    setCcorrect(fieldCheckType);
-                }
+            	 setCcorrect(fieldCheckType);
                 break;
             case format:
-                if (isItemFormatMatch(item, studentResponse)) {
+            	if (isItemFormatMatch(item, testitem)) {
                     setCcorrect(fieldCheckType);
                 }
                 break;
             default:
                 break;
         }
+	}
+	
+	@Override
+	protected String expectedValue(Testitem testitem, EnumItemFieldName enumFieldName) {
+		String strReturn = null;
+		String[] uniqueidArray = null;
+		
+		try {
+			switch (enumFieldName) {
+			case bankKey:
+				uniqueidArray = getUniqueidArrayFromTestItem(testitem);
+				if (uniqueidArray != null)
+					strReturn = uniqueidArray[0];
+				break;
+			case key:
+				uniqueidArray = getUniqueidArrayFromTestItem(testitem);
+				if (uniqueidArray != null)
+					strReturn = uniqueidArray[1];
+				break;
+		    case format:
+		    	strReturn = testitem.getItemtype();
+		    	break;
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			logger.error("expectedValue exception: ", e);
+		}
+
+		return strReturn;
 	}
 
 	private void processAcceptableEnum(String fieldValue, FieldCheckType fieldCheckType, Class<EnumFormatAcceptValues> class1) {
@@ -336,8 +378,36 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		return false;
 	}
 
-	protected boolean isItemFormatMatch(Item item, StudentResponse studentResponse) {
-		return StringUtils.equalsIgnoreCase(studentResponse.getItemType(), item.getFormat());
+	/**
+	 * 
+	 * @param item -> TDSReport item, with field value to check
+	 * @param testitem -> <administration><itempool><testitem> of Test Package
+	 * @return
+	 */
+	protected boolean isItemFormatMatch(Item item, Testitem testitem) {
+		return StringUtils.equalsIgnoreCase(testitem.getItemtype(), item.getFormat());
+	}
+	
+	/**
+	 * 
+	 * @param testitem -> <administration><itempool><testitem> of Test Package
+	 * @return -> uniqueid array of uniqueid attribute of <identifier uniqueid="187-1576" version="8185" /> 
+	 */
+	protected String[] getUniqueidArrayFromTestItem(Testitem testitem){
+		try {
+			Identifier identifier = testitem.getIdentifier();
+			if (identifier != null){ 
+				String uniqueid = identifier.getUniqueid(); ////  <xs:attribute name="uniqueid" type="xs:string" use="required" />
+				String[] splits = StringUtils.split(uniqueid,"-");
+				if (splits.length == 2)
+					return splits;
+			}
+		}
+		catch (Exception e) {
+			logger.error("getUniqueidArrayFromTestItem exception: ", e);
+		}
+		
+		return null;
 	}
 
 }
