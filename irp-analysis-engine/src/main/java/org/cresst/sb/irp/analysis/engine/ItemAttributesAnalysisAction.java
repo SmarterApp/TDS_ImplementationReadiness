@@ -40,6 +40,8 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
 			String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(testName);
+			if (testPackage == null)
+				return;
 			Administration administration = testPackage.getAdministration();
 			Itempool itempool = administration.getItempool();
 			List<Testitem> testitems = itempool.getTestitem();
@@ -62,7 +64,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				itemCategories.add(itemCategory);
 			
 				if (tdsItem != null) {
-					itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4)); // -4 count back from the end to remove .xml of "item-187-1576.xml"
+					itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4)); // -4 count back from the end to remove .xml of "item-187-1576.xml" e.g
 					
 					analyzeItemAttributes(itemCategory, tdsItem, testitem);
 					
@@ -321,14 +323,18 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		try {
 			switch (enumFieldName) {
 			case bankKey:
-				uniqueidArray = getUniqueidArrayFromTestItem(testitem);
-				if (uniqueidArray != null)
-					strReturn = uniqueidArray[0];
+				if(testitem != null){
+					uniqueidArray = getUniqueidArrayFromTestItem(testitem);
+					if (uniqueidArray != null)
+						strReturn = uniqueidArray[0];
+				}
 				break;
 			case key:
-				uniqueidArray = getUniqueidArrayFromTestItem(testitem);
-				if (uniqueidArray != null)
-					strReturn = uniqueidArray[1];
+				if(testitem != null){
+					uniqueidArray = getUniqueidArrayFromTestItem(testitem);
+					if (uniqueidArray != null)
+						strReturn = uniqueidArray[1];
+				}
 				break;
 		    case format:
 		    	strReturn = testitem.getItemtype();
@@ -381,19 +387,22 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 * @return
 	 */
 	protected boolean isItemFormatMatch(Item item, Testitem testitem) {
-		return StringUtils.equalsIgnoreCase(testitem.getItemtype(), item.getFormat());
+		if(item != null || testitem != null)
+			return StringUtils.equalsIgnoreCase(testitem.getItemtype(), item.getFormat());
+		else
+			return false;
 	}
 	
 	/**
 	 * 
 	 * @param testitem -> <administration><itempool><testitem> of Test Package
-	 * @return -> uniqueid array of uniqueid attribute of <identifier uniqueid="187-1576" version="8185" /> 
+	 * @return -> uniqueid array from <identifier uniqueid="187-1576" version="8185" /> e.g
 	 */
 	protected String[] getUniqueidArrayFromTestItem(Testitem testitem){
 		try {
 			Identifier identifier = testitem.getIdentifier();
 			if (identifier != null){ 
-				String uniqueid = identifier.getUniqueid(); ////  <xs:attribute name="uniqueid" type="xs:string" use="required" />
+				String uniqueid = identifier.getUniqueid(); //  <xs:attribute name="uniqueid" type="xs:string" use="required" />
 				String[] splits = StringUtils.split(uniqueid,"-");
 				if (splits.length == 2)
 					return splits;
