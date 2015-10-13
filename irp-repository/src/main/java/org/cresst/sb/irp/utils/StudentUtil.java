@@ -18,8 +18,7 @@ import org.springframework.stereotype.Service;
 public class StudentUtil {
 	private final static Logger logger = LoggerFactory.getLogger(StudentUtil.class);
 
-	public StudentUtil(){
-		logger.info("initializing");
+	public StudentUtil() {
 	}
 	
 	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet) {
@@ -222,28 +221,7 @@ public class StudentUtil {
 
 		return null;
 	}
-	
-	/*
-	public Student getStudentByStudentIdentifier(List<Student> listStudent,
-			String studentIdentifier) {
 
-		Student student = null;
-		try {
-			for(Student _student: listStudent){
-				if(_student.getStudentIdentifier().trim().toLowerCase().equals(studentIdentifier.trim().toLowerCase())){
-					return _student;
-				}
-			}
-		} catch (Exception e) {
-			logger.info("getStudentByStudentIdentifier exception: " + e);
-			System.out.println("StudentUtil.getStudentByStudentIdentifier Exception thrown  :"+ e);
-			e.printStackTrace();
-		}
-		return student;
-	}*/
-
-	
-	
 }
 
 

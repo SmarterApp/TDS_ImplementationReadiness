@@ -134,7 +134,7 @@ public class ItemResponseAnalysisAction extends
 				validateStudentResponse(studentResponse);
 			}
 		} catch (Exception e) {
-			logger.error("analyzeItemResponseWithStudentReponse exception: ", e);
+			logger.error("analyzeItemResponseWithStudentResponse exception: ", e);
 		}
 	}
 

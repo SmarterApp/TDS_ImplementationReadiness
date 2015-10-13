@@ -24,7 +24,7 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private Map<Long, TestItemResponse> testItemStudentResponseMap = new HashMap<Long, TestItemResponse>();
 	
-	@Value("classpath:irp-package/PT10thGradeMathItemsWithStudentResponses_1_13_15.xlsx")  //1/13/15 use 1 file only
+	@Value("classpath:irp-package/IRPVendorStudentResponsesTemplate.xlsx")
 	private Resource studentResponseResource;
 	
 	@Autowired
