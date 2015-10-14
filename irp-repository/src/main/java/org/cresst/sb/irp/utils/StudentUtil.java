@@ -100,32 +100,33 @@ public class StudentUtil {
 	private void setStudentFieldData(Student student, String columnName,
 			String cellStringValue) {
 		try {
-			switch (columnName) {
-			case "StateAbbreviation":
+			columnName = StringUtils.deleteWhitespace(columnName);
+			switch (columnName.toLowerCase()) {
+			case "stateabbreviation": 
 				student.setStateAbbreviation(cellStringValue);
 				break;
-			case "ResponsibleDistrictIdentifier":
+			case "responsibledistrictidentifier":
 				student.setResponsibleDistrictIdentifier(cellStringValue);
 				break;
-			case "ResponsibleInstitutionIdentifier": //"ResponsibleSchoolIdentifier":
+			case "responsibleinstitutionidentifier": //"ResponsibleSchoolIdentifier":
 				student.setResponsibleInstitutionIdentifier(cellStringValue);
 				break;
-			case "LastOrSurname":
+			case "lastorsurname":
 				student.setLastOrSurname(cellStringValue);
 				break;
-			case "FirstName":
+			case "firstname":
 				student.setFirstName(cellStringValue);
 				break;
-			case "MiddleName":
+			case "middlename":
 				student.setMiddleName(cellStringValue);
 				break;
-			case "Birthdate":
+			case "birthdate":
 				student.setBirthdate(cellStringValue);
 				break;
-			case "SSID":
+			case "ssid":
 				student.setSSID(Long.parseLong(cellStringValue));
 				break;	
-			case "AlternateSSID":
+			case "alternatessid":
 				student.setAlternateSSID(cellStringValue);
 				break;		
 			/*	
@@ -139,69 +140,114 @@ public class StudentUtil {
 				student.setConfirmationCode(cellStringValue);
 				break;
 			*/
-			case "GradeLevelWhenAssessed":
+			case "gradelevelwhenassessed":
 				student.setGradeLevelWhenAssessed(cellStringValue);
 				break;
-			case "Sex":
+			case "sex":
 				student.setSex(cellStringValue);
 				break;
-			case "HispanicOrLatinoEthnicity":
+			case "hispanicorlatinoethnicity":
 				student.setHispanicOrLatinoEthnicity(cellStringValue);
 				break;
-			case "AmericanIndianOrAlaskaNative":
+			case "americanindianoralaskanative":
 				student.setAmericanIndianOrAlaskaNative(cellStringValue);
 				break;
-			case "Asian":
+			case "asian":
 				student.setAsian(cellStringValue);
 				break;
-			case "BlackOrAfricanAmerican":
+			case "blackorafricanamerican":
 				student.setBlackOrAfricanAmerican(cellStringValue);
 				break;
-			case "White":
+			case "white":
 				student.setWhite(cellStringValue);
 				break;
-			case "NativeHawaiianOrOtherPacificIslander":
+			case "nativehawaiianorotherpacificislander":
 				student.setNativeHawaiianOrOtherPacificIslander(cellStringValue);
 				break;
-			case "DemographicRaceTwoOrMoreRaces":
+			case "demographicracetwoormoreraces":
 				student.setDemographicRaceTwoOrMoreRaces(cellStringValue);
 				break;
-			case "IDEAIndicator":
+			case "ideaindicator":
 				student.setIDEAIndicator(cellStringValue);
 				break;
-			case "LEPStatus":
+			case "lepstatus":
 				student.setLEPStatus(cellStringValue);
 				break;
-			case "Section504Status":
+			case "section504status":
 				student.setSection504Status(cellStringValue);
 				break;
-			case "EconomicDisadvantageStatus":
+			case "economicdisadvantagestatus":
 				student.setEconomicDisadvantageStatus(cellStringValue);
 				break;
-			case "LanguageCode":
+			case "languagecode":
 				student.setLanguageCode(cellStringValue);
 				break;
-			case "EnglishLanguageProficiencyLevel":
+			case "englishlanguageproficiencylevel":
 				student.setEnglishLanguageProficiencyLevel(cellStringValue);
 				break;
-			case "MigrantStatus":
+			case "migrantstatus":
 				student.setMigrantStatus(cellStringValue);
 				break;
-			case "FirstEntryDateIntoUSSchool":
+			case "firstentrydateintousschool":
 				student.setFirstEntryDateIntoUSSchool(cellStringValue);
 				break;
-			case "LimitedEnglishProficiencyEntryDate":
+			case "limitedenglishproficiencyentrydate":
 				student.setLimitedEnglishProficiencyEntryDate(cellStringValue);
 				break;
-			case "LEPExitDate":
+			case "lepexitdate":
 				student.setLEPExitDate(cellStringValue);
 				break;
-			case "TitleIIILanguageInstructionProgramType":
+			case "titleiiilanguageinstructionprogramtype":
 				student.setTitleIIILanguageInstructionProgramType(cellStringValue);
 				break;
-			case "PrimaryDisabilityType":
+			case "primarydisabilitytype":
 				student.setPrimaryDisabilityType(cellStringValue);
 				break;
+			case "subject":
+				student.setSubject(cellStringValue);
+				break;
+			case "americansignlanguage":
+				student.setAmericanSignLanguage(cellStringValue);
+				break;
+			case "colorcontrast":
+				student.setColorContrast(cellStringValue);
+				break;
+			case "closedcaptioning":
+				student.setClosedCaptioning(cellStringValue);
+				break;
+			case "language":
+				student.setLanguage(cellStringValue);
+				break;	
+			case "masking":
+				student.setMasking(cellStringValue);
+				break;	
+			case "permissivemode":
+				student.setPermissiveMode(cellStringValue);
+				break;	
+			case "printondemand":
+				student.setPrintOnDemand(cellStringValue);
+				break;	
+			case "printsize":
+				student.setPrintSize(cellStringValue);
+				break;	
+			case "streamlinedinterface":
+				student.setStreamlinedInterface(cellStringValue);
+				break;	
+			case "texttospeech":
+				student.setTextToSpeech(cellStringValue);
+				break;	
+			case "translation":
+				student.setTranslation(cellStringValue);
+				break;	
+			case "non-embeddeddesignatedsupports":
+				student.setNonEmbeddedDesignatedSupports(cellStringValue);
+				break;	
+			case "non-embeddedaccommodations":
+				student.setNonEmbeddedAccommodations(cellStringValue);
+				break;	
+			case "other":
+				student.setOther(cellStringValue);
+				break;	
 			default:
 				throw new IllegalArgumentException("Invalid column name: "
 						+ columnName);

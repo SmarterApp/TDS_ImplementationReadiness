@@ -176,9 +176,11 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
     }
 
     private void processSameValue(String first, String second, FieldCheckType fieldCheckType) {
-        if (StringUtils.equalsIgnoreCase(first, second)) {
-            setCcorrect(fieldCheckType);
-        }
+    	if(StringUtils.isNotBlank(first) || StringUtils.isNotBlank(second)){
+	        if (StringUtils.equalsIgnoreCase(first, StringUtils.stripStart(second, "0"))) {
+	            setCcorrect(fieldCheckType);
+	        }
+    	}
     }
     
     /**

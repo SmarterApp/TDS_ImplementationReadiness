@@ -42,6 +42,22 @@ public class Student implements Serializable {
 	private String LEPExitDate;
 	private String TitleIIILanguageInstructionProgramType;
 	private String PrimaryDisabilityType;
+	private String Subject;
+	private String AmericanSignLanguage;
+	private String ColorContrast;
+	private String ClosedCaptioning;
+	private String Language;
+	private String Masking;
+	private String PermissiveMode;
+	private String PrintOnDemand;
+	private String PrintSize;
+	private String StreamlinedInterface;
+	private String TextToSpeech;
+	private String Translation;
+	private String NonEmbeddedDesignatedSupports;
+	private String NonEmbeddedAccommodations;
+	private String Other;
+
 
 	public Student() {
 	}
@@ -301,6 +317,126 @@ public class Student implements Serializable {
 	public void setPrimaryDisabilityType(String primaryDisabilityType) {
 		PrimaryDisabilityType = primaryDisabilityType;
 	}
+	
+	public String getSubject() {
+		return Subject;
+	}
+
+	public void setSubject(String subject) {
+		Subject = subject;
+	}
+	
+	public String getAmericanSignLanguage() {
+		return AmericanSignLanguage;
+	}
+
+	public void setAmericanSignLanguage(String americanSignLanguage) {
+		AmericanSignLanguage = americanSignLanguage;
+	}
+
+	public String getColorContrast() {
+		return ColorContrast;
+	}
+
+	public void setColorContrast(String colorContrast) {
+		ColorContrast = colorContrast;
+	}
+
+	public String getClosedCaptioning() {
+		return ClosedCaptioning;
+	}
+
+	public void setClosedCaptioning(String closedCaptioning) {
+		ClosedCaptioning = closedCaptioning;
+	}
+	
+	public String getLanguage() {
+		return Language;
+	}
+
+	public void setLanguage(String language) {
+		Language = language;
+	}
+
+	public String getMasking() {
+		return Masking;
+	}
+
+	public void setMasking(String masking) {
+		Masking = masking;
+	}
+
+	public String getPermissiveMode() {
+		return PermissiveMode;
+	}
+
+	public void setPermissiveMode(String permissiveMode) {
+		PermissiveMode = permissiveMode;
+	}
+	
+	public String getPrintOnDemand() {
+		return PrintOnDemand;
+	}
+
+	public void setPrintOnDemand(String printOnDemand) {
+		PrintOnDemand = printOnDemand;
+	}
+	
+	public String getPrintSize() {
+		return PrintSize;
+	}
+
+	public void setPrintSize(String printSize) {
+		PrintSize = printSize;
+	}
+	
+	public String getStreamlinedInterface() {
+		return StreamlinedInterface;
+	}
+
+	public void setStreamlinedInterface(String streamlinedInterface) {
+		StreamlinedInterface = streamlinedInterface;
+	}
+
+	public String getTextToSpeech() {
+		return TextToSpeech;
+	}
+
+	public void setTextToSpeech(String textToSpeech) {
+		TextToSpeech = textToSpeech;
+	}
+
+	public String getTranslation() {
+		return Translation;
+	}
+
+	public void setTranslation(String translation) {
+		Translation = translation;
+	}
+
+	public String getNonEmbeddedDesignatedSupports() {
+		return NonEmbeddedDesignatedSupports;
+	}
+
+	public void setNonEmbeddedDesignatedSupports(String nonEmbeddedDesignatedSupports) {
+		NonEmbeddedDesignatedSupports = nonEmbeddedDesignatedSupports;
+	}
+
+	public String getNonEmbeddedAccommodations() {
+		return NonEmbeddedAccommodations;
+	}
+
+	public void setNonEmbeddedAccommodations(String nonEmbeddedAccommodations) {
+		NonEmbeddedAccommodations = nonEmbeddedAccommodations;
+	}
+
+	public String getOther() {
+		return Other;
+	}
+
+	public void setOther(String other) {
+		Other = other;
+	}
 
 	@Override
 	public String toString() {
@@ -321,8 +457,14 @@ public class Student implements Serializable {
 				+ ", FirstEntryDateIntoUSSchool=" + FirstEntryDateIntoUSSchool
 				+ ", LimitedEnglishProficiencyEntryDate=" + LimitedEnglishProficiencyEntryDate + ", LEPExitDate="
 				+ LEPExitDate + ", TitleIIILanguageInstructionProgramType=" + TitleIIILanguageInstructionProgramType
-				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + "]";
+				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + ", Subject=" + Subject
+				+ ", AmericanSignLanguage=" + AmericanSignLanguage + ", ColorContrast=" + ColorContrast
+				+ ", ClosedCaptioning=" + ClosedCaptioning + ", Language=" + Language + ", Masking=" + Masking
+				+ ", PermissiveMode=" + PermissiveMode + ", PrintOnDemand=" + PrintOnDemand + ", PrintSize="
+				+ PrintSize + ", StreamlinedInterface=" + StreamlinedInterface + ", TextToSpeech=" + TextToSpeech
+				+ ", Translation=" + Translation + ", NonEmbeddedDesignatedSupports=" + NonEmbeddedDesignatedSupports
+				+ ", NonEmbeddedAccommodations=" + NonEmbeddedAccommodations + ", Other=" + Other + "]";
 	}
-	
+
 	
 }
