@@ -203,51 +203,6 @@ public class StudentUtil {
 			case "primarydisabilitytype":
 				student.setPrimaryDisabilityType(cellStringValue);
 				break;
-			case "subject":
-				student.setSubject(cellStringValue);
-				break;
-			case "americansignlanguage":
-				student.setAmericanSignLanguage(cellStringValue);
-				break;
-			case "colorcontrast":
-				student.setColorContrast(cellStringValue);
-				break;
-			case "closedcaptioning":
-				student.setClosedCaptioning(cellStringValue);
-				break;
-			case "language":
-				student.setLanguage(cellStringValue);
-				break;	
-			case "masking":
-				student.setMasking(cellStringValue);
-				break;	
-			case "permissivemode":
-				student.setPermissiveMode(cellStringValue);
-				break;	
-			case "printondemand":
-				student.setPrintOnDemand(cellStringValue);
-				break;	
-			case "printsize":
-				student.setPrintSize(cellStringValue);
-				break;	
-			case "streamlinedinterface":
-				student.setStreamlinedInterface(cellStringValue);
-				break;	
-			case "texttospeech":
-				student.setTextToSpeech(cellStringValue);
-				break;	
-			case "translation":
-				student.setTranslation(cellStringValue);
-				break;	
-			case "non-embeddeddesignatedsupports":
-				student.setNonEmbeddedDesignatedSupports(cellStringValue);
-				break;	
-			case "non-embeddedaccommodations":
-				student.setNonEmbeddedAccommodations(cellStringValue);
-				break;	
-			case "other":
-				student.setOther(cellStringValue);
-				break;	
 			default:
 				throw new IllegalArgumentException("Invalid column name: "
 						+ columnName);
