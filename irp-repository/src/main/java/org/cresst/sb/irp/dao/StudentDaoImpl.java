@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.utils.ExcelUtil;
 import org.cresst.sb.irp.utils.StudentUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +24,14 @@ import javax.annotation.PostConstruct;
 public class StudentDaoImpl implements StudentDao {
 	private final static Logger logger = LoggerFactory.getLogger(StudentDaoImpl.class);
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
-	private List<Student> listStudent = new ArrayList<Student>();
+	private List<Student> students = new ArrayList<Student>();
 
 	@Value("classpath:irp-package/IRPStudents.xlsx")
 	private Resource studentResource;
 
+	@Autowired
+	private ExcelUtil excelUtil;
+	
 	@Autowired
 	private StudentUtil studentUtil;
 	
@@ -40,8 +44,8 @@ public class StudentDaoImpl implements StudentDao {
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook(studentResource.getInputStream());
 			XSSFSheet sheet = workbook.getSheetAt(0);
-			studentUtil.getHeaderColumn(headerMap, sheet);
-			studentUtil.processSheet(listStudent, headerMap, sheet);
+			excelUtil.getHeaderColumn(headerMap, sheet);
+			studentUtil.processSheet(students, headerMap, sheet, excelUtil);
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
@@ -49,12 +53,12 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public List<Student> getStudents() {
-		return listStudent;
+		return students;
 	}
 
 	@Override
 	public Student getStudentByStudentSSID(long studentSSID) throws NotFoundException {
-		Student student = studentUtil.getStudentBySSID(listStudent, studentSSID);
+		Student student = getStudentBySSID(students, studentSSID);
 		if (student == null){
 			throw new NotFoundException("Could not find student " + studentSSID);
 		}
@@ -63,9 +67,21 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public void createStudent(Student student) {
-		listStudent.add(student);
+		students.add(student);
 	}
 
+	@Override
+	public Student getStudentBySSID(List<Student> students, long studentSSID) {
+		for (Student student : students){
+			if(student.getSSID() == studentSSID){
+				return student;
+			}
+		}
+
+		return null;
+	}
+
+	
 
 
 }

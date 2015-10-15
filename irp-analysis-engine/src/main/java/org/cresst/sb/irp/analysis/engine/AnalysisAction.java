@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.StringUtils;
+import org.cresst.sb.irp.domain.accommodation.Accommodation;
 import org.cresst.sb.irp.domain.analysis.Category;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -9,9 +10,9 @@ import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
-import org.cresst.sb.irp.domain.testpackage.Property;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.service.AccommodationService;
 import org.cresst.sb.irp.service.ItemService;
 import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.service.StudentService;
@@ -41,13 +42,16 @@ import java.util.Objects;
  */
 public abstract class AnalysisAction<T, E extends Enum, O> {
 	private final static Logger logger = LoggerFactory.getLogger(AnalysisAction.class);
-
+	
+	@Autowired
+	public AccommodationService accommodationService;
+	
 	@Autowired
 	public TestPackageService testPackageService;
 
 	@Autowired
 	public StudentService studentService;
-
+	
 	@Autowired
 	public TDSReportService tdsReportService;
 
@@ -190,6 +194,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testPackageService.getMapTestpackage();
 	}
 
+	public Accommodation getAccommodation(long key) throws NotFoundException {
+		return accommodationService.getAccommodationByStudentIdentifier(key);
+	}
+	
 	public Student getStudent(long key) throws NotFoundException {
 		return studentService.getStudentByStudentSSID(key);
 	}

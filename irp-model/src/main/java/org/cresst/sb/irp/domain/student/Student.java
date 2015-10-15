@@ -42,6 +42,7 @@ public class Student implements Serializable {
 	private String LEPExitDate;
 	private String TitleIIILanguageInstructionProgramType;
 	private String PrimaryDisabilityType;
+	private String Delete;
 
 
 	public Student() {
@@ -302,6 +303,14 @@ public class Student implements Serializable {
 	public void setPrimaryDisabilityType(String primaryDisabilityType) {
 		PrimaryDisabilityType = primaryDisabilityType;
 	}
+	
+	public String getDelete() {
+		return Delete;
+	}
+
+	public void setDelete(String delete) {
+		Delete = delete;
+	}
 
 	@Override
 	public String toString() {
@@ -322,8 +331,12 @@ public class Student implements Serializable {
 				+ ", FirstEntryDateIntoUSSchool=" + FirstEntryDateIntoUSSchool
 				+ ", LimitedEnglishProficiencyEntryDate=" + LimitedEnglishProficiencyEntryDate + ", LEPExitDate="
 				+ LEPExitDate + ", TitleIIILanguageInstructionProgramType=" + TitleIIILanguageInstructionProgramType
-				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + "]";
+				+ ", PrimaryDisabilityType=" + PrimaryDisabilityType + ", Delete=" + Delete + "]";
 	}
+
+	
+
+	
 
 	
 }

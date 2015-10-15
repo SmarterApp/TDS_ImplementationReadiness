@@ -14,6 +14,8 @@ public interface StudentDao {
 	
 	Student getStudentByStudentSSID(long studentSSID) throws NotFoundException;
 	
+	Student getStudentBySSID(List<Student> students, long studentSSID);
+	
 	void createStudent(Student student);
 
 }

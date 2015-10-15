@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.utils;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -21,29 +20,14 @@ public class StudentUtil {
 	public StudentUtil() {
 	}
 	
-	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet) {
-		try {
-			// get header
-			Row headerRow = sheet.getRow(0);
-			Iterator<Cell> cellHeaderIterator = headerRow.cellIterator();
-			while (cellHeaderIterator.hasNext()) {
-				// get cell object
-				Cell cell = cellHeaderIterator.next();
-				headerMap.put(Integer.valueOf(cell.getColumnIndex()), cell
-						.getStringCellValue().trim());
-			}
-		} catch (Exception e) {
-			logger.error("getHeaderColumn(); exception: ", e);
-		}
-	}
-
 	public void processSheet(List<Student> listStudent,
-			Map<Integer, String> headerMap, XSSFSheet sheet) {
+			Map<Integer, String> headerMap, XSSFSheet sheet,
+			ExcelUtil excelUtil) {
 		try {
 			for (int rowCount = 1; rowCount <= sheet.getLastRowNum(); rowCount++) {
 				Row detailRow = sheet.getRow(rowCount);
-				if (detailRow != null && !isEmptyRow(detailRow)) {
-					Student student = createStudentObject(detailRow, headerMap);
+				if (detailRow != null && !excelUtil.isEmptyRow(detailRow)) {
+					Student student = createObject(detailRow, headerMap);
 					if (student != null)
 						listStudent.add(student);
 				}
@@ -54,24 +38,7 @@ public class StudentUtil {
 
 	}
 
-	private boolean isEmptyRow(Row row) {
-		boolean bln = true;
-		try {
-			for (int cellNum = row.getFirstCellNum(); cellNum < row
-					.getLastCellNum(); cellNum++) {
-				Cell cell = row.getCell(cellNum);
-				if (cell != null && cell.getCellType() != Cell.CELL_TYPE_BLANK
-						&& StringUtils.isNotBlank(cell.toString())) {
-					bln = false;
-				}
-			}
-		} catch (Exception e) {
-			logger.error("isEmptyRow(); exception: ", e);
-		}
-		return bln;
-	}
-
-	private Student createStudentObject(Row row, Map<Integer, String> headerMap) {
+	private Student createObject(Row row, Map<Integer, String> headerMap) {
 		Student student = null;
 		try {
 			student = new Student();
@@ -85,19 +52,19 @@ public class StudentUtil {
 					} else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 					} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
 					}
-					setStudentFieldData(student, columnName,
+					setFieldData(student, columnName,
 							cell.getStringCellValue());
 				}
 			}
 
 		} catch (Exception e) {
-			logger.error("createStudentObject(); exception: ", e);
+			logger.error("createObject(); exception: ", e);
 		}
 
 		return student;
 	}
 
-	private void setStudentFieldData(Student student, String columnName,
+	private void setFieldData(Student student, String columnName,
 			String cellStringValue) {
 		try {
 			columnName = StringUtils.deleteWhitespace(columnName);
@@ -203,24 +170,16 @@ public class StudentUtil {
 			case "primarydisabilitytype":
 				student.setPrimaryDisabilityType(cellStringValue);
 				break;
+			case "delete":
+				student.setDelete(cellStringValue);
+				break;
 			default:
 				throw new IllegalArgumentException("Invalid column name: "
 						+ columnName);
 			}
 		} catch (Exception e) {
-			logger.error("setStudentFieldData(); exception: ", e);
+			logger.error("setFieldData(); exception: ", e);
 		}
-	}
-
-	public Student getStudentBySSID(List<Student> listStudent, long studentSSID) {
-
-		for (Student _student : listStudent){
-			if(_student.getSSID() == studentSSID){
-				return _student;
-			}
-		}
-
-		return null;
 	}
 
 }
