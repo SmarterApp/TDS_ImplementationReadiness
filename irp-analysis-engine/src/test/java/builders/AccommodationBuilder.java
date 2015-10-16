@@ -2,9 +2,6 @@ package builders;
 
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
-/**
- * Builder for Accommodation objects
- */
 public class AccommodationBuilder {
 
 	private TDSReport.Opportunity.Accommodation accommodation = new TDSReport.Opportunity.Accommodation();
