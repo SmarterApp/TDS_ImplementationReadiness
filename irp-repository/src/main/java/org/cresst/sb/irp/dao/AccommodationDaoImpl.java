@@ -43,8 +43,8 @@ public class AccommodationDaoImpl implements AccommodationDao {
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook(accommodationResource.getInputStream());
 			XSSFSheet sheet = workbook.getSheetAt(0);
-			excelUtil.getHeaderColumn(headerMap, sheet);
-			accommodationUtil.processSheet(accommodations, headerMap, sheet, excelUtil);
+			excelUtil.getHeaderColumn(headerMap, sheet, 0);
+			accommodationUtil.processSheet(accommodations, headerMap, sheet, excelUtil, 1);
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}

@@ -18,9 +18,10 @@ public class AccommodationUtil {
 
 	public void processSheet(List<Accommodation> list,
 			Map<Integer, String> headerMap, XSSFSheet sheet,
-			ExcelUtil excelUtil) {
+			ExcelUtil excelUtil,
+			int startIndex) {
 		try {
-			for (int rowCount = 1; rowCount <= sheet.getLastRowNum(); rowCount++) {
+			for (int rowCount = startIndex; rowCount <= sheet.getLastRowNum(); rowCount++) {
 				Row detailRow = sheet.getRow(rowCount);
 				if (detailRow != null && !excelUtil.isEmptyRow(detailRow)) {
 					Accommodation accommodation = createObject(detailRow, headerMap);

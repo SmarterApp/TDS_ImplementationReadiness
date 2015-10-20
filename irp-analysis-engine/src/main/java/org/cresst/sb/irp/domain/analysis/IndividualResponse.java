@@ -12,7 +12,8 @@ public class IndividualResponse {
 
     private String fileName; // id
     private boolean isValidXMLfile;
-    private TDSReport tdsReport; //
+    private boolean isTestStudentMapping; 
+	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
 
     private TestPropertiesCategory testPropertiesCategory;
@@ -46,6 +47,14 @@ public class IndividualResponse {
     public void setValidXMLfile(boolean isValidXMLfile) {
         this.isValidXMLfile = isValidXMLfile;
     }
+    
+    public boolean isTestStudentMapping() {
+ 		return isTestStudentMapping;
+ 	}
+
+ 	public void setTestStudentMapping(boolean isTestStudentMapping) {
+ 		this.isTestStudentMapping = isTestStudentMapping;
+ 	}
 
     public TestPropertiesCategory getTestPropertiesCategory() {
         return testPropertiesCategory;
@@ -121,6 +130,7 @@ public class IndividualResponse {
         return new ToStringBuilder(this)
                 .append("fileName", fileName)
                 .append("isValidXMLfile", isValidXMLfile)
+                .append("isTestStudentMapping", isTestStudentMapping)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
                 .append("testPropertiesCategory", testPropertiesCategory)
@@ -139,6 +149,7 @@ public class IndividualResponse {
         if (o == null || getClass() != o.getClass()) return false;
         IndividualResponse that = (IndividualResponse) o;
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
+        		Objects.equals(isTestStudentMapping, that.isTestStudentMapping) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
                 Objects.equals(status, that.status) &&
@@ -153,6 +164,6 @@ public class IndividualResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileName, isValidXMLfile, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
+        return Objects.hash(fileName, isValidXMLfile, isTestStudentMapping, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
     }
 }

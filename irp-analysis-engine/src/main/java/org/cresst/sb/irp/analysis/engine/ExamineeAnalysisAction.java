@@ -4,9 +4,11 @@ import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.TestPropertiesCategory;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
+import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,14 +25,19 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
-        Examinee examinee = tdsReport.getExaminee();
-
+        Examinee examinee = tdsReport.getExaminee();  //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
+        Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
+        
         ExamineeCategory examineeCategory = new ExamineeCategory();
         individualResponse.setExamineeCategory(examineeCategory);
 
-        // Validate only when the TDS Report contains an Examinee
-        if (examinee != null) {
-            Long examineeKey = examinee.getKey();
+        TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
+        String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
+        
+        TestStudentMapping testStudentMapping = getTestStudentMapping(testName, examineeKey);	
+        
+        if (testStudentMapping != null) {
+        	individualResponse.setTestStudentMapping(true);
             Student student = null;
             if (examineeKey != null) {
                 try {
@@ -43,6 +50,8 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
             //<xs:attribute name="isDemo" type="Bit"/> does not match isDemo data type in
             //http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf 23 May 2015
             validate(examineeCategory, examinee, examinee.getIsDemo(), EnumFieldCheckType.D, EnumExamineeFieldName.isDemo, student);
+        }else {
+        	 logger.info(String.format("TDS Report contains Test name (%s) and an Examinee Key (%d) that does not match an IRP TestStudentMapping", testName,  examineeKey));
         }
     }
 

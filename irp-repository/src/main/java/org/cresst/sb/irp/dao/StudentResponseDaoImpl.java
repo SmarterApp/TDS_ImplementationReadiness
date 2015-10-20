@@ -24,8 +24,8 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private Map<Long, TestItemResponse> testItemStudentResponseMap = new HashMap<Long, TestItemResponse>();
 	
-	@Value("classpath:irp-package/IRPVendorStudentResponsesTemplate.xlsx")
-	private Resource studentResponseResource;
+	//@Value("classpath:irp-package/IRPVendorStudentResponsesTemplate.xlsx")
+	//private Resource studentResponseResource;
 	
 	@Autowired
 	private StudentResponseUtil studentResponseUtil;
@@ -36,13 +36,13 @@ public class StudentResponseDaoImpl implements StudentResponseDao {
 	
 	@PostConstruct
 	public void loadData() throws Exception {
-		XSSFWorkbook workbook = new XSSFWorkbook(studentResponseResource.getInputStream());
+		/*XSSFWorkbook workbook = new XSSFWorkbook(studentResponseResource.getInputStream());
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		studentResponseUtil.getHeaderColumn(headerMap, sheet);
 		studentResponseUtil.initialTestItemResponse(headerMap, testItemStudentResponseMap);
 		if(testItemStudentResponseMap.size() > 0){
 			studentResponseUtil.processSheet(testItemStudentResponseMap, headerMap, sheet);
-		}
+		}*/
 	}
 	
 	@Override

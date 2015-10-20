@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 public class ExcelUtil {
 	private final static Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
 
-	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet) {
+	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet, int headerrowIndex) {
 		try {
 			// get header
-			Row headerRow = sheet.getRow(0);
+			Row headerRow = sheet.getRow(headerrowIndex);
 			Iterator<Cell> cellHeaderIterator = headerRow.cellIterator();
 			while (cellHeaderIterator.hasNext()) {
 				// get cell object

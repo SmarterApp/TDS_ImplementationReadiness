@@ -11,6 +11,7 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
+import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.AccommodationService;
 import org.cresst.sb.irp.service.ItemService;
@@ -18,6 +19,7 @@ import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
+import org.cresst.sb.irp.service.TestStudentMappingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +60,9 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	@Autowired
 	public ItemService itemService;
 
+	@Autowired
+	public TestStudentMappingService testStudentMappingService;
+	
 	@Autowired
 	public StudentResponseService studentResponseService;
 
@@ -202,6 +207,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return studentService.getStudentByStudentSSID(key);
 	}
 
+	public TestStudentMapping getTestStudentMapping(String testName, long studentSSID) throws NotFoundException {
+		return testStudentMappingService.getTestStudentMapping(testName, studentSSID);
+	}
+	
 	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
 		return itemService.getItemByIdentifier(identifier);
 	}

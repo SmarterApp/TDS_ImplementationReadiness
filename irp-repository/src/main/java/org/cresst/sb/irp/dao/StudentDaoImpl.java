@@ -44,8 +44,8 @@ public class StudentDaoImpl implements StudentDao {
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook(studentResource.getInputStream());
 			XSSFSheet sheet = workbook.getSheetAt(0);
-			excelUtil.getHeaderColumn(headerMap, sheet);
-			studentUtil.processSheet(students, headerMap, sheet, excelUtil);
+			excelUtil.getHeaderColumn(headerMap, sheet, 0); 
+			studentUtil.processSheet(students, headerMap, sheet, excelUtil, 1);
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
