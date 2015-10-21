@@ -12,7 +12,7 @@ public class IndividualResponse {
 
     private String fileName; // id
     private boolean isValidXMLfile;
-    private boolean isTestStudentMapping; 
+    private boolean isValidExaminee; 
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
 
@@ -48,13 +48,13 @@ public class IndividualResponse {
         this.isValidXMLfile = isValidXMLfile;
     }
     
-    public boolean isTestStudentMapping() {
- 		return isTestStudentMapping;
- 	}
+	public boolean isValidExaminee() {
+		return isValidExaminee;
+	}
 
- 	public void setTestStudentMapping(boolean isTestStudentMapping) {
- 		this.isTestStudentMapping = isTestStudentMapping;
- 	}
+	public void setValidExaminee(boolean isValidExaminee) {
+		this.isValidExaminee = isValidExaminee;
+	}
 
     public TestPropertiesCategory getTestPropertiesCategory() {
         return testPropertiesCategory;
@@ -130,7 +130,7 @@ public class IndividualResponse {
         return new ToStringBuilder(this)
                 .append("fileName", fileName)
                 .append("isValidXMLfile", isValidXMLfile)
-                .append("isTestStudentMapping", isTestStudentMapping)
+                .append("isValidExaminee", isValidExaminee)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
                 .append("testPropertiesCategory", testPropertiesCategory)
@@ -149,7 +149,7 @@ public class IndividualResponse {
         if (o == null || getClass() != o.getClass()) return false;
         IndividualResponse that = (IndividualResponse) o;
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
-        		Objects.equals(isTestStudentMapping, that.isTestStudentMapping) &&
+        		Objects.equals(isValidExaminee, that.isValidExaminee) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
                 Objects.equals(status, that.status) &&
@@ -164,6 +164,8 @@ public class IndividualResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileName, isValidXMLfile, isTestStudentMapping, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
+        return Objects.hash(fileName, isValidXMLfile, isValidExaminee, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
     }
+
+
 }

@@ -37,15 +37,15 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
         TestStudentMapping testStudentMapping = getTestStudentMapping(testName, examineeKey);	
         
         if (testStudentMapping != null) {
-        	individualResponse.setTestStudentMapping(true);
+        	individualResponse.setValidExaminee(true);
             Student student = null;
-            if (examineeKey != null) {
-                try {
-                    student = getStudent(examineeKey);
-                } catch (NotFoundException ex) {
-                    logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
-                }
+            
+            try {
+                student = getStudent(examineeKey);
+            } catch (NotFoundException ex) {
+                logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
             }
+           
             validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.PC, EnumExamineeFieldName.key, student);
             //<xs:attribute name="isDemo" type="Bit"/> does not match isDemo data type in
             //http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf 23 May 2015

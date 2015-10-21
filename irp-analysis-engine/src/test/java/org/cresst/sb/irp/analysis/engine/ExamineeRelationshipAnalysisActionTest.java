@@ -85,7 +85,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-
+        individualResponse.setValidExaminee(true);
+        
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -154,7 +155,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-
+        individualResponse.setValidExaminee(true);
+        
         // Create a Student with the same attributes as the ExamineeRelationships
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(
                 new StudentBuilder(SSID)
@@ -252,7 +254,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-
+        individualResponse.setValidExaminee(true);
+        
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -294,7 +297,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-
+        individualResponse.setValidExaminee(true);
+        
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -318,13 +322,21 @@ public class ExamineeRelationshipAnalysisActionTest {
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
     }
 
+    /**
+     * <xs:element name="Examinee" minOccurs="1" maxOccurs="1">
+     * TDS Report should have only one Examinee attribute. otherwise, trigger exception 
+     * in xmlValidate.validateXMLSchema(TDSReportXSDResource, tmpPath.toString()) in TdsReportAnalysisEngine.java
+     * 
+     * this test won't be invoked in real scenario
+     */
     @Test
     public void whenExamineeIsNull_EmptyExamineeRelationshipCategory() {
         // Arrange
         TDSReport tdsReport = new TDSReport();
         IndividualResponse individualResponse = new IndividualResponse();
         individualResponse.setTDSReport(tdsReport);
-
+        individualResponse.setValidExaminee(true);
+        
         // Act
         underTest.analyze(individualResponse);
 
@@ -342,7 +354,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-
+        individualResponse.setValidExaminee(true);
+        
         // Create a scenario where the student is not found
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 
@@ -378,7 +391,8 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .toExamineeRelationship());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-    	
+        individualResponse.setValidExaminee(true);
+        
         // Create a Student with the ResponsibleDistrictIdentifier value leading zeros (HI Students1_3.xlsx)
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).responsibleDistrictIdentifier("001").toStudent());
 

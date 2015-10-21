@@ -33,19 +33,18 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
-        Examinee examinee = tdsReport.getExaminee();
+        Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
 
-        if (examinee != null) {
-            Long examineeKey = examinee.getKey();
+        if (individualResponse.isValidExaminee()){
+            Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
             Student student = null;
-            if (examineeKey != null) {
-                try {
-                    student = getStudent(examineeKey);
-                } catch (NotFoundException ex) {
-                    logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
-                }
+        
+            try {
+                student = getStudent(examineeKey);
+            } catch (NotFoundException ex) {
+                logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
             }
-
+      
             // Analyze all the ExamineeRelationships that have a FINAL context
             List<ExamineeRelationship> examineeRelationships = getFinalExamineeRelationships(examinee);
             for (ExamineeRelationship examineeRelationship : examineeRelationships) {

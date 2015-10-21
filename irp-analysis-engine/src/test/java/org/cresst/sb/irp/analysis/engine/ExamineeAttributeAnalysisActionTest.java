@@ -3,7 +3,9 @@ package org.cresst.sb.irp.analysis.engine;
 import builders.CellCategoryBuilder;
 import builders.ExamineeAttributeBuilder;
 import builders.StudentBuilder;
+
 import com.google.common.collect.Lists;
+
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -12,6 +14,7 @@ import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.StudentService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -61,6 +64,7 @@ public class ExamineeAttributeAnalysisActionTest {
         final IndividualResponse individualResponse = new IndividualResponse();
         individualResponse.setTDSReport(tdsReport);
 
+        
         return individualResponse;
     }
 
@@ -68,7 +72,8 @@ public class ExamineeAttributeAnalysisActionTest {
     public void testAnalyze() throws Exception {
 
         final IndividualResponse individualResponse = generateIndividualResponse(9999L, generateAllExamineeAttributes());
-
+        individualResponse.setValidExaminee(true);
+        
         when(studentService.getStudentByStudentSSID(9999L)).thenReturn(new StudentBuilder(9999L)
                 .alternateSSID("8888")
                 .americanIndianOrAlaskaNative("No")
@@ -111,6 +116,21 @@ public class ExamineeAttributeAnalysisActionTest {
 
         assertThat(actualCellCategories.size(), is(27));
     }
+    
+    @Test
+    public void whenIsValidExamineeFalse() throws Exception {
+    	
+	   final IndividualResponse individualResponse = generateIndividualResponse(9999L, generateAllExamineeAttributes());
+       individualResponse.setValidExaminee(false);
+       
+       underTest.analyze(individualResponse);
+
+       List<ExamineeAttributeCategory> examineeAttributeCategories = individualResponse.getExamineeAttributeCategories();
+       
+       // Assert
+       Assert.assertThat(examineeAttributeCategories.size(), is(0));
+       
+    }
 
     @Test
     public void whenBirthdateMatchesStudent_CorrectField() throws Exception {
@@ -125,7 +145,8 @@ public class ExamineeAttributeAnalysisActionTest {
                         .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
-
+        individualResponse.setValidExaminee(true);
+        
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
         		.birthdate("2002-10-15")
         		.toStudent());
@@ -166,7 +187,8 @@ public class ExamineeAttributeAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeAttribute());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
-
+        individualResponse.setValidExaminee(true);
+        
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 
         // Act
@@ -201,6 +223,7 @@ public class ExamineeAttributeAnalysisActionTest {
                     .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
+        individualResponse.setValidExaminee(true);
         
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
 			.englishLanguageProficiencyLevel("PROGRESS")
