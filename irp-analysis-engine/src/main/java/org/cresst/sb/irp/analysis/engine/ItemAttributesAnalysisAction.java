@@ -40,8 +40,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
 			String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(testName);
-			if (testPackage == null)
-				return;
+		
 			Administration administration = testPackage.getAdministration();
 			Itempool itempool = administration.getItempool();
 			List<Testitem> testitems = itempool.getTestitem();
@@ -53,7 +52,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 			List<ItemCategory> itemCategories = new ArrayList<>();
 			for (Testitem testitem : testitems){
-				if (testitem.getIdentifier() == null){ //
+				if (testitem.getIdentifier() == null){ // <xs:element ref="identifier" />
 					continue;
 				}
 		
@@ -141,7 +140,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 * 
 	 * @param itemCategory -> The ItemCategory to store the results of the analyze
 	 * @param item ->  TDSReport Item with fields to check	
-	 * @param testitem ->  <testitem> of <itempool> in Test Package
+	 * @param testitem ->  <testitem> of <itempool> in IRP Test Package
 	 */
 	private void analyzeItemAttributes(Category itemCategory, Item item, Testitem testitem) {
 		validate(itemCategory, item, item.getPosition(), EnumFieldCheckType.P, EnumItemFieldName.position, null);
@@ -152,7 +151,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		validate(itemCategory, item, item.getOperational(), EnumFieldCheckType.P, EnumItemFieldName.operational, null);
 		validate(itemCategory, item, item.getIsSelected(), EnumFieldCheckType.P, EnumItemFieldName.isSelected, null);
 		validate(itemCategory, item, item.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, testitem);
-		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null);
+		validate(itemCategory, item, item.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null); //TODO checkC
 		validate(itemCategory, item, item.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, null);
 		validate(itemCategory, item, item.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate, null);
 		validate(itemCategory, item, item.getNumberVisits(), EnumFieldCheckType.P, EnumItemFieldName.numberVisits, null);
@@ -294,7 +293,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 * @param fieldCheckType
 	 *            This is where results are stored
 	 * @param testitem
-	 * 			  <administration><itempool><testitem> of Test Package
+	 * 			  <administration><itempool><testitem> of IRP Test Package
 	 */
 	@Override
 	protected void checkC(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType, Testitem testitem) {
@@ -310,6 +309,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
                     setCcorrect(fieldCheckType);
                 }
                 break;
+            case score:
+            	//TODO
+            	break;
             default:
                 break;
         }

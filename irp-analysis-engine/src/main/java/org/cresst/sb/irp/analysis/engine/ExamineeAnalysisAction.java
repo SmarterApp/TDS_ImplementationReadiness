@@ -33,7 +33,6 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
 
         TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
         String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
-        
         TestStudentMapping testStudentMapping = getTestStudentMapping(testName, examineeKey);	
         
         if (testStudentMapping != null) {

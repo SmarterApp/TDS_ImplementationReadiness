@@ -72,8 +72,7 @@ public class ExamineeAttributeAnalysisActionTest {
     public void testAnalyze() throws Exception {
 
         final IndividualResponse individualResponse = generateIndividualResponse(9999L, generateAllExamineeAttributes());
-        individualResponse.setValidExaminee(true);
-        
+   
         when(studentService.getStudentByStudentSSID(9999L)).thenReturn(new StudentBuilder(9999L)
                 .alternateSSID("8888")
                 .americanIndianOrAlaskaNative("No")
@@ -117,20 +116,6 @@ public class ExamineeAttributeAnalysisActionTest {
         assertThat(actualCellCategories.size(), is(27));
     }
     
-    @Test
-    public void whenIsValidExamineeFalse() throws Exception {
-    	
-	   final IndividualResponse individualResponse = generateIndividualResponse(9999L, generateAllExamineeAttributes());
-       individualResponse.setValidExaminee(false);
-       
-       underTest.analyze(individualResponse);
-
-       List<ExamineeAttributeCategory> examineeAttributeCategories = individualResponse.getExamineeAttributeCategories();
-       
-       // Assert
-       Assert.assertThat(examineeAttributeCategories.size(), is(0));
-       
-    }
 
     @Test
     public void whenBirthdateMatchesStudent_CorrectField() throws Exception {
@@ -145,8 +130,7 @@ public class ExamineeAttributeAnalysisActionTest {
                         .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
-        individualResponse.setValidExaminee(true);
-        
+
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
         		.birthdate("2002-10-15")
         		.toStudent());
@@ -187,8 +171,7 @@ public class ExamineeAttributeAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeAttribute());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
-        individualResponse.setValidExaminee(true);
-        
+      
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 
         // Act
@@ -223,8 +206,7 @@ public class ExamineeAttributeAnalysisActionTest {
                     .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
-        individualResponse.setValidExaminee(true);
-        
+      
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
 			.englishLanguageProficiencyLevel("PROGRESS")
 			.toStudent());

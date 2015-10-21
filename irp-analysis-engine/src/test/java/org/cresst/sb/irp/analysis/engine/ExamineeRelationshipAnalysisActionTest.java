@@ -85,7 +85,6 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
         
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
@@ -155,7 +154,6 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
         
         // Create a Student with the same attributes as the ExamineeRelationships
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(
@@ -254,7 +252,6 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
         
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
@@ -297,7 +294,6 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
         
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
@@ -335,12 +331,13 @@ public class ExamineeRelationshipAnalysisActionTest {
         TDSReport tdsReport = new TDSReport();
         IndividualResponse individualResponse = new IndividualResponse();
         individualResponse.setTDSReport(tdsReport);
-        individualResponse.setValidExaminee(true);
         
+        /*
         // Act
         underTest.analyze(individualResponse);
 
         assertThat(individualResponse.getExamineeRelationshipCategories().size(), is(0));
+        */
     }
 
     @Test
@@ -354,8 +351,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
-        
+      
         // Create a scenario where the student is not found
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 
@@ -391,7 +387,6 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .toExamineeRelationship());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        individualResponse.setValidExaminee(true);
         
         // Create a Student with the ResponsibleDistrictIdentifier value leading zeros (HI Students1_3.xlsx)
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).responsibleDistrictIdentifier("001").toStudent());

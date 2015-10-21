@@ -85,17 +85,18 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 
 					testAnalysisAction.analyze(individualResponse);
 					examineeAnalysisAction.analyze(individualResponse);
-					examineeAttributeAnalysisAction.analyze(individualResponse);	
-					examineeRelationshipAnalysisAction.analyze(individualResponse);
-					opportunityAnalysisAction.analyze(individualResponse);
-					segmentAnalysisAction.analyze(individualResponse);
-					accommodationAnalysisAction.analyze(individualResponse);
-					itemAttributesAnalysisAction.analyze(individualResponse);
-					itemResponseAnalysisAction.analyze(individualResponse);		
-					itemScoreInfoAnalysisAction.analyze(individualResponse);
-					commentAnalysisAction.analyze(individualResponse);
-					toolUsageAnalysisAction.analyze(individualResponse);
-
+					if (individualResponse.isValidExaminee()) {
+						examineeAttributeAnalysisAction.analyze(individualResponse);
+						examineeRelationshipAnalysisAction.analyze(individualResponse);
+						opportunityAnalysisAction.analyze(individualResponse);
+						segmentAnalysisAction.analyze(individualResponse);
+						accommodationAnalysisAction.analyze(individualResponse);
+						itemAttributesAnalysisAction.analyze(individualResponse);
+						itemResponseAnalysisAction.analyze(individualResponse);
+						itemScoreInfoAnalysisAction.analyze(individualResponse);
+						commentAnalysisAction.analyze(individualResponse);
+						toolUsageAnalysisAction.analyze(individualResponse);
+					}
 				}
 			} catch (IOException e) {
 				logger.error("analyze exception: ", e);

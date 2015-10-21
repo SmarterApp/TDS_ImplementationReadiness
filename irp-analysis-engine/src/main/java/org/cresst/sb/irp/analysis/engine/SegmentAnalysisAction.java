@@ -29,7 +29,7 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
             TDSReport tdsReport = individualResponse.getTDSReport();
 
             Opportunity opportunity = tdsReport.getOpportunity();
-            List<Segment> listSegment = opportunity.getSegment();
+            List<Segment> listSegment = opportunity.getSegment(); //<xs:element name="Segment" minOccurs="0" maxOccurs="unbounded">
 
             List<SegmentCategory> listSegmentCategory = new ArrayList<>();
             for (Segment segment : listSegment) {

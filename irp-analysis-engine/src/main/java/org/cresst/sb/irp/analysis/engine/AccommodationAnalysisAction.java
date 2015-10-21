@@ -36,14 +36,14 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 
 			Opportunity opportunity = tdsReport.getOpportunity();
 			List<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation> listAccommodation =
-					opportunity.getAccommodation();
+					opportunity.getAccommodation(); //<xs:element name="Accommodation" minOccurs="0" maxOccurs="unbounded">
 
 			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
 			Long examineeKey = Long.parseLong(getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key"));
 			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel = getAccommodation(examineeKey);
 
 			List<AccommodationCategory> listAccommodationCategory = new ArrayList<>();
-
+			
 			for (Accommodation accommodation : listAccommodation) {
 				AccommodationCategory accommodationCategory = new AccommodationCategory();
 				listAccommodationCategory.add(accommodationCategory);

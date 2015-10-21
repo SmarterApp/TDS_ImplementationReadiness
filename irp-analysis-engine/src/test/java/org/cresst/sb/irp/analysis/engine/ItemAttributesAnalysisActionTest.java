@@ -67,6 +67,20 @@ public class ItemAttributesAnalysisActionTest {
 
 		return individualResponse;
 	}
+	
+	private Administration generateTestPackageAdministration(List<Testitem> irptestpackageTestitems){
+		
+		final Administration administration = new Administration();
+		
+		Itempool itempool = new Itempool();
+		administration.setItempool(itempool);
+
+		if (irptestpackageTestitems != null) {
+			itempool.getTestitem().addAll(irptestpackageTestitems);
+		}
+		
+		return administration;
+	}
 
 	/**
 	 * When there are equal Items in the given TDS Report and in the IRP TestPackage then mark the items from the IRP package as
@@ -76,17 +90,13 @@ public class ItemAttributesAnalysisActionTest {
 	public void whenTDSReportContainsSameItemsAsIRPTestPackage_ItemsMarkedAsFound() {
 
 		// The TDS Report has same Items than the IRP package
-		final List<TDSReport.Opportunity.Item> tdsReportItems =
-				Lists.newArrayList(new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem(),
-						new ItemAttributeBuilder().bankKey(200).key(2000).toOpportunityItem());
+		final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+				new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem(),
+				new ItemAttributeBuilder().bankKey(200).key(2000).toOpportunityItem());
 
 		final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
 
-		Administration administration = new Administration();
-		Itempool itempool = new Itempool();
-		administration.setItempool(itempool);
-		List<Testitem> testitems = generateTestItems2();
-		itempool.getTestitem().addAll(testitems);
+		final Administration administration = generateTestPackageAdministration(generateTestItems2());
 
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
@@ -98,6 +108,7 @@ public class ItemAttributesAnalysisActionTest {
         
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(1).getStatus());
 	}
@@ -117,11 +128,7 @@ public class ItemAttributesAnalysisActionTest {
     	
     	final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
     	
-		Administration administration = new Administration();
-		Itempool itempool = new Itempool();
-		administration.setItempool(itempool);
-		List<Testitem> testitems = generateTestItems1();
-		itempool.getTestitem().addAll(testitems);
+    	final Administration administration = generateTestPackageAdministration(generateTestItems1());
 
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
@@ -133,6 +140,7 @@ public class ItemAttributesAnalysisActionTest {
         
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(1).getStatus());
     }
@@ -151,11 +159,7 @@ public class ItemAttributesAnalysisActionTest {
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
 
-		Administration administration = new Administration();
-		Itempool itempool = new Itempool();
-		administration.setItempool(itempool);
-		List<Testitem> testitems = generateTestItems2();
-		itempool.getTestitem().addAll(testitems);
+    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
@@ -167,6 +171,7 @@ public class ItemAttributesAnalysisActionTest {
 		
         // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
     }
@@ -188,11 +193,7 @@ public class ItemAttributesAnalysisActionTest {
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
     	
-    	Administration administration = new Administration();
-		Itempool itempool = new Itempool();
-		administration.setItempool(itempool);
-		List<Testitem> testitems = generateTestItems2();
-		itempool.getTestitem().addAll(testitems);
+    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
@@ -204,6 +205,7 @@ public class ItemAttributesAnalysisActionTest {
 		
 	    // Assert
         List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
         assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(2).getStatus());
@@ -228,11 +230,7 @@ public class ItemAttributesAnalysisActionTest {
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
         
-     	Administration administration = new Administration();
-		Itempool itempool = new Itempool();
-		administration.setItempool(itempool);
-		List<Testitem> testitems = generateTestItems2();
-		itempool.getTestitem().addAll(testitems);
+       	final Administration administration = generateTestPackageAdministration(generateTestItems2());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
