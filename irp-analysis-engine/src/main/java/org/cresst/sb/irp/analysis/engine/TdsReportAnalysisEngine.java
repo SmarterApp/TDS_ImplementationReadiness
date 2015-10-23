@@ -84,18 +84,20 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 					individualResponse.setTDSReport(tdsReport);
 
 					testAnalysisAction.analyze(individualResponse);
-					examineeAnalysisAction.analyze(individualResponse);
-					if (individualResponse.isValidExaminee()) {
-						examineeAttributeAnalysisAction.analyze(individualResponse);
-						examineeRelationshipAnalysisAction.analyze(individualResponse);
-						opportunityAnalysisAction.analyze(individualResponse);
-						segmentAnalysisAction.analyze(individualResponse);
-						accommodationAnalysisAction.analyze(individualResponse);
-						itemAttributesAnalysisAction.analyze(individualResponse);
-						itemResponseAnalysisAction.analyze(individualResponse);
-						itemScoreInfoAnalysisAction.analyze(individualResponse);
-						commentAnalysisAction.analyze(individualResponse);
-						toolUsageAnalysisAction.analyze(individualResponse);
+					if (individualResponse.isValidTestName()) {
+						examineeAnalysisAction.analyze(individualResponse);
+						if (individualResponse.isValidExaminee()) {
+							examineeAttributeAnalysisAction.analyze(individualResponse);
+							examineeRelationshipAnalysisAction.analyze(individualResponse);
+							opportunityAnalysisAction.analyze(individualResponse);
+							segmentAnalysisAction.analyze(individualResponse);
+							accommodationAnalysisAction.analyze(individualResponse);
+							itemAttributesAnalysisAction.analyze(individualResponse);
+							itemResponseAnalysisAction.analyze(individualResponse);
+							itemScoreInfoAnalysisAction.analyze(individualResponse);
+							commentAnalysisAction.analyze(individualResponse);
+							toolUsageAnalysisAction.analyze(individualResponse);
+						}
 					}
 				}
 			} catch (IOException e) {

@@ -1,7 +1,5 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
-
 import tds.itemscoringengine.ItemScoreInfo;
 
 public class ResponseCategory {
@@ -15,7 +13,6 @@ public class ResponseCategory {
 
 	public boolean isResponseValid;
 	private ItemScoreInfo itemScoreInfo;
-	private StudentResponse studentResponse;
 
 	public ItemScoreInfo getItemScoreInfo() {
 		return itemScoreInfo;
@@ -57,14 +54,6 @@ public class ResponseCategory {
 		this.content = content;
 	}
 
-	public StudentResponse getStudentResponse() {
-		return studentResponse;
-	}
-
-	public void setStudentResponse(StudentResponse studentResponse) {
-		this.studentResponse = studentResponse;
-	}
-
 	public FieldCheckType getDateFieldCheckType() {
 		return dateFieldCheckType;
 	}
@@ -93,7 +82,7 @@ public class ResponseCategory {
 	public String toString() {
 		return "ResponseCategory [date=" + date + ", type=" + type + ", content=" + content + ", dateFieldCheckType="
 				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
-				+ contentFieldCheckType + ", studentResponse=" + studentResponse + "]";
+				+ contentFieldCheckType + "]";
 	}
 
 }

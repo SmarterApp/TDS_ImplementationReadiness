@@ -26,17 +26,20 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
     public void analyze(IndividualResponse individualResponse) {
         try {
             TDSReport tdsReport = individualResponse.getTDSReport();
+            
             OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-            List<ItemCategory> listItemCategory = opportunityCategory.getItemCategories();
+            List<ItemCategory> itemCategories = opportunityCategory.getItemCategories();
+            
             Opportunity opportunity = tdsReport.getOpportunity();
-            List<Item> listItem = opportunity.getItem();
+            List<Item> tdsItems = opportunity.getItem();
+            
             int indexOfItemCategory = 0;
-            for (Item i : listItem) {
-                ItemCategory itemCategory = listItemCategory.get(indexOfItemCategory);
-                analysisItemScoreInfo(itemCategory, i);
+            for (Item tdsItem : tdsItems) {
+                ItemCategory itemCategory = itemCategories.get(indexOfItemCategory);
+                analysisItemScoreInfo(itemCategory, tdsItem);
                 ScoreInfoCategory scoreInfoCategory = itemCategory.getScoreInfoCategory();
                 if (scoreInfoCategory != null)
-                    analysisItemScoreInfoScoreRationale(scoreInfoCategory, i.getScoreInfo());
+                    analysisItemScoreInfoScoreRationale(scoreInfoCategory, tdsItem.getScoreInfo());
                 indexOfItemCategory++;
             }
         } catch (Exception e) {

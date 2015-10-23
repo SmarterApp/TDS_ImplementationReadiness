@@ -10,7 +10,6 @@ import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.items.Itemrelease;
-import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
@@ -65,8 +64,8 @@ public class ItemResponseAnalysisAction extends
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 
-			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
-			String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
+			//ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
+			//String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
 
             OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> itemCategories = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING, EXTRA
@@ -74,18 +73,15 @@ public class ItemResponseAnalysisAction extends
             Opportunity opportunity = tdsReport.getOpportunity();
 			List<Item> tdsItems = opportunity.getItem();
 
-            for (Item item : tdsItems) {
-				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(item.getBankKey()),
-						Long.toString(item.getKey()), itemCategories, ItemStatusEnum.FOUND);
+            for (Item tdsItem : tdsItems) {
+				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(tdsItem.getBankKey()),
+						Long.toString(tdsItem.getKey()), itemCategories, ItemStatusEnum.FOUND);
 
+				System.out.println("itemCategory bankkeykey ==>" + itemCategory.getItemBankKeyKey() + " toString() =>" + itemCategory.toString());
+				
                 if (itemCategory != null) {
-					StudentResponse studentResponse = getStudentResponseByStudentIDandBankKeyID(Long.parseLong(examineeKey),
-							Long.toString(item.getBankKey()), Long.toString(item.getKey()));
-
-					if (studentResponse != null) {
-						analyzeItemResponse(itemCategory, item, studentResponse);
-						analyzeItemResponseWithStudentReponse(itemCategory, studentResponse);
-					}
+					analyzeItemResponse(itemCategory, tdsItem);
+					//analyzeItemResponseWithStudentReponse(itemCategory, studentResponse);
 				}
 			}
 		} catch (Exception e) {
@@ -93,10 +89,11 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void analyzeItemResponse(ItemCategory itemCategory, Item tdsItem, StudentResponse studentResponse) {
+	private void analyzeItemResponse(ItemCategory itemCategory, Item tdsItem) {
 		try {
 			ResponseCategory responseCategory = new ResponseCategory();
 			itemCategory.setResponseCategory(responseCategory);
+			
 			Response response = tdsItem.getResponse();
 			FieldCheckType fieldCheckType;
 
@@ -105,36 +102,23 @@ public class ItemResponseAnalysisAction extends
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			responseCategory.setDateFieldCheckType(fieldCheckType);
 			validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.date, fieldCheckType);
-
+			System.out.println("fieldCheckType Date -->" + fieldCheckType.toString());
+			
 			responseCategory.setType(response.getType());
 			fieldCheckType = new FieldCheckType();
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 			responseCategory.setTypeFieldCheckType(fieldCheckType);
 			validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.type, fieldCheckType);
-
+			System.out.println("fieldCheckType Type -->" + fieldCheckType.toString());
+			
 			responseCategory.setContent(response.getContent());
-			if (isValidStudentResponse(tdsItem, studentResponse)) {
-				responseCategory.setIsResponseValid(true);
-				fieldCheckType = new FieldCheckType();
-				fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
-				responseCategory.setContentFieldCheckType(fieldCheckType);
-				analysisItemResponseItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
-			}
+			fieldCheckType = new FieldCheckType();
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+			responseCategory.setContentFieldCheckType(fieldCheckType);
+			analysisItemResponseItemScoring(tdsItem, fieldCheckType, responseCategory, itemCategory);
+			//responseCategory.setIsResponseValid(true); TODO 
 		} catch (Exception e) {
 			logger.error("analyzeItemResponse exception: ", e);
-		}
-	}
-
-	private void analyzeItemResponseWithStudentReponse(ItemCategory itemCategory, StudentResponse studentResponse) {
-		try {
-			if (studentResponse != null) {
-				ResponseCategory responseCategory = itemCategory.getResponseCategory();
-				responseCategory.setStudentResponse(studentResponse);
-				studentResponse.setTdsResponseContent(responseCategory.getContent());
-				validateStudentResponse(studentResponse);
-			}
-		} catch (Exception e) {
-			logger.error("analyzeItemResponseWithStudentResponse exception: ", e);
 		}
 	}
 
@@ -500,96 +484,8 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	private void validateStudentResponse(StudentResponse studentResponse) {
-		try {
-			String format = studentResponse.getItemType().toLowerCase();
-			switch (format) {
-			case "er":
-				validateER(studentResponse);
-				break;
-			case "mi":
-				validateMI(studentResponse);
-				break;
-			case "eq":
-				validateEQ(studentResponse);
-				break;
-			case "gi":
-				validateGI(studentResponse);
-				break;
-			case "ms":
-				validateMS(studentResponse);
-				break;
-			case "mc":
-				validateMC(studentResponse);
-				break;
-			case "ti":
-				validateTI(studentResponse);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateStudentResponse exception: ", e);
-		}
-	}
-
-	/**
-	 * Parsing student response for item type ER and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type ER in tds report xml file
-	 */
-	private void validateER(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-
-		// TODO - need to modify following code after above excelResponseContent update
-		if (excelResponseContent.equals("any text") && tdsResponseContent.length() > 0) {
-			studentResponse.setStatus(true);
-		}
-
-	}
-
 	protected boolean validateER(String studentResponse) {
 		return StringUtils.isNotBlank(studentResponse);
-	}
-
-	/**
-	 * Parsing student response for item type MI and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type MI in tds report xml file
-	 */
-	private void validateMI(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-
-		// TODO This part will be removed when an additional column added in student responses file
-		// This column store CDATA content.
-		String[] parts = excelResponseContent.split(";");
-		String strYesValue = "";
-		for (int i = 0; i < parts.length; i++) {
-			String strTmp = parts[i];
-			if (strTmp.contains("YES")) {
-				String strRemoveYESfor = strTmp.replace("YES for", "");
-				String[] choiceArr = strRemoveYESfor.split("and");
-				for (int j = 0; j < choiceArr.length; j++) {
-					strYesValue += choiceArr[j].trim();
-					if (j < choiceArr.length - 1)
-						strYesValue += ",";
-				}
-				break;
-			}
-		}
-
-		// TODO need to update following if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsResponseContent);
-		if (identifiersAndResponses != null && identifiersAndResponses.size() > 0) {
-			logger.info(String.format("identifiersAndResponses.get(RESPONSE) ->%s", identifiersAndResponses.get("RESPONSE")));
-			if (strYesValue.equals(identifiersAndResponses.get("RESPONSE"))) {
-				studentResponse.setStatus(true);
-			}
-		}
 	}
 
 	protected boolean validateMI(String tdsStudentResponse) {
@@ -599,49 +495,7 @@ public class ItemResponseAnalysisAction extends
 		return false;
 	}
 
-	/**
-	 * Parsing student response for item type EQ and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type EQ in tds report xml file
-	 */
-	private void validateEQ(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
 
-		try {
-			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
-			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(tdsResponseContent.trim());
-			if (mathExpressionSet.size() > 0) {
-				// TODO update following code to validate excelResponseContent
-				for (MathExpression me : mathExpressionSet) {
-					System.out.println("me.toString() ->" + me.toString());
-					MathExpressionInfo meinfo = me.toMathExpressionInfo();
-					System.out.println("AppliedCorrection ->" + meinfo.getAppliedCorrection());
-					List<String> lsOvercorrectedSympyResponse = meinfo.getOvercorrectedSympyResponse();
-					if (lsOvercorrectedSympyResponse != null)
-						for (String s : meinfo.getOvercorrectedSympyResponse())
-							System.out.println("OvercorrectedSympyResponse ->" + s);
-					for (String s : meinfo.getSympyResponseNotSimplified())
-						System.out.println("SympyResponseNotSimplified ->" + s);
-					System.out.println("TriedToApplyCorrection ->" + meinfo.getTriedToApplyCorrection());
-					for (String s : meinfo.getSympyResponse())
-						System.out.println("SympyResponse  ->" + s);
-				}
-
-			} else if (!tdsResponseContent.trim().startsWith("<response>") && tdsResponseContent.trim().length() > 0) {
-				// TODO need to update once excelResponseContent retrieved from another column in excel file
-				if (tdsResponseContent.trim().equals(excelResponseContent)) {
-					studentResponse.setStatus(true);
-				}
-
-			}
-		} catch (Exception e) {
-			logger.error("validateEQ exception: ", e);
-		}
-
-	}
 
 	protected boolean validateEQ(String studentResponse) {
 		try {
@@ -653,119 +507,6 @@ public class ItemResponseAnalysisAction extends
 			logger.error("validateEQ exception: ", e);
 		}
 		return false;
-	}
-
-	/**
-	 * Parsing student response for item type GI and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type GI in tds report xml file
-	 */
-	private void validateGI(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-
-		try {
-			logger.info(String.format("tdsResponseContent -->%s", tdsResponseContent));
-			List<GRObject> listGRObject = getObjectStrings(tdsResponseContent);
-			if (listGRObject != null) {
-				// TODO need to update following to validate excelResponseContent
-				ObjectType objectType = null;
-				for (GRObject go : listGRObject) {
-					logger.info(String.format("strxml -->%s", go.getXmlString()));
-					logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
-					objectType = go.getTypeOfObject();
-					break;
-				}
-
-				switch (objectType) {
-				case Atomic:
-					logger.info("Atomic");
-					// studentResponse.setStatus(false);
-					break;
-				case Point:
-					logger.info("Point");
-					// studentResponse.setStatus(false);
-					break;
-				case Geometric:
-					logger.info("Geometric");
-					// studentResponse.setStatus(false);
-					break;
-				case RegionGroup:
-					logger.info("RegionGroup");
-					// studentResponse.setStatus(false);
-					break;
-				default:
-					break;
-				}
-			}
-		} catch (Exception e) {
-			logger.error("validateGI exception: ", e);
-		}
-	}
-
-	/**
-	 * this method parse student response in studentResponse to get sub format (ObjectType like RegionGroup then parse tds student
-	 * response in tdsStudentResponse to get ObjectType
-	 * 
-	 * @param tdsResponseContent
-	 *            - student response in tds report xml file
-	 * @param studentResponse
-	 *            - student response in IRP package (Excel)
-	 * 
-	 * @return
-	 */
-	protected boolean validateGI(String tdsResponseContent, StudentResponse studentResponse) {
-
-		List<GRObject> listGRObject = null;
-		ObjectType excelObjectType = null;
-		// TODO
-		// parse excelStudentResponse to get the sub format like RegionGroupObject, AtomicObject, Object
-		// String excelStudentResponse = studentResponse.getStudentResponse() //the real student response column does not EXIST
-		// now
-		/*
-		 * listGRObject = getObjectStrings(excelStudentResponse); if (listGRObject != null) { for (GRObject go : listGRObject) {
-		 * logger.info(String.format("strxml -->%s", go.getXmlString())); logger.info(String.format("typeofObject -->%s",
-		 * go.getTypeOfObject())); excelObjectType = go.getTypeOfObject(); break; } }
-		 */
-
-		ObjectType tdsObjectType = null;
-		listGRObject = getObjectStrings(tdsResponseContent);
-		if (listGRObject != null) {
-			for (GRObject go : listGRObject) {
-				logger.info(String.format("strxml -->%s", go.getXmlString()));
-				logger.info(String.format("typeofObject -->%s", go.getTypeOfObject()));
-				tdsObjectType = go.getTypeOfObject();
-				break;
-			}
-		}
-
-		if (excelObjectType != null && tdsObjectType != null && excelObjectType.equals(tdsObjectType))
-			return true;
-		return false;
-	}
-
-	/**
-	 * Parsing student response for item type MS and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type MS in tds report xml file
-	 * 
-	 */
-	private void validateMS(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-
-		List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-				.splitToList(excelResponseContent.toLowerCase()));
-		List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-				.splitToList(tdsResponseContent.toLowerCase()));
-		if (compare(list1, list2)) {
-			studentResponse.setStatus(true);
-		}
-
 	}
 
 	/**
@@ -782,22 +523,6 @@ public class ItemResponseAnalysisAction extends
 		return false;
 	}
 
-	/**
-	 * Parsing student response for item type MC and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type MC in tds report xml file
-	 * 
-	 */
-	private void validateMC(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-
-		if (excelResponseContent.equalsIgnoreCase(tdsResponseContent))
-			studentResponse.setStatus(true);
-
-	}
 
 	/**
 	 * 
@@ -810,30 +535,6 @@ public class ItemResponseAnalysisAction extends
 		if (bln)
 			return true;
 		return false;
-	}
-
-	/**
-	 * Parsing student response for item type TI and match its corresponding student's response in excel file
-	 * 
-	 * @param studentResponse
-	 *            StudentResponse stores the student response for item type TI in tds report xml file
-	 * 
-	 */
-	private void validateTI(StudentResponse studentResponse) {
-		// TODO need to get excelResponseContent from another column which in NOT exist now in excel file
-		String excelResponseContent = studentResponse.getResponseContent();
-		String tdsResponseContent = studentResponse.getTdsResponseContent();
-		try {
-			logger.info("tdsResponseContent -->" + tdsResponseContent);
-			Table table = getTableObject(tdsResponseContent);
-			if (table != null) {
-				// TODO
-				if (matchTI(table, excelResponseContent))
-					studentResponse.setStatus(true);
-			}
-		} catch (Exception e) {
-			logger.error("validateTI exception: ", e);
-		}
 	}
 
 	protected boolean validateTI(String tdsResponseContent) {
@@ -1080,22 +781,26 @@ public class ItemResponseAnalysisAction extends
 	 * 
 	 * @return boolean
 	 */
-	protected boolean isValidStudentResponse(Item item, StudentResponse studentResponse) {
-		String response = item.getResponse().getContent();
-		String format = item.getFormat().toLowerCase();
+	protected boolean isValidStudentResponse(Item tdsItem) {
+		String response = tdsItem.getResponse().getContent();
+		String format = tdsItem.getFormat().toLowerCase();
 		boolean bln = false;
 		switch (format) {
 		case "er":
+			System.out.println("er...............");
 			bln = validateER(response);
+			System.out.println("bln ..........." + bln);
 			break;
 		case "mi":
 			bln = validateMI(response);
 			break;
 		case "eq":
+			System.out.println("eqqqqqqqqq...............");
 			bln = validateEQ(response);
+			System.out.println("bln ..........." + bln);
 			break;
 		case "gi":
-			bln = validateGI(response, studentResponse); // need to hand sub format like RegionGroupObject, AtomicObject
+			//bln = validateGI(response, studentResponse); // need to hand sub format like RegionGroupObject, AtomicObject
 			break;
 		case "ms":
 			bln = validateMS(response);

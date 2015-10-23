@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -44,40 +45,36 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			String uniqueid = tdsTest.getName();
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 
-			// TODO need to check with Paul how to store info to report wrong test package id
-			if (testPackage == null) {
-				Map<String, Testspecification> mapTestpackage = getMapTestpackage();
-				for (Map.Entry<String, Testspecification> entry : mapTestpackage.entrySet()) {
-					testPackage = entry.getValue();
-					break;
-				}
-			}
-
-			TestPropertiesCategory testPropertiesCategory = new TestPropertiesCategory();
-			individualResponse.setTestPropertiesCategory(testPropertiesCategory);
-
-			validate(testPropertiesCategory, tdsTest, tdsTest.getName(), EnumFieldCheckType.PC, EnumTestFieldName.name,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getSubject(), EnumFieldCheckType.PC,
-					EnumTestFieldName.subject, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getTestId(), EnumFieldCheckType.PC,
-					EnumTestFieldName.testId, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P,
-					EnumTestFieldName.bankKey, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P,
-					EnumTestFieldName.contract, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode,
-					testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC,
-					EnumTestFieldName.grade, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getHandScoreProject(), EnumFieldCheckType.D,
-					EnumTestFieldName.handscoreproject, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P,
-					EnumTestFieldName.assessmentType, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P,
-					EnumTestFieldName.academicYear, testPackage);
-			validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
-					EnumTestFieldName.assessmentVersion, testPackage);
+			if (testPackage != null) {
+				individualResponse.setValidTestName(true);
+				
+				TestPropertiesCategory testPropertiesCategory = new TestPropertiesCategory();
+				individualResponse.setTestPropertiesCategory(testPropertiesCategory);
+		
+				validate(testPropertiesCategory, tdsTest, tdsTest.getName(), EnumFieldCheckType.PC, EnumTestFieldName.name,
+						testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getSubject(), EnumFieldCheckType.PC,
+						EnumTestFieldName.subject, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getTestId(), EnumFieldCheckType.PC,
+						EnumTestFieldName.testId, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P,
+						EnumTestFieldName.bankKey, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P,
+						EnumTestFieldName.contract, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode,
+						testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC,
+						EnumTestFieldName.grade, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getHandScoreProject(), EnumFieldCheckType.D,
+						EnumTestFieldName.handscoreproject, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P,
+						EnumTestFieldName.assessmentType, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P,
+						EnumTestFieldName.academicYear, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
+						EnumTestFieldName.assessmentVersion, testPackage);
+			}else
+				 logger.info(String.format("TDS Report contains Test name (%s) that does not match an IRP TestPackage", uniqueid));
 
 		} catch (Exception e) {
 			logger.error("analyze exception: ", e);

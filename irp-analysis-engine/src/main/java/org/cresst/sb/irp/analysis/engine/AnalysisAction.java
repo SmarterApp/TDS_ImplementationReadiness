@@ -8,14 +8,11 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
-import org.cresst.sb.irp.domain.studentresponse.StudentResponse;
-import org.cresst.sb.irp.domain.studentresponse.TestItemResponse;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.AccommodationService;
 import org.cresst.sb.irp.service.ItemService;
-import org.cresst.sb.irp.service.StudentResponseService;
 import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TDSReportService;
 import org.cresst.sb.irp.service.TestPackageService;
@@ -63,8 +60,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	@Autowired
 	public TestStudentMappingService testStudentMappingService;
 	
-	@Autowired
-	public StudentResponseService studentResponseService;
 
 	/**
 	 * Analyze the TDS Report
@@ -225,26 +220,6 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return itemService.getItemAttribValueFromIRPitemAttriblist(attriblist, attid);
 	}
 
-	/**
-	 * @param studentID
-	 *            - SSID
-	 */
-	public TestItemResponse getTestItemResponseByStudentID(Long studentID) {
-		return studentResponseService.getTestItemResponseByStudentID(studentID);
-	}
-
-	/**
-	 * @param studentID
-	 *            - SSID
-	 * 
-	 * @param bankKey
-	 *            - value in Bank Key column e.g 187
-	 * @param Key
-	 *            - value in ID column e.g 174
-	 */
-	public StudentResponse getStudentResponseByStudentIDandBankKeyID(Long studentID, String bankKey, String Key) {
-		return studentResponseService.getStudentResponseByStudentIDandBankKeyID(studentID, bankKey, Key);
-	}
 
 	public void setPcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);

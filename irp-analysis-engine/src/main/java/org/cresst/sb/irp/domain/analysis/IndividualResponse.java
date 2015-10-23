@@ -12,7 +12,8 @@ public class IndividualResponse {
 
     private String fileName; // id
     private boolean isValidXMLfile;
-    private boolean isValidExaminee; 
+    private boolean isValidTestName; //<Test name="xxx" > contains the name does not match an IRP Test Package in irp-package/TestPackages
+    private boolean isValidExaminee; //combination of <Test name="xxx" and <Esaminee key="xxxx">
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
 
@@ -47,6 +48,14 @@ public class IndividualResponse {
     public void setValidXMLfile(boolean isValidXMLfile) {
         this.isValidXMLfile = isValidXMLfile;
     }
+
+	public boolean isValidTestName() {
+		return isValidTestName;
+	}
+
+	public void setValidTestName(boolean isValidTestName) {
+		this.isValidTestName = isValidTestName;
+	}
     
 	public boolean isValidExaminee() {
 		return isValidExaminee;
@@ -130,6 +139,7 @@ public class IndividualResponse {
         return new ToStringBuilder(this)
                 .append("fileName", fileName)
                 .append("isValidXMLfile", isValidXMLfile)
+                .append("isValidTestName", isValidTestName)
                 .append("isValidExaminee", isValidExaminee)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
@@ -149,6 +159,7 @@ public class IndividualResponse {
         if (o == null || getClass() != o.getClass()) return false;
         IndividualResponse that = (IndividualResponse) o;
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
+        		Objects.equals(isValidTestName, that.isValidTestName) &&
         		Objects.equals(isValidExaminee, that.isValidExaminee) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
@@ -164,8 +175,7 @@ public class IndividualResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileName, isValidXMLfile, isValidExaminee, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
+        return Objects.hash(fileName, isValidXMLfile, isValidTestName, isValidExaminee, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
     }
-
 
 }
