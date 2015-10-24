@@ -31,7 +31,7 @@ public class MachineRubricFileSystemLoader implements MachineRubricLoader {
     @Override
     public String getContents(String fileName) {
         String content = null;
-
+ 
         if (!StringUtils.isBlank(fileName) && Files.exists(Paths.get(basePath, fileName))) {
             try {
                 InputStream inputStream = Files.newInputStream(Paths.get(basePath, fileName));

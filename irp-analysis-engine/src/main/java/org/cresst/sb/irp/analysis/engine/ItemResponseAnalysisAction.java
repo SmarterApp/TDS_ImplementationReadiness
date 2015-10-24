@@ -14,9 +14,6 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item.Response;
-import org.cresst.sb.irp.domain.tinytablescoringengine.Table;
-import org.cresst.sb.irp.domain.tinytablescoringengine.TableCell;
-import org.cresst.sb.irp.domain.tinytablescoringengine.TableVector;
 import org.cresst.sb.irp.itemscoring.rubric.MachineRubricLoader;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -24,17 +21,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import qtiscoringengine.cs2java.StringHelper;
 import tds.itemscoringengine.*;
-import tinyequationscoringengine.MathExpression;
-import tinyequationscoringengine.MathExpressionInfo;
-import tinyequationscoringengine.MathExpressionSet;
-import tinyequationscoringengine.MathMLParser;
-import tinygrscoringengine.*;
-import tinygrscoringengine.GRObject.ObjectType;
 
 import java.io.StringReader;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,8 +31,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 @Service
-public class ItemResponseAnalysisAction extends
-		AnalysisAction<Response, ItemResponseAnalysisAction.EnumItemResponseFieldName, Itemrelease.Item.Attriblist> {
+public class ItemResponseAnalysisAction extends AnalysisAction<Response, ItemResponseAnalysisAction.EnumItemResponseFieldName, Itemrelease.Item.Attriblist> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemResponseAnalysisAction.class);
 
     static public enum EnumItemResponseFieldName {
@@ -64,9 +52,6 @@ public class ItemResponseAnalysisAction extends
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 
-			//ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
-			//String examineeKey = getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key");
-
             OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			List<ItemCategory> itemCategories = opportunityCategory.getItemCategories(); // combination of FOUND, MISSING, EXTRA
 
@@ -77,8 +62,6 @@ public class ItemResponseAnalysisAction extends
 				ItemCategory itemCategory = getItemCategoryByBankKeyKey(Long.toString(tdsItem.getBankKey()),
 						Long.toString(tdsItem.getKey()), itemCategories, ItemStatusEnum.FOUND);
 
-				System.out.println("itemCategory bankkeykey ==>" + itemCategory.getItemBankKeyKey() + " toString() =>" + itemCategory.toString());
-				
                 if (itemCategory != null) {
 					analyzeItemResponse(itemCategory, tdsItem);
 					//analyzeItemResponseWithStudentReponse(itemCategory, studentResponse);
@@ -102,14 +85,12 @@ public class ItemResponseAnalysisAction extends
 			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 			responseCategory.setDateFieldCheckType(fieldCheckType);
 			validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.date, fieldCheckType);
-			System.out.println("fieldCheckType Date -->" + fieldCheckType.toString());
 			
 			responseCategory.setType(response.getType());
 			fieldCheckType = new FieldCheckType();
-			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+			fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P); // changed to P only. if add C, need to implement
 			responseCategory.setTypeFieldCheckType(fieldCheckType);
-			validateField(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.type, fieldCheckType);
-			System.out.println("fieldCheckType Type -->" + fieldCheckType.toString());
+			validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.type, fieldCheckType);
 			
 			responseCategory.setContent(response.getContent());
 			fieldCheckType = new FieldCheckType();
@@ -133,7 +114,7 @@ public class ItemResponseAnalysisAction extends
 				break;
 			case PC:
 				checkP(response, enumFieldName, fieldCheckType);
-				checkC(response, enumFieldName, fieldCheckType, null);
+				checkC(response, enumFieldName, fieldCheckType, null); //TODO 
 				break;
 			}
 		} catch (Exception e) {
@@ -144,13 +125,13 @@ public class ItemResponseAnalysisAction extends
 	/**
 	 * 
 	 * @param tdsItem
-	 *            Item object stores Item attributes data for tds report xml item tag
+	 *            TDS Item object stores Item attributes and Response data 
 	 * @param fieldCheckType
 	 *            This is where the results are stored
 	 * @param responseCategory
-	 *            ResponseCategory object stores ItemScoreInfo itemScoreInfo
+	 *            ResponseCategory object stores date, type, content from TDS Response. It also stores ItemScoreInfo itemScoreInfo
 	 * @param itemCategory
-	 *            itemCategory object
+	 *            itemCategory object stores ReponseCategory, ScoreInfoCategory and irpItem objects.
 	 */
 	protected void analysisItemResponseItemScoring(Item tdsItem, FieldCheckType fieldCheckType,
 			ResponseCategory responseCategory, ItemCategory itemCategory) {
@@ -165,22 +146,19 @@ public class ItemResponseAnalysisAction extends
 				Response response = tdsItem.getResponse();
 				switch (format) {
 				case "ms":
-					validateFieldMS(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-							attriblist);
+					validateFieldMS(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
 					break;
 				case "mc":
-					validateFieldMC(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
-							attriblist);
+					validateFieldMC(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
 					break;
 				case "gi":
 				case "ti":
 				case "mi":
 				case "eq":
-				case "er":
 					validateFieldItemScoring(tdsItem, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType,
 							responseCategory, itemCategory);
 					break;
-				default:
+				default: //hand scored items: wit, tut, sa, er, wer
 					fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 					responseCategory.setContentFieldCheckType(fieldCheckType);
 					validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
@@ -195,21 +173,20 @@ public class ItemResponseAnalysisAction extends
 	/**
 	 * 
 	 * @param tdsItem
-	 *            Item object stores Item attributes data for tds report xml item tag
-	 * @param enumFieldCheckType
-	 *            enum EnumFieldCheckType
-	 * @param enumFieldName
+	 *            TDS Item object stores Item attributes and Response data 
+	 * @param enumFieldCheckType 
+	 * 			 
+	 * @param enumFieldName 
 	 *            Specifies the field to check
 	 * @param fieldCheckType
 	 *            This is where the results are stored
 	 * @param responseCategory
-	 *            ResponseCategory object stores ItemScoreInfo itemScoreInfo
+	 *            ResponseCategory object stores date, type, content from TDS Response. It also stores ItemScoreInfo itemScoreInfo
 	 * @param itemCategory
-	 *            itemCategory object
+	 *            itemCategory object stores ReponseCategory, ScoreInfoCategory and irpItem objects.
 	 */
-	private void validateFieldItemScoring(Item tdsItem, EnumFieldCheckType enumFieldCheckType,
-			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, ResponseCategory responseCategory,
-			ItemCategory itemCategory) {
+	private void validateFieldItemScoring(Item tdsItem, EnumFieldCheckType enumFieldCheckType, EnumItemResponseFieldName enumFieldName, 
+			FieldCheckType fieldCheckType, ResponseCategory responseCategory, ItemCategory itemCategory) {
 		try {
 			switch (enumFieldCheckType) {
 			case D:
@@ -423,7 +400,8 @@ public class ItemResponseAnalysisAction extends
 			Response response = tdsItem.getResponse();
 			String itemFormat = tdsItem.getFormat();
 
-			String rubric = getMachineRubricContent(itemCategory.getIrpItem());
+			String rubric = getMachineRubricContent(itemCategory);
+			System.out.println("rubric ->" + rubric);
             if (rubric != null) {
                 ResponseInfo responseInfo = new ResponseInfo(
                         itemFormat,
@@ -434,6 +412,14 @@ public class ItemResponseAnalysisAction extends
                         "",
                         false);
 
+                //TODO need to get itemScorer bean
+                /*
+                 *  <bean id="itemScorer" class="org.cresst.sb.irp.itemscoring.client.IrpProxyItemScorer">
+        		 * 		<constructor-arg ref="irpProxyRestTemplate" />
+        		 "		<constructor-arg value="${item.scoring.service.url}" />
+    			 * 	</bean>
+                 */
+                
                 ItemScore itemScore = itemScorer.ScoreItem(responseInfo, null);
                 ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
 
@@ -484,31 +470,6 @@ public class ItemResponseAnalysisAction extends
 		}
 	}
 
-	protected boolean validateER(String studentResponse) {
-		return StringUtils.isNotBlank(studentResponse);
-	}
-
-	protected boolean validateMI(String tdsStudentResponse) {
-		Map<String, String> identifiersAndResponses = retrieveItemResponse(tdsStudentResponse);
-		if (identifiersAndResponses != null && identifiersAndResponses.size() > 0)
-			return true;
-		return false;
-	}
-
-
-
-	protected boolean validateEQ(String studentResponse) {
-		try {
-			MathExpressionSet mathExpressionSet = MathMLParser.processMathMLData(studentResponse.trim());
-			if (mathExpressionSet.size() > 0) {
-				return true;
-			}
-		} catch (Exception e) {
-			logger.error("validateEQ exception: ", e);
-		}
-		return false;
-	}
-
 	/**
 	 * 
 	 * @param tdsResponseContent
@@ -535,35 +496,6 @@ public class ItemResponseAnalysisAction extends
 		if (bln)
 			return true;
 		return false;
-	}
-
-	protected boolean validateTI(String tdsResponseContent) {
-		Table table = getTableObject(tdsResponseContent);
-		if (table != null)
-			return true;
-		return false;
-	}
-
-	protected boolean matchTI(Table table, String studentResponse) {
-		int rowCountWithHeader = table.getRowCount() - 1;
-		int rowCountStudentResponse = 2; // need to discuss how to get row count for student response
-		int columnCountStudentResponse = 2; // need to discuss how to get col count for student response
-		if ((rowCountWithHeader != rowCountStudentResponse) || (table.getColumnCount() != columnCountStudentResponse))
-			return false;
-
-		for (int i = 0; i < table.getRowCount(); i++) {
-			TableVector tableVector = table.getRowIndex(i);
-			if (!tableVector.isHeader) { // skip header
-				TableCell[] tcArray = tableVector.getElements();
-				for (int j = 0; j < tcArray.length; j++) {
-					TableCell tcTmp = tcArray[j];
-					String context = tcTmp.getContext();
-					logger.info("context -->" + context);
-					// TODO -- need to match cell value in student response
-				}
-			}
-		}
-		return true;
 	}
 
 	/**
@@ -606,216 +538,6 @@ public class ItemResponseAnalysisAction extends
 		return identifiersAndResponses;
 	}
 
-	/**
-	 * This method create/modified based on AIR related classes in package tinytablescoringengine
-	 * 
-	 * @param responseContent
-	 *            The student response from tds report xml file (item type : TI)
-	 * @return Table object Table is subclass of TableObject
-	 */
-	protected Table getTableObject(String responseContent) {
-		// Table table = null;
-		try {
-			StringReader sr = new StringReader(responseContent);
-			XmlReader reader = new XmlReader(sr);
-			Document doc = reader.getDocument();
-			List<Element> responseSpec = new XmlElement(doc.getRootElement()).selectNodes("//responseSpec");
-			for (Element child : responseSpec) {
-				if (child.getName().equals("responseSpec")) {
-					return Table.fromXml(child.getChild("responseTable"));
-				}
-			}
-		} catch (Exception exp) {
-			logger.error("getTableObject exception: ", exp);
-		}
-
-		return null;
-	}
-
-	/**
-	 * This method created/modified based on AIR open source TinyGR.java in item-scoring-eingine
-	 * 
-	 * @param answerSet
-	 *            The student response from tds report xml file (item format: GI )
-	 * @return List<String> objects stores xml elements data
-	 */
-	protected List<GRObject> getObjectStrings(String answerSet) {
-		List<GRObject> objects = null;
-		try {
-			objects = new ArrayList<>();
-			StringWriter sw = new StringWriter();
-			StringBuilder sb = new StringBuilder();
-			sb.append(sw);
-			StringReader sr = new StringReader(answerSet);
-			XmlReader reader = new XmlReader(sr);
-			Document doc = reader.getDocument();
-			List<Element> objectSet = new XmlElement(doc.getRootElement())
-					.selectNodes("//AnswerSet//Question//QuestionPart//ObjectSet");
-			for (Element child : objectSet) {
-				for (Element childOfObjectSet : child.getChildren()) {
-					if (childOfObjectSet.getName().equals("Object")) {
-						// not able to use GRObject.createFromNode(childOfObjectSet); due to bugs metioned
-						// in http://forum.opentestsystem.org/viewtopic.php?f=9&t=3276&sid=695b38a99415bf126009cdf998c43a49
-						GRObject obj = createFromNode(childOfObjectSet);
-						// GRObject obj = GRObject.createFromNode(childOfObjectSet);
-						objects.add(obj);
-					} else if (childOfObjectSet.getName().equals("RegionGroupObject")) {
-						GRObject obj = GRObject.createFromNode(childOfObjectSet);
-						// objects.add(obj.getXmlString());
-						objects.add(obj);
-						for (Element region : childOfObjectSet.getChildren()) {
-							GRObject objRegion = GRObject.createFromNode(region);
-							objects.add(objRegion);
-							// outputObjectString(region, sw, objects, sb);
-						}
-					} else if (childOfObjectSet.getName().equals("AtomicObject")) {
-						GRObject obj = GRObject.createFromNode(childOfObjectSet);
-						objects.add(obj);
-					}
-				}
-			}
-
-		} catch (Exception exp) {
-			logger.error("getObjectStrings exception: ", exp);
-		}
-		return objects;
-	}
-
-	/**
-	 * This method created/modified based on AIR open source TinyGR.java and GRObject.java. It handles the item format = GI with
-	 * <AnswerSet><Question id=""><QuestionPart id="1"><ObjectSet><Object><PointVector>{(
-	 * 
-	 * @param node
-	 * @return GRObject or null
-	 */
-	private GRObject createFromNode(Element node) throws TinyGRException {
-		switch (node.getName()) {
-		case "Object":
-			return GeoObjectFromXml(node);
-		default:
-			return null;
-		}
-	}
-
-	/**
-	 * This method created/modified based on AIR open source GeoObject.java
-	 * 
-	 * @param node
-	 * @return
-	 */
-	private GRObject GeoObjectFromXml(Element node) throws TinyGRException {
-		char[] toTrim = { ' ', '{', '}' };
-		Element vectorNode = node.getChild("EdgeVector");
-		Element pointNode = node.getChild("PointVector");
-		String pointText = StringHelper.trim(pointNode.getText(), toTrim);
-		String vectorText = vectorNode.getText().trim();
-
-		List<Point> points = getPointObjects(pointText);
-		int start = vectorText.indexOf('{');
-		int end = vectorText.lastIndexOf('}');
-
-		List<Vector> vectors = null;
-
-		if ((start >= 0) && (end > 0)) {
-			vectorText = vectorText.substring(start + 1, end - start);
-			vectors = getVectorObjects(vectorText);
-		}
-
-		switch (vectors.size()) {
-		case 0:
-			if (points.size() == 1)
-				return points.get(0);
-			else {
-				throw new TinyGRException(3, "What kind of object has multiple points but no vectors?");
-			}
-		case 1:
-			return vectors.get(0);
-		default:
-			return new GeoObject(points, vectors);
-		}
-	}
-
-	/**
-	 * This method is from GeoObject.java provided by AIR
-	 * 
-	 * @param vectorText
-	 * @return
-	 */
-	private List<Vector> getVectorObjects(String vectorText) {
-		int endOfPoint;
-		List<Vector> vectors = new ArrayList<Vector>();
-		while (vectorText.contains("{")) // wrong thing to check...
-		{
-			vectors.add(Vector.getVectorObj(vectorText));
-			endOfPoint = vectorText.indexOf("}");
-			vectorText = vectorText.substring(endOfPoint + 1);
-		}
-		return vectors;
-	}
-
-	/**
-	 * This method is from GeoObject.java provided by AIR
-	 * 
-	 * @param pointText
-	 * @return
-	 */
-	private List<Point> getPointObjects(String pointText) {
-		int endOfPoint;
-		List<Point> points = new ArrayList<Point>();
-		while (pointText.contains("(")) {
-			points.add(Point.getPointObj(pointText));
-			endOfPoint = pointText.indexOf(")");
-			pointText = pointText.substring(endOfPoint + 1);
-		}
-		return points;
-	}
-
-	/**
-	 * this method using student response in studentResponse (IRP package in Excel) including format and sub format to validate
-	 * item.getResponse().getContent() is valid or not e.g format GI includes sub format RegionGroupObject, AtomicObject, Object
-	 * 
-	 * @param item
-	 *            - item.getResponse().getContent() - tds report xml student response
-	 * @param studentResponse
-	 *            - IRP package (Excel) student response
-	 * 
-	 * @return boolean
-	 */
-	protected boolean isValidStudentResponse(Item tdsItem) {
-		String response = tdsItem.getResponse().getContent();
-		String format = tdsItem.getFormat().toLowerCase();
-		boolean bln = false;
-		switch (format) {
-		case "er":
-			System.out.println("er...............");
-			bln = validateER(response);
-			System.out.println("bln ..........." + bln);
-			break;
-		case "mi":
-			bln = validateMI(response);
-			break;
-		case "eq":
-			System.out.println("eqqqqqqqqq...............");
-			bln = validateEQ(response);
-			System.out.println("bln ..........." + bln);
-			break;
-		case "gi":
-			//bln = validateGI(response, studentResponse); // need to hand sub format like RegionGroupObject, AtomicObject
-			break;
-		case "ms":
-			bln = validateMS(response);
-			break;
-		case "mc":
-			bln = validateMC(response);
-			break;
-		case "ti":
-			bln = validateTI(response);
-			break;
-		default:
-			break;
-		}
-		return bln;
-	}
 
 	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
 			ItemCategory.ItemStatusEnum itemStatusEnum) {
@@ -840,18 +562,24 @@ public class ItemResponseAnalysisAction extends
 	 * This method gets the machine rubric content for the given item. If no machine rubric exists for the item
      * then null will be returned.
 	 * 
-	 * @param item The item to get the machine rubric from
+	 * @param itemCategory 
+	 * 		itemCategory stores ReponseCategory, ScoreInfoCategory, itemBankKeyKey and irpItem objects.
 	 *
 	 * @return Contents of the machine rubric if exists; otherwise, null
 	 */
-	String getMachineRubricContent(Itemrelease.Item item) {
+	String getMachineRubricContent(ItemCategory itemCategory) {
 		String rubric = null;
 		try {
+			Itemrelease.Item item = itemCategory.getIrpItem();
+			String itemBankKeyKey = itemCategory.getItemBankKeyKey();
 			List<Itemrelease.Item.MachineRubric> machineRubrics = item.getMachineRubric();
-
-            if (machineRubrics != null && machineRubrics.size() > 1) {
+			
+            if (machineRubrics != null && machineRubrics.size() > 0) {
                 Itemrelease.Item.MachineRubric machineRubric = machineRubrics.get(0);
-                rubric = machineRubricLoader.getContents(machineRubric.getFilename());
+                String fileName = machineRubric.getFilename();
+                if (StringUtils.isNotBlank(fileName)){
+                	rubric = machineRubricLoader.getContents(itemBankKeyKey.concat("/").concat(fileName));
+                }
             }
 		} catch (Exception exp) {
 			logger.error("Unable to get rubric content", exp);

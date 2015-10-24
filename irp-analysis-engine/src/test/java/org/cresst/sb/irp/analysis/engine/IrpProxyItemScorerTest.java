@@ -32,7 +32,7 @@ public class IrpProxyItemScorerTest {
         restTemplate.setMessageConverters(messageConverters);
 
         IItemScorer proxyItemScorer = new IrpProxyItemScorer(restTemplate, "http://localhost:8080/item-scoring-service/Scoring/ItemScoring");
-
+        
         ResponseInfo responseInfo = new ResponseInfo(
                 "EQ",
                 "1576",
