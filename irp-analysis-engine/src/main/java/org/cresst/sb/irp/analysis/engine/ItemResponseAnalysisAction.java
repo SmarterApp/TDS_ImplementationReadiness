@@ -412,12 +412,13 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Response, ItemRes
                         "",
                         false);
 
-                //TODO need to get itemScorer bean
                 /*
+                 *  autowire constructor arguments (IItemScorer, MachineRubricLoader)
                  *  <bean id="itemScorer" class="org.cresst.sb.irp.itemscoring.client.IrpProxyItemScorer">
         		 * 		<constructor-arg ref="irpProxyRestTemplate" />
         		 "		<constructor-arg value="${item.scoring.service.url}" />
     			 * 	</bean>
+    			 * 	MachineRubricLoader from local
                  */
                 
                 ItemScore itemScore = itemScorer.ScoreItem(responseInfo, null);
