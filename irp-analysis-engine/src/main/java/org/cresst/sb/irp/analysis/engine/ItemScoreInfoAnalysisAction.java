@@ -264,6 +264,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
             Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
                     "itm_att_Item Point");
             ResponseCategory responseCategory = itemCategory.getResponseCategory();
+           /* TODO
             String tdsResponseContent = responseCategory.getContent();
             String irpItemAnswerKey = attribAnswerKey.getVal();
             boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
@@ -281,7 +282,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
             } else {
                 if (scoreInfoTypeScorePoint.trim().equals(0))
                     setCcorrect(fieldCheckType);
-            }
+            }*/
 
         } catch (Exception e) {
             logger.error("scoreMC exception: ", e);
@@ -297,6 +298,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
             Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
                     "itm_att_Item Point");
             ResponseCategory responseCategory = itemCategory.getResponseCategory();
+           /* TODO
             String tdsResponseContent = responseCategory.getContent();
             String irpItemAnswerKey = attribAnswerKey.getVal();
             boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
@@ -310,7 +312,7 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
             } else {
                 if (scoreInfoTypeScorePoint.trim().equals(0))
                     setCcorrect(fieldCheckType);
-            }
+            }*/
             
         } catch (Exception e) {
             logger.error("scoreMS exception: ", e);

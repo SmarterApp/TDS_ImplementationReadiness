@@ -2,17 +2,10 @@ package org.cresst.sb.irp.domain.analysis;
 
 import tds.itemscoringengine.ItemScoreInfo;
 
-public class ResponseCategory {
-
-	private String date;
-	private String type;
-	private String content;
-	private FieldCheckType dateFieldCheckType;
-	private FieldCheckType typeFieldCheckType;
-	private FieldCheckType contentFieldCheckType;
+public class ResponseCategory extends Category {
 
 	public boolean isResponseValid;
-	private ItemScoreInfo itemScoreInfo;
+	private ItemScoreInfo itemScoreInfo; //	itemScoreInfo.getStatus()), itemScoreInfo.getPoints()), itemScoreInfo.getRationale().getMsg());
 
 	public ItemScoreInfo getItemScoreInfo() {
 		return itemScoreInfo;
@@ -30,59 +23,11 @@ public class ResponseCategory {
 		this.isResponseValid = isResponseValid;
 	}
 
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public FieldCheckType getDateFieldCheckType() {
-		return dateFieldCheckType;
-	}
-
-	public void setDateFieldCheckType(FieldCheckType dateFieldCheckType) {
-		this.dateFieldCheckType = dateFieldCheckType;
-	}
-
-	public FieldCheckType getTypeFieldCheckType() {
-		return typeFieldCheckType;
-	}
-
-	public void setTypeFieldCheckType(FieldCheckType typeFieldCheckType) {
-		this.typeFieldCheckType = typeFieldCheckType;
-	}
-
-	public FieldCheckType getContentFieldCheckType() {
-		return contentFieldCheckType;
-	}
-
-	public void setContentFieldCheckType(FieldCheckType contentFieldCheckType) {
-		this.contentFieldCheckType = contentFieldCheckType;
-	}
-
 	@Override
 	public String toString() {
-		return "ResponseCategory [date=" + date + ", type=" + type + ", content=" + content + ", dateFieldCheckType="
-				+ dateFieldCheckType + ", typeFieldCheckType=" + typeFieldCheckType + ", contentFieldCheckType="
-				+ contentFieldCheckType + "]";
+		return "ResponseCategory [isResponseValid=" + isResponseValid + ", itemScoreInfo=" + itemScoreInfo + "]";
 	}
+
+	
 
 }
