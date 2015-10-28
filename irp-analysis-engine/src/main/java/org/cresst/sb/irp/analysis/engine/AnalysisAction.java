@@ -159,6 +159,22 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	/**
+	 * 
+	 * @param cellCategories
+	 *            The cellCategories store the list CellCategory
+	 * @param key
+	 *            The tdsFieldName used to retrieve tdsFieldValue in CellCategory
+	 * @return the cellCategory object
+	 */
+	protected CellCategory getCellCategoryByFieldName(ImmutableList<CellCategory> cellCategories, String key) {
+		for (CellCategory cellCategory : cellCategories) {
+			if (cellCategory.getTdsFieldName().equals(key))
+				return cellCategory;
+		}
+		return null;
+	}
+	
+	/**
 	 * Checks the field
 	 *
 	 * @param checkObj

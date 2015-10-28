@@ -140,7 +140,6 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
-		
 	}
 	
 	/**
@@ -186,7 +185,6 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			case type:	
 				break;
 			case content:
-				strReturn = getTdsFieldNameValueByFieldName(itemCategory.getCellCategories(), "score");
 				break;
 			default:
 				break;
@@ -210,21 +208,17 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 	protected void processC_content(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory){
 		try {
 			String format = tdsItem.getFormat().toLowerCase();
-			Response response = tdsItem.getResponse();
 			switch (format) {
 			case "ms":
-				//TODO
-				//validateFieldMS(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
+				processCForMS(tdsItem, fieldCheckType, itemCategory);
 				break;
 			case "mc":
-				//TODO
-				//validateFieldMC(response, EnumFieldCheckType.PC, EnumItemResponseFieldName.content, fieldCheckType, attriblist);
+				processCForMC(tdsItem, fieldCheckType, itemCategory);
 				break;
-			case "gi":
-			case "ti":
 			case "mi":
 			case "eq":
-			case "qti":
+			case "gi":
+			case "ti":
 			case "htq":
 			case "ebsr":
 				processCForItemScoring(tdsItem,  fieldCheckType, itemCategory);
@@ -239,7 +233,73 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		} catch (Exception e) {
 			logger.error("processC_content exception: ", e);
 		}
-		
+	}
+	
+	private void processCForMS(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
+		try {
+			if(validateMS(tdsItem.getResponse().getContent())){
+				ResponseCategory responseCategory = itemCategory.getResponseCategory();
+				responseCategory.setIsResponseValid(true);
+				String itemFormat = tdsItem.getFormat();
+				responseCategory.setTdsFormat(itemFormat);
+				String tdsScore = tdsItem.getScore();
+				responseCategory.setTdsItemScore(Integer.parseInt(tdsScore));
+				
+				Itemrelease.Item.Attriblist attriblist = itemCategory.getAttriblist();
+				if (attriblist != null){
+					Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
+							"itm_att_Answer Key");
+					if (attrib != null){
+						Response response = tdsItem.getResponse();
+						String irpItemAnswerKey = attrib.getVal();
+						CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
+						cellCategory.setTdsExpectedValue(irpItemAnswerKey);
+						
+						List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+								.splitToList(irpItemAnswerKey.toLowerCase()));
+						List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
+								.splitToList(response.getContent().toLowerCase()));
+						if (compare(list1, list2)) {
+							setCcorrect(fieldCheckType);
+						}
+					}
+				}
+			}
+		}catch (Exception e) {
+			logger.error("processCForMS exception: ", e);
+		}
+	}
+	
+	private void processCForMC(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
+		try {
+			if(validateMC(tdsItem.getResponse().getContent())){
+				ResponseCategory responseCategory = itemCategory.getResponseCategory();
+				responseCategory.setIsResponseValid(true);
+				String itemFormat = tdsItem.getFormat();
+				responseCategory.setTdsFormat(itemFormat);
+				String tdsScore = tdsItem.getScore();
+				responseCategory.setTdsItemScore(Integer.parseInt(tdsScore));
+				
+				Itemrelease.Item.Attriblist attriblist = itemCategory.getAttriblist();
+				if (attriblist != null){
+					Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
+							"itm_att_Answer Key");
+					if (attrib != null){
+						Response response = tdsItem.getResponse();
+						String irpItemAnswerKey = attrib.getVal();
+						CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
+						cellCategory.setTdsExpectedValue(irpItemAnswerKey);
+						
+						boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, response.getContent());
+						if (blnCorrectAnswer) {
+							setCcorrect(fieldCheckType);
+						}
+					}
+				}
+			}
+		}catch (Exception e) {
+			logger.error("processCForMC exception: ", e);
+		}
 	}
 	
 	private void processCForItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
@@ -251,8 +311,11 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 				String itemFormat = tdsItem.getFormat();
 				String tdsScore = tdsItem.getScore(); // <xs:attribute name="score" use="required" type="UFloatAllowNegativeOne" />
 				
-				String rubric = getMachineRubricContent(itemCategory);
+				String rubric = getMachineRubricContent(itemCategory, responseCategory);
+				responseCategory.setTdsFormat(itemFormat);
+				responseCategory.setTdsItemScore(Integer.parseInt(tdsScore));
 				if (rubric != null) {
+					responseCategory.setRubric(rubric);
 					ResponseInfo responseInfo = new ResponseInfo(
 						itemFormat,
 						Long.toString(itemKey),
@@ -268,146 +331,18 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					responseCategory.setItemScoreInfo(itemScoreInfo);
 					
 					ScoringStatus sStatus = itemScoreInfo.getStatus();
-					if (sStatus.Scored == ScoringStatus.Scored) {
-						if (Integer.parseInt(tdsScore) == itemScoreInfo.getPoints()){
+					responseCategory.setScoringStatus(sStatus);
+					if (sStatus == ScoringStatus.Scored) {
+						responseCategory.setIsResponseValid(true);
+						CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
+						cellCategory.setTdsExpectedValue(String.valueOf(itemScoreInfo.getPoints()));
+						if (Integer.parseInt(tdsScore) == itemScoreInfo.getPoints())
 							setCcorrect(fieldCheckType);
-							responseCategory.setIsResponseValid(true);
-						}
 					}
 				}
 			}
 		} catch (Exception e) {
-		logger.error("processCForItemScoring exception: ", e);
-		}
-	}
-
-	/*
-	private void validateFieldMC(Response response, EnumFieldCheckType enumFieldCheckType,
-			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(response, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(response, enumFieldName, fieldCheckType);
-				checkCForMC(response, enumFieldName, fieldCheckType, attriblist);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateFieldMC exception: ", e);
-		}
-	}*/
-
-	/*private void validateFieldMS(Response response, EnumFieldCheckType enumFieldCheckType,
-			EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldCheckType) {
-			case D:
-				break;
-			case P:
-				checkP(response, enumFieldName, fieldCheckType);
-				break;
-			case PC:
-				checkP(response, enumFieldName, fieldCheckType);
-				checkCForMS(response, enumFieldName, fieldCheckType, attriblist);
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("validateFieldMS exception: ", e);
-		}
-	}*/
-
-	protected void checkCForMC(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-                               Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldName) {
-			case date:
-				break;
-			case type:
-				setCcorrect(fieldCheckType);
-				break;
-			case content:
-				processCForMC(response.getContent(), fieldCheckType, attriblist);
-				break;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkCForMC exception: ", e);
-		}
-	}
-
-	protected void checkCForMS(Response response, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType,
-                               Itemrelease.Item.Attriblist attriblist) {
-		try {
-			switch (enumFieldName) {
-			case date:
-				break;
-			case type:
-				setCcorrect(fieldCheckType);
-				break;
-			case content:
-				processCForMS(response.getContent(), fieldCheckType, attriblist);
-				break;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			logger.error("checkCForMS exception: ", e);
-		}
-	}
-
-	private void processC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			if (attriblist != null) {
-				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
-						"itm_att_Answer Key");
-				String irpItemAnswerKey = attrib.getVal();
-				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
-				if (blnCorrectAnswer) {
-					setCcorrect(fieldCheckType);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processC exception: ", e);
-		}
-	}
-
-	private void processCForMC(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			if (attriblist != null) {
-				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
-						"itm_att_Answer Key");
-				String irpItemAnswerKey = attrib.getVal();
-				boolean blnCorrectAnswer = isCorrectValue(irpItemAnswerKey, tdsResponseContent);
-				if (blnCorrectAnswer) {
-					setCcorrect(fieldCheckType);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processCForMC exception: ", e);
-		}
-	}
-
-	private void processCForMS(String tdsResponseContent, FieldCheckType fieldCheckType, Itemrelease.Item.Attriblist attriblist) {
-		try {
-			if (attriblist != null) {
-				Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
-						"itm_att_Answer Key");
-				String irpItemAnswerKey = attrib.getVal();
-				List<String> list1 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-						.splitToList(irpItemAnswerKey.toLowerCase()));
-				List<String> list2 = Lists.newArrayList(Splitter.on(",").trimResults().omitEmptyStrings()
-						.splitToList(tdsResponseContent.toLowerCase()));
-				if (compare(list1, list2)) {
-					setCcorrect(fieldCheckType);
-				}
-			}
-		} catch (Exception e) {
-			logger.error("processCForMS exception: ", e);
+			logger.error("processCForItemScoring exception: ", e);
 		}
 	}
 
@@ -468,7 +403,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 	 *
 	 * @return Contents of the machine rubric if exists; otherwise, null
 	 */
-	String getMachineRubricContent(ItemCategory itemCategory) {
+	String getMachineRubricContent(ItemCategory itemCategory, ResponseCategory responseCategory) {
 		String rubric = null;
 		try {
 			Itemrelease.Item item = itemCategory.getIrpItem();
@@ -478,6 +413,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
             if (machineRubrics != null && machineRubrics.size() > 0) {
                 Itemrelease.Item.MachineRubric machineRubric = machineRubrics.get(0);
                 String fileName = machineRubric.getFilename();
+                responseCategory.setMachineRubricFileName(fileName);
                 if (StringUtils.isNotBlank(fileName)){
                 	rubric = machineRubricLoader.getContents(itemBankKeyKey.concat("/").concat(fileName));
                 }
