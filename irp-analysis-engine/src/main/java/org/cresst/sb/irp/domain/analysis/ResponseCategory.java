@@ -18,6 +18,7 @@ public class ResponseCategory extends Category {
 	private String tdsFormat; // TDSReport <Item format="xx">
 	private String machineRubricFileName;
 	private String rubric;
+	private int itemScore; //irp item score (MC, MS) or score from itemScoreInfo.getPoints()
 
 	public boolean isResponseValid() {
 		return isResponseValid;
@@ -74,12 +75,21 @@ public class ResponseCategory extends Category {
 	public void setRubric(String rubric) {
 		this.rubric = rubric;
 	}
+	
+	public int getItemScore() {
+		return itemScore;
+	}
+
+	public void setItemScore(int itemScore) {
+		this.itemScore = itemScore;
+	}
 
 	@Override
 	public String toString() {
 		return "ResponseCategory [isResponseValid=" + isResponseValid + ", itemScoreInfo=" + itemScoreInfo
 				+ ", scoringStatus=" + scoringStatus + ", tdsItemScore=" + tdsItemScore + ", tdsFormat=" + tdsFormat
-				+ ", machineRubricFileName=" + machineRubricFileName + ", rubric=" + rubric + "]";
+				+ ", machineRubricFileName=" + machineRubricFileName + ", rubric=" + rubric + ", itemScore="
+				+ itemScore + "]";
 	}
 
 }

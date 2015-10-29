@@ -1,8 +1,11 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import builders.*;
+
 import com.google.common.collect.Lists;
+
 import org.cresst.sb.irp.domain.analysis.*;
+import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.itemscoring.rubric.MachineRubricLoader;
@@ -13,8 +16,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
 import tds.itemscoringengine.IItemScorer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -42,7 +47,8 @@ public class ItemResponseAnalysisActionTest {
 	@InjectMocks
 	private ItemResponseAnalysisAction underTest = new ItemResponseAnalysisAction(itemScorer, machineRubricLoader);
 
-	private IndividualResponse generateIndividualResponse(List<TDSReport.Opportunity.Item> opportunityItems) {
+	private IndividualResponse generateIndividualResponse(
+			List<TDSReport.Opportunity.Item> opportunityItems, List<ItemCategory> itemCategories) {
 
 		final TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
 
@@ -56,6 +62,7 @@ public class ItemResponseAnalysisActionTest {
 		final IndividualResponse individualResponse = new IndividualResponse();
 		individualResponse.setTDSReport(tdsReport);
 
+		/*
 		final CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName("key");
 		cellCategory.setTdsFieldNameValue("9999");
@@ -64,10 +71,15 @@ public class ItemResponseAnalysisActionTest {
 		examineeCategory.addCellCategory(cellCategory);
 
 		individualResponse.setExamineeCategory(examineeCategory);
+		*/
 
 		final OpportunityCategory opportunityCategory = new OpportunityCategory();
 		individualResponse.setOpportunityCategory(opportunityCategory);
-
+		
+		if (itemCategories != null){
+			opportunityCategory.setItemCategories(itemCategories);
+		}
+		
 		return individualResponse;
 	}
 
@@ -83,47 +95,42 @@ public class ItemResponseAnalysisActionTest {
 	@Test
 	public void isResponseValidTest_MCMS() {
 		
-		// Represents all the Items in the IRP package (Excel)
-	/*	List<StudentResponse> irpPackageItems = Lists.newArrayList(
-				new StudentResponseBuilder(9999).bankKey(1).id(1).itemType("MC").excelResponse("A").toStudentResponse(),
-				new StudentResponseBuilder(9999).bankKey(2).id(2).itemType("MS").excelResponse("A,B,C,D,E,F").toStudentResponse());
-
 		// The TDS Report items
 		final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
-				new ItemAttributeBuilder().bankKey(1).key(1).format("MC").toOpportunityItem(), 
-				new ItemAttributeBuilder().bankKey(2).key(2).format("MS").toOpportunityItem());
+				new ItemAttributeBuilder().bankKey(1).key(1).format("MC").score("1").toOpportunityItem(), 
+				new ItemAttributeBuilder().bankKey(2).key(2).format("MS").score("1").toOpportunityItem());
 
 		// The TDS Report responses
 		final List<TDSReport.Opportunity.Item.Response> tdsReportItemResponses = Lists.newArrayList(
 				new ItemResponseBuilder().content("A").toIemResponse(), 
 				new ItemResponseBuilder().content("A,B,C,D,E,F").toIemResponse());
-
+		
 		// Add above TDS Report responses to its corresponding TDS Report items
 		int index = 0;
 		for (TDSReport.Opportunity.Item itemTmp : tdsReportItems) {
 			itemTmp.setResponse(tdsReportItemResponses.get(index));
 			index++;
 		}
-
-		final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
-
-		// Represents list of StudentResponse for a particular studentID in IRP package (Excel)
-		TestItemResponse testItemResponse = new TestItemResponse();
-		testItemResponse.setStudentID(9999L);
-		testItemResponse.setStudentResponses(irpPackageItems);
-
-		//when(studentResponseService.getTestItemResponseByStudentID(9999L)).thenReturn(testItemResponse);
-
-		itemAttributesAnalysisAction.analyze(individualResponse);
-
-		// IRP package (Excel) StudentResponse object
-		StudentResponse StudentResponse1 = irpPackageItems.get(0);
-		StudentResponse StudentResponse2 = irpPackageItems.get(1);
-
-	//	when(studentResponseService.getStudentResponseByStudentIDandBankKeyID(9999L, "1", "1")).thenReturn(StudentResponse1);
-	//	when(studentResponseService.getStudentResponseByStudentIDandBankKeyID(9999L, "2", "2")).thenReturn(StudentResponse2);
-
-		// Item created like item retrieved item-xxx-xxx.xml from TrainingTestContent/Items/Item-xxx-xxx based on imsmanifest.xml
+		
+		final List<ItemCategory> itemCategories = Lists.newArrayList(
+			new ItemCategoryBuilder().itemBankKeyKey("item-1-1").status(ItemStatusEnum.FOUND).itemFormatCorrect(true).toItemCategory(),
+			new ItemCategoryBuilder().itemBankKeyKey("item-2-2").status(ItemStatusEnum.FOUND).itemFormatCorrect(true).toItemCategory());
+		
+		ItemCategory itemCategory0 = itemCategories.get(0);
+		itemCategory0.addCellCategory(new CellCategoryBuilder()
+			.tdsFieldName("bankKey").tdsFieldNameValue("1").toCellCategory());
+		itemCategory0.addCellCategory(new CellCategoryBuilder()
+			.tdsFieldName("key").tdsFieldNameValue("1").toCellCategory());
+		
+		ItemCategory itemCategory1 = itemCategories.get(1);
+		itemCategory1.addCellCategory(new CellCategoryBuilder()
+			.tdsFieldName("bankKey").tdsFieldNameValue("2").toCellCategory());
+		itemCategory1.addCellCategory(new CellCategoryBuilder()
+			.tdsFieldName("key").tdsFieldNameValue("2").toCellCategory());
+		
+		final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems, itemCategories);
+		
+		//IRP Item 
 		org.cresst.sb.irp.domain.items.Itemrelease.Item item1 = new ItemreleaseItemBuilder("mc", "1", "26", "1").toItem();
 		
 		// Add attriblist (list of attrib) into above mentioned item1 
@@ -136,37 +143,46 @@ public class ItemResponseAnalysisActionTest {
 			attribList1.add(attriblist);
 			attriblist.getAttrib().addAll(attribs1);
 		}
-
+		
 		// Create another Item like item1 above
 		org.cresst.sb.irp.domain.items.Itemrelease.Item item2 = new ItemreleaseItemBuilder("ms", "2", "26", "2").toItem();
 		
 		// Add attriblist (list of attrib) into above mentioned item2
 		final List<org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist.Attrib> attribs2 = Lists.newArrayList(
 				new AttribBuilder("itm_att_Answer Key").name("Item: Answer Key").val("A,B,C,D,E,F").desc("").toAttrib(),
-				new AttribBuilder("itm_att_Item Point").name("Item: Item Point").val("1 pt.").desc("").toAttrib());
+				new AttribBuilder("itm_att_Item Point").name("Item: Item Point").val("1pt").desc("").toAttrib());
 		List<Itemrelease.Item.Attriblist> attribList2 = item2.getAttriblist();
 		if (attribList2.size() == 0) {
 			Itemrelease.Item.Attriblist attriblist = new Itemrelease.Item.Attriblist();
 			attribList2.add(attriblist);
 			attriblist.getAttrib().addAll(attribs2);
 		}
-
+		
 		when(itemService.getItemByIdentifier("item-1-1")).thenReturn(item1);
 		when(itemService.getItemByIdentifier("item-2-2")).thenReturn(item2);
-
+		
 		when(itemService.getItemAttriblistFromIRPitem(item1)).thenReturn(item1.getAttriblist().get(0)); //attribs1
 		when(itemService.getItemAttriblistFromIRPitem(item2)).thenReturn(item2.getAttriblist().get(0)); //attribs2
-
+		
 		// Attrib for name of "itm_att_Answer Key"
 		when(itemService.getItemAttribValueFromIRPitemAttriblist(item1.getAttriblist().get(0), "itm_att_Answer Key")).thenReturn(
 				attribs1.get(0));
+		// Attrib for name of "itm_att_Item Point"
+		when(itemService.getItemAttribValueFromIRPitemAttriblist(item1.getAttriblist().get(0), "itm_att_Item Point")).thenReturn(
+				attribs1.get(1));
+		
 		// Attrib for name of "itm_att_Answer Key"
 		when(itemService.getItemAttribValueFromIRPitemAttriblist(item2.getAttriblist().get(0), "itm_att_Answer Key")).thenReturn(
 				attribs2.get(0));
-
+		// Attrib for name of "itm_att_Item Point"
+		when(itemService.getItemAttribValueFromIRPitemAttriblist(item2.getAttriblist().get(0), "itm_att_Item Point")).thenReturn(
+				attribs2.get(1));
+		
 		// Act
 		underTest.analyze(individualResponse);
-
+		
+		
+		/*
 		// Assert
 	    List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
 	    ItemCategory itemCategory1 = itemCategories.get(0);

@@ -64,8 +64,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 						Long.toString(tdsItem.getKey()), itemCategories, ItemStatusEnum.FOUND);
 
                 if (itemCategory != null) {
-                	org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = 
-                			getItemByIdentifier(itemCategory.getItemBankKeyKey());
+                	org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem = getItemByIdentifier(itemCategory.getItemBankKeyKey());
                 	if (irpItem != null){
                 		itemCategory.setIrpItem(irpItem);
         				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
@@ -89,7 +88,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		
 			if (response != null){
 				validate(responseCategory, tdsItem, response.getDate(), EnumFieldCheckType.P, EnumItemResponseFieldName.date, null);
-				validate(responseCategory, tdsItem, response.getType(), EnumFieldCheckType.P, EnumItemResponseFieldName.type, null);
+				validate(responseCategory, tdsItem, response.getType(), EnumFieldCheckType.PC, EnumItemResponseFieldName.type, itemCategory);
 				validate(responseCategory, tdsItem, response.getContent(), EnumFieldCheckType.PC, EnumItemResponseFieldName.content, itemCategory);
 			}
 			
@@ -120,18 +119,11 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					setPcorrect(fieldCheckType);
 				break;
 			case type:
-				// <xs:attribute name="type">
-				// <xs:simpleType>
-				// 		<xs:restriction base="xs:token">
-				// 		<xs:enumeration value="value" />
-				// 		<xs:enumeration value="reference" />
-				// 		<xs:enumeration value="" />
-				// 		</xs:restriction>
-				// </xs:simpleType>
-				processP(response.getType(), fieldCheckType, false); // Required N
+				if (response.getType() != null)
+					processP(response.getType(), fieldCheckType, false); //not required
 				break;
 			case content:
-				processP(response.getContent(), fieldCheckType, false); // Required N
+				processP(response.getContent(), fieldCheckType, false); 
 				break;
 			default:
 				break;
@@ -160,7 +152,9 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			case date:
 				break;
 			case type:
-				setCcorrect(fieldCheckType);
+				Response response = tdsItem.getResponse();
+				if (response.getType() != null)
+					processC_type(response.getType(), fieldCheckType, itemCategory);
 				break;
 			case content:
 				processC_content(tdsItem, fieldCheckType, itemCategory);
@@ -196,6 +190,31 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		return strReturn;
 	}	
 
+	// <xs:attribute name="type">
+	// <xs:simpleType>
+	// 		<xs:restriction base="xs:token">
+	// 		<xs:enumeration value="value" />
+	// 		<xs:enumeration value="reference" />
+	// 		<xs:enumeration value="" />
+	// 		</xs:restriction>
+	// </xs:simpleType>
+	public void processC_type(String str, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
+		ResponseCategory responseCategory = itemCategory.getResponseCategory();
+		CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "type");
+		if (StringUtils.isBlank(str)) {
+			cellCategory.setTdsExpectedValue(""); 
+			setCcorrect(fieldCheckType);
+		}else{
+			if (StringUtils.equalsIgnoreCase(str, "value")) { 
+				cellCategory.setTdsExpectedValue("value"); 
+				setCcorrect(fieldCheckType);
+			}else if (StringUtils.equalsIgnoreCase(str, "reference")){
+				cellCategory.setTdsExpectedValue("reference"); 
+				setCcorrect(fieldCheckType);
+			}
+		}
+	}
+	
 	/**
 	 * 
 	 * @param tdsItem
@@ -249,6 +268,11 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 				if (attriblist != null){
 					Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
 							"itm_att_Answer Key");
+					Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
+							"itm_att_Item Point");
+					String itemPointValue = attribItemPoint.getVal();
+					String num = itemPointValue.replaceAll("[^0-9]", "");
+					responseCategory.setItemScore(Integer.parseInt(num)); //compare with tdsScore ? not implemented
 					if (attrib != null){
 						Response response = tdsItem.getResponse();
 						String irpItemAnswerKey = attrib.getVal();
@@ -284,6 +308,11 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 				if (attriblist != null){
 					Itemrelease.Item.Attriblist.Attrib attrib = getItemAttribValueFromIRPitemAttriblist(attriblist,
 							"itm_att_Answer Key");
+					Itemrelease.Item.Attriblist.Attrib attribItemPoint = getItemAttribValueFromIRPitemAttriblist(attriblist,
+							"itm_att_Item Point");
+					String itemPointValue = attribItemPoint.getVal();
+					String num = itemPointValue.replaceAll("[^0-9]", "");
+					responseCategory.setItemScore(Integer.parseInt(num)); //compare with tdsScore ? not implemented
 					if (attrib != null){
 						Response response = tdsItem.getResponse();
 						String irpItemAnswerKey = attrib.getVal();
@@ -332,10 +361,12 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					
 					ScoringStatus sStatus = itemScoreInfo.getStatus();
 					responseCategory.setScoringStatus(sStatus);
+					responseCategory.setItemScore(itemScoreInfo.getPoints());
 					if (sStatus == ScoringStatus.Scored) {
 						responseCategory.setIsResponseValid(true);
 						CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
 						cellCategory.setTdsExpectedValue(String.valueOf(itemScoreInfo.getPoints()));
+						
 						if (Integer.parseInt(tdsScore) == itemScoreInfo.getPoints())
 							setCcorrect(fieldCheckType);
 					}

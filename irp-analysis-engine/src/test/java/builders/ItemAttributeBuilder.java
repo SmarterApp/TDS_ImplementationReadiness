@@ -25,6 +25,11 @@ public class ItemAttributeBuilder {
     	return this;
     }
     
+    public ItemAttributeBuilder score(String score){
+    	opportunityItem.setScore(score);
+    	return this;
+    }
+    
     public TDSReport.Opportunity.Item toOpportunityItem() {
         return opportunityItem;
     }

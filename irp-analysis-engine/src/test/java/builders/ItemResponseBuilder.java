@@ -8,6 +8,11 @@ public class ItemResponseBuilder {
 	
 	public ItemResponseBuilder() {}
 	
+	public ItemResponseBuilder type(String value){
+		itemResponse.setType(value);
+		return this;
+	}
+	
 	public ItemResponseBuilder content(String value){
 		itemResponse.setContent(value);
 		return this;
