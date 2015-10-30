@@ -242,10 +242,17 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			case "ebsr":
 				processCForItemScoring(tdsItem,  fieldCheckType, itemCategory);
 				break;
-			default: //hand scored items: wit, tut, sa, er, wer TODO
+			case "wit": //wordlist
+			case "tut":	//tutorial
+			case "sa":	//short answer
+			case "er":	//extended response
+			case "wer":	//writing extended response
+				//TODO
 				//fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 				//responseCategory.setContentFieldCheckType(fieldCheckType);
 				//validateField(response, EnumFieldCheckType.P, EnumItemResponseFieldName.content, fieldCheckType);
+				break;
+			default: 
 				break;
 			}
 			
