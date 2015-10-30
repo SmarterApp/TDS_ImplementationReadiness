@@ -531,7 +531,6 @@ public class ItemResponseAnalysisActionTest {
 		
 	}
 	
-	
 	@Test
 	public void isResponseValidTest_HTQ_RubricContentTypeContentString() {
 		
@@ -574,63 +573,60 @@ public class ItemResponseAnalysisActionTest {
 		when(itemService.getItemByIdentifier("item-187-2624")).thenReturn(item1);
 		
 		String rubric = "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd\" identifier=\"item_100870\" title=\"Item 100870\" adaptive=\"false\" timeDependent=\"false\" xmlns:apip=\"http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0\"> " +
- " <responseDeclaration identifier=\"1\" baseType=\"identifier\" cardinality=\"multiple\" /> " + 
- " <outcomeDeclaration identifier=\"SCORE\" baseType=\"float\" cardinality=\"single\"> " + 
-  "  <defaultValue> " +
-    "  <value>0</value> " +
-   " </defaultValue> " +
-  " </outcomeDeclaration> " +
-  " <outcomeDeclaration identifier=\"FEEDBACK\" cardinality=\"single\" baseType=\"identifier\" /> " +
-  " <itemBody /> " +
-  " <responseProcessing> " +
-    " <responseCondition> " +
-      " <responseIf> " +
-        " <isNull> " +
-          " <variable identifier=\"1\" /> " +
-        " </isNull> " +
-        " <setOutcomeValue identifier=\"SCORE\"> " +
-          " <baseValue baseType=\"float\">0</baseValue> " +
-        " </setOutcomeValue> " +
-      " </responseIf> " +
-      " <responseElseIf> " +
-        " <and> " +
-          " <equal toleranceMode=\"exact\"> " +
-            " <baseValue baseType=\"integer\">2</baseValue> " +
-            " <containerSize> " +
-              " <variable identifier=\"1\" /> " +
-            " </containerSize> " +
-          " </equal> " +
-          " <contains> " +
-            " <multiple> " +
-              " <baseValue baseType=\"identifier\">5</baseValue> " +
-              " <baseValue baseType=\"identifier\">6</baseValue> " +
-            " </multiple> " +
-            " <variable identifier=\"1\" /> " +
-          " </contains> " +
-        " </and> " +
-        " <setOutcomeValue identifier=\"SCORE\"> " +
-          " <baseValue baseType=\"float\">1</baseValue> " +
-        " </setOutcomeValue> " +
-      " </responseElseIf> " +
-    " </responseCondition> " +
-  " </responseProcessing> " +
-  " <modalFeedback outcomeIdentifier=\"FEEDBACK\" showHide=\"show\" identifier=\"solution\"> " +
-    " <p id=\"Item100870_7abad020-c370-4910-a4d0-e966ddc85e1a\">T5 Wolves then raise lots of pups, and their numbers increase. T6 More wolves mean more mouths to feed and more moose get eaten.</p> " +
-  " </modalFeedback> " +
-  " <apip:apipAccessibility /> " +
-" </assessmentItem> ";
+			 " <responseDeclaration identifier=\"1\" baseType=\"identifier\" cardinality=\"multiple\" /> " + 
+			 " <outcomeDeclaration identifier=\"SCORE\" baseType=\"float\" cardinality=\"single\"> " + 
+			  "  <defaultValue> " +
+			    "  <value>0</value> " +
+			   " </defaultValue> " +
+			  " </outcomeDeclaration> " +
+			  " <outcomeDeclaration identifier=\"FEEDBACK\" cardinality=\"single\" baseType=\"identifier\" /> " +
+			  " <itemBody /> " +
+			  " <responseProcessing> " +
+			    " <responseCondition> " +
+			      " <responseIf> " +
+			        " <isNull> " +
+			          " <variable identifier=\"1\" /> " +
+			        " </isNull> " +
+			        " <setOutcomeValue identifier=\"SCORE\"> " +
+			          " <baseValue baseType=\"float\">0</baseValue> " +
+			        " </setOutcomeValue> " +
+			      " </responseIf> " +
+			      " <responseElseIf> " +
+			        " <and> " +
+			          " <equal toleranceMode=\"exact\"> " +
+			            " <baseValue baseType=\"integer\">2</baseValue> " +
+			            " <containerSize> " +
+			              " <variable identifier=\"1\" /> " +
+			            " </containerSize> " +
+			          " </equal> " +
+			          " <contains> " +
+			            " <multiple> " +
+			              " <baseValue baseType=\"identifier\">5</baseValue> " +
+			              " <baseValue baseType=\"identifier\">6</baseValue> " +
+			            " </multiple> " +
+			            " <variable identifier=\"1\" /> " +
+			          " </contains> " +
+			        " </and> " +
+			        " <setOutcomeValue identifier=\"SCORE\"> " +
+			          " <baseValue baseType=\"float\">1</baseValue> " +
+			        " </setOutcomeValue> " +
+			      " </responseElseIf> " +
+			    " </responseCondition> " +
+			  " </responseProcessing> " +
+			  " <modalFeedback outcomeIdentifier=\"FEEDBACK\" showHide=\"show\" identifier=\"solution\"> " +
+			    " <p id=\"Item100870_7abad020-c370-4910-a4d0-e966ddc85e1a\">T5 Wolves then raise lots of pups, and their numbers increase. T6 More wolves mean more mouths to feed and more moose get eaten.</p> " +
+			  " </modalFeedback> " +
+			  " <apip:apipAccessibility /> " +
+			" </assessmentItem> ";
 		when(machineRubricLoader.getContents("item-187-2624/Item_2624_v3.qrx")).thenReturn(rubric);
 		
 		// Act
 	//	underTest.analyze(individualResponse);
 		
-		List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-	    messageConverters.add(new ItemScoreMessageConverter());
-
-	    RestTemplate restTemplate = new RestTemplate();
-	    restTemplate.setMessageConverters(messageConverters);
-
-	    IItemScorer proxyItemScorer = new IrpProxyItemScorer(restTemplate, "http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring");
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
 		
 	    ResponseInfo responseInfo = new ResponseInfo(
 	                "HTQ",
@@ -652,17 +648,222 @@ public class ItemResponseAnalysisActionTest {
 	}
 	
 	@Test
+	public void isResponseValidTest_TI_RubricContentTypeContentString() {
+		String response = " <responseSpec><responseTable><tr><th id=\"col0\"/><th id=\"col1\"/></tr><tr><td/><td>72</td></tr><tr><td/><td>42</td></tr><tr><td/><td>54</td></tr><tr><td/><td>50</td></tr></responseTable></responseSpec> ";
+		
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+	    
+		String rubric = "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration identifier=\"colA\" baseType=\"string\" cardinality=\"single\" /><outcomeDeclaration identifier=\"A0\" baseType=\"float\" cardinality=\"single\" /><outcomeDeclaration identifier=\"A1\" baseType=\"float\" cardinality=\"single\" /><outcomeDeclaration identifier=\"A2\" baseType=\"float\" cardinality=\"single\" /><outcomeDeclaration identifier=\"A3\" baseType=\"float\" cardinality=\"single\" /><responseProcessing><setOutcomeValue identifier=\"colA\"><customOperator type=\"TABLE\" functionName=\"GETCOLUMN\" table=\"#\" columnName=\"col1\" /></setOutcomeValue><setOutcomeValue identifier=\"A0\"><customOperator type=\"TABLE\" functionName=\"GETVALUENUMERIC\" tableVector=\"colA\" index=\"0\" /></setOutcomeValue><setOutcomeValue identifier=\"A1\"><customOperator type=\"TABLE\" functionName=\"GETVALUENUMERIC\" tableVector=\"colA\" index=\"1\" /></setOutcomeValue><setOutcomeValue identifier=\"A2\"><customOperator type=\"TABLE\" functionName=\"GETVALUENUMERIC\" tableVector=\"colA\" index=\"2\" /></setOutcomeValue><setOutcomeValue identifier=\"A3\"><customOperator type=\"TABLE\" functionName=\"GETVALUENUMERIC\" tableVector=\"colA\" index=\"3\" /></setOutcomeValue><responseCondition><responseIf><and><equal><variable identifier=\"A0\" /><baseValue baseType=\"float\">72</baseValue></equal><equal><variable identifier=\"A1\" /><baseValue baseType=\"float\">42</baseValue></equal><equal><variable identifier=\"A2\" /><baseValue baseType=\"float\">54</baseValue></equal><equal><variable identifier=\"A3\" /><baseValue baseType=\"float\">50</baseValue></equal></and><setOutcomeValue identifier=\"SCORE\"><baseValue baseType=\"integer\">1</baseValue></setOutcomeValue></responseIf></responseCondition></responseProcessing></assessmentItem>";
+	    
+	    ResponseInfo responseInfo = new ResponseInfo(
+                "TI",
+                "2788",
+                response,
+                rubric,
+                RubricContentType.ContentString,
+                "",
+                false);
+     
+	    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+	    ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+	
+	    logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+	
+	    assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
+	    assertEquals(1, itemScoreInfo.getPoints());
+	}
+	
+	@Test
+	public void isResponseValidTest_EQ_RubricContentTypeContentString() {
+		String response = " <response><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"218\"><mstyle><mn>218</mn></mstyle></math></response> ";
+		
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+	    
+		String rubric = "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"EQ\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue></responseProcessing></assessmentItem>";
+		
+	    ResponseInfo responseInfo = new ResponseInfo(
+                "EQ",
+                "1576",
+                response,
+                rubric,
+                RubricContentType.ContentString,
+                "",
+                false);
+     
+	    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+	    ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+	
+	    logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+	
+	    assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
+	    assertEquals(0, itemScoreInfo.getPoints());
+	}
+	
+	@Test
+	public void isResponseValidTest_GI_RubricContentTypeContentString() {
+	
+		String response = " <?xml version=\"1.0\" encoding=\"UTF-8\"?><AnswerSet><Question id=\"\"><QuestionPart id=\"1\"><ObjectSet><RegionGroupObject name=\"Key\" numselected=\"1\"><RegionObject name=\"4cups\" isselected=\"false\"/><RegionObject name=\"10cups\" isselected=\"true\"/><RegionObject name=\"20cups\" isselected=\"false\"/></RegionGroupObject><RegionGroupObject name=\"WeekOne\" numselected=\"1\"><RegionObject name=\"WeekOneHalf\" isselected=\"false\"/><RegionObject name=\"WeekOne1\" isselected=\"false\"/><RegionObject name=\"WeekOne1Half\" isselected=\"false\"/><RegionObject name=\"WeekOne2\" isselected=\"false\"/><RegionObject name=\"WeekOne2Half\" isselected=\"false\"/><RegionObject name=\"WeekOne3\" isselected=\"false\"/><RegionObject name=\"WeekOne3Half\" isselected=\"false\"/><RegionObject name=\"WeekOne4\" isselected=\"false\"/><RegionObject name=\"WeekOne4Half\" isselected=\"false\"/><RegionObject name=\"WeekOne5\" isselected=\"true\"/><RegionObject name=\"WeekOne5Half\" isselected=\"false\"/><RegionObject name=\"WeekOne6\" isselected=\"false\"/><RegionObject name=\"WeekOne6Half\" isselected=\"false\"/><RegionObject name=\"WeekOne7\" isselected=\"false\"/><RegionObject name=\"WeekOne7Half\" isselected=\"false\"/><RegionObject name=\"WeekOne8\" isselected=\"false\"/></RegionGroupObject><RegionGroupObject name=\"WeekTwo\" numselected=\"1\"><RegionObject name=\"WeekTwoHalf\" isselected=\"false\"/><RegionObject name=\"WeekTwo1\" isselected=\"false\"/><RegionObject name=\"WeekTwo1Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo2\" isselected=\"false\"/><RegionObject name=\"WeekTwo2Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo3\" isselected=\"false\"/><RegionObject name=\"WeekTwo3Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo4\" isselected=\"false\"/><RegionObject name=\"WeekTwo4Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo5\" isselected=\"false\"/><RegionObject name=\"WeekTwo5Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo6\" isselected=\"true\"/><RegionObject name=\"WeekTwo6Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo7\" isselected=\"false\"/><RegionObject name=\"WeekTwo7Half\" isselected=\"false\"/><RegionObject name=\"WeekTwo8\" isselected=\"false\"/></RegionGroupObject><RegionGroupObject name=\"WeekThree\" numselected=\"1\"><RegionObject name=\"WeekThreeHalf\" isselected=\"false\"/><RegionObject name=\"WeekThree1\" isselected=\"false\"/><RegionObject name=\"WeekThree1Half\" isselected=\"false\"/><RegionObject name=\"WeekThree2\" isselected=\"false\"/><RegionObject name=\"WeekThree2Half\" isselected=\"false\"/><RegionObject name=\"WeekThree3\" isselected=\"false\"/><RegionObject name=\"WeekThree3Half\" isselected=\"false\"/><RegionObject name=\"WeekThree4\" isselected=\"false\"/><RegionObject name=\"WeekThree4Half\" isselected=\"false\"/><RegionObject name=\"WeekThree5\" isselected=\"false\"/><RegionObject name=\"WeekThree5Half\" isselected=\"false\"/><RegionObject name=\"WeekThree6\" isselected=\"false\"/><RegionObject name=\"WeekThree6Half\" isselected=\"false\"/><RegionObject name=\"WeekThree7\" isselected=\"false\"/><RegionObject name=\"WeekThree7Half\" isselected=\"false\"/><RegionObject name=\"WeekThree8\" isselected=\"true\"/></RegionGroupObject><RegionGroupObject name=\"WeekFour\" numselected=\"1\"><RegionObject name=\"WeekFourHalf\" isselected=\"false\"/><RegionObject name=\"WeekFour1\" isselected=\"false\"/><RegionObject name=\"WeekFour1Half\" isselected=\"false\"/><RegionObject name=\"WeekFour2\" isselected=\"false\"/><RegionObject name=\"WeekFour2Half\" isselected=\"true\"/><RegionObject name=\"WeekFour3\" isselected=\"false\"/><RegionObject name=\"WeekFour3Half\" isselected=\"false\"/><RegionObject name=\"WeekFour4\" isselected=\"false\"/><RegionObject name=\"WeekFour4Half\" isselected=\"false\"/><RegionObject name=\"WeekFour5\" isselected=\"false\"/><RegionObject name=\"WeekFour5Half\" isselected=\"false\"/><RegionObject name=\"WeekFour6\" isselected=\"false\"/><RegionObject name=\"WeekFour6Half\" isselected=\"false\"/><RegionObject name=\"WeekFour7\" isselected=\"false\"/><RegionObject name=\"WeekFour7Half\" isselected=\"false\"/><RegionObject name=\"WeekFour8\" isselected=\"false\"/></RegionGroupObject></ObjectSet><SnapPoint></SnapPoint></QuestionPart></Question></AnswerSet> ";
+		
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+		
+		String rubric = "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/imsqti_v2p1\" identifier=\"\" title=\"\" timeDependent=\"false\"><responseDeclaration baseType=\"string\" cardinality=\"single\" identifier=\"RESPONSE\" /><outcomeDeclaration baseType=\"integer\" cardinality=\"single\" identifier=\"SCORE\"><defaultValue><value>0</value></defaultValue></outcomeDeclaration><outcomeDeclaration baseType=\"string\" cardinality=\"ordered\" identifier=\"PP_RESPONSE\" /><responseProcessing><setOutcomeValue identifier=\"PP_RESPONSE\"><customOperator type=\"GRAPHIC\" functionName=\"PREPROCESSRESPONSE\" response=\"RESPONSE\" /></setOutcomeValue></responseProcessing></assessmentItem>";
+		
+	    ResponseInfo responseInfo = new ResponseInfo(
+                "GI",
+                "1578",
+                response,
+                rubric,
+                RubricContentType.ContentString,
+                "",
+                false);
+	     
+	    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+        ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+
+        logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+
+        assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
+        assertEquals(0, itemScoreInfo.getPoints());
+	}
+	
+	@Test
+	public void isResponseValidTest_MI_RubricContentTypeContentString() {
+	
+		String response = " <itemResponse><response id=\"RESPONSE\"><value>1 a</value><value>2 a</value><value>3 b</value><value>4 a</value><value>5 b</value></response></itemResponse> ";
+		
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+		
+		String rubric = "<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd\" identifier=\"item_64335\" title=\"Item 64335\" adaptive=\"false\" timeDependent=\"false\" xmlns:apip=\"http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0\"> " +
+			" <responseDeclaration identifier=\"RESPONSE\" baseType=\"directedPair\" cardinality=\"multiple\"> " +
+			" <correctResponse> " + 
+			" <value>1 a</value> " +
+			" <value>5 a</value> " +
+			" <value>2 a</value> " +
+			" <value>3 b</value> " +
+			" <value>4 b</value> " +
+			" </correctResponse> " +
+			" </responseDeclaration> " +
+			" <outcomeDeclaration identifier=\"SCORE\" baseType=\"float\" cardinality=\"single\" /> " +
+			" <itemBody /> " +
+			" <responseProcessing>   <responseCondition>       <responseIf>          <match>                <variable identifier=\"RESPONSE\"/>                <correct identifier=\"RESPONSE\"/>            </match>            <setOutcomeValue identifier=\"SCORE\">                <baseValue baseType=\"float\">1</baseValue>            </setOutcomeValue>        </responseIf>        <responseElse>           <setOutcomeValue identifier=\"SCORE\">                <baseValue baseType=\"float\">0</baseValue>            </setOutcomeValue>        </responseElse>    </responseCondition> </responseProcessing> " + 
+			" <apip:apipAccessibility /> " +
+			" </assessmentItem> ";
+	    ResponseInfo responseInfo = new ResponseInfo(
+                "MI",
+                "1873",
+                response,
+                rubric,
+                RubricContentType.ContentString,
+                "",
+                false);
+	     
+	    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+        ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+
+        logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+
+        assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
+        assertEquals(0, itemScoreInfo.getPoints());
+	}
+	
+	@Test
+	public void isResponseValidTest_EBSR_RubricContentTypeContentString() {
+	
+		String response = " <itemResponse><response id=\"EBSR1\"><value>B</value></response><response id=\"EBSR2\"><value>A</value><value>C</value></response></itemResponse> ";
+		
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+		
+		String rubric = "﻿<assessmentItem xmlns=\"http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiextv2p1_v1p0.xsd\" identifier=\"item_2616\" title=\"Item 2616\" adaptive=\"false\" timeDependent=\"false\" xmlns:apip=\"http://www.imsglobal.org/xsd/apip/apipv1p0/imsapip_qtiv1p0\"> " +
+                    " <responseDeclaration identifier=\"EBSR1\" baseType=\"identifier\" cardinality=\"single\"> " +
+                        " <correctResponse> " +
+                                " <value>A</value> " +
+
+                        " </correctResponse> " +
+                    " </responseDeclaration> " +
+                    " <responseDeclaration identifier=\"EBSR2\" baseType=\"identifier\" > " +
+                        " <correctResponse> " +
+                                
+                        " </correctResponse> " +
+                    " </responseDeclaration> " +
+                    " <outcomeDeclaration identifier=\"SCORE\" baseType=\"float\" cardinality=\"single\" /> " +
+                    " <outcomeDeclaration identifier=\"FEEDBACK\" cardinality=\"single\" baseType=\"identifier\" /> " +
+                    " <itemBody /> " +
+                    " <responseProcessing> " +
+                    " <responseCondition> " +
+                    " <responseIf> " +
+	                    " <and> " +
+		                    " <match> " +
+			                    " <variable identifier=\"EBSR1\"/> " +
+			                    " <correct identifier=\"EBSR1\"/> " +
+		                    " </match> " +
+		                    " <match> " +
+			                    " <variable identifier=\"EBSR2\"/> " +
+			                    " <correct identifier=\"EBSR2\"/> " +
+		                    " </match> " +
+	                    " </and> " +
+                    " <setOutcomeValue identifier=\"SCORE\"> " +
+                      " <baseValue baseType=\"float\">1</baseValue> " +
+                    " </setOutcomeValue> " +
+                    " </responseIf> " +
+                    " <responseElse> " +
+	                    " <setOutcomeValue identifier=\"SCORE\"> " +
+		                    " <baseValue baseType=\"float\">0</baseValue> " +
+	                    " </setOutcomeValue> " +
+                    " </responseElse> " +
+                    " </responseCondition> " +
+                    " </responseProcessing> " +
+                     " <modalFeedback outcomeIdentifier=\"FEEDBACK\" showHide=\"show\" identifier=\"solution\"> " +
+                       " <p id=\"\" /> " +
+                     " </modalFeedback> " +
+                     " <apip:apipAccessibility /> " +
+                " </assessmentItem>";
+				
+	    ResponseInfo responseInfo = new ResponseInfo(
+                "EBSR",
+                "2616",
+                response,
+                rubric,
+                RubricContentType.ContentString,
+                "",
+                false);
+	     
+	    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+        ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+
+        logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+
+        assertEquals(ScoringStatus.NotScored, itemScoreInfo.getStatus());
+        assertEquals(-1, itemScoreInfo.getPoints());
+	}
+	
+	
+	/**
+	 * RubricContentType Uri
+	 */
+	@Test
 	public void isResponseValidTest_TI_RubricContentTypeUri() {
 		try {
 			String response1 = " <responseSpec><responseTable><tr><th id=\"col0\"/><th id=\"col1\"/></tr><tr><td/><td>72</td></tr><tr><td/><td>42</td></tr><tr><td/><td>54</td></tr><tr><td/><td>50</td></tr></responseTable></responseSpec> ";
 		
-			List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-		    messageConverters.add(new ItemScoreMessageConverter());
-	
-		    RestTemplate restTemplate = new RestTemplate();
-		    restTemplate.setMessageConverters(messageConverters);
-	
-		    IItemScorer proxyItemScorer = new IrpProxyItemScorer(restTemplate, "http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring");
+			IItemScorer proxyItemScorer = new IItemScorerBuilder()
+				.restTemplate()
+				.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+				.toIItemScorer();
 			
 		    String thePath = "file:///C:/Users/mzhang/Desktop/IRP/irp-webapp/src/main/resources/irp-package/IrpContentPackage/Items/Item-187-2788/Item_2788_v8.qrx";
 		    thePath = URLEncoder.encode(thePath, "UTF-8" );
@@ -687,6 +888,7 @@ public class ItemResponseAnalysisActionTest {
 		      exp.printStackTrace ();
 		  }
 	}
+	
 	
 	/**
 	 * 
