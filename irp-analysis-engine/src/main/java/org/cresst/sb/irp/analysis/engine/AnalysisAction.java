@@ -6,6 +6,7 @@ import org.cresst.sb.irp.domain.analysis.Category;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.ItemCategory;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
@@ -171,6 +172,25 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 			if (cellCategory.getTdsFieldName().equals(key))
 				return cellCategory;
 		}
+		return null;
+	}
+	
+	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
+			ItemCategory.ItemStatusEnum itemStatusEnum) {
+
+		for (ItemCategory itemCategory : listItemCategory) {
+			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
+			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
+			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
+
+			if (bankKey.equalsIgnoreCase(_bankKey)
+                    && key.equalsIgnoreCase(_key)
+                    && itemCategory.getStatus() == itemStatusEnum
+					&& itemCategory.isItemFormatCorrect()) {
+				return itemCategory;
+			}
+		}
+
 		return null;
 	}
 	

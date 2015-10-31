@@ -93,10 +93,10 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 							segmentAnalysisAction.analyze(individualResponse);
 							accommodationAnalysisAction.analyze(individualResponse);
 							itemAttributesAnalysisAction.analyze(individualResponse);
-							System.out.println("111111111111111111111");
 							itemResponseAnalysisAction.analyze(individualResponse);
-							System.out.println("222222222222222222222");
+							System.out.println("111111111111111111111");
 							itemScoreInfoAnalysisAction.analyze(individualResponse);
+							System.out.println("222222222222222222222");
 							commentAnalysisAction.analyze(individualResponse);
 							toolUsageAnalysisAction.analyze(individualResponse);
 						}

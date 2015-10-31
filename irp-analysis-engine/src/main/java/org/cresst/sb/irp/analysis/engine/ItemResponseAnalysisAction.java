@@ -114,7 +114,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			Response response = tdsItem.getResponse();
 			switch (enumFieldName) {
 			case date:
-				// Required N. xsd <xs:attribute name="date" type="xs:dateTime" />
+				// not required. xsd <xs:attribute name="date" type="xs:dateTime" />
 				if (response.getDate() != null && response.getDate().toString().length() > 0)
 					setPcorrect(fieldCheckType);
 				break;
@@ -410,26 +410,6 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		if (bln)
 			return true;
 		return false;
-	}
-
-
-	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
-			ItemCategory.ItemStatusEnum itemStatusEnum) {
-
-		for (ItemCategory itemCategory : listItemCategory) {
-			ImmutableList<CellCategory> cellCategories = itemCategory.getCellCategories();
-			String _bankKey = getTdsFieldNameValueByFieldName(cellCategories, "bankKey");
-			String _key = getTdsFieldNameValueByFieldName(cellCategories, "key");
-
-			if (bankKey.equalsIgnoreCase(_bankKey)
-                    && key.equalsIgnoreCase(_key)
-                    && itemCategory.getStatus() == itemStatusEnum
-					&& itemCategory.isItemFormatCorrect()) {
-				return itemCategory;
-			}
-		}
-
-		return null;
 	}
 
 	/**
