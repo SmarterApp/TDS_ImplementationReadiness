@@ -347,7 +347,7 @@ public class ItemResponseAnalysisActionTest {
 		
 		// Add attriblist (list of attrib) into above mentioned IRP item1 
 		final List<org.cresst.sb.irp.domain.items.Itemrelease.Item.Attriblist.Attrib> attribs1 = Lists.newArrayList(
-				new AttribBuilder("itm_att_Answer Key").name("Item: Answer Key").val("A").desc("").toAttrib(), 
+				new AttribBuilder("itm_att_Answer Key").name("Item: Answer Key").val("A").desc("").toAttrib(),
 				new AttribBuilder("itm_att_Item Point").name("Item: Item Point").val("1 pt.").desc("").toAttrib());
 		List<Itemrelease.Item.Attriblist> attribList1 = item1.getAttriblist();
 		if (attribList1.size() == 0) {
@@ -401,7 +401,7 @@ public class ItemResponseAnalysisActionTest {
 	    CellCategory cellCategory1 = getCellCategoryByFieldName(responseCategory1.getCellCategories(), "content");
 	    FieldCheckType fieldCheckType1 = cellCategory1.getFieldCheckType();
 	    
-	    assertEquals(true,responseCategory1.isResponseValid());
+	    assertEquals(true, responseCategory1.isResponseValid());
 	    assertEquals(true,fieldCheckType1.isCorrectValue());
 	    
         ItemCategory itemCategoryAfterAnalyze2 = itemCategoriesAfterAnalyze.get(1);
@@ -856,37 +856,32 @@ public class ItemResponseAnalysisActionTest {
 	 * RubricContentType Uri
 	 */
 	@Test
-	public void isResponseValidTest_TI_RubricContentTypeUri() {
-		try {
-			String response1 = " <responseSpec><responseTable><tr><th id=\"col0\"/><th id=\"col1\"/></tr><tr><td/><td>72</td></tr><tr><td/><td>42</td></tr><tr><td/><td>54</td></tr><tr><td/><td>50</td></tr></responseTable></responseSpec> ";
-		
-			IItemScorer proxyItemScorer = new IItemScorerBuilder()
-				.restTemplate()
-				.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
-				.toIItemScorer();
-			
-		    String thePath = "file:///C:/Users/mzhang/Desktop/IRP/irp-webapp/src/main/resources/irp-package/IrpContentPackage/Items/Item-187-2788/Item_2788_v8.qrx";
-		    thePath = URLEncoder.encode(thePath, "UTF-8" );
-		    URI rubricUri = new URI (thePath);
-		    ResponseInfo responseInfo = new ResponseInfo(
-		                "TI",
-		                "2788",
-		                response1,
-		                rubricUri,
-		                RubricContentType.Uri,
-		                "",
-		                false);
-		     
-		    ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
-	        ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
-	
-	        logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
-	
-	        assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
-	        assertEquals(1, itemScoreInfo.getPoints());
-		  } catch (Exception exp) {
-		      exp.printStackTrace ();
-		  }
+	public void isResponseValidTest_TI_RubricContentTypeUri() throws Exception {
+		String response1 = " <responseSpec><responseTable><tr><th id=\"col0\"/><th id=\"col1\"/></tr><tr><td/><td>72</td></tr><tr><td/><td>42</td></tr><tr><td/><td>54</td></tr><tr><td/><td>50</td></tr></responseTable></responseSpec> ";
+
+		IItemScorer proxyItemScorer = new IItemScorerBuilder()
+			.restTemplate()
+			.itemScoringServiceUrl("http://tds.smarterapp.cresst.net:8080/item-scoring-service/Scoring/ItemScoring")
+			.toIItemScorer();
+
+		String thePath = "file:////usr/local/tomcat/resources/tds/bank/Items/Item-187-2788/Item_2788_v8.qrx";
+		URI rubricUri = new URI(thePath);
+		ResponseInfo responseInfo = new ResponseInfo(
+					"TI",
+					"2788",
+					response1,
+					rubricUri,
+					RubricContentType.Uri,
+					"",
+					false);
+
+		ItemScore itemScore = proxyItemScorer.ScoreItem(responseInfo, null);
+		ItemScoreInfo itemScoreInfo = itemScore.getScoreInfo();
+
+		logger.info("{} - {} - {}", itemScoreInfo.getStatus(), itemScoreInfo.getPoints(), itemScoreInfo.getRationale().getMsg());
+
+		assertEquals(ScoringStatus.Scored, itemScoreInfo.getStatus());
+		assertEquals(1, itemScoreInfo.getPoints());
 	}
 	
 	

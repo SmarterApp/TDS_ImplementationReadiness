@@ -262,16 +262,28 @@
             <tr class="category">
                 <td colspan="5">Opportunity Accommodation</td>
             </tr>
-            <tr>
-                <td colspan="5">This section is still under development.</td>
-            </tr>
+            <th:block th:each="accommodation : ${response.opportunityCategory.accommodationCategories}">
+                <tr th:each="cell : ${accommodation.cellCategories}" class="opportunityAccommodationRows" th:classappend="${cellStat.even}? 'even'">
+                    <td>Opportunity Accommodation: <span th:text="${cell.tdsFieldName}"></span></td>
+                    <td th:text="${cell.tdsExpectedValue}"></td>
+                    <td th:text="${cell.tdsFieldNameValue}"></td>
+                    <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                    <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                </tr>
+            </th:block>
 
             <tr class="category">
                 <td colspan="5">Opportunity Scores</td>
             </tr>
-            <tr>
-                <td colspan="5">This section is still under development.</td>
-            </tr>
+            <th:block th:each="score : ${response.opportunityCategory.scoreCategories}">
+                <tr th:each="cell : ${score.cellCategories}" class="opportunityScoreRows" th:classappend="${cellStat.even}? 'even'">
+                    <td>Opportunity Score: <span th:text="${cell.tdsFieldName}"></span></td>
+                    <td th:text="${cell.tdsExpectedValue}"></td>
+                    <td th:text="${cell.tdsFieldNameValue}"></td>
+                    <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                    <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                </tr>
+            </th:block>
 
             <tr class="category">
                 <td colspan="5">Opportunity Items</td>
@@ -293,65 +305,25 @@
                         <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                     </tr>
 
-                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
-                        <td>Opportunity Item Response: date</td>
-                        <td></td>
-                        <td th:text="${rc.date}"></td>
-                        <td th:text="${helper.status(rc.dateFieldCheckType)}"></td>
-                        <td th:text="${helper.explanation(rc.dateFieldCheckType)}"></td>
-                    </tr>
-                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
-                        <td>Opportunity Item Response: type</td>
-                        <td></td>
-                        <td th:text="${rc.type}"></td>
-                        <td th:text="${helper.status(rc.typeFieldCheckType)}"></td>
-                        <td th:text="${helper.explanation(rc.typeFieldCheckType)}"></td>
-                    </tr>
-                    <tr th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}" class="opportunityItem">
-                        <td>Opportunity Item Response: content</td>
-                        <td></td>
-                        <td>Check file for content</td>
-                        <td th:text="${helper.status(rc.contentFieldCheckType)}"></td>
-                        <td th:text="${helper.explanation(rc.contentFieldCheckType)}"></td>
-                    </tr>
+                    <th:block th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}">
+                        <tr th:each="cell : ${rc.cellCategories}" class="opportunityItem">
+                            <td>Opportunity Item Response: <span th:text="${cell.tdsFieldName}"></span></td>
+                            <td th:text="${cell.tdsExpectedValue}"></td>
+                            <td th:text="${cell.tdsFieldNameValue}"></td>
+                            <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+                        </tr>
+                    </th:block>
                     <th:block th:if="${item.scoreInfoCategory}" th:with="si=${item.scoreInfoCategory}">
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo: scorePoint</td>
-                            <td></td>
-                            <td th:text="${si.scorePoint}"></td>
-                            <td th:text="${helper.status(si.scorePointFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.scorePointFieldCheckType)}"></td>
+                        <tr th:each="cell : ${si.cellCategories}" class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo: <span th:text="${cell.tdsFieldName}"></span></td>
+                            <td th:text="${cell.tdsExpectedValue}"></td>
+                            <td th:text="${cell.tdsFieldNameValue}"></td>
+                            <td th:text="${helper.status(cell.fieldCheckType)}"></td>
+                            <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                         </tr>
                         <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo: maxScore</td>
-                            <td></td>
-                            <td th:text="${si.maxScore}"></td>
-                            <td th:text="${helper.status(si.maxScoreFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.maxScoreFieldCheckType)}"></td>
-                        </tr>
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo: scoreDimension</td>
-                            <td></td>
-                            <td th:text="${si.scoreDimension}"></td>
-                            <td th:text="${helper.status(si.scoreDimensionFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.scoreDimensionFieldCheckType)}"></td>
-                        </tr>
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo: scoreStatus</td>
-                            <td></td>
-                            <td th:text="${si.scoreStatus}"></td>
-                            <td th:text="${helper.status(si.scoreStatusFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.scoreStatusFieldCheckType)}"></td>
-                        </tr>
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo: confLevel</td>
-                            <td></td>
-                            <td th:text="${si.confLevel}"></td>
-                            <td th:text="${helper.status(si.confLevelFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.confLevelFieldCheckType)}"></td>
-                        </tr>
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreRationale: message</td>
+                            <td>Opportunity Item ScoreInfo ScoreRationale: message</td>
                             <td></td>
                             <td th:text="${si.scoreRationaleCategory.message}"></td>
                             <td th:text="${helper.status(si.scoreRationaleCategory.messageFieldCheckType)}"></td>
