@@ -29,7 +29,7 @@
             }
 
             core-toolbar {
-                background-color: #5264ae;
+                background-color: #0684ac;
                 color: #fff;
                 font-size: 19px;
                 font-weight: 400;
@@ -126,7 +126,7 @@
                 letter-spacing: 0.05em;
                 font-size: 24px;
                 font-weight: 400;
-                color: #5265a2;
+                color: #0684ac;
             }
 
             #frame {
@@ -164,6 +164,10 @@
                 left: 0;
                 overflow: auto;
             }
+
+            .version {
+                font-size: .5em;
+            }
         </style>
 
         <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="320px" responsiveWidth="{{responsiveWidth}}">
@@ -199,7 +203,7 @@
                     <div class="bottom main-label fit">
                         <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" />
                         {{label}}<br />
-                        <small>{{version}}</small>
+                        <span class="version">version: {{version}}</span>
                     </div>
                 </core-toolbar>
 
