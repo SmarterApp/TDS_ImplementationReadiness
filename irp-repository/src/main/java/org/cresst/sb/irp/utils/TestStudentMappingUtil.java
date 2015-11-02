@@ -65,15 +65,14 @@ public class TestStudentMappingUtil {
 		try {
 			columnName = StringUtils.deleteWhitespace(columnName);
 			switch (columnName.toLowerCase()) {
-			case "test": 
-				testStudentMapping.setTest(cellStringValue);
-				break;
-			case "studentssid":
-				testStudentMapping.setStudentSSID(Long.parseLong(cellStringValue));
-				break;
-			default:
-				throw new IllegalArgumentException("Invalid column name: "
-							+ columnName);
+				case "test":
+					testStudentMapping.setTest(cellStringValue);
+					break;
+				case "studentssid":
+					testStudentMapping.setStudentSSID(cellStringValue);
+					break;
+				default:
+					break;
 			}
 		} catch (Exception e) {
 			logger.error("setFieldData(); exception: ", e);

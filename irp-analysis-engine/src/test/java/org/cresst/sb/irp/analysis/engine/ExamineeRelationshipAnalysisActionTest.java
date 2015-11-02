@@ -1,9 +1,14 @@
 package org.cresst.sb.irp.analysis.engine;
 
 import builders.CellCategoryBuilder;
+import builders.ExamineeAttributeBuilder;
 import builders.ExamineeRelationshipBuilder;
 import builders.StudentBuilder;
 import com.google.common.collect.Lists;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeRelationshipFieldName;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeRelationshipCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -32,12 +37,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ExamineeRelationshipAnalysisActionTest {
 
-    final String RESPONSIBLE_DISTRICT_ID = ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.ResponsibleDistrictIdentifier.toString();
-    final String ORGANIZATION_NAME = ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.OrganizationName.toString();
-    final String RESPONSIBLE_INSTITUTION_ID = ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.ResponsibleInstitutionIdentifier.toString();
-    final String NAME_OF_INSTITUTION= ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.NameOfInstitution.toString();
-    final String STATE_NAME = ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.StateName.toString();
-    final String STATE_ABBREVIATION = ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName.StateAbbreviation.toString();
+    final String RESPONSIBLE_DISTRICT_ID = EnumExamineeRelationshipFieldName.ResponsibleDistrictIdentifier.toString();
+    final String ORGANIZATION_NAME = EnumExamineeRelationshipFieldName.OrganizationName.toString();
+    final String RESPONSIBLE_INSTITUTION_ID = EnumExamineeRelationshipFieldName.ResponsibleInstitutionIdentifier.toString();
+    final String NAME_OF_INSTITUTION= EnumExamineeRelationshipFieldName.NameOfInstitution.toString();
+    final String STATE_NAME = EnumExamineeRelationshipFieldName.StateName.toString();
+    final String STATE_ABBREVIATION = EnumExamineeRelationshipFieldName.StateAbbreviation.toString();
 
     @Mock
     private StudentService studentService;
@@ -47,15 +52,23 @@ public class ExamineeRelationshipAnalysisActionTest {
 
     /**
      * Helper method to create an IndividualResponse with a TDSReport containing an Examinee and ExamineeRelationships
-     * @param examineeKey Student's SSID
+     *
+     * @param studentIdentifier Student's SSID
      * @param examineeRelationships List of ExamineeRelationship objects
      * @return A pre-populated IndividualResponse
      */
-    private IndividualResponse generateIndividualResponse(Long examineeKey,
+    private IndividualResponse generateIndividualResponse(String studentIdentifier,
                                                           List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships) {
 
         final TDSReport.Examinee examinee = new TDSReport.Examinee();
-        examinee.setKey(examineeKey);
+
+        TDSReport.Examinee.ExamineeAttribute studentIdentifierAttribute = new ExamineeAttributeBuilder()
+                .name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+                .value(studentIdentifier)
+                .context(Context.FINAL)
+                .toExamineeAttribute();
+
+        examinee.getExamineeAttributeOrExamineeRelationship().add(studentIdentifierAttribute);
 
         if (examineeRelationships != null) {
             examinee.getExamineeAttributeOrExamineeRelationship().addAll(examineeRelationships);
@@ -77,7 +90,7 @@ public class ExamineeRelationshipAnalysisActionTest {
     public void whenStateAbbreviationMatchesStudent_CorrectField() throws Exception {
 
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
                         .name(STATE_ABBREVIATION)
@@ -120,7 +133,7 @@ public class ExamineeRelationshipAnalysisActionTest {
     public void whenAllExamineeRelationshipsMatchStudent_CorrectFields() throws Exception {
         // Arrange
         // Test student SSID
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
 
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
@@ -238,13 +251,13 @@ public class ExamineeRelationshipAnalysisActionTest {
     }
 
     /**
-     * When an ExamineeRelationship is unknown then mark the field as being invalide
+     * When an ExamineeRelationship is unknown then mark the field as being invalid
      * @throws Exception
      */
     @Test
     public void whenExamineeRelationshipIsNotKnown_IncorrectField() throws Exception {
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
                         .name("UnknownExamineeRelationship")
@@ -281,7 +294,7 @@ public class ExamineeRelationshipAnalysisActionTest {
     @Test
     public void verifyOnlyFinalContextExamineeRelationshipsAreAnalyzed() throws Exception {
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
                         .name(STATE_ABBREVIATION)
@@ -331,19 +344,17 @@ public class ExamineeRelationshipAnalysisActionTest {
         TDSReport tdsReport = new TDSReport();
         IndividualResponse individualResponse = new IndividualResponse();
         individualResponse.setTDSReport(tdsReport);
-        
-        /*
+
         // Act
         underTest.analyze(individualResponse);
 
         assertThat(individualResponse.getExamineeRelationshipCategories().size(), is(0));
-        */
     }
 
     @Test
     public void whenExamineeKeyDoesNotMatchExistingIRPStudent_IncorrectField() {
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
                         .name(STATE_ABBREVIATION)
@@ -378,7 +389,7 @@ public class ExamineeRelationshipAnalysisActionTest {
     public void whenResponsibleDistrictIdentifierMatchesStudentWithLeadingZeros_CorrectFields() throws Exception {
     	
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
                         .name(RESPONSIBLE_DISTRICT_ID)
@@ -409,7 +420,6 @@ public class ExamineeRelationshipAnalysisActionTest {
 		    .toCellCategory();
         
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
-
     }
     
 }

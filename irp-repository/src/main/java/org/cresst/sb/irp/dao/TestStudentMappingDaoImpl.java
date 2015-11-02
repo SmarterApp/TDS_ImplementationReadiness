@@ -54,9 +54,9 @@ public class TestStudentMappingDaoImpl implements TestStudentMappingDao {
 	}
 
 	@Override
-	public TestStudentMapping getTestStudentMapping(String testName, long studentSSID) {
+	public TestStudentMapping getTestStudentMapping(String testName, String studentSSID) {
 		for(TestStudentMapping tsm : testStudentMappings){
-			if (StringUtils.equalsIgnoreCase(tsm.getTest(), testName) && tsm.getStudentSSID() == studentSSID)
+			if (StringUtils.equalsIgnoreCase(tsm.getTest(), testName) && studentSSID != null && studentSSID.equalsIgnoreCase(tsm.getStudentSSID()))
 				return tsm;
 		}
 		

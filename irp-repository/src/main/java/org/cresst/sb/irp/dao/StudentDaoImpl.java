@@ -57,9 +57,9 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public Student getStudentByStudentSSID(long studentSSID) throws NotFoundException {
+	public Student getStudentByStudentSSID(String studentSSID) throws NotFoundException {
 		Student student = getStudentBySSID(students, studentSSID);
-		if (student == null){
+		if (student == null) {
 			throw new NotFoundException("Could not find student " + studentSSID);
 		}
 		return student;
@@ -71,9 +71,9 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public Student getStudentBySSID(List<Student> students, long studentSSID) {
-		for (Student student : students){
-			if(student.getSSID() == studentSSID){
+	public Student getStudentBySSID(List<Student> students, String studentSSID) {
+		for (Student student : students) {
+			if(studentSSID != null && studentSSID.equalsIgnoreCase(student.getSSID())) {
 				return student;
 			}
 		}

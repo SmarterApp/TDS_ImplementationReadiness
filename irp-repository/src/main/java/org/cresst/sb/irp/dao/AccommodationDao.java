@@ -9,8 +9,8 @@ public interface AccommodationDao {
 
 	List<Accommodation> getAccommodations();
 	
-	Accommodation getAccommodationByStudentIdentifier(long studentSSID) throws NotFoundException;
+	Accommodation getAccommodationByStudentIdentifier(String studentSSID) throws NotFoundException;
 	
-	Accommodation getAccommodationByStudentIdentifier(List<Accommodation> accommodations, long studentSSID);
+	Accommodation getAccommodationByStudentIdentifier(List<Accommodation> accommodations, String studentSSID);
 	
 }

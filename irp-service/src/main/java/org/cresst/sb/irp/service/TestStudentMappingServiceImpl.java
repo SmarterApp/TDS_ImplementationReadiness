@@ -23,7 +23,7 @@ public class TestStudentMappingServiceImpl implements TestStudentMappingService 
 	}
 
 	@Override
-	public TestStudentMapping getTestStudentMapping(String testName, long studentSSID) throws NotFoundException {
+	public TestStudentMapping getTestStudentMapping(String testName, String studentSSID) {
 		return testStudentMappingDao.getTestStudentMapping(testName, studentSSID);
 	}
 

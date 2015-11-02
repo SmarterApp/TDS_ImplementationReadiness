@@ -6,6 +6,9 @@ import builders.StudentBuilder;
 
 import com.google.common.collect.Lists;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -44,18 +47,46 @@ public class ExamineeAttributeAnalysisActionTest {
     /**
      * Helper method to create an IndividualResponse with a TDSReport containing an Examinee and ExamineeAttributes
      *
-     * @param examineeKey
-     * @param examineeAttributes
+     * @param studentIdentifier The Student Identifier associated with the mock Examinee
+     * @param examineeAttributes Any additional attributes to add to the mock Examinee
      * @return
      */
-    private IndividualResponse generateIndividualResponse(Long examineeKey,
+    private IndividualResponse generateIndividualResponse(String studentIdentifier,
                                                           List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes) {
 
         final TDSReport.Examinee examinee = new TDSReport.Examinee();
-        examinee.setKey(examineeKey);
 
         if (examineeAttributes != null) {
-            examinee.getExamineeAttributeOrExamineeRelationship().addAll(examineeAttributes);
+            TDSReport.Examinee.ExamineeAttribute studentIdentifierAttribute =
+                    (TDSReport.Examinee.ExamineeAttribute) CollectionUtils.find(examineeAttributes, new Predicate() {
+                        @Override
+                        public boolean evaluate(Object o) {
+                            TDSReport.Examinee.ExamineeAttribute attribute = (TDSReport.Examinee.ExamineeAttribute) o;
+                            return attribute.getContext() == Context.FINAL &&
+                                    EnumExamineeAttributeFieldName.StudentIdentifier.name().equalsIgnoreCase(attribute.getName());
+                        }
+                    });
+
+            if (studentIdentifierAttribute != null) {
+                studentIdentifierAttribute.setValue(studentIdentifier);
+                studentIdentifierAttribute.setContext(Context.FINAL);
+                examinee.getExamineeAttributeOrExamineeRelationship().addAll(examineeAttributes);
+            } else {
+                studentIdentifierAttribute = new ExamineeAttributeBuilder()
+                        .name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+                        .value(studentIdentifier)
+                        .context(Context.FINAL)
+                        .toExamineeAttribute();
+
+                examinee.getExamineeAttributeOrExamineeRelationship().add(studentIdentifierAttribute);
+                examinee.getExamineeAttributeOrExamineeRelationship().addAll(examineeAttributes);
+            }
+        } else {
+            examinee.getExamineeAttributeOrExamineeRelationship().add(new ExamineeAttributeBuilder()
+                    .name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+                    .value(studentIdentifier)
+                    .context(Context.FINAL)
+                    .toExamineeAttribute());
         }
 
         final TDSReport tdsReport = new TDSReport();
@@ -71,9 +102,9 @@ public class ExamineeAttributeAnalysisActionTest {
     @Test
     public void testAnalyze() throws Exception {
 
-        final IndividualResponse individualResponse = generateIndividualResponse(9999L, generateAllExamineeAttributes());
+        final IndividualResponse individualResponse = generateIndividualResponse("StudentID", generateAllExamineeAttributes());
    
-        when(studentService.getStudentByStudentSSID(9999L)).thenReturn(new StudentBuilder(9999L)
+        when(studentService.getStudentByStudentSSID("StudentID")).thenReturn(new StudentBuilder("StudentID")
                 .alternateSSID("8888")
                 .americanIndianOrAlaskaNative("No")
                 .asian("No")
@@ -98,7 +129,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .primaryDisabilityType("None")
                 .section504Status("No")
                 .sex("M")
-                .studentIdentifier("9990001")
+                .studentIdentifier("StudentID")
                 .titleIIILanguageInstructionProgramType("")
                 .white("No")
                 .toStudent());
@@ -121,17 +152,17 @@ public class ExamineeAttributeAnalysisActionTest {
     public void whenBirthdateMatchesStudent_CorrectField() throws Exception {
     	
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
                 new ExamineeAttributeBuilder()
-                	.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Birthdate.name())
+                        .name(EnumExamineeAttributeFieldName.Birthdate.name())
                         .value("2002-10-15")
                         .context(Context.FINAL)
                         .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
 
-        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
+        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID)
         		.birthdate("2002-10-15")
         		.toStudent());
         
@@ -139,7 +170,7 @@ public class ExamineeAttributeAnalysisActionTest {
         underTest.analyze(individualResponse);
         
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(1).getCellCategories();
         CellCategory expectedCellCategory = new CellCategoryBuilder()
 	        .correctValue(true)
 	        .correctDataType(true)
@@ -147,7 +178,7 @@ public class ExamineeAttributeAnalysisActionTest {
 	        .tdsExpectedValue("2002-10-15")
 	        .isFieldEmpty(false)
 	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-	        .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Birthdate.name())
+	        .tdsFieldName(EnumExamineeAttributeFieldName.Birthdate.name())
 	        .tdsFieldNameValue("2002-10-15")
 	        .toCellCategory();
         
@@ -156,17 +187,17 @@ public class ExamineeAttributeAnalysisActionTest {
     }
     
     /**
-     * Verifies that the fields of an Examinee are marked as having an error when the Examinee key doesn't match
+     * Verifies that the fields of an Examinee are marked as having an error when the Student Identifier doesn't match
      * an IRP student.
      */
     @Test
-    public void whenExamineeKeyDoesNotMatchExistingIRPStudent_IncorrectField() {
+    public void whenStudentIdentifierDoesNotMatchExistingIRPStudent_IncorrectField() {
 
         // Arrange
-        final long SSID = 9999L;
+        final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
                 new ExamineeAttributeBuilder()
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
+                        .name(EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
                         .value("N")
                         .context(Context.FINAL)
                         .toExamineeAttribute());
@@ -178,7 +209,7 @@ public class ExamineeAttributeAnalysisActionTest {
         underTest.analyze(individualResponse);
 
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(1).getCellCategories();
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .correctValue(false)
                 .correctDataType(true)
@@ -186,7 +217,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .tdsExpectedValue(null)
                 .isFieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-                .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
+                .tdsFieldName(EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
                 .tdsFieldNameValue("N")
                 .toCellCategory();
 
@@ -196,18 +227,18 @@ public class ExamineeAttributeAnalysisActionTest {
     @Test
     public void whenEnglishLanguageProficiencLevel_Typo(){
     	
-        final long SSID = 9999L;
+        final String SSID = "9999";
         
         final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
                 new ExamineeAttributeBuilder()
-                	.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
-                    .value("progresS")
-                    .context(Context.FINAL)
-                    .toExamineeAttribute());
+                        .name(EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
+                        .value("progresS")
+                        .context(Context.FINAL)
+                        .toExamineeAttribute());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
       
-        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(9999L)
+        when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID)
 			.englishLanguageProficiencyLevel("PROGRESS")
 			.toStudent());
         
@@ -215,9 +246,9 @@ public class ExamineeAttributeAnalysisActionTest {
         underTest.analyze(individualResponse);
         
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(0).getCellCategories();
+        List<CellCategory> actualCellCategories = individualResponse.getExamineeAttributeCategories().get(1).getCellCategories();
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-	        .tdsFieldName(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
+	        .tdsFieldName(EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
 	        .tdsFieldNameValue("progresS")
 	        .tdsExpectedValue("PROGRESS")    
 	        .isFieldEmpty(false)
@@ -240,137 +271,137 @@ public class ExamineeAttributeAnalysisActionTest {
         final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AlternateSSID.name())
+                        .name(EnumExamineeAttributeFieldName.AlternateSSID.name())
                         .value("8888")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
+                        .name(EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Asian.name())
+                        .name(EnumExamineeAttributeFieldName.Asian.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Birthdate.name())
+                        .name(EnumExamineeAttributeFieldName.Birthdate.name())
                         .value("01202000")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.BlackOrAfricanAmerican.name())
+                        .name(EnumExamineeAttributeFieldName.BlackOrAfricanAmerican.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.DemographicRaceTwoOrMoreRaces.name())
+                        .name(EnumExamineeAttributeFieldName.DemographicRaceTwoOrMoreRaces.name())
                         .value("None")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EconomicDisadvantageStatus.name())
+                        .name(EnumExamineeAttributeFieldName.EconomicDisadvantageStatus.name())
                         .value("None")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.EnglishLanguageProficiencyLevel.name())
+                        .name(EnumExamineeAttributeFieldName.EnglishLanguageProficiencyLevel.name())
                         .value("10")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.FirstEntryDateIntoUSSchool.name())
+                        .name(EnumExamineeAttributeFieldName.FirstEntryDateIntoUSSchool.name())
                         .value("2001")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.FirstName.name())
+                        .name(EnumExamineeAttributeFieldName.FirstName.name())
                         .value("TestFirstName")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.GradeLevelWhenAssessed.name())
+                        .name(EnumExamineeAttributeFieldName.GradeLevelWhenAssessed.name())
                         .value("10")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.HispanicOrLatinoEthnicity.name())
+                        .name(EnumExamineeAttributeFieldName.HispanicOrLatinoEthnicity.name())
                         .value("Yes")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.IDEAIndicator.name())
+                        .name(EnumExamineeAttributeFieldName.IDEAIndicator.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.LanguageCode.name())
+                        .name(EnumExamineeAttributeFieldName.LanguageCode.name())
                         .value("EN")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.LastOrSurname.name())
+                        .name(EnumExamineeAttributeFieldName.LastOrSurname.name())
                         .value("TestLastName")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.LEPExitDate.name())
+                        .name(EnumExamineeAttributeFieldName.LEPExitDate.name())
                         .value("")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.LEPStatus.name())
+                        .name(EnumExamineeAttributeFieldName.LEPStatus.name())
                         .value("false")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.LimitedEnglishProficiencyEntryDate.name())
+                        .name(EnumExamineeAttributeFieldName.LimitedEnglishProficiencyEntryDate.name())
                         .value("")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.MiddleName.name())
+                        .name(EnumExamineeAttributeFieldName.MiddleName.name())
                         .value("TestMiddleName")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.MigrantStatus.name())
+                        .name(EnumExamineeAttributeFieldName.MigrantStatus.name())
                         .value("None")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.NativeHawaiianOrOtherPacificIslander.name())
+                        .name(EnumExamineeAttributeFieldName.NativeHawaiianOrOtherPacificIslander.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.PrimaryDisabilityType.name())
+                        .name(EnumExamineeAttributeFieldName.PrimaryDisabilityType.name())
                         .value("None")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Section504Status.name())
+                        .name(EnumExamineeAttributeFieldName.Section504Status.name())
                         .value("No")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.Sex.name())
+                        .name(EnumExamineeAttributeFieldName.Sex.name())
                         .value("M")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
-                		.context(Context.FINAL)
-                		.name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.StudentIdentifier.name()) 
-                		.value("9990001")
-                		.toExamineeAttribute(),
+                        .context(Context.FINAL)
+                        .name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+                        .value("StudentID")
+                        .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.TitleIIILanguageInstructionProgramType.name())
+                        .name(EnumExamineeAttributeFieldName.TitleIIILanguageInstructionProgramType.name())
                         .value("")
                         .toExamineeAttribute(),
                 new ExamineeAttributeBuilder()
                         .context(Context.FINAL)
-                        .name(ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName.White.name())
+                        .name(EnumExamineeAttributeFieldName.White.name())
                         .value("No")
                         .toExamineeAttribute());
 

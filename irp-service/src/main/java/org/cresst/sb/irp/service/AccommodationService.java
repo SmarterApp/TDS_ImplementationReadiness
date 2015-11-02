@@ -9,6 +9,6 @@ public interface AccommodationService {
 	
 	List<Accommodation> getAccommodations();
 
-	Accommodation getAccommodationByStudentIdentifier(long studentSSID) throws NotFoundException;
+	Accommodation getAccommodationByStudentIdentifier(String studentSSID) throws NotFoundException;
 	
 }

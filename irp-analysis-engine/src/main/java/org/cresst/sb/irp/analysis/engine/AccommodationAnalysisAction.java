@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.AccommodationCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -25,7 +26,7 @@ import org.springframework.stereotype.Service;
 public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName, org.cresst.sb.irp.domain.accommodation.Accommodation> {
 	private final static Logger logger = LoggerFactory.getLogger(AccommodationAnalysisAction.class);
 
-	static public enum EnumAccommodationFieldName {
+	public enum EnumAccommodationFieldName {
 		StudentIdentifier, StateAbbreviation, Subject, AmericanSignLanguage, ColorContrast, ClosedCaptioning, Language, Masking, PermissiveMode, PrintOnDemand, Zoom, PrintSize, StreamlinedInterface, TexttoSpeech, Translation, NonEmbeddedDesignatedSupports, NonEmbeddedAccommodations, Other
 	}
 
@@ -38,9 +39,10 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			List<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation> listAccommodation =
 					opportunity.getAccommodation(); //<xs:element name="Accommodation" minOccurs="0" maxOccurs="unbounded">
 
-			ExamineeCategory examineeCategory = individualResponse.getExamineeCategory();
-			Long examineeKey = Long.parseLong(getTdsFieldNameValueByFieldName(examineeCategory.getCellCategories(), "key"));
-			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel = getAccommodation(examineeKey);
+			TDSReport.Examinee examinee = tdsReport.getExaminee();
+			String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+
+			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel = getAccommodation(studentIdentifier);
 
 			List<AccommodationCategory> listAccommodationCategory = new ArrayList<>();
 			
@@ -163,7 +165,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 
 		switch (enumFieldName) {
 		case StudentIdentifier:
-			strReturn = Long.toString(accommodationExcel.getStudentIdentifier());
+			strReturn = accommodationExcel.getStudentIdentifier();
 			break;
 		case StateAbbreviation:
 			strReturn = accommodationExcel.getStateAbbreviation();

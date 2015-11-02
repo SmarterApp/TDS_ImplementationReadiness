@@ -14,7 +14,7 @@ public class TestStudentMappingBuilder {
 		return this;
 	}
 	
-	public TestStudentMappingBuilder studentSSID(long studentSSID){
+	public TestStudentMappingBuilder studentSSID(String studentSSID){
 		testStudentMapping.setStudentSSID(studentSSID);
 		return this;
 	}

@@ -9,6 +9,6 @@ public interface TestStudentMappingService {
 
 	List<TestStudentMapping> getTestStudentMappings();
 	
-	TestStudentMapping getTestStudentMapping(String testName, long studentSSID) throws NotFoundException;
+	TestStudentMapping getTestStudentMapping(String testName, String studentSSID);
 	
 }

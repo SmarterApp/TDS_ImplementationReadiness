@@ -3,7 +3,7 @@ package org.cresst.sb.irp.domain.teststudentmapping;
 public class TestStudentMapping {
 	
 	private String Test;
-	private long StudentSSID;
+	private String StudentSSID;
 	
 	public String getTest() {
 		return Test;
@@ -11,10 +11,10 @@ public class TestStudentMapping {
 	public void setTest(String test) {
 		Test = test;
 	}
-	public long getStudentSSID() {
+	public String getStudentSSID() {
 		return StudentSSID;
 	}
-	public void setStudentSSID(long studentSSID) {
+	public void setStudentSSID(String studentSSID) {
 		StudentSSID = studentSSID;
 	}
 	@Override

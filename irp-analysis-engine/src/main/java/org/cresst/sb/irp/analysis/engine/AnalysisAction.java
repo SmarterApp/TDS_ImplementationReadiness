@@ -128,6 +128,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	 */
 	protected <U> void validate(Category category, T checkObj, U value,
 			FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, O comparisonData) {
+
 		final FieldCheckType fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
 
@@ -229,15 +230,15 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testPackageService.getMapTestpackage();
 	}
 
-	public Accommodation getAccommodation(long key) throws NotFoundException {
-		return accommodationService.getAccommodationByStudentIdentifier(key);
+	public Accommodation getAccommodation(String studentIdentifier) throws NotFoundException {
+		return accommodationService.getAccommodationByStudentIdentifier(studentIdentifier);
 	}
 	
-	public Student getStudent(long key) throws NotFoundException {
-		return studentService.getStudentByStudentSSID(key);
+	public Student getStudent(String ssid) throws NotFoundException {
+		return studentService.getStudentByStudentSSID(ssid);
 	}
 
-	public TestStudentMapping getTestStudentMapping(String testName, long studentSSID) throws NotFoundException {
+	public TestStudentMapping getTestStudentMapping(String testName, String studentSSID) {
 		return testStudentMappingService.getTestStudentMapping(testName, studentSSID);
 	}
 	

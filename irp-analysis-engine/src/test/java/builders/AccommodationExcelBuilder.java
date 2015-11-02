@@ -10,11 +10,11 @@ public class AccommodationExcelBuilder {
 
 	private Accommodation accommodation = new Accommodation();
 
-	public AccommodationExcelBuilder(long ssid) {
+	public AccommodationExcelBuilder(String ssid) {
 		accommodation.setStudentIdentifier(ssid);
 	}
 
-	public AccommodationExcelBuilder studentIdentifier(long studentIdentifier){
+	public AccommodationExcelBuilder studentIdentifier(String studentIdentifier){
 		accommodation.setStudentIdentifier(studentIdentifier);
 		return this;
 	}

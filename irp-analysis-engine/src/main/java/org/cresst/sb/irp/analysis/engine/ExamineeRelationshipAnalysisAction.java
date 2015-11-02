@@ -2,6 +2,9 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeRelationshipFieldName;
+import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeRelationshipCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -21,31 +24,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName, Student> {
+public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, EnumExamineeRelationshipFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeRelationshipAnalysisAction.class);
 
-    // This is the list found in the project tdsdll_release file ReportingDLL.java
-    static public enum EnumExamineeRelationshipFieldName {
-        ResponsibleDistrictIdentifier, OrganizationName, ResponsibleInstitutionIdentifier, NameOfInstitution, StateName, StateAbbreviation,
-        contextDate
-    }
+
 
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
         Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-        Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
-        
+
+        String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+
         Student student = null;
-    
         try {
-            student = getStudent(examineeKey);
+            student = getStudent(studentIdentifier);
         } catch (NotFoundException ex) {
-            logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
+            logger.info(String.format("TDS Report contains an Student Identifier (%s) that does not match an IRP Student", studentIdentifier));
         }
   
         // Analyze all the ExamineeRelationships that have a FINAL context
-        List<ExamineeRelationship> examineeRelationships = getFinalExamineeRelationships(examinee);
+        List<ExamineeRelationship> examineeRelationships = ExamineeHelper.getFinalExamineeRelationships(examinee);
         for (ExamineeRelationship examineeRelationship : examineeRelationships) {
             ExamineeRelationshipCategory examineeRelationshipCategory = new ExamineeRelationshipCategory();
             individualResponse.addExamineeRelationshipCategory(examineeRelationshipCategory);
@@ -53,30 +52,6 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
             analyzeExamineeRelationship(examineeRelationshipCategory, examineeRelationship, student);
         }
         
-    }
-
-    /**
-     * Gets all of the ExamineeRelationships that have the FINAL context attribute
-     *
-     * @param examinee Examinee containing the ExamineeRelationships
-     * @return List of ExamineeRelationships marked with FINAL context attribute. Never null.
-     */
-    public List<ExamineeRelationship> getFinalExamineeRelationships(Examinee examinee) {
-        List<ExamineeRelationship> listExamineeRelationship = new ArrayList<>();
-
-        if (examinee != null) {
-            List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
-            for (Object object : listObject) {
-                if (object instanceof ExamineeRelationship) {
-                    ExamineeRelationship examineeRelationship = (ExamineeRelationship) object;
-                    if (examineeRelationship.getContext() == Context.FINAL) {
-                        listExamineeRelationship.add(examineeRelationship);
-                    }
-                }
-            }
-        }
-
-        return listExamineeRelationship;
     }
 
     /**

@@ -50,13 +50,7 @@ public class StudentController {
 	public @ApiResponseObject Student getStudentByStudentSSID(
 			@ApiParam(name = "studentSSID", description = "The Student ID", paramType = ApiParamType.PATH)
 			@PathVariable("studentSSID") String studentSSID){
-		if (!NumberUtils.isNumber(studentSSID)) {
-			logger.info("getStudentByStudentIdentifier error studentIdentifier is not a number");
-		} else {
-			return studentService.getStudentByStudentSSID(NumberUtils.toLong(studentSSID));
-		}
-		return null;
-		
+		return studentService.getStudentByStudentSSID(studentSSID);
 	}
 
 	@ApiMethod(path = "/students/addstudent", description = "Adds a Student", verb = ApiVerb.POST, produces = {MediaType.APPLICATION_JSON_VALUE})

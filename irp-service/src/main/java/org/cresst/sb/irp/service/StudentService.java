@@ -12,7 +12,7 @@ public interface StudentService {
 	
 	//Student getStudentByStudentIdentifier(String studentIdentifier); 
 	
-	Student getStudentByStudentSSID(long studentSSID) throws NotFoundException;
+	Student getStudentByStudentSSID(String studentSSID) throws NotFoundException;
 	
 	void createStudent(Student student);
 

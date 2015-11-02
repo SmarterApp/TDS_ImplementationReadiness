@@ -6,12 +6,15 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
+import builders.ExamineeAttributeBuilder;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.domain.analysis.AccommodationCategory;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
+import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.service.AccommodationService;
 import org.junit.Test;
@@ -82,7 +85,7 @@ public class AccommodationAnalysisActionTest {
 		final OpportunityCategory opportunityCategory = new OpportunityCategory();
 		individualResponse.setOpportunityCategory(opportunityCategory);
 
-	     when(accommodationService.getAccommodationByStudentIdentifier(9999L)).thenReturn(new AccommodationExcelBuilder(9999L)
+	     when(accommodationService.getAccommodationByStudentIdentifier("StudentID")).thenReturn(new AccommodationExcelBuilder("StudentID")
 	     	.language("ENU")
 	     	.other("None")
 	     	.zoom("TDS_PS_L1")
@@ -129,19 +132,19 @@ public class AccommodationAnalysisActionTest {
 		
 		final IndividualResponse individualResponse = new IndividualResponse();
 		individualResponse.setTDSReport(tdsReport);
-		
-		final CellCategory cellCategory = new CellCategory();
-		cellCategory.setTdsFieldName("key");
-		cellCategory.setTdsFieldNameValue("9999");
-		
-		final ExamineeCategory examineeCategory = new ExamineeCategory();
-		examineeCategory.addCellCategory(cellCategory);
-		individualResponse.setExamineeCategory(examineeCategory);
+
+		final TDSReport.Examinee examinee = new TDSReport.Examinee();
+		examinee.getExamineeAttributeOrExamineeRelationship().add(new ExamineeAttributeBuilder()
+				.name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+				.value("StudentID")
+				.context(Context.FINAL)
+				.toExamineeAttribute());
+		tdsReport.setExaminee(examinee);
 		
 		final OpportunityCategory opportunityCategory = new OpportunityCategory();
 		individualResponse.setOpportunityCategory(opportunityCategory);
 
-	     when(accommodationService.getAccommodationByStudentIdentifier(9999L)).thenReturn(new AccommodationExcelBuilder(999L)
+	     when(accommodationService.getAccommodationByStudentIdentifier("StudentID")).thenReturn(new AccommodationExcelBuilder("StudentID")
 	     	.language("france")
 	     	.other("None")
 	     	.zoom("No default zoom applied")

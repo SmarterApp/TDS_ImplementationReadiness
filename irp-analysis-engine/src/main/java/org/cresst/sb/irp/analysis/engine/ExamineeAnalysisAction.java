@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
+import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -26,31 +28,31 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
         Examinee examinee = tdsReport.getExaminee();  //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-        Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
-        
+
         ExamineeCategory examineeCategory = new ExamineeCategory();
         individualResponse.setExamineeCategory(examineeCategory);
 
-        TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
-        String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
-        TestStudentMapping testStudentMapping = getTestStudentMapping(testName, examineeKey);	
-        
-        if (testStudentMapping != null) {
-        	individualResponse.setValidExaminee(true);
-            Student student = null;
-            
-            try {
-                student = getStudent(examineeKey);
-            } catch (NotFoundException ex) {
-                logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
-            }
-           
-            validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.PC, EnumExamineeFieldName.key, student);
+        if (examinee != null) {
+            TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
+            String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
+
+            Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
+
+            validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.P, EnumExamineeFieldName.key, null);
             //<xs:attribute name="isDemo" type="Bit"/> does not match isDemo data type in
             //http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf 23 May 2015
-            validate(examineeCategory, examinee, examinee.getIsDemo(), EnumFieldCheckType.D, EnumExamineeFieldName.isDemo, student);
-        }else {
-        	 logger.info(String.format("TDS Report contains Test name (%s) and an Examinee Key (%d) that does not match an IRP TestStudentMapping", testName,  examineeKey));
+            validate(examineeCategory, examinee, examinee.getIsDemo(), EnumFieldCheckType.D, EnumExamineeFieldName.isDemo, null);
+
+            // The examinee key is not the student identifier (SSID). It is an internal system ID that can't be verified.
+            // The student's identifier (SSID) has to be obtained from the Examinee's attributes.
+            String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+
+            TestStudentMapping testStudentMapping = getTestStudentMapping(testName, studentIdentifier);
+            if (testStudentMapping != null) {
+                individualResponse.setValidExaminee(true);
+            } else {
+                logger.info(String.format("TDS Report contains Test name (%s) and an Student Identifier (%s) that does not match an IRP TestStudentMapping", testName, studentIdentifier));
+            }
         }
     }
 
@@ -76,15 +78,7 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
      */
     @Override
     protected void checkC(Examinee examinee, EnumExamineeFieldName enumFieldName, FieldCheckType fieldCheckType, Student student) {
-        switch (enumFieldName) {
-            case key:
-                if (student != null && student.getSSID() == examinee.getKey()) {
-                    setCcorrect(fieldCheckType);
-                }
-                break;
-            default:
-                break;
-        }
+
     }
 
     /**
@@ -96,19 +90,6 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
      */
     @Override
     protected String expectedValue(Student student, EnumExamineeFieldName enumFieldName) {
-
-        String expectedValue = null;
-
-        switch (enumFieldName) {
-            case key:
-                if (student != null) {
-                    expectedValue = String.valueOf(student.getSSID());
-                }
-                break;
-            default:
-                break;
-        }
-
-        return expectedValue;
+        return null;
     }
 }

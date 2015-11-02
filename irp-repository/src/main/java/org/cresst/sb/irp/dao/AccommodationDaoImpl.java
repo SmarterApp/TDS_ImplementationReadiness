@@ -56,7 +56,7 @@ public class AccommodationDaoImpl implements AccommodationDao {
 	}
 
 	@Override
-	public Accommodation getAccommodationByStudentIdentifier(long studentSSID) throws NotFoundException {
+	public Accommodation getAccommodationByStudentIdentifier(String studentSSID) throws NotFoundException {
 		Accommodation accommodation = getAccommodationByStudentIdentifier(accommodations, studentSSID);
 		if (accommodation == null){
 			throw new NotFoundException("Could not find accommodation " + studentSSID);
@@ -65,9 +65,9 @@ public class AccommodationDaoImpl implements AccommodationDao {
 	}
 
 	@Override
-	public Accommodation getAccommodationByStudentIdentifier(List<Accommodation> accommodations, long studentSSID) {
+	public Accommodation getAccommodationByStudentIdentifier(List<Accommodation> accommodations, String studentSSID) {
 		for (Accommodation accommodation : accommodations){
-			if(accommodation.getStudentIdentifier() == studentSSID){
+			if(studentSSID != null && studentSSID.equalsIgnoreCase(accommodation.getStudentIdentifier())){
 				return accommodation;
 			}
 		}

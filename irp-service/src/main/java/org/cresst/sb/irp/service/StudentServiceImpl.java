@@ -33,7 +33,7 @@ public class StudentServiceImpl implements StudentService {
 	}*/
 	
 	@Override
-	public Student getStudentByStudentSSID(long studentSSID) throws NotFoundException {
+	public Student getStudentByStudentSSID(String studentSSID) throws NotFoundException {
 		return studentDao.getStudentByStudentSSID(studentSSID);
 	}
 

@@ -65,7 +65,7 @@ public class AccommodationUtil {
 			columnName = StringUtils.deleteWhitespace(columnName);
 			switch (columnName.toLowerCase()) {
 			case "studentidentifier": 
-				accommodation.setStudentIdentifier(Long.parseLong(cellStringValue));
+				accommodation.setStudentIdentifier(cellStringValue);
 				break;
 			case "stateabbreviation":
 				accommodation.setStateAbbreviation(cellStringValue);

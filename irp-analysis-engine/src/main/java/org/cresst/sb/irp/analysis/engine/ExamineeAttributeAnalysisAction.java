@@ -2,6 +2,8 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
+import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.ExamineeAttributeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -25,29 +27,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName, Student> {
+public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, EnumExamineeAttributeFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
 
-    static public enum EnumExamineeAttributeFieldName {
-        LastOrSurname, FirstName, MiddleName, Birthdate, StudentIdentifier, AlternateSSID, GradeLevelWhenAssessed, Sex, HispanicOrLatinoEthnicity, AmericanIndianOrAlaskaNative, Asian, BlackOrAfricanAmerican, White, NativeHawaiianOrOtherPacificIslander, DemographicRaceTwoOrMoreRaces, IDEAIndicator, LEPStatus, Section504Status, EconomicDisadvantageStatus, LanguageCode, EnglishLanguageProficiencyLevel, EnglishLanguageProficiencLevel, MigrantStatus, FirstEntryDateIntoUSSchool, LimitedEnglishProficiencyEntryDate, LEPExitDate, TitleIIILanguageInstructionProgramType, PrimaryDisabilityType
-    }
+
 
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
         Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-        Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
-        
+
+		String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+
         Student student = null;
-  
         try {
-            student = getStudent(examineeKey);
+            student = getStudent(studentIdentifier);
         } catch (NotFoundException ex) {
-            logger.info(String.format("TDS Report contains an Examinee Key (%d) that does not match an IRP Student", examineeKey));
+            logger.info(String.format("TDS Report contains an Student Identifier (%s) that does not match an IRP Student", studentIdentifier));
         }
      
         // Analyze all the ExamineeAttributes that have a FINAL context
-        List<Examinee.ExamineeAttribute> examineeAttributes = getFinalExamineeAttributes(examinee);
+        List<Examinee.ExamineeAttribute> examineeAttributes = ExamineeHelper.getFinalExamineeAttributes(examinee);
         for (Examinee.ExamineeAttribute examineeAttribute : examineeAttributes) {
             ExamineeAttributeCategory examineeAttributeCategory = new ExamineeAttributeCategory();
             individualResponse.addExamineeAttributeCategory(examineeAttributeCategory);
@@ -56,36 +56,12 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
         }
     }
 
-    /**
-     * Gets all of the ExamineeAttributes that have the FINAL context attribute
-     *
-     * @param examinee Examinee containing the ExamineeAttributes
-     * @return List of ExamineeAttributes marked with FINAL context attribute. Never null.
-     */
-    public List<Examinee.ExamineeAttribute> getFinalExamineeAttributes(Examinee examinee) {
-        List<Examinee.ExamineeAttribute> examineeAttributes = new ArrayList<>();
-
-        if (examinee != null) {
-            List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
-            for (Object object : listObject) {
-                if (object instanceof Examinee.ExamineeAttribute) {
-                    Examinee.ExamineeAttribute examineeAttribute = (Examinee.ExamineeAttribute) object;
-                    if (examineeAttribute.getContext() == Context.FINAL) {
-                        examineeAttributes.add(examineeAttribute);
-                    }
-                }
-            }
-        }
-
-        return examineeAttributes;
-    }
-
     private void analyzeExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
                                           ExamineeAttribute examineeAttribute, Student student) {
+
         EnumExamineeAttributeFieldName fieldName = convertToFieldName(examineeAttribute.getName());
         if (fieldName != null) {
             validate(examineeAttributeCategory, examineeAttribute, examineeAttribute.getValue(), EnumFieldCheckType.PC, fieldName, student);
-//			validate(examineeAttributeCategory, examineeAttribute, examineeAttribute.getContextDate(), EnumFieldCheckType.P, EnumExamineeAttributeFieldName.contextDate, null);
         } else {
             // For unknown ExamineeAttributes, let user know that it is incorrect
             final FieldCheckType fieldCheckType = new FieldCheckType();
@@ -150,13 +126,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             PropertyDescriptor[] properties = info.getPropertyDescriptors();
             for (PropertyDescriptor descriptor : properties) {
                 // Compares the property name to the enum field name in order to perform a proper field check
-                /* email 10/6/2015
-                 * No resolution on the "EnglishLanguageProficiencLevel" typo in the Open System. If they decide
-                 * to fix the code and databases, I'll have to spend time updating our system. 
-                 * If they fix the documentation and keep the typo, then we'll be OK as we can handle the typo 
-                 * in IRP. In fact, we could probably support the typo and non-typo in IRP by allowing 
-                 * either of them to be valid entries in the TDS report.
-                 */
+				// There's a typo in the documentation and Open Test System code for EnglishLanguageProficiencyLevel
+				// Both the correct and erroneous spellings are accepted.
             	if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name())
                 	|| (StringUtils.equalsIgnoreCase(descriptor.getName(), EnumExamineeAttributeFieldName.EnglishLanguageProficiencyLevel.name())
         			&& enumFieldName.name().equalsIgnoreCase(EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name()))) {

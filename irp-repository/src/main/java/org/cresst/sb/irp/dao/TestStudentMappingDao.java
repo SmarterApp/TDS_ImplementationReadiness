@@ -8,6 +8,6 @@ public interface TestStudentMappingDao {
 	
 	List<TestStudentMapping> getTestStudentMappings();
 	
-	TestStudentMapping getTestStudentMapping(String testName, long studentSSID);
+	TestStudentMapping getTestStudentMapping(String testName, String studentSSID);
 
 }

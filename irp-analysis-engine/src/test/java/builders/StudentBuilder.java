@@ -9,7 +9,7 @@ public class StudentBuilder {
 
     private Student student = new Student();
 
-    public StudentBuilder(long ssid) {
+    public StudentBuilder(String ssid) {
         student.setSSID(ssid);
     }
 

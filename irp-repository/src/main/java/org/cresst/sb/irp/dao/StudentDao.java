@@ -12,9 +12,9 @@ public interface StudentDao {
 	
 	//Student getStudentByStudentIdentifier(String studentIdentifier);
 	
-	Student getStudentByStudentSSID(long studentSSID) throws NotFoundException;
+	Student getStudentByStudentSSID(String studentSSID) throws NotFoundException;
 	
-	Student getStudentBySSID(List<Student> students, long studentSSID);
+	Student getStudentBySSID(List<Student> students, String studentSSID);
 	
 	void createStudent(Student student);
 

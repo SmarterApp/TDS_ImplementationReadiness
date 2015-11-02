@@ -2,7 +2,7 @@ package org.cresst.sb.irp.domain.accommodation;
 
 public class Accommodation {
 
-	private long StudentIdentifier;
+	private String StudentIdentifier;
 	private String StateAbbreviation;
 	private String Subject;
 	private String AmericanSignLanguage;
@@ -20,11 +20,11 @@ public class Accommodation {
 	private String NonEmbeddedAccommodations;
 	private String Other;
 
-	public long getStudentIdentifier() {
+	public String getStudentIdentifier() {
 		return StudentIdentifier;
 	}
 
-	public void setStudentIdentifier(long studentIdentifier) {
+	public void setStudentIdentifier(String studentIdentifier) {
 		StudentIdentifier = studentIdentifier;
 	}
 

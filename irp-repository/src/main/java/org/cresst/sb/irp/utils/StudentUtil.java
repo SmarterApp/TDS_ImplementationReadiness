@@ -92,7 +92,7 @@ public class StudentUtil {
 				student.setBirthdate(cellStringValue);
 				break;
 			case "ssid":
-				student.setSSID(Long.parseLong(cellStringValue));
+				student.setSSID(cellStringValue);
 				break;	
 			case "alternatessid":
 				student.setAlternateSSID(cellStringValue);

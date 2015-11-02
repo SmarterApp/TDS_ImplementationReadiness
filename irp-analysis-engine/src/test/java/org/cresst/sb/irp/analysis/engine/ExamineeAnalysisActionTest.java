@@ -3,13 +3,16 @@ package org.cresst.sb.irp.analysis.engine;
 import java.util.List;
 
 import builders.CellCategoryBuilder;
+import builders.ExamineeAttributeBuilder;
 import builders.StudentBuilder;
 import builders.TestStudentMappingBuilder;
 
+import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.TestPropertiesCategory;
+import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.StudentService;
@@ -29,16 +32,21 @@ public class ExamineeAnalysisActionTest {
 
 	@Mock
 	private TestStudentMappingService testStudentMappingService;
-	
-    @Mock
-    private StudentService studentService;
 
     @InjectMocks
     ExamineeAnalysisAction underTest = new ExamineeAnalysisAction();
 
-    private IndividualResponse createIndividualResponse(Long examineeKey, String testName) {
+    private IndividualResponse createIndividualResponse(Long examineeKey, String studentIdentifier, String testName) {
+
+        final TDSReport.Examinee.ExamineeAttribute studentIdentifierAttribute = new ExamineeAttributeBuilder()
+                .name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+                .value(studentIdentifier)
+                .context(Context.FINAL)
+                .toExamineeAttribute();
+
         final TDSReport.Examinee examinee = new TDSReport.Examinee();
         examinee.setKey(examineeKey);
+        examinee.getExamineeAttributeOrExamineeRelationship().add(studentIdentifierAttribute);
 
         final TDSReport tdsReport = new TDSReport();
         tdsReport.setExaminee(examinee);
@@ -58,83 +66,68 @@ public class ExamineeAnalysisActionTest {
     }
 
     /**
-     * Verify that when the Test name and Examinee key match an existing IRP TestStudentMapping
-     * and Examinee key match an existing IRP Student that the field is marked as correct
+     * Verify that when the Test name and Student ID match an existing IRP TestStudentMapping, then the Examinee is valid.
+     *
      * @throws Exception
      */
     @Test
-    public void whenTestNameExamineeKeyMatchTestStudentMappingAndExamineeKeyMatchesIRPStudentSSID_CorrectKeyValue() throws Exception {
+    public void whenTestNameStudentIdentifierMatchTestStudentMapping_ExamineeValid() throws Exception {
 
         // Arrange
-        final IndividualResponse individualResponse = createIndividualResponse(9999L, "test");
+        final IndividualResponse individualResponse = createIndividualResponse(9999L, "StudentID", "test");
 
-        when(testStudentMappingService.getTestStudentMapping("test", 9999L)).thenReturn(new TestStudentMappingBuilder()
-        		.test("test").studentSSID(9999L).toTestStudentMapping());
-        
-        when(studentService.getStudentByStudentSSID(9999L)).thenReturn(new StudentBuilder(9999L).toStudent());
+        when(testStudentMappingService.getTestStudentMapping("test", "StudentID")).thenReturn(new TestStudentMappingBuilder()
+        		.test("test").studentSSID("StudentID").toTestStudentMapping());
 
         // Act
         underTest.analyze(individualResponse);
 
         // We are testing a single attribute so there should only be one CellCategory
-        final CellCategory actualCellCategory = individualResponse.getExamineeCategory().getCellCategories().get(0);
-
-        // Setup expected results after analysis that indicates the field has an incorrect value
-        final CellCategory expectedCellCategory = new CellCategoryBuilder()
-                .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
-                .tdsFieldNameValue("9999")
-                .tdsExpectedValue("9999")
-                .correctValue(true)
-                .correctDataType(true)
-                .acceptableValue(true)
-                .isFieldEmpty(false)
-                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-                .toCellCategory();
+        final List<CellCategory> actualCellCategory = individualResponse.getExamineeCategory().getCellCategories();
 
         // Assert
-        Assert.assertEquals(expectedCellCategory, actualCellCategory);
+        Assert.assertTrue(individualResponse.isValidExaminee());
+        Assert.assertThat(actualCellCategory.size(), is(2));
     }
 
     /** 
-     * Verify that when the Test name and Examinee key not match any existing IRP TestStudentMapping object
+     * Verify that when the Test name and Student Identifier do not match any existing IRP TestStudentMapping object,
+     * then examinee is invalid.
+     *
      * @throws Exception
      */
     @Test
-    public void whenTestNameExamineeKeyNotMatchTestStudentMapping() throws Exception {
+    public void whenTestNameStudentIdentifierNotMatchTestStudentMapping_ExamineeInvalid() throws Exception {
 
         // Arrange
         // Create an IndividualResponse with a TDS Report Examinee and TestPropertiesCategory
-        final IndividualResponse individualResponse = createIndividualResponse(1000L, "test");
+        final IndividualResponse individualResponse = createIndividualResponse(1000L, "BadStudentID", "test");
 
-        when(testStudentMappingService.getTestStudentMapping("test", 9999L)).thenThrow(new NotFoundException("test"));
+        when(testStudentMappingService.getTestStudentMapping("test", "BadStudentID")).thenReturn(null);
 
-        when(studentService.getStudentByStudentSSID(9999L)).thenThrow(new NotFoundException("test"));
-        
         // Act
         underTest.analyze(individualResponse);
 
-        List<CellCategory> cellCategories = individualResponse.getExamineeCategory().getCellCategories();
+        final List<CellCategory> actualCellCategory = individualResponse.getExamineeCategory().getCellCategories();
        
         // Assert
-        Assert.assertThat(cellCategories.size(), is(0));
+        Assert.assertFalse(individualResponse.isValidExaminee());
+        Assert.assertThat(actualCellCategory.size(), is(2));
     }
     
-    /** whenTestNameExamineeKeyMatchTestStudentMapping
-     * Verify the Examinee key is analyzed when a matching IRP Student doesn't exist.
+    /**
+     * Verify the Examinee key is analyzed when the Student Identifier does not match an existing IRP Student.
+     *
      * @throws Exception
      */
     @Test
-    public void whenTestNameExamineeKeyMatchTestStudentMapping_ExamineeKeyNotIRPStudentSSID_IncorrectKeyValue() throws Exception {
+    public void whenStudentIdentifierDoesNotExistInIRP_ExamineeKeyStillAnalyzed() throws Exception {
 
         // Arrange
         // Create an IndividualResponse with a TDS Report Examinee and TestPropertiesCategory
-        final IndividualResponse individualResponse = createIndividualResponse(9999L, "test");
+        final IndividualResponse individualResponse = createIndividualResponse(9999L, "BadStudentID", "test");
 
-        when(testStudentMappingService.getTestStudentMapping("test", 9999L)).thenReturn(new TestStudentMappingBuilder()
-			.test("test").studentSSID(9999L).toTestStudentMapping());
-        
-        // The Examinee with key 9999 does not exist in this test scenario
-        when(studentService.getStudentByStudentSSID(9999L)).thenThrow(new NotFoundException("test"));
+        when(testStudentMappingService.getTestStudentMapping("test", "BadStudentID")).thenReturn(null);
 
         // Act
         underTest.analyze(individualResponse);
@@ -148,8 +141,7 @@ public class ExamineeAnalysisActionTest {
         final CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
                 .tdsFieldNameValue("9999")
-                //.tdsExpectedValue(null)
-                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                 .isFieldEmpty(false)
                 .correctDataType(true)
                 .acceptableValue(true) 
@@ -157,12 +149,13 @@ public class ExamineeAnalysisActionTest {
                 .toCellCategory();
 
         // Assert
+        Assert.assertFalse(individualResponse.isValidExaminee());
         Assert.assertEquals(actualCellCategory, expectedCellCategory);
     }
 
     /**
      * <xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-     * TDS Report should have only one Examinee attribute. otherwise, trigger exception 
+     * TDS Report should have only one Examinee element. Otherwise, trigger exception
      * in xmlValidate.validateXMLSchema(TDSReportXSDResource, tmpPath.toString()) in TdsReportAnalysisEngine.java
      * 
      * Verify that when the TDS Report doesn't have an Examinee that an empty, non-null ExamineeCategory still exists.
@@ -180,10 +173,10 @@ public class ExamineeAnalysisActionTest {
         //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
         
         // Act
-        //underTest.analyze(individualResponse);
+        underTest.analyze(individualResponse);
 
         // Assert
-        //Assert.assertThat(individualResponse.getExamineeCategory().getCellCategories().size(), is(0));
+        Assert.assertThat(individualResponse.getExamineeCategory().getCellCategories().size(), is(0));
     }
 
     /**
@@ -196,9 +189,9 @@ public class ExamineeAnalysisActionTest {
 
         // Arrange
         // Create an Examinee without a key
-        final IndividualResponse individualResponse = createIndividualResponse(null, "test");
+        final IndividualResponse individualResponse = createIndividualResponse(null, "StudentID", "test");
 
-        /*
+
         // Act
         underTest.analyze(individualResponse);
 
@@ -209,10 +202,10 @@ public class ExamineeAnalysisActionTest {
         final CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
                 .isFieldEmpty(true)
-                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                 .toCellCategory();
 
         // Assert
-        Assert.assertEquals(expectedCellCategory, actualCellCategory);*/
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
     }
 }

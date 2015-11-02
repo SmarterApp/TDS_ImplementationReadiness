@@ -23,7 +23,7 @@ public class AccommodationServiceImpl implements AccommodationService {
 	}
 
 	@Override
-	public Accommodation getAccommodationByStudentIdentifier(long studentSSID) throws NotFoundException {
+	public Accommodation getAccommodationByStudentIdentifier(String studentSSID) throws NotFoundException {
 		return accommodationDao.getAccommodationByStudentIdentifier(studentSSID);
 	}
 
