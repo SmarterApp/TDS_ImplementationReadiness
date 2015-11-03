@@ -90,8 +90,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 				validate(responseCategory, tdsItem, response.getDate(), EnumFieldCheckType.P, EnumItemResponseFieldName.date, null);
 				validate(responseCategory, tdsItem, response.getType(), EnumFieldCheckType.PC, EnumItemResponseFieldName.type, itemCategory);
 				validate(responseCategory, tdsItem, response.getContent(), EnumFieldCheckType.PC, EnumItemResponseFieldName.content, itemCategory);
-			}
-			
+			}			
 		} catch (Exception e) {
 			logger.error("analyzeItemResponse exception: ", e);
 		}
@@ -279,7 +278,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 							"itm_att_Item Point");
 					String itemPointValue = attribItemPoint.getVal();
 					String num = itemPointValue.replaceAll("[^0-9]", "");
-					responseCategory.setItemScore(Integer.parseInt(num)); //compare with tdsScore ? not implemented
+					responseCategory.setItemScore(Integer.parseInt(num));
 					if (attrib != null){
 						Response response = tdsItem.getResponse();
 						String irpItemAnswerKey = attrib.getVal();
@@ -319,7 +318,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 							"itm_att_Item Point");
 					String itemPointValue = attribItemPoint.getVal();
 					String num = itemPointValue.replaceAll("[^0-9]", "");
-					responseCategory.setItemScore(Integer.parseInt(num)); //compare with tdsScore ? not implemented
+					responseCategory.setItemScore(Integer.parseInt(num)); 
 					if (attrib != null){
 						Response response = tdsItem.getResponse();
 						String irpItemAnswerKey = attrib.getVal();
@@ -338,6 +337,14 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 		}
 	}
 	
+	/**
+	 * this function checks whether the Response content is valid or not
+	 * 		if item scoring engine can give a score, then the response content is valid. it may also indicate 
+	 * 		content matches the item format
+	 * @param tdsItem
+	 * @param fieldCheckType
+	 * @param itemCategory
+	 */
 	private void processCForItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
 		try {
 			ResponseCategory responseCategory = itemCategory.getResponseCategory();
@@ -369,13 +376,12 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					ScoringStatus sStatus = itemScoreInfo.getStatus();
 					responseCategory.setScoringStatus(sStatus);
 					responseCategory.setItemScore(itemScoreInfo.getPoints());
+					
+					CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
+					cellCategory.setTdsExpectedValue(ScoringStatus.Scored.toString());
 					if (sStatus == ScoringStatus.Scored) {
 						responseCategory.setIsResponseValid(true);
-						CellCategory cellCategory = getCellCategoryByFieldName(responseCategory.getCellCategories(), "content");
-						cellCategory.setTdsExpectedValue(String.valueOf(itemScoreInfo.getPoints()));
-						
-						if (Integer.parseInt(tdsScore) == itemScoreInfo.getPoints())
-							setCcorrect(fieldCheckType);
+						setCcorrect(fieldCheckType);
 					}
 				}
 			}

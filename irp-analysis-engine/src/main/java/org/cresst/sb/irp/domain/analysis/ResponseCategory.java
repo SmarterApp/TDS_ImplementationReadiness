@@ -18,7 +18,7 @@ public class ResponseCategory extends Category {
 	private String tdsFormat; // TDSReport <Item format="xx">
 	private String machineRubricFileName;
 	private String rubric;
-	private int itemScore; //irp item score (MC, MS) or score from itemScoreInfo.getPoints()
+	private int itemScore; //IRP item score (MC, MS) or score from itemScoreInfo.getPoints()
 
 	public boolean isResponseValid() {
 		return isResponseValid;

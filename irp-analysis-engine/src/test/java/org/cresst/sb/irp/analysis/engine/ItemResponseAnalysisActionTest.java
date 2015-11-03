@@ -9,8 +9,6 @@ import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.itemscoring.client.IrpProxyItemScorer;
-import org.cresst.sb.irp.itemscoring.client.converter.ItemScoreMessageConverter;
 import org.cresst.sb.irp.itemscoring.rubric.MachineRubricLoader;
 import org.cresst.sb.irp.service.ItemService;
 import org.junit.Test;
@@ -20,8 +18,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
 import tds.itemscoringengine.IItemScorer;
 import tds.itemscoringengine.ItemScore;
@@ -31,8 +27,6 @@ import tds.itemscoringengine.RubricContentType;
 import tds.itemscoringengine.ScoringStatus;
 
 import java.net.URI;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -621,7 +615,7 @@ public class ItemResponseAnalysisActionTest {
 		when(machineRubricLoader.getContents("item-187-2624/Item_2624_v3.qrx")).thenReturn(rubric);
 		
 		// Act
-	//	underTest.analyze(individualResponse);
+		//underTest.analyze(individualResponse);
 		
 		IItemScorer proxyItemScorer = new IItemScorerBuilder()
 			.restTemplate()
