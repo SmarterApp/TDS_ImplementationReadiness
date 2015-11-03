@@ -70,7 +70,6 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
 				validate(scoreInfoCategory, scoreInfoType, scoreInfoType.getScoreDimension(), EnumFieldCheckType.P, EnumItemScoreInfoFieldName.scoreDimension, null);
 				validate(scoreInfoCategory, scoreInfoType, scoreInfoType.getScoreStatus(), EnumFieldCheckType.PC, EnumItemScoreInfoFieldName.scoreStatus, itemCategory);
             }
-            System.out.println("scoreInfoCategory --> " + scoreInfoCategory.toString());
         } catch (Exception e) {
             logger.error("analysisItemScoreInfo exception: ", e);
         }
