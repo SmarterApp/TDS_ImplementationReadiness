@@ -248,7 +248,6 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
 
                  //TODO class org.apache.xerces.dom.ElementNSImpl, not able to access value of Message
                  if (scoreRationale.getMessage() != null){
-                	 
                 	 FieldCheckType fieldCheckType = new FieldCheckType();
                      fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
 

@@ -14,6 +14,7 @@ public class IndividualResponse {
     private boolean isValidXMLfile;
     private boolean isValidTestName; //<Test name="xxx" > contains the name does not match an IRP Test Package in irp-package/TestPackages
     private boolean isValidExaminee; //combination of <Test name="xxx" and <Esaminee key="xxxx">
+    private boolean isCAT; // is CAT test or not
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
 
@@ -65,6 +66,14 @@ public class IndividualResponse {
 		this.isValidExaminee = isValidExaminee;
 	}
 
+	public boolean isCAT() {
+		return isCAT;
+	}
+
+	public void setCAT(boolean isCAT) {
+		this.isCAT = isCAT;
+	}
+	
     public TestPropertiesCategory getTestPropertiesCategory() {
         return testPropertiesCategory;
     }
@@ -141,6 +150,7 @@ public class IndividualResponse {
                 .append("isValidXMLfile", isValidXMLfile)
                 .append("isValidTestName", isValidTestName)
                 .append("isValidExaminee", isValidExaminee)
+                .append("isCAT", isCAT)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
                 .append("testPropertiesCategory", testPropertiesCategory)
@@ -161,6 +171,7 @@ public class IndividualResponse {
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
         		Objects.equals(isValidTestName, that.isValidTestName) &&
         		Objects.equals(isValidExaminee, that.isValidExaminee) &&
+        		Objects.equals(isCAT,  this.isCAT) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
                 Objects.equals(status, that.status) &&
@@ -175,7 +186,9 @@ public class IndividualResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileName, isValidXMLfile, isValidTestName, isValidExaminee, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
+        return Objects.hash(fileName, isValidXMLfile, isValidTestName, isValidExaminee, isCAT, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
     }
+
+
 
 }

@@ -13,7 +13,7 @@ public class ItemCategory extends Category {
     private org.cresst.sb.irp.domain.items.Itemrelease.Item irpItem;
     private Itemrelease.Item.Attriblist attriblist;
 
-    public enum ItemStatusEnum{ FOUND, MISSING, EXTRA }
+    public enum ItemStatusEnum{ FOUND, MISSING, EXTRA, NOTUSED }
     
     private boolean itemFormatCorrect;
     

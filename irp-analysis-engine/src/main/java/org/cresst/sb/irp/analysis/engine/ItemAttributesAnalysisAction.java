@@ -77,8 +77,10 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
                 	itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4)); 
                     
                     analyzeItemAttributes(itemCategory, testitem);
-                    
-					itemCategory.setStatus(ItemStatusEnum.MISSING);
+                    if (individualResponse.isCAT())
+                    	itemCategory.setStatus(ItemStatusEnum.NOTUSED);
+                    else
+                    	itemCategory.setStatus(ItemStatusEnum.MISSING);
 					itemCategory.setItemFormatCorrect(false);
 				}
 			}

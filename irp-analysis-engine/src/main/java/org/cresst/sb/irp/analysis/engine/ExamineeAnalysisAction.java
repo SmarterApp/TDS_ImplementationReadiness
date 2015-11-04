@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -11,7 +10,6 @@ import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
-import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -35,7 +33,8 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
         if (examinee != null) {
             TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
             String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
-
+            System.out.println("testName......" + testName);
+            
             Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
 
             validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.P, EnumExamineeFieldName.key, null);
@@ -50,6 +49,8 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
             TestStudentMapping testStudentMapping = getTestStudentMapping(testName, studentIdentifier);
             if (testStudentMapping != null) {
                 individualResponse.setValidExaminee(true);
+                if(testStudentMapping.isCAT()) 
+                	individualResponse.setCAT(true);
             } else {
                 logger.info(String.format("TDS Report contains Test name (%s) and an Student Identifier (%s) that does not match an IRP TestStudentMapping", testName, studentIdentifier));
             }

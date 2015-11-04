@@ -48,7 +48,8 @@ public class TestStudentMappingUtil {
 						cell.setCellType(Cell.CELL_TYPE_STRING);
 					} else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 					} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
-					}
+					} else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN)
+						cell.setCellType(Cell.CELL_TYPE_STRING);
 					setFieldData(testStudentMapping, columnName, cell.getStringCellValue());
 				}
 			}
@@ -71,6 +72,8 @@ public class TestStudentMappingUtil {
 				case "studentssid":
 					testStudentMapping.setStudentSSID(cellStringValue);
 					break;
+				case "cat":
+					testStudentMapping.setCAT(Boolean.parseBoolean(cellStringValue));
 				default:
 					break;
 			}
