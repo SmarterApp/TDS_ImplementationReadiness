@@ -1,10 +1,13 @@
 package org.cresst.sb.irp.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.cresst.sb.irp.domain.student.Student;
@@ -16,7 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentUtil {
 	private final static Logger logger = LoggerFactory.getLogger(StudentUtil.class);
-
+	
 	public StudentUtil() {
 	}
 	
@@ -28,7 +31,7 @@ public class StudentUtil {
 			for (int rowCount = startIndex; rowCount <= sheet.getLastRowNum(); rowCount++) {
 				Row detailRow = sheet.getRow(rowCount);
 				if (detailRow != null && !excelUtil.isEmptyRow(detailRow)) {
-					Student student = createObject(detailRow, headerMap);
+					Student student = createObject(detailRow, headerMap, excelUtil);
 					if (student != null)
 						listStudent.add(student);
 				}
@@ -39,7 +42,7 @@ public class StudentUtil {
 
 	}
 
-	private Student createObject(Row row, Map<Integer, String> headerMap) {
+	private Student createObject(Row row, Map<Integer, String> headerMap, ExcelUtil excelUtil) {
 		Student student = null;
 		try {
 			student = new Student();
@@ -52,9 +55,9 @@ public class StudentUtil {
 						cell.setCellType(Cell.CELL_TYPE_STRING);
 					} else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 					} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
-					}
-					setFieldData(student, columnName,
-							cell.getStringCellValue());
+					} 
+					
+					setFieldData(student, columnName, cell.getStringCellValue(), excelUtil);
 				}
 			}
 
@@ -65,8 +68,7 @@ public class StudentUtil {
 		return student;
 	}
 
-	private void setFieldData(Student student, String columnName,
-			String cellStringValue) {
+	private void setFieldData(Student student, String columnName, String cellStringValue, ExcelUtil excelUtil) {
 		try {
 			columnName = StringUtils.deleteWhitespace(columnName);
 			switch (columnName.toLowerCase()) {
@@ -89,7 +91,7 @@ public class StudentUtil {
 				student.setMiddleName(cellStringValue);
 				break;
 			case "birthdate":
-				student.setBirthdate(cellStringValue);
+				student.setBirthdate(excelUtil.dateString(cellStringValue));
 				break;
 			case "ssid":
 				student.setSSID(cellStringValue);
@@ -157,7 +159,7 @@ public class StudentUtil {
 				student.setMigrantStatus(cellStringValue);
 				break;
 			case "firstentrydateintousschool":
-				student.setFirstEntryDateIntoUSSchool(cellStringValue);
+				student.setFirstEntryDateIntoUSSchool(excelUtil.dateString(cellStringValue));
 				break;
 			case "limitedenglishproficiencyentrydate":
 				student.setLimitedEnglishProficiencyEntryDate(cellStringValue);

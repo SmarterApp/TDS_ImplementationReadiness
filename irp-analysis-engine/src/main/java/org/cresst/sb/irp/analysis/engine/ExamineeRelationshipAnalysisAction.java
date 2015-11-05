@@ -2,7 +2,6 @@ package org.cresst.sb.irp.analysis.engine;
 
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeRelationshipFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
@@ -11,7 +10,6 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.student.Student;
-import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationship;
@@ -20,14 +18,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, EnumExamineeRelationshipFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeRelationshipAnalysisAction.class);
-
-
 
     @Override
     public void analyze(IndividualResponse individualResponse) {
@@ -76,7 +71,6 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
                 default:
                     break;
             }
-
             validate(examineeRelationshipCategory, examineeRelationship, examineeRelationship.getValue(), enumFieldCheckType, fieldName, student);
 //			validate(examineeRelationshipCategory, examineeRelationship, examineeRelationship.getContextDate(), EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.contextDate, null);
         } else {

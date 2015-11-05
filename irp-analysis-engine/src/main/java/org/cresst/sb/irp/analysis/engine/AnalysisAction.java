@@ -141,6 +141,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		category.addCellCategory(cellCategory);
 
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
+		System.out.println("cellCategory ==>" + cellCategory.toString());
 	}
 
 	/**

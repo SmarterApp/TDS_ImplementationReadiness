@@ -33,10 +33,7 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
         if (examinee != null) {
             TestPropertiesCategory testPropertiesCategory = individualResponse.getTestPropertiesCategory();
             String testName = getTdsFieldNameValueByFieldName(testPropertiesCategory.getCellCategories(), "name");
-            System.out.println("testName......" + testName);
-            
-            Long examineeKey = examinee.getKey(); //<xs:attribute name="key" type="xs:long" use="required"/>
-
+  
             validate(examineeCategory, examinee, examinee.getKey(), EnumFieldCheckType.P, EnumExamineeFieldName.key, null);
             //<xs:attribute name="isDemo" type="Bit"/> does not match isDemo data type in
             //http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf 23 May 2015
@@ -45,10 +42,11 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
             // The examinee key is not the student identifier (SSID). It is an internal system ID that can't be verified.
             // The student's identifier (SSID) has to be obtained from the Examinee's attributes.
             String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
-
+      
             TestStudentMapping testStudentMapping = getTestStudentMapping(testName, studentIdentifier);
             if (testStudentMapping != null) {
                 individualResponse.setValidExaminee(true);
+                
                 if(testStudentMapping.isCAT()) 
                 	individualResponse.setCAT(true);
             } else {

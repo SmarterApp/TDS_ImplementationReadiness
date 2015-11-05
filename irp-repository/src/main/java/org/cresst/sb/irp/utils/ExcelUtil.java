@@ -1,10 +1,13 @@
 package org.cresst.sb.irp.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.slf4j.Logger;
@@ -45,6 +48,13 @@ public class ExcelUtil {
 			logger.error("isEmptyRow(); exception: ", e);
 		}
 		return true;
+	}
+	
+	// dates are stored as numbers in Excel
+	protected String dateString(String cellStringValue){
+		Date javaDate = DateUtil.getJavaDate(Double.parseDouble(cellStringValue));
+		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(javaDate);
 	}
 	
 }

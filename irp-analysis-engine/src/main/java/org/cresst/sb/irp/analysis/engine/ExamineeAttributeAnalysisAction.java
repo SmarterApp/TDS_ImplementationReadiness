@@ -10,7 +10,6 @@ import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.student.Student;
-import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeAttribute;
@@ -23,14 +22,11 @@ import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, EnumExamineeAttributeFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
-
-
 
     @Override
     public void analyze(IndividualResponse individualResponse) {
@@ -38,7 +34,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
         Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
 
 		String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
-
+	
         Student student = null;
         try {
             student = getStudent(studentIdentifier);
@@ -103,7 +99,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
      */
     @Override
     protected void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType) {
-        processP_PritableASCIIone(examineeAttribute.getValue(), fieldCheckType);
+    	processP_PritableASCIIone(examineeAttribute.getValue(), fieldCheckType);
     }
 
     /**
@@ -134,7 +130,14 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
                     Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(student);
-                        processSameValue(value, examineeAttribute.getValue(), fieldCheckType);
+                        switch(enumFieldName){
+	                    	case Sex:
+	                    		processC_Sex(value, examineeAttribute.getValue(), fieldCheckType);
+	                    		break;
+	                    	default:
+	                    		processSameValue(value, examineeAttribute.getValue(), fieldCheckType);
+	                    		break;
+                        }
                     }
                 }
             }
@@ -149,6 +152,17 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 	            setCcorrect(fieldCheckType);
 	        }
     	}
+    }
+    
+    // <ExamineeAttribute context="FINAL" name="Sex" value="M" or value="F"
+    private void processC_Sex(String studentValue, String tdsExamineeAttributeValue, FieldCheckType fieldCheckType){
+    	if((StringUtils.equalsIgnoreCase(studentValue, "male") &&  tdsExamineeAttributeValue.equalsIgnoreCase("m"))
+    		|| (StringUtils.equalsIgnoreCase(studentValue, "female") && tdsExamineeAttributeValue.equalsIgnoreCase("f")))
+    	{
+    		tdsExamineeAttributeValue = studentValue;
+    	}
+    	
+    	processSameValue(studentValue, tdsExamineeAttributeValue, fieldCheckType);
     }
     
     /**
@@ -253,7 +267,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
 			default:
 				break;
 		}
-
+ 
 		return strReturn;
 	}
     

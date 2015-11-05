@@ -85,6 +85,7 @@ public class ItemAttributesAnalysisActionTest {
 	/**
 	 * When there are equal Items in the given TDS Report and in the IRP TestPackage then mark the items from the IRP package as
 	 * found.
+	 * 
 	 */
 	@Test
 	public void whenTDSReportContainsSameItemsAsIRPTestPackage_ItemsMarkedAsFound() {
@@ -174,6 +175,39 @@ public class ItemAttributesAnalysisActionTest {
         
         assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
         assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
+    }
+    
+    /**
+     * When there are less Items in the given TDS Report than exist in the IRP TestPackage
+     * and It is a CAT test package
+     * then mark the missing items from the IRP package as NOTUSED.
+     */
+    @Test
+    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_NOTUSEDItemsMarkedAsNOTUSED() {
+    	
+        // The TDS Report has fewer Items than the IRP package
+        final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+                new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem()
+        );
+
+        final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
+        individualResponse.setCAT(true);
+
+    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
+		
+		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
+				.setAdministration(administration)
+				.toTestspecification()
+				);
+
+		// Act
+		underTest.analyze(individualResponse);
+		
+        // Assert
+        List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.NOTUSED, itemCategories.get(1).getStatus());
     }
     
     /**

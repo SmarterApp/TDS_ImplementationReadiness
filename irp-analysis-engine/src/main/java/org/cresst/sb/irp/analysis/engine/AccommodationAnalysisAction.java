@@ -36,7 +36,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			TDSReport tdsReport = individualResponse.getTDSReport();
 
 			Opportunity opportunity = tdsReport.getOpportunity();
-			List<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation> listAccommodation =
+			List<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation> tdsAccommodations =
 					opportunity.getAccommodation(); //<xs:element name="Accommodation" minOccurs="0" maxOccurs="unbounded">
 
 			TDSReport.Examinee examinee = tdsReport.getExaminee();
@@ -44,16 +44,16 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 
 			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel = getAccommodation(studentIdentifier);
 
-			List<AccommodationCategory> listAccommodationCategory = new ArrayList<>();
+			List<AccommodationCategory> accommodationCategories = new ArrayList<>();
 			
-			for (Accommodation accommodation : listAccommodation) {
+			for (Accommodation accommodation : tdsAccommodations) {
 				AccommodationCategory accommodationCategory = new AccommodationCategory();
-				listAccommodationCategory.add(accommodationCategory);
+				accommodationCategories.add(accommodationCategory);
 				analyzeAccommodation(accommodationCategory, accommodation, accommodationExcel);
 			}
 
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
-			opportunityCategory.setAccommodationCategories(listAccommodationCategory);
+			opportunityCategory.setAccommodationCategories(accommodationCategories);
 		} catch (Exception ex) {
 			logger.error("Analyze exception", ex);
 		}
