@@ -5,8 +5,6 @@ import builders.ExamineeAttributeBuilder;
 import builders.ExamineeRelationshipBuilder;
 import builders.StudentBuilder;
 import com.google.common.collect.Lists;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeRelationshipFieldName;
 import org.cresst.sb.irp.domain.analysis.CellCategory;

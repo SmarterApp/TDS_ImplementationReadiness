@@ -4,7 +4,6 @@ import java.util.List;
 
 import builders.CellCategoryBuilder;
 import builders.ExamineeAttributeBuilder;
-import builders.StudentBuilder;
 import builders.TestStudentMappingBuilder;
 
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
@@ -14,8 +13,6 @@ import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.TestPropertiesCategory;
 import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-import org.cresst.sb.irp.exceptions.NotFoundException;
-import org.cresst.sb.irp.service.StudentService;
 import org.cresst.sb.irp.service.TestStudentMappingService;
 import org.junit.Assert;
 import org.junit.Test;

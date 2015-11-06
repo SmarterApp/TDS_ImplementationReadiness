@@ -53,11 +53,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			for (Accommodation accommodation : tdsAccommodations) {
 				AccommodationCategory accommodationCategory = new AccommodationCategory();
 				accommodationCategories.add(accommodationCategory);
-				analyzeAccommodation(accommodationCategory, accommodation, accommodationExcel);
-				List<CellCategory> list1 = accommodationCategory.getCellCategories();
-				for(CellCategory c: list1)
-					System.out.println("cellCategory ==>" + c.toString());
-				
+				analyzeAccommodation(accommodationCategory, accommodation, accommodationExcel);	
 			}
 			
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();

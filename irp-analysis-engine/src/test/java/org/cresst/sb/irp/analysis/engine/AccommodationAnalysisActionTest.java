@@ -7,10 +7,10 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 
 import builders.ExamineeAttributeBuilder;
+
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.domain.analysis.AccommodationCategory;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
-import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
 import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
@@ -41,6 +41,35 @@ public class AccommodationAnalysisActionTest {
 	@InjectMocks
 	private AccommodationAnalysisAction underTest = new AccommodationAnalysisAction();
 
+	private IndividualResponse generateIndividualResponse(List<TDSReport.Opportunity.Accommodation> accommodations, 
+			List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes) {
+
+		final TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
+
+		if (accommodations != null) {
+			opportunity.getAccommodation().addAll(accommodations);
+		}
+
+		final TDSReport tdsReport = new TDSReport();
+		tdsReport.setOpportunity(opportunity);
+
+		final TDSReport.Examinee examinee = new TDSReport.Examinee();
+		
+		if (examineeAttributes != null){
+			examinee.getExamineeAttributeOrExamineeRelationship().addAll(examineeAttributes);
+		}
+		
+		tdsReport.setExaminee(examinee);
+		
+		final IndividualResponse individualResponse = new IndividualResponse();
+		individualResponse.setTDSReport(tdsReport);
+
+		final OpportunityCategory opportunityCategory = new OpportunityCategory();
+		individualResponse.setOpportunityCategory(opportunityCategory);
+		
+		return individualResponse;
+	}
+
 	@Test
 	public void testAccommodation() {
 
@@ -65,25 +94,15 @@ public class AccommodationAnalysisActionTest {
 					.toAccommodation()
 			);
 		
-		TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
-		opportunity.getAccommodation().addAll(accommodations);
+		final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
+			new ExamineeAttributeBuilder()
+				.name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+				.value("StudentID")
+				.context(Context.FINAL)
+				.toExamineeAttribute()
+			);
 		
-		final TDSReport tdsReport = new TDSReport();
-		tdsReport.setOpportunity(opportunity);
-		
-		final IndividualResponse individualResponse = new IndividualResponse();
-		individualResponse.setTDSReport(tdsReport);
-		
-		final CellCategory cellCategory = new CellCategory();
-		cellCategory.setTdsFieldName("key");
-		cellCategory.setTdsFieldNameValue("9999");
-		
-		final ExamineeCategory examineeCategory = new ExamineeCategory();
-		examineeCategory.addCellCategory(cellCategory);
-		individualResponse.setExamineeCategory(examineeCategory);
-		
-		final OpportunityCategory opportunityCategory = new OpportunityCategory();
-		individualResponse.setOpportunityCategory(opportunityCategory);
+		final IndividualResponse individualResponse = generateIndividualResponse(accommodations, examineeAttributes);
 
 	     when(accommodationService.getAccommodationByStudentIdentifier("StudentID")).thenReturn(new AccommodationExcelBuilder("StudentID")
 	     	.language("ENU")
@@ -101,7 +120,7 @@ public class AccommodationAnalysisActionTest {
 	}
 	
 	@Test
-	public void testAccommodationTypeValue_CaseOrWhiteSpaces() {
+	public void testAccommodationCodeValue_isFieldValueCorrect() {
 
 		final List<TDSReport.Opportunity.Accommodation> accommodations = Lists.newArrayList(
 				new AccommodationBuilder()
@@ -124,31 +143,22 @@ public class AccommodationAnalysisActionTest {
 					.toAccommodation()
 			);
 		
-		TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
-		opportunity.getAccommodation().addAll(accommodations);
+		final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
+				new ExamineeAttributeBuilder()
+					.name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
+					.value("StudentID")
+					.context(Context.FINAL)
+					.toExamineeAttribute()
+				);
 		
-		final TDSReport tdsReport = new TDSReport();
-		tdsReport.setOpportunity(opportunity);
-		
-		final IndividualResponse individualResponse = new IndividualResponse();
-		individualResponse.setTDSReport(tdsReport);
+		final IndividualResponse individualResponse = generateIndividualResponse(accommodations, examineeAttributes);
 
-		final TDSReport.Examinee examinee = new TDSReport.Examinee();
-		examinee.getExamineeAttributeOrExamineeRelationship().add(new ExamineeAttributeBuilder()
-				.name(EnumExamineeAttributeFieldName.StudentIdentifier.name())
-				.value("StudentID")
-				.context(Context.FINAL)
-				.toExamineeAttribute());
-		tdsReport.setExaminee(examinee);
-		
-		final OpportunityCategory opportunityCategory = new OpportunityCategory();
-		individualResponse.setOpportunityCategory(opportunityCategory);
-
-	     when(accommodationService.getAccommodationByStudentIdentifier("StudentID")).thenReturn(new AccommodationExcelBuilder("StudentID")
-	     	.language("france")
-	     	.other("None")
-	     	.zoom("No default zoom applied")
-	     	.toAccommodation());
+	     when(accommodationService.getAccommodationByStudentIdentifier("StudentID")).thenReturn(
+	    		 new AccommodationExcelBuilder("StudentID")
+			     	.language("ENU")
+			     	.other("TDS_Other")
+			     	.zoom("TDS_PS_L0")
+			     	.toAccommodation());
 		
 		// Act
 		underTest.analyze(individualResponse);
@@ -156,54 +166,144 @@ public class AccommodationAnalysisActionTest {
 		OpportunityCategory actualOpportunityCategory = individualResponse.getOpportunityCategory();
 		List<AccommodationCategory> accommodationCategories = actualOpportunityCategory.getAccommodationCategories();
 	
-		AccommodationCategory accommodationCategory0 = accommodationCategories.get(0); // <Accommodation type="language" value="English" 
+		AccommodationCategory accommodationCategory0 = accommodationCategories.get(0); 
 		List<CellCategory> actualCellCategories0 = accommodationCategory0.getCellCategories();
 		
-		AccommodationCategory accommodationCategory1 = accommodationCategories.get(1); // <Accommodation type="language" value="English" 
+		AccommodationCategory accommodationCategory1 = accommodationCategories.get(1);  
 		List<CellCategory> actualCellCategories1 = accommodationCategory1.getCellCategories();
 		
-		AccommodationCategory accommodationCategory2 = accommodationCategories.get(2); //    <Accommodation type="Print Size" value="No default zoom applied"
+		AccommodationCategory accommodationCategory2 = accommodationCategories.get(2); 
 		List<CellCategory> actualCellCategories2 = accommodationCategory2.getCellCategories();
-	/*	TODO
+	
 		List<CellCategory> expectedCellCategories0 = Lists.newArrayList(
+			new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("type")
+		            .tdsFieldNameValue("language")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),
+			new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("value")
+		            .tdsFieldNameValue("France")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),	
 			new CellCategoryBuilder()
 		        	.isFieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
 		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-		        	.tdsFieldName(AccommodationAnalysisAction.EnumAccommodationFieldName.Language.name())
-		            .tdsFieldNameValue("France")
-		            .tdsExpectedValue("france")
+		        	.tdsFieldName("code")
+		            .tdsFieldNameValue("ENU")
+		            .tdsExpectedValue("ENU")
+		        	.toCellCategory(),
+			new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("segment")
+		            .tdsFieldNameValue("0")
+		            .tdsExpectedValue(null)
 		        	.toCellCategory());
 		
 		List<CellCategory> expectedCellCategories1 = Lists.newArrayList(
-				new CellCategoryBuilder()
+			new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("type")
+		            .tdsFieldNameValue("Other")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),
+		    new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("value")
+		            .tdsFieldNameValue("None")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),		
+		    new CellCategoryBuilder()
 		        	.isFieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
 		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-		        	.tdsFieldName(AccommodationAnalysisAction.EnumAccommodationFieldName.Other.name())
-		            .tdsFieldNameValue("None")
-		            .tdsExpectedValue("None")
+		        	.tdsFieldName("code")
+		            .tdsFieldNameValue("TDS_Other")
+		            .tdsExpectedValue("TDS_Other")
+		        	.toCellCategory(),
+		    new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("segment")
+		            .tdsFieldNameValue("0")
+		            .tdsExpectedValue(null)
 		        	.toCellCategory());
 		
 		List<CellCategory> expectedCellCategories2 = Lists.newArrayList(
-				new CellCategoryBuilder()
+			new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("type")
+		            .tdsFieldNameValue("Print Size")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),
+	        new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("value")
+		            .tdsFieldNameValue("No default zoom applied")
+		            .tdsExpectedValue(null)
+		        	.toCellCategory(),				
+			new CellCategoryBuilder()
 		        	.isFieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
 		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-		        	.tdsFieldName(AccommodationAnalysisAction.EnumAccommodationFieldName.PrintSize.name())
-		            .tdsFieldNameValue("No default zoom applied")
-		            .tdsExpectedValue("No default zoom applied")
+		        	.tdsFieldName("code")
+		            .tdsFieldNameValue("TDS_PS_L0")
+		            .tdsExpectedValue("TDS_PS_L0")
+		        	.toCellCategory(),
+		    new CellCategoryBuilder()
+		        	.isFieldEmpty(false)
+		        	.correctDataType(true)
+		        	.acceptableValue(true)
+		        	.correctValue(false)
+		        	.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+		        	.tdsFieldName("segment")
+		            .tdsFieldNameValue("0")
+		            .tdsExpectedValue(null)
 		        	.toCellCategory());
 		
 	    assertEquals(expectedCellCategories0, actualCellCategories0);
 	    assertEquals(expectedCellCategories1, actualCellCategories1);
 	    assertEquals(expectedCellCategories2, actualCellCategories2);
-	  */  
+	  
 	}
 }
