@@ -10,7 +10,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.AccommodationCategory;
-import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
+import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -26,7 +26,11 @@ import org.springframework.stereotype.Service;
 public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName, org.cresst.sb.irp.domain.accommodation.Accommodation> {
 	private final static Logger logger = LoggerFactory.getLogger(AccommodationAnalysisAction.class);
 
-	public enum EnumAccommodationFieldName {
+	public enum EnumAccommodationFieldName{
+		type, value, code, segment
+	}
+	
+	public enum EnumAccommodationTypeAcceptableVaues {
 		StudentIdentifier, StateAbbreviation, Subject, AmericanSignLanguage, ColorContrast, ClosedCaptioning, Language, Masking, PermissiveMode, PrintOnDemand, Zoom, PrintSize, StreamlinedInterface, TexttoSpeech, Translation, NonEmbeddedDesignatedSupports, NonEmbeddedAccommodations, Other
 	}
 
@@ -43,15 +47,19 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
 
 			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel = getAccommodation(studentIdentifier);
-
+			
 			List<AccommodationCategory> accommodationCategories = new ArrayList<>();
 			
 			for (Accommodation accommodation : tdsAccommodations) {
 				AccommodationCategory accommodationCategory = new AccommodationCategory();
 				accommodationCategories.add(accommodationCategory);
 				analyzeAccommodation(accommodationCategory, accommodation, accommodationExcel);
+				List<CellCategory> list1 = accommodationCategory.getCellCategories();
+				for(CellCategory c: list1)
+					System.out.println("cellCategory ==>" + c.toString());
+				
 			}
-
+			
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			opportunityCategory.setAccommodationCategories(accommodationCategories);
 		} catch (Exception ex) {
@@ -62,11 +70,14 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 	private void analyzeAccommodation(AccommodationCategory accommodationCategory,
 			org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation accommodation,
 			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel) {
-		// <xs:attribute name="type" use="required" />
-		EnumAccommodationFieldName fieldName = searchEnumObject(EnumAccommodationFieldName.class, accommodation.getType());
-		validate(accommodationCategory, accommodation, accommodation.getValue(), EnumFieldCheckType.PC, fieldName, accommodationExcel);
+		
+		validate(accommodationCategory, accommodation, accommodation.getType(), EnumFieldCheckType.P, EnumAccommodationFieldName.type, null);
+		validate(accommodationCategory, accommodation, accommodation.getValue(), EnumFieldCheckType.P, EnumAccommodationFieldName.value, null);
+		validate(accommodationCategory, accommodation, accommodation.getCode(), EnumFieldCheckType.PC, EnumAccommodationFieldName.code, accommodationExcel);
+		setExpectedValue(accommodationCategory, accommodation, EnumAccommodationFieldName.code, accommodationExcel);
+		validate(accommodationCategory, accommodation, accommodation.getSegment(), EnumFieldCheckType.P, EnumAccommodationFieldName.segment, null);
 	}
-
+	
 	/**
 	 * Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable
 	 * values
@@ -82,30 +93,25 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 	protected void checkP(org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation accommodation,
 			EnumAccommodationFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
+			
 			switch (enumFieldName) {
-			case StudentIdentifier:
-			case StateAbbreviation:
-			case Subject:
-			case AmericanSignLanguage:
-			case ColorContrast:
-			case ClosedCaptioning:
-			case Language:
-			case Masking:
-			case PermissiveMode:
-			case PrintOnDemand:
+			case type:
+				// <xs:attribute name="type" use="required" />
+				EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
+				if (acceptableType != null)
+					processP_PritableASCIIone(accommodation.getType(), fieldCheckType);
+				break;
+			case value:
+				// <xs:attribute name="value" use="required"/>
 				processP_PritableASCIIone(accommodation.getValue(), fieldCheckType);
 				break;
-			case Zoom:
-			case PrintSize:
-				processP_PritableASCIIone(accommodation.getValue(), fieldCheckType);
+			case code:
+				// <xs:attribute name="code" use="required"/>
+				processP_PritableASCIIone(accommodation.getCode(), fieldCheckType);
 				break;
-			case StreamlinedInterface:
-			case TexttoSpeech:
-			case Translation:
-			case NonEmbeddedDesignatedSupports:
-			case NonEmbeddedAccommodations:
-			case Other:
-				processP_PritableASCIIone(accommodation.getValue(), fieldCheckType);
+			case segment:
+				//     <xs:attribute name="segment" use="required">
+			    processP_Positive32bit(Long.toString(accommodation.getSegment()), fieldCheckType);
 				break;
 			default:
 				break;
@@ -134,18 +140,110 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 		if (accommodationExcel == null) {
 			return;
 		}
+		
+		switch (enumFieldName) {
+		case type:
+			break;
+		case value:
+			break;
+		case code:
+			EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
+			if (acceptableType != null){
+				processC(accommodation.getCode(), acceptableType, fieldCheckType, accommodationExcel);
+			}
+			break;
+		case segment:
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private void setExpectedValue(AccommodationCategory accommodationCategory, 
+			org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation accommodation, 
+			EnumAccommodationFieldName enumFieldName, 
+			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel){
+		switch (enumFieldName) {
+			case type:
+				break;
+			case value:
+				break;
+			case code:
+				EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
+				if (acceptableType != null){
+					String expectedValue = getExpectedValue(accommodation.getCode(), acceptableType, accommodationExcel);
+					if (expectedValue != null){
+						CellCategory cellCategory = getCellCategoryByFieldName(accommodationCategory.getCellCategories(), 
+							EnumAccommodationFieldName.code.toString());
+						cellCategory.setTdsExpectedValue(expectedValue);
+					}
+				}
+				break;
+			case segment:
+				break;
+			default:
+				break;
+		}	
+	}
+	
+	protected String getExpectedValue(String tdsValue,
+			EnumAccommodationTypeAcceptableVaues acceptableValue,
+			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel){
+		if (accommodationExcel == null) {
+			return null;
+		}
 		try {
 			// Dynamically lookup the Accommodation's property that matches the Attribute enumFieldName
 			BeanInfo info = Introspector.getBeanInfo(accommodationExcel.getClass());
 			PropertyDescriptor[] properties = info.getPropertyDescriptors();
 			for (PropertyDescriptor descriptor : properties) {
 				  // Compares the property name to the enum field name in order to perform a proper field check
-				if (StringUtils.equalsIgnoreCase(descriptor.getName(), enumFieldName.name()) ||
-					(descriptor.getName().equalsIgnoreCase("zoom") && enumFieldName.name().equalsIgnoreCase("PrintSize"))){
+				if (StringUtils.equalsIgnoreCase(descriptor.getName(), acceptableValue.name()) ||
+					(descriptor.getName().equalsIgnoreCase("zoom") && acceptableValue.name().equalsIgnoreCase("PrintSize"))){
 					Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(accommodationExcel);
-                        processSameValue(value, accommodation.getValue(), fieldCheckType);
+                        if (StringUtils.isNotBlank(value))
+                        	return value;
+                    }
+				}
+			}
+		} catch (Exception e) {
+			logger.error("checkC exception: ", e);
+		}
+		return null;
+	}
+	
+	/**
+	 * Checks if the field has correct value
+	 *
+	 * @param tdsValue
+	 *            TDS Accommodation value of fields to check
+	 * @param enumFieldName
+	 *            Specifies the field to check
+	 * @param fieldCheckType
+	 *            This is where the results are stored
+	 * @param accommodationExcel
+	 *            student accommodation to compare against TDS Accommodation
+	 */
+	protected void processC(String tdsValue,
+			EnumAccommodationTypeAcceptableVaues acceptableValue, FieldCheckType fieldCheckType,
+			org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel){
+		if (accommodationExcel == null) {
+			return;
+		}
+		try {
+			// Dynamically lookup the Accommodation's property that matches the Attribute enumFieldName
+			BeanInfo info = Introspector.getBeanInfo(accommodationExcel.getClass());
+			PropertyDescriptor[] properties = info.getPropertyDescriptors();
+			for (PropertyDescriptor descriptor : properties) {
+				  // Compares the property name to the enum field name in order to perform a proper field check
+				if (StringUtils.equalsIgnoreCase(descriptor.getName(), acceptableValue.name()) ||
+					(descriptor.getName().equalsIgnoreCase("zoom") && acceptableValue.name().equalsIgnoreCase("PrintSize"))){
+					Method getter = descriptor.getReadMethod();
+                    if (getter != null) {
+                        String value = (String) getter.invoke(accommodationExcel);
+                        processSameValue(value, tdsValue, fieldCheckType);
                     }
 				}
 			}
@@ -153,74 +251,27 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			logger.error("checkC exception: ", e);
 		}
 	}
-
+	
 	@Override
-	protected String expectedValue(org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel,
-			EnumAccommodationFieldName enumFieldName) {
+	protected String expectedValue(org.cresst.sb.irp.domain.accommodation.Accommodation accommodationExcel, EnumAccommodationFieldName enumFieldName) {
 		if (accommodationExcel == null) {
 			return null;
 		}
 
 		String strReturn = null;
-
 		switch (enumFieldName) {
-		case StudentIdentifier:
-			strReturn = accommodationExcel.getStudentIdentifier();
-			break;
-		case StateAbbreviation:
-			strReturn = accommodationExcel.getStateAbbreviation();
-			break;
-		case Subject:
-			strReturn = accommodationExcel.getSubject();
-			break;
-		case AmericanSignLanguage:
-			strReturn = accommodationExcel.getAmericanSignLanguage();
-			break;
-		case ColorContrast:
-			strReturn = accommodationExcel.getColorContrast();
-			break;
-		case ClosedCaptioning:
-			strReturn = accommodationExcel.getClosedCaptioning();
-			break;
-		case Language:
-			strReturn = accommodationExcel.getLanguage();
-			break;
-		case Masking:
-			strReturn = accommodationExcel.getMasking();
-			break;
-		case PermissiveMode:
-			strReturn = accommodationExcel.getPermissiveMode();
-			break;
-		case PrintOnDemand:
-			strReturn = accommodationExcel.getPrintOnDemand();
-			break;
-		case Zoom:
-		case PrintSize:
-			strReturn = accommodationExcel.getZoom();
-			break;
-		case StreamlinedInterface:
-			strReturn = accommodationExcel.getStreamlinedInterface();
-			break;
-		case TexttoSpeech:
-			strReturn = accommodationExcel.getTexttoSpeech();
-			break;
-		case Translation:
-			strReturn = accommodationExcel.getTranslation();
-			break;
-		case NonEmbeddedDesignatedSupports:
-			strReturn = accommodationExcel.getNonEmbeddedDesignatedSupports();
-			break;
-		case NonEmbeddedAccommodations:
-			strReturn = accommodationExcel.getNonEmbeddedAccommodations();
-			break;
-		case Other:
-			strReturn = accommodationExcel.getOther();
-			break;
-		default:
-			logger.info("Accommodation object does not have corresponding field of $s", enumFieldName);
-			break;
+			case type:
+				break;
+			case value:
+				break;
+			case code:
+				break;
+			case segment:
+				break;
+			default:
+				break;
 		}
-
+		
 		return strReturn;
 	}
 

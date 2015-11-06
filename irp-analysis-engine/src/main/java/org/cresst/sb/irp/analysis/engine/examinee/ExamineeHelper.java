@@ -14,7 +14,7 @@ import java.util.List;
 public class ExamineeHelper {
 
     static public String getStudentIdentifier(TDSReport.Examinee examinee) {
-        return getFinalExamineeAttributeValue(examinee, AccommodationAnalysisAction.EnumAccommodationFieldName.StudentIdentifier.name());
+        return getFinalExamineeAttributeValue(examinee, AccommodationAnalysisAction.EnumAccommodationTypeAcceptableVaues.StudentIdentifier.name());
     }
 
     /**
