@@ -352,7 +352,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 				Response response = tdsItem.getResponse();
 				String itemFormat = tdsItem.getFormat();
 				String tdsScore = tdsItem.getScore(); // <xs:attribute name="score" use="required" type="UFloatAllowNegativeOne" />
-				
+			
 				String rubric = getMachineRubricContent(itemCategory, responseCategory);
 				responseCategory.setTdsFormat(itemFormat);
 				responseCategory.setTdsItemScore(Integer.parseInt(tdsScore));
@@ -433,7 +433,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			Itemrelease.Item item = itemCategory.getIrpItem();
 			String itemBankKeyKey = itemCategory.getItemBankKeyKey();
 			List<Itemrelease.Item.MachineRubric> machineRubrics = item.getMachineRubric();
-			
+	
             if (machineRubrics != null && machineRubrics.size() > 0) {
                 Itemrelease.Item.MachineRubric machineRubric = machineRubrics.get(0);
                 String fileName = machineRubric.getFilename();

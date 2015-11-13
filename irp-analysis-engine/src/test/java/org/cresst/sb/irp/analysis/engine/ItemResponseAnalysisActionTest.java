@@ -671,6 +671,60 @@ public class ItemResponseAnalysisActionTest {
 	}
 	
 	@Test
+	public void isResponseValidTest_HTQ_RubricContentTypeContentString_WithoutRubirc() {
+		
+		String response1 = "<itemResponse><response id=\"1\"><value>2</value></response></itemResponse> ";
+		
+		// The TDS Report items
+		final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+				new ItemAttributeBuilder().bankKey(187).key(2624).format("HTQ").score("0").toOpportunityItem());
+		
+		// The TDS Report responses
+		final List<TDSReport.Opportunity.Item.Response> tdsReportItemResponses = Lists.newArrayList(
+				new ItemResponseBuilder().content(response1).toIemResponse());
+		
+		// Add above TDS Report responses to its corresponding TDS Report items
+		int index = 0;
+		for (TDSReport.Opportunity.Item itemTmp : tdsReportItems) {
+			itemTmp.setResponse(tdsReportItemResponses.get(index));
+			index++;
+		}
+		
+		// The List<ItemCategory> in OpportunityCategory
+		final List<ItemCategory> itemCategories = Lists.newArrayList(
+			new ItemCategoryBuilder().itemBankKeyKey("item-187-2624").status(ItemStatusEnum.FOUND).itemFormatCorrect(true).toItemCategory());
+		
+		// add CellCategories to ItemCategory 1
+		ItemCategory itemCategory0 = itemCategories.get(0);
+		itemCategory0.addCellCategory(new CellCategoryBuilder().tdsFieldName("bankKey").tdsFieldNameValue("187").toCellCategory());
+		itemCategory0.addCellCategory(new CellCategoryBuilder().tdsFieldName("key").tdsFieldNameValue("2624").toCellCategory());
+		
+		final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems, itemCategories);
+		
+		//IRP Item 
+		org.cresst.sb.irp.domain.items.Itemrelease.Item item1 = new ItemreleaseItemBuilder("htq", "2624", "3", "187").toItem();
+		
+		final List<Itemrelease.Item.MachineRubric> machineRubrics = Lists.newArrayList(
+				new MachineRubricBuilder().filename("Item_2624_v3.qrx").toMachineRubric());
+		List<Itemrelease.Item.MachineRubric> machineRubricList = item1.getMachineRubric();
+		//machineRubricList.addAll(machineRubrics);
+		
+		when(itemService.getItemByIdentifier("item-187-2624")).thenReturn(item1);
+		
+		// Act
+		underTest.analyze(individualResponse);
+	     
+		// Assert
+	    List<ItemCategory> itemCategoriesAfterAnalyze = individualResponse.getOpportunityCategory().getItemCategories();
+	    
+	    ItemCategory itemCategoryAfterAnalyze1 = itemCategoriesAfterAnalyze.get(0);
+	    ResponseCategory responseCategory1 = itemCategoryAfterAnalyze1.getResponseCategory();
+	 
+	    
+	    assertEquals(true,responseCategory1.isRubircMissing());
+	}
+	
+	@Test
 	public void isResponseValidTest_EQ_RubricContentTypeContentString() {
 		String response = " <response><math xmlns=\"http://www.w3.org/1998/Math/MathML\" title=\"218\"><mstyle><mn>218</mn></mstyle></math></response> ";
 		
