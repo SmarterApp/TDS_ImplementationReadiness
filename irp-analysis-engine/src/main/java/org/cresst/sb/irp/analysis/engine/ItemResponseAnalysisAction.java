@@ -382,7 +382,8 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 						responseCategory.setIsResponseValid(true);
 						setCcorrect(fieldCheckType);
 					}
-				}
+				}else
+					responseCategory.setRubircMissing(true);
 			}
 		} catch (Exception e) {
 			logger.error("processCForItemScoring exception: ", e);
