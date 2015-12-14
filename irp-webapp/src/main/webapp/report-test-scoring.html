@@ -5,6 +5,10 @@
 
         <p>Test Scoring is under development.</p>
 
+        <template if="{{!response.hasValidScoring}}">
+            Can not validate score. Some score attributes are invalid.
+        </template>
+
         <table class="tableAnalysis">
             <thead>
             <tr>

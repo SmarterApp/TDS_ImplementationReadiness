@@ -15,6 +15,7 @@ public class IndividualResponse {
     private boolean isValidTestName; //<Test name="xxx" > contains the name does not match an IRP Test Package in irp-package/TestPackages
     private boolean isValidExaminee; //combination of <Test name="xxx" and <Esaminee key="xxxx">
     private boolean isCAT; // is CAT test or not
+    private boolean hasValidScoring;
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
 
@@ -66,7 +67,15 @@ public class IndividualResponse {
 		this.isValidExaminee = isValidExaminee;
 	}
 
-	public boolean isCAT() {
+    public boolean isHasValidScoring() {
+        return hasValidScoring;
+    }
+
+    public void setHasValidScoring(boolean hasValidScoring) {
+        this.hasValidScoring = hasValidScoring;
+    }
+
+    public boolean isCAT() {
 		return isCAT;
 	}
 
@@ -150,6 +159,7 @@ public class IndividualResponse {
                 .append("isValidXMLfile", isValidXMLfile)
                 .append("isValidTestName", isValidTestName)
                 .append("isValidExaminee", isValidExaminee)
+                .append("hasValidScoring", hasValidScoring)
                 .append("isCAT", isCAT)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
@@ -171,6 +181,7 @@ public class IndividualResponse {
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
         		Objects.equals(isValidTestName, that.isValidTestName) &&
         		Objects.equals(isValidExaminee, that.isValidExaminee) &&
+                Objects.equals(hasValidScoring, that.hasValidScoring) &&
         		Objects.equals(isCAT,  this.isCAT) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
@@ -186,7 +197,21 @@ public class IndividualResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileName, isValidXMLfile, isValidTestName, isValidExaminee, isCAT, tdsReport, status, testPropertiesCategory, examineeCategory, examineeAttributeCategories, examineeRelationshipCategories, opportunityCategory, commentCategories, toolUsageCategories);
+        return Objects.hash(fileName,
+                isValidXMLfile,
+                isValidTestName,
+                isValidExaminee,
+                hasValidScoring,
+                isCAT,
+                tdsReport,
+                status,
+                testPropertiesCategory,
+                examineeCategory,
+                examineeAttributeCategories,
+                examineeRelationshipCategories,
+                opportunityCategory,
+                commentCategories,
+                toolUsageCategories);
     }
 
 

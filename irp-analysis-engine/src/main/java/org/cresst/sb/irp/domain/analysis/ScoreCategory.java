@@ -1,4 +1,4 @@
 package org.cresst.sb.irp.domain.analysis;
 
-public class ScoreCategory {
+public class ScoreCategory extends Category {
 }

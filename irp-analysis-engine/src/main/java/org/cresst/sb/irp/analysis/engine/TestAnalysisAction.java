@@ -27,7 +27,7 @@ import java.util.List;
 public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.EnumTestFieldName, Testspecification> {
 	private final static Logger logger = LoggerFactory.getLogger(TestAnalysisAction.class);
 
-	static public enum EnumTestFieldName {
+	public enum EnumTestFieldName {
 		name, subject, testId, bankKey, contract, mode, grade, handscoreproject, assessmentType, academicYear, assessmentVersion
 	}
 
@@ -39,6 +39,8 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 		try {
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			Test tdsTest = tdsReport.getTest();
+
+			// TODO: Be able to handle combo tests in addition to individual tests. Create a separate class that is used when a combo test is detected. Don't put the combo test logic in this class.
 
 			String uniqueid = tdsTest.getName();
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
@@ -71,7 +73,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 						EnumTestFieldName.academicYear, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
 						EnumTestFieldName.assessmentVersion, testPackage);
-			}else
+			} else
 				 logger.info(String.format("TDS Report contains Test name (%s) that does not match an IRP TestPackage", uniqueid));
 
 		} catch (Exception e) {
@@ -213,9 +215,9 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 		final String tdsTestSubject = tdsTest.getSubject();
 
 		final boolean math =
-				testPackageSubject.equalsIgnoreCase("MATH")
+				"MATH".equalsIgnoreCase(testPackageSubject)
 						&& ("MA".equalsIgnoreCase(tdsTestSubject) || "MATH".equalsIgnoreCase(tdsTestSubject));
-		final boolean ela = testPackageSubject.equals("ELA") && "ELA".equalsIgnoreCase(tdsTestSubject);
+		final boolean ela = "ELA".equalsIgnoreCase(testPackageSubject) && "ELA".equalsIgnoreCase(tdsTestSubject);
 
 		if (math || ela) {
 			fieldCheckType.setCorrectValue(true);
@@ -270,8 +272,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				break;
 			case subject:
 				listProperty = testPackage.getProperty();
-				String subjectValueFromTestPackage = getSubjectPropertyValue(listProperty);
-				strReturn = subjectValueFromTestPackage;
+				strReturn = getSubjectPropertyValue(listProperty);
 				break;
 			case testId:
 				identifier = testPackage.getIdentifier();
