@@ -721,7 +721,7 @@ public class ItemResponseAnalysisActionTest {
 	    ResponseCategory responseCategory1 = itemCategoryAfterAnalyze1.getResponseCategory();
 	 
 	    
-	    assertEquals(true,responseCategory1.isRubircMissing());
+	    assertEquals(true,responseCategory1.isRubricMissing());
 	}
 	
 	@Test

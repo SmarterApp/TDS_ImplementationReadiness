@@ -347,7 +347,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 	private void processCForItemScoring(Item tdsItem, FieldCheckType fieldCheckType, ItemCategory itemCategory) {
 		try {
 			ResponseCategory responseCategory = itemCategory.getResponseCategory();
-			if (responseCategory != null){
+			if (responseCategory != null) {
 				Long itemKey = tdsItem.getKey();
 				Response response = tdsItem.getResponse();
 				String itemFormat = tdsItem.getFormat();
@@ -382,8 +382,10 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 						responseCategory.setIsResponseValid(true);
 						setCcorrect(fieldCheckType);
 					}
-				}else
-					responseCategory.setRubircMissing(true);
+				} else {
+					responseCategory.setRubricMissing(true);
+					logger.warn("Scoring rubric missing for " + itemCategory.getItemBankKeyKey());
+				}
 			}
 		} catch (Exception e) {
 			logger.error("processCForItemScoring exception: ", e);

@@ -12,7 +12,7 @@ import tds.itemscoringengine.ScoringStatus;
 public class ResponseCategory extends Category {
 
 	public boolean isResponseValid;
-	private boolean isRubircMissing; // IRP v2 Development Schedule 13.1
+	private boolean isRubricMissing; // IRP v2 Development Schedule 13.1
 	private ItemScoreInfo itemScoreInfo; // .getStatus()), .getPoints()), .getRationale().getMsg());
 	private ScoringStatus scoringStatus;
 	private int tdsItemScore; // TDSReport <Item score="xx">
@@ -29,12 +29,12 @@ public class ResponseCategory extends Category {
 		this.isResponseValid = isResponseValid;
 	}
 
-	public boolean isRubircMissing() {
-		return isRubircMissing;
+	public boolean isRubricMissing() {
+		return isRubricMissing;
 	}
 
-	public void setRubircMissing(boolean isRubircMissing) {
-		this.isRubircMissing = isRubircMissing;
+	public void setRubricMissing(boolean isRubricMissing) {
+		this.isRubricMissing = isRubricMissing;
 	}
 	
 	public ItemScoreInfo getItemScoreInfo() {
@@ -95,7 +95,7 @@ public class ResponseCategory extends Category {
 
 	@Override
 	public String toString() {
-		return "ResponseCategory [isResponseValid=" + isResponseValid + ", isRubircMissing=" + isRubircMissing + ", itemScoreInfo="
+		return "ResponseCategory [isResponseValid=" + isResponseValid + ", isRubricMissing=" + isRubricMissing + ", itemScoreInfo="
 				+ itemScoreInfo + ", scoringStatus=" + scoringStatus + ", tdsItemScore=" + tdsItemScore + ", tdsFormat=" + tdsFormat
 				+ ", machineRubricFileName=" + machineRubricFileName + ", rubric=" + rubric + ", itemScore=" + itemScore + "]";
 	}

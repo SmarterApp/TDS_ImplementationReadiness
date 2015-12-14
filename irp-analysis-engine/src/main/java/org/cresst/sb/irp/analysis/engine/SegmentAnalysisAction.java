@@ -19,7 +19,7 @@ import java.util.List;
 public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalysisAction.EnumSegmentFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(SegmentAnalysisAction.class);
 
-    static public enum EnumSegmentFieldName {
+    public enum EnumSegmentFieldName {
         id, position, formId, formKey, algorithm, algorithmVersion
     }
 
@@ -35,7 +35,7 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
             for (Segment segment : listSegment) {
                 SegmentCategory segmentCategory = new SegmentCategory();
                 listSegmentCategory.add(segmentCategory);
-                analysisEachSegment(segmentCategory, segment);
+                analyzeSegment(segmentCategory, segment);
             }
 
             OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
@@ -45,7 +45,7 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
         }
     }
 
-    private void analysisEachSegment(SegmentCategory segmentCategory, Segment segment) {
+    private void analyzeSegment(SegmentCategory segmentCategory, Segment segment) {
         validate(segmentCategory, segment, segment.getId(), EnumFieldCheckType.P, EnumSegmentFieldName.id, null);
         validate(segmentCategory, segment, segment.getPosition(), EnumFieldCheckType.P, EnumSegmentFieldName.position, null);
         validate(segmentCategory, segment, segment.getFormId(), EnumFieldCheckType.D, EnumSegmentFieldName.formId, null);

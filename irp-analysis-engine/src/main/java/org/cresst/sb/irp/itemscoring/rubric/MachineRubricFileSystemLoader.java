@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -21,24 +22,20 @@ import java.nio.file.Paths;
 public class MachineRubricFileSystemLoader implements MachineRubricLoader {
     private final static Logger logger = LoggerFactory.getLogger(MachineRubricFileSystemLoader.class);
 
-    private String basePath;
-
-    @Autowired
-    public MachineRubricFileSystemLoader(@Value("${machine.rubric.base.path}") String basePath) {
-        this.basePath = basePath;
-    }
+    @Value("classpath:irp-package/IrpContentPackage/Items")
+    private Resource irpContentPackagePath;
 
     @Override
     public String getContents(String fileName) {
         String content = null;
- 
-        if (!StringUtils.isBlank(fileName) && Files.exists(Paths.get(basePath, fileName))) {
-            try {
-                InputStream inputStream = Files.newInputStream(Paths.get(basePath, fileName));
+
+        try {
+            if (!StringUtils.isBlank(fileName) && Files.exists(Paths.get(irpContentPackagePath.getURI().getPath(), fileName))) {
+                InputStream inputStream = Files.newInputStream(Paths.get(irpContentPackagePath.getURI().getPath(), fileName));
                 content = CharStreams.toString(new InputStreamReader(inputStream));
-            } catch (IOException e) {
-                logger.error("Could not get machine rubric content from file system", e);
             }
+        } catch (IOException e) {
+            logger.error("Could not get machine rubric content from file system", e);
         }
 
         return content;
