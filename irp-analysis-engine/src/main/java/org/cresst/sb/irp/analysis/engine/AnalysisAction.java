@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.accommodation.Accommodation;
 import org.cresst.sb.irp.domain.analysis.Category;
@@ -328,6 +329,17 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		if (year != null && isValidYear(year)) {
 			setPcorrect(fieldCheckType);
 		}
+	}
+
+	public void processP_FloatAllowNulls(String inputValue, FieldCheckType fieldCheckType) {
+		try {
+			// Just the fact that it does not throw an exception means it's acceptable
+			if (!StringUtils.isBlank(inputValue)) {
+				fieldCheckType.setFieldEmpty(false);
+				NumberUtils.createFloat(inputValue);
+			}
+			setPcorrect(fieldCheckType);
+		} catch (NumberFormatException ex) { }
 	}
 
 	public boolean isValidYear(Long year) {
