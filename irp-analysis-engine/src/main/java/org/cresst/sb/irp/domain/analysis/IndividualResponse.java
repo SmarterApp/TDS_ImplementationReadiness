@@ -67,7 +67,7 @@ public class IndividualResponse {
 		this.isValidExaminee = isValidExaminee;
 	}
 
-    public boolean isHasValidScoring() {
+    public boolean hasValidScoring() {
         return hasValidScoring;
     }
 
