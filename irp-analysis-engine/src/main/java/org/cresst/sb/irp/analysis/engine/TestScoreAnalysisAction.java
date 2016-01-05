@@ -1,7 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -30,7 +28,7 @@ public class TestScoreAnalysisAction extends AnalysisAction<TDSReport.Opportunit
     }
 
     @Autowired
-    private ITestScorer tisService;
+    private ITestScorer tisScorer;
 
     /**
      * Analyze Scores in the TDS Report
@@ -74,7 +72,7 @@ public class TestScoreAnalysisAction extends AnalysisAction<TDSReport.Opportunit
                     tdsReport.getOpportunity().getScore().clear();
 
                     // Submit the TDSReport without scoring information to TIS and receive the response
-                    TDSReport scoredTDSReport = tisService.scoreTDSReport(tdsReport);
+                    TDSReport scoredTDSReport = tisScorer.scoreTDSReport(tdsReport);
 
                     // Put the scores back
                     tdsReport.getOpportunity().getScore().addAll(copyOfScores);

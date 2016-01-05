@@ -29,7 +29,7 @@
         <constructor-arg value="${item.scoring.service.url}" />
     </bean>
 
-    <bean id="testScorer" class="org.cresst.sb.irp.testscoring.TestIntegrationSystemScorer">
+    <bean id="tisScorer" class="org.cresst.sb.irp.testscoring.TestIntegrationSystemScorer">
         <constructor-arg name="itemScoringServiceUrl" value="${test.scoring.service.url}" />
         <constructor-arg name="restTemplate" ref="tisRestTemplate" />
     </bean>

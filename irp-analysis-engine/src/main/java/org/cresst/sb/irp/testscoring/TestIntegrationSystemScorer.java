@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Calls the Test Integration System (TIS) service to score a TDSReport
  */
-@Service
 public class TestIntegrationSystemScorer implements ITestScorer {
 
     private RestTemplate restTemplate;
