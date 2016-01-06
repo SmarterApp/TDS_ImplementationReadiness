@@ -15,12 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestStudentMappingUtil {
 	private final static Logger logger = LoggerFactory.getLogger(TestStudentMappingUtil.class);
-	
+
 	@SuppressWarnings("unchecked")
-	public <T> void processSheet(List<T> list,
-			Map<Integer, String> headerMap, XSSFSheet sheet,
-			ExcelUtil excelUtil,
-			int startIndex) {
+	public <T> void processSheet(List<T> list, Map<Integer, String> headerMap, XSSFSheet sheet, ExcelUtil excelUtil, int startIndex) {
 		try {
 			for (int rowCount = startIndex; rowCount <= sheet.getLastRowNum(); rowCount++) {
 				Row detailRow = sheet.getRow(rowCount);
@@ -34,7 +31,7 @@ public class TestStudentMappingUtil {
 			logger.error("processSheet(); exception: ", e);
 		}
 	}
-	
+
 	private TestStudentMapping createObject(Row row, Map<Integer, String> headerMap) {
 		TestStudentMapping testStudentMapping = null;
 		try {
@@ -60,26 +57,37 @@ public class TestStudentMappingUtil {
 
 		return testStudentMapping;
 	}
-	
-	private void setFieldData(TestStudentMapping testStudentMapping, String columnName,
-			String cellStringValue) {
+
+	private void setFieldData(TestStudentMapping testStudentMapping, String columnName, String cellStringValue) {
 		try {
 			columnName = StringUtils.deleteWhitespace(columnName);
 			switch (columnName.toLowerCase()) {
-				case "test":
-					testStudentMapping.setTest(cellStringValue);
-					break;
-				case "studentssid":
-					testStudentMapping.setStudentSSID(cellStringValue);
-					break;
-				case "cat":
-					testStudentMapping.setCAT(Boolean.parseBoolean(cellStringValue));
-				default:
-					break;
+			case "test":
+				testStudentMapping.setTest(cellStringValue);
+				break;
+			case "testtype":
+				testStudentMapping.setTestType(cellStringValue);
+				break;
+			case "segment":
+				testStudentMapping.setSegment(cellStringValue);
+				break;	
+			case "cat":
+				testStudentMapping.setCAT(Boolean.parseBoolean(cellStringValue));
+			case "studentssid":
+				testStudentMapping.setStudentSSID(cellStringValue);
+				break;
+			case "alternatessid":
+				testStudentMapping.setAlternateSSID(cellStringValue);
+				break;
+			case "studentname":
+				testStudentMapping.setStudentName(cellStringValue);
+				break;
+			default:
+				break;
 			}
 		} catch (Exception e) {
 			logger.error("setFieldData(); exception: ", e);
 		}
-	}	
-
+	}
+	
 }
