@@ -68,9 +68,12 @@ public class TestStudentMappingUtil {
 			case "testtype":
 				testStudentMapping.setTestType(cellStringValue);
 				break;
-			case "segment":
-				testStudentMapping.setSegment(cellStringValue);
+			case "segmentname":
+				testStudentMapping.setSegmentName(cellStringValue);
 				break;	
+			case "componenttestname":
+				testStudentMapping.setComponentTestName(cellStringValue);
+				break;		
 			case "cat":
 				testStudentMapping.setCAT(Boolean.parseBoolean(cellStringValue));
 			case "studentssid":

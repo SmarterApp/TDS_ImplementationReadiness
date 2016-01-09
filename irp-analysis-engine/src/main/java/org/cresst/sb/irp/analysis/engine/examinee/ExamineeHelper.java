@@ -50,8 +50,8 @@ public class ExamineeHelper {
      * @return Returns null if the attribute name does not exists.
      */
     static public String getFinalExamineeAttributeValue(TDSReport.Examinee examinee, String attributeName) {
-
-        if (examinee != null && StringUtils.isNotBlank(attributeName)) {
+ 
+    	if (examinee != null && StringUtils.isNotBlank(attributeName)) {
             List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
             for (Object object : listObject) {
                 if (object instanceof TDSReport.Examinee.ExamineeAttribute) {

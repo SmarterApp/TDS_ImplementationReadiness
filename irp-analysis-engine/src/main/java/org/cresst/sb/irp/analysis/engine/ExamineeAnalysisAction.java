@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
 import org.cresst.sb.irp.domain.analysis.ExamineeCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
@@ -47,8 +48,11 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
             if (testStudentMapping != null) {
                 individualResponse.setValidExaminee(true);
                 
-                if(testStudentMapping.isCAT()) 
-                	individualResponse.setCAT(true);
+                if (StringUtils.equalsIgnoreCase(testStudentMapping.getTestType(), "single")) {
+                	  if(testStudentMapping.isCAT()) 
+                      	individualResponse.setCAT(true);
+                }else if (StringUtils.equalsIgnoreCase(testStudentMapping.getTestType(), "combined"))
+                	individualResponse.setCombo(true);
             } else {
                 logger.info(String.format("TDS Report contains Test name (%s) and an Student Identifier (%s) that does not match an IRP TestStudentMapping", testName, studentIdentifier));
             }

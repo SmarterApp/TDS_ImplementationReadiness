@@ -4,7 +4,8 @@ public class TestStudentMapping {
 
 	private String test;
 	private String testType;
-	private String segment;
+	private String segmentName;
+	private String componentTestName;
 	private boolean isCAT;
 	private String studentSSID;
 	private String alternateSSID;
@@ -26,12 +27,20 @@ public class TestStudentMapping {
 		this.testType = testType;
 	}
 
-	public String getSegment() {
-		return segment;
+	public String getSegmentName() {
+		return segmentName;
 	}
 
-	public void setSegment(String segment) {
-		this.segment = segment;
+	public void setSegmentName(String segmentName) {
+		this.segmentName = segmentName;
+	}
+
+	public String getComponentTestName() {
+		return componentTestName;
+	}
+
+	public void setComponentTestName(String componentTestName) {
+		this.componentTestName = componentTestName;
 	}
 
 	public boolean isCAT() {
@@ -68,10 +77,9 @@ public class TestStudentMapping {
 
 	@Override
 	public String toString() {
-		return "TestStudentMapping [test=" + test + ", testType=" + testType + ", segment=" + segment + ", isCAT=" + isCAT
-				+ ", studentSSID=" + studentSSID + ", alternateSSID=" + alternateSSID + ", studentName=" + studentName + "]";
+		return "TestStudentMapping [test=" + test + ", testType=" + testType + ", segmentName=" + segmentName + ", componentTestName="
+				+ componentTestName + ", isCAT=" + isCAT + ", studentSSID=" + studentSSID + ", alternateSSID=" + alternateSSID
+				+ ", studentName=" + studentName + "]";
 	}
-
-
 
 }

@@ -18,6 +18,7 @@ public class IndividualResponse {
     private boolean hasValidScoring;
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
+    private boolean isCombo; //Combined test or not
 
     private TestPropertiesCategory testPropertiesCategory;
     private ExamineeCategory examineeCategory;
@@ -123,6 +124,13 @@ public class IndividualResponse {
         this.status = status;
     }
 
+	public boolean isCombo() {
+		return isCombo;
+	}
+
+	public void setCombo(boolean isCombo) {
+		this.isCombo = isCombo;
+	}
 
     public List<CommentCategory> getCommentCategories() {
         return commentCategories;
@@ -163,6 +171,7 @@ public class IndividualResponse {
                 .append("isCAT", isCAT)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
+                .append("isCombo", isCombo)
                 .append("testPropertiesCategory", testPropertiesCategory)
                 .append("examineeCategory", examineeCategory)
                 .append("examineeAttributeCategories", examineeAttributeCategories)
@@ -186,6 +195,7 @@ public class IndividualResponse {
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
                 Objects.equals(status, that.status) &&
+                Objects.equals(isCombo, that.isCombo) &&
                 Objects.equals(testPropertiesCategory, that.testPropertiesCategory) &&
                 Objects.equals(examineeCategory, that.examineeCategory) &&
                 Objects.equals(examineeAttributeCategories, that.examineeAttributeCategories) &&
@@ -205,6 +215,7 @@ public class IndividualResponse {
                 isCAT,
                 tdsReport,
                 status,
+                isCombo,
                 testPropertiesCategory,
                 examineeCategory,
                 examineeAttributeCategories,
@@ -213,7 +224,5 @@ public class IndividualResponse {
                 commentCategories,
                 toolUsageCategories);
     }
-
-
 
 }

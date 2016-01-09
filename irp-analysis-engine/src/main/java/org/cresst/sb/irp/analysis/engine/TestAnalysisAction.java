@@ -40,8 +40,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			TDSReport tdsReport = individualResponse.getTDSReport();
 			Test tdsTest = tdsReport.getTest();
 
-			// TODO: Be able to handle combo tests in addition to individual tests. Create a separate class that is used when a combo test is detected. Don't put the combo test logic in this class.
-
 			String uniqueid = tdsTest.getName();
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(uniqueid);
 
