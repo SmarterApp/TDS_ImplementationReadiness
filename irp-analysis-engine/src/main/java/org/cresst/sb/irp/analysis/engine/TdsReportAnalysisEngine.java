@@ -46,6 +46,9 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 	public TestScoreAnalysisAction testScoreAnalysisAction;
 
 	@Autowired
+	public GenericVariableAnalysisAction genericVariableAnalysisAction;
+	
+	@Autowired
 	public ItemAttributesAnalysisAction itemAttributesAnalysisAction;
 
 	@Autowired
@@ -96,6 +99,7 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 							segmentAnalysisAction.analyze(individualResponse);
 							accommodationAnalysisAction.analyze(individualResponse);
 							testScoreAnalysisAction.analyze(individualResponse);
+							genericVariableAnalysisAction.analyze(individualResponse);
 							itemAttributesAnalysisAction.analyze(individualResponse);
 							itemResponseAnalysisAction.analyze(individualResponse);
 							itemScoreInfoAnalysisAction.analyze(individualResponse);
