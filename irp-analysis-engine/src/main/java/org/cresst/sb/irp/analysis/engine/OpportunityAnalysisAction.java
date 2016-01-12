@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -48,11 +49,14 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
         validate(opportunityCategory, opportunity, opportunity.getDateForceCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateForceCompleted, null);
         validate(opportunityCategory, opportunity, opportunity.getClientName(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.clientName, null);
         validate(opportunityCategory, opportunity, opportunity.getAssessmentParticipantSessionPlatformUserAgent(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent, null);
-        validate(opportunityCategory, opportunity, opportunity.getEffectiveDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate, null);
+        if ( opportunity.getEffectiveDate() != null)
+        	validate(opportunityCategory, opportunity, opportunity.getEffectiveDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate, null);
+        else
+        	fieldNameNotExist(opportunityCategory, EnumOpportunityPropertyFieldName.effectiveDate, EnumFieldCheckType.P);
         validate(opportunityCategory, opportunity, opportunity.getQaLevel(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.qaLevel, null);
     
     }
-
+    
     /**
      * Field Check Type (P) --> check that field is not empty, and field value is of correct data type
      * and within acceptable values
@@ -168,4 +172,24 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
     @Override
     protected void checkC(Opportunity checkObj, EnumOpportunityPropertyFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
     }
+    
+    /**
+     * To avoid NullPointerException for tds fieldName not existed. for those xml attribute element not required only
+     * @param opportunityCategory
+     * @param enumOpportunityPropertyFieldName
+     * @param enumFieldCheckType
+     */
+    private void fieldNameNotExist(OpportunityCategory opportunityCategory, EnumOpportunityPropertyFieldName enumOpportunityPropertyFieldName, EnumFieldCheckType enumFieldCheckType){
+  	  final FieldCheckType fieldCheckType = new FieldCheckType();
+        fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
+        fieldCheckType.setFieldEmpty(true);
+        fieldCheckType.setCorrectDataType(false);
+
+        CellCategory cellCategory = new CellCategory();
+        cellCategory.setTdsFieldName(enumOpportunityPropertyFieldName.name());
+        cellCategory.setTdsFieldNameValue("");
+        cellCategory.setFieldCheckType(fieldCheckType);
+        
+        opportunityCategory.addCellCategory(cellCategory);
+  }
 }
