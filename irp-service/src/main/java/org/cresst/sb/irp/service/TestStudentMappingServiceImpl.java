@@ -27,5 +27,10 @@ public class TestStudentMappingServiceImpl implements TestStudentMappingService 
 		return testStudentMappingDao.getTestStudentMapping(testName, studentSSID);
 	}
 
+	@Override
+	public List<TestStudentMapping> getTestStudentMappingsByTestName(String testName) {
+		return testStudentMappingDao.getTestStudentMappingsByTestName(testName);
+	}
+
 
 }

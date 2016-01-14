@@ -243,6 +243,10 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		return testStudentMappingService.getTestStudentMapping(testName, studentSSID);
 	}
 	
+	public List<TestStudentMapping> getTestStudentMappingsByTestName(String testName) {
+		return testStudentMappingService.getTestStudentMappingsByTestName(testName);
+	}
+	
 	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
 		return itemService.getItemByIdentifier(identifier);
 	}

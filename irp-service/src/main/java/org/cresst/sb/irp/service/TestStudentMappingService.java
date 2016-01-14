@@ -11,4 +11,6 @@ public interface TestStudentMappingService {
 	
 	TestStudentMapping getTestStudentMapping(String testName, String studentSSID);
 	
+	List<TestStudentMapping> getTestStudentMappingsByTestName(String testName);
+	
 }

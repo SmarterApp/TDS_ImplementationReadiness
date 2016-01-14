@@ -9,5 +9,7 @@ public interface TestStudentMappingDao {
 	List<TestStudentMapping> getTestStudentMappings();
 	
 	TestStudentMapping getTestStudentMapping(String testName, String studentSSID);
+	
+	List<TestStudentMapping> getTestStudentMappingsByTestName(String testName);
 
 }

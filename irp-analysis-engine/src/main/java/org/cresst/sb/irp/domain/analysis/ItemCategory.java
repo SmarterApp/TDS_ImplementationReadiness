@@ -84,6 +84,8 @@ public class ItemCategory extends Category {
                 .append("itemBankKeyKey", itemBankKeyKey)
                 .append("irpItem", irpItem)
                 .append("attriblist", attriblist)
+                .append("itemFormatCorrect", itemFormatCorrect)
+                .append("status", status)
                 .toString();
     }
 }

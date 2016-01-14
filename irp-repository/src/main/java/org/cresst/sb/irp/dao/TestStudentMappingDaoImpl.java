@@ -62,6 +62,18 @@ public class TestStudentMappingDaoImpl implements TestStudentMappingDao {
 		
 		return null;
 	}
+
+	@Override
+	public List<TestStudentMapping> getTestStudentMappingsByTestName(String testName) {
+		List<TestStudentMapping> tStudentMappings = new ArrayList<TestStudentMapping>();
+		for(TestStudentMapping tsm : testStudentMappings){
+			if (StringUtils.equalsIgnoreCase(tsm.getTest(), testName))
+				tStudentMappings.add(tsm);
+		}
+		if(tStudentMappings.size() > 0)
+			return tStudentMappings;
+		return null;
+	}
 	
 	
 }
