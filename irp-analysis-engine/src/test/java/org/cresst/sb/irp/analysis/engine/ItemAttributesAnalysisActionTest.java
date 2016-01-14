@@ -17,7 +17,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.testpackage.Administration;
 import org.cresst.sb.irp.domain.testpackage.Itempool;
 import org.cresst.sb.irp.domain.testpackage.Testitem;
+import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.cresst.sb.irp.service.TestPackageService;
+import org.cresst.sb.irp.service.TestStudentMappingService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,6 +27,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import builders.ItemAttributeBuilder;
+import builders.TestStudentMappingBuilder;
 import builders.TestitemBuilder;
 import builders.TestspecificationBuilder;
 
@@ -36,6 +39,9 @@ public class ItemAttributesAnalysisActionTest {
 
 	@Mock
 	public TestPackageService testPackageService;
+	
+	@Mock
+	public TestStudentMappingService testStudentMappingService;
 
 	@InjectMocks
 	private ItemAttributesAnalysisAction underTest = new ItemAttributesAnalysisAction();
@@ -82,6 +88,48 @@ public class ItemAttributesAnalysisActionTest {
 		return administration;
 	}
 
+	private List<Testitem> generateTestItemForTestPackage() {
+		final List<Testitem> testitems = Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-100-1000.xml")
+					.itemtype("EQ")
+					.uniqueid("100-1000")
+					.toTestitem()
+			);
+		return testitems;
+	}
+	
+	private List<Testitem> generateTestItemsForTestPackage() {
+		final List<Testitem> testitems = Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-100-1000.xml")
+					.itemtype("EQ")
+					.uniqueid("100-1000")
+					.toTestitem(), 
+				new TestitemBuilder()
+					.filename("item-200-2000.xml")
+					.itemtype("TI")
+					.uniqueid("200-2000")
+					.toTestitem());
+		return testitems;
+	}
+	
+	private List<TestStudentMapping> generateTestStudentMappings(){
+		final List<TestStudentMapping> testStudentMappings = Lists.newArrayList(
+				new TestStudentMappingBuilder()
+					.test("test")
+					.testType("Combined")
+					.componentTestName("testPerf")
+					.toTestStudentMapping(), 
+				new TestStudentMappingBuilder()
+					.test("test")
+					.testType("Combined")
+					.componentTestName("testCat")
+					.isCAT(true)
+					.toTestStudentMapping());
+		return testStudentMappings;
+	}
+	
 	/**
 	 * When there are equal Items in the given TDS Report and in the IRP TestPackage then mark the items from the IRP package as
 	 * found.
@@ -92,18 +140,20 @@ public class ItemAttributesAnalysisActionTest {
 
 		// The TDS Report has same Items than the IRP package
 		final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
-				new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem(),
-				new ItemAttributeBuilder().bankKey(200).key(2000).toOpportunityItem());
+				new ItemAttributeBuilder().bankKey(100).key(1000).format("EQ").toOpportunityItem(),
+				new ItemAttributeBuilder().bankKey(200).key(2000).format("TI").toOpportunityItem());
 
 		final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
 
-		final Administration administration = generateTestPackageAdministration(generateTestItems2());
+		final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
 
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
-
+		
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(generateTestStudentMappings());
+		
 	    // Act
         underTest.analyze(individualResponse);
         
@@ -123,19 +173,21 @@ public class ItemAttributesAnalysisActionTest {
     	
         // The TDS Report has more items than the IRP Package
         final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
-                new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem(),
-                new ItemAttributeBuilder().bankKey(200).key(2000).toOpportunityItem()
+                new ItemAttributeBuilder().bankKey(100).key(1000).format("EQ").toOpportunityItem(),
+                new ItemAttributeBuilder().bankKey(200).key(2000).format("TI").toOpportunityItem()
         );
     	
     	final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
     	
-    	final Administration administration = generateTestPackageAdministration(generateTestItems1());
+    	final Administration administration = generateTestPackageAdministration(generateTestItemForTestPackage());
 
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
 
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(generateTestStudentMappings());
+		
 	    // Act
         underTest.analyze(individualResponse);
         
@@ -147,11 +199,12 @@ public class ItemAttributesAnalysisActionTest {
     }
 
     /**
+     * for TestType - Single
      * When there are less Items in the given TDS Report than exist in the IRP TestPackage
      * then mark the missing items from the IRP package as missing.
      */
     @Test
-    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_MissingItemsMarkedAsMissing() {
+    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_MissingItemsMarkedAsMissing_Single() {
     	
         // The TDS Report has fewer Items than the IRP package
         final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
@@ -160,12 +213,14 @@ public class ItemAttributesAnalysisActionTest {
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
 
-    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
+    	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
+		
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(generateTestStudentMappings());
 
 		// Act
 		underTest.analyze(individualResponse);
@@ -178,12 +233,13 @@ public class ItemAttributesAnalysisActionTest {
     }
     
     /**
+     * for TestType - Single
      * When there are less Items in the given TDS Report than exist in the IRP TestPackage
      * and It is a CAT test package
      * then mark the missing items from the IRP package as NOTUSED.
      */
     @Test
-    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_NOTUSEDItemsMarkedAsNOTUSED() {
+    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_NOTUSEDItemsMarkedAsNOTUSED_Single() {
     	
         // The TDS Report has fewer Items than the IRP package
         final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
@@ -193,13 +249,15 @@ public class ItemAttributesAnalysisActionTest {
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
         individualResponse.setCAT(true);
 
-    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
+    	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
 
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(null);
+		
 		// Act
 		underTest.analyze(individualResponse);
 		
@@ -221,19 +279,21 @@ public class ItemAttributesAnalysisActionTest {
     	   // The TDS Report has same Items than the IRP package but one of the TDS Report Items
         // does not exist in the IRP package
         final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
-                new ItemAttributeBuilder().bankKey(100).key(1000).toOpportunityItem(),
-                new ItemAttributeBuilder().bankKey(300).key(3000).toOpportunityItem()
+                new ItemAttributeBuilder().bankKey(100).key(1000).format("EQ").toOpportunityItem(),
+                new ItemAttributeBuilder().bankKey(300).key(3000).format("GI").toOpportunityItem()
         );
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
     	
-    	final Administration administration = generateTestPackageAdministration(generateTestItems2());
+    	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
 
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(null);
+		
 		// Act
 		underTest.analyze(individualResponse);
 		
@@ -244,6 +304,131 @@ public class ItemAttributesAnalysisActionTest {
         assertEquals(ItemStatusEnum.MISSING, itemCategories.get(1).getStatus());
         assertEquals(ItemStatusEnum.EXTRA, itemCategories.get(2).getStatus());
         
+    }
+    
+    /**
+     * for TestType - Combo
+     * When there are less Items in the given TDS Report than exist in the IRP TestPackage
+     * then mark the missing items from the IRP package as missing.
+     */
+    @Test
+    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_MissingItemsMarkedAsMissing_Combo() {
+    	
+        // The TDS Report has fewer Items than the IRP package
+        final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+                new ItemAttributeBuilder().bankKey(200).key(2000).format("TI").toOpportunityItem()
+        );
+
+        final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
+        individualResponse.setCombo(true);
+
+    	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
+		
+		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
+				.setAdministration(administration)
+				.toTestspecification()
+				);
+		
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(generateTestStudentMappings());
+
+		final Administration administrationPerf = generateTestPackageAdministration(Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-100-1000.xml")
+					.itemtype("EQ")
+					.uniqueid("100-1000")
+					.toTestitem()));
+		when(testPackageService.getTestpackageByIdentifierUniqueid("testPerf")).thenReturn(new TestspecificationBuilder("testPerf")
+			.setAdministration(administrationPerf)
+			.toTestspecification()
+		);
+		
+		final Administration administrationCat = generateTestPackageAdministration(Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-500-4000.xml")
+					.itemtype("EQ")
+					.uniqueid("500-4000")
+					.toTestitem(),
+				new TestitemBuilder()
+					.filename("item-200-2000.xml")
+					.itemtype("TI")
+					.uniqueid("200-2000")
+					.toTestitem()));
+		when(testPackageService.getTestpackageByIdentifierUniqueid("testCat")).thenReturn(new TestspecificationBuilder("testCat")
+			.setAdministration(administrationCat)
+			.toTestspecification()
+		);
+		
+		// Act
+		underTest.analyze(individualResponse);
+		
+        // Assert
+        List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
+        assertEquals(ItemStatusEnum.MISSING, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(1).getStatus());
+    }
+    
+    /**
+     * for TestType - Combo
+     * When there are less Items in the given TDS Report than exist in the IRP TestPackage
+     * and It is a CAT test package
+     * then mark the missing items from the IRP package as NOTUSED.
+     */
+    @Test
+    public void whenTDSReportContainsFewerItemsThanIRPTestPackage_NOTUSEDItemsMarkedAsNOTUSED_Combo() {
+    	
+        // The TDS Report has fewer Items than the IRP package
+        final List<TDSReport.Opportunity.Item> tdsReportItems = Lists.newArrayList(
+                new ItemAttributeBuilder().bankKey(100).key(1000).format("EQ").toOpportunityItem()
+        );
+
+        final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
+        individualResponse.setCombo(true);
+
+    	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
+		
+		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
+				.setAdministration(administration)
+				.toTestspecification()
+				);
+		
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(generateTestStudentMappings());
+
+		final Administration administrationPerf = generateTestPackageAdministration(Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-100-1000.xml")
+					.itemtype("EQ")
+					.uniqueid("100-1000")
+					.toTestitem()));
+		when(testPackageService.getTestpackageByIdentifierUniqueid("testPerf")).thenReturn(new TestspecificationBuilder("testPerf")
+			.setAdministration(administrationPerf)
+			.toTestspecification()
+		);
+		
+		final Administration administrationCat = generateTestPackageAdministration(Lists.newArrayList(
+				new TestitemBuilder()
+					.filename("item-500-4000.xml")
+					.itemtype("EQ")
+					.uniqueid("500-4000")
+					.toTestitem(),
+				new TestitemBuilder()
+					.filename("item-200-2000.xml")
+					.itemtype("TI")
+					.uniqueid("200-2000")
+					.toTestitem()));
+		when(testPackageService.getTestpackageByIdentifierUniqueid("testCat")).thenReturn(new TestspecificationBuilder("testCat")
+			.setAdministration(administrationCat)
+			.toTestspecification()
+		);
+		
+		// Act
+		underTest.analyze(individualResponse);
+		
+        // Assert
+        List<ItemCategory> itemCategories = individualResponse.getOpportunityCategory().getItemCategories();
+        
+        assertEquals(ItemStatusEnum.FOUND, itemCategories.get(0).getStatus());
+        assertEquals(ItemStatusEnum.NOTUSED, itemCategories.get(1).getStatus());
     }
     
     /**
@@ -264,12 +449,14 @@ public class ItemAttributesAnalysisActionTest {
 
         final IndividualResponse individualResponse = generateIndividualResponse(tdsReportItems);
         
-       	final Administration administration = generateTestPackageAdministration(generateTestItems2());
+       	final Administration administration = generateTestPackageAdministration(generateTestItemsForTestPackage());
 		
 		when(testPackageService.getTestpackageByIdentifierUniqueid("test")).thenReturn(new TestspecificationBuilder("test")
 				.setAdministration(administration)
 				.toTestspecification()
 				);
+		
+		when(testStudentMappingService.getTestStudentMappingsByTestName("test")).thenReturn(null);
 		
 		// Act
 		underTest.analyze(individualResponse);
@@ -285,29 +472,4 @@ public class ItemAttributesAnalysisActionTest {
 
     }
     
-	private List<Testitem> generateTestItems2() {
-		final List<Testitem> testitems = Lists.newArrayList(
-				new TestitemBuilder()
-					.filename("item-100-1000.xml")
-					.itemtype("EQ")
-					.uniqueid("100-1000")
-					.toTestitem(), 
-				new TestitemBuilder()
-					.filename("item-200-2000.xml")
-					.itemtype("TI")
-					.uniqueid("200-2000")
-					.toTestitem());
-		return testitems;
-	}
-	
-	private List<Testitem> generateTestItems1() {
-		final List<Testitem> testitems = Lists.newArrayList(
-				new TestitemBuilder()
-					.filename("item-100-1000.xml")
-					.itemtype("EQ")
-					.uniqueid("100-1000")
-					.toTestitem()
-			);
-		return testitems;
-	}
 }

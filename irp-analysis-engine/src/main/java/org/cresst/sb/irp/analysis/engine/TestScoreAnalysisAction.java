@@ -70,7 +70,7 @@ public class TestScoreAnalysisAction extends AnalysisAction<TDSReport.Opportunit
                     TDSReport tdsReport = individualResponse.getTDSReport();
                     List<TDSReport.Opportunity.Score> copyOfScores = copyScores(tdsReport.getOpportunity().getScore());
                     tdsReport.getOpportunity().getScore().clear();
-
+                    
                     // Submit the TDSReport without scoring information to TIS and receive the response
                     TDSReport scoredTDSReport = tisScorer.scoreTDSReport(tdsReport);
 

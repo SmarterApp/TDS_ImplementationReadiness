@@ -14,8 +14,38 @@ public class TestStudentMappingBuilder {
 		return this;
 	}
 	
+	public TestStudentMappingBuilder testType(String testType){
+		testStudentMapping.setTestType(testType);
+		return this;
+	}
+	
+	public TestStudentMappingBuilder segmentName(String segmentName){
+		testStudentMapping.setSegmentName(segmentName);
+		return this;
+	}
+	
+	public TestStudentMappingBuilder componentTestName(String componentTestName){
+		testStudentMapping.setComponentTestName(componentTestName);
+		return this;
+	}
+	
+	public TestStudentMappingBuilder isCAT(boolean isCAT){
+		testStudentMapping.setCAT(isCAT);
+		return this;
+	}
+	
 	public TestStudentMappingBuilder studentSSID(String studentSSID){
 		testStudentMapping.setStudentSSID(studentSSID);
+		return this;
+	}
+	
+	public TestStudentMappingBuilder alternateSSID(String alternateSSID){
+		testStudentMapping.setAlternateSSID(alternateSSID);
+		return this;
+	}
+	
+	public TestStudentMappingBuilder studentName(String studentName){
+		testStudentMapping.setStudentName(studentName);
 		return this;
 	}
 	
