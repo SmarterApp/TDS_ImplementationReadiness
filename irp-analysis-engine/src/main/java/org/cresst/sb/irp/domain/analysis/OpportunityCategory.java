@@ -14,7 +14,7 @@ public class OpportunityCategory extends Category {
     private List<GenericVariableCategory> genericVariableCategories = new ArrayList<>();
     private List<ItemCategory> itemCategories = new ArrayList<>();
 
-    private OpItemsData opItemsData;
+    private OpItemsData opItemsData = new OpItemsData();
     
     public ImmutableList<SegmentCategory> getSegmentCategories() {
         return ImmutableList.copyOf(segmentCategories);
