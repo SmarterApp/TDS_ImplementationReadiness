@@ -14,6 +14,8 @@ public class OpportunityCategory extends Category {
     private List<GenericVariableCategory> genericVariableCategories = new ArrayList<>();
     private List<ItemCategory> itemCategories = new ArrayList<>();
 
+    private OpItemsData opItemsData;
+    
     public ImmutableList<SegmentCategory> getSegmentCategories() {
         return ImmutableList.copyOf(segmentCategories);
     }
@@ -54,6 +56,14 @@ public class OpportunityCategory extends Category {
         this.itemCategories = itemCategories;
     }
 
+	public OpItemsData getOpItemsData() {
+		return opItemsData;
+	}
+
+	public void setOpItemsData(OpItemsData opItemsData) {
+		this.opItemsData = opItemsData;
+	}
+    
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -62,8 +72,8 @@ public class OpportunityCategory extends Category {
                 .append("scoreCategories", scoreCategories)
                 .append("genericVariableCategories", genericVariableCategories)
                 .append("itemCategories", itemCategories)
+                .append("opItemsData", opItemsData)
                 .toString();
     }
-
 
 }

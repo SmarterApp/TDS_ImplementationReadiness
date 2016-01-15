@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.*;
@@ -9,8 +10,10 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.cresst.sb.irp.domain.testpackage.Administration;
+import org.cresst.sb.irp.domain.testpackage.Bpelement;
 import org.cresst.sb.irp.domain.testpackage.Identifier;
 import org.cresst.sb.irp.domain.testpackage.Itempool;
+import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testitem;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
@@ -43,6 +46,14 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			Testspecification testPackage = getTestpackageByIdentifierUniqueid(testName);
 
 			Administration administration = testPackage.getAdministration();
+			Testblueprint testblueprint = administration.getTestblueprint();
+			Bpelement bpelementForTest = getBpelementByelementtype("test", testblueprint.getBpelement());
+			OpItemsData opItemsData = new OpItemsData();
+			opItemsData.setElementtype("test");
+			opItemsData.setMinopitems(NumberUtils.toInt(bpelementForTest.getMinopitems()));
+			opItemsData.setMaxopitems(NumberUtils.toInt(bpelementForTest.getMaxopitems()));
+			opItemsData.setCombo(individualResponse.isCombo());
+			
 			Itempool itempool = administration.getItempool();
 			List<Testitem> testitems = itempool.getTestitem();
 
@@ -73,6 +84,19 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 					if (isItemFormatMatch(tdsItem, testitem)) {
 						itemCategory.setItemFormatCorrect(true);
+					}
+					
+					if (!individualResponse.isCombo()) {
+						if (individualResponse.isCAT())
+							opItemsData.setCatItems(opItemsData.getCatItems() + 1);
+						else
+							opItemsData.setPerfItems(opItemsData.getPerfItems() + 1);
+					} else { // combo test
+						boolean isCat = identifyIsCAT(testitem, testStudentMappings);
+						if (isCat)
+							opItemsData.setCatItems(opItemsData.getCatItems() + 1);
+						else
+							opItemsData.setPerfItems(opItemsData.getPerfItems() + 1);
 					}
 				} else {
 					itemCategory.setItemBankKeyKey(StringUtils.substring(testitem.getFilename(), 0, -4));
@@ -114,6 +138,12 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 
 			OpportunityCategory opportunityCategory = individualResponse.getOpportunityCategory();
 			opportunityCategory.setItemCategories(itemCategories);
+			opportunityCategory.setOpItemsData(opItemsData);
+			
+			if ((opItemsData.getCatItems() + opItemsData.getPerfItems()) >= opItemsData.getMinopitems())
+				opItemsData.setMinopitems(true);
+			if ((opItemsData.getCatItems() + opItemsData.getPerfItems()) <= opItemsData.getMaxopitems())
+				opItemsData.setMaxopitems(true);
 		} catch (Exception ex) {
 			logger.error("Analyze exception", ex);
 		}
@@ -363,6 +393,14 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		return strReturn;
 	}
 
+	protected Bpelement getBpelementByelementtype(String elementtype, List<Bpelement> bpelements){
+		for(Bpelement element: bpelements){
+			if (StringUtils.equalsIgnoreCase(element.getElementtype(), elementtype))
+				return element;
+		}
+		return null;
+	}
+	
 	/**
 	 * 
 	 * @param testitem
