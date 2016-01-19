@@ -22,7 +22,17 @@
         </property>
     </bean>
 
-    <bean id="tisRestTemplate" class="org.springframework.web.client.RestTemplate" />
+    <bean id="tisRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+                    <property name="marshaller" ref="marshaller"/>
+                    <property name="unmarshaller" ref="marshaller"/>
+                </bean>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
 
     <bean id="itemScorer" class="org.cresst.sb.irp.itemscoring.client.IrpProxyItemScorer">
         <constructor-arg ref="irpProxyRestTemplate" />
@@ -30,7 +40,7 @@
     </bean>
 
     <bean id="tisScorer" class="org.cresst.sb.irp.testscoring.TestIntegrationSystemScorer">
-        <constructor-arg name="itemScoringServiceUrl" value="${test.scoring.service.url}" />
+        <constructor-arg name="testScoringServiceUrl" value="${test.scoring.service.url}" />
         <constructor-arg name="restTemplate" ref="tisRestTemplate" />
     </bean>
 </beans>

@@ -77,9 +77,13 @@ public class TestScoreAnalysisAction extends AnalysisAction<TDSReport.Opportunit
                     // Put the scores back
                     tdsReport.getOpportunity().getScore().addAll(copyOfScores);
 
-                    // Verify TIS scores matches TDSReport scores
-                    if (scoresMatch(tdsReport.getOpportunity().getScore(), scoredTDSReport.getOpportunity().getScore())) {
+                    if (scoredTDSReport != null) {
+                        logger.info("Recieved scored TDSReport");
 
+                        // Verify TIS scores matches TDSReport scores
+                        if (scoresMatch(tdsReport.getOpportunity().getScore(), scoredTDSReport.getOpportunity().getScore())) {
+
+                        }
                     }
                 }
             }
