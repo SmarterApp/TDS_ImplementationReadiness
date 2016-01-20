@@ -35,8 +35,8 @@ public class ScoreInfoCategory extends Category {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-        	.append("tdsFieldName", tdsFormat)
-        	.append("tdsFieldNameValue", itemScore)
+        	.append("tdsFormat", tdsFormat)
+        	.append("itemScore", itemScore)
         	.append("category", cellCategories.toArray())
             .toString();
     }

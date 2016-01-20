@@ -112,7 +112,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			Response response = tdsItem.getResponse();
 			switch (enumFieldName) {
 			case date:
-				// not required. xsd <xs:attribute name="date" type="xs:dateTime" />
+				// <xs:attribute name="date" type="xs:dateTime" />
 				if (response.getDate() != null && response.getDate().toString().length() > 0)
 					setPcorrect(fieldCheckType);
 				break;
