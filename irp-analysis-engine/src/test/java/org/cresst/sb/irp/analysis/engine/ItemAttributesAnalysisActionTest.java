@@ -206,7 +206,7 @@ public class ItemAttributesAnalysisActionTest {
         assertFalse(actualOpItemsData.isCombo());
         assertTrue(actualOpItemsData.isMinopitems());
         assertTrue(actualOpItemsData.isMaxopitems());
-       // assertEquals(expectedOpItemsData, actualOpItemsData);
+        assertEquals(expectedOpItemsData, actualOpItemsData);
 	}
 	
 	/**
@@ -261,7 +261,7 @@ public class ItemAttributesAnalysisActionTest {
         assertFalse(actualOpItemsData.isCombo());
         assertTrue(actualOpItemsData.isMinopitems());
         assertTrue(actualOpItemsData.isMaxopitems());
-        //assertEquals(expectedOpItemsData, actualOpItemsData);
+        assertEquals(expectedOpItemsData, actualOpItemsData);
 	}
 	
 	
@@ -490,7 +490,7 @@ public class ItemAttributesAnalysisActionTest {
         assertTrue(actualOpItemsData.isCombo());
         assertFalse(actualOpItemsData.isMinopitems());
         assertTrue(actualOpItemsData.isMaxopitems());
-        //assertEquals(expectedOpItemsData, actualOpItemsData);
+        assertEquals(expectedOpItemsData, actualOpItemsData);
     }
     
     /**
@@ -573,7 +573,7 @@ public class ItemAttributesAnalysisActionTest {
         assertTrue(actualOpItemsData.isCombo());
         assertFalse(actualOpItemsData.isMinopitems());
         assertTrue(actualOpItemsData.isMaxopitems());
-        //assertEquals(expectedOpItemsData, actualOpItemsData);
+        assertEquals(expectedOpItemsData, actualOpItemsData);
     }
     
     /**

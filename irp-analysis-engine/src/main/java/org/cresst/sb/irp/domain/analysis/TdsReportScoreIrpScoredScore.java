@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
+import com.google.common.base.Objects;
+
 public class TdsReportScoreIrpScoredScore {
 
 	private boolean isScoredTDSReport; // false - tisScorer.scoreTDSReport(tdsReport) return null
@@ -64,6 +66,31 @@ public class TdsReportScoreIrpScoredScore {
 
 	public void setMissedIrpScoredScoreMap(Map<String, TDSReport.Opportunity.Score> missedIrpScoredScoreMap) {
 		this.missedIrpScoredScoreMap = missedIrpScoredScoreMap;
+	}
+	
+	/**
+	 * TDSReport.Opportunity.Score has NOT override the euqals and hashcode method,
+	 * matchedScoresMap, extraTdsReportScoreMap, missedIrpScoredScoreMap and notMatchPairs
+	 * may NOT work properly
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		
+		TdsReportScoreIrpScoredScore that = (TdsReportScoreIrpScoredScore) o;
+		return Objects.equal(isScoredTDSReport, that.isScoredTDSReport) &&
+				Objects.equal(isScoreMatch, that.isScoreMatch) &&
+				Objects.equal(matchedScoresMap, that.matchedScoresMap) &&
+				Objects.equal(extraTdsReportScoreMap, that.extraTdsReportScoreMap) &&
+				Objects.equal(missedIrpScoredScoreMap, that.missedIrpScoredScoreMap) &&
+				Objects.equal(notMatchPairs, that.notMatchPairs);			
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(isScoredTDSReport, isScoreMatch, matchedScoresMap, extraTdsReportScoreMap, missedIrpScoredScoreMap,
+				notMatchPairs);
 	}
 
 }

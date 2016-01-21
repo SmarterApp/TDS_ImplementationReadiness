@@ -10,7 +10,7 @@ public class OpItemsData {
 	private int perfItems;
 	private boolean isMinopitems;
 	private boolean isMaxopitems;
-	
+
 	public boolean isCombo() {
 		return isCombo;
 	}
@@ -18,7 +18,7 @@ public class OpItemsData {
 	public void setCombo(boolean isCombo) {
 		this.isCombo = isCombo;
 	}
-	
+
 	public String getElementtype() {
 		return elementtype;
 	}
@@ -80,6 +80,39 @@ public class OpItemsData {
 		return "OpItemsData [isCombo=" + isCombo + ", elementtype=" + elementtype + ", minopitems=" + minopitems + ", maxopitems="
 				+ maxopitems + ", catItems=" + catItems + ", perfItems=" + perfItems + ", isMinopitems=" + isMinopitems
 				+ ", isMaxopitems=" + isMaxopitems + "]";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		OpItemsData that = (OpItemsData) o;
+		if (isCombo != that.isCombo) return false;
+		if (elementtype != that.elementtype) return false;
+		if (minopitems != that.minopitems) return false;
+		if (maxopitems != that.maxopitems) return false;
+		if (catItems != that.catItems) return false;
+		if (perfItems != that.perfItems) return false;
+		if (isMinopitems != that.isMinopitems) return false;
+		if (isMaxopitems != that.isMaxopitems) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = (isCombo ? 1 : 0);
+		result = 31 * result + (elementtype != null ? elementtype.hashCode() : 0);
+		result = 31 * result + minopitems;
+		result = 31 * result + maxopitems;
+		result = 31 * result + catItems;
+		result = 31 * result + perfItems;
+		result = 31 * result + (isMinopitems ? 1 : 0);
+		result = 31 * result + (isMaxopitems ? 1 : 0);
+		return result;
 	}
 
 }
