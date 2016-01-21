@@ -15,6 +15,7 @@ public class OpportunityCategory extends Category {
     private List<ItemCategory> itemCategories = new ArrayList<>();
 
     private OpItemsData opItemsData = new OpItemsData();
+    private TdsReportScoreIrpScoredScore tdsReportScoreIrpScoredScore = new TdsReportScoreIrpScoredScore();
     
     public ImmutableList<SegmentCategory> getSegmentCategories() {
         return ImmutableList.copyOf(segmentCategories);
@@ -64,6 +65,14 @@ public class OpportunityCategory extends Category {
 		this.opItemsData = opItemsData;
 	}
     
+	public TdsReportScoreIrpScoredScore getTdsReportScoreIrpScoredScore() {
+		return tdsReportScoreIrpScoredScore;
+	}
+
+	public void setTdsReportScoreIrpScoredScore(TdsReportScoreIrpScoredScore tdsReportScoreIrpScoredScore) {
+		this.tdsReportScoreIrpScoredScore = tdsReportScoreIrpScoredScore;
+	}
+	
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -73,7 +82,10 @@ public class OpportunityCategory extends Category {
                 .append("genericVariableCategories", genericVariableCategories)
                 .append("itemCategories", itemCategories)
                 .append("opItemsData", opItemsData)
+                .append("tdsReportScoreIrpScoredScore", tdsReportScoreIrpScoredScore)
                 .toString();
     }
+
+
 
 }
