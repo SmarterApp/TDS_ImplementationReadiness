@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
-
-import com.google.common.base.Objects;
 
 public class TdsReportScoreIrpScoredScore {
 
@@ -79,17 +78,17 @@ public class TdsReportScoreIrpScoredScore {
 		if (o == null || getClass() != o.getClass()) return false;
 		
 		TdsReportScoreIrpScoredScore that = (TdsReportScoreIrpScoredScore) o;
-		return Objects.equal(isScoredTDSReport, that.isScoredTDSReport) &&
-				Objects.equal(isScoreMatch, that.isScoreMatch) &&
-				Objects.equal(matchedScoresMap, that.matchedScoresMap) &&
-				Objects.equal(extraTdsReportScoreMap, that.extraTdsReportScoreMap) &&
-				Objects.equal(missedIrpScoredScoreMap, that.missedIrpScoredScoreMap) &&
-				Objects.equal(notMatchPairs, that.notMatchPairs);			
+		return Objects.equals(isScoredTDSReport, that.isScoredTDSReport) &&
+				Objects.equals(isScoreMatch, that.isScoreMatch) &&
+				Objects.equals(matchedScoresMap, that.matchedScoresMap) &&
+				Objects.equals(extraTdsReportScoreMap, that.extraTdsReportScoreMap) &&
+				Objects.equals(missedIrpScoredScoreMap, that.missedIrpScoredScoreMap) &&
+				Objects.equals(notMatchPairs, that.notMatchPairs);
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(isScoredTDSReport, isScoreMatch, matchedScoresMap, extraTdsReportScoreMap, missedIrpScoredScoreMap,
+		return Objects.hash(isScoredTDSReport, isScoreMatch, matchedScoresMap, extraTdsReportScoreMap, missedIrpScoredScoreMap,
 				notMatchPairs);
 	}
 

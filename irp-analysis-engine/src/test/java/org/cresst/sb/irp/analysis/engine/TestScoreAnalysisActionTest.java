@@ -106,6 +106,7 @@ public class TestScoreAnalysisActionTest {
     @Test
     public void whenTDSReport_HasInvalid_Scoring_InvalidTestScoring_AndCellCategoryHasFailingValues() {
         final List<TDSReport.Opportunity.Score> scores = new ArrayList<>();
+        scores.add(new ScoreBuilder().measureOf("Overall").measureLabel("Attempted").value("bad data").standardError("").toScore());
         scores.add(new ScoreBuilder().measureOf("Overall").measureLabel("ThetaScore").value("").standardError("fail").toScore());
 
         final TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
@@ -120,12 +121,7 @@ public class TestScoreAnalysisActionTest {
 
         underTest.analyze(individualResponse);
 
-        List<ScoreCategory> scoreCategories = new ArrayList<>();
-        ScoreCategory scoreCategory = new ScoreCategory();
-        scoreCategories.add(scoreCategory);
-        for (CellCategory cellCategory : createInvalidCellCategories()) {
-            scoreCategory.addCellCategory(cellCategory);
-        }
+        List<ScoreCategory> scoreCategories = createInvalidCellCategories();
 
         assertFalse(individualResponse.hasValidScoring());
         assertArrayEquals(scoreCategories.toArray(), individualResponse.getOpportunityCategory().getScoreCategories().toArray());
@@ -186,7 +182,7 @@ public class TestScoreAnalysisActionTest {
         assertThat(actualTdsReportScoreIrpScoredScorePairs.size(), is(0));
         
         //TDSReport.Opportunity.Score class no corresponding methods Override equals and hashCode, so assertEquals failed
-        //assertEquals(expectedTdsReportScoreIrpScoredScore, tdsReportScoreIrpScoredScore);
+        //assertEquals(expectedTdsReportScoreIrpScoredScore, actualTdsReportScoreIrpScoredScore);
     }
     
     /**
@@ -258,9 +254,9 @@ public class TestScoreAnalysisActionTest {
         assertTrue(individualResponse.hasValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
-        assertArrayEquals(actualTdsMatchedScoreMap.keySet().toArray(), matchedScoresMap.keySet().toArray());
+        assertArrayEquals(matchedScoresMap.keySet().toArray(), actualTdsMatchedScoreMap.keySet().toArray());
         assertThat(actualExtraTdsReportScoreMap.size(), is(1));
-        assertArrayEquals(actualExtraTdsReportScoreMap.keySet().toArray(), extraScoresMap.keySet().toArray());
+        assertArrayEquals(extraScoresMap.keySet().toArray(), actualExtraTdsReportScoreMap.keySet().toArray());
         assertThat(actualMissedIrpScoredScoreMap.size(), is(0));
         assertThat(actualTdsReportScoreIrpScoredScorePairs.size(), is(0));
     	
@@ -277,7 +273,7 @@ public class TestScoreAnalysisActionTest {
     public void whenTDSReport_HasValid_Scoring_And_ScoresMatch_CellCategoryHasPassingValue_Match_Missed() {
 		final List<TDSReport.Opportunity.Score> scores = new ArrayList<>();
 		scores.add(new ScoreBuilder().measureOf("Overall").measureLabel("Attempted").value("Y").standardError("").toScore());
-		scores.add(new ScoreBuilder().measureOf("Overall").measureLabel("ThetaScore").value("-0.14785630410943").standardError("0.457791032400169").toScore());
+		scores.add(new ScoreBuilder().measureOf("Overall").measureLabel("ThetaScore").value("-0.1484056544").standardError("0.4576516510510").toScore());
 		scores.add(new ScoreBuilder().measureOf("SOCK_2").measureLabel("ThetaScore").value("-1.2370123601497").standardError("0.608838178456256").toScore());
 	
 		final TDSReport.Opportunity opportunity = new TDSReport.Opportunity();
@@ -334,10 +330,10 @@ public class TestScoreAnalysisActionTest {
         assertTrue(individualResponse.hasValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
-        assertArrayEquals(actualTdsMatchedScoreMap.keySet().toArray(), matchedScoresMap.keySet().toArray());
+        assertArrayEquals(matchedScoresMap.keySet().toArray(), actualTdsMatchedScoreMap.keySet().toArray());
         assertThat(actualExtraTdsReportScoreMap.size(), is(0));
         assertThat(actualMissedIrpScoredScoreMap.size(), is(1));
-        assertArrayEquals(actualMissedIrpScoredScoreMap.keySet().toArray(), missedScoresMap.keySet().toArray());
+        assertArrayEquals(missedScoresMap.keySet().toArray(), actualMissedIrpScoredScoreMap.keySet().toArray());
         assertThat(actualTdsReportScoreIrpScoredScorePairs.size(), is(0));
     	
         //TDSReport.Opportunity.Score class no corresponding methods Override equals and hashCode, so assertEquals failed
@@ -416,7 +412,7 @@ public class TestScoreAnalysisActionTest {
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
         assertThat(actualTdsMatchedScoreMap.size(), is(3));
-        assertArrayEquals(actualTdsMatchedScoreMap.keySet().toArray(), matchedScoresMap.keySet().toArray());
+        assertArrayEquals(matchedScoresMap.keySet().toArray(), actualTdsMatchedScoreMap.keySet().toArray());
         assertThat(actualExtraTdsReportScoreMap.size(), is(0));
         assertThat(actualMissedIrpScoredScoreMap.size(), is(0));
         assertThat(actualTdsReportScoreIrpScoredScorePairs.size(), is(notMatchPairs.size()));
@@ -467,40 +463,89 @@ public class TestScoreAnalysisActionTest {
 		return cellCategories;
 	}
 
-	private CellCategory[] createInvalidCellCategories() {
-		CellCategory[] cellCategories = new CellCategory[] {
+	private List<ScoreCategory> createInvalidCellCategories() {
+        List<ScoreCategory> scoreCategories = new ArrayList<>();
+
+        ScoreCategory scoreCategoryA = new ScoreCategory();
+        scoreCategories.add(scoreCategoryA);
+        for (CellCategory cellCategory : new CellCategory[]{
+                // Overall - Attempted
+                new CellCategoryBuilder()
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureOf.toString())
+                        .tdsFieldNameValue("Overall").toCellCategory(),
+
+                new CellCategoryBuilder()
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureLabel.toString())
+                        .tdsFieldNameValue("Attempted").toCellCategory(),
+
+                new CellCategoryBuilder()
+                        .correctDataType(true)
+                        .acceptableValue(false)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.value.toString())
+                        .tdsFieldNameValue("bad data")
+                        .toCellCategory(),
+
+                new CellCategoryBuilder()
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.standardError.toString())
+                        .tdsFieldNameValue("").toCellCategory()
+        }) {
+            scoreCategoryA.addCellCategory(cellCategory);
+        }
+
+        ScoreCategory scoreCategoryB = new ScoreCategory();
+        scoreCategories.add(scoreCategoryB);
+        for (CellCategory cellCategory : new CellCategory[] {
+                // Overall - ThetaScore
 				new CellCategoryBuilder()
-					.correctDataType(true)
-					.acceptableValue(true)
-					.isFieldEmpty(false)
-					.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-					.tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureOf.toString())
-					.tdsFieldNameValue("Overall").toCellCategory(),
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureOf.toString())
+                        .tdsFieldNameValue("Overall").toCellCategory(),
 
 				new CellCategoryBuilder()
-					.correctDataType(true)
-					.acceptableValue(true)
-					.isFieldEmpty(false)
-					.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-					.tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureLabel.toString())
-					.tdsFieldNameValue("ThetaScore").toCellCategory(),
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.measureLabel.toString())
+                        .tdsFieldNameValue("ThetaScore").toCellCategory(),
 
 				new CellCategoryBuilder()
-					.correctDataType(false)
-					.acceptableValue(false)
-					.isFieldEmpty(true)
-					.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-					.tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.value.toString()).tdsFieldNameValue("")
-					.toCellCategory(),
+                        .correctDataType(false)
+                        .acceptableValue(false)
+                        .isFieldEmpty(true)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.value.toString())
+                        .tdsFieldNameValue("")
+                        .toCellCategory(),
 
 				new CellCategoryBuilder()
-					.correctDataType(false)
-					.acceptableValue(false)
-					.isFieldEmpty(false)
-					.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-					.tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.standardError.toString())
-					.tdsFieldNameValue("fail").toCellCategory() };
+                        .correctDataType(false)
+                        .acceptableValue(false)
+                        .isFieldEmpty(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
+                        .tdsFieldName(TestScoreAnalysisAction.EnumScoreFieldName.standardError.toString())
+                        .tdsFieldNameValue("fail").toCellCategory()
+        }) {
+            scoreCategoryB.addCellCategory(cellCategory);
+        }
 
-		return cellCategories;
+		return scoreCategories;
 	}
 }

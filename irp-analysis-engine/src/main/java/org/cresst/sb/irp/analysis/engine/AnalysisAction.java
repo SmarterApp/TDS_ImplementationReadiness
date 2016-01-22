@@ -338,7 +338,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	public void processP_FloatAllowNulls(String inputValue, FieldCheckType fieldCheckType) {
 		try {
 			// Just the fact that it does not throw an exception means it's acceptable
-			if (!StringUtils.isBlank(inputValue)) {
+			if (StringUtils.isNotBlank(inputValue)) {
 				fieldCheckType.setFieldEmpty(false);
 				NumberUtils.createFloat(inputValue);
 			}

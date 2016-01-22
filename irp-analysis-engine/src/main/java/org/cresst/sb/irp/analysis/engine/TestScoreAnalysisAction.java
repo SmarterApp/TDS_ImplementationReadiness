@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -89,7 +91,7 @@ public class TestScoreAnalysisAction extends
 					tdsReport.getOpportunity().getScore().addAll(copyOfScores);
 
 					if (scoredTDSReport != null) {
-						logger.info("Recieved scored TDSReport");
+						logger.info("Received scored TDSReport");
 						tdsReportScoreIrpScoredScore.setScoredTDSReport(true);
 
 						if (scoredTDSReport.getOpportunity() != null)
@@ -132,13 +134,26 @@ public class TestScoreAnalysisAction extends
 		for (TDSReport.Opportunity.Score score : tdsReportScores) {
 			TDSReport.Opportunity.Score irpScore = irpScoresMap.get(score.getMeasureOf() + score.getMeasureLabel());
 			if (irpScore != null) {
-				if (!score.getValue().equals(irpScore.getValue()) || !score.getStandardError().equals(irpScore.getStandardError())) {
+
+				final boolean isScaleScore = "ScaleScore".equalsIgnoreCase(score.getMeasureLabel());
+				final boolean isThetaScore = "ThetaScore".equalsIgnoreCase(score.getMeasureLabel());
+
+				final boolean isScoreEqual = (isScaleScore || isThetaScore)
+						&& decimalScoresMatch(isScaleScore, isThetaScore,
+								score.getValue(), irpScore.getValue(),
+								score.getStandardError(), irpScore.getStandardError());
+
+				final boolean isValueEqual = score.getValue().equals(irpScore.getValue());
+
+				if (!isScoreEqual && !isValueEqual) {
 					TdsReportScoreIrpScoredScorePair notMatchPair = new TdsReportScoreIrpScoredScorePair();
 					notMatchPair.set(score, irpScore);
 					notMatchScorePairs.add(notMatchPair);
 					tdsReportScoreIrpScoredScore.setScoreMatch(false);
-				} else 
+				} else {
 					matchedScoresMap.put(score.getMeasureOf() + score.getMeasureLabel(), score);
+				}
+
 				irpScoresMap.remove(score.getMeasureOf() + score.getMeasureLabel());
 			} else {
 				extraTdsReportScoreMap.put(score.getMeasureOf() + score.getMeasureLabel(), score);
@@ -150,6 +165,36 @@ public class TestScoreAnalysisAction extends
 			missedIrpScoredMap.put(entry.getKey(), entry.getValue());
 			tdsReportScoreIrpScoredScore.setScoreMatch(false);
 		}
+	}
+
+	/**
+	 * Compares ScaleScore and ThetaScore values as floating point numbers
+	 *
+	 * @param isScaleScore Indicates if the score is a ScaleScore
+	 * @param isThetaScore Indicates if the score is a ThetaScore
+	 * @param tdsScoreString The vendor's score value
+	 * @param irpScoreString IRP's score value
+	 * @param tdsStandardErrorString The vendor's standard error
+	 * @param irpStandardErrorString IRP's standard error
+     * @return True if the scores and standard errors are nearly equal; false otherwise.
+     */
+	private static boolean decimalScoresMatch(boolean isScaleScore, boolean isThetaScore,
+											  String tdsScoreString, String irpScoreString,
+											  String tdsStandardErrorString, String irpStandardErrorString) {
+
+		final float scaleScoreEpsilon = 0.1f;
+		final float thetaScoreEpsilon = 0.01f;
+		final float standardErrorEpsilon = 0.01f;
+
+		final float tdsScoreValue = NumberUtils.toFloat(tdsScoreString);
+		final float irpScoreValue = NumberUtils.toFloat(irpScoreString);
+
+		final float tdsStandardError = NumberUtils.toFloat(tdsStandardErrorString);
+		final float irpStandardError = NumberUtils.toFloat(irpStandardErrorString);
+
+		return (isScaleScore && nearlyEqual(tdsScoreValue, irpScoreValue, scaleScoreEpsilon))
+				|| (isThetaScore && nearlyEqual(tdsScoreValue, irpScoreValue, thetaScoreEpsilon))
+				&& nearlyEqual(tdsStandardError, irpStandardError, standardErrorEpsilon);
 	}
 
 	private List<TDSReport.Opportunity.Score> copyScores(List<TDSReport.Opportunity.Score> originalScores) {
@@ -189,9 +234,27 @@ public class TestScoreAnalysisAction extends
 			break;
 		case value:
 			processP_PritableASCIIone(score.getValue(), fieldCheckType);
+
+			if (fieldCheckType.isCorrectDataType()
+					&& fieldCheckType.isAcceptableValue()
+					&& "Overall".equalsIgnoreCase(score.getMeasureOf())
+					&& "Attempted".equalsIgnoreCase(score.getMeasureLabel())) {
+
+				String value = score.getValue();
+				fieldCheckType.setAcceptableValue("Y".equalsIgnoreCase(value) || "N".equalsIgnoreCase(value));
+			}
 			break;
 		case standardError:
 			processP_FloatAllowNulls(score.getStandardError(), fieldCheckType);
+
+			if (fieldCheckType.isCorrectDataType()
+				&& fieldCheckType.isAcceptableValue()
+				&& ("ScaleScore".equalsIgnoreCase(score.getMeasureLabel())
+					|| "ThetaScore".equalsIgnoreCase(score.getMeasureLabel()))
+				&& StringUtils.isBlank(score.getStandardError())) {
+
+				fieldCheckType.setAcceptableValue(false);
+			}
 			break;
 		default:
 			break;
@@ -211,6 +274,30 @@ public class TestScoreAnalysisAction extends
 	@Override
 	protected void checkC(TDSReport.Opportunity.Score score, EnumScoreFieldName enumFieldName, FieldCheckType fieldCheckType,
 			Object comparisonData) {
+	}
 
+	/**
+	 * Compare two floats
+	 * http://floating-point-gui.de/errors/comparison/
+	 *
+	 * @param a Float value to compare
+	 * @param b Float value to compare
+	 * @param epsilon Tolerance
+     * @return
+     */
+	public static boolean nearlyEqual(float a, float b, float epsilon) {
+		final float absA = Math.abs(a);
+		final float absB = Math.abs(b);
+		final float diff = Math.abs(a - b);
+
+		if (a == b) { // shortcut, handles infinities
+			return true;
+		} else if (a == 0 || b == 0 || diff < Float.MIN_NORMAL) {
+			// a or b is zero or both are extremely close to it
+			// relative error is less meaningful here
+			return diff < (epsilon * Float.MIN_NORMAL);
+		} else { // use relative error
+			return diff / Math.min((absA + absB), Float.MAX_VALUE) < epsilon;
+		}
 	}
 }
