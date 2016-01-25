@@ -13,7 +13,6 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import tds.itemscoringengine.ScoringStatus;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package org.cresst.sb.irp.itemscoring.rubric;
 
 import com.google.common.io.CharStreams;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

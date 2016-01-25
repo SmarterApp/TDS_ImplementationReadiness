@@ -1,29 +1,19 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.accommodation.Accommodation;
-import org.cresst.sb.irp.domain.analysis.Category;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.analysis.ItemCategory;
+import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.student.Student;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.cresst.sb.irp.exceptions.NotFoundException;
-import org.cresst.sb.irp.service.AccommodationService;
-import org.cresst.sb.irp.service.ItemService;
-import org.cresst.sb.irp.service.StudentService;
-import org.cresst.sb.irp.service.TDSReportService;
-import org.cresst.sb.irp.service.TestPackageService;
-import org.cresst.sb.irp.service.TestStudentMappingService;
+import org.cresst.sb.irp.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.google.common.collect.ImmutableList;
 
 import java.text.Collator;
 import java.util.Collections;

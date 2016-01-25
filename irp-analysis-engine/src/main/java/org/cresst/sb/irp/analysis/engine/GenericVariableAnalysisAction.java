@@ -1,8 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.GenericVariableCategory;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -12,6 +9,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.GenericVariable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class GenericVariableAnalysisAction extends
