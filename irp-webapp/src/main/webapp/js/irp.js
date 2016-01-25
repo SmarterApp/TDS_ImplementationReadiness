@@ -3,6 +3,7 @@
         created: function() {
             this.response = {};
         },
+
         status: function (input) {
             if (!input) {
                 return "";
@@ -18,8 +19,8 @@
             }
 
             return valid ? "No Errors" : "Errors Found";
-        }
-        ,
+        },
+
         explanation: function (input) {
             if (!input) {
                 return "";
@@ -38,21 +39,23 @@
             }
 
             return reasons.join();
-        }
-        ,
+        },
+
         oddOrEvenClass: function (index) {
             return index % 2 == 0 ? 'even' : 'odd';
-        }
-        ,
-        itemStatus: function (item) {
-            return (item.status == 'FOUND' && item.itemFormatCorrect) ? "Match" : "Errors Found";
+        },
 
-        }
-        ,
+        itemStatus: function (item) {
+            return (item.status == 'FOUND' && item.itemFormatCorrect)
+                ? "Match"
+                : (item.status == 'NOTUSED' ? "CAT Item" : "Errors Found");
+
+        },
+
         itemFound: function (item) {
             return item.status == 'FOUND';
-        }
-        ,
+        },
+
         itemExplanation: function (item) {
             if (item.status == 'FOUND' && item.itemFormatCorrect) {
                 return 'This Item matches a given IRP Item. The detailed analysis follows.';
@@ -66,7 +69,14 @@
             if (item.status == 'EXTRA') {
                 return 'This Item is unknown to IRP or a duplicate of an existing.';
             }
+            if (item.status == 'NOTUSED') {
+                return 'This is a CAT Item that was not served to the student.';
+            }
             return '';
+        },
+
+        getKeys: function(o){
+            return o ? Object.keys(o) : [];
         }
     };
 }());

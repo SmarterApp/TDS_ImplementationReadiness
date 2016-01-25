@@ -142,6 +142,14 @@
         tr.border_bottom td {
             border-bottom:1pt solid black;
         }
+
+        .print {
+            page-break-after: always;
+        }
+
+        .print:last-child {
+            page-break-after: auto;
+        }
     </style>
 </head>
 <body>
@@ -172,14 +180,129 @@
     <th:block th:each="response : ${responses.individualResponses}">
         <table>
             <tr>
-                <td>Filename</td>
+                <td>Filename:</td>
                 <td th:text="${response.fileName}"></td>
             </tr>
             <tr>
-                <td>XML Valid</td>
+                <td>XML Valid:</td>
                 <td th:text="${response.validXMLfile}"></td>
             </tr>
         </table>
+
+        <h3 align="center">Test Scoring Analysis</h3>
+        <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
+            <div th:if="${!scoreInfo.scoredTDSReport}" style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+                There was an internal server error that prevented validation of Test Scoring.
+            </div>
+
+            <div th:if="${!scoreInfo.scoreMatch && scoreInfo.scoredTDSReport}" style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+                Not all of the Measures matched those computed by IRP. Please see the analysis below.
+            </div>
+        </th:block>
+
+        <h4 align="center">Measures that match IRP's computed Measures</h4>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:with="matchedScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap}">
+                <tr th:each="score : ${matchedScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+                    <td th:text="${score.value.measureOf}"></td>
+                    <td th:text="${score.value.measureLabel}"></td>
+                    <td th:text="${score.value.value}"></td>
+                    <td th:text="${score.value.standardError}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <h4 align="center" style="margin-bottom:0px;">Measures that did not match IRP's computed Measures</h4>
+        <p style="text-align: center;">(The measure's value and/or standard error did not match what IRP computed)</p>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="nonMatchedPairs : ${response.opportunityCategory.tdsReportScoreIrpScoredScore.notMatchPairs}">
+                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
+                    <td style="font-size:small;font-weight:bold">TDS Report's Measure:</td>
+                    <td th:text="${nonMatchedPairs.tdsReportScore.measureOf}"></td>
+                    <td th:text="${nonMatchedPairs.tdsReportScore.measureLabel}"></td>
+                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.value}"></td>
+                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.standardError}"></td>
+                </tr>
+                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
+                    <td style="font-size:small;font-weight:bold">IRP's Computed Measure:</td>
+                    <td th:text="${nonMatchedPairs.irpScoredScore.measureOf}"></td>
+                    <td th:text="${nonMatchedPairs.irpScoredScore.measureLabel}"></td>
+                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.value}"></td>
+                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.standardError}"></td>
+                </tr>
+            </th:block>
+            <tr th:if="${response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch}">
+                <td colspan="5" style="font-size:large;font-weight: bold">All measures matched IRP's computed measures.</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4 align="center" style="margin-bottom:0px;">Expected Measures that are missing from the TDSReport</h4>
+        <p style="text-align: center;">(IRP expected to see these measures in the TDSReport but did not find them)</p>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:with="missingScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap}">
+                <tr th:each="score : ${missingScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+                    <td th:text="${score.value.measureOf}"></td>
+                    <td th:text="${score.value.measureLabel}"></td>
+                    <td th:text="${score.value.value}"></td>
+                    <td th:text="${score.value.standardError}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <h4 align="center">Extra Measures that were found in the TDSReport that IRP did not compute</h4>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:with="extraScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap}">
+                <tr th:each="score : ${extraScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+                    <td th:text="${score.value.measureOf}"></td>
+                    <td th:text="${score.value.measureLabel}"></td>
+                    <td th:text="${score.value.value}"></td>
+                    <td th:text="${score.value.standardError}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <h3 align="center">TDS Report Analysis</h3>
     <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
         <thead>
             <tr>
@@ -322,13 +445,15 @@
                             <td th:text="${helper.status(cell.fieldCheckType)}"></td>
                             <td th:text="${helper.explanation(cell.fieldCheckType)}"></td>
                         </tr>
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo ScoreRationale: message</td>
-                            <td></td>
-                            <td th:text="${si.scoreRationaleCategory.message}"></td>
-                            <td th:text="${helper.status(si.scoreRationaleCategory.messageFieldCheckType)}"></td>
-                            <td th:text="${helper.explanation(si.scoreRationaleCategory.messageFieldCheckType)}"></td>
-                        </tr>
+                        <th:block th:with="sr=${si.scoreRationaleCategory}">
+                            <tr class="opportunityItem" th:each="cell : ${sr.cellCategories}">
+                                <td>Opportunity Item ScoreInfo ScoreRational: {{cell.tdsFieldName}}</td>
+                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{cell.fieldCheckType | status}}</td>
+                                <td>{{cell.fieldCheckType | explanation}}</td>
+                            </tr>
+                        </th:block>
                     </th:block>
 
                 </th:block>
@@ -372,7 +497,8 @@
             </th:block>
         </tbody>
     </table>
-        <div style="page-break-before:always">&nbsp;</div>
+
+        <div class="print">&nbsp;</div>
     </th:block>
 </body>
 </html>

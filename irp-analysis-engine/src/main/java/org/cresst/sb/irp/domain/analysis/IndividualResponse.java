@@ -15,7 +15,7 @@ public class IndividualResponse {
     private boolean isValidTestName; //<Test name="xxx" > contains the name does not match an IRP Test Package in irp-package/TestPackages
     private boolean isValidExaminee; //combination of <Test name="xxx" and <Esaminee key="xxxx">
     private boolean isCAT; // is CAT test or not
-    private boolean hasValidScoring;
+    private boolean isValidScoring;
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
     private boolean isCombo; //Combined test or not
@@ -68,12 +68,12 @@ public class IndividualResponse {
 		this.isValidExaminee = isValidExaminee;
 	}
 
-    public boolean hasValidScoring() {
-        return hasValidScoring;
+    public boolean isValidScoring() {
+        return isValidScoring;
     }
 
-    public void setHasValidScoring(boolean hasValidScoring) {
-        this.hasValidScoring = hasValidScoring;
+    public void setValidScoring(boolean validScoring) {
+        this.isValidScoring = validScoring;
     }
 
     public boolean isCAT() {
@@ -167,7 +167,7 @@ public class IndividualResponse {
                 .append("isValidXMLfile", isValidXMLfile)
                 .append("isValidTestName", isValidTestName)
                 .append("isValidExaminee", isValidExaminee)
-                .append("hasValidScoring", hasValidScoring)
+                .append("isValidScoring", isValidScoring)
                 .append("isCAT", isCAT)
                 .append("tdsReport", tdsReport)
                 .append("status", status)
@@ -190,7 +190,7 @@ public class IndividualResponse {
         return Objects.equals(isValidXMLfile, that.isValidXMLfile) &&
         		Objects.equals(isValidTestName, that.isValidTestName) &&
         		Objects.equals(isValidExaminee, that.isValidExaminee) &&
-                Objects.equals(hasValidScoring, that.hasValidScoring) &&
+                Objects.equals(isValidScoring, that.isValidScoring) &&
         		Objects.equals(isCAT,  this.isCAT) &&
                 Objects.equals(fileName, that.fileName) &&
                 Objects.equals(tdsReport, that.tdsReport) &&
@@ -211,7 +211,7 @@ public class IndividualResponse {
                 isValidXMLfile,
                 isValidTestName,
                 isValidExaminee,
-                hasValidScoring,
+                isValidScoring,
                 isCAT,
                 tdsReport,
                 status,

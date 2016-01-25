@@ -63,7 +63,7 @@ public class OpItemsData {
 		return isMinopitems;
 	}
 
-	public void setMinopitems(boolean isMinopitems) {
+	public void seIsMinopitems(boolean isMinopitems) {
 		this.isMinopitems = isMinopitems;
 	}
 
@@ -71,7 +71,7 @@ public class OpItemsData {
 		return isMaxopitems;
 	}
 
-	public void setMaxopitems(boolean isMaxopitems) {
+	public void setIsMaxopitems(boolean isMaxopitems) {
 		this.isMaxopitems = isMaxopitems;
 	}
 

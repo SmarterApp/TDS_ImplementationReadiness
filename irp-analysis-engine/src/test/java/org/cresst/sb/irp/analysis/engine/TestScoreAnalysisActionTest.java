@@ -14,13 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
@@ -48,7 +44,7 @@ public class TestScoreAnalysisActionTest {
 
         underTest.analyze(individualResponse);
 
-        assertFalse(individualResponse.hasValidScoring());
+        assertFalse(individualResponse.isValidScoring());
     }
 
     @Test
@@ -99,7 +95,7 @@ public class TestScoreAnalysisActionTest {
             scoreCategory.addCellCategory(cellCategory);
         }
 
-        assertTrue(individualResponse.hasValidScoring());
+        assertTrue(individualResponse.isValidScoring());
         assertArrayEquals(scoreCategories.toArray(), individualResponse.getOpportunityCategory().getScoreCategories().toArray());
     }
 
@@ -123,7 +119,7 @@ public class TestScoreAnalysisActionTest {
 
         List<ScoreCategory> scoreCategories = createInvalidCellCategories();
 
-        assertFalse(individualResponse.hasValidScoring());
+        assertFalse(individualResponse.isValidScoring());
         assertArrayEquals(scoreCategories.toArray(), individualResponse.getOpportunityCategory().getScoreCategories().toArray());
     }
 
@@ -173,7 +169,7 @@ public class TestScoreAnalysisActionTest {
         	.missedIrpScoredScoreMap(new HashMap<String, TDSReport.Opportunity.Score>())
         	.notMatchPairs(new ArrayList<TdsReportScoreIrpScoredScorePair>())
         	.toTdsReportScoreIrpScoredScore();
-        assertTrue(individualResponse.hasValidScoring());
+        assertTrue(individualResponse.isValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoreMatch());
         assertArrayEquals(actualTdsMatchedScoreMap.keySet().toArray(), matchedScoresMap.keySet().toArray());
@@ -233,13 +229,13 @@ public class TestScoreAnalysisActionTest {
     	Map<String, TDSReport.Opportunity.Score> actualMissedIrpScoredScoreMap = actualTdsReportScoreIrpScoredScore.getMissedIrpScoredScoreMap();
     	List<TdsReportScoreIrpScoredScorePair> actualTdsReportScoreIrpScoredScorePairs = actualTdsReportScoreIrpScoredScore.getNotMatchPairs();
     	
-        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new HashMap<>();
+        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new TreeMap<>();
         matchedScoresMap.put("OverallAttempted", (new ScoreBuilder().measureOf("Overall").measureLabel("Attempted").value("Y").standardError("").toScore()));
         matchedScoresMap.put("OverallThetaScore", (new ScoreBuilder().measureOf("Overall").measureLabel("ThetaScore").value("-0.14785630410943").standardError("0.457791032400169").toScore()));
         matchedScoresMap.put("1ThetaScore", (new ScoreBuilder().measureOf("1").measureLabel("ThetaScore").value("1.3335").standardError("0.831048294559457").toScore()));
         matchedScoresMap.put("SOCK_2ThetaScore", (new ScoreBuilder().measureOf("SOCK_2").measureLabel("ThetaScore").value("-1.2370123601497").standardError("0.608838178456256").toScore()));
         
-        Map<String, TDSReport.Opportunity.Score> extraScoresMap = new HashMap<>();
+        Map<String, TDSReport.Opportunity.Score> extraScoresMap = new TreeMap<>();
         extraScoresMap.put("ExtraThetaScore", (new ScoreBuilder().measureOf("Extra").measureLabel("ThetaScore").value("-8.88").standardError("0.99").toScore()));
         
         TdsReportScoreIrpScoredScore expectedTdsReportScoreIrpScoredScore = new TdsReportScoreIrpScoredScoreBuilder()
@@ -251,7 +247,7 @@ public class TestScoreAnalysisActionTest {
         	.notMatchPairs(new ArrayList<TdsReportScoreIrpScoredScorePair>())
         	.toTdsReportScoreIrpScoredScore();
     	
-        assertTrue(individualResponse.hasValidScoring());
+        assertTrue(individualResponse.isValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
         assertArrayEquals(matchedScoresMap.keySet().toArray(), actualTdsMatchedScoreMap.keySet().toArray());
@@ -310,7 +306,7 @@ public class TestScoreAnalysisActionTest {
     	Map<String, TDSReport.Opportunity.Score> actualMissedIrpScoredScoreMap = actualTdsReportScoreIrpScoredScore.getMissedIrpScoredScoreMap();
     	List<TdsReportScoreIrpScoredScorePair> actualTdsReportScoreIrpScoredScorePairs = actualTdsReportScoreIrpScoredScore.getNotMatchPairs();
     	
-        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new HashMap<>();
+        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new TreeMap<>();
         matchedScoresMap.put("OverallAttempted", (new ScoreBuilder().measureOf("Overall").measureLabel("Attempted").value("Y").standardError("").toScore()));
         matchedScoresMap.put("OverallThetaScore", (new ScoreBuilder().measureOf("Overall").measureLabel("ThetaScore").value("-0.14785630410943").standardError("0.457791032400169").toScore()));
         matchedScoresMap.put("SOCK_2ThetaScore", (new ScoreBuilder().measureOf("SOCK_2").measureLabel("ThetaScore").value("-1.2370123601497").standardError("0.608838178456256").toScore()));
@@ -327,7 +323,7 @@ public class TestScoreAnalysisActionTest {
         	.notMatchPairs(new ArrayList<TdsReportScoreIrpScoredScorePair>())
         	.toTdsReportScoreIrpScoredScore();
     	
-        assertTrue(individualResponse.hasValidScoring());
+        assertTrue(individualResponse.isValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
         assertArrayEquals(matchedScoresMap.keySet().toArray(), actualTdsMatchedScoreMap.keySet().toArray());
@@ -388,7 +384,7 @@ public class TestScoreAnalysisActionTest {
     	Map<String, TDSReport.Opportunity.Score> actualMissedIrpScoredScoreMap = actualTdsReportScoreIrpScoredScore.getMissedIrpScoredScoreMap();
     	List<TdsReportScoreIrpScoredScorePair> actualTdsReportScoreIrpScoredScorePairs = actualTdsReportScoreIrpScoredScore.getNotMatchPairs();
     	
-        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new HashMap<>();
+        Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new TreeMap<>();
         matchedScoresMap.put("OverallAttempted", (new ScoreBuilder().measureOf("Overall").measureLabel("Attempted").value("Y").standardError("").toScore()));
         matchedScoresMap.put("1ThetaScore", (new ScoreBuilder().measureOf("1").measureLabel("ThetaScore").value("1.3335").standardError("0.831048294559457").toScore()));
         matchedScoresMap.put("SOCK_2ThetaScore", (new ScoreBuilder().measureOf("SOCK_2").measureLabel("ThetaScore").value("-1.2370123601497").standardError("0.608838178456256").toScore()));
@@ -408,7 +404,7 @@ public class TestScoreAnalysisActionTest {
         	.notMatchPairs(notMatchPairs)
         	.toTdsReportScoreIrpScoredScore();
     	
-        assertTrue(individualResponse.hasValidScoring());
+        assertTrue(individualResponse.isValidScoring());
         assertTrue(actualTdsReportScoreIrpScoredScore.isScoredTDSReport());
         assertFalse(actualTdsReportScoreIrpScoredScore.isScoreMatch());
         assertThat(actualTdsMatchedScoreMap.size(), is(3));

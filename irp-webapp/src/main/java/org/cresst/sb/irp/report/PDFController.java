@@ -50,7 +50,7 @@ public class PDFController {
             String htmlReport = templateEngine.process("htmlreport", context);
 
             response.setContentType("application/x-download");
-            response.setHeader("Content-Disposition", "attachment; filename=report.pdf");
+            response.setHeader("Content-Disposition", "attachment; filename=irp-report.pdf");
 
             Document document = new Document();
             PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
@@ -102,7 +102,9 @@ public class PDFController {
         }
 
         public String itemStatus(ItemCategory item) {
-            return (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) ? "Match" : "Errors Found";
+            return (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect())
+                    ? "Match"
+                    : (item.getStatus() == ItemCategory.ItemStatusEnum.NOTUSED ? "CAT Item" : "Errors Found");
         }
 
         public boolean itemFound(ItemCategory item) {
@@ -114,6 +116,7 @@ public class PDFController {
             if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && !item.isItemFormatCorrect()) { return "The Item's format is incorrect"; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.MISSING) { return "This IRP Item is missing from the TDS Report."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is unknown to IRP or a duplicate of an existing."; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.NOTUSED) { return "This is a CAT Item that was not served to the student."; }
             return "";
         }
     }

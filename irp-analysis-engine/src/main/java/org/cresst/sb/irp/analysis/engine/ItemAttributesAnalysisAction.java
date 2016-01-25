@@ -9,13 +9,7 @@ import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
-import org.cresst.sb.irp.domain.testpackage.Administration;
-import org.cresst.sb.irp.domain.testpackage.Bpelement;
-import org.cresst.sb.irp.domain.testpackage.Identifier;
-import org.cresst.sb.irp.domain.testpackage.Itempool;
-import org.cresst.sb.irp.domain.testpackage.Testblueprint;
-import org.cresst.sb.irp.domain.testpackage.Testitem;
-import org.cresst.sb.irp.domain.testpackage.Testspecification;
+import org.cresst.sb.irp.domain.testpackage.*;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -141,9 +135,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			opportunityCategory.setOpItemsData(opItemsData);
 			
 			if ((opItemsData.getCatItems() + opItemsData.getPerfItems()) >= opItemsData.getMinopitems())
-				opItemsData.setMinopitems(true);
+				opItemsData.seIsMinopitems(true);
 			if ((opItemsData.getCatItems() + opItemsData.getPerfItems()) <= opItemsData.getMaxopitems())
-				opItemsData.setMaxopitems(true);
+				opItemsData.setIsMaxopitems(true);
 		} catch (Exception ex) {
 			logger.error("Analyze exception", ex);
 		}

@@ -37,12 +37,12 @@ public class OpItemsDataBuilder {
 	}
 
 	public OpItemsDataBuilder isMinopitems(boolean isMinopitems) {
-		opItemsData.setMinopitems(isMinopitems);
+		opItemsData.seIsMinopitems(isMinopitems);
 		return this;
 	}
 
 	public OpItemsDataBuilder isMaxopitems(boolean isMaxopitems) {
-		opItemsData.setMaxopitems(isMaxopitems);
+		opItemsData.setIsMaxopitems(isMaxopitems);
 		return this;
 	}
 

@@ -171,13 +171,15 @@
                                     </tr>
                                 </template>
                                 <template bind="{{si.scoreRationaleCategory as sr}}">
-                                    <tr class="opportunityItem">
-                                        <td>Opportunity Item ScoreInfo ScoreRational: message</td>
-                                        <td></td>
-                                        <td>{{sr.message}}</td>
-                                        <td>{{sr.messageFieldCheckType | status}}</td>
-                                        <td>{{sr.messageFieldCheckType | explanation}}</td>
-                                    </tr>
+                                    <template repeat="{{cell in sr.cellCategories}}">
+                                        <tr class="opportunityItem">
+                                            <td>Opportunity Item ScoreInfo ScoreRational: {{cell.tdsFieldName}}</td>
+                                            <td>{{cell.tdsExpectedValue}}</td>
+                                            <td>{{cell.tdsFieldNameValue}}</td>
+                                            <td>{{cell.fieldCheckType | status}}</td>
+                                            <td>{{cell.fieldCheckType | explanation}}</td>
+                                        </tr>
+                                    </template>
                                 </template>
                             </template>
                         </template>

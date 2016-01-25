@@ -1,14 +1,8 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import com.google.common.primitives.Floats;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.cresst.sb.irp.domain.analysis.CellCategory;
-import org.cresst.sb.irp.domain.analysis.FieldCheckType;
-import org.cresst.sb.irp.domain.analysis.IndividualResponse;
-import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
-import org.cresst.sb.irp.domain.analysis.ScoreCategory;
-import org.cresst.sb.irp.domain.analysis.TdsReportScoreIrpScoredScore;
-import org.cresst.sb.irp.domain.analysis.TdsReportScoreIrpScoredScorePair;
+import org.cresst.sb.irp.domain.analysis.*;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.testscoring.ITestScorer;
 import org.slf4j.Logger;
@@ -55,7 +49,7 @@ public class TestScoreAnalysisAction extends
 				TdsReportScoreIrpScoredScore tdsReportScoreIrpScoredScore = opportunityCategory.getTdsReportScoreIrpScoredScore();
 				opportunityCategory.setScoreCategories(scoreCategories);
 
-				individualResponse.setHasValidScoring(true);
+				individualResponse.setValidScoring(true);
 
 				for (TDSReport.Opportunity.Score score : scores) {
 					ScoreCategory scoreCategory = new ScoreCategory();
@@ -72,34 +66,31 @@ public class TestScoreAnalysisAction extends
 
 					for (CellCategory cellCategory : scoreCategory.getCellCategories()) {
 						if (!cellCategory.getFieldCheckType().isAcceptableValue()) {
-							individualResponse.setHasValidScoring(false);
+							individualResponse.setValidScoring(false);
 						}
 					}
 				}
 
-				if (individualResponse.hasValidScoring()) {
-					// If all of them are valid then
-					// Construct a TDSReport without scoring information
-					TDSReport tdsReport = individualResponse.getTDSReport();
-					List<TDSReport.Opportunity.Score> copyOfScores = copyScores(tdsReport.getOpportunity().getScore());
-					tdsReport.getOpportunity().getScore().clear();
+				// If all of them are valid then
+				// Construct a TDSReport without scoring information
+				TDSReport tdsReport = individualResponse.getTDSReport();
+				List<TDSReport.Opportunity.Score> copyOfScores = copyScores(tdsReport.getOpportunity().getScore());
+				tdsReport.getOpportunity().getScore().clear();
 
-					// Submit the TDSReport without scoring information to TIS and receive the response
-					TDSReport scoredTDSReport = tisScorer.scoreTDSReport(tdsReport);
+				// Submit the TDSReport without scoring information to TIS and receive the response
+				TDSReport scoredTDSReport = tisScorer.scoreTDSReport(tdsReport);
 
-					// Put the scores back
-					tdsReport.getOpportunity().getScore().addAll(copyOfScores);
+				// Put the scores back
+				tdsReport.getOpportunity().getScore().addAll(copyOfScores);
 
-					if (scoredTDSReport != null) {
-						logger.info("Received scored TDSReport");
-						tdsReportScoreIrpScoredScore.setScoredTDSReport(true);
+				if (scoredTDSReport != null) {
+					logger.info("Received scored TDSReport");
+					tdsReportScoreIrpScoredScore.setScoredTDSReport(true);
 
-						if (scoredTDSReport.getOpportunity() != null)
-							// Verify TIS scores matches TDSReport scores
-							scoresMatch(tdsReport.getOpportunity().getScore(), scoredTDSReport.getOpportunity().getScore(),
-								tdsReportScoreIrpScoredScore);
-					}
-				
+					if (scoredTDSReport.getOpportunity() != null)
+						// Verify TIS scores matches TDSReport scores
+						scoresMatch(tdsReport.getOpportunity().getScore(), scoredTDSReport.getOpportunity().getScore(),
+							tdsReportScoreIrpScoredScore);
 				}
 			}
 		} catch (Exception e) {
@@ -186,11 +177,11 @@ public class TestScoreAnalysisAction extends
 		final float thetaScoreEpsilon = 0.01f;
 		final float standardErrorEpsilon = 0.01f;
 
-		final float tdsScoreValue = NumberUtils.toFloat(tdsScoreString);
-		final float irpScoreValue = NumberUtils.toFloat(irpScoreString);
+		final Float tdsScoreValue = Floats.tryParse(tdsScoreString);
+		final Float irpScoreValue = Floats.tryParse(irpScoreString);
 
-		final float tdsStandardError = NumberUtils.toFloat(tdsStandardErrorString);
-		final float irpStandardError = NumberUtils.toFloat(irpStandardErrorString);
+		final Float tdsStandardError = Floats.tryParse(tdsStandardErrorString);
+		final Float irpStandardError = Floats.tryParse(irpStandardErrorString);
 
 		return (isScaleScore && nearlyEqual(tdsScoreValue, irpScoreValue, scaleScoreEpsilon))
 				|| (isThetaScore && nearlyEqual(tdsScoreValue, irpScoreValue, thetaScoreEpsilon))
@@ -243,6 +234,19 @@ public class TestScoreAnalysisAction extends
 				String value = score.getValue();
 				fieldCheckType.setAcceptableValue("Y".equalsIgnoreCase(value) || "N".equalsIgnoreCase(value));
 			}
+
+			// These measures are floating point numbers
+			if (fieldCheckType.isCorrectDataType()
+					&& fieldCheckType.isAcceptableValue()
+					&& ("ScaleScore".equalsIgnoreCase(score.getMeasureLabel())
+						|| "ThetaScore".equalsIgnoreCase(score.getMeasureLabel()))) {
+
+				if (StringUtils.isBlank(score.getValue())
+						|| Floats.tryParse(score.getValue()) == null) {
+					fieldCheckType.setCorrectDataType(false);
+					fieldCheckType.setAcceptableValue(false);
+				}
+			}
 			break;
 		case standardError:
 			processP_FloatAllowNulls(score.getStandardError(), fieldCheckType);
@@ -283,21 +287,18 @@ public class TestScoreAnalysisAction extends
 	 * @param a Float value to compare
 	 * @param b Float value to compare
 	 * @param epsilon Tolerance
-     * @return
+     * @return Returns true if a falls within [b - epsilon, b + epsilon]
      */
-	public static boolean nearlyEqual(float a, float b, float epsilon) {
-		final float absA = Math.abs(a);
-		final float absB = Math.abs(b);
-		final float diff = Math.abs(a - b);
+	public static boolean nearlyEqual(Float a, Float b, float epsilon) {
 
-		if (a == b) { // shortcut, handles infinities
-			return true;
-		} else if (a == 0 || b == 0 || diff < Float.MIN_NORMAL) {
-			// a or b is zero or both are extremely close to it
-			// relative error is less meaningful here
-			return diff < (epsilon * Float.MIN_NORMAL);
-		} else { // use relative error
-			return diff / Math.min((absA + absB), Float.MAX_VALUE) < epsilon;
+		if (a == null || b == null) {
+			return false;
 		}
+
+		if (a == b) { // shortcut
+			return true;
+		}
+
+		return b - epsilon <= a && a <= b + epsilon;
 	}
 }

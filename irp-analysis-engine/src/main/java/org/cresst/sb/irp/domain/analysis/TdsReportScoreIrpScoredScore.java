@@ -1,21 +1,17 @@
 package org.cresst.sb.irp.domain.analysis;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
+
+import java.util.*;
 
 public class TdsReportScoreIrpScoredScore {
 
 	private boolean isScoredTDSReport; // false - tisScorer.scoreTDSReport(tdsReport) return null
 	private boolean isScoreMatch; // Verify TIS scores matches TDSReport scores
 
-	private Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new HashMap<>();
-	private Map<String, TDSReport.Opportunity.Score> extraTdsReportScoreMap = new HashMap<>();
-	private Map<String, TDSReport.Opportunity.Score> missedIrpScoredScoreMap = new HashMap<>();
+	private Map<String, TDSReport.Opportunity.Score> matchedScoresMap = new TreeMap<>();
+	private Map<String, TDSReport.Opportunity.Score> extraTdsReportScoreMap = new TreeMap<>();
+	private Map<String, TDSReport.Opportunity.Score> missedIrpScoredScoreMap = new TreeMap<>();
 
 	private List<TdsReportScoreIrpScoredScorePair> notMatchPairs = new ArrayList<>(); // same key but score not match
 
