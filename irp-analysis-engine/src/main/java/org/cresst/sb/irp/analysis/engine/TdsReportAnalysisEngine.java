@@ -13,7 +13,6 @@ import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.stream.StreamSource;
-
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -107,6 +106,8 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 							toolUsageAnalysisAction.analyze(individualResponse);
 						}
 					}
+
+					individualResponse.setTDSReport(null);
 				}
 			} catch (IOException e) {
 				logger.error("analyze exception: ", e);
