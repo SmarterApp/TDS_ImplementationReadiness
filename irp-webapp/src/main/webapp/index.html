@@ -1,17 +1,188 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
     <title>Implementation Readiness Package</title>
-    <script src="deps/webcomponentsjs/webcomponents.min.js"></script>
-    <link rel="import" href="irp-scaffold.html">
+
     <style>
-        body {
-            font-family: sans-serif;
+        #logo {
+            padding-bottom: 5px;
+            margin-right: 10px;
+        }
+
+        small {
+            font-size: xx-small;
+        }
+
+        .version {
+            font-size: .5em;
+        }
+
+        .uploader {
+            margin-left: 25px;
+            margin-bottom: 5px;
+        }
+
+        #instructions li {
+            margin-bottom: 5px;
+        }
+
+        .vendorName {
+            margin-bottom: 10px;
+        }
+
+        #vendor-name-info {
+            border-bottom: black dotted 1px;
+            text-decoration: none;
+            cursor: help;
+            font-family: serif;
+        }
+
+        .vendor-tooltip {
+            display: inline-block;
+        }
+
+        .vendor-tooltip:hover .vendor-tooltip-inner {
+            display: block;
+        }
+
+        .vendor-tooltip-inner {
+            display: none; /* NEW */
+            background: lightyellow;
+            margin-left: 28px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1000;
+            width: 250px;
+            height: 100px;
+            border: 1px black solid;
         }
     </style>
+
+    <script src="deps/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <link rel="import" type="css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="import" href="deps/iron-flex-layout/iron-flex-layout.html">
+
+    <link rel="import" href="elements/elements.html">
+    <link rel="import" href="irp-version.html">
+    <style is="custom-style" include="shared-styles"></style>
 </head>
-<body fullbleed unresolved>
-    <irp-scaffold></irp-scaffold>
+<body unresolved>
+    <span id="browser-sync-binding"></span>
+    <template is="dom-bind" id="app">
+
+        <paper-drawer-panel id="paperDrawerPanel">
+            <!-- Drawer Scroll Header Panel -->
+            <paper-scroll-header-panel drawer fixed>
+
+                <!-- Drawer Toolbar -->
+                <paper-toolbar id="drawerToolbar">
+                    <span class="menu-name">Menu</span>
+                </paper-toolbar>
+
+                <!-- Drawer Content -->
+                <paper-menu attr-for-selected="data-route" selected="[[route]]">
+                    <a data-route="home" href="[[baseUrl]]">
+                        <iron-icon icon="home"></iron-icon>
+                        <span>Home</span>
+                    </a>
+
+                    <template is="dom-repeat" items="{{responses.individualResponses}}" as="response"
+                              id="tmplIndividualResponses">
+                        <a data-route="report" href="[[computeResponseUrl(index)]]">
+                            <iron-icon icon="thumb-up"></iron-icon>
+                            <span>[[response.fileName]]</span>
+                        </a>
+                    </template>
+
+                </paper-menu>
+
+            </paper-scroll-header-panel>
+
+            <!-- Main Area -->
+            <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+
+                <!-- Main Toolbar -->
+                <paper-toolbar id="mainToolbar" class="tall">
+                    <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+                    <span class="space"></span>
+
+                    <div class="middle middle-container">
+                        <div class="app-name">
+                            <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" align="left">
+                            <span>Implementation Readiness Package</span><br>
+                            <span class="version">version: <irp-version></irp-version></span>
+                        </div>
+                    </div>
+
+                    <div class="bottom bottom-container">
+                        <div class="bottom-title">[[response.fileName]]</div>
+                    </div>
+                </paper-toolbar>
+
+                <!-- Main Content -->
+                <div class="content">
+
+                    <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                        <section data-route="home">
+                            <paper-material elevation="1">
+                                <div>
+                                    <ul id="instructions">
+                                        <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
+                                            IRP package</a> and read the Implementation Readiness Package Usage Guide
+                                            (PDF).
+                                        </li>
+                                        <li>Step 2: Load data from the IRP package into your system and take tests as
+                                            instructed in the Usage Guide (PDF).
+                                        </li>
+                                        <li>Step 3: Upload the TDSReport XML file(s) for each result to IRP. Only a single
+                                            XML or ZIP containing multiple XML documents are accepted.
+                                        </li>
+                                        <li>Step 4: After the TDSReport XML file(s) have been analyzed, use the menu on the left
+                                            to see the results for each individual TDSReport XML submitted.
+                                        </li>
+                                    </ul>
+
+                                    <div class="uploader">
+                                        <form id="fileUploader" is="ajax-form" method="post"
+                                              enctype="multipart/form-data" action="/upload">
+                                            <div class="vendorName">Vendor Name: <input id="clientName" type="text"
+                                                                                        name="name" required="">
+                                                <div class="vendor-tooltip"><span id="vendor-name-info">info</span><span
+                                                        class="vendor-tooltip-inner">Please enter the name of the organization you represent. This information is displayed in the resulting PDF.</span>
+                                                </div>
+                                            </div>
+                                            <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
+                                                                               name="file" required=""></div>
+                                            <button id="fileUploadButton" class="btn btn-primary">Upload</button>
+                                            <paper-spinner id="uploadSpinner" class="blue" inactive=""></paper-spinner>
+                                        </form>
+                                    </div>
+
+                                    <template is="dom-if" if="[[responsesExist(responses)]]">
+                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                    </template>
+                                </div>
+                            </paper-material>
+                        </section>
+
+                        <section data-route="report">
+                            <report-analysis id="frame" response="[[response]]"></report-analysis>
+                        </section>
+                    </iron-pages>
+
+                </div>
+
+            </paper-scroll-header-panel>
+
+        </paper-drawer-panel>
+
+    </template>
+
+    <script src="scripts/app.js"></script>
 </body>
 </html>

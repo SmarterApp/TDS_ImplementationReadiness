@@ -1,0 +1,119 @@
+<link rel="import" href="../deps/polymer/polymer.html">
+<link rel="import" href="../deps/paper-tabs/paper-tabs.html">
+<link rel="import" href="../deps/iron-pages/iron-pages.html">
+<link rel="import" href="../deps/iron-media-query/iron-media-query.html">
+<link rel="import" href="report-raw-view.html">
+<link rel="import" href="report-test-properties.html">
+<link rel="import" href="report-examinee-info.html">
+<link rel="import" href="report-opportunity.html">
+<link rel="import" href="report-test-scoring.html">
+<link rel="import" href="report-comment-toolusage.html">
+
+<dom-module id="report-analysis">
+    <style>
+        paper-tabs, core-toolbar {
+            background-color: #00bcd4;
+            color: #000;
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        core-toolbar paper-tabs {
+            box-shadow: none;
+        }
+
+        paper-tabs[noink][nobar] paper-tab.core-selected {
+            color: #ffff8d;
+        }
+
+        paper-tabs.transparent-teal {
+            background-color: transparent;
+            color: #00bcd4;
+            box-shadow: none;
+        }
+
+        paper-tabs.transparent-teal::shadow #selectionBar {
+            background-color: #00bcd4;
+        }
+
+        paper-tabs.transparent-teal paper-tab::shadow #ink {
+            color: #00bcd4;
+        }
+
+        core-pages > .core-selected {
+            position: relative;
+            display: block;
+        }
+    </style>
+    <template>
+
+        <template is="dom-if" if="{{!response.validXMLfile}}">
+            <p>IRP was unable to validate and analyze this file.</p>
+        </template>
+
+        <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
+
+        <p>
+            <em>Explanation</em> Codes - Each field is analyzed according to its type.
+        </p>
+        <ul>
+            <li><em>P</em> type: Field is not empty with correct data type and acceptable value.</li>
+            <li><em>PC</em> type: Same as P plus verified the value is correct</li>
+        </ul>
+        <p></p>
+
+        <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable>
+            <paper-tab>Test Properties</paper-tab>
+            <paper-tab>Examinee Information</paper-tab>
+            <paper-tab>Opportunity</paper-tab>
+            <paper-tab>Test Scoring</paper-tab>
+            <paper-tab>Comments &amp; Tool Usage</paper-tab>
+            <paper-tab>Raw View</paper-tab>
+        </paper-tabs>
+
+        <iron-pages selected="{{selected}}">
+            <div id="test-properties">
+                <report-test-properties response="{{response}}"></report-test-properties>
+            </div>
+            <div id="examinee-info">
+                <report-examinee-info response="{{response}}"></report-examinee-info>
+            </div>
+            <div id="opportunity">
+                <report-opportunity response="{{response}}"></report-opportunity>
+            </div>
+            <div id="test-scoring">
+                <report-test-scoring response="{{response}}"></report-test-scoring>
+            </div>
+            <div id="comments-tool-usage">
+                <report-comment-toolusage response="{{response}}"></report-comment-toolusage>
+            </div>
+            <div id="raw-view">
+                <report-raw-view response="{{response}}"></report-raw-view>
+            </div>
+        </iron-pages>
+
+        <!-- detect when window is narrow -->
+        <iron-media-query id="mediaQuery" query="max-width: 640px"></iron-media-query>
+    </template>
+    <script>
+        Polymer({
+            is: 'report-analysis',
+            properties: {
+                response: {
+                    type: Object, value: function () {
+                        return {};
+                    }
+                }
+            },
+            ready: function () {
+                this.$.selected = 0;
+            }
+        });
+        var mediaQuery = Polymer.dom(document).querySelector('#mediaQuery');
+        if (mediaQuery) {
+            mediaQuery.addEventListener('iron-media-change', function (e) {
+                Polymer.dom(document.body).classList.toggle('core-narrow', e.detail.matches);
+                Polymer.dom(document).querySelector('#scrollableTabs').updateBar();
+            });
+        }
+    </script>
+</dom-module>

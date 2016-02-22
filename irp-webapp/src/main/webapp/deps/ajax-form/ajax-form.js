@@ -1,7 +1,10 @@
 (function() {
     var arrayOf = function(pseudoArray) {
-            return Array.prototype.slice.call(pseudoArray);
+            return (pseudoArray && [].slice.call(pseudoArray)) || [];
         },
+
+        // Note that _currentScript is a polyfill-specific convention
+        currentScript = document._currentScript || document.currentScript,
 
         fire = function (node, type, _detail_) {
             var detail = _detail_ === null || _detail_ === undefined ? {} : _detail_,
@@ -44,14 +47,13 @@
             if (method) {
                 var proposedMethod = method.toUpperCase();
 
-                if (['GET', 'POST', 'PUT', 'PATCH'].indexOf(proposedMethod) >= 0) {
+                if (['GET', 'POST', 'PUT', 'PATCH', 'DELETE'].indexOf(proposedMethod) >= 0) {
                     return proposedMethod;
                 }
             }
         },
 
-        // Note that _currentScript is a polyfill-specific convention
-        importDoc = document._currentScript.ownerDocument,
+        importDoc = currentScript.ownerDocument,
 
         // NOTE: Safari doesn't have any visual indications when submit is blocked
         interceptSubmit = function(ajaxForm) {
@@ -152,13 +154,18 @@
             form._fileInputFieldNames = [];
 
             arrayOf(form.querySelectorAll('*[name]')).forEach(function(el) {
-                maybeParseCoreDropdownMenu(el, data) ||
-                maybeParseCustomElementOrFileInput({
-                    customElement: el,
-                    data: data,
-                    form: form,
-                    parseFileInputs: parseFileInputs
-                });
+                if (maybeParseCoreDropdownMenu(el, data) ||
+                      maybeParseCustomElementOrFileInput({
+                        customElement: el,
+                        data: data,
+                        form: form,
+                        parseFileInputs: parseFileInputs
+                      })
+                  ) {
+                    arrayOf(el.querySelectorAll('[name]')).forEach(function(el) {
+                      el.setAttribute('data-ajaxform-ignore', '');
+                    });
+                  }
             });
 
             return data;
@@ -188,12 +195,11 @@
 
         parseForm = function(form, parseFileInputs) {
             var formObj = {},
-                formElements = form.querySelectorAll('input'),
-                customElementsData = parseCustomElements(form, parseFileInputs);
+                customElementsData = parseCustomElements(form, parseFileInputs),
+                formElements = arrayOf(form.elements).filter(function(el) {
+                  return !el.hasAttribute('data-ajaxform-ignore');
+                });
 
-            formElements = arrayOf(formElements);
-            formElements = formElements.concat(arrayOf(form.querySelectorAll('select')));
-            formElements = formElements.concat(arrayOf(form.querySelectorAll('textarea')));
 
             formElements.forEach(function(formElement) {
                 var key = formElement.name,
@@ -415,7 +421,7 @@
 
         watchForInvalidFields = function (ajaxForm) {
             var config = {attributes: true, childList: true, characterData: false},
-                initialFields = arrayOf(ajaxForm.querySelectorAll(':invalid, :valid')),
+                initialFields = arrayOf(ajaxForm.elements),
                 invalidFields = [],
 
                 listenForInvalidEvent = function (field) {
@@ -467,10 +473,9 @@
                 value: function () {
                     var templates = importDoc.querySelectorAll('.ajax-form-template'),
                         template = templates[templates.length - 1],
-                        clone = document.importNode(template.content, true),
-                        root = this.createShadowRoot();
+                        clone = document.importNode(template.content, true);
 
-                    root.appendChild(clone);
+                    this.appendChild(clone);
 
                     var ajaxForm = this;
 

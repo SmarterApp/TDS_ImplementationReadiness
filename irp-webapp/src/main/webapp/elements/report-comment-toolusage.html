@@ -1,0 +1,93 @@
+<link rel="import" href="irp-behavior.html">
+<dom-module id="report-comment-toolusage">
+    <style is="custom-style" include="report-styles"></style>
+    <template>
+
+        <template is="dom-if" if="{{_isEmpty(response.commentCategories)}}">
+            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+                Comments were not analyzed because they do not exist in the TDSReport XML
+            </div>
+        </template>
+
+        <template is="dom-if" if="{{_isEmpty(response.toolUsageCategories)}}">
+            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+                Tool usage data was not analyzed because it does not exist in the TDSReport XML
+            </div>
+        </template>
+
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Expected Value</th>
+                <th>Returned Value</th>
+                <th>Status</th>
+                <th>Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <template is="dom-repeat" items="{{response.commentCategories}}" as="category">
+                <template is="dom-repeat" items="{{category.cellCategories}}" as="cell" index-as="index">
+                    <tr class$="{{_computeClass(index)}}">
+                        <td>Comment: <span>{{cell.tdsFieldName}}</span></td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+            </template>
+
+            <template is="dom-repeat" items="{{response.toolUsageCategories}}" as="category">
+                <template is="dom-repeat" items="{{category.cellCategories}}" as="cell" index-as="index">
+                    <tr class$="{{_computeClass2(index)}}">
+                        <td>ToolUsage: <span>{{cell.tdsFieldName}}</span></td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+                <template is="dom-repeat" items="{{category.toolPageCategories}}" as="pageCategory">
+                    <template is="dom-repeat" items="{{pageCategory.cellCategories}}" as="cell" index-as="index">
+                        <tr class$="{{_computeClass3(index)}}">
+                            <td>ToolPage: <span>{{cell.tdsFieldName}}</span></td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{status(cell.fieldCheckType)}}</td>
+                            <td>{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
+                </template>
+            </template>
+
+            </tbody>
+        </table>
+    </template>
+    <script>
+        Polymer({
+            is: 'report-comment-toolusage',
+            properties: {
+                response: {
+                    type: Object, value: function () {
+                        return {};
+                    }
+                }
+            },
+            behaviors: [IRPBehavior],
+            _isEmpty: function (arr) {
+                return typeof arr === 'undefined' || arr == null || arr.length == 0;
+            },
+            _computeClass: function (index) {
+                return 'comment ' + this.oddOrEvenClass(index);
+            },
+            _computeClass2: function (index) {
+                return 'toolUsage ' + this.oddOrEvenClass(index);
+            },
+            _computeClass3: function (index) {
+                return 'toolPage ' + this.oddOrEvenClass(index);
+            }
+        });
+    </script>
+</dom-module>

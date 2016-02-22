@@ -18,9 +18,9 @@ public class IndexController {
         this.irpVersion = irpVersion;
     }
 
-    @RequestMapping({"/irp-scaffold.html"})
+    @RequestMapping({"/irp-version.html"})
     public String index(final ModelMap model) {
         model.put("irpVersion", irpVersion);
-        return "irp-scaffold";
+        return "irp-version";
     }
 }

@@ -1,0 +1,72 @@
+<link rel="import" href="irp-behavior.html">
+<dom-module id="report-examinee-info">
+    <style is="custom-style" include="report-styles"></style>
+  <template>
+
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Expected Value</th>
+                <th>Returned Value</th>
+                <th>Status</th>
+                <th>Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <template is="dom-repeat" items="{{response.examineeCategory.cellCategories}}" as="cell" index-as="index">
+                <tr class$="{{getOddOrEvenClass()}}">
+                    <td>Examinee: {{cell.tdsFieldName}}</td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{status(cell.fieldCheckType)}}</td>
+                    <td>{{explanation(cell.fieldCheckType)}}</td>
+                </tr>
+            </template>
+
+            <template is="dom-repeat" items="{{response.examineeAttributeCategories}}" as="category" index-as="outer_index">
+                <template is="dom-repeat" items="{{category.cellCategories}}" as="cell">
+                    <tr class$="{{getOddOrEvenClass()}}">
+                        <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+            </template>
+
+            <template is="dom-repeat" items="{{response.examineeRelationshipCategories}}" as="category" index-as="outer_index">
+                <template is="dom-repeat" items="{{category.cellCategories}}" as="cell">
+                    <tr class$="{{getOddOrEvenClass()}}">
+                        <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+            </template>
+
+            </tbody>
+        </table>
+    </template>
+  <script>
+    Polymer({
+      is: 'report-examinee-info',
+      properties: { response: { type: Object, value: function() { return {}; } } },
+      behaviors: [IRPBehavior],
+      getOddOrEvenClass: function () {
+          return this.oddOrEvenClass(this.getIndex());
+      },
+      getIndex: function () {
+          if (typeof this.rowIndex !== 'undefined') return ++this.rowIndex;
+          else {
+              this.rowIndex = 0;
+              return this.rowIndex;
+          }
+      }
+    });
+  </script>
+</dom-module>

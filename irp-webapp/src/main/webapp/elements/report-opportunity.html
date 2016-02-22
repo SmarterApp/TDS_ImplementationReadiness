@@ -1,0 +1,148 @@
+<link rel="import" href="irp-behavior.html">
+<dom-module id="report-opportunity">
+    <style is="custom-style" include="report-styles"></style>
+  <template>
+
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Expected Value</th>
+                <th>Returned Value</th>
+                <th>Status</th>
+                <th>Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="category">
+                <td colspan="5">Opportunity</td>
+            </tr>
+
+            <template is="dom-repeat" items="{{response.opportunityCategory.cellCategories}}" as="cell" index-as="index">
+                <tr class$="{{_computeClass(index)}}">
+                    <td>Opportunity Properties: <span>{{cell.tdsFieldName}}</span></td>
+                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td>{{cell.tdsFieldNameValue}}</td>
+                    <td>{{status(cell.fieldCheckType)}}</td>
+                    <td>{{explanation(cell.fieldCheckType)}}</td>
+                </tr>
+            </template>
+            <tr class="category">
+                <td colspan="5">Opportunity Segments</td>
+            </tr>
+            <template is="dom-repeat" items="{{response.opportunityCategory.segmentCategories}}" as="segment">
+                <template is="dom-repeat" items="{{segment.cellCategories}}" as="cell" index-as="index">
+                    <tr class$="{{_computeClass2(index)}}">
+                        <td>Opportunity Segment: <span>{{cell.tdsFieldName}}</span></td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+            </template>
+            <tr class="category">
+                <td colspan="5">Opportunity Accommodation</td>
+            </tr>
+            <template is="dom-repeat" items="{{response.opportunityCategory.accommodationCategories}}" as="accommodation">
+                <template is="dom-repeat" items="{{accommodation.cellCategories}}" as="cell" index-as="index">
+                    <tr class$="{{_computeClass3(index)}}">
+                        <td>Opportunity Accommodation: <span>{{cell.tdsFieldName}}</span></td>
+                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td>{{cell.tdsFieldNameValue}}</td>
+                        <td>{{status(cell.fieldCheckType)}}</td>
+                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+            </template>
+            <tr class="category">
+                <td colspan="5">Opportunity Scores</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="font-weight:bold;font-size:medium;text-align:center;">Click the Test Scoring tab above for detailed Test Scoring analysis</td>
+            </tr>
+            <!--<template repeat="{{score in category.scoreCategories}}">-->
+                <!--<template repeat="{{cell, index in score.cellCategories}}">-->
+                    <!--<tr class="opportunityScore {{oddOrEvenClass(index)}}">-->
+                        <!--<td>Opportunity Score: {{cell.tdsFieldName}}</td>-->
+                        <!--<td>{{cell.tdsExpectedValue}}</td>-->
+                        <!--<td>{{cell.tdsFieldNameValue}}</td>-->
+                        <!--<td>{{cell.fieldCheckType | status}}</td>-->
+                        <!--<td>{{cell.fieldCheckType | explanation}}</td>-->
+                    <!--</tr>-->
+                <!--</template>-->
+            <!--</template>-->
+            <tr class="category">
+                <td colspan="5">Opportunity Items</td>
+            </tr>
+            <template is="dom-repeat" items="{{response.opportunityCategory.itemCategories}}" as="item" index-as="index">
+                <tr class="opportunityItem even">
+                    <td colspan="3">{{item.itemBankKeyKey}}</td>
+                    <td>{{itemStatus(item)}}</td>
+                    <td>{{itemExplanation(item)}}</td>
+                </tr>
+                <template is="dom-if" if="{{itemFound(item)}}">
+                    <template is="dom-repeat" items="{{item.cellCategories}}" as="cell">
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item: <span>{{cell.tdsFieldName}}</span></td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{status(cell.fieldCheckType)}}</td>
+                            <td>{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
+                    <template is="dom-if" if="{{item.responseCategory}}">
+                        <template is="dom-repeat" items="{{item.responseCategory.cellCategories}}" as="cell">
+                            <tr class="opportunityItem">
+                                <td>Opportunity Item Response: <span>{{cell.tdsFieldName}}</span></td>
+                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{status(cell.fieldCheckType)}}</td>
+                                <td>{{explanation(cell.fieldCheckType)}}</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template is="dom-if" if="{{item.scoreInfoCategory}}">
+                        <template is="dom-repeat" items="{{item.scoreInfoCategory.cellCategories}}" as="cell">
+                            <tr class="opportunityItem">
+                                <td>Opportunity Item ScoreInfo: <span>{{cell.tdsFieldName}}</span></td>
+                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td>{{status(cell.fieldCheckType)}}</td>
+                                <td>{{explanation(cell.fieldCheckType)}}</td>
+                            </tr>
+                        </template>
+                        <template is="dom-repeat" items="{{item.scoreInfoCategory.scoreRationaleCategory.cellCategories}}" as="cell">
+                        <tr class="opportunityItem">
+                            <td>Opportunity Item ScoreInfo ScoreRational: <span>{{cell.tdsFieldName}}</span></td>
+                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td>{{cell.tdsFieldNameValue}}</td>
+                            <td>{{status(cell.fieldCheckType)}}</td>
+                            <td>{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                        </template>
+                    </template>
+                </template>
+            </template>
+
+            </tbody>
+        </table>
+    </template>
+  <script>
+    Polymer({
+      is: 'report-opportunity',
+      properties: { response: { type: Object, value: function() { return {}; } } },
+      behaviors: [IRPBehavior],
+      _computeClass: function (index) {
+        return 'opportunityPropertiesRows ' + this.oddOrEvenClass(index);
+      },
+      _computeClass2: function (index) {
+        return 'opportunitySegmentRows ' + this.oddOrEvenClass(index);
+      },
+      _computeClass3: function (index) {
+        return 'opportunityAccommodation ' + this.oddOrEvenClass(index);
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,175 @@
+<link rel="import" href="irp-behavior.html">
+<dom-module id="report-test-scoring">
+    <style is="custom-style" include="report-styles"></style>
+  <template>
+      <template is="dom-if" if="{{exists(response)}}">
+
+        <template is="dom-if" if="{{!response.opportunityCategory.tdsReportScoreIrpScoredScore.scoredTDSReport}}">
+            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+                There was an internal server error that prevented validation of Test Scoring. Please resubmit the TDSReport to try again.
+            </div>
+        </template>
+
+        <template is="dom-if" if="{{_computeIf(response)}}">
+            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+            Not all of the Measures matched those computed by IRP. Please see the analysis below.
+            </div>
+        </template>
+
+
+        <h4 align="center">Measures that match IRP's computed Measures</h4>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template is="dom-repeat" items="{{getKeys(response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap)}}" as="score" index-as="index">
+                <tr class$="{{_computeClass(index)}}">
+                    <td>{{_computeExpression1(response, score)}}</td>
+                    <td>{{_computeExpression2(response, score)}}</td>
+                    <td>{{_computeExpression3(response, score)}}</td>
+                    <td>{{_computeExpression4(response, score)}}</td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+
+        <h4 align="center" style="margin-bottom:0px;">Measures that did not match IRP's computed Measures</h4>
+        <p style="text-align: center;">(The measure's value and/or standard error did not match what IRP computed)</p>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template is="dom-repeat" items="{{response.opportunityCategory.tdsReportScoreIrpScoredScore.notMatchPairs}}" as="nonMatchedPairs" index-as="index">
+                <tr class$="{{_computeClass(index)}}">
+                    <td style="font-size:small;font-weight:bold">TDS Report's Measure:</td>
+                    <td>{{nonMatchedPairs.tdsReportScore.measureOf}}</td>
+                    <td>{{nonMatchedPairs.tdsReportScore.measureLabel}}</td>
+                    <td style="font-size:medium">{{nonMatchedPairs.tdsReportScore.value}}</td>
+                    <td style="font-size:medium">{{nonMatchedPairs.tdsReportScore.standardError}}</td>
+                </tr>
+                <tr class$="{{_computeClass(index)}}">
+                    <td style="font-size:small;font-weight:bold">IRP's Computed Measure:</td>
+                    <td>{{nonMatchedPairs.irpScoredScore.measureOf}}</td>
+                    <td>{{nonMatchedPairs.irpScoredScore.measureLabel}}</td>
+                    <td style="font-size:medium">{{nonMatchedPairs.irpScoredScore.value}}</td>
+                    <td style="font-size:medium">{{nonMatchedPairs.irpScoredScore.standardError}}</td>
+                </tr>
+            </template>
+            <template is="dom-if" if="{{response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch}}">
+                <tr>
+                    <td colspan="5" style="font-size:large;font-weight: bold">All measures matched IRP's computed measures.</td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+
+        <h4 align="center" style="margin-bottom:0px;">Expected Measures that are missing from the TDSReport</h4>
+        <p style="text-align: center;">(IRP expected to see these measures in the TDSReport but did not find them)</p>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template is="dom-repeat" items="{{getKeys(response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap)}}" as="score" index-as="index">
+                <tr class$="{{_computeClass(index)}}">
+                    <td>{{_computeExpression13(response, score)}}</td>
+                    <td>{{_computeExpression14(response, score)}}</td>
+                    <td>{{_computeExpression15(response, score)}}</td>
+                    <td>{{_computeExpression16(response, score)}}</td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+
+        <h4 align="center">Extra Measures that were found in the TDSReport that IRP did not compute</h4>
+        <table class="tableAnalysis">
+            <thead>
+            <tr>
+                <th>Measure Of</th>
+                <th>Measure Label</th>
+                <th>Value</th>
+                <th>Standard Error</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template is="dom-repeat" items="{{getKeys(response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap)}}" as="score" index-as="index">
+                <tr class$="{{_computeClass(index)}}">
+                    <td>{{_computeExpression17(response, score)}}</td>
+                    <td>{{_computeExpression18(response, score)}}</td>
+                    <td>{{_computeExpression19(response, score)}}</td>
+                    <td>{{_computeExpression20(response, score)}}</td>
+                </tr>
+            </template>
+            </tbody>
+        </table>
+
+      </template>
+    </template>
+  <script>
+    Polymer({
+      is: 'report-test-scoring',
+      properties: { response: { type: Object, value: function() { return {}; } } },
+      behaviors: [IRPBehavior],
+      _computeIf: function (response) {
+        return !response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch && response.opportunityCategory.tdsReportScoreIrpScoredScore.scoredTDSReport;
+      },
+      _computeClass: function (index) {
+        return 'opportunityScore ' + this.oddOrEvenClass(index);
+      },
+      _computeExpression1: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap[score].measureOf;
+      },
+      _computeExpression2: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap[score].measureLabel;
+      },
+      _computeExpression3: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap[score].value;
+      },
+      _computeExpression4: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap[score].standardError;
+      },
+      _computeExpression13: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap[score].measureOf;
+      },
+      _computeExpression14: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap[score].measureLabel;
+      },
+      _computeExpression15: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap[score].value;
+      },
+      _computeExpression16: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap[score].standardError;
+      },
+      _computeExpression17: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap[score].measureOf;
+      },
+      _computeExpression18: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap[score].measureLabel;
+      },
+      _computeExpression19: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap[score].value;
+      },
+      _computeExpression20: function (response, score) {
+        return response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap[score].standardError;
+      }
+    });
+  </script>
+</dom-module>
