@@ -2,7 +2,7 @@
 <dom-module id="report-test-scoring">
     <style is="custom-style" include="report-styles"></style>
   <template>
-      <template is="dom-if" if="{{exists(response)}}">
+      <template is="dom-if" if="{{exists(response.opportunityCategory)}}">
 
         <template is="dom-if" if="{{!response.opportunityCategory.tdsReportScoreIrpScoredScore.scoredTDSReport}}">
             <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
