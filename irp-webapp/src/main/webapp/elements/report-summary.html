@@ -58,7 +58,7 @@
             vertical-align: middle;
             border: 1px solid #000;
             border-width: 0px 1px 1px 0px;
-            text-align: left;
+            text-align: center;
             padding: 5px;
             font-size: 14px;
             font-family: Arial;
@@ -128,6 +128,8 @@
                 <tr>
                     <th>TDS Report File Name</th>
                     <th>Valid XML</th>
+                    <th>Valid Test Name</th>
+                    <th>Valid Examinee</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -135,6 +137,8 @@
                     <tr>
                         <td>{{response.fileName}}</td>
                         <td>{{status(response.validXMLfile)}}</td>
+                        <td>{{status(response.validTestName)}}</td>
+                        <td>{{status(response.validExaminee)}}</td>
                     </tr>
                 </template>
                 </tbody>
