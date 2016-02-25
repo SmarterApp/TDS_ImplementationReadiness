@@ -93,6 +93,10 @@
         return JSON.stringify(value);
     };
 
+    app.computeRoute = function (routeIndex) {
+        return 'route-' + routeIndex;
+    }
+
     app.computeResponseUrl = function (responseFileName) {
         return app.baseUrl + 'report/' + responseFileName;
     };

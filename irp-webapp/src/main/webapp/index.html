@@ -92,7 +92,7 @@
 
                     <template is="dom-repeat" items="{{responses.individualResponses}}" as="response"
                               id="tmplIndividualResponses">
-                        <a data-route="report" href="[[computeResponseUrl(index)]]">
+                        <a data-route$="[[computeRoute(index)]]" href="[[computeResponseUrl(index)]]">
                             <iron-icon icon="thumb-up"></iron-icon>
                             <span>[[response.fileName]]</span>
                         </a>
@@ -171,7 +171,7 @@
                         </section>
 
                         <section data-route="report">
-                            <report-analysis id="frame" response="[[response]]"></report-analysis>
+                            <report-analysis id="frame" response="{{response}}"></report-analysis>
                         </section>
                     </iron-pages>
 
