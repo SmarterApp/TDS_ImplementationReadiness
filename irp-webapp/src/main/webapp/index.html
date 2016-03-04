@@ -93,7 +93,7 @@
                     <template is="dom-repeat" items="{{responses.individualResponses}}" as="response"
                               id="tmplIndividualResponses">
                         <a data-route$="[[computeRoute(index)]]" href="[[computeResponseUrl(index)]]">
-                            <iron-icon icon="thumb-up"></iron-icon>
+                            <iron-icon icon$="{{computeResponseIcon(response)}}"></iron-icon>
                             <span>[[response.fileName]]</span>
                         </a>
                     </template>
@@ -114,13 +114,14 @@
                     <div class="middle middle-container">
                         <div class="app-name">
                             <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" align="left">
-                            <span>Implementation Readiness Package</span><br>
-                            <span class="version">version: <irp-version></irp-version></span>
+                            <span>Implementation Readiness Package</span><br />
+                            <span class="version">version: <irp-version></irp-version></span><br />
+                            <div style="white-space:nowrap;margin-top:20px;">[[response.fileName]]</div>
                         </div>
                     </div>
 
                     <div class="bottom bottom-container">
-                        <div class="bottom-title">[[response.fileName]]</div>
+                        <div class="bottom-title"></div>
                     </div>
                 </paper-toolbar>
 

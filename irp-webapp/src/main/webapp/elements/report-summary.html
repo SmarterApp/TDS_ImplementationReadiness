@@ -1,4 +1,5 @@
 <link rel="import" href="../deps/polymer/polymer.html">
+<link rel="import" href="../deps/paper-spinner/paper-spinner.html">
 
 <dom-module id="report-summary">
     <link rel="import" type="css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -121,6 +122,7 @@
                 Click the following button to download the PDF version of the IRP analysis:
                 <input type="hidden" name="analysisResponses" value="">
                 <button id="pdf" class="btn" type="button">Download PDF</button>
+                <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
             </form>
             <p></p>
             <table class="reportSummary">
@@ -130,6 +132,7 @@
                     <th>Valid XML</th>
                     <th>Valid Test Name</th>
                     <th>Valid Examinee</th>
+                    <th>Valid Scoring</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -139,6 +142,7 @@
                         <td>{{status(response.validXMLfile)}}</td>
                         <td>{{status(response.validTestName)}}</td>
                         <td>{{status(response.validExaminee)}}</td>
+                        <td>{{status(response.validScoring)}}</td>
                     </tr>
                 </template>
                 </tbody>
@@ -158,9 +162,15 @@
             ready: function () {
                 var that = this;
                 this.$.pdf.addEventListener('click', function (event) {
+                    this.hidden = true;
+                    that.$.downloadPdfSpinner.active = true;
+
                     var body = JSON.stringify(that.responses);
                     that.$.bb.children[0].value = body;
                     that.$.bb.submit();
+
+                    that.$.pdf.hidden = false;
+                    that.$.downloadPdfSpinner.active = false;
                 });
             },
             status: function (input) {
