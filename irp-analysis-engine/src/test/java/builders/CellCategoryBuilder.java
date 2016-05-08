@@ -45,8 +45,23 @@ public class CellCategoryBuilder {
         return this;
     }
 
-    public CellCategoryBuilder isFieldEmpty(boolean isFieldEmpty) {
-        fieldCheckType.setFieldEmpty(isFieldEmpty);
+    public CellCategoryBuilder fieldEmpty(boolean isFieldEmpty) {
+        fieldCheckType.setFieldValueEmpty(isFieldEmpty);
+        return this;
+    }
+
+    public CellCategoryBuilder fieldMissing(boolean isFieldMissing) {
+        fieldCheckType.setRequiredFieldMissing(isFieldMissing);
+        return this;
+    }
+
+    public CellCategoryBuilder correctWidth(boolean isCorrectWidth) {
+        fieldCheckType.setCorrectWidth(isCorrectWidth);
+        return this;
+    }
+
+    public CellCategoryBuilder optionalFieldValue(boolean isOptionalFieldValue) {
+        fieldCheckType.setOptionalValue(isOptionalFieldValue);
         return this;
     }
 

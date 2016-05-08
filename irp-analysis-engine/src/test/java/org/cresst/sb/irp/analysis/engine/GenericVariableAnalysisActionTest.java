@@ -78,17 +78,17 @@ public class GenericVariableAnalysisActionTest {
 	private CellCategory[] createValidCellCategories(String name, String value, String context) {
 		CellCategory[] cellCategories =
 				new CellCategory[] {
-						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).isFieldEmpty(false)
+						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
 								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.name.toString())
 								.tdsFieldNameValue(name).toCellCategory(),
 
-						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).isFieldEmpty(false)
+						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
 								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.value.toString())
 								.tdsFieldNameValue(value).toCellCategory(),
 
-						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).isFieldEmpty(false)
+						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
 								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.context.toString())
 								.tdsFieldNameValue(context).toCellCategory() };

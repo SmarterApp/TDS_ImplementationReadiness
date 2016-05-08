@@ -113,7 +113,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .correctValue(true)
                 .correctDataType(true)
                 .acceptableValue(true)
-                .isFieldEmpty(false)
+                .fieldEmpty(false)
                 .toCellCategory();
 
         assertEquals(expectedCellCategory, actualCellCategories.get(0));
@@ -194,7 +194,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(true)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                         .toCellCategory(),
                 new CellCategoryBuilder()
@@ -203,7 +203,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(false)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                         .toCellCategory(),
                 new CellCategoryBuilder()
@@ -213,7 +213,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(true)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                         .toCellCategory(),
                 new CellCategoryBuilder()
@@ -222,7 +222,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(false)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                         .toCellCategory(),
                 new CellCategoryBuilder()
@@ -231,7 +231,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(false)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                         .toCellCategory(),
                 new CellCategoryBuilder()
@@ -241,7 +241,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctValue(true)
                         .correctDataType(true)
                         .acceptableValue(true)
-                        .isFieldEmpty(false)
+                        .fieldEmpty(false)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                         .toCellCategory());
 
@@ -276,7 +276,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .correctValue(false)
                 .correctDataType(true)
                 .acceptableValue(false)
-                .isFieldEmpty(false)
+                .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                 .tdsFieldName("name")
                 .tdsFieldNameValue("UnknownExamineeRelationship")
@@ -319,7 +319,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .correctDataType(true)
                 .acceptableValue(true)
                 .tdsExpectedValue("HI")
-                .isFieldEmpty(false)
+                .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .tdsFieldName(STATE_ABBREVIATION)
                 .tdsFieldNameValue("HI")
@@ -374,7 +374,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .correctDataType(true)
                 .acceptableValue(true)
                 .tdsExpectedValue(null)
-                .isFieldEmpty(false)
+                .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .tdsFieldName(STATE_ABBREVIATION)
                 .tdsFieldNameValue("HI")
@@ -410,7 +410,7 @@ public class ExamineeRelationshipAnalysisActionTest {
         	.tdsFieldName(RESPONSIBLE_DISTRICT_ID)
         	.tdsFieldNameValue("1")
         	.tdsExpectedValue("001")
-        	.isFieldEmpty(false)
+        	.fieldEmpty(false)
 		    .correctDataType(true)
 		    .acceptableValue(true)
 		    .correctValue(true)

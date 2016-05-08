@@ -254,9 +254,13 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	public void setPcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectDataType(true);
-		fieldCheckType.setFieldEmpty(false);
+		fieldCheckType.setFieldValueEmpty(false);
 		fieldCheckType.setAcceptableValue(true);
 	}
+
+    public void setPcorrectWidth(FieldCheckType fieldCheckType) {
+        fieldCheckType.setCorrectWidth(true);
+    }
 
 	public void setCcorrect(FieldCheckType fieldCheckType) {
 		fieldCheckType.setCorrectValue(true);
@@ -301,17 +305,39 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		}
 	}
 
-	public void processP_PritableASCIIone(String inputValue, FieldCheckType fieldCheckType) {
+	public void processP_PrintableASCIIone(String inputValue, FieldCheckType fieldCheckType) {
 		if (StringUtils.isNotBlank(inputValue) && StringUtils.isAsciiPrintable(inputValue)) {
 			setPcorrect(fieldCheckType);
 		}
 	}
 
-	public void processP_PritableASCIIzero(String inputValue, FieldCheckType fieldCheckType) {
-		if (inputValue != null && StringUtils.isAsciiPrintable(inputValue)) {
-			setPcorrect(fieldCheckType);
-		}
+    public void processP_PrintableASCIIoneMaxWidth(String inputValue, FieldCheckType fieldCheckType, int maxWidth) {
+
+        // Check base criteria
+        processP_PrintableASCIIone(inputValue, fieldCheckType);
+
+        if (inputValue != null && inputValue.length() <= maxWidth) {
+            setPcorrectWidth(fieldCheckType);
+        }
+    }
+
+	public void processP_PrintableASCIIzero(String inputValue, FieldCheckType fieldCheckType) {
+        fieldCheckType.setFieldValueEmpty(StringUtils.isBlank(inputValue));
+
+		boolean isCorrect = inputValue != null && StringUtils.isAsciiPrintable(inputValue);
+        fieldCheckType.setCorrectDataType(isCorrect);
+        fieldCheckType.setAcceptableValue(isCorrect);
 	}
+
+    public void processP_PrintableASCIIzeroMaxWidth(String inputValue, FieldCheckType fieldCheckType, int maxWidth) {
+
+        // Check base criteria
+        processP_PrintableASCIIzero(inputValue, fieldCheckType);
+
+        if (inputValue != null && inputValue.length() <= maxWidth) {
+            setPcorrectWidth(fieldCheckType);
+        }
+    }
 
 	public void processP_AcceptValue(int inputValue, FieldCheckType fieldCheckType, int firstValue, int secondValue) {
 		if (inputValue == firstValue || inputValue == secondValue) {
@@ -329,7 +355,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		try {
 			// Just the fact that it does not throw an exception means it's acceptable
 			if (StringUtils.isNotBlank(inputValue)) {
-				fieldCheckType.setFieldEmpty(false);
+				fieldCheckType.setFieldValueEmpty(false);
 				NumberUtils.createFloat(inputValue);
 			}
 			setPcorrect(fieldCheckType);
@@ -362,14 +388,17 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	public void processDate(String date, FieldCheckType fieldCheckType) { // effectiveDate="2014-07-07"
-		String[] array = date.split("-");
+        String[] array = date.split("-");
 		if (array.length == 3) {
 			try {
+                boolean correctFormat = date.matches("([0-9]{4})-([0-9]{2})-([0-9]{2})");
 				boolean blnYear = isValidYear(Long.parseLong(array[0]));
 				boolean blnMonth = isValidMonth(Long.parseLong(array[1]));
 				boolean blnDate = isValidDate(Long.parseLong(array[2]));
-				if (blnYear && blnMonth && blnDate) {
+
+				if (correctFormat && blnYear && blnMonth && blnDate) {
 					setPcorrect(fieldCheckType);
+                    setPcorrectWidth(fieldCheckType);
 				}
 			} catch (NumberFormatException e) {
 				logger.info("Could not parse date: " + date);

@@ -16,7 +16,7 @@ import java.util.List;
 public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(CommentAnalysisAction.class);
 
-    static public enum EnumCommentFieldName {
+    public enum EnumCommentFieldName {
         context, itemPosition, date, content
     }
 
@@ -34,8 +34,8 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
     }
 
     private void analysisComment(CommentCategory commentCategory, Comment tdsComment) {
-        validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.P, EnumCommentFieldName.context, null);
-        validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.P, EnumCommentFieldName.itemPosition, null);
+        validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.PC, EnumCommentFieldName.context, null);
+        validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.PC, EnumCommentFieldName.itemPosition, null);
         validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.P, EnumCommentFieldName.date, null);
         validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.P, EnumCommentFieldName.content, null);
     }
@@ -46,11 +46,11 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
             switch (enumFieldName) {
                 case context:
                     // <xs:attribute name="context" use="required" />
-                    processP_PritableASCIIone(tdsComment.getContext(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(tdsComment.getContext(), fieldCheckType, 200);
                     break;
                 case itemPosition:
                     // <xs:attribute name="itemPosition" type="NullableUInt" />
-                    //Positive 32-bit integer, Null allowed
+                    // Positive 32-bit integer, Null allowed
                     if (tdsComment.getItemPosition().length() == 0)
                         setPcorrect(fieldCheckType);
                     else
@@ -81,5 +81,11 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
      */
     @Override
     protected void checkC(Comment checkObj, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType, Object unused) {
+        switch (enumFieldName) {
+            case context:
+                break;
+            default:
+                break;
+        }
     }
 }

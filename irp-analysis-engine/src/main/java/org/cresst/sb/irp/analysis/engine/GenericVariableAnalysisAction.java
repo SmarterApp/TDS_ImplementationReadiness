@@ -60,13 +60,13 @@ public class GenericVariableAnalysisAction extends
 	protected void checkP(GenericVariable genericVariable, EnumGenericVariablFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		  switch (enumFieldName) {
           case name:
-              processP_PritableASCIIone(genericVariable.getName(), fieldCheckType);
+              processP_PrintableASCIIone(genericVariable.getName(), fieldCheckType);
               break;
           case value:
-              processP_PritableASCIIone(genericVariable.getValue(), fieldCheckType);
+              processP_PrintableASCIIone(genericVariable.getValue(), fieldCheckType);
               break;
           case context:
-              processP_PritableASCIIone(genericVariable.getContext(), fieldCheckType);
+              processP_PrintableASCIIone(genericVariable.getContext(), fieldCheckType);
               break;
           default:
               break;

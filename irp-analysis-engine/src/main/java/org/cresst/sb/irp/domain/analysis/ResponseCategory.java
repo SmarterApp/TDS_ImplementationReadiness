@@ -6,7 +6,7 @@ import tds.itemscoringengine.ScoringStatus;
 /**
  * Item scoring engine can give a score which is stored in CellCategory 
  * 		tdsExpectedValue [tdsFieldName=content, tdsFieldNameValue= <?xml version="1.0" . . . 
- * 		tdsExpectedValue=0, fieldCheckType=FieldCheckType [isFieldEmpty=false, isCorrectDataType=true,
+ * 		tdsExpectedValue=0, fieldCheckType=FieldCheckType [isFieldValueEmpty=false, isCorrectDataType=true,
  * 		isAcceptableValue=true, isCorrectValue=true, enumfieldCheckType=PC]]
  */
 public class ResponseCategory extends Category {

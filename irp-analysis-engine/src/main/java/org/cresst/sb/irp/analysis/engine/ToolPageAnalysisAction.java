@@ -73,7 +73,7 @@ public class ToolPageAnalysisAction extends AnalysisAction<ToolPage, ToolPageAna
                     break;
                 case groupId:
                     // 	<xs:attribute name="groupId" use="required" />
-                    processP_PritableASCIIone(toolPage.getGroupId(), fieldCheckType);
+                    processP_PrintableASCIIone(toolPage.getGroupId(), fieldCheckType);
                     break;
                 case count:
                     // 	<xs:attribute name="count" use="required" type="xs:unsignedInt" />

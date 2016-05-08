@@ -1,7 +1,9 @@
 package org.cresst.sb.irp.analysis.engine.examinee;
 
+import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.analysis.engine.AccommodationAnalysisAction;
+import org.cresst.sb.irp.analysis.engine.ExamineeRelationshipAnalysisAction;
 import org.cresst.sb.irp.domain.tdsreport.Context;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 
@@ -39,6 +41,40 @@ public class ExamineeHelper {
         }
 
         return examineeAttributes;
+    }
+
+    /**
+     * Given an Examinee and an Examinee Attribute to lookup, this method returns the Examinee Attribute for the
+     * given Examinee.
+     * @param examinee The Examinee to get the Attribute from
+     * @param examineeAttributeToGet The Attribute to get
+     * @return Returns null if the Attribute does not exist in the Examinee; otherwise it returns the ExamineeAttribute
+     */
+    static public TDSReport.Examinee.ExamineeAttribute getFinalExamineeAttribute(TDSReport.Examinee examinee,
+                                                       EnumExamineeAttributeFieldName examineeAttributeToGet) {
+
+        if (examinee == null) {
+            return null;
+        }
+
+        List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
+        for (Object object : listObject) {
+            if (object instanceof TDSReport.Examinee.ExamineeAttribute) {
+
+                TDSReport.Examinee.ExamineeAttribute examineeAttribute = (TDSReport.Examinee.ExamineeAttribute) object;
+                if (examineeAttribute.getContext() == Context.FINAL) {
+
+                    EnumExamineeAttributeFieldName currentExamineeAttributeFieldName =
+                            convertToExamineeAttributeEnum(examineeAttribute.getName());
+
+                    if (currentExamineeAttributeFieldName == examineeAttributeToGet) {
+                        return examineeAttribute;
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -115,4 +151,34 @@ public class ExamineeHelper {
         return null;
     }
 
+    /**
+     * Converts the given string to an {@link EnumExamineeAttributeFieldName}.
+     * If it can't convert, then null is returned.
+     *
+     * @param nameFieldValue
+     * @return The enum if string represents a valid enum. Null otherwise.
+     */
+    static public EnumExamineeAttributeFieldName convertToExamineeAttributeEnum(String nameFieldValue) {
+
+        if (EnumUtils.isValidEnum(EnumExamineeAttributeFieldName.class, nameFieldValue)) {
+            return EnumExamineeAttributeFieldName.valueOf(nameFieldValue);
+        }
+
+        return null;
+    }
+
+    /**
+     * Converts the given string to an {@link EnumExamineeRelationshipFieldName}.
+     * If it can't convert, then null is returned.
+     *
+     * @param nameFieldValue
+     * @return The enum if string represents a valid enum. Null otherwise.
+     */
+    static public EnumExamineeRelationshipFieldName convertToExamineeRelationshipEnum(String nameFieldValue) {
+        if (EnumUtils.isValidEnum(EnumExamineeRelationshipFieldName.class, nameFieldValue)) {
+            return EnumExamineeRelationshipFieldName.valueOf(nameFieldValue);
+        }
+
+        return null;
+    }
 }

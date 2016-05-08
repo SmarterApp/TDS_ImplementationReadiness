@@ -1,29 +1,37 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.Objects;
+
 //Field Check Type (P) --> check that field is not empty, and field value is of correct data type and within acceptable values
 //Field Check Type (PC) --> check everything the same as (P) plus check if  field value is correct
 public class FieldCheckType {
 
-    static public enum EnumFieldCheckType {
+    public enum EnumFieldCheckType {
         D, P, PC
     }
 
-    private boolean isFieldEmpty;
+    private boolean isFieldValueEmpty = true;    // Field value is empty
+    private boolean isRequiredFieldMissing;      // Required field is missing
     private boolean isCorrectDataType;
     private boolean isAcceptableValue;
     private boolean isCorrectValue;
+    private boolean isCorrectWidth;
+    private boolean isOptionalValue;
+
     private EnumFieldCheckType enumfieldCheckType;
 
     public FieldCheckType() {
-        isFieldEmpty = true;
+        isFieldValueEmpty = true;
     }
 
-    public boolean isFieldEmpty() {
-        return isFieldEmpty;
+    public boolean isFieldValueEmpty() {
+        return isFieldValueEmpty;
     }
 
-    public void setFieldEmpty(boolean isFieldEmpty) {
-        this.isFieldEmpty = isFieldEmpty;
+    public void setFieldValueEmpty(boolean isFieldEmpty) {
+        this.isFieldValueEmpty = isFieldEmpty;
     }
 
     public boolean isCorrectDataType() {
@@ -58,36 +66,61 @@ public class FieldCheckType {
         this.enumfieldCheckType = enumfieldCheckType;
     }
 
+    public boolean isCorrectWidth() {
+        return isCorrectWidth;
+    }
+
+    public void setCorrectWidth(boolean correctWidth) {
+        isCorrectWidth = correctWidth;
+    }
+
+    public boolean isOptionalValue() {
+        return isOptionalValue;
+    }
+
+    public void setOptionalValue(boolean isOptionalValue) {
+        this.isOptionalValue = isOptionalValue;
+    }
+
+    public boolean isRequiredFieldMissing() {
+        return isRequiredFieldMissing;
+    }
+
+    public void setRequiredFieldMissing(boolean requiredFieldMissing) {
+        isRequiredFieldMissing = requiredFieldMissing;
+    }
+
     @Override
     public String toString() {
-        return "FieldCheckType [isFieldEmpty=" + isFieldEmpty + ", isCorrectDataType=" + isCorrectDataType
-                + ", isAcceptableValue=" + isAcceptableValue + ", isCorrectValue=" + isCorrectValue + ", enumfieldCheckType="
-                + enumfieldCheckType + "]";
+        return new ToStringBuilder(this)
+                .append("isOptionalValue", isOptionalValue)
+                .append("isFieldValueEmpty", isFieldValueEmpty)
+                .append("isCorrectDataType", isCorrectDataType)
+                .append("isAcceptableValue", isAcceptableValue)
+                .append("isCorrectValue", isCorrectValue)
+                .append("isCorrectWidth", isCorrectWidth)
+                .append("enumfieldCheckType", enumfieldCheckType)
+                .append("isRequiredFieldMissing", isRequiredFieldMissing)
+                .toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         FieldCheckType that = (FieldCheckType) o;
-
-        if (isAcceptableValue != that.isAcceptableValue) return false;
-        if (isCorrectDataType != that.isCorrectDataType) return false;
-        if (isCorrectValue != that.isCorrectValue) return false;
-        if (isFieldEmpty != that.isFieldEmpty) return false;
-        if (enumfieldCheckType != that.enumfieldCheckType) return false;
-
-        return true;
+        return isOptionalValue == that.isOptionalValue &&
+                isFieldValueEmpty == that.isFieldValueEmpty &&
+                isCorrectDataType == that.isCorrectDataType &&
+                isAcceptableValue == that.isAcceptableValue &&
+                isCorrectValue == that.isCorrectValue &&
+                isCorrectWidth == that.isCorrectWidth &&
+                enumfieldCheckType == that.enumfieldCheckType &&
+                isRequiredFieldMissing == that.isRequiredFieldMissing;
     }
 
     @Override
     public int hashCode() {
-        int result = (isFieldEmpty ? 1 : 0);
-        result = 31 * result + (isCorrectDataType ? 1 : 0);
-        result = 31 * result + (isAcceptableValue ? 1 : 0);
-        result = 31 * result + (isCorrectValue ? 1 : 0);
-        result = 31 * result + (enumfieldCheckType != null ? enumfieldCheckType.hashCode() : 0);
-        return result;
+        return Objects.hash(isOptionalValue, isFieldValueEmpty, isCorrectDataType, isAcceptableValue, isCorrectValue, isCorrectWidth, enumfieldCheckType, isRequiredFieldMissing);
     }
 }

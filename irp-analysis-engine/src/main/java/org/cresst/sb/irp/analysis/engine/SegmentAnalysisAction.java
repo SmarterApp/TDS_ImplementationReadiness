@@ -68,7 +68,7 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
             switch (enumFieldName) {
                 case id:
                     //	<xs:attribute name="id" use="required" />
-                    processP_PritableASCIIone(segment.getId(), fieldCheckType);
+                    processP_PrintableASCIIone(segment.getId(), fieldCheckType);
                     break;
                 case position:
                     //	<xs:attribute name="position" use="required">
@@ -86,11 +86,11 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
                     break;
                 case algorithm:
                     //<xs:attribute name="algorithm" use="required" />
-                    processP_PritableASCIIone(segment.getAlgorithm(), fieldCheckType);
+                    processP_PrintableASCIIone(segment.getAlgorithm(), fieldCheckType);
                     break;
                 case algorithmVersion:
                     //   <xs:attribute name="algorithmVersion" />
-                    processP_PritableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
+                    processP_PrintableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
                     break;
                 default:
                     break;

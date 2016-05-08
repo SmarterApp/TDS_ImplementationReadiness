@@ -91,15 +91,15 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 				// <xs:attribute name="type" use="required" />
 				EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
 				if (acceptableType != null)
-					processP_PritableASCIIone(accommodation.getType(), fieldCheckType);
+					processP_PrintableASCIIone(accommodation.getType(), fieldCheckType);
 				break;
 			case value:
 				// <xs:attribute name="value" use="required"/>
-				processP_PritableASCIIone(accommodation.getValue(), fieldCheckType);
+				processP_PrintableASCIIone(accommodation.getValue(), fieldCheckType);
 				break;
 			case code:
 				// <xs:attribute name="code" use="required"/>
-				processP_PritableASCIIone(accommodation.getCode(), fieldCheckType);
+				processP_PrintableASCIIone(accommodation.getCode(), fieldCheckType);
 				break;
 			case segment:
 				//     <xs:attribute name="segment" use="required">

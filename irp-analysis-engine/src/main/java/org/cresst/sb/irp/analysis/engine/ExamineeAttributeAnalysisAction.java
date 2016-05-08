@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeAttributeFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
@@ -28,12 +27,17 @@ import java.util.List;
 public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttribute, EnumExamineeAttributeFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAttributeAnalysisAction.class);
 
+    static private String[] gradeLevelWhenAssessedAcceptableValues = {
+            "IT", "PR", "PK", "TK", "KG", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+            "10", "11", "12", "13", "PS", "UG"
+    };
+
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
-        Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
+        Examinee tdsReportExaminee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
 
-		String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+		String studentIdentifier = ExamineeHelper.getStudentIdentifier(tdsReportExaminee);
 	
         Student student = null;
         try {
@@ -41,53 +45,73 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
         } catch (NotFoundException ex) {
             logger.info(String.format("TDS Report contains an Student Identifier (%s) that does not match an IRP Student", studentIdentifier));
         }
-     
+
+        List<ExamineeAttribute> tdsExamineeAttributes = ExamineeHelper.getFinalExamineeAttributes(tdsReportExaminee);
+
         // Analyze all the ExamineeAttributes that have a FINAL context
-        List<Examinee.ExamineeAttribute> examineeAttributes = ExamineeHelper.getFinalExamineeAttributes(examinee);
-        for (Examinee.ExamineeAttribute examineeAttribute : examineeAttributes) {
+        for (EnumExamineeAttributeFieldName enumExamineeAttributeFieldName : EnumExamineeAttributeFieldName.values()) {
+
             ExamineeAttributeCategory examineeAttributeCategory = new ExamineeAttributeCategory();
             individualResponse.addExamineeAttributeCategory(examineeAttributeCategory);
 
-            analyzeExamineeAttribute(examineeAttributeCategory, examineeAttribute, student);
+            ExamineeAttribute examineeAttribute = ExamineeHelper.getFinalExamineeAttribute(tdsReportExaminee, enumExamineeAttributeFieldName);
+
+            analyzeExamineeAttribute(examineeAttributeCategory, enumExamineeAttributeFieldName, examineeAttribute, student);
+
+            if (examineeAttribute != null) {
+                // Remove ExamineeAttributes from tdsExamineeAttributes so that extraneous attributes can be marked as such
+                for (int i = tdsExamineeAttributes.size() - 1; i >= 0; i--) {
+                    ExamineeAttribute toRemove = tdsExamineeAttributes.get(i);
+                    if (ExamineeHelper.convertToExamineeAttributeEnum(toRemove.getName()) == enumExamineeAttributeFieldName) {
+                        tdsExamineeAttributes.remove(i);
+                    }
+                }
+            }
         }
-    }
 
-    private void analyzeExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
-                                          ExamineeAttribute examineeAttribute, Student student) {
+        // The remaining ExamineeAttributes are not defined in the Open System spec
+        for (ExamineeAttribute extraExamineeAttribute : tdsExamineeAttributes) {
 
-        EnumExamineeAttributeFieldName fieldName = convertToFieldName(examineeAttribute.getName());
-        if (fieldName != null) {
-            validate(examineeAttributeCategory, examineeAttribute, examineeAttribute.getValue(), EnumFieldCheckType.PC, fieldName, student);
-        } else {
+            ExamineeAttributeCategory examineeAttributeCategory = new ExamineeAttributeCategory();
+            individualResponse.addExamineeAttributeCategory(examineeAttributeCategory);
+
             // For unknown ExamineeAttributes, let user know that it is incorrect
             final FieldCheckType fieldCheckType = new FieldCheckType();
             fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-            fieldCheckType.setFieldEmpty(false);
+            fieldCheckType.setFieldValueEmpty(false);
             fieldCheckType.setCorrectDataType(true);
 
             final CellCategory cellCategory = new CellCategory();
             cellCategory.setTdsFieldName("name");
-            cellCategory.setTdsFieldNameValue(examineeAttribute.getName());
+            cellCategory.setTdsFieldNameValue(extraExamineeAttribute.getName());
             cellCategory.setFieldCheckType(fieldCheckType);
 
             examineeAttributeCategory.addCellCategory(cellCategory);
         }
     }
 
-    /**
-     * Converts the given string to an {@link ExamineeAttributeAnalysisAction.EnumExamineeAttributeFieldName}.
-     * If it can't convert, then null is returned.
-     *
-     * @param nameFieldValue
-     * @return The enum if string represents a valid enum. Null otherwise.
-     */
-    private EnumExamineeAttributeFieldName convertToFieldName(String nameFieldValue) {
+    private void analyzeExamineeAttribute(ExamineeAttributeCategory examineeAttributeCategory,
+                                          EnumExamineeAttributeFieldName enumExamineeAttributeFieldName,
+                                          ExamineeAttribute examineeAttribute, Student student) {
 
-        if (EnumUtils.isValidEnum(EnumExamineeAttributeFieldName.class, nameFieldValue)) {
-            return EnumExamineeAttributeFieldName.valueOf(nameFieldValue);
+        if (examineeAttribute != null) {
+            validate(examineeAttributeCategory, examineeAttribute, examineeAttribute.getValue(), EnumFieldCheckType.PC,
+                    enumExamineeAttributeFieldName, student);
+        } else if (enumExamineeAttributeFieldName.isRequired()){
+
+            final FieldCheckType fieldCheckType = new FieldCheckType();
+            fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+            fieldCheckType.setFieldValueEmpty(true);
+            fieldCheckType.setRequiredFieldMissing(true);
+            fieldCheckType.setOptionalValue(false);
+
+            final CellCategory cellCategory = new CellCategory();
+            cellCategory.setTdsFieldName(enumExamineeAttributeFieldName.name());
+            cellCategory.setTdsExpectedValue(expectedValue(student, enumExamineeAttributeFieldName));
+            cellCategory.setFieldCheckType(fieldCheckType);
+
+            examineeAttributeCategory.addCellCategory(cellCategory);
         }
-
-        return null;
     }
 
     /**
@@ -99,7 +123,34 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
      */
     @Override
     protected void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType) {
-    	processP_PritableASCIIone(examineeAttribute.getValue(), fieldCheckType);
+        switch (enumFieldName) {
+            case MiddleName:
+            case AlternateSSID:
+                fieldCheckType.setOptionalValue(true);
+                processP_PrintableASCIIzeroMaxWidth(examineeAttribute.getValue(), fieldCheckType, enumFieldName.getMaxWidth());
+            case Birthdate:
+                processDate(examineeAttribute.getValue(), fieldCheckType);
+                break;
+            case GradeLevelWhenAssessed:
+                final String inputValue = examineeAttribute.getValue();
+                fieldCheckType.setCorrectDataType(StringUtils.isNotBlank(inputValue) && StringUtils.isAsciiPrintable(inputValue));
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() == enumFieldName.getMaxWidth());
+
+                for (int i = 0; i < gradeLevelWhenAssessedAcceptableValues.length; i++) {
+                    if (gradeLevelWhenAssessedAcceptableValues[i] == inputValue) {
+                        fieldCheckType.setAcceptableValue(true);
+                        break;
+                    }
+                }
+                break;
+            default:
+                processP_PrintableASCIIoneMaxWidth(examineeAttribute.getValue(), fieldCheckType, enumFieldName.getMaxWidth());
+                break;
+        }
+
+        if (StringUtils.isNotBlank(examineeAttribute.getValue())) {
+            fieldCheckType.setFieldValueEmpty(false);
+        }
     }
 
     /**
@@ -131,9 +182,6 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
                     if (getter != null) {
                         String value = (String) getter.invoke(student);
                         switch(enumFieldName){
-	                    	case Sex:
-	                    		processC_Sex(value, examineeAttribute.getValue(), fieldCheckType);
-	                    		break;
 	                    	default:
 	                    		processSameValue(value, examineeAttribute.getValue(), fieldCheckType);
 	                    		break;
@@ -147,24 +195,11 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
     }
 
     private void processSameValue(String first, String second, FieldCheckType fieldCheckType) {
-    	if(StringUtils.isNotBlank(first) || StringUtils.isNotBlank(second)){
-	        if (StringUtils.equalsIgnoreCase(first, StringUtils.stripStart(second, "0"))) {
-	            setCcorrect(fieldCheckType);
-	        }
-    	}
+        if (StringUtils.equalsIgnoreCase(first, second)) {
+            setCcorrect(fieldCheckType);
+        }
     }
-    
-    // <ExamineeAttribute context="FINAL" name="Sex" value="M" or value="F"
-    private void processC_Sex(String studentValue, String tdsExamineeAttributeValue, FieldCheckType fieldCheckType){
-    	if((StringUtils.equalsIgnoreCase(studentValue, "male") &&  tdsExamineeAttributeValue.equalsIgnoreCase("m"))
-    		|| (StringUtils.equalsIgnoreCase(studentValue, "female") && tdsExamineeAttributeValue.equalsIgnoreCase("f")))
-    	{
-    		tdsExamineeAttributeValue = studentValue;
-    	}
-    	
-    	processSameValue(studentValue, tdsExamineeAttributeValue, fieldCheckType);
-    }
-    
+
     /**
      * Uses the IRP Student object to populate the expected value of the field being analyzed
      *

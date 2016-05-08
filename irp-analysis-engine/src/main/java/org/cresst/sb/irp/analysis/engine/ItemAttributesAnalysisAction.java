@@ -222,11 +222,11 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				break;
 			case segmentId:
 				// <xs:attribute name="segmentId" use="required" />
-				processP_PritableASCIIone(item.getSegmentId(), fieldCheckType);
+				processP_PrintableASCIIone(item.getSegmentId(), fieldCheckType);
 				break;
 			case bankKey:
 				// <xs:attribute name="bankKey" use="required" type="xs:unsignedInt" /> vs dox, need to check
-				processP_PritableASCIIone(Long.toString(item.getBankKey()), fieldCheckType);
+				processP_PrintableASCIIone(Long.toString(item.getBankKey()), fieldCheckType);
 				break;
 			case key:
 				// <xs:attribute name="key" use="required" type="xs:unsignedInt" />
@@ -281,15 +281,15 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				// <xs:enumeration value="audio/ogg" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP_PritableASCIIone(item.getMimeType(), fieldCheckType);
+				processP_PrintableASCIIone(item.getMimeType(), fieldCheckType);
 				break;
 			case strand:
 				// <xs:attribute name="strand" use="required" />
-				processP_PritableASCIIone(item.getStrand(), fieldCheckType);
+				processP_PrintableASCIIone(item.getStrand(), fieldCheckType);
 				break;
 			case contentLevel:
 				// <xs:attribute name="contentLevel" use="required" />
-				processP_PritableASCIIone(item.getContentLevel(), fieldCheckType);
+				processP_PrintableASCIIone(item.getContentLevel(), fieldCheckType);
 				break;
 			case pageNumber:
 				// <xs:attribute name="pageNumber" use="required" type="xs:unsignedInt" />

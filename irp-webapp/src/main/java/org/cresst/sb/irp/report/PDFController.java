@@ -76,7 +76,7 @@ public class PDFController {
             if (input == null) { return ""; }
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return "Ignored"; }
 
-            boolean valid = !input.isFieldEmpty() && input.isCorrectDataType() && input.isAcceptableValue();
+            boolean valid = !input.isFieldValueEmpty() && input.isCorrectDataType() && input.isAcceptableValue();
 
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
                 valid = valid && input.isCorrectValue();
@@ -90,7 +90,7 @@ public class PDFController {
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return ""; }
 
             StringBuilder reasons = new StringBuilder(input.getEnumfieldCheckType().toString());
-            if (input.isFieldEmpty()) reasons.append(" Field Empty");
+            if (input.isFieldValueEmpty()) reasons.append(" Field Empty");
             if (!input.isCorrectDataType()) reasons.append(" Incorrect Data Type");
             if (!input.isAcceptableValue()) reasons.append(" Unacceptable Value");
 

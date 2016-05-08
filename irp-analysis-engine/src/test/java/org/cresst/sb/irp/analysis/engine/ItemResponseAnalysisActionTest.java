@@ -249,7 +249,7 @@ public class ItemResponseAnalysisActionTest {
 	    assertEquals("type",cellCategory1.getTdsFieldName());
 	    assertEquals("", cellCategory1.getTdsFieldNameValue());
 	    assertNull(cellCategory1.getTdsExpectedValue());
-	    assertEquals(true, fieldCheckType1.isFieldEmpty());
+	    assertEquals(true, fieldCheckType1.isFieldValueEmpty());
 	    assertEquals(false, fieldCheckType1.isCorrectValue());
 	    
 	    //Response type existed with value blank
@@ -261,7 +261,7 @@ public class ItemResponseAnalysisActionTest {
 	    assertEquals("type",cellCategory2.getTdsFieldName());
 	    assertEquals(" ", cellCategory2.getTdsFieldNameValue());
 	    assertEquals("", cellCategory2.getTdsExpectedValue());
-	    assertEquals(false, fieldCheckType2.isFieldEmpty());
+	    assertEquals(false, fieldCheckType2.isFieldValueEmpty());
 	    assertEquals(true, fieldCheckType2.isCorrectValue());
 	    
 	    //Response type existed with value "value"
@@ -273,7 +273,7 @@ public class ItemResponseAnalysisActionTest {
 	    assertEquals("type",cellCategory3.getTdsFieldName());
 	    assertEquals("value", cellCategory3.getTdsFieldNameValue());
 	    assertEquals("value", cellCategory3.getTdsExpectedValue());
-	    assertEquals(false, fieldCheckType3.isFieldEmpty());
+	    assertEquals(false, fieldCheckType3.isFieldValueEmpty());
 	    assertEquals(true, fieldCheckType3.isCorrectValue());
 	    
 	    //Response type existed with value "reference"
@@ -285,7 +285,7 @@ public class ItemResponseAnalysisActionTest {
 	    assertEquals("type",cellCategory4.getTdsFieldName());
 	    assertEquals("reference", cellCategory4.getTdsFieldNameValue());
 	    assertEquals("reference", cellCategory4.getTdsExpectedValue());
-	    assertEquals(false, fieldCheckType4.isFieldEmpty());
+	    assertEquals(false, fieldCheckType4.isFieldValueEmpty());
 	    assertEquals(true, fieldCheckType4.isCorrectValue());
 		
 	}

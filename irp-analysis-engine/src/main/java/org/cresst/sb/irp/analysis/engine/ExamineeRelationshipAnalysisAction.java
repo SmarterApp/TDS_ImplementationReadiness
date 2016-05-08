@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.analysis.engine.examinee.EnumExamineeRelationshipFieldName;
 import org.cresst.sb.irp.analysis.engine.examinee.ExamineeHelper;
@@ -59,7 +58,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
     private void analyzeExamineeRelationship(ExamineeRelationshipCategory examineeRelationshipCategory,
                                              ExamineeRelationship examineeRelationship, Student student) {
 
-        EnumExamineeRelationshipFieldName fieldName = convertToFieldName(examineeRelationship.getName());
+        EnumExamineeRelationshipFieldName fieldName = ExamineeHelper.convertToExamineeRelationshipEnum(examineeRelationship.getName());
         if (fieldName != null) {
             EnumFieldCheckType enumFieldCheckType = EnumFieldCheckType.P;
             switch (fieldName) {
@@ -77,7 +76,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
             // For unknown ExamineeRelationships, let user know that it is incorrect
             final FieldCheckType fieldCheckType = new FieldCheckType();
             fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-            fieldCheckType.setFieldEmpty(false);
+            fieldCheckType.setFieldValueEmpty(false);
             fieldCheckType.setCorrectDataType(true);
 
             final CellCategory cellCategory = new CellCategory();
@@ -87,21 +86,6 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
 
             examineeRelationshipCategory.addCellCategory(cellCategory);
         }
-    }
-
-    /**
-     * Converts the given string to an {@link ExamineeRelationshipAnalysisAction.EnumExamineeRelationshipFieldName}.
-     * If it can't convert, then null is returned.
-     *
-     * @param nameFieldValue
-     * @return The enum if string represents a valid enum. Null otherwise.
-     */
-    private EnumExamineeRelationshipFieldName convertToFieldName(String nameFieldValue) {
-        if (EnumUtils.isValidEnum(EnumExamineeRelationshipFieldName.class, nameFieldValue)) {
-            return EnumExamineeRelationshipFieldName.valueOf(nameFieldValue);
-        }
-
-        return null;
     }
 
     /**
@@ -120,7 +104,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
                 }
                 break;
             default:
-                processP_PritableASCIIone(examineeRelationship.getValue(), fieldCheckType);
+                processP_PrintableASCIIone(examineeRelationship.getValue(), fieldCheckType);
                 break;
         }
     }

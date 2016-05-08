@@ -62,11 +62,11 @@ public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsage
             switch (enumFieldName) {
                 case type:
                     // 	<xs:attribute name="type" use="required" />
-                    processP_PritableASCIIone(toolUsage.getType(), fieldCheckType);
+                    processP_PrintableASCIIone(toolUsage.getType(), fieldCheckType);
                     break;
                 case code:
                     // 	<xs:attribute name="code" use="required" />
-                    processP_PritableASCIIone(toolUsage.getCode(), fieldCheckType);
+                    processP_PrintableASCIIone(toolUsage.getCode(), fieldCheckType);
                     break;
                 default:
                     break;

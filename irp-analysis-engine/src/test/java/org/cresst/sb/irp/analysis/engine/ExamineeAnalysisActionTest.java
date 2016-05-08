@@ -139,7 +139,7 @@ public class ExamineeAnalysisActionTest {
                 .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
                 .tdsFieldNameValue("9999")
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-                .isFieldEmpty(false)
+                .fieldEmpty(false)
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(false)
@@ -198,7 +198,7 @@ public class ExamineeAnalysisActionTest {
         // Setup expected results after analysis that indicates the field has an incorrect value
         final CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
-                .isFieldEmpty(true)
+                .fieldEmpty(true)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                 .toCellCategory();
 

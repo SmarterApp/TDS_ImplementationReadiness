@@ -71,19 +71,19 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
             switch (enumFieldName) {
                 case server:
                     // <xs:attribute name="server" use="required" />
-                    processP_PritableASCIIone(opportunity.getServer(), fieldCheckType);
+                    processP_PrintableASCIIone(opportunity.getServer(), fieldCheckType);
                     break;
                 case database:
                     // <xs:attribute name="database" />
-                    processP_PritableASCIIzero(opportunity.getDatabase(), fieldCheckType);
+                    processP_PrintableASCIIzero(opportunity.getDatabase(), fieldCheckType);
                     break;
                 case clientName:
                     //	<xs:attribute name="clientName" use="required" />
-                    processP_PritableASCIIone(opportunity.getClientName(), fieldCheckType);
+                    processP_PrintableASCIIone(opportunity.getClientName(), fieldCheckType);
                     break;
                 case key:
                     // 	<xs:attribute name="key" use="required" />
-                    processP_PritableASCIIone(opportunity.getKey(), fieldCheckType);
+                    processP_PrintableASCIIone(opportunity.getKey(), fieldCheckType);
                     break;
                 case oppId:
                     //<xs:attribute name="oppId" use="required" />
@@ -142,7 +142,7 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
                     break;
                 case windowId:
                     //	<xs:attribute name="windowId" use="required" />
-                    processP_PritableASCIIone(opportunity.getWindowId(), fieldCheckType);
+                    processP_PrintableASCIIone(opportunity.getWindowId(), fieldCheckType);
                     break;
                 case assessmentParticipantSessionPlatformUserAgent:
                     // <xs:attribute name="assessmentParticipantSessionPlatformUserAgent" />
@@ -182,7 +182,7 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
     private void fieldNameNotExist(OpportunityCategory opportunityCategory, EnumOpportunityPropertyFieldName enumOpportunityPropertyFieldName, EnumFieldCheckType enumFieldCheckType){
   	  final FieldCheckType fieldCheckType = new FieldCheckType();
         fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
-        fieldCheckType.setFieldEmpty(true);
+        fieldCheckType.setFieldValueEmpty(true);
         fieldCheckType.setCorrectDataType(false);
 
         CellCategory cellCategory = new CellCategory();

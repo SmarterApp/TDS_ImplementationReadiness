@@ -95,15 +95,15 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			switch (enumFieldName) {
 			case name:
 				// <xs:attribute name="name" use="required" />
-				processP_PritableASCIIone(tdsTest.getName(), fieldCheckType);
+				processP_PrintableASCIIone(tdsTest.getName(), fieldCheckType);
 				break;
 			case subject:
 				// <xs:attribute name="subject" use="required" />
-				processP_PritableASCIIone(tdsTest.getSubject(), fieldCheckType);
+				processP_PrintableASCIIone(tdsTest.getSubject(), fieldCheckType);
 				break;
 			case testId:
 				// <xs:attribute name="testId" use="required" />
-				processP_PritableASCIIone(tdsTest.getTestId(), fieldCheckType);
+				processP_PrintableASCIIone(tdsTest.getTestId(), fieldCheckType);
 				break;
 			case bankKey:
 				// <xs:attribute name="bankKey" type="xs:unsignedInt" />
@@ -111,7 +111,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				break;
 			case contract:
 				// <xs:attribute name="contract" use="required" />
-				processP_PritableASCIIone(tdsTest.getSubject(), fieldCheckType);
+				processP_PrintableASCIIone(tdsTest.getSubject(), fieldCheckType);
 				break;
 			case mode:
 				// <xs:attribute name="mode" use="required">
@@ -135,7 +135,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				processP_Positive32bit(Long.toString(tdsTest.getBankKey()), fieldCheckType);
 			case assessmentType:
 				// <xs:attribute name="assessmentType" />
-				processP_PritableASCIIone(tdsTest.getAssessmentType(), fieldCheckType);
+				processP_PrintableASCIIone(tdsTest.getAssessmentType(), fieldCheckType);
 				break;
 			case academicYear:
 				// <xs:attribute name="academicYear" type="xs:unsignedInt" />

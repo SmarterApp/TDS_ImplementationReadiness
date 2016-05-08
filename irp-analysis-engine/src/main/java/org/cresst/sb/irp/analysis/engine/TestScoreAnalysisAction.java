@@ -218,13 +218,13 @@ public class TestScoreAnalysisAction extends
 	protected void checkP(TDSReport.Opportunity.Score score, EnumScoreFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		switch (enumFieldName) {
 		case measureOf:
-			processP_PritableASCIIone(score.getMeasureOf(), fieldCheckType);
+			processP_PrintableASCIIone(score.getMeasureOf(), fieldCheckType);
 			break;
 		case measureLabel:
-			processP_PritableASCIIone(score.getMeasureLabel(), fieldCheckType);
+			processP_PrintableASCIIone(score.getMeasureLabel(), fieldCheckType);
 			break;
 		case value:
-			processP_PritableASCIIone(score.getValue(), fieldCheckType);
+			processP_PrintableASCIIone(score.getValue(), fieldCheckType);
 
 			if (fieldCheckType.isCorrectDataType()
 					&& fieldCheckType.isAcceptableValue()

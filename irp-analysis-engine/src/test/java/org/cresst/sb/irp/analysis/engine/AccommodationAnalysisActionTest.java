@@ -177,7 +177,7 @@ public class AccommodationAnalysisActionTest {
 	
 		List<CellCategory> expectedCellCategories0 = Lists.newArrayList(
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -187,7 +187,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -197,7 +197,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),	
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
@@ -207,7 +207,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue("ENU")
 		        	.toCellCategory(),
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -219,7 +219,7 @@ public class AccommodationAnalysisActionTest {
 		
 		List<CellCategory> expectedCellCategories1 = Lists.newArrayList(
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -229,7 +229,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),
 		    new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -239,7 +239,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),		
 		    new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
@@ -249,7 +249,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue("TDS_Other")
 		        	.toCellCategory(),
 		    new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -261,7 +261,7 @@ public class AccommodationAnalysisActionTest {
 		
 		List<CellCategory> expectedCellCategories2 = Lists.newArrayList(
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -271,7 +271,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),
 	        new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
@@ -281,7 +281,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue(null)
 		        	.toCellCategory(),				
 			new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(true)
@@ -291,7 +291,7 @@ public class AccommodationAnalysisActionTest {
 		            .tdsExpectedValue("TDS_PS_L0")
 		        	.toCellCategory(),
 		    new CellCategoryBuilder()
-		        	.isFieldEmpty(false)
+		        	.fieldEmpty(false)
 		        	.correctDataType(true)
 		        	.acceptableValue(true)
 		        	.correctValue(false)
