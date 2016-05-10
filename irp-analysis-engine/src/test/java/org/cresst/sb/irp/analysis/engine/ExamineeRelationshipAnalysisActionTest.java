@@ -35,12 +35,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ExamineeRelationshipAnalysisActionTest {
 
-    final String RESPONSIBLE_DISTRICT_ID = EnumExamineeRelationshipFieldName.ResponsibleDistrictIdentifier.toString();
-    final String ORGANIZATION_NAME = EnumExamineeRelationshipFieldName.OrganizationName.toString();
-    final String RESPONSIBLE_INSTITUTION_ID = EnumExamineeRelationshipFieldName.ResponsibleInstitutionIdentifier.toString();
-    final String NAME_OF_INSTITUTION= EnumExamineeRelationshipFieldName.NameOfInstitution.toString();
-    final String STATE_NAME = EnumExamineeRelationshipFieldName.StateName.toString();
-    final String STATE_ABBREVIATION = EnumExamineeRelationshipFieldName.StateAbbreviation.toString();
+    final private String RESPONSIBLE_DISTRICT_ID = EnumExamineeRelationshipFieldName.DistrictId.name();
+    final private String ORGANIZATION_NAME = EnumExamineeRelationshipFieldName.DistrictName.name();
+    final private String RESPONSIBLE_INSTITUTION_ID = EnumExamineeRelationshipFieldName.SchoolId.name();
+    final private String NAME_OF_INSTITUTION= EnumExamineeRelationshipFieldName.SchoolName.name();
+    final private String STATE_NAME = EnumExamineeRelationshipFieldName.StateName.name();
+    final private String STATE_ABBREVIATION = EnumExamineeRelationshipFieldName.StateAbbreviation.name();
 
     @Mock
     private StudentService studentService;
@@ -96,7 +96,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        
+
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -165,7 +165,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        
+
         // Create a Student with the same attributes as the ExamineeRelationships
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(
                 new StudentBuilder(SSID)
@@ -263,7 +263,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        
+
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -305,7 +305,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-        
+
         // Create a Student with the same State Abbreviation as the ExamineeRelationship
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).stateAbbreviation("HI").toStudent());
 
@@ -331,9 +331,9 @@ public class ExamineeRelationshipAnalysisActionTest {
 
     /**
      * <xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-     * TDS Report should have only one Examinee attribute. otherwise, trigger exception 
+     * TDS Report should have only one Examinee attribute. otherwise, trigger exception
      * in xmlValidate.validateXMLSchema(TDSReportXSDResource, tmpPath.toString()) in TdsReportAnalysisEngine.java
-     * 
+     *
      * this test won't be invoked in real scenario
      */
     @Test
@@ -360,7 +360,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
-      
+
         // Create a scenario where the student is not found
         when(studentService.getStudentByStudentSSID(SSID)).thenThrow(new NotFoundException("test"));
 

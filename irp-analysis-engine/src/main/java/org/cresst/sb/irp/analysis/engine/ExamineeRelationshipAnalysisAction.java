@@ -62,8 +62,8 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         if (fieldName != null) {
             EnumFieldCheckType enumFieldCheckType = EnumFieldCheckType.P;
             switch (fieldName) {
-                case ResponsibleDistrictIdentifier:
-                case ResponsibleInstitutionIdentifier:
+                case DistrictId:
+                case SchoolId:
                 case StateAbbreviation:
                     enumFieldCheckType = EnumFieldCheckType.PC;
                     break;
@@ -98,11 +98,11 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
     @Override
     protected void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName, FieldCheckType fieldCheckType) {
         switch (enumFieldName) {
-            case contextDate:
-                if (examineeRelationship.getContextDate() != null) {
-                    setPcorrect(fieldCheckType);
-                }
-                break;
+//            case contextDate:
+//                if (examineeRelationship.getContextDate() != null) {
+//                    setPcorrect(fieldCheckType);
+//                }
+//                break;
             default:
                 processP_PrintableASCIIone(examineeRelationship.getValue(), fieldCheckType);
                 break;
@@ -124,20 +124,20 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         }
 
         switch (enumFieldName) {
-            case ResponsibleDistrictIdentifier:
+            case DistrictId:
             	//strip left side zeros e.g 001
                 if (StringUtils.equalsIgnoreCase(StringUtils.stripStart(student.getResponsibleDistrictIdentifier(), "0"), examineeRelationship.getValue())) {
                     setCcorrect(fieldCheckType);
                 }
                 break;
-            case OrganizationName:
+            case DistrictName:
                 break;
-            case ResponsibleInstitutionIdentifier:
+            case SchoolId:
                 if (StringUtils.equalsIgnoreCase(student.getResponsibleInstitutionIdentifier(), examineeRelationship.getValue())) {
                     setCcorrect(fieldCheckType);
                 }
                 break;
-            case NameOfInstitution:
+            case SchoolName:
                 break;
             case StateAbbreviation:
                 if (StringUtils.equalsIgnoreCase(student.getStateAbbreviation(), examineeRelationship.getValue())) {
@@ -166,15 +166,15 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         String expectedValue = null;
 
         switch (enumFieldName) {
-            case ResponsibleDistrictIdentifier:
+            case DistrictId:
                 expectedValue = student.getResponsibleDistrictIdentifier();
                 break;
-            case OrganizationName:
+            case DistrictName:
                 break;
-            case ResponsibleInstitutionIdentifier:
+            case SchoolId:
                 expectedValue = student.getResponsibleInstitutionIdentifier();
                 break;
-            case NameOfInstitution:
+            case SchoolName:
                 break;
             case StateAbbreviation:
                 expectedValue = student.getStateAbbreviation();

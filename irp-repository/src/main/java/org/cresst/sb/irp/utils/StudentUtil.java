@@ -111,7 +111,7 @@ public class StudentUtil {
 				break;
 			*/
 			case "gradelevelwhenassessed":
-				student.setGradeLevelWhenAssessed(String.format("%02s", cellStringValue));
+				student.setGradeLevelWhenAssessed(StringUtils.leftPad(cellStringValue, 2, '0'));
 				break;
 			case "sex":
 				student.setSex(cellStringValue);
