@@ -27,7 +27,7 @@
 
         statusIcon: function (fieldCheckType) {
             if (fieldCheckType.enumfieldCheckType == 'D') {
-                return 'check-circle';
+                return 'check';
             }
 
             if (fieldCheckType.requiredFieldMissing ||
@@ -67,7 +67,9 @@
             }
 
             var reasons = [];
-            if (!input.unknownField) {
+            if (input.requiredFieldMissing) {
+                reasons.push("Required Field Missing")
+            } else if (!input.unknownField) {
                 if (input.fieldEmpty) reasons.push("Field Empty");
                 if (!input.correctDataType) reasons.push("Incorrect Data Type");
                 if (!input.acceptableValue) reasons.push("Unacceptable Value");

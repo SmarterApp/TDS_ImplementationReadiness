@@ -115,6 +115,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
     @Override
     protected void checkP(ScoreInfoType scoreInfoType, EnumItemScoreInfoFieldName enumFieldName, FieldCheckType fieldCheckType) {
         try {
+			// TODO: Check actual widths
+            fieldCheckType.setCorrectWidth(true);
+
             switch (enumFieldName) {
                 case scorePoint:
                     // <xs:attribute name="scorePoint" type="UFloatAllowNegativeOne" />
@@ -249,6 +252,9 @@ public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, I
                  if (scoreRationale.getMessage() != null){
                 	 FieldCheckType fieldCheckType = new FieldCheckType();
                      fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+
+                     // TODO: check actual width
+                     fieldCheckType.setCorrectWidth(true);
 
                      final CellCategory cellCategory = new CellCategory();
                      cellCategory.setTdsFieldName(EnumItemScoreInfoScoreRationaleFieldName.message.toString());

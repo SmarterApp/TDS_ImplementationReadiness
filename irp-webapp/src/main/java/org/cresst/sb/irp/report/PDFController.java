@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.math.Field;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.ItemCategory;
@@ -85,6 +87,23 @@ public class PDFController {
             return valid ? "No Errors" : "Errors Found";
         }
 
+        public String statusIcon(FieldCheckType input) {
+            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) {
+                return "http://localhost:8080/check.png";
+            }
+
+            if (input.isRequiredFieldMissing() ||
+                    ((input.isOptionalValue() && !input.isFieldValueEmpty()) || !input.isOptionalValue()) &&
+                            (!input.isCorrectDataType() ||
+                                    !input.isAcceptableValue() ||
+                                    !input.isCorrectWidth() ||
+                                    (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC && !input.isCorrectValue()))) {
+                return "http://localhost:8080/error.png";
+            }
+
+            return "http://localhost:8080/check-circle.png";
+        }
+
         public String explanation(FieldCheckType input) {
             if (input == null) { return ""; }
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return ""; }
@@ -113,11 +132,23 @@ public class PDFController {
 
         public String itemExplanation(ItemCategory item) {
             if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && item.isItemFormatCorrect()) { return "This Item matches a given IRP Item. The detailed analysis follows."; }
-            if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && !item.isItemFormatCorrect()) { return "The Item's format is incorrect"; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.FOUND && !item.isItemFormatCorrect()) { return "The Item ID matches a given IRP Item's ID but the Item format does not match the IRP Item's format."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.MISSING) { return "This IRP Item is missing from the TDS Report."; }
-            if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is unknown to IRP or a duplicate of an existing."; }
+            if (item.getStatus() == ItemCategory.ItemStatusEnum.EXTRA) { return "This Item is unknown to IRP or it is a duplicate of an already analyzed Item."; }
             if (item.getStatus() == ItemCategory.ItemStatusEnum.NOTUSED) { return "This is a CAT Item that was not served to the student."; }
             return "";
+        }
+
+        public String rowClass(FieldCheckType fieldCheckType) {
+            return fieldCheckType.isOptionalValue() ? "optionalField" : "requiredField";
+        }
+
+        public String expectedValueClass(String tdsExpectedValue) {
+            return StringUtils.isNotBlank(tdsExpectedValue) ? "expectedValue" : "noExpectedValue";
+        }
+
+        public String adjustedExpectedValueCell(String input) {
+            return StringUtils.isNotBlank(input) ? input : "XXXXX";
         }
     }
 }

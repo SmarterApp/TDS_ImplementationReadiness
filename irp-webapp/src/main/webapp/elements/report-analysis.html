@@ -68,12 +68,19 @@
             <em>Legend</em>
         </p>
         <ul>
-            <li><em>Field Empty</em>: The field did not contain a value.</li>
-            <li><em>Incorrect Data Type</em>: The field's value data type is incorrect.</li>
-            <li><em>Unacceptable Value</em>: The field's value is outside the bounds of an acceptable value.</li>
-            <li><em>Incorrect Value</em>: The field's value does not match IRP's expected value.</li>
-            <li><em>Unknown Field</em>: The field is extraneous and not defined in <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and
-                <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>.</li>
+            <li><iron-icon icon="check-circle" style="color: green;"></iron-icon> - IRP analyzed this field and the field is correct.</li>
+            <li><iron-icon icon="check" style="color: green;"></iron-icon> - IRP does not currently analyze this field.</li>
+            <li><iron-icon icon="error" style="color: red;"></iron-icon> - IRP analyzed this field and the field has errors.
+                <ul>
+                    <li><em>Required Field Missing</em>: The required field was not found.</li>
+                    <li><em>Field Empty</em>: The field did not contain a value but should have.</li>
+                    <li><em>Incorrect Data Type</em>: The field's value data type is incorrect.</li>
+                    <li><em>Unacceptable Value</em>: The field's value is outside the bounds of an acceptable value.</li>
+                    <li><em>Incorrect Value</em>: The field's value does not match IRP's expected value.</li>
+                    <li><em>Unknown Field</em>: The field is extraneous and not defined in <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and
+                        <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>.</li>
+                </ul>
+            </li>
         </ul>
         <p></p>
 

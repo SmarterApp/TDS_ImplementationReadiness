@@ -23,6 +23,13 @@ import java.util.List;
 public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeRelationship, EnumExamineeRelationshipFieldName, Student> {
     private final static Logger logger = LoggerFactory.getLogger(ExamineeRelationshipAnalysisAction.class);
 
+    static private String[] stateAbbreviationAcceptableValues = {
+            "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "FM", "GA", "GU", "HI", "IA", "ID", "IL",
+            "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MH", "MI", "MN", "MO", "MP", "MS", "MT", "NC", "ND", "NE", "NH",
+            "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "PW", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI",
+            "VT", "WA", "WI", "WV", "WY", "AA", "AE", "AP"
+    };
+
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
@@ -122,19 +129,27 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
      */
     @Override
     protected void checkP(ExamineeRelationship examineeRelationship, EnumExamineeRelationshipFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+        String inputValue = examineeRelationship.getValue();
+
         switch (enumFieldName) {
-//            case contextDate:
-//                if (examineeRelationship.getContextDate() != null) {
-//                    setPcorrect(fieldCheckType);
-//                }
-//                break;
+            case StateAbbreviation:
+                for (int i = 0; i < stateAbbreviationAcceptableValues.length; i++) {
+                    if (stateAbbreviationAcceptableValues[i].equals(inputValue)) {
+                        fieldCheckType.setAcceptableValue(true);
+                        fieldCheckType.setCorrectDataType(true);
+                        break;
+                    }
+                }
+
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                break;
             default:
-                final String inputValue = examineeRelationship.getValue();
-                processP_PrintableASCIIone(inputValue, fieldCheckType);
-                fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
-                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() == enumFieldName.getMaxWidth());
+                processP_PrintableASCIIoneMaxWidth(inputValue, fieldCheckType, enumFieldName.getMaxWidth());
                 break;
         }
+
+        fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
     }
 
     /**
@@ -152,25 +167,28 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         }
 
         switch (enumFieldName) {
+            case StateAbbreviation:
+                if (StringUtils.equalsIgnoreCase(student.getStateAbbreviation(), examineeRelationship.getValue())) {
+                    setCcorrect(fieldCheckType);
+                }
+                break;
             case DistrictId:
             	//strip left side zeros e.g 001
                 if (StringUtils.equalsIgnoreCase(StringUtils.stripStart(student.getResponsibleDistrictIdentifier(), "0"), examineeRelationship.getValue())) {
                     setCcorrect(fieldCheckType);
                 }
                 break;
-            case DistrictName:
-                break;
             case SchoolId:
                 if (StringUtils.equalsIgnoreCase(student.getResponsibleInstitutionIdentifier(), examineeRelationship.getValue())) {
                     setCcorrect(fieldCheckType);
                 }
                 break;
+            case DistrictName:
             case SchoolName:
-                break;
-            case StateAbbreviation:
-                if (StringUtils.equalsIgnoreCase(student.getStateAbbreviation(), examineeRelationship.getValue())) {
-                    setCcorrect(fieldCheckType);
-                }
+            case StateName:
+            case StudentGroupName:
+                // Set these correct since they are PC type but don't have corresponding values in the Student object
+                setCcorrect(fieldCheckType);
                 break;
             default:
                 break;
@@ -194,6 +212,9 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         String expectedValue = null;
 
         switch (enumFieldName) {
+            case StateAbbreviation:
+                expectedValue = student.getStateAbbreviation();
+                break;
             case DistrictId:
                 expectedValue = student.getResponsibleDistrictIdentifier();
                 break;
@@ -201,11 +222,6 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
                 break;
             case SchoolId:
                 expectedValue = student.getResponsibleInstitutionIdentifier();
-                break;
-            case SchoolName:
-                break;
-            case StateAbbreviation:
-                expectedValue = student.getStateAbbreviation();
                 break;
             default:
                 break;

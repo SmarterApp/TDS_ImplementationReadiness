@@ -22,8 +22,32 @@ import java.util.List;
 public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Accommodation, AccommodationAnalysisAction.EnumAccommodationFieldName, org.cresst.sb.irp.domain.accommodation.Accommodation> {
 	private final static Logger logger = LoggerFactory.getLogger(AccommodationAnalysisAction.class);
 
-	public enum EnumAccommodationFieldName{
-		type, value, code, segment
+	public enum EnumAccommodationFieldName {
+		type(510),
+		value(510),
+		code(510),
+		segment(8);
+
+		private int maxWidth;
+		private boolean isRequired;
+
+		EnumAccommodationFieldName(int maxWidth) {
+			this.maxWidth = maxWidth;
+			this.isRequired = true;
+		}
+
+		EnumAccommodationFieldName(int maxWidth, boolean isRequired) {
+			this.maxWidth = maxWidth;
+			this.isRequired = isRequired;
+		}
+
+		public int getMaxWidth() {
+			return maxWidth;
+		}
+
+		public boolean isRequired() {
+			return isRequired;
+		}
 	}
 	
 	public enum EnumAccommodationTypeAcceptableVaues {
@@ -91,23 +115,25 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 				// <xs:attribute name="type" use="required" />
 				EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
 				if (acceptableType != null)
-					processP_PrintableASCIIone(accommodation.getType(), fieldCheckType);
+					processP_PrintableASCIIoneMaxWidth(accommodation.getType(), fieldCheckType, enumFieldName.getMaxWidth());
 				break;
 			case value:
 				// <xs:attribute name="value" use="required"/>
-				processP_PrintableASCIIone(accommodation.getValue(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(accommodation.getValue(), fieldCheckType, enumFieldName.getMaxWidth());
 				break;
 			case code:
 				// <xs:attribute name="code" use="required"/>
-				processP_PrintableASCIIone(accommodation.getCode(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(accommodation.getCode(), fieldCheckType, enumFieldName.getMaxWidth());
 				break;
 			case segment:
 				//     <xs:attribute name="segment" use="required">
-			    processP_Positive32bit(Long.toString(accommodation.getSegment()), fieldCheckType);
+			    processP_Positive32bitMaxWidth(Long.toString(accommodation.getSegment()), fieldCheckType, enumFieldName.getMaxWidth());
 				break;
 			default:
 				break;
 			}
+
+			fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}

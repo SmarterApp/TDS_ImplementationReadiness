@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -20,7 +21,33 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
     private final static Logger logger = LoggerFactory.getLogger(SegmentAnalysisAction.class);
 
     public enum EnumSegmentFieldName {
-        id, position, formId, formKey, algorithm, algorithmVersion
+        id(250),
+        position(8),
+        formKey(100, false),
+        formId(150, false),
+        algorithm(50),
+        algorithmVersion(50);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumSegmentFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumSegmentFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     @Override
@@ -68,7 +95,8 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
             switch (enumFieldName) {
                 case id:
                     //	<xs:attribute name="id" use="required" />
-                    processP_PrintableASCIIone(segment.getId(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(segment.getId(), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(segment.getId()));
                     break;
                 case position:
                     //	<xs:attribute name="position" use="required">
@@ -78,7 +106,8 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
                     //</xs:restriction>
                     //</xs:simpleType>
                     //</xs:attribute>
-                    processP_Positive32bit(Short.toString(segment.getPosition()), fieldCheckType);
+                    processP_Positive32bitMaxWidth(Short.toString(segment.getPosition()), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(Short.toString(segment.getPosition())));
                     break;
                 case formKey:
                     break;
@@ -86,15 +115,19 @@ public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalys
                     break;
                 case algorithm:
                     //<xs:attribute name="algorithm" use="required" />
-                    processP_PrintableASCIIone(segment.getAlgorithm(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(segment.getAlgorithm(), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(segment.getAlgorithm()));
                     break;
                 case algorithmVersion:
                     //   <xs:attribute name="algorithmVersion" />
-                    processP_PrintableASCIIone(segment.getAlgorithmVersion(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(segment.getAlgorithmVersion(), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(segment.getAlgorithmVersion()));
                     break;
                 default:
                     break;
             }
+
+            fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
         } catch (Exception e) {
             logger.error("checkP exception: ", e);
         }

@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.CellCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -15,8 +16,55 @@ import org.springframework.stereotype.Service;
 public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, OpportunityAnalysisAction.EnumOpportunityPropertyFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(OpportunityAnalysisAction.class);
 
-    static public enum EnumOpportunityPropertyFieldName {
-        server, database, clientName, key, oppId, startDate, status, opportunity, statusDate, dateCompleted, pauseCount, itemCount, ftCount, abnormalStarts, gracePeriodRestarts, taId, taName, sessionId, windowId, windowOpportunity, dateForceCompleted, qaLevel, assessmentParticipantSessionPlatformUserAgent, effectiveDate
+    public enum EnumOpportunityPropertyFieldName {
+        server(128, false),
+        database(128, false),
+        key(36),
+        oppId(16, false),
+        startDate(23),
+        status(50),
+        validity(7),
+        completeness(8),
+        opportunity(8),
+        statusDate(23),
+        dateCompleted(23),
+        pauseCount(8),
+        itemCount(8),
+        ftCount(8),
+        abnormalStarts(8),
+        gracePeriodRestarts(8),
+        TAID(128, false),
+        TAName(128, false),
+        sessionId(128, false),
+        windowId(50),
+        windowOpportunity(8, false),
+        completeStatus(8, false),
+        administrationCondition(20, false),
+        dateForceCompleted(8, false),
+        clientName(255),
+        assessmentParticipantSessionPlatformUserAgent(512),
+        effectiveDate(10);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumOpportunityPropertyFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumOpportunityPropertyFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     @Override
@@ -33,6 +81,8 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
         validate(opportunityCategory, opportunity, opportunity.getOppId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.oppId, null);
         validate(opportunityCategory, opportunity, opportunity.getStartDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.startDate, null);
         validate(opportunityCategory, opportunity, opportunity.getStatus(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.status, null);
+        validate(opportunityCategory, opportunity, opportunity.getValidity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.validity, null);
+        validate(opportunityCategory, opportunity, opportunity.getCompleteness(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.completeness, null);
         validate(opportunityCategory, opportunity, opportunity.getOpportunity(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.opportunity, null);
         validate(opportunityCategory, opportunity, opportunity.getStatusDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.statusDate, null);
         validate(opportunityCategory, opportunity, opportunity.getDateCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateCompleted, null);
@@ -41,20 +91,20 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
         validate(opportunityCategory, opportunity, opportunity.getFtCount(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.ftCount, null);
         validate(opportunityCategory, opportunity, opportunity.getAbnormalStarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.abnormalStarts, null);
         validate(opportunityCategory, opportunity, opportunity.getGracePeriodRestarts(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.gracePeriodRestarts, null);
-        validate(opportunityCategory, opportunity, opportunity.getTaId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taId, null);
-        validate(opportunityCategory, opportunity, opportunity.getTaName(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.taName, null);
+        validate(opportunityCategory, opportunity, opportunity.getTaId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.TAID, null);
+        validate(opportunityCategory, opportunity, opportunity.getTaName(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.TAName, null);
         validate(opportunityCategory, opportunity, opportunity.getSessionId(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.sessionId, null);
         validate(opportunityCategory, opportunity, opportunity.getWindowId(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.windowId, null);
         validate(opportunityCategory, opportunity, opportunity.getWindowOpportunity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.windowOpportunity, null);
+        validate(opportunityCategory, opportunity, opportunity.getWindowOpportunity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.completeStatus, null);
+        validate(opportunityCategory, opportunity, opportunity.getWindowOpportunity(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.administrationCondition, null);
         validate(opportunityCategory, opportunity, opportunity.getDateForceCompleted(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.dateForceCompleted, null);
         validate(opportunityCategory, opportunity, opportunity.getClientName(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.clientName, null);
         validate(opportunityCategory, opportunity, opportunity.getAssessmentParticipantSessionPlatformUserAgent(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.assessmentParticipantSessionPlatformUserAgent, null);
-        if ( opportunity.getEffectiveDate() != null)
+        if (opportunity.getEffectiveDate() != null)
         	validate(opportunityCategory, opportunity, opportunity.getEffectiveDate(), EnumFieldCheckType.P, EnumOpportunityPropertyFieldName.effectiveDate, null);
         else
         	fieldNameNotExist(opportunityCategory, EnumOpportunityPropertyFieldName.effectiveDate, EnumFieldCheckType.P);
-        validate(opportunityCategory, opportunity, opportunity.getQaLevel(), EnumFieldCheckType.D, EnumOpportunityPropertyFieldName.qaLevel, null);
-    
     }
     
     /**
@@ -71,27 +121,34 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
             switch (enumFieldName) {
                 case server:
                     // <xs:attribute name="server" use="required" />
-                    processP_PrintableASCIIone(opportunity.getServer(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(opportunity.getServer(), fieldCheckType, enumFieldName.getMaxWidth());
                     break;
                 case database:
                     // <xs:attribute name="database" />
-                    processP_PrintableASCIIzero(opportunity.getDatabase(), fieldCheckType);
+                    processP_PrintableASCIIzeroMaxWidth(opportunity.getDatabase(), fieldCheckType, enumFieldName.getMaxWidth());
                     break;
                 case clientName:
                     //	<xs:attribute name="clientName" use="required" />
-                    processP_PrintableASCIIone(opportunity.getClientName(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(opportunity.getClientName(), fieldCheckType, enumFieldName.getMaxWidth());
                     break;
                 case key:
                     // 	<xs:attribute name="key" use="required" />
-                    processP_PrintableASCIIone(opportunity.getKey(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(opportunity.getKey(), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(opportunity.getKey()));
                     break;
                 case oppId:
                     //<xs:attribute name="oppId" use="required" />
-                    processP_Positive64bit(Long.valueOf(opportunity.getOppId()), fieldCheckType);
+                    Long oppIdValue = Long.valueOf(opportunity.getOppId());
+                    processP_Positive64bit(oppIdValue, fieldCheckType);
+                    fieldCheckType.setCorrectWidth(oppIdValue != null);
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(opportunity.getOppId()));
                     break;
                 case startDate:
                     //	<xs:attribute name="startDate" type="NullableDateTime" />
-                    processP(opportunity.getStartDate(), fieldCheckType, true); //required Y
+                    String startDate = opportunity.getStartDate();
+                    processP(startDate, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(startDate == null || startDate.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(startDate));
                     break;
                 case status:
                     //<xs:attribute name="status" use="required">
@@ -110,52 +167,78 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
                     //	<xs:enumeration value="pending" />
                     //</xs:restriction>
                     //</xs:simpleType>
-                    processP(opportunity.getStatus(), fieldCheckType, true); //required Y
+                    String status = opportunity.getStatus();
+                    processP(status, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(status != null && status.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(status));
                     break;
                 case opportunity:
                     //<xs:attribute name="opportunity" use="required" type="xs:unsignedInt" />
-                    processP_Positive32bit(Long.toString(opportunity.getOpportunity()), fieldCheckType);
+                    processP_Positive32bitMaxWidth(Long.toString(opportunity.getOpportunity()), fieldCheckType, enumFieldName.getMaxWidth());
                     break;
                 case statusDate:
                     //	<xs:attribute name="statusDate" use="required" type="xs:dateTime" />
                     processP(opportunity.getStatusDate().toString(), fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(true);
                     break;
                 case pauseCount:
                     //	<xs:attribute name="pauseCount" use="required" type="xs:unsignedInt" />
-                    processP(Long.toString(opportunity.getPauseCount()), fieldCheckType, true); //required Y
+                    String pauseCount = Long.toString(opportunity.getPauseCount());
+                    processP(pauseCount, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(pauseCount != null && pauseCount.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(pauseCount));
                     break;
                 case itemCount:
                     //	<xs:attribute name="itemCount" use="required" type="xs:unsignedInt" />
-                    processP(Long.toString(opportunity.getItemCount()), fieldCheckType, true); //required Y
+                    String itemCount = Long.toString(opportunity.getItemCount());
+                    processP(itemCount, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(itemCount != null && itemCount.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(itemCount));
                     break;
                 case ftCount:
                     //	<xs:attribute name="ftCount" use="required" type="xs:unsignedInt" />
-                    processP(Long.toString(opportunity.getFtCount()), fieldCheckType, true); //required Y
+                    String ftCount = Long.toString(opportunity.getFtCount());
+                    processP(ftCount, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(ftCount != null && ftCount.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(ftCount));
                     break;
                 case abnormalStarts:
                     //	<xs:attribute name="abnormalStarts" use="required" type="xs:unsignedInt" />
-                    processP(Long.toString(opportunity.getAbnormalStarts()), fieldCheckType, true); //required Y
+                    String abnormalStarts = Long.toString(opportunity.getAbnormalStarts());
+                    processP(abnormalStarts, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(abnormalStarts != null && abnormalStarts.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(abnormalStarts));
                     break;
                 case gracePeriodRestarts:
                     //	<xs:attribute name="gracePeriodRestarts" use="required" type="xs:unsignedInt" />
-                    processP(Long.toString(opportunity.getGracePeriodRestarts()), fieldCheckType, true); //required Y
+                    String gracePeriodRestartds = Long.toString(opportunity.getGracePeriodRestarts());
+                    processP(gracePeriodRestartds, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(gracePeriodRestartds != null && gracePeriodRestartds.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(gracePeriodRestartds));
                     break;
                 case windowId:
                     //	<xs:attribute name="windowId" use="required" />
-                    processP_PrintableASCIIone(opportunity.getWindowId(), fieldCheckType);
+                    processP_PrintableASCIIoneMaxWidth(opportunity.getWindowId(), fieldCheckType, enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(opportunity.getWindowId()));
                     break;
                 case assessmentParticipantSessionPlatformUserAgent:
                     // <xs:attribute name="assessmentParticipantSessionPlatformUserAgent" />
-                    processP(opportunity.getAssessmentParticipantSessionPlatformUserAgent(), fieldCheckType, true); //required Y
+                    String assessmentParticipantSessionPlatformUserAgent = opportunity.getAssessmentParticipantSessionPlatformUserAgent();
+                    processP(assessmentParticipantSessionPlatformUserAgent, fieldCheckType, true); //required Y
+                    fieldCheckType.setCorrectWidth(assessmentParticipantSessionPlatformUserAgent != null && assessmentParticipantSessionPlatformUserAgent.length() <= enumFieldName.getMaxWidth());
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(assessmentParticipantSessionPlatformUserAgent));
                     break;
                 case effectiveDate:
                     //<xs:attribute name="effectiveDate" />
                     //YYYY-MM-DD, where 2000 <= YYYY <= 9999 01 <= MM <= 12 01 <= DD <= 31
                     processDate(opportunity.getEffectiveDate(), fieldCheckType); //required Y
+                    fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(opportunity.getEffectiveDate()));
                     break;
                 default:
                     break;
             }
+
+            fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
         } catch (Exception e) {
             logger.error("checkP exception: ", e);
         }
@@ -184,6 +267,7 @@ public class OpportunityAnalysisAction extends AnalysisAction<Opportunity, Oppor
         fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
         fieldCheckType.setFieldValueEmpty(true);
         fieldCheckType.setCorrectDataType(false);
+        fieldCheckType.setRequiredFieldMissing(enumOpportunityPropertyFieldName.isRequired());
 
         CellCategory cellCategory = new CellCategory();
         cellCategory.setTdsFieldName(enumOpportunityPropertyFieldName.name());

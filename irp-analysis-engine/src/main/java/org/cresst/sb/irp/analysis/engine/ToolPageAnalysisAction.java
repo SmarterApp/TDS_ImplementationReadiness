@@ -44,9 +44,9 @@ public class ToolPageAnalysisAction extends AnalysisAction<ToolPage, ToolPageAna
                 ToolPageCategory toolPageCategory = new ToolPageCategory();
                 toolPageCategories.add(toolPageCategory);
 
-                validate(toolPageCategory, toolPage, toolPage.getPage(), EnumFieldCheckType.P, EnumToolPageFieldName.page, null);
-                validate(toolPageCategory, toolPage, toolPage.getGroupId(), EnumFieldCheckType.P, EnumToolPageFieldName.groupId, null);
-                validate(toolPageCategory, toolPage, toolPage.getCount(), EnumFieldCheckType.P, EnumToolPageFieldName.count, null);
+                validate(toolPageCategory, toolPage, toolPage.getPage(), EnumFieldCheckType.D, EnumToolPageFieldName.page, null);
+                validate(toolPageCategory, toolPage, toolPage.getGroupId(), EnumFieldCheckType.D, EnumToolPageFieldName.groupId, null);
+                validate(toolPageCategory, toolPage, toolPage.getCount(), EnumFieldCheckType.D, EnumToolPageFieldName.count, null);
             }
         } catch (Exception e) {
             logger.error("analyzeToolPage exception: ", e);
@@ -66,6 +66,7 @@ public class ToolPageAnalysisAction extends AnalysisAction<ToolPage, ToolPageAna
     @Override
     protected void checkP(ToolPage toolPage, EnumToolPageFieldName enumFieldName, FieldCheckType fieldCheckType) {
         try {
+            fieldCheckType.setOptionalValue(true);
             switch (enumFieldName) {
                 case page:
                     // 	<xs:attribute name="page" use="required" type="xs:unsignedInt" />

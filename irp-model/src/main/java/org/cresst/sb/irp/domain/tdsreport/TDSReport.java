@@ -1275,6 +1275,12 @@ public class TDSReport {
         @XmlAttribute(name = "status", required = true)
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
         protected String status;
+        @XmlAttribute(name = "validity", required = true)
+        @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+        protected String validity;
+        @XmlAttribute(name = "completeness", required = true)
+        @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+        protected String completeness;
         @XmlAttribute(name = "opportunity", required = true)
         @XmlSchemaType(name = "unsignedInt")
         protected long opportunity;
@@ -1638,6 +1644,22 @@ public class TDSReport {
          */
         public void setStatus(String value) {
             this.status = value;
+        }
+
+        public String getValidity() {
+            return validity;
+        }
+
+        public void setValidity(String validity) {
+            this.validity = validity;
+        }
+
+        public String getCompleteness() {
+            return completeness;
+        }
+
+        public void setCompleteness(String completeness) {
+            this.completeness = completeness;
         }
 
         /**

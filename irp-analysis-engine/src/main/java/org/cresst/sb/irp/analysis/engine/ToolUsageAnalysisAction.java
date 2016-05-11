@@ -44,8 +44,8 @@ public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsage
     }
 
     private void analyzeToolUsage(ToolUsageCategory toolUsageCategory, ToolUsage toolUsage) {
-        validate(toolUsageCategory, toolUsage, toolUsage.getType(), EnumFieldCheckType.P, EnumToolUsageFieldName.type, null);
-        validate(toolUsageCategory, toolUsage, toolUsage.getCode(), EnumFieldCheckType.P, EnumToolUsageFieldName.code, null);
+        validate(toolUsageCategory, toolUsage, toolUsage.getType(), EnumFieldCheckType.D, EnumToolUsageFieldName.type, null);
+        validate(toolUsageCategory, toolUsage, toolUsage.getCode(), EnumFieldCheckType.D, EnumToolUsageFieldName.code, null);
     }
 
     /**
@@ -59,6 +59,7 @@ public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsage
     @Override
     protected void checkP(ToolUsage toolUsage, EnumToolUsageFieldName enumFieldName, FieldCheckType fieldCheckType) {
         try {
+            fieldCheckType.setOptionalValue(true);
             switch (enumFieldName) {
                 case type:
                     // 	<xs:attribute name="type" use="required" />

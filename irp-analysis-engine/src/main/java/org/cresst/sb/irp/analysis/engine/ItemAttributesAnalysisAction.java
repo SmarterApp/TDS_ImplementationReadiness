@@ -160,6 +160,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		fieldCheckType = new FieldCheckType();
 		fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
 
+		// TODO: Check actual width
+		fieldCheckType.setCorrectWidth(true);
+
 		cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(EnumItemFieldName.key.toString());
 		if (uniqueidArray != null)
@@ -215,6 +218,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	@Override
 	protected void checkP(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType) {
 		try {
+            // TODO: Check actual width
+            fieldCheckType.setCorrectWidth(true);
+
 			switch (enumFieldName) {
 			case position:
 				// <xs:attribute name="position" use="required" type="xs:unsignedInt" />
@@ -347,6 +353,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			break;
 		case score:
 			// TODO
+            setCcorrect(fieldCheckType);
 			break;
 		default:
 			break;

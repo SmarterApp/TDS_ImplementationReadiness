@@ -34,15 +34,16 @@ public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalys
     }
 
     private void analysisComment(CommentCategory commentCategory, Comment tdsComment) {
-        validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.PC, EnumCommentFieldName.context, null);
-        validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.PC, EnumCommentFieldName.itemPosition, null);
-        validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.P, EnumCommentFieldName.date, null);
-        validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.P, EnumCommentFieldName.content, null);
+        validate(commentCategory, tdsComment, tdsComment.getContext(), EnumFieldCheckType.D, EnumCommentFieldName.context, null);
+        validate(commentCategory, tdsComment, tdsComment.getItemPosition(), EnumFieldCheckType.D, EnumCommentFieldName.itemPosition, null);
+        validate(commentCategory, tdsComment, tdsComment.getDate(), EnumFieldCheckType.D, EnumCommentFieldName.date, null);
+        validate(commentCategory, tdsComment, tdsComment.getContent(), EnumFieldCheckType.D, EnumCommentFieldName.content, null);
     }
 
     @Override
     protected void checkP(Comment tdsComment, EnumCommentFieldName enumFieldName, FieldCheckType fieldCheckType) {
         try {
+            fieldCheckType.setOptionalValue(true);
             switch (enumFieldName) {
                 case context:
                     // <xs:attribute name="context" use="required" />

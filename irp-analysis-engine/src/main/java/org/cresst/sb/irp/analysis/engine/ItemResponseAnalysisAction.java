@@ -119,12 +119,14 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					processP(response.getType(), fieldCheckType, false); //not required
 				break;
 			case content:
-				processP(response.getContent(), fieldCheckType, false); 
+				processP(response.getContent(), fieldCheckType, false);
 				break;
 			default:
 				break;
 			}
-		
+
+			// TODO: Check actual width
+			fieldCheckType.setCorrectWidth(true);
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
