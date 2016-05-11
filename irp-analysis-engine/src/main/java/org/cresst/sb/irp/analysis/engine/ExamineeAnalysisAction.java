@@ -64,7 +64,10 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
         switch (enumFieldName) {
             case key:
                 // <xs:attribute name="key" type="xs:long" use="required"/>
-                processP_Positive64bit(examinee.getKey(), fieldCheckType);
+                final Long key = examinee.getKey();
+                processP_Positive64bit(key, fieldCheckType);
+                fieldCheckType.setOptionalValue(true);
+                fieldCheckType.setCorrectWidth(key != null);
                 break;
             default:
                 break;

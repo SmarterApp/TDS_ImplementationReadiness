@@ -6,22 +6,26 @@
         <table class="tableAnalysis">
             <thead>
             <tr>
+                <th>Status</th>
                 <th>Field</th>
                 <th>Expected Value</th>
                 <th>Returned Value</th>
-                <th>Status</th>
-                <th>Explanation</th>
             </tr>
             </thead>
             <tbody>
             <template is="dom-repeat" items="{{response.testPropertiesCategory.cellCategories}}" as="cell" index-as="index">
-                <tr class$="{{oddOrEvenClass(index)}}">
+                <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                    <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                     <td>Test Properties: <span>{{cell.tdsFieldName}}</span></td>
-                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                     <td>{{cell.tdsFieldNameValue}}</td>
-                    <td>{{status(cell.fieldCheckType)}}</td>
-                    <td>{{explanation(cell.fieldCheckType)}}</td>
                 </tr>
+                <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                    <tr>
+                        <td class="errorEmptyCell">&nbsp;</td>
+                        <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
             </template>
             </tbody>
         </table>

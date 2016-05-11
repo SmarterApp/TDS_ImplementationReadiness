@@ -32,6 +32,60 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             "10", "11", "12", "13", "PS", "UG"
     };
 
+    static private String[] languageCodeAcceptableValues = {
+            "aar", "abk", "ace", "ach", "ada", "ady", "afa", "afh", "afr", "ain", "aka", "akk", "alb", "ale", "alg",
+            "alt", "amh", "ang", "anp", "apa", "ara", "arc", "arg", "arm", "arn", "arp", "art", "arw", "asm", "ast",
+            "ath", "aus", "ava", "ave", "awa", "aym", "aze", "bad", "bai", "bak", "bal", "bam", "ban", "baq", "bas",
+            "bat", "bej", "bel", "bem", "ben", "ber", "bho", "bih", "bik", "bin", "bis", "bla", "bnt", "bos", "bra",
+            "bre", "btk", "bua", "bug", "bul", "bur", "byn", "cad", "cai", "car", "cat", "cau", "ceb", "cel", "cha",
+            "chb", "che", "chg", "chi", "chk", "chm", "chn", "cho", "chp", "chr", "chu", "chv", "chy", "cmc", "cop",
+            "cor", "cos", "cpe", "cpf", "cpp", "cre", "crh", "crp", "csb", "cus", "cze", "dak", "dan", "dar", "day",
+            "del", "den", "dgr", "din", "div", "doi", "dra", "dsb", "dua", "dum", "dut", "dyu", "dzo", "efi", "egy",
+            "eka", "elx", "eng", "enm", "epo", "est", "ewe", "ewo", "fan", "fao", "fat", "fij", "fil", "fin", "fiu",
+            "fon", "fre", "frm", "fro", "frr", "frs", "fry", "ful", "fur", "gaa", "gay", "gba", "gem", "geo", "ger",
+            "gez", "gil", "gla", "gle", "glg", "glv", "gmh", "goh", "gon", "gor", "got", "grb", "grc", "gre", "grn",
+            "gsw", "guj", "gwi", "hai", "hat", "hau", "haw", "heb", "her", "hil", "him", "hin", "hit", "hmn", "hmo",
+            "hrv", "hsb", "hun", "hup", "iba", "ibo", "ice", "ido", "iii", "ijo", "iku", "ile", "ilo", "ina", "inc",
+            "ind", "ine", "inh", "ipk", "ira", "iro", "ita", "jav", "jbo", "jpn", "jpr", "jrb", "kaa", "kab", "kac",
+            "kal", "kam", "kan", "kar", "kas", "kau", "kaw", "kaz", "kbd", "kha", "khi", "khm", "kho", "kik", "kin",
+            "kir", "kmb", "kok", "kom", "kon", "kor", "kos", "kpe", "krc", "krl", "kro", "kru", "kua", "kum", "kur",
+            "kut", "lad", "lah", "lam", "lao", "lat", "lav", "lez", "lim", "lin", "lit", "lol", "loz", "ltz", "lua",
+            "lub", "lug", "lui", "lun", "luo", "lus", "mac", "mad", "mag", "mah", "mai", "mak", "mal", "man", "mao",
+            "map", "mar", "mas", "may", "mdf", "mdr", "men", "mga", "mic", "min", "mis", "mkh", "mlg", "mlt", "mnc",
+            "mni", "mno", "moh", "mon", "mos", "mul", "mun", "mus", "mwl", "mwr", "myn", "myv", "nah", "nai", "nap",
+            "nau", "nav", "nbl", "nde", "ndo", "nds", "nep", "new", "nia", "nic", "niu", "nno", "nob", "nog", "non",
+            "nor", "nqo", "nso", "nub", "nwc", "nya", "nym", "nyn", "nyo", "nzi", "oci", "oji", "ori", "orm", "osa",
+            "oss", "ota", "oto", "paa", "pag", "pal", "pam", "pan", "pap", "pau", "peo", "per", "phi", "phn", "pli",
+            "pol", "pon", "por", "pra", "pro", "pus", "que", "raj", "rap", "rar", "roa", "roh", "rom", "rum", "run",
+            "rup", "rus", "sad", "sag", "sah", "sai", "sal", "sam", "san", "sas", "sat", "scn", "sco", "sel", "sem",
+            "sga", "sgn", "shn", "sid", "sin", "sio", "sit", "sla", "slo", "slv", "sma", "sme", "smi", "smj", "smn",
+            "smo", "sms", "sna", "snd", "snk", "sog", "som", "son", "sot", "spa", "srd", "srn", "srp", "srr", "ssa",
+            "ssw", "suk", "sun", "sus", "sux", "swa", "swe", "syc", "syr", "tah", "tai", "tam", "tat", "tel", "tem",
+            "ter", "tet", "tgk", "tgl", "tha", "tib", "tig", "tir", "tiv", "tkl", "tlh", "tli", "tmh", "tog", "ton",
+            "tpi", "tsi", "tsn", "tso", "tuk", "tum", "tup", "tur", "tut", "tvl", "twi", "tyv", "udm", "uga", "uig",
+            "ukr", "umb", "und", "urd", "uzb", "vai", "ven", "vie", "vol", "vot", "wak", "wal", "war", "was", "wel",
+            "wen", "wln", "wol", "xal", "xho", "yao", "yap", "yid", "yor", "ypk", "zap", "zbl", "zen", "zgh", "zha",
+            "znd", "zul", "zun", "zxx", "zza"
+    };
+
+    static private String[] titleIIILanguageInstructionProgramTypeAcceptableValues = {
+            "DualLanguage",
+            "TwoWayImmersion",
+            "TransitionalBilingual",
+            "DevelopmentalBilingual",
+            "HeritageLanguage",
+            "ShelteredEnglishInstruction",
+            "StructuredEnglishImmersion",
+            "SDAIE",
+            "ContentBasedESL",
+            "PullOutESL",
+            "Other"
+    };
+
+    static private String[] primaryDisabilityTypeAcceptableValues = {
+            "AUT","DB", "DD", "EMN", "HI", "ID", "MD", "OI", "OHI", "SLD", "SLI", "TBI", "VI"
+    };
+
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
@@ -46,9 +100,9 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             logger.info(String.format("TDS Report contains an Student Identifier (%s) that does not match an IRP Student", studentIdentifier));
         }
 
+        // Analyze all the ExamineeAttributes that have a FINAL context
         List<ExamineeAttribute> tdsExamineeAttributes = ExamineeHelper.getFinalExamineeAttributes(tdsReportExaminee);
 
-        // Analyze all the ExamineeAttributes that have a FINAL context
         for (EnumExamineeAttributeFieldName enumExamineeAttributeFieldName : EnumExamineeAttributeFieldName.values()) {
 
             ExamineeAttributeCategory examineeAttributeCategory = new ExamineeAttributeCategory();
@@ -78,8 +132,7 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
             // For unknown ExamineeAttributes, let user know that it is incorrect
             final FieldCheckType fieldCheckType = new FieldCheckType();
             fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-            fieldCheckType.setFieldValueEmpty(false);
-            fieldCheckType.setCorrectDataType(true);
+            fieldCheckType.setUnknownField(true);
 
             final CellCategory cellCategory = new CellCategory();
             cellCategory.setTdsFieldName("name");
@@ -123,25 +176,88 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
      */
     @Override
     protected void checkP(ExamineeAttribute examineeAttribute, EnumExamineeAttributeFieldName enumFieldName, FieldCheckType fieldCheckType) {
+
+        String inputValue = examineeAttribute.getValue();
+        boolean correctValue;
+
         switch (enumFieldName) {
             case MiddleName:
             case AlternateSSID:
-                fieldCheckType.setOptionalValue(true);
                 processP_PrintableASCIIzeroMaxWidth(examineeAttribute.getValue(), fieldCheckType, enumFieldName.getMaxWidth());
             case Birthdate:
                 processDate(examineeAttribute.getValue(), fieldCheckType);
                 break;
             case GradeLevelWhenAssessed:
-                final String inputValue = examineeAttribute.getValue();
                 fieldCheckType.setCorrectDataType(StringUtils.isNotBlank(inputValue) && StringUtils.isAsciiPrintable(inputValue));
                 fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() == enumFieldName.getMaxWidth());
 
                 for (int i = 0; i < gradeLevelWhenAssessedAcceptableValues.length; i++) {
-                    if (gradeLevelWhenAssessedAcceptableValues[i] == inputValue) {
+                    if (gradeLevelWhenAssessedAcceptableValues[i].equals(inputValue)) {
                         fieldCheckType.setAcceptableValue(true);
                         break;
                     }
                 }
+                break;
+            case Sex:
+                correctValue = "Male".equals(inputValue) || "Female".equals(inputValue);
+                fieldCheckType.setAcceptableValue(correctValue);
+                fieldCheckType.setCorrectDataType(correctValue);
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                break;
+            case HispanicOrLatinoEthnicity:   // According to DD&LDM values can be Yes or No.
+            case AmericanIndianOrAlaskaNative:
+            case Asian:
+            case BlackOrAfricanAmerican:
+            case White:
+            case NativeHawaiianOrOtherPacificIslander:
+            case DemographicRaceTwoOrMoreRaces:
+            case IDEAIndicator:
+            case LEPStatus:
+            case Section504Status: // https://ceds.ed.gov/element/000249 says only Yes or No
+            case EconomicDisadvantageStatus: // https://ceds.ed.gov/element/000086 says only Yes or No
+            case MigrantStatus:
+                correctValue = "Yes".equals(inputValue) || "No".equals(inputValue);
+                fieldCheckType.setAcceptableValue(correctValue);
+                fieldCheckType.setCorrectDataType(correctValue);
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                break;
+            case LanguageCode:
+                for (int i = 0; i < languageCodeAcceptableValues.length; i++) {
+                    if (languageCodeAcceptableValues[i].equals(inputValue)) {
+                        fieldCheckType.setAcceptableValue(true);
+                        fieldCheckType.setCorrectDataType(true);
+                        break;
+                    }
+                }
+
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                break;
+            case FirstEntryDateIntoUSSchool:
+            case LimitedEnglishProficiencyEntryDate:
+            case LEPExitDate:
+                processDate(inputValue, fieldCheckType);
+                break;
+            case TitleIIILanguageInstructionProgramType:
+                for (int i = 0; i < titleIIILanguageInstructionProgramTypeAcceptableValues.length; i++) {
+                    if (titleIIILanguageInstructionProgramTypeAcceptableValues[i].equals(inputValue)) {
+                        fieldCheckType.setAcceptableValue(true);
+                        fieldCheckType.setCorrectDataType(true);
+                        break;
+                    }
+                }
+
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                break;
+            case PrimaryDisabilityType:
+                for (int i = 0; i < primaryDisabilityTypeAcceptableValues.length; i++) {
+                    if (primaryDisabilityTypeAcceptableValues[i].equals(inputValue)) {
+                        fieldCheckType.setAcceptableValue(true);
+                        fieldCheckType.setCorrectDataType(true);
+                        break;
+                    }
+                }
+
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
                 break;
             default:
                 processP_PrintableASCIIoneMaxWidth(examineeAttribute.getValue(), fieldCheckType, enumFieldName.getMaxWidth());
@@ -151,6 +267,8 @@ public class ExamineeAttributeAnalysisAction extends AnalysisAction<ExamineeAttr
         if (StringUtils.isNotBlank(examineeAttribute.getValue())) {
             fieldCheckType.setFieldValueEmpty(false);
         }
+
+        fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
     }
 
     /**

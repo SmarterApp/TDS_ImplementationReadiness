@@ -26,9 +26,9 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
     @Override
     public void analyze(IndividualResponse individualResponse) {
         TDSReport tdsReport = individualResponse.getTDSReport();
-        Examinee examinee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
+        Examinee tdsReportExaminee = tdsReport.getExaminee(); //<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
 
-        String studentIdentifier = ExamineeHelper.getStudentIdentifier(examinee);
+        String studentIdentifier = ExamineeHelper.getStudentIdentifier(tdsReportExaminee);
 
         Student student = null;
         try {
@@ -38,12 +38,45 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
         }
   
         // Analyze all the ExamineeRelationships that have a FINAL context
-        List<ExamineeRelationship> examineeRelationships = ExamineeHelper.getFinalExamineeRelationships(examinee);
-        for (ExamineeRelationship examineeRelationship : examineeRelationships) {
+        List<ExamineeRelationship> tdsExamineeRelationships = ExamineeHelper.getFinalExamineeRelationships(tdsReportExaminee);
+
+        for (EnumExamineeRelationshipFieldName enumExamineeRelationshipFieldName : EnumExamineeRelationshipFieldName.values()) {
+
             ExamineeRelationshipCategory examineeRelationshipCategory = new ExamineeRelationshipCategory();
             individualResponse.addExamineeRelationshipCategory(examineeRelationshipCategory);
 
-            analyzeExamineeRelationship(examineeRelationshipCategory, examineeRelationship, student);
+            ExamineeRelationship examineeRelationship = ExamineeHelper.getFinalExamineeRelationship(tdsReportExaminee, enumExamineeRelationshipFieldName);
+
+            analyzeExamineeRelationship(examineeRelationshipCategory, enumExamineeRelationshipFieldName, examineeRelationship, student);
+
+            if (examineeRelationship != null) {
+                // Remove ExamineeRelationships from tdsExamineeRelationships so that extraneous Relationships can be marked as such
+                for (int i = tdsExamineeRelationships.size() - 1; i >= 0; i--) {
+                    ExamineeRelationship toRemove = tdsExamineeRelationships.get(i);
+                    if (ExamineeHelper.convertToExamineeRelationshipEnum(toRemove.getName()) == enumExamineeRelationshipFieldName) {
+                        tdsExamineeRelationships.remove(i);
+                    }
+                }
+            }
+        }
+
+        // The remaining ExamineeRelationships are not defined in the Open System spec
+        for (ExamineeRelationship extraExamineeRelationship : tdsExamineeRelationships) {
+
+            ExamineeRelationshipCategory examineeRelationshipCategory = new ExamineeRelationshipCategory();
+            individualResponse.addExamineeRelationshipCategory(examineeRelationshipCategory);
+
+            // For unknown ExamineeRelationships, let user know that it is incorrect
+            final FieldCheckType fieldCheckType = new FieldCheckType();
+            fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
+            fieldCheckType.setUnknownField(true);
+
+            final CellCategory cellCategory = new CellCategory();
+            cellCategory.setTdsFieldName("name");
+            cellCategory.setTdsFieldNameValue(extraExamineeRelationship.getName());
+            cellCategory.setFieldCheckType(fieldCheckType);
+
+            examineeRelationshipCategory.addCellCategory(cellCategory);
         }
         
     }
@@ -56,32 +89,24 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
      * @param student                      IRP Student to compare against the ExamineeRelationship
      */
     private void analyzeExamineeRelationship(ExamineeRelationshipCategory examineeRelationshipCategory,
+                                             EnumExamineeRelationshipFieldName enumExamineeRelationshipFieldName,
                                              ExamineeRelationship examineeRelationship, Student student) {
 
-        EnumExamineeRelationshipFieldName fieldName = ExamineeHelper.convertToExamineeRelationshipEnum(examineeRelationship.getName());
-        if (fieldName != null) {
-            EnumFieldCheckType enumFieldCheckType = EnumFieldCheckType.P;
-            switch (fieldName) {
-                case DistrictId:
-                case SchoolId:
-                case StateAbbreviation:
-                    enumFieldCheckType = EnumFieldCheckType.PC;
-                    break;
-                default:
-                    break;
-            }
-            validate(examineeRelationshipCategory, examineeRelationship, examineeRelationship.getValue(), enumFieldCheckType, fieldName, student);
-//			validate(examineeRelationshipCategory, examineeRelationship, examineeRelationship.getContextDate(), EnumFieldCheckType.P, EnumExamineeRelationshipFieldName.contextDate, null);
-        } else {
-            // For unknown ExamineeRelationships, let user know that it is incorrect
+
+        if (examineeRelationship != null) {
+            validate(examineeRelationshipCategory, examineeRelationship, examineeRelationship.getValue(), EnumFieldCheckType.PC,
+                    enumExamineeRelationshipFieldName, student);
+        } else if (enumExamineeRelationshipFieldName.isRequired()){
+
             final FieldCheckType fieldCheckType = new FieldCheckType();
-            fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.P);
-            fieldCheckType.setFieldValueEmpty(false);
-            fieldCheckType.setCorrectDataType(true);
+            fieldCheckType.setEnumfieldCheckType(EnumFieldCheckType.PC);
+            fieldCheckType.setFieldValueEmpty(true);
+            fieldCheckType.setRequiredFieldMissing(true);
+            fieldCheckType.setOptionalValue(false);
 
             final CellCategory cellCategory = new CellCategory();
-            cellCategory.setTdsFieldName("name");
-            cellCategory.setTdsFieldNameValue(examineeRelationship.getName());
+            cellCategory.setTdsFieldName(enumExamineeRelationshipFieldName.name());
+            cellCategory.setTdsExpectedValue(expectedValue(student, enumExamineeRelationshipFieldName));
             cellCategory.setFieldCheckType(fieldCheckType);
 
             examineeRelationshipCategory.addCellCategory(cellCategory);
@@ -104,7 +129,10 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
 //                }
 //                break;
             default:
-                processP_PrintableASCIIone(examineeRelationship.getValue(), fieldCheckType);
+                final String inputValue = examineeRelationship.getValue();
+                processP_PrintableASCIIone(inputValue, fieldCheckType);
+                fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
+                fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() == enumFieldName.getMaxWidth());
                 break;
         }
     }

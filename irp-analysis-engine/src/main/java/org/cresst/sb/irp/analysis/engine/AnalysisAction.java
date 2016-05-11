@@ -299,6 +299,15 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		}
 	}
 
+	public void processP_Positive32bitMaxWidth(String inputValue, FieldCheckType fieldCheckType, int maxWidth) {
+
+		processP_Positive32bit(inputValue, fieldCheckType);
+
+		if (inputValue != null & inputValue.length() <= maxWidth) {
+			setPcorrectWidth(fieldCheckType);
+		}
+	}
+
 	public void processP_Positive64bit(Long inputValue, FieldCheckType fieldCheckType) {
 		if (inputValue != null && inputValue >= 0) {
 			setPcorrect(fieldCheckType);
@@ -348,6 +357,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	public void processP_Year(Long year, FieldCheckType fieldCheckType) {
 		if (year != null && isValidYear(year)) {
 			setPcorrect(fieldCheckType);
+			setPcorrectWidth(fieldCheckType);
 		}
 	}
 

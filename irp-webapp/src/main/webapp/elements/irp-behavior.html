@@ -6,10 +6,10 @@
 
         status: function (input) {
             if (!input) {
-                return "";
+                return '';
             }
             if (input.enumfieldCheckType == 'D') {
-                return "Ignored";
+                return 'Ignored';
             }
 
             var valid = !input.fieldEmpty && input.correctDataType && input.acceptableValue;
@@ -18,7 +18,44 @@
                 valid = valid && input.correctValue;
             }
 
-            return valid ? "No Errors" : "Errors Found";
+            return valid ? 'No Errors' : 'Errors Found';
+        },
+
+        statusIsError: function (fieldCheckType) {
+            return this.statusIcon(fieldCheckType) == 'error';
+        },
+
+        statusIcon: function (fieldCheckType) {
+            if (fieldCheckType.enumfieldCheckType == 'D') {
+                return 'check-circle';
+            }
+
+            if (fieldCheckType.requiredFieldMissing ||
+                    ((fieldCheckType.optionalValue && !fieldCheckType.fieldValueEmpty) || !fieldCheckType.optionalValue) &&
+                    (!fieldCheckType.correctDataType ||
+                    !fieldCheckType.acceptableValue ||
+                    !fieldCheckType.correctWidth ||
+                    (fieldCheckType.enumfieldCheckType == 'PC' && !fieldCheckType.correctValue))) {
+                return 'error';
+            }
+
+            return 'check-circle';
+        },
+
+        statusIconColor: function (fieldCheckType) {
+            if (fieldCheckType.enumfieldCheckType == 'D') {
+                return 'statusOK';
+            }
+
+            if (fieldCheckType.requiredFieldMissing || ((fieldCheckType.optionalValue && !fieldCheckType.fieldValueEmpty) || !fieldCheckType.optionalValue) &&
+                    (!fieldCheckType.correctDataType ||
+                    !fieldCheckType.acceptableValue ||
+                    !fieldCheckType.correctWidth ||
+                    (fieldCheckType.enumfieldCheckType == 'PC' && !fieldCheckType.correctValue))) {
+                return 'statusError';
+            }
+
+            return 'statusOK';
         },
 
         explanation: function (input) {
@@ -29,20 +66,42 @@
                 return "";
             }
 
-            var reasons = [input.enumfieldCheckType];
-            if (input.fieldEmpty) reasons.push("Field Empty");
-            if (!input.correctDataType) reasons.push("Incorrect Data Type");
-            if (!input.acceptableValue) reasons.push("Unacceptable Value");
+            var reasons = [];
+            if (!input.unknownField) {
+                if (input.fieldEmpty) reasons.push("Field Empty");
+                if (!input.correctDataType) reasons.push("Incorrect Data Type");
+                if (!input.acceptableValue) reasons.push("Unacceptable Value");
+            } else {
+                reasons.push("Unknown Field");
+            }
 
             if (input.enumfieldCheckType == 'PC') {
                 if (!input.correctValue) reasons.push("Incorrect Value");
             }
 
-            return reasons.join();
+            return reasons.join(', ');
         },
 
         oddOrEvenClass: function (index) {
             return index % 2 == 0 ? 'even' : 'odd';
+        },
+
+        cellRowClass: function (index, fieldCheckType) {
+            return this.oddOrEvenClass(index) +
+                ' ' +
+                this.rowClass(fieldCheckType);
+        },
+
+        rowClass: function (fieldCheckType) {
+            return fieldCheckType.optionalValue ? 'optionalField' : 'requiredField';
+        },
+
+        expectedValueClass: function (tdsExpectedValue) {
+            return tdsExpectedValue ? 'expectedValue' : 'noExpectedValue';
+        },
+
+        adjustedExpectedValue: function (tdsExpectedValue) {
+            return tdsExpectedValue ? tdsExpectedValue : 'XXXXX';
         },
 
         itemStatus: function (item) {
@@ -61,16 +120,16 @@
                 return 'This Item matches a given IRP Item. The detailed analysis follows.';
             }
             if (item.status == 'FOUND' && !item.itemFormatCorrect) {
-                return "The Item's format is incorrect";
+                return "The Item ID matches a given IRP Item's ID but the Item format does not match the IRP Item's format.";
             }
             if (item.status == 'MISSING') {
                 return 'This IRP Item is missing from the TDS Report.';
             }
             if (item.status == 'EXTRA') {
-                return 'This Item is unknown to IRP or a duplicate of an existing.';
+                return 'This Item is unknown to IRP or it is a duplicate of an already analyzed Item.';
             }
             if (item.status == 'NOTUSED') {
-                return 'This is a CAT Item that was not served to the student.';
+                return 'This is an IRP CAT Item that was not served to the student.';
             }
             return '';
         },

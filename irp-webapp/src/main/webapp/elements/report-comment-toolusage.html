@@ -18,46 +18,60 @@
         <table class="tableAnalysis">
             <thead>
             <tr>
+                <th>Status</th>
                 <th>Field</th>
                 <th>Expected Value</th>
                 <th>Returned Value</th>
-                <th>Status</th>
-                <th>Explanation</th>
             </tr>
             </thead>
             <tbody>
 
             <template is="dom-repeat" items="{{response.commentCategories}}" as="category">
                 <template is="dom-repeat" items="{{category.cellCategories}}" as="cell" index-as="index">
-                    <tr class$="{{_computeClass(index)}}">
+                    <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>Comment: <span>{{cell.tdsFieldName}}</span></td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
+                <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                    <tr>
+                        <td class="errorEmptyCell">&nbsp;</td>
+                        <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
                 </template>
             </template>
 
             <template is="dom-repeat" items="{{response.toolUsageCategories}}" as="category">
                 <template is="dom-repeat" items="{{category.cellCategories}}" as="cell" index-as="index">
-                    <tr class$="{{_computeClass2(index)}}">
+                    <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>ToolUsage: <span>{{cell.tdsFieldName}}</span></td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
+                    <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                        <tr>
+                            <td class="errorEmptyCell">&nbsp;</td>
+                            <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
                 </template>
                 <template is="dom-repeat" items="{{category.toolPageCategories}}" as="pageCategory">
                     <template is="dom-repeat" items="{{pageCategory.cellCategories}}" as="cell" index-as="index">
-                        <tr class$="{{_computeClass3(index)}}">
+                        <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                            <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                             <td>ToolPage: <span>{{cell.tdsFieldName}}</span></td>
-                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
-                            <td>{{status(cell.fieldCheckType)}}</td>
-                            <td>{{explanation(cell.fieldCheckType)}}</td>
                         </tr>
+                        <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                            <tr>
+                                <td class="errorEmptyCell">&nbsp;</td>
+                                <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                            </tr>
+                        </template>
                     </template>
                 </template>
             </template>

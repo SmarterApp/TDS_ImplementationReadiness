@@ -3,53 +3,61 @@
     <style is="custom-style" include="report-styles"></style>
   <template>
 
-      <p>The examineeAttribute values are the same as used for test registration. Student identity information (name, birthdate and studentIdentifier) is required (name, birthdate and studentIdentifier) is required at
+      <p>The ExamineeAttribute values are the same as used for test registration. Student identity information (name, birthdate and studentIdentifier) is required (name, birthdate and studentIdentifier) is required at
           registration but may be removed before the data is transmitted from the test delivery system to the data warehouse. Removal is in accordance with local ta warehouse. Removal is in accordance with local
           privacy policies. Use the Test Results Transmission Format and Data Dictionary and Logical Data Model documents for guidance.</p>
 
         <table class="tableAnalysis">
             <thead>
             <tr>
+                <th>Status</th>
                 <th>Field</th>
                 <th>Expected Value</th>
-                <th>Returned Value</th>
-                <th>Status</th>
-                <th>Explanation</th>
+                <th>Actual Value</th>
             </tr>
             </thead>
             <tbody>
-            
+
             <template is="dom-repeat" items="{{response.examineeCategory.cellCategories}}" as="cell" index-as="index">
-                <tr class$="{{getOddOrEvenClass()}}">
+                <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                    <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                     <td>Examinee: {{cell.tdsFieldName}}</td>
-                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                     <td>{{cell.tdsFieldNameValue}}</td>
-                    <td>{{status(cell.fieldCheckType)}}</td>
-                    <td>{{explanation(cell.fieldCheckType)}}</td>
                 </tr>
             </template>
 
             <template is="dom-repeat" items="{{response.examineeAttributeCategories}}" as="category" index-as="outer_index">
                 <template is="dom-repeat" items="{{category.cellCategories}}" as="cell">
-                    <tr class$="{{getOddOrEvenClass()}}">
+                    <tr class$="{{getRowClass(cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>ExamineeAttribute: {{cell.tdsFieldName}}</td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
+                    <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                    <tr>
+                        <td class="errorEmptyCell">&nbsp;</td>
+                        <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                    </template>
                 </template>
             </template>
 
             <template is="dom-repeat" items="{{response.examineeRelationshipCategories}}" as="category" index-as="outer_index">
                 <template is="dom-repeat" items="{{category.cellCategories}}" as="cell">
-                    <tr class$="{{getOddOrEvenClass()}}">
+                    <tr class$="{{getRowClass(cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>ExamineeRelationship: {{cell.tdsFieldName}}</td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
+                    <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                        <tr>
+                            <td class="errorEmptyCell">&nbsp;</td>
+                            <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
                 </template>
             </template>
 
@@ -63,6 +71,11 @@
       behaviors: [IRPBehavior],
       getOddOrEvenClass: function () {
           return this.oddOrEvenClass(this.getIndex());
+      },
+      getRowClass: function (fieldCheckType) {
+          return this.oddOrEvenClass(this.getIndex()) +
+                  ' ' +
+                  this.rowClass(fieldCheckType);
       },
       getIndex: function () {
           if (typeof this.rowIndex !== 'undefined') return ++this.rowIndex;

@@ -6,61 +6,75 @@
         <table class="tableAnalysis">
             <thead>
             <tr>
+                <th>Status</th>
                 <th>Field</th>
                 <th>Expected Value</th>
                 <th>Returned Value</th>
-                <th>Status</th>
-                <th>Explanation</th>
             </tr>
             </thead>
             <tbody>
 
             <tr class="category">
-                <td colspan="5">Opportunity</td>
+                <td colspan="4">Opportunity</td>
             </tr>
 
             <template is="dom-repeat" items="{{response.opportunityCategory.cellCategories}}" as="cell" index-as="index">
-                <tr class$="{{_computeClass(index)}}">
+                <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                    <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                     <td>Opportunity Properties: <span>{{cell.tdsFieldName}}</span></td>
-                    <td>{{cell.tdsExpectedValue}}</td>
+                    <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                     <td>{{cell.tdsFieldNameValue}}</td>
-                    <td>{{status(cell.fieldCheckType)}}</td>
-                    <td>{{explanation(cell.fieldCheckType)}}</td>
                 </tr>
+                <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                    <tr>
+                        <td class="errorEmptyCell">&nbsp;</td>
+                        <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                    </tr>
+                </template>
             </template>
             <tr class="category">
-                <td colspan="5">Opportunity Segments</td>
+                <td colspan="4">Opportunity Segments</td>
             </tr>
             <template is="dom-repeat" items="{{response.opportunityCategory.segmentCategories}}" as="segment">
                 <template is="dom-repeat" items="{{segment.cellCategories}}" as="cell" index-as="index">
-                    <tr class$="{{_computeClass2(index)}}">
+                    <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>Opportunity Segment: <span>{{cell.tdsFieldName}}</span></td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
+                    <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                        <tr>
+                            <td class="errorEmptyCell">&nbsp;</td>
+                            <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
                 </template>
             </template>
             <tr class="category">
-                <td colspan="5">Opportunity Accommodation</td>
+                <td colspan="4">Opportunity Accommodation</td>
             </tr>
             <template is="dom-repeat" items="{{response.opportunityCategory.accommodationCategories}}" as="accommodation">
                 <template is="dom-repeat" items="{{accommodation.cellCategories}}" as="cell" index-as="index">
-                    <tr class$="{{_computeClass3(index)}}">
+                    <tr class$="{{cellRowClass(index, cell.fieldCheckType)}}">
+                        <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                         <td>Opportunity Accommodation: <span>{{cell.tdsFieldName}}</span></td>
-                        <td>{{cell.tdsExpectedValue}}</td>
+                        <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                         <td>{{cell.tdsFieldNameValue}}</td>
-                        <td>{{status(cell.fieldCheckType)}}</td>
-                        <td>{{explanation(cell.fieldCheckType)}}</td>
                     </tr>
+                    <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                        <tr>
+                            <td class="errorEmptyCell">&nbsp;</td>
+                            <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                        </tr>
+                    </template>
                 </template>
             </template>
             <tr class="category">
-                <td colspan="5">Opportunity Scores</td>
+                <td colspan="4">Opportunity Scores</td>
             </tr>
             <tr>
-                <td colspan="5" style="font-weight:bold;font-size:medium;text-align:center;">Click the Test Scoring tab above for detailed Test Scoring analysis</td>
+                <td colspan="4" style="font-weight:bold;font-size:medium;text-align:center;">Click the Test Scoring tab above for detailed Test Scoring analysis</td>
             </tr>
             <!--<template repeat="{{score in category.scoreCategories}}">-->
                 <!--<template repeat="{{cell, index in score.cellCategories}}">-->
@@ -74,53 +88,73 @@
                 <!--</template>-->
             <!--</template>-->
             <tr class="category">
-                <td colspan="5">Opportunity Items</td>
+                <td colspan="4">Opportunity Items</td>
             </tr>
             <template is="dom-repeat" items="{{response.opportunityCategory.itemCategories}}" as="item" index-as="index">
                 <tr class="opportunityItem even">
-                    <td colspan="3">{{item.itemBankKeyKey}}</td>
+                    <td colspan="2">{{item.itemBankKeyKey}}</td>
                     <td>{{itemStatus(item)}}</td>
                     <td>{{itemExplanation(item)}}</td>
                 </tr>
                 <template is="dom-if" if="{{itemFound(item)}}">
                     <template is="dom-repeat" items="{{item.cellCategories}}" as="cell">
                         <tr class="opportunityItem">
+                            <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                             <td>Opportunity Item: <span>{{cell.tdsFieldName}}</span></td>
-                            <td>{{cell.tdsExpectedValue}}</td>
+                            <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                             <td>{{cell.tdsFieldNameValue}}</td>
-                            <td>{{status(cell.fieldCheckType)}}</td>
-                            <td>{{explanation(cell.fieldCheckType)}}</td>
                         </tr>
+                        <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                            <tr>
+                                <td class="errorEmptyCell">&nbsp;</td>
+                                <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                            </tr>
+                        </template>
                     </template>
                     <template is="dom-if" if="{{item.responseCategory}}">
                         <template is="dom-repeat" items="{{item.responseCategory.cellCategories}}" as="cell">
                             <tr class="opportunityItem">
+                                <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                                 <td>Opportunity Item Response: <span>{{cell.tdsFieldName}}</span></td>
-                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
-                                <td>{{status(cell.fieldCheckType)}}</td>
-                                <td>{{explanation(cell.fieldCheckType)}}</td>
                             </tr>
+                            <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                                <tr>
+                                    <td class="errorEmptyCell">&nbsp;</td>
+                                    <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                                </tr>
+                            </template>
                         </template>
                     </template>
                     <template is="dom-if" if="{{item.scoreInfoCategory}}">
                         <template is="dom-repeat" items="{{item.scoreInfoCategory.cellCategories}}" as="cell">
                             <tr class="opportunityItem">
+                                <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
                                 <td>Opportunity Item ScoreInfo: <span>{{cell.tdsFieldName}}</span></td>
-                                <td>{{cell.tdsExpectedValue}}</td>
+                                <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
                                 <td>{{cell.tdsFieldNameValue}}</td>
-                                <td>{{status(cell.fieldCheckType)}}</td>
-                                <td>{{explanation(cell.fieldCheckType)}}</td>
                             </tr>
+                            <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                                <tr>
+                                    <td class="errorEmptyCell">&nbsp;</td>
+                                    <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                                </tr>
+                            </template>
                         </template>
                         <template is="dom-repeat" items="{{item.scoreInfoCategory.scoreRationaleCategory.cellCategories}}" as="cell">
-                        <tr class="opportunityItem">
-                            <td>Opportunity Item ScoreInfo ScoreRational: <span>{{cell.tdsFieldName}}</span></td>
-                            <td>{{cell.tdsExpectedValue}}</td>
-                            <td>{{cell.tdsFieldNameValue}}</td>
-                            <td>{{status(cell.fieldCheckType)}}</td>
-                            <td>{{explanation(cell.fieldCheckType)}}</td>
-                        </tr>
+                            <tr class="opportunityItem">
+                                <td class="statusIcon"><iron-icon icon$="{{statusIcon(cell.fieldCheckType)}}" class$="{{statusIconColor(cell.fieldCheckType)}}"></iron-icon></td>
+                                <td>Opportunity Item ScoreInfo ScoreRational: <span>{{cell.tdsFieldName}}</span></td>
+                                <td class$="{{expectedValueClass(cell.tdsExpectedValue)}}">{{adjustedExpectedValue(cell.tdsExpectedValue)}}</td>
+                                <td>{{cell.tdsFieldNameValue}}</td>
+                            </tr>
+                            <template is="dom-if" if="{{statusIsError(cell.fieldCheckType)}}">
+                                <tr>
+                                    <td class="errorEmptyCell">&nbsp;</td>
+                                    <td colspan="3" class="errorExplanation">{{explanation(cell.fieldCheckType)}}</td>
+                                </tr>
+                            </template>
                         </template>
                     </template>
                 </template>

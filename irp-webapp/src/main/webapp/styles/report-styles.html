@@ -36,7 +36,7 @@
                 border-width: 0px 1px 1px 0px;
                 text-align: left;
                 padding: 7px;
-                font-size: 10px;
+                font-size: 14px;
                 font-family: Arial;
                 font-weight: normal;
                 color: #000000;
@@ -77,6 +77,48 @@
             p {
                 font-family: serif;
                 font-size: smaller;
+            }
+
+            .tableAnalysis .optionalField {
+                font-style: italic;
+            }
+
+            .tableAnalysis .requiredField{
+                font-style: normal;
+            }
+
+            .tableAnalysis .expectedValue {
+            }
+
+            .tableAnalysis .noExpectedValue {
+                text-decoration: line-through;
+                text-align: center;
+            }
+
+            .tableAnalysis .statusIcon {
+                text-align: center;
+            }
+
+            .tableAnalysis .statusOK {
+                color: green;
+            }
+
+            .tableAnalysis .statusError {
+                color: red;
+            }
+
+            .tableAnalysis .errorEmptyCell {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: black 1px solid;
+            }
+
+            .tableAnalysis .errorExplanation {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-left: black solid 1px;
+                background-color: lightyellow;
             }
         </style>
     </template>

@@ -56,13 +56,24 @@
         </template>
 
         <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
+        <p>Refer to the
+            <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and the
+            <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>
+            for details about field data types and acceptable values.
+        </p>
+
+        <p><em>Italicised</em> text means the field is optional.</p>
 
         <p>
-            <em>Explanation</em> Codes - Each field is analyzed according to its type.
+            <em>Legend</em>
         </p>
         <ul>
-            <li><em>P</em> type: Field is not empty with correct data type and acceptable value.</li>
-            <li><em>PC</em> type: Same as P plus verified the value is correct</li>
+            <li><em>Field Empty</em>: The field did not contain a value.</li>
+            <li><em>Incorrect Data Type</em>: The field's value data type is incorrect.</li>
+            <li><em>Unacceptable Value</em>: The field's value is outside the bounds of an acceptable value.</li>
+            <li><em>Incorrect Value</em>: The field's value does not match IRP's expected value.</li>
+            <li><em>Unknown Field</em>: The field is extraneous and not defined in <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and
+                <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>.</li>
         </ul>
         <p></p>
 
@@ -72,7 +83,7 @@
             <paper-tab>Opportunity</paper-tab>
             <paper-tab>Test Scoring</paper-tab>
             <paper-tab>Comments &amp; Tool Usage</paper-tab>
-            <paper-tab>Raw View</paper-tab>
+            <paper-tab>Combined View</paper-tab>
         </paper-tabs>
 
         <iron-pages selected="{{selected}}">

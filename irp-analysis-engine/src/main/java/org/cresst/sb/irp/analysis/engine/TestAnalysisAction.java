@@ -27,7 +27,38 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 	private final static Logger logger = LoggerFactory.getLogger(TestAnalysisAction.class);
 
 	public enum EnumTestFieldName {
-		name, subject, testId, bankKey, contract, mode, grade, handscoreproject, assessmentType, academicYear, assessmentVersion
+		name(250),
+		subject(10),
+		testId(255),
+		bankKey(8),
+		handScoreProject(8, false),
+		contract(100, false),
+		mode(50),
+		grade(100),
+		assessmentType(20),
+		academicYear(4),
+		assessmentVersion(30);
+
+		private int maxWidth;
+		private boolean isRequired;
+
+		EnumTestFieldName(int maxWidth) {
+			this.maxWidth = maxWidth;
+			this.isRequired = true;
+		}
+
+		EnumTestFieldName(int maxWidth, boolean isRequired) {
+			this.maxWidth = maxWidth;
+			this.isRequired = isRequired;
+		}
+
+		public int getMaxWidth() {
+			return maxWidth;
+		}
+
+		public boolean isRequired() {
+			return isRequired;
+		}
 	}
 
 	static final List<String> listGradeAcceptValues = Arrays.asList("IT", "PR", "PK", "TK", "KG", "01", "02", "03",
@@ -56,19 +87,19 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 						EnumTestFieldName.testId, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getBankKey(), EnumFieldCheckType.P,
 						EnumTestFieldName.bankKey, testPackage);
+				validate(testPropertiesCategory, tdsTest, tdsTest.getHandScoreProject(), EnumFieldCheckType.P,
+						EnumTestFieldName.handScoreProject, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getContract(), EnumFieldCheckType.P,
 						EnumTestFieldName.contract, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getMode(), EnumFieldCheckType.P, EnumTestFieldName.mode,
 						testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getGrade(), EnumFieldCheckType.PC,
 						EnumTestFieldName.grade, testPackage);
-				validate(testPropertiesCategory, tdsTest, tdsTest.getHandScoreProject(), EnumFieldCheckType.D,
-						EnumTestFieldName.handscoreproject, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentType(), EnumFieldCheckType.P,
 						EnumTestFieldName.assessmentType, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P,
 						EnumTestFieldName.academicYear, testPackage);
-				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
+				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.P,
 						EnumTestFieldName.assessmentVersion, testPackage);
 			} else
 				 logger.info(String.format("TDS Report contains Test name (%s) that does not match an IRP TestPackage", uniqueid));
@@ -95,23 +126,33 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			switch (enumFieldName) {
 			case name:
 				// <xs:attribute name="name" use="required" />
-				processP_PrintableASCIIone(tdsTest.getName(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(tdsTest.getName(), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(tdsTest.getName()));
 				break;
 			case subject:
 				// <xs:attribute name="subject" use="required" />
-				processP_PrintableASCIIone(tdsTest.getSubject(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(tdsTest.getSubject(), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(tdsTest.getSubject()));
 				break;
 			case testId:
 				// <xs:attribute name="testId" use="required" />
-				processP_PrintableASCIIone(tdsTest.getTestId(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(tdsTest.getTestId(), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(tdsTest.getTestId()));
 				break;
 			case bankKey:
 				// <xs:attribute name="bankKey" type="xs:unsignedInt" />
-				processP_Positive32bit(Long.toString(tdsTest.getBankKey()), fieldCheckType);
+				processP_Positive32bitMaxWidth(Long.toString(tdsTest.getBankKey()), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && tdsTest.getBankKey() == null);
+				break;
+			case handScoreProject:
+				// <xs:attribute name="handScoreProject" type="xs:unsignedInt"/>
+				processP_Positive32bitMaxWidth(Long.toString(tdsTest.getHandScoreProject()), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && tdsTest.getHandScoreProject() == null);
 				break;
 			case contract:
 				// <xs:attribute name="contract" use="required" />
-				processP_PrintableASCIIone(tdsTest.getSubject(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(tdsTest.getSubject(), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(tdsTest.getSubject()));
 				break;
 			case mode:
 				// <xs:attribute name="mode" use="required">
@@ -122,32 +163,48 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 				// <xs:enumeration value="scanned" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP(tdsTest.getMode(), fieldCheckType, true); // last param -> required Y
+				final String mode = tdsTest.getMode();
+				processP(mode, fieldCheckType, true); // last param -> required Y
+				if (mode != null && mode.length() <= enumFieldName.getMaxWidth()) {
+					setPcorrectWidth(fieldCheckType);
+				}
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(mode));
 				break;
 			case grade:
 				// <xs:attribute name="grade" use="required" />
-				if (gradeHasAcceptableValues(tdsTest.getGrade())) {
+				final String grade = tdsTest.getGrade();
+				if (gradeHasAcceptableValues(grade)) {
 					setPcorrect(fieldCheckType);
 				}
+				if (grade != null && grade.length() <= enumFieldName.getMaxWidth()) {
+					setPcorrectWidth(fieldCheckType);
+				}
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(grade));
 				break;
-			case handscoreproject:
-				// <xs:attribute name="handScoreProject" type="xs:unsignedInt"/>
-				processP_Positive32bit(Long.toString(tdsTest.getBankKey()), fieldCheckType);
 			case assessmentType:
 				// <xs:attribute name="assessmentType" />
-				processP_PrintableASCIIone(tdsTest.getAssessmentType(), fieldCheckType);
+				processP_PrintableASCIIoneMaxWidth(tdsTest.getAssessmentType(), fieldCheckType, enumFieldName.getMaxWidth());
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(tdsTest.getAssessmentType()));
 				break;
 			case academicYear:
 				// <xs:attribute name="academicYear" type="xs:unsignedInt" />
 				processP_Year(tdsTest.getAcademicYear(), fieldCheckType);
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && tdsTest.getAcademicYear() == null);
 				break;
 			case assessmentVersion:
 				// <xs:attribute name="assessmentVersion" />
-				processP(tdsTest.getAssessmentVersion(), fieldCheckType, true); // last param -> required Y
+				final String assessmentVersion = tdsTest.getAssessmentVersion();
+				processP(assessmentVersion, fieldCheckType, true); // last param -> required Y
+				if (assessmentVersion != null && assessmentVersion.length() <= enumFieldName.getMaxWidth()) {
+					setPcorrectWidth(fieldCheckType);
+				}
+				fieldCheckType.setRequiredFieldMissing(enumFieldName.isRequired() && StringUtils.isBlank(assessmentVersion));
 				break;
 			default:
 				break;
 			}
+
+			fieldCheckType.setOptionalValue(!enumFieldName.isRequired());
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
@@ -290,8 +347,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			case academicYear:
 				break;
 			case assessmentVersion:
-				identifier = testPackage.getIdentifier();
-				strReturn = identifier.getVersion();
 				break;
 			default:
 				break;
@@ -350,11 +405,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 
 			if (range.size() == 2) {
 				String first = range.get(0);
-				if(!first.isEmpty())
-					first = Strings.padStart(first, 2, '0'); // convert 2 -> 02 e.g
 				String second = range.get(1);
-				if(!second.isEmpty())
-					second = Strings.padStart(second, 2, '0');
 
 				int start = listGradeAcceptValues.indexOf(first);
 				int end = listGradeAcceptValues.indexOf(second);
@@ -366,7 +417,6 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 		} else {
 			// Handle grades as single item or as comma separated list
 			for (String grade : Splitter.on(',').trimResults().split(tdsGrade)) {
-				grade = Strings.padStart(grade, 2, '0'); // convert 2 -> 02 e.g
 				if (!listGradeAcceptValues.contains(grade)) {
 					return false;
 				}

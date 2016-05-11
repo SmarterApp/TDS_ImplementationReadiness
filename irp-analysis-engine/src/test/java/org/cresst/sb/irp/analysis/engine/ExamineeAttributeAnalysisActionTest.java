@@ -487,7 +487,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .toStudent();
 
         testMaxWidthError(EnumExamineeAttributeFieldName.AlternateSSID, mockStudent,
-                expectedFieldValue, actualFieldValue, true);
+                expectedFieldValue, actualFieldValue, false);
     }
 
     @Test
@@ -499,19 +499,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .toStudent();
 
         testUnacceptableValue(EnumExamineeAttributeFieldName.AlternateSSID,
-                mockStudent, expectedFieldValue, actualFieldValue, true);
-    }
-
-    @Test
-    public void whenOptionalAlternateSSIDNameIsBlank() {
-        final String actualFieldValue = "";
-        final String expectedFieldValue = "";
-        final Student mockStudent = new StudentBuilder(SSID)
-                .alternateSSID(expectedFieldValue)
-                .toStudent();
-
-        testOptionalField(EnumExamineeAttributeFieldName.AlternateSSID, mockStudent,
-                expectedFieldValue, actualFieldValue);
+                mockStudent, expectedFieldValue, actualFieldValue, false);
     }
 
     @Test
@@ -523,7 +511,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .toStudent();
 
         testMatchesStudent(EnumExamineeAttributeFieldName.AlternateSSID, mockStudent,
-                expectedFieldValue, actualFieldValue, true);
+                expectedFieldValue, actualFieldValue, false);
     }
     //endregion
 
@@ -798,6 +786,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .tdsFieldName(EnumExamineeAttributeFieldName.EnglishLanguageProficiencLevel.name())
                 .tdsFieldNameValue("progresS")
                 .tdsExpectedValue("PROGRESS")
+                .optionalFieldValue(true)
                 .fieldEmpty(false)
                 .correctDataType(true)
                 .acceptableValue(true)

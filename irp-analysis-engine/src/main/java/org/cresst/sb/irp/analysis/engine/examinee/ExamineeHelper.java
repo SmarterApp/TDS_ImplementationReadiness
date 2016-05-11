@@ -127,6 +127,40 @@ public class ExamineeHelper {
     }
 
     /**
+     * Given an Examinee and an Examinee Relationship to lookup, this method returns the Examinee Relationship for the
+     * given Examinee.
+     * @param examinee The Examinee to get the Relationship from
+     * @param examineeRelationshipToGet The Relationship to get
+     * @return Returns null if the Relationship does not exist in the Examinee; otherwise it returns the ExamineeRelationship
+     */
+    static public TDSReport.Examinee.ExamineeRelationship getFinalExamineeRelationship(TDSReport.Examinee examinee,
+                                                                                 EnumExamineeRelationshipFieldName examineeRelationshipToGet) {
+
+        if (examinee == null) {
+            return null;
+        }
+
+        List<Object> listObject = examinee.getExamineeAttributeOrExamineeRelationship();
+        for (Object object : listObject) {
+            if (object instanceof TDSReport.Examinee.ExamineeRelationship) {
+
+                TDSReport.Examinee.ExamineeRelationship examineeRelationship = (TDSReport.Examinee.ExamineeRelationship) object;
+                if (examineeRelationship.getContext() == Context.FINAL) {
+
+                    EnumExamineeRelationshipFieldName currentExamineeRelationshipFieldName =
+                            convertToExamineeRelationshipEnum(examineeRelationship.getName());
+
+                    if (currentExamineeRelationshipFieldName == examineeRelationshipToGet) {
+                        return examineeRelationship;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Returns the Examinee's relationship value if the relationship name exists. The relationships with the FINAL context
      * are searched.
      *

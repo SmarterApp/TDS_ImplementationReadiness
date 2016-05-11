@@ -19,6 +19,7 @@ public class FieldCheckType {
     private boolean isCorrectValue;
     private boolean isCorrectWidth;
     private boolean isOptionalValue;
+    private boolean isUnknownField = false;
 
     private EnumFieldCheckType enumfieldCheckType;
 
@@ -90,6 +91,14 @@ public class FieldCheckType {
         isRequiredFieldMissing = requiredFieldMissing;
     }
 
+    public boolean isUnknownField() {
+        return isUnknownField;
+    }
+
+    public void setUnknownField(boolean unknownField) {
+        isUnknownField = unknownField;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -101,6 +110,7 @@ public class FieldCheckType {
                 .append("isCorrectWidth", isCorrectWidth)
                 .append("enumfieldCheckType", enumfieldCheckType)
                 .append("isRequiredFieldMissing", isRequiredFieldMissing)
+                .append("isUnknownField", isUnknownField)
                 .toString();
     }
 
@@ -116,11 +126,12 @@ public class FieldCheckType {
                 isCorrectValue == that.isCorrectValue &&
                 isCorrectWidth == that.isCorrectWidth &&
                 enumfieldCheckType == that.enumfieldCheckType &&
-                isRequiredFieldMissing == that.isRequiredFieldMissing;
+                isRequiredFieldMissing == that.isRequiredFieldMissing &&
+                isUnknownField == that.isUnknownField;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isOptionalValue, isFieldValueEmpty, isCorrectDataType, isAcceptableValue, isCorrectValue, isCorrectWidth, enumfieldCheckType, isRequiredFieldMissing);
+        return Objects.hash(isOptionalValue, isFieldValueEmpty, isCorrectDataType, isAcceptableValue, isCorrectValue, isCorrectWidth, enumfieldCheckType, isRequiredFieldMissing, isUnknownField);
     }
 }
