@@ -143,6 +143,8 @@ public class ExamineeAnalysisActionTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(false)
+                .optionalFieldValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -174,35 +176,5 @@ public class ExamineeAnalysisActionTest {
 
         // Assert
         Assert.assertThat(individualResponse.getExamineeCategory().getCellCategories().size(), is(0));
-    }
-
-    /**
-     * //<xs:attribute name="key" type="xs:long" use="required"/>
-     * 
-     * Verify that when the Examinee key doesn't exist the field is marked as being invalid
-     */
-    @Test
-    public void whenExamineeKeyIsNull_InvalidField() throws Exception {
-
-        // Arrange
-        // Create an Examinee without a key
-        final IndividualResponse individualResponse = createIndividualResponse(null, "StudentID", "test");
-
-
-        // Act
-        underTest.analyze(individualResponse);
-
-        // We are testing a single attribute so there should only be one CellCategory
-        final CellCategory actualCellCategory = individualResponse.getExamineeCategory().getCellCategories().get(0);
-
-        // Setup expected results after analysis that indicates the field has an incorrect value
-        final CellCategory expectedCellCategory = new CellCategoryBuilder()
-                .tdsFieldName(ExamineeAnalysisAction.EnumExamineeFieldName.key.toString())
-                .fieldEmpty(true)
-                .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-                .toCellCategory();
-
-        // Assert
-        Assert.assertEquals(expectedCellCategory, actualCellCategory);
     }
 }

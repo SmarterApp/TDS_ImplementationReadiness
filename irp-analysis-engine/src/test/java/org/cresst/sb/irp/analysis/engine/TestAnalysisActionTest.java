@@ -33,7 +33,7 @@ public class TestAnalysisActionTest {
         // Arrange
         final TDSReport.Test tdsTest = new TDSReport.Test();
         tdsTest.setName("test");
-        tdsTest.setGrade("9"); //if tdsTest.setGrade("09"); look at tdsFieldNameValue("09") in expectedCellCategory
+        tdsTest.setGrade("09"); //if tdsTest.setGrade("09"); look at tdsFieldNameValue("09") in expectedCellCategory
 
         final TDSReport tdsReport = new TDSReport();
         tdsReport.setTest(tdsTest);
@@ -42,7 +42,7 @@ public class TestAnalysisActionTest {
         individualResponse.setTDSReport(tdsReport);
 
         Testspecification testPackage = new Testspecification();
-        for (String grade : new String[] { "10", "11", "12", "13", "9", "PS" }) {
+        for (String grade : new String[] { "10", "11", "12", "13", "09", "PS" }) {
             final Property testPackageProperty = new Property();
             testPackageProperty.setName("grade");
             testPackageProperty.setValue(grade);
@@ -65,13 +65,14 @@ public class TestAnalysisActionTest {
 
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName("grade")
-                .tdsFieldNameValue("9") // .tdsFieldNameValue("09") 
+                .tdsFieldNameValue("09") // .tdsFieldNameValue("09")
                 .tdsExpectedValue("10,11,12,13,09,PS")
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .fieldEmpty(false)
                 .acceptableValue(true)
                 .correctDataType(true)
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -122,6 +123,7 @@ public class TestAnalysisActionTest {
                 .acceptableValue(true)
                 .correctDataType(true)
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -172,6 +174,7 @@ public class TestAnalysisActionTest {
                 .acceptableValue(true)
                 .correctDataType(true)
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -222,6 +225,7 @@ public class TestAnalysisActionTest {
                 .acceptableValue(true)
                 .correctDataType(true)
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -242,7 +246,7 @@ public class TestAnalysisActionTest {
         individualResponse.setTDSReport(tdsReport);
 
         Testspecification testPackage = new Testspecification();
-        for (String grade : new String[] { "10", "11", "12", "13", "9", "PS" }) {
+        for (String grade : new String[] { "10", "11", "12", "13", "09", "PS" }) {
             final Property testPackageProperty = new Property();
             testPackageProperty.setName("grade");
             testPackageProperty.setValue(grade);
@@ -272,6 +276,7 @@ public class TestAnalysisActionTest {
                 .acceptableValue(true)
                 .correctDataType(true)
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -322,6 +327,7 @@ public class TestAnalysisActionTest {
                 .acceptableValue(false)
                 .correctDataType(false)
                 .correctValue(false)
+                .correctWidth(true)
                 .toCellCategory();
 
         // Assert
@@ -361,15 +367,16 @@ public class TestAnalysisActionTest {
         }
         
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-	        .tdsFieldName("subject")
-	        .tdsFieldNameValue("math")
-	        .tdsExpectedValue("math")
-	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-	        .fieldEmpty(false)
-	        .acceptableValue(true)
-	        .correctDataType(true)
-	        .correctValue(true)
-	        .toCellCategory();
+            .tdsFieldName("subject")
+            .tdsFieldNameValue("math")
+            .tdsExpectedValue("math")
+            .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+            .fieldEmpty(false)
+            .acceptableValue(true)
+            .correctDataType(true)
+            .correctValue(true)
+            .correctWidth(true)
+            .toCellCategory();
 
         // Assert
         assertEquals(expectedCellCategory, actualCellCategory);
@@ -408,15 +415,16 @@ public class TestAnalysisActionTest {
         }
         
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-	        .tdsFieldName("subject")
-	        .tdsFieldNameValue("mathX")
-	        .tdsExpectedValue("math")
-	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-	        .fieldEmpty(false)
-	        .acceptableValue(true)
-	        .correctDataType(true)
-	        .correctValue(false)
-	        .toCellCategory();
+            .tdsFieldName("subject")
+            .tdsFieldNameValue("mathX")
+            .tdsExpectedValue("math")
+            .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+            .fieldEmpty(false)
+            .acceptableValue(true)
+            .correctDataType(true)
+            .correctValue(false)
+            .correctWidth(true)
+            .toCellCategory();
 
         // Assert
         assertEquals(expectedCellCategory, actualCellCategory);
@@ -454,15 +462,16 @@ public class TestAnalysisActionTest {
         }
         
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-	        .tdsFieldName("assessmentVersion")
-	        .tdsFieldNameValue("1234")
-	        .tdsExpectedValue("1234")
-	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-	        .fieldEmpty(false)
-	        .acceptableValue(true)
-	        .correctDataType(true)
-	        .correctValue(true)
-	        .toCellCategory();
+            .tdsFieldName("assessmentVersion")
+            .tdsFieldNameValue("1234")
+            .tdsExpectedValue("1234")
+            .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+            .fieldEmpty(false)
+            .acceptableValue(true)
+            .correctDataType(true)
+            .correctValue(true)
+            .correctWidth(true)
+            .toCellCategory();
 
         // Assert
         assertEquals(expectedCellCategory, actualCellCategory);
@@ -500,15 +509,16 @@ public class TestAnalysisActionTest {
         }
         
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-	        .tdsFieldName("assessmentVersion")
-	        .tdsFieldNameValue("1234")
-	        .tdsExpectedValue("2222")
-	        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-	        .fieldEmpty(false)
-	        .acceptableValue(true)
-	        .correctDataType(true)
-	        .correctValue(false)
-	        .toCellCategory();
+            .tdsFieldName("assessmentVersion")
+            .tdsFieldNameValue("1234")
+            .tdsExpectedValue("2222")
+            .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+            .fieldEmpty(false)
+            .acceptableValue(true)
+            .correctDataType(true)
+            .correctValue(false)
+            .correctWidth(true)
+            .toCellCategory();
 
         // Assert
         assertEquals(expectedCellCategory, actualCellCategory);

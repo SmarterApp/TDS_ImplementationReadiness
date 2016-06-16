@@ -730,7 +730,7 @@ public class ExamineeAttributeAnalysisActionTest {
         final List<TDSReport.Examinee.ExamineeAttribute> examineeAttributes = Lists.newArrayList(
                 new ExamineeAttributeBuilder()
                         .name(EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
-                        .value("N")
+                        .value("No")
                         .context(Context.FINAL)
                         .toExamineeAttribute());
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeAttributes);
@@ -751,7 +751,7 @@ public class ExamineeAttributeAnalysisActionTest {
                 .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                 .tdsFieldName(EnumExamineeAttributeFieldName.AmericanIndianOrAlaskaNative.name())
-                .tdsFieldNameValue("N")
+                .tdsFieldNameValue("No")
                 .toCellCategory();
 
         assertEquals(expectedCellCategory, actualCellCategory);

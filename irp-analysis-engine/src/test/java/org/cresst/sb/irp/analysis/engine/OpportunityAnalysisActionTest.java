@@ -64,13 +64,12 @@ public class OpportunityAnalysisActionTest {
 		final IndividualResponse individualResponse = new IndividualResponse();
 		individualResponse.setTDSReport(tdsReport);
 
-	     // Act
+		// Act
         underTest.analyze(individualResponse);
 
-        List<CellCategory> actualCellCategories = new ArrayList<>();
-        actualCellCategories = individualResponse.getOpportunityCategory().getCellCategories();
-     
-        assertThat(actualCellCategories.size(), is(24));  //ONLY 24 fields implemented
+        List<CellCategory> actualCellCategories = individualResponse.getOpportunityCategory().getCellCategories();
+
+        assertThat(actualCellCategories.size(), is(27));  //ONLY 24 fields implemented
 	}
 	
 	/**

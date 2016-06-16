@@ -143,6 +143,7 @@ public class ExamineeRelationshipAnalysisAction extends AnalysisAction<ExamineeR
                 }
 
                 fieldCheckType.setCorrectWidth(inputValue != null && inputValue.length() <= enumFieldName.getMaxWidth());
+                fieldCheckType.setFieldValueEmpty(StringUtils.isBlank(inputValue));
                 break;
             default:
                 processP_PrintableASCIIoneMaxWidth(inputValue, fieldCheckType, enumFieldName.getMaxWidth());

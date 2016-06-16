@@ -99,7 +99,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 						EnumTestFieldName.assessmentType, testPackage);
 				validate(testPropertiesCategory, tdsTest, tdsTest.getAcademicYear(), EnumFieldCheckType.P,
 						EnumTestFieldName.academicYear, testPackage);
-				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.P,
+				validate(testPropertiesCategory, tdsTest, tdsTest.getAssessmentVersion(), EnumFieldCheckType.PC,
 						EnumTestFieldName.assessmentVersion, testPackage);
 			} else
 				 logger.info(String.format("TDS Report contains Test name (%s) that does not match an IRP TestPackage", uniqueid));
@@ -347,6 +347,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 			case academicYear:
 				break;
 			case assessmentVersion:
+				strReturn = testPackage.getIdentifier().getVersion();
 				break;
 			default:
 				break;

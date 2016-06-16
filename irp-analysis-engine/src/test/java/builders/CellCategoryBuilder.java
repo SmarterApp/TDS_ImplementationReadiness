@@ -65,6 +65,11 @@ public class CellCategoryBuilder {
         return this;
     }
 
+    public CellCategoryBuilder unkownField(boolean isUnknownField) {
+        fieldCheckType.setUnknownField(isUnknownField);
+        return this;
+    }
+
     public CellCategoryBuilder enumFieldCheckType(FieldCheckType.EnumFieldCheckType enumFieldCheckType) {
         fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
         return this;

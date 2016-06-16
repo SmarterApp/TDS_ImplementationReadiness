@@ -141,10 +141,11 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
-        Assert.assertEquals(actualScoreInfoCategory.getTdsFormat(), "MC");
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
+        Assert.assertEquals("MC", actualScoreInfoCategory.getTdsFormat());
         
         actualCellCategory = getCellCategoryByFieldName(actualScoreInfoCategory.getCellCategories(), "scoreStatus");
 		
@@ -157,9 +158,10 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
         
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
         
     	actualItemCategory = actuaItemCategproes.get(1);
 		actualScoreInfoCategory = actualItemCategory.getScoreInfoCategory();
@@ -176,10 +178,11 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
-        Assert.assertEquals(actualScoreInfoCategory.getTdsFormat(), "MS");
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
+        Assert.assertEquals("MS", actualScoreInfoCategory.getTdsFormat());
         
         actualCellCategory = getCellCategoryByFieldName(actualScoreInfoCategory.getCellCategories(), "scoreStatus");
 		
@@ -192,9 +195,10 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
         
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
 		
 		
 	}
@@ -278,10 +282,11 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+				.correctWidth(true)
                 .toCellCategory();
 
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
-        Assert.assertEquals(actualScoreInfoCategory.getTdsFormat(), "HTQ");
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
+        Assert.assertEquals("HTQ", actualScoreInfoCategory.getTdsFormat());
         
         actualCellCategory = getCellCategoryByFieldName(actualScoreInfoCategory.getCellCategories(), "scoreStatus");
 		
@@ -294,9 +299,10 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
         
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
         
      	actualItemCategory = actuaItemCategproes.get(1);
 		actualScoreInfoCategory = actualItemCategory.getScoreInfoCategory();
@@ -313,10 +319,11 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
 
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
-        Assert.assertEquals(actualScoreInfoCategory.getTdsFormat(), "MI");
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
+        Assert.assertEquals("MI", actualScoreInfoCategory.getTdsFormat());
         
         actualCellCategory = getCellCategoryByFieldName(actualScoreInfoCategory.getCellCategories(), "scoreStatus");
 		
@@ -329,9 +336,10 @@ public class ItemScoreInfoAnalysisTest {
                 .correctDataType(true)
                 .acceptableValue(true) 
                 .correctValue(true)
+                .correctWidth(true)
                 .toCellCategory();
         
-        Assert.assertEquals(actualCellCategory, expectedCellCategory);
+        Assert.assertEquals(expectedCellCategory, actualCellCategory);
 		
 	}
 	

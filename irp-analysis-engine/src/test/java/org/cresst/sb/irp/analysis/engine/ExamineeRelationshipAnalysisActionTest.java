@@ -35,10 +35,10 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ExamineeRelationshipAnalysisActionTest {
 
-    final private String RESPONSIBLE_DISTRICT_ID = EnumExamineeRelationshipFieldName.DistrictId.name();
-    final private String ORGANIZATION_NAME = EnumExamineeRelationshipFieldName.DistrictName.name();
-    final private String RESPONSIBLE_INSTITUTION_ID = EnumExamineeRelationshipFieldName.SchoolId.name();
-    final private String NAME_OF_INSTITUTION= EnumExamineeRelationshipFieldName.SchoolName.name();
+    final private String DISTRICT_ID = EnumExamineeRelationshipFieldName.DistrictId.name();
+    final private String DISTRICT_NAME = EnumExamineeRelationshipFieldName.DistrictName.name();
+    final private String SCHOOL_ID = EnumExamineeRelationshipFieldName.SchoolId.name();
+    final private String SCHOOL_NAME = EnumExamineeRelationshipFieldName.SchoolName.name();
     final private String STATE_NAME = EnumExamineeRelationshipFieldName.StateName.name();
     final private String STATE_ABBREVIATION = EnumExamineeRelationshipFieldName.StateAbbreviation.name();
 
@@ -104,7 +104,7 @@ public class ExamineeRelationshipAnalysisActionTest {
         underTest.analyze(individualResponse);
 
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        CellCategory actualCellCategory = getActualCellCategory(EnumExamineeRelationshipFieldName.StateAbbreviation, individualResponse);
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .tdsFieldName(STATE_ABBREVIATION)
                 .tdsFieldNameValue("HI")
@@ -114,9 +114,10 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .correctDataType(true)
                 .acceptableValue(true)
                 .fieldEmpty(false)
+                .correctWidth(true)
                 .toCellCategory();
 
-        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+        assertEquals(expectedCellCategory, actualCellCategory);
     }
 
     /**
@@ -135,22 +136,22 @@ public class ExamineeRelationshipAnalysisActionTest {
 
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
-                        .name(RESPONSIBLE_DISTRICT_ID)
+                        .name(DISTRICT_ID)
                         .value("44444")
                         .context(Context.FINAL)
                         .toExamineeRelationship(),
                 new ExamineeRelationshipBuilder()
-                        .name(ORGANIZATION_NAME)
+                        .name(DISTRICT_NAME)
                         .value("HI State Schools")
                         .context(Context.FINAL)
                         .toExamineeRelationship(),
                 new ExamineeRelationshipBuilder()
-                        .name(RESPONSIBLE_INSTITUTION_ID)
+                        .name(SCHOOL_ID)
                         .value("12345")
                         .context(Context.FINAL)
                         .toExamineeRelationship(),
                 new ExamineeRelationshipBuilder()
-                        .name(NAME_OF_INSTITUTION)
+                        .name(SCHOOL_NAME)
                         .value("High School High")
                         .context(Context.FINAL)
                         .toExamineeRelationship(),
@@ -186,54 +187,8 @@ public class ExamineeRelationshipAnalysisActionTest {
             }
         }
 
+        // Field order matches how they are listed in the TRT document
         List<CellCategory> expectedCellCategories = Lists.newArrayList(
-                new CellCategoryBuilder()
-                        .tdsFieldName(RESPONSIBLE_DISTRICT_ID)
-                        .tdsFieldNameValue("44444")
-                        .tdsExpectedValue("44444")
-                        .correctValue(true)
-                        .correctDataType(true)
-                        .acceptableValue(true)
-                        .fieldEmpty(false)
-                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-                        .toCellCategory(),
-                new CellCategoryBuilder()
-                        .tdsFieldName(ORGANIZATION_NAME)
-                        .tdsFieldNameValue("HI State Schools")
-                        .correctValue(false)
-                        .correctDataType(true)
-                        .acceptableValue(true)
-                        .fieldEmpty(false)
-                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-                        .toCellCategory(),
-                new CellCategoryBuilder()
-                        .tdsFieldName(RESPONSIBLE_INSTITUTION_ID)
-                        .tdsFieldNameValue("12345")
-                        .tdsExpectedValue("12345")
-                        .correctValue(true)
-                        .correctDataType(true)
-                        .acceptableValue(true)
-                        .fieldEmpty(false)
-                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-                        .toCellCategory(),
-                new CellCategoryBuilder()
-                        .tdsFieldName(NAME_OF_INSTITUTION)
-                        .tdsFieldNameValue("High School High")
-                        .correctValue(false)
-                        .correctDataType(true)
-                        .acceptableValue(true)
-                        .fieldEmpty(false)
-                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-                        .toCellCategory(),
-                new CellCategoryBuilder()
-                        .tdsFieldName(STATE_NAME)
-                        .tdsFieldNameValue("Hawaii")
-                        .correctValue(false)
-                        .correctDataType(true)
-                        .acceptableValue(true)
-                        .fieldEmpty(false)
-                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-                        .toCellCategory(),
                 new CellCategoryBuilder()
                         .tdsFieldName(STATE_ABBREVIATION)
                         .tdsFieldNameValue("HI")
@@ -242,6 +197,65 @@ public class ExamineeRelationshipAnalysisActionTest {
                         .correctDataType(true)
                         .acceptableValue(true)
                         .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(false)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                        .toCellCategory(),
+                new CellCategoryBuilder()
+                        .tdsFieldName(DISTRICT_ID)
+                        .tdsFieldNameValue("44444")
+                        .tdsExpectedValue("44444")
+                        .correctValue(true)
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(true)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                        .toCellCategory(),
+                new CellCategoryBuilder()
+                        .tdsFieldName(DISTRICT_NAME)
+                        .tdsFieldNameValue("HI State Schools")
+                        .correctValue(true)
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(true)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                        .toCellCategory(),
+                new CellCategoryBuilder()
+                        .tdsFieldName(SCHOOL_ID)
+                        .tdsFieldNameValue("12345")
+                        .tdsExpectedValue("12345")
+                        .correctValue(true)
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(true)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                        .toCellCategory(),
+                new CellCategoryBuilder()
+                        .tdsFieldName(SCHOOL_NAME)
+                        .tdsFieldNameValue("High School High")
+                        .correctValue(true)
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(true)
+                        .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+                        .toCellCategory(),
+                new CellCategoryBuilder()
+                        .tdsFieldName(STATE_NAME)
+                        .tdsFieldNameValue("Hawaii")
+                        .correctValue(true)
+                        .correctDataType(true)
+                        .acceptableValue(true)
+                        .fieldEmpty(false)
+                        .correctWidth(true)
+                        .optionalFieldValue(true)
                         .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
                         .toCellCategory());
 
@@ -271,18 +285,27 @@ public class ExamineeRelationshipAnalysisActionTest {
         underTest.analyze(individualResponse);
 
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        CellCategory actualCellCategory = null;
+
+        for (ExamineeRelationshipCategory examineeRelationshipCategory : individualResponse.getExamineeRelationshipCategories()) {
+            for (CellCategory cellCategory : examineeRelationshipCategory.getCellCategories()) {
+                if (cellCategory.getTdsFieldName() == "name") {
+                    actualCellCategory = cellCategory;
+                    break;
+                }
+            }
+
+            if (actualCellCategory != null) break;
+        }
+
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-                .correctValue(false)
-                .correctDataType(true)
-                .acceptableValue(false)
-                .fieldEmpty(false)
+                .unkownField(true)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
                 .tdsFieldName("name")
                 .tdsFieldNameValue("UnknownExamineeRelationship")
                 .toCellCategory();
 
-        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+        assertEquals(expectedCellCategory, actualCellCategory);
     }
 
     /**
@@ -313,11 +336,12 @@ public class ExamineeRelationshipAnalysisActionTest {
         underTest.analyze(individualResponse);
 
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        CellCategory actualCellCategory = getActualCellCategory(EnumExamineeRelationshipFieldName.StateAbbreviation, individualResponse);
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .correctValue(true)
                 .correctDataType(true)
                 .acceptableValue(true)
+                .correctWidth(true)
                 .tdsExpectedValue("HI")
                 .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
@@ -325,28 +349,7 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .tdsFieldNameValue("HI")
                 .toCellCategory();
 
-        assertThat(individualResponse.getExamineeRelationshipCategories().size(), is(1));
-        assertEquals(expectedCellCategory, actualCellCategories.get(0));
-    }
-
-    /**
-     * <xs:element name="Examinee" minOccurs="1" maxOccurs="1">
-     * TDS Report should have only one Examinee attribute. otherwise, trigger exception
-     * in xmlValidate.validateXMLSchema(TDSReportXSDResource, tmpPath.toString()) in TdsReportAnalysisEngine.java
-     *
-     * this test won't be invoked in real scenario
-     */
-    @Test
-    public void whenExamineeIsNull_EmptyExamineeRelationshipCategory() {
-        // Arrange
-        TDSReport tdsReport = new TDSReport();
-        IndividualResponse individualResponse = new IndividualResponse();
-        individualResponse.setTDSReport(tdsReport);
-
-        // Act
-        underTest.analyze(individualResponse);
-
-        assertThat(individualResponse.getExamineeRelationshipCategories().size(), is(0));
+        assertEquals(expectedCellCategory, actualCellCategory);
     }
 
     @Test
@@ -368,11 +371,12 @@ public class ExamineeRelationshipAnalysisActionTest {
         underTest.analyze(individualResponse);
 
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        CellCategory actualCellCategory = getActualCellCategory(EnumExamineeRelationshipFieldName.StateAbbreviation, individualResponse);
         CellCategory expectedCellCategory = new CellCategoryBuilder()
                 .correctValue(false)
                 .correctDataType(true)
                 .acceptableValue(true)
+                .correctWidth(true)
                 .tdsExpectedValue(null)
                 .fieldEmpty(false)
                 .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
@@ -380,44 +384,58 @@ public class ExamineeRelationshipAnalysisActionTest {
                 .tdsFieldNameValue("HI")
                 .toCellCategory();
         
-        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+        assertEquals(expectedCellCategory, actualCellCategory);
     }
     
     @Test
     public void whenResponsibleDistrictIdentifierMatchesStudentWithLeadingZeros_CorrectFields() throws Exception {
-    	
+
         // Arrange
         final String SSID = "StudentID";
         final List<TDSReport.Examinee.ExamineeRelationship> examineeRelationships = Lists.newArrayList(
                 new ExamineeRelationshipBuilder()
-                        .name(RESPONSIBLE_DISTRICT_ID)
+                        .name(DISTRICT_ID)
                         .value("1")
                         .context(Context.FINAL)
                         .toExamineeRelationship());
         
         final IndividualResponse individualResponse = generateIndividualResponse(SSID, examineeRelationships);
         
-        // Create a Student with the ResponsibleDistrictIdentifier value leading zeros (HI Students1_3.xlsx)
+        // Create a Student with the DistrictId value leading zeros (HI Students1_3.xlsx)
         when(studentService.getStudentByStudentSSID(SSID)).thenReturn(new StudentBuilder(SSID).responsibleDistrictIdentifier("001").toStudent());
 
         // Act
         underTest.analyze(individualResponse);
         
         // Assert
-        List<CellCategory> actualCellCategories = individualResponse.getExamineeRelationshipCategories().get(0).getCellCategories();
+        CellCategory actualCellCategory = getActualCellCategory(EnumExamineeRelationshipFieldName.DistrictId, individualResponse);
         
         CellCategory expectedCellCategory = new CellCategoryBuilder()
-        	.tdsFieldName(RESPONSIBLE_DISTRICT_ID)
-        	.tdsFieldNameValue("1")
-        	.tdsExpectedValue("001")
-        	.fieldEmpty(false)
-		    .correctDataType(true)
-		    .acceptableValue(true)
-		    .correctValue(true)
-		    .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
-		    .toCellCategory();
-        
-        assertEquals(expectedCellCategory, actualCellCategories.get(0));
+            .tdsFieldName(DISTRICT_ID)
+            .tdsFieldNameValue("1")
+            .tdsExpectedValue("001")
+            .fieldEmpty(false)
+            .correctDataType(true)
+            .acceptableValue(true)
+            .correctValue(true)
+            .optionalFieldValue(true)
+            .correctWidth(true)
+            .enumFieldCheckType(FieldCheckType.EnumFieldCheckType.PC)
+            .toCellCategory();
+
+        assertEquals(expectedCellCategory, actualCellCategory);
+    }
+
+    CellCategory getActualCellCategory(EnumExamineeRelationshipFieldName examineeRelationshipFieldName, IndividualResponse individualResponse) {
+        for (ExamineeRelationshipCategory examineeRelationshipCategory : individualResponse.getExamineeRelationshipCategories()) {
+            for (CellCategory cellCategory : examineeRelationshipCategory.getCellCategories()) {
+                if (cellCategory.getTdsFieldName() == examineeRelationshipFieldName.toString()) {
+                    return cellCategory;
+                }
+            }
+        }
+
+        return null;
     }
     
 }
