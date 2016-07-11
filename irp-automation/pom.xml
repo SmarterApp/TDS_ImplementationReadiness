@@ -2,27 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>irp-parent</artifactId>
         <groupId>org.cresst.sb.irp</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>irp-service</artifactId>
-    <packaging>jar</packaging>
-    <name>IReadinessPackage - Service</name>
-    <url>http://bitbucket.org/sbcresst</url>
+    <artifactId>irp-automation</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.cresst.sb.irp</groupId>
-            <artifactId>irp-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.cresst.sb.irp</groupId>
-            <artifactId>irp-repository</artifactId>
+            <artifactId>irp-service</artifactId>
         </dependency>
 
         <dependency>
@@ -32,6 +24,20 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
         </dependency>
 
         <dependency>
@@ -50,7 +56,5 @@
             <artifactId>mockito-all</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
-
 </project>
