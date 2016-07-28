@@ -169,7 +169,7 @@
                                                     <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
                                                                                        name="file" required=""></div>
                                                     <button id="btnFileUpload" class="btn btn-primary">Upload</button>
-                                                    <paper-spinner id="uploadSpinner" class="blue" inactive=""></paper-spinner>
+                                                    <paper-spinner id="spinnerUpload" class="blue" inactive=""></paper-spinner>
                                                 </form>
                                             </div>
 
@@ -179,7 +179,20 @@
                                         </div>
                                         <div>
                                             <p>Instructions and information goes here</p>
-                                            <button>Begin</button>
+                                            <form id="formAutomate" is="iron-form" method="post" action="/automate">
+                                                <paper-input label="Vendor Name" required auto-validate error-message="Used for the IRP report"></paper-input>
+                                                <paper-input label="OpenAM OAuth2 server URL (e.g. https://your.openam.url/auth/oauth2/access_token?realm=/your-realm)" required auto-validate error-message="Used to obtain access tokens from your system"></paper-input>
+                                                <paper-input label="Program Management URL" required auto-validate error-message="Used to obtain "></paper-input>
+                                                <paper-input label="Program Management Client ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
+                                                <paper-input label="Program Management Client Secret" type="password"></paper-input>
+                                                <paper-input label="Program Management User ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
+                                                <paper-input label="Program Management User Password" type="password"></paper-input>
+                                                <paper-input label="State Abbreviation" char-counter maxlength="2" required auto-validate allowed-pattern="[a-zA-Z]"></paper-input>
+                                                <paper-input label="District to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
+                                                <paper-input label="Institution to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
+                                                <button id="btnBeginAutomation" disabled>Begin</button>
+                                                <button id="btnResetAutomationForm">Reset</button>
+                                            </form>
                                         </div>
                                     </iron-pages>
                                 </div>

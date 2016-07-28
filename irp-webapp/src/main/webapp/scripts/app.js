@@ -25,15 +25,22 @@
         // imports are loaded and elements have been registered
 
         var that = app;
+        app.$.btnManualMode.addEventListener('click', function (event) {
+            that.$.pageModeSelection.select(1);
+        });
+        app.$.btnAutomatedMode.addEventListener('click', function (event) {
+            that.$.pageModeSelection.select(2);
+        });
+
         app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientName.value != null && that.$.clientName.value != '') {
                 this.hidden = true;
-                that.$.uploadSpinner.active = true;
+                that.$.spinnerUpload.active = true;
             }
         });
         app.$.fileUploader.addEventListener('submitted', function (event) {
             that.$.fileUploadButton.hidden = false;
-            that.$.uploadSpinner.active = false;
+            that.$.spinnerUpload.active = false;
             if (event.detail.status == 200) {
                 var analysisResponse = JSON.parse(event.detail.responseText);
                 that.responses = analysisResponse;
@@ -42,11 +49,21 @@
             }
         });
 
-        app.$.btnManualMode.addEventListener('click', function (event) {
-           that.$.pageModeSelection.select(1);
+        app.$.formAutomate.addEventListener('change', function (event) {
+            // Validate the entire form to see if we should enable the `Submit` button.
+            that.$.btnBeginAutomation.disabled = !that.$.formAutomate.validate();
         });
-        app.$.btnAutomatedMode.addEventListener('click', function (event) {
-            that.$.pageModeSelection.select(2);
+        app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
+            app.$.btnBeginAutomation.disabled = false;
+        });
+        app.$.btnBeginAutomation.addEventListener('click', function (event) {
+            app.$.btnBeginAutomation.disabled = true;
+            Polymer.dom(event).localTarget.parentElement.submit();
+        });
+        app.$.btnResetAutomationForm.addEventListener('click', function (event) {
+            var form = Polymer.dom(event).localTarget.parentElement;
+            form.reset();
+            that.$.btnBeginAutomation.disabled = true;
         });
     });
 
