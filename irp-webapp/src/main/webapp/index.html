@@ -132,41 +132,56 @@
                         <section data-route="home">
                             <paper-material elevation="1">
                                 <div>
-                                    <ul id="instructions">
-                                        <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
-                                            IRP package</a> and read the Implementation Readiness Package Usage Guide
-                                            (PDF).
-                                        </li>
-                                        <li>Step 2: Load data from the IRP package into your system and take tests as
-                                            instructed in the Usage Guide (PDF).
-                                        </li>
-                                        <li>Step 3: Upload the TDSReport XML file(s) for each result to IRP. Only a single
-                                            XML or ZIP containing multiple XML documents are accepted.
-                                        </li>
-                                        <li>Step 4: After the TDSReport XML file(s) have been analyzed, use the menu on the left
-                                            to see the results for each individual TDSReport XML submitted.
-                                        </li>
-                                    </ul>
+                                    <iron-pages id="pageModeSelection" selected="0">
+                                        <div>
+                                            <div>Select a mode to run IRP:</div>
+                                            <ul>
+                                                <li><button id="btnManualMode" class="btn">Manual Mode</button> - Select this if you are not running the Smarter Balanced Open Source System</li>
+                                                <li><button id="btnAutomatedMode" class="btn">Automated Mode</button> - Select this if you are running the Smarter Balanced Open Source System</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <ul id="instructions">
+                                                <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
+                                                    IRP package</a> and read the Implementation Readiness Package Usage Guide
+                                                    (PDF).
+                                                </li>
+                                                <li>Step 2: Load data from the IRP package into your system and take tests as
+                                                    instructed in the Usage Guide (PDF).
+                                                </li>
+                                                <li>Step 3: Upload the TDSReport XML file(s) for each result to IRP. Only a single
+                                                    XML or ZIP containing multiple XML documents are accepted.
+                                                </li>
+                                                <li>Step 4: After the TDSReport XML file(s) have been analyzed, use the menu on the left
+                                                    to see the results for each individual TDSReport XML submitted.
+                                                </li>
+                                            </ul>
 
-                                    <div class="uploader">
-                                        <form id="fileUploader" is="ajax-form" method="post"
-                                              enctype="multipart/form-data" action="/upload">
-                                            <div class="vendorName">Vendor Name: <input id="clientName" type="text"
-                                                                                        name="name" required="">
-                                                <div class="vendor-tooltip"><span id="vendor-name-info">info</span><span
-                                                        class="vendor-tooltip-inner">Please enter the name of the organization you represent. This information is displayed in the resulting PDF.</span>
-                                                </div>
+                                            <div class="uploader">
+                                                <form id="fileUploader" is="ajax-form" method="post"
+                                                      enctype="multipart/form-data" action="/upload">
+                                                    <div class="vendorName">Vendor Name: <input id="clientName" type="text"
+                                                                                                name="name" required="">
+                                                        <div class="vendor-tooltip"><span id="vendor-name-info">info</span><span
+                                                                class="vendor-tooltip-inner">Please enter the name of the organization you represent. This information is displayed in the resulting PDF.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
+                                                                                       name="file" required=""></div>
+                                                    <button id="btnFileUpload" class="btn btn-primary">Upload</button>
+                                                    <paper-spinner id="uploadSpinner" class="blue" inactive=""></paper-spinner>
+                                                </form>
                                             </div>
-                                            <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
-                                                                               name="file" required=""></div>
-                                            <button id="fileUploadButton" class="btn btn-primary">Upload</button>
-                                            <paper-spinner id="uploadSpinner" class="blue" inactive=""></paper-spinner>
-                                        </form>
-                                    </div>
 
-                                    <template is="dom-if" if="[[responsesExist(responses)]]">
-                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
-                                    </template>
+                                            <template is="dom-if" if="[[responsesExist(responses)]]">
+                                                <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            </template>
+                                        </div>
+                                        <div>
+                                            <p>Instructions and information goes here</p>
+                                            <button>Begin</button>
+                                        </div>
+                                    </iron-pages>
                                 </div>
                             </paper-material>
                         </section>

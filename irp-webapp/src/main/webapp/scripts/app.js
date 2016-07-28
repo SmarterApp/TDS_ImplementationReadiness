@@ -25,7 +25,7 @@
         // imports are loaded and elements have been registered
 
         var that = app;
-        app.$.fileUploadButton.addEventListener('click', function (event) {
+        app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientName.value != null && that.$.clientName.value != '') {
                 this.hidden = true;
                 that.$.uploadSpinner.active = true;
@@ -40,6 +40,13 @@
             } else {
                 that.$.fileUploadErrorDialog.toggle();
             }
+        });
+
+        app.$.btnManualMode.addEventListener('click', function (event) {
+           that.$.pageModeSelection.select(1);
+        });
+        app.$.btnAutomatedMode.addEventListener('click', function (event) {
+            that.$.pageModeSelection.select(2);
         });
     });
 
