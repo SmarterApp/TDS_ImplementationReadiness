@@ -112,4 +112,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>airdev-releases</name>
+            <url>https://airdev.artifactoryonline.com/airdev/libs-releases-local</url>
+        </repository>
+    </distributionManagement>
 </project>

@@ -121,11 +121,11 @@
 		</dependency>
 	</dependencies>
 
-	<!--<repositories>-->
-		<!--<repository>-->
-			<!--<id>sbcresst</id>-->
-			<!--<name>sbcresst</name>-->
-			<!--<url>http://54.191.9.12:8080/nexus/content/groups/public/</url>-->
-		<!--</repository>-->
-	<!--</repositories>-->
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>airdev-releases</name>
+			<url>https://airdev.artifactoryonline.com/airdev/libs-releases-local</url>
+		</repository>
+	</distributionManagement>
 </project>
