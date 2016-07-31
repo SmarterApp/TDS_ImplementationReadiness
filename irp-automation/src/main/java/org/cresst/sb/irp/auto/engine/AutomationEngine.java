@@ -1,8 +1,8 @@
 package org.cresst.sb.irp.auto.engine;
 
-import org.cresst.sb.irp.domain.analysis.AutomationRequest;
-import org.cresst.sb.irp.domain.analysis.AutomationResponse;
+import org.cresst.sb.irp.domain.automation.AutomationRequest;
+import org.cresst.sb.irp.domain.automation.AutomationResponse;
 
 public interface AutomationEngine {
-    AutomationResponse automate(AutomationRequest automationRequest);
+    AutomationResponse automate(AutomationRequest automationRequest) throws Exception;
 }

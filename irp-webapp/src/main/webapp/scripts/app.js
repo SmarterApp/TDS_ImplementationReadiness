@@ -53,13 +53,12 @@
             // Validate the entire form to see if we should enable the `Submit` button.
             that.$.btnBeginAutomation.disabled = !that.$.formAutomate.validate();
         });
-        app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
-            app.$.btnBeginAutomation.disabled = false;
-        });
-        app.$.btnBeginAutomation.addEventListener('click', function (event) {
-            app.$.btnBeginAutomation.disabled = true;
-            Polymer.dom(event).localTarget.parentElement.submit();
-        });
+        // app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
+        // });
+        // app.$.btnBeginAutomation.addEventListener('click', function (event) {
+        //     app.$.btnBeginAutomation.disabled = true;
+        //     Polymer.dom(event).localTarget.parentElement.submit();
+        // });
         app.$.btnResetAutomationForm.addEventListener('click', function (event) {
             var form = Polymer.dom(event).localTarget.parentElement;
             form.reset();

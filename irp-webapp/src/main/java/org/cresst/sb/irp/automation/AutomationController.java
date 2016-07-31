@@ -1,7 +1,7 @@
 package org.cresst.sb.irp.automation;
 
-import org.cresst.sb.irp.domain.analysis.AutomationRequest;
-import org.cresst.sb.irp.domain.analysis.AutomationResponse;
+import org.cresst.sb.irp.domain.automation.AutomationRequest;
+import org.cresst.sb.irp.domain.automation.AutomationResponse;
 import org.cresst.sb.irp.service.AutomationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ public class AutomationController {
 
     @RequestMapping(value = "/automate", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public AutomationResponse automate(@Valid @RequestBody AutomationRequest automationRequest) {
+    public AutomationResponse automate(@Valid @RequestBody AutomationRequest automationRequest) throws Exception {
         AutomationResponse automationResponse = automationService.automate(automationRequest);
         return automationResponse;
     }

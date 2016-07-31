@@ -1,4 +1,4 @@
-package org.cresst.sb.irp.domain.analysis;
+package org.cresst.sb.irp.domain.automation;
 
 import java.net.URL;
 
@@ -6,12 +6,13 @@ public class AutomationRequest {
     public AutomationRequest() {}
 
     private String vendorName;
-    private URL oauthUrl;
+    private URL oAuthUrl;
     private URL programManagementUrl;
     private String programManagementClientId;
     private String programManagementClientSecret;
     private String programManagementUserId;
     private String programManagementUserPassword;
+    private String tenantName;
     private String stateAbbreviation;
     private String district;
     private String institution;
@@ -24,12 +25,12 @@ public class AutomationRequest {
         this.vendorName = vendorName;
     }
 
-    public URL getOauthUrl() {
-        return oauthUrl;
+    public URL getoAuthUrl() {
+        return oAuthUrl;
     }
 
-    public void setOauthUrl(URL oauthUrl) {
-        this.oauthUrl = oauthUrl;
+    public void setoAuthUrl(URL oAuthUrl) {
+        this.oAuthUrl = oAuthUrl;
     }
 
     public URL getProgramManagementUrl() {
@@ -70,6 +71,14 @@ public class AutomationRequest {
 
     public void setProgramManagementUserPassword(String programManagementUserPassword) {
         this.programManagementUserPassword = programManagementUserPassword;
+    }
+
+    public String getTenantName() {
+        return tenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
     }
 
     public String getStateAbbreviation() {
