@@ -178,7 +178,28 @@
                                             </template>
                                         </div>
                                         <div>
-                                            <p>Instructions and information goes here</p>
+                                            <p>
+                                                IRP Automation Mode will:
+                                                <ol>
+                                                    <li>Load your Smarter Balanced Open Source Assessment Delivery System implementation with IRP Test Packages and Students.</li>
+                                                    <li>Simulate a Test Session where a Proctor initiates the Session and Students take the IRP Tests.</li>
+                                                </ol>
+                                            </p>
+                                            <p>
+                                                In order for IRP to Automate this process, it needs information about your Smarter Balanced Open Source Test Assessment Delivery System.
+                                            </p>
+                                            <p>
+                                                Prior to using this feature, you will need to create one to four accounts in your system. You can either create one account
+                                                that acts as an component administrator and a Proctor OR create distinct accounts to access each component. This is necessary
+                                                so IRP can login into the following components:
+                                                <ol>
+                                                    <li>Program Management: Obtains the Tenant ID</li>
+                                                    <li>Test Spec Bank: Uploads (side-loads) IRP Test Packages</li>
+                                                    <li>Administration and Registration Tools: Schedules IRP Tests and creates IRP Students</li>
+                                                    <li>Proctor Application: Initiates and approves Tests Sessions</li>
+                                                    <li>Student Application: Takes IRP Tests</li>
+                                                </ol>
+                                            </p>
                                             <form id="formAutomate" is="iron-form" method="post" action="/automate" content-type="application/json">
                                                 <paper-input name="vendorName" label="Vendor Name" required auto-validate error-message="Used for the IRP report"></paper-input>
                                                 <paper-input name="oAuthUrl" label="OpenAM OAuth2 server URL (e.g. https://your.openam.url/auth/oauth2/access_token?realm=/your-realm)" required auto-validate error-message="Used to obtain access tokens from your system"></paper-input>
