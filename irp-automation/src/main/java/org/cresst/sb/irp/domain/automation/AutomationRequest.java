@@ -1,21 +1,25 @@
 package org.cresst.sb.irp.domain.automation;
 
+import java.net.URI;
 import java.net.URL;
 
 public class AutomationRequest {
     public AutomationRequest() {}
 
     private String vendorName;
+    private String tenantName;
+    private String stateAbbreviation;
+    private String district;
+    private String institution;
     private URL oAuthUrl;
     private URL programManagementUrl;
     private String programManagementClientId;
     private String programManagementClientSecret;
     private String programManagementUserId;
     private String programManagementUserPassword;
-    private String tenantName;
-    private String stateAbbreviation;
-    private String district;
-    private String institution;
+    private URI testSpecBankUri;
+    private String testSpecBankUserId;
+    private String testSpecBankPassword;
 
     public String getVendorName() {
         return vendorName;
@@ -23,6 +27,38 @@ public class AutomationRequest {
 
     public void setVendorName(String vendorName) {
         this.vendorName = vendorName;
+    }
+
+    public String getTenantName() {
+        return tenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
+    }
+
+    public String getStateAbbreviation() {
+        return stateAbbreviation;
+    }
+
+    public void setStateAbbreviation(String stateAbbreviation) {
+        this.stateAbbreviation = stateAbbreviation;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
     }
 
     public URL getoAuthUrl() {
@@ -73,35 +109,27 @@ public class AutomationRequest {
         this.programManagementUserPassword = programManagementUserPassword;
     }
 
-    public String getTenantName() {
-        return tenantName;
+    public URI getTestSpecBankUri() {
+        return testSpecBankUri;
     }
 
-    public void setTenantName(String tenantName) {
-        this.tenantName = tenantName;
+    public void setTestSpecBankUri(URI testSpecBankUri) {
+        this.testSpecBankUri = testSpecBankUri;
     }
 
-    public String getStateAbbreviation() {
-        return stateAbbreviation;
+    public String getTestSpecBankUserId() {
+        return testSpecBankUserId;
     }
 
-    public void setStateAbbreviation(String stateAbbreviation) {
-        this.stateAbbreviation = stateAbbreviation;
+    public void setTestSpecBankUserId(String testSpecBankUserId) {
+        this.testSpecBankUserId = testSpecBankUserId;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getTestSpecBankPassword() {
+        return testSpecBankPassword;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getInstitution() {
-        return institution;
-    }
-
-    public void setInstitution(String institution) {
-        this.institution = institution;
+    public void setTestSpecBankPassword(String testSpecBankPassword) {
+        this.testSpecBankPassword = testSpecBankPassword;
     }
 }
