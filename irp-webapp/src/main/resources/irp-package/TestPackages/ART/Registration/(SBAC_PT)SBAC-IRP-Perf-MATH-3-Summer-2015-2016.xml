@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testspecification purpose="registration" publisher="SBAC_PT" publishdate="Aug 19 2015  3:43PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016" name="SBAC-IRP-Perf-MATH-3" label="Grade 3 MATH" version="8185" />
+  <property name="subject" value="MATH" label="MATH" />
+  <property name="grade" value="3" label="grade 3" />
+  <property name="type" value="summative" label="summative" />
+  <registration>
+    <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="TI" label="TI" itemcount="2" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="4" />
+    <registrationsegment position="1" itemselection="fixedform" minitems="4" maxitems="4">
+      <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016" name="SBAC-IRP-Perf-MATH-3" version="8185" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="GI" label="GI" itemcount="1" />
+      <poolproperty property="--ITEMTYPE--" value="TI" label="TI" itemcount="2" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="4" />
+    </registrationsegment>
+  </registration>
+</testspecification>

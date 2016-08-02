@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testspecification purpose="registration" publisher="SBAC_PT" publishdate="Aug 19 2015  3:43PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)IRP-Perf-ELA-7-Summer-2015-2016" name="IRP-Perf-ELA-7" label="Grade 7 ELA" version="8185" />
+  <property name="subject" value="ELA" label="ELA" />
+  <property name="grade" value="7" label="grade 7" />
+  <property name="type" value="summative" label="summative" />
+  <registration>
+    <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="2" />
+    <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
+    <poolproperty property="--ITEMTYPE--" value="WER" label="WER" itemcount="1" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="4" />
+    <registrationsegment position="1" itemselection="fixedform" minitems="3" maxitems="3">
+      <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-S1-ELA-7-Summer-2015-2016" name="SBAC-IRP-Perf-S1-ELA-7" version="8185" />
+      <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="2" />
+      <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="3" />
+    </registrationsegment>
+    <registrationsegment position="2" itemselection="fixedform" minitems="1" maxitems="1">
+      <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-S2-ELA-7-Summer-2015-2016" name="SBAC-IRP-Perf-S2-ELA-7" version="8185" />
+      <poolproperty property="--ITEMTYPE--" value="WER" label="WER" itemcount="1" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="1" />
+    </registrationsegment>
+  </registration>
+</testspecification>
