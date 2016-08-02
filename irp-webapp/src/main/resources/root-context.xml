@@ -34,6 +34,16 @@
         </property>
     </bean>
 
+   <bean id="studentRestTemplate" class="org.springframework.web.client.RestTemplate">
+    <property name="messageConverters">
+      <list>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+      </list>
+    </property>
+  </bean>
+  
     <bean id="itemScorer" class="org.cresst.sb.irp.itemscoring.client.IrpProxyItemScorer">
         <constructor-arg ref="irpProxyRestTemplate" />
         <constructor-arg value="${item.scoring.service.url}" />

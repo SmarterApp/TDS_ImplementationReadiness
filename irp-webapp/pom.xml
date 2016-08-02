@@ -40,6 +40,12 @@
             <artifactId>irp-analysis-engine</artifactId>
         </dependency>
 
+		<dependency>
+            <groupId>org.cresst.sb.irp</groupId>
+            <artifactId>irp-automation</artifactId>
+             <version>2.0.0-SNAPSHOT</version>
+        </dependency>
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
