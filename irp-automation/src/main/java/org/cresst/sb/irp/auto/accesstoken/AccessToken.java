@@ -1,15 +1,21 @@
 package org.cresst.sb.irp.auto.accesstoken;
 
 import org.codehaus.janino.Access;
+import org.cresst.sb.irp.auto.tsb.LoggingRequestInterceptor;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,6 +54,12 @@ public class AccessToken {
         }
 
         RestTemplate restTemplate = new RestTemplate();
+        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
+        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
+        ris.add(ri);
+        restTemplate.setInterceptors(ris);
+        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
+        
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("grant_type", "password");
         form.add("username", username);
