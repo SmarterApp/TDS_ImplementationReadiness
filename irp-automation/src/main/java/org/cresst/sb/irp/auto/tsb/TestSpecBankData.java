@@ -126,6 +126,7 @@ class TestSpecBankData {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .append("id", id)
                 .append("specificationXml", specificationXml)
                 .append("tenantId", tenantId)
                 .append("itemBank", itemBank)

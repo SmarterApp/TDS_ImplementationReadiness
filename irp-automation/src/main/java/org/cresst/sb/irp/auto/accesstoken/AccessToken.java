@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.auto.accesstoken;
 
-import org.codehaus.janino.Access;
 import org.cresst.sb.irp.auto.tsb.LoggingRequestInterceptor;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
@@ -59,7 +58,7 @@ public class AccessToken {
         ris.add(ri);
         restTemplate.setInterceptors(ris);
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-        
+
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("grant_type", "password");
         form.add("username", username);

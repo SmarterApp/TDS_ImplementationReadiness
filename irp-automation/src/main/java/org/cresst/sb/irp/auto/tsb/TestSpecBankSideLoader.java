@@ -1,23 +1,26 @@
 package org.cresst.sb.irp.auto.tsb;
 
-import com.google.common.base.Charsets;
 import com.google.common.io.BaseEncoding;
-import com.google.common.io.CharStreams;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.web.client.ResponseErrorHandler;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.PostConstruct;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -26,6 +29,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -36,11 +40,12 @@ import java.util.zip.DeflaterOutputStream;
  * Side loads Registration Test Packages into TSB. This is a translation of the Perl script that performs
  * the same functionality https://github.com/SmarterApp/TDS_Administrative/tree/master/tsb
  */
+@Service
 public class TestSpecBankSideLoader {
     private final static Logger logger = LoggerFactory.getLogger(TestSpecBankSideLoader.class);
 
     private static final Pattern purposePattern = Pattern.compile(" purpose\\s*=\\s*\\\"([^\\\"]*)\\\"");
-    private static final Pattern publisherPattern = Pattern.compile(" publisher\\s*=\\s*\\\"([^\\\"]*)\\\"");
+//    private static final Pattern publisherPattern = Pattern.compile(" publisher\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern testPublishDatePattern = Pattern.compile(" publishdate\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern uniqueIdPattern = Pattern.compile(" uniqueid\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern testLabelPattern = Pattern.compile(" label\\s*=\\s*\\\"([^\\\"]*)\\\"");
@@ -49,12 +54,18 @@ public class TestSpecBankSideLoader {
 
     private static final List<List<String>> registrationTestPackages = new ArrayList<>();
 
+    private Path registrationTestPackageDirectory;
+
+    public TestSpecBankSideLoader(@Value("classpath:irp-package/TestPackages/ART/Registration") Resource registrationTestPackageDirectory) throws IOException {
+        this.registrationTestPackageDirectory = Paths.get(registrationTestPackageDirectory.getURI());
+    }
+
     /**
      * Stores the IRP Registration Test Packages in memory.
-     * @param registrationTestPackageDirectory
      * @throws IOException
      */
-    public static void initiateRegistrationTestPackages(Path registrationTestPackageDirectory) throws IOException {
+    @PostConstruct
+    public void initiateRegistrationTestPackages() throws IOException {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(registrationTestPackageDirectory, "*.xml")) {
             for (Path entry : stream) {
                 registrationTestPackages.add(Files.readAllLines(entry, StandardCharsets.UTF_8));
@@ -62,11 +73,15 @@ public class TestSpecBankSideLoader {
         }
     }
 
-    public static void sideLoadRegistrationTestPackages(URI testSpecBankUri, AccessToken accessToken, String tenantId) {
+    public List<String> sideLoadRegistrationTestPackages(URI testSpecBankUri, AccessToken accessToken, String tenantId) {
+        List<String> tsbRegistrationPackageIds = new ArrayList<>();
+
         for (List<String> testPackage : registrationTestPackages) {
             TestSpecBankData testSpecBankData = processXmlFile(testPackage, tenantId);
-            sendData(testSpecBankUri, accessToken, testSpecBankData);
+            tsbRegistrationPackageIds.add(sendData(testSpecBankUri, accessToken, testSpecBankData));
         }
+
+        return tsbRegistrationPackageIds;
     }
 
     private static String sendData(URI testSpecBankUri, AccessToken accessToken, TestSpecBankData testSpecBankData) {
@@ -120,8 +135,8 @@ public class TestSpecBankSideLoader {
                 matcher = purposePattern.matcher(line);
                 if (matcher.find() && !StringUtils.equalsIgnoreCase("registration", matcher.group(1))) { throw new RuntimeException("Test Package"); }
 
-                matcher = publisherPattern.matcher(line);
-                String testPublisher = getGroup(matcher, 1);
+//                matcher = publisherPattern.matcher(line);
+//                String testPublisher = getGroup(matcher, 1);
 
                 matcher = testPublishDatePattern.matcher(line);
                 String testPublishDate = getGroup(matcher, 1);
