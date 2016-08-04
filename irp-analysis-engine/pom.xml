@@ -123,9 +123,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>central</id>
+			<id>sbac</id>
 			<name>airdev-releases</name>
-			<url>https://airdev.artifactoryonline.com/airdev/libs-releases-local</url>
+			<url>https://airdev.artifactoryonline.com/airdev/ext-releases/</url>
 		</repository>
 	</distributionManagement>
 </project>
