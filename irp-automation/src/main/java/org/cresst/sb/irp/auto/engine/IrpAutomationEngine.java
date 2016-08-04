@@ -40,7 +40,7 @@ public class IrpAutomationEngine implements AutomationEngine {
 
         logger.info("Side-loading Registration Test Packages");
         List<String> tsbRegistrationPackageIds = testSpecBankSideLoader.sideLoadRegistrationTestPackages(
-                automationRequest.getTestSpecBankUri(),
+                automationRequest.getTestSpecBankUrl(),
                 accessToken,
                 tenantId);
 

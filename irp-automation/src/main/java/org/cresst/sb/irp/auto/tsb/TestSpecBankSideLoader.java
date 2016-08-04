@@ -73,21 +73,21 @@ public class TestSpecBankSideLoader {
         }
     }
 
-    public List<String> sideLoadRegistrationTestPackages(URI testSpecBankUri, AccessToken accessToken, String tenantId) {
+    public List<String> sideLoadRegistrationTestPackages(URL testSpecBankUrl, AccessToken accessToken, String tenantId) {
         List<String> tsbRegistrationPackageIds = new ArrayList<>();
 
         for (List<String> testPackage : registrationTestPackages) {
             TestSpecBankData testSpecBankData = processXmlFile(testPackage, tenantId);
-            tsbRegistrationPackageIds.add(sendData(testSpecBankUri, accessToken, testSpecBankData));
+            tsbRegistrationPackageIds.add(sendData(testSpecBankUrl, accessToken, testSpecBankData));
         }
 
         return tsbRegistrationPackageIds;
     }
 
-    private static String sendData(URI testSpecBankUri, AccessToken accessToken, TestSpecBankData testSpecBankData) {
+    private static String sendData(URL testSpecBankUrl, AccessToken accessToken, TestSpecBankData testSpecBankData) {
         URL testSpecBankSpecification;
         try {
-            testSpecBankSpecification = new URL(testSpecBankUri.toURL(), "/rest/testSpecification");
+            testSpecBankSpecification = new URL(testSpecBankUrl, "/rest/testSpecification");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

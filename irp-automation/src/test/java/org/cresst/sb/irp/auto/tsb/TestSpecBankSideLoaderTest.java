@@ -28,7 +28,7 @@ public class TestSpecBankSideLoaderTest {
         );
 
         sut.sideLoadRegistrationTestPackages(
-                new URI(""),
+                new URL(""),
                 accessToken,
                 "");
     }

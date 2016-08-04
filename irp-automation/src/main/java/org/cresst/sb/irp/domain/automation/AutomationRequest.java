@@ -17,9 +17,12 @@ public class AutomationRequest {
     private String programManagementClientSecret;
     private String programManagementUserId;
     private String programManagementUserPassword;
-    private URI testSpecBankUri;
+    private URL testSpecBankUrl;
     private String testSpecBankUserId;
     private String testSpecBankPassword;
+    private URL artUrl;
+    private String artUserId;
+    private String artPassword;
 
     public String getVendorName() {
         return vendorName;
@@ -109,12 +112,12 @@ public class AutomationRequest {
         this.programManagementUserPassword = programManagementUserPassword;
     }
 
-    public URI getTestSpecBankUri() {
-        return testSpecBankUri;
+    public URL getTestSpecBankUrl() {
+        return testSpecBankUrl;
     }
 
-    public void setTestSpecBankUri(URI testSpecBankUri) {
-        this.testSpecBankUri = testSpecBankUri;
+    public void setTestSpecBankUrl(URL testSpecBankUrl) {
+        this.testSpecBankUrl = testSpecBankUrl;
     }
 
     public String getTestSpecBankUserId() {
@@ -131,5 +134,29 @@ public class AutomationRequest {
 
     public void setTestSpecBankPassword(String testSpecBankPassword) {
         this.testSpecBankPassword = testSpecBankPassword;
+    }
+
+    public URL getArtUrl() {
+        return artUrl;
+    }
+
+    public void setArtUrl(URL artUrl) {
+        this.artUrl = artUrl;
+    }
+
+    public String getArtUserId() {
+        return artUserId;
+    }
+
+    public void setArtUserId(String artUserId) {
+        this.artUserId = artUserId;
+    }
+
+    public String getArtPassword() {
+        return artPassword;
+    }
+
+    public void setArtPassword(String artPassword) {
+        this.artPassword = artPassword;
     }
 }
