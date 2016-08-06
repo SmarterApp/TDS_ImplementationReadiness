@@ -65,6 +65,11 @@
 				<artifactId>irp-analysis-engine</artifactId>
 				<version>${irp.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.cresst.sb.irp</groupId>
+				<artifactId>irp-automation</artifactId>
+				<version>${irp.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -229,11 +234,5 @@
 			<!-- highly available repository serving empty artifacts -->
 			<url>http://version99.qos.ch/</url>
 		</repository>
-		
-		<repository>
-	        <id>project.local</id>
-	        <name>project</name>
-	        <url>file:${project.basedir}/repo</url>
-	    </repository>
 	</repositories>
 </project>

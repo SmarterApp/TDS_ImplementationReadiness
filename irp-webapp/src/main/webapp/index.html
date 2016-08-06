@@ -132,41 +132,95 @@
                         <section data-route="home">
                             <paper-material elevation="1">
                                 <div>
-                                    <ul id="instructions">
-                                        <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
-                                            IRP package</a> and read the Implementation Readiness Package Usage Guide
-                                            (PDF).
-                                        </li>
-                                        <li>Step 2: Load data from the IRP package into your system and take tests as
-                                            instructed in the Usage Guide (PDF).
-                                        </li>
-                                        <li>Step 3: Upload the TDSReport XML file(s) for each result to IRP. Only a single
-                                            XML or ZIP containing multiple XML documents are accepted.
-                                        </li>
-                                        <li>Step 4: After the TDSReport XML file(s) have been analyzed, use the menu on the left
-                                            to see the results for each individual TDSReport XML submitted.
-                                        </li>
-                                    </ul>
+                                    <iron-pages id="pageModeSelection" selected="0">
+                                        <div>
+                                            <div>Select a mode to run IRP:</div>
+                                            <ul>
+                                                <li><button id="btnManualMode" class="btn">Manual Mode</button> - Select this if you are not running the Smarter Balanced Open Source System</li>
+                                                <li><button id="btnAutomatedMode" class="btn">Automated Mode</button> - Select this if you are running the Smarter Balanced Open Source System</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <ul id="instructions">
+                                                <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
+                                                    IRP package</a> and read the Implementation Readiness Package Usage Guide
+                                                    (PDF).
+                                                </li>
+                                                <li>Step 2: Load data from the IRP package into your system and take tests as
+                                                    instructed in the Usage Guide (PDF).
+                                                </li>
+                                                <li>Step 3: Upload the TDSReport XML file(s) for each result to IRP. Only a single
+                                                    XML or ZIP containing multiple XML documents are accepted.
+                                                </li>
+                                                <li>Step 4: After the TDSReport XML file(s) have been analyzed, use the menu on the left
+                                                    to see the results for each individual TDSReport XML submitted.
+                                                </li>
+                                            </ul>
 
-                                    <div class="uploader">
-                                        <form id="fileUploader" is="ajax-form" method="post"
-                                              enctype="multipart/form-data" action="/upload">
-                                            <div class="vendorName">Vendor Name: <input id="clientName" type="text"
-                                                                                        name="name" required="">
-                                                <div class="vendor-tooltip"><span id="vendor-name-info">info</span><span
-                                                        class="vendor-tooltip-inner">Please enter the name of the organization you represent. This information is displayed in the resulting PDF.</span>
-                                                </div>
+                                            <div class="uploader">
+                                                <form id="fileUploader" is="ajax-form" method="post"
+                                                      enctype="multipart/form-data" action="/upload">
+                                                    <div class="vendorName">Vendor Name: <input id="clientName" type="text"
+                                                                                                name="name" required="">
+                                                        <div class="vendor-tooltip"><span id="vendor-name-info">info</span><span
+                                                                class="vendor-tooltip-inner">Please enter the name of the organization you represent. This information is displayed in the resulting PDF.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
+                                                                                       name="file" required=""></div>
+                                                    <button id="btnFileUpload" class="btn btn-primary">Upload</button>
+                                                    <paper-spinner id="spinnerUpload" class="blue" inactive=""></paper-spinner>
+                                                </form>
                                             </div>
-                                            <div>TDSReport XML File(s): <input type="file" class="btn btn-default"
-                                                                               name="file" required=""></div>
-                                            <button id="fileUploadButton" class="btn btn-primary">Upload</button>
-                                            <paper-spinner id="uploadSpinner" class="blue" inactive=""></paper-spinner>
-                                        </form>
-                                    </div>
 
-                                    <template is="dom-if" if="[[responsesExist(responses)]]">
-                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
-                                    </template>
+                                            <template is="dom-if" if="[[responsesExist(responses)]]">
+                                                <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            </template>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                IRP Automation Mode will:
+                                                <ol>
+                                                    <li>Load your Smarter Balanced Open Source Assessment Delivery System implementation with IRP Test Packages and Students.</li>
+                                                    <li>Simulate a Test Session where a Proctor initiates the Session and Students take the IRP Tests.</li>
+                                                </ol>
+                                            </p>
+                                            <p>
+                                                In order for IRP to Automate this process, it needs information about your Smarter Balanced Open Source Test Assessment Delivery System.
+                                            </p>
+                                            <p>
+                                                Prior to using this feature, you will need to create one to four accounts in your system. You can either create one account
+                                                that acts as an component administrator and a Proctor OR create distinct accounts to access each component. This is necessary
+                                                so IRP can login into the following components:
+                                                <ol>
+                                                    <li>Program Management: Obtains the Tenant ID</li>
+                                                    <li>Test Spec Bank: Uploads (side-loads) IRP Test Packages</li>
+                                                    <li>Administration and Registration Tools: Schedules IRP Tests and creates IRP Students</li>
+                                                    <li>Proctor Application: Initiates and approves Tests Sessions</li>
+                                                    <li>Student Application: Takes IRP Tests</li>
+                                                </ol>
+                                            </p>
+                                            <form id="formAutomate" is="iron-form" method="post" action="/automate" content-type="application/json">
+                                                <paper-input name="vendorName" label="Vendor Name" required auto-validate error-message="Used for the IRP report"></paper-input>
+
+                                                <paper-input name="tenantName" label="Tenant Name Used in Your TDS Implementation" required auto-validate error-message="Used to create Test Packages to load into your TDS implementation"></paper-input>
+                                                <paper-input name="stateAbbreviation" label="State Abbreviation" char-counter maxlength="2" required auto-validate allowed-pattern="[a-zA-Z]"></paper-input>
+                                                <paper-input name="district" label="District to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
+                                                <paper-input name="institution" label="Institution to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
+                                                <paper-input name="oAuthUrl" label="OpenAM OAuth2 server URL (e.g. https://your.openam.url/auth/oauth2/access_token?realm=/your-realm)" required auto-validate error-message="Used to obtain access tokens from your system"></paper-input>
+                                                <paper-input name="programManagementUrl" label="Program Management URL" required auto-validate error-message="Used to obtain "></paper-input>
+                                                <paper-input name="programManagementClientId" label="Program Management Client ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
+                                                <paper-input name="programManagementClientSecret" label="Program Management Client Secret" type="password"></paper-input>
+                                                <paper-input name="programManagementUserId" label="Program Management User ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
+                                                <paper-input name="programManagementUserPassword" label="Program Management User Password" type="password"></paper-input>
+                                                <paper-input name="testSpecBankUri" label="Test Spec Bank URI" required auto-validated error-message="Used for side-loading IRP Test Packages"></paper-input>
+                                                <paper-input name="testSpecBankUserId" label="Test Spec Bank User ID" required auto-validate error-message="User to login to TSB to side-load IRP Test Packages"></paper-input>
+                                                <paper-input name="testSpecBankPassword" label="Test Spec Bank Password" type="password"></paper-input>
+                                                <button id="btnBeginAutomation" disabled>Begin</button>
+                                                <button id="btnResetAutomationForm">Reset</button>
+                                            </form>
+                                        </div>
+                                    </iron-pages>
                                 </div>
                             </paper-material>
                         </section>

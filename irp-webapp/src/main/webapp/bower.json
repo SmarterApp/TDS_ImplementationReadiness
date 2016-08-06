@@ -25,7 +25,9 @@
     "paper-menu": "PolymerElements/paper-menu#^1.0.0",
     "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.0",
     "paper-material": "PolymerElements/paper-material#^1.0.0",
-    "page": "visionmedia/page.js#~1.6.4"
+    "page": "visionmedia/page.js#~1.6.4",
+    "paper-input": "PolymerElements/paper-input#^1.1.15",
+    "iron-form": "PolymerElements/iron-form#^1.1.1"
   },
   "install": {
     "path": "deps",
@@ -33,6 +35,18 @@
       "ajax-form": [
         "bower_components/ajax-form/ajax-form.html",
         "bower_components/ajax-form/ajax-form.js"
+      ],
+      "iron-a11y-announcer": [
+        "bower_components/iron-a11y-announcer/iron-a11y-announcer.html"
+      ],
+      "iron-autogrow-textarea": [
+        "bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html"
+      ],
+      "iron-input": [
+        "bower_components/iron-input/iron-input.html"
+      ],
+      "iron-form": [
+        "bower_components/iron-form/iron-form.html"
       ],
       "iron-selector": [
         "bower_components/iron-selector/iron-multi-selectable.html",
@@ -48,6 +62,15 @@
         "bower_components/paper-behaviors/paper-checked-element-behavior.html",
         "bower_components/paper-behaviors/paper-inky-focus-behavior.html",
         "bower_components/paper-behaviors/paper-ripple-behavior.html"
+      ],
+      "paper-input": [
+        "bower_components/paper-input/paper-input.html",
+        "bower_components/paper-input/paper-input-addon-behavior.html",
+        "bower_components/paper-input/paper-input-behavior.html",
+        "bower_components/paper-input/paper-input-char-counter.html",
+        "bower_components/paper-input/paper-input-container.html",
+        "bower_components/paper-input/paper-input-error.html",
+        "bower_components/paper-input/paper-textarea.html"
       ],
       "paper-item": [
         "bower_components/paper-item/paper-icon-item.html",

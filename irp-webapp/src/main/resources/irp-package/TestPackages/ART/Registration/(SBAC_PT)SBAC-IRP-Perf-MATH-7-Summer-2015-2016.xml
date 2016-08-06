@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testspecification purpose="registration" publisher="SBAC_PT" publishdate="Aug 19 2015  3:43PM" version="1.0">
+  <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016" name="SBAC-IRP-Perf-MATH-7" label="Grade 7 MATH" version="8185" />
+  <property name="subject" value="MATH" label="MATH" />
+  <property name="grade" value="7" label="grade 7" />
+  <property name="type" value="summative" label="summative" />
+  <registration>
+    <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="3" />
+    <poolproperty property="--ITEMTYPE--" value="SA" label="SA" itemcount="2" />
+    <poolproperty property="Language" value="ENU" label="English" itemcount="5" />
+    <registrationsegment position="1" itemselection="fixedform" minitems="5" maxitems="5">
+      <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016" name="SBAC-IRP-Perf-MATH-7" version="8185" />
+      <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="3" />
+      <poolproperty property="--ITEMTYPE--" value="SA" label="SA" itemcount="2" />
+      <poolproperty property="Language" value="ENU" label="English" itemcount="5" />
+    </registrationsegment>
+  </registration>
+</testspecification>
