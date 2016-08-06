@@ -85,9 +85,9 @@ public class TestSpecBankSideLoader {
     }
 
     private static String sendData(URL testSpecBankUrl, AccessToken accessToken, TestSpecBankData testSpecBankData) {
-        URL testSpecBankSpecification;
+        URL testSpecBankSpecificationUrl;
         try {
-            testSpecBankSpecification = new URL(testSpecBankUrl, "/rest/testSpecification");
+            testSpecBankSpecificationUrl = new URL(testSpecBankUrl, "/rest/testSpecification");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -106,7 +106,7 @@ public class TestSpecBankSideLoader {
         restTemplate.setInterceptors(ris);
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
 
-        ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecification.toString(), HttpMethod.POST, request, TestSpecBankData.class);
+        ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecificationUrl.toString(), HttpMethod.POST, request, TestSpecBankData.class);
 
         TestSpecBankData responseData = response.getBody();
         logger.debug("TSB response: " + responseData);
