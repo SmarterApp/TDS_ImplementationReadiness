@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.cresst.sb.irp.auto.student.data.LoginInfo;
 import org.cresst.sb.irp.common.data.ResponseData;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,7 +25,8 @@ public class StudentLoginTest {
 	
 	@Autowired
 	private StudentLogin studentLogin;
-	
+
+	@Ignore("TDS Server is IP restricted. Remove Ignore when machine has access to sever.")
 	@Test
 	public void login(){
 		//String url ="http://localhost:8080/student/Pages/API/MasterShell.axd/loginStudent";
