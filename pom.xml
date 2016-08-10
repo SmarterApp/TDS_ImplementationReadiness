@@ -234,5 +234,10 @@
 			<!-- highly available repository serving empty artifacts -->
 			<url>http://version99.qos.ch/</url>
 		</repository>
+		<repository>
+			<id>sbac</id>
+			<name>airdev-releases</name>
+			<url>https://airdev.artifactoryonline.com/airdev/ext-releases/</url>
+		</repository>
 	</repositories>
 </project>
