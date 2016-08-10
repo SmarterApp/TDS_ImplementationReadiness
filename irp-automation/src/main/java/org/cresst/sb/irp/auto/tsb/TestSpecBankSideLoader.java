@@ -56,6 +56,7 @@ public class TestSpecBankSideLoader {
 
     private Path registrationTestPackageDirectory;
 
+    @Autowired
     public TestSpecBankSideLoader(@Value("classpath:irp-package/TestPackages/ART/Registration") Resource registrationTestPackageDirectory) throws IOException {
         this.registrationTestPackageDirectory = Paths.get(registrationTestPackageDirectory.getURI());
     }
