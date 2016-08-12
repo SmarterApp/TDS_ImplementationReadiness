@@ -14,10 +14,20 @@
     <name>IReadinessPackage - Automation Engine</name>
     <url>http://bitbucket.org/sbcresst</url>
 
+    <properties>
+        <art.version>2.1.0</art.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.cresst.sb.irp</groupId>
             <artifactId>irp-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opentestsystem.delivery</groupId>
+            <artifactId>test-reg-domain</artifactId>
+            <version>${art.version}</version>
         </dependency>
 
         <dependency>

@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.List;
 
-class TestSpecBankData {
+public class TestSpecBankData {
     private String id;
     private String specificationXml;
     private String tenantId;

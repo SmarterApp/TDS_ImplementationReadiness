@@ -1,4 +1,4 @@
-package org.cresst.sb.irp.auto.tsb;
+package org.cresst.sb.irp.common.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

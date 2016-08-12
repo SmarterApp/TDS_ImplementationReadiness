@@ -1,7 +1,9 @@
 package org.cresst.sb.irp.auto.engine;
 
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import org.cresst.sb.irp.auto.art.ArtAssessmentSelector;
 import org.cresst.sb.irp.auto.progman.ProgMan;
+import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankSideLoader;
 import org.cresst.sb.irp.domain.automation.AutomationRequest;
 import org.cresst.sb.irp.domain.automation.AutomationResponse;
@@ -39,10 +41,18 @@ public class IrpAutomationEngine implements AutomationEngine {
         logger.info("Tenant ID {0}", tenantId);
 
         logger.info("Side-loading Registration Test Packages");
-        List<String> tsbRegistrationPackageIds = testSpecBankSideLoader.sideLoadRegistrationTestPackages(
+        List<TestSpecBankData> testSpecBankData = testSpecBankSideLoader.sideLoadRegistrationTestPackages(
                 automationRequest.getTestSpecBankUrl(),
                 accessToken,
                 tenantId);
+
+        logger.info("Selecting Registration Test Packages in vendor's ART application");
+        ArtAssessmentSelector artAssessmentSelector = new ArtAssessmentSelector();
+        List<String> selectedAssessmentIds = artAssessmentSelector.selectAssessments(automationRequest.getArtUrl(),
+                accessToken,
+                automationRequest.getStateAbbreviation(),
+                testSpecBankData);
+
 
         return automationResponse;
     }

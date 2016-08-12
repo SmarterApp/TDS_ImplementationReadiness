@@ -1,6 +1,6 @@
 package org.cresst.sb.irp.auto.accesstoken;
 
-import org.cresst.sb.irp.auto.tsb.LoggingRequestInterceptor;
+import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 import org.slf4j.Logger;

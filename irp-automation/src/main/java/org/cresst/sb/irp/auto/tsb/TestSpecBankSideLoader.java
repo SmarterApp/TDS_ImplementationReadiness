@@ -3,6 +3,7 @@ package org.cresst.sb.irp.auto.tsb;
 import com.google.common.io.BaseEncoding;
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
@@ -74,18 +74,33 @@ public class TestSpecBankSideLoader {
         }
     }
 
-    public List<String> sideLoadRegistrationTestPackages(URL testSpecBankUrl, AccessToken accessToken, String tenantId) {
-        List<String> tsbRegistrationPackageIds = new ArrayList<>();
+    /**
+     * Side-loads the IRP ART Registration Test Packages into the given Test Spec Bank.
+     * @param testSpecBankUrl URL of the vendor's TSB server
+     * @param accessToken Access token to access the vendor's TSB server
+     * @param tenantId The vendor's system's Tenant ID
+     * @return The data for each Registration Test Package that was side-loaded into the vendor's TSB. This information
+     * can be useful for selecting tests in ART.
+     */
+    public List<TestSpecBankData> sideLoadRegistrationTestPackages(URL testSpecBankUrl, AccessToken accessToken, String tenantId) {
+        List<TestSpecBankData> testSpecBankDatas = new ArrayList<>();
 
         for (List<String> testPackage : registrationTestPackages) {
             TestSpecBankData testSpecBankData = processXmlFile(testPackage, tenantId);
-            tsbRegistrationPackageIds.add(sendData(testSpecBankUrl, accessToken, testSpecBankData));
+            testSpecBankDatas.add(sendData(testSpecBankUrl, accessToken, testSpecBankData));
         }
 
-        return tsbRegistrationPackageIds;
+        return testSpecBankDatas;
     }
 
-    private static String sendData(URL testSpecBankUrl, AccessToken accessToken, TestSpecBankData testSpecBankData) {
+    /**
+     * Does the actual side-loading by calling the TSB web service endpoint to insert the Registration Test Package.
+     * @param testSpecBankUrl The vendor's TSB URL
+     * @param accessToken The access token needed to access the TSB server
+     * @param testSpecBankData The TSB data to pass to the web service endpoint
+     * @return The data that was side-loaded into the vendor's TSB.
+     */
+    private static TestSpecBankData sendData(URL testSpecBankUrl, AccessToken accessToken, TestSpecBankData testSpecBankData) {
         URL testSpecBankSpecificationUrl;
         try {
             testSpecBankSpecificationUrl = new URL(testSpecBankUrl, "/rest/testSpecification");
@@ -94,7 +109,7 @@ public class TestSpecBankSideLoader {
         }
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Authorization", "Bearer " + accessToken.getAccessTokenString());
+        httpHeaders.add("Authorization", "Bearer " + accessToken);
         httpHeaders.add("Accept", "application/json");
         httpHeaders.add("Content-Type", "application/json");
 
@@ -109,12 +124,19 @@ public class TestSpecBankSideLoader {
 
         ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecificationUrl.toString(), HttpMethod.POST, request, TestSpecBankData.class);
 
-        TestSpecBankData responseData = response.getBody();
-        logger.debug("TSB response: " + responseData);
+        TestSpecBankData insertedTestSpecBankData = response.getBody();
+        logger.debug("TSB response: " + insertedTestSpecBankData);
 
-        return responseData.getId();
+        return insertedTestSpecBankData;
     }
 
+    /**
+     * Mimicks the TSB side-loading perl script that extracts information and prepares the ART Registration Test Package
+     * to be side-loaded. It also prepares the data necessary to send to the vendor's TSB web service endpoint.
+     * @param testPackageLines The lines of a single ART Registration Test Package. The code processes line-by-line.
+     * @param tenantId The vendor's system's Tenant ID
+     * @return The data needed to be passed to the vendor's TSB web service endpoint.
+     */
     private static TestSpecBankData processXmlFile(List<String> testPackageLines, String tenantId) {
         String testSubjectName = "";
         String testSubjectAbbreviation = "";
