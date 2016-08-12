@@ -3,6 +3,7 @@ package org.cresst.sb.irp.auto.art;
 import com.google.common.collect.Lists;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.URL;
@@ -12,6 +13,8 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class ArtAssessmentSelectorTest {
+
+    @Ignore("Enable when data can be supplied to arguments")
     @Test
     public void selectAssessments() throws Exception {
         AccessToken accessToken = AccessToken.buildAccessToken(
