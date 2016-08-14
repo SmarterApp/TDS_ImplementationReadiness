@@ -2,7 +2,9 @@ package org.cresst.sb.irp.auto.tsb;
 
 import com.google.common.io.BaseEncoding;
 import org.apache.commons.lang3.StringUtils;
+import org.codehaus.janino.Access;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import org.cresst.sb.irp.auto.engine.Rollbacker;
 import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,73 +42,115 @@ import java.util.zip.DeflaterOutputStream;
  * Side loads Registration Test Packages into TSB. This is a translation of the Perl script that performs
  * the same functionality https://github.com/SmarterApp/TDS_Administrative/tree/master/tsb
  */
-@Service
-public class TestSpecBankSideLoader {
+public class TestSpecBankSideLoader implements Rollbacker {
     private final static Logger logger = LoggerFactory.getLogger(TestSpecBankSideLoader.class);
 
     private static final Pattern purposePattern = Pattern.compile(" purpose\\s*=\\s*\\\"([^\\\"]*)\\\"");
-//    private static final Pattern publisherPattern = Pattern.compile(" publisher\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern testPublishDatePattern = Pattern.compile(" publishdate\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern uniqueIdPattern = Pattern.compile(" uniqueid\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern testLabelPattern = Pattern.compile(" label\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern testVersionPattern = Pattern.compile(" version\\s*=\\s*\\\"([^\\\"]*)\\\"");
     private static final Pattern propertyPattern = Pattern.compile("<property\\s*name\\s*=\\s*\\\"([^\\\"]*)\\\"\\s*value\\s*=\\s*\\\"([^\\\"]*)\\\"\\s*label\\s*=\\s*\\\"([^\\\"]*)\\\"");
 
+    // The files aren't large, so the Registration Test Package XML docs are stored in memory.
     private static final List<List<String>> registrationTestPackages = new ArrayList<>();
 
-    private Path registrationTestPackageDirectory;
+    private final AccessToken accessToken;
+    private final URL testSpecBankUrl;
+    private final String tenantId;
 
-    @Autowired
-    public TestSpecBankSideLoader(@Value("classpath:irp-package/TestPackages/ART/Registration") Resource registrationTestPackageDirectory) throws IOException {
-        this.registrationTestPackageDirectory = Paths.get(registrationTestPackageDirectory.getURI());
+    private final URL testSpecBankSpecificationUrl;
+
+    private List<TestSpecBankData> sideLoadedData = new ArrayList<>();
+
+    public TestSpecBankSideLoader(Resource registrationTestPackageDirectoryResource,
+                                  AccessToken accessToken, URL testSpecBankUrl, String tenantId) throws IOException {
+        initiateRegistrationTestPackages(registrationTestPackageDirectoryResource);
+        this.accessToken = accessToken;
+        this.testSpecBankUrl = testSpecBankUrl;
+        this.tenantId = tenantId;
+
+        try {
+            testSpecBankSpecificationUrl = new URL(testSpecBankUrl, "/rest/testSpecification");
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      * Stores the IRP Registration Test Packages in memory.
      * @throws IOException
      */
-    @PostConstruct
-    public void initiateRegistrationTestPackages() throws IOException {
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(registrationTestPackageDirectory, "*.xml")) {
-            for (Path entry : stream) {
-                registrationTestPackages.add(Files.readAllLines(entry, StandardCharsets.UTF_8));
+    private void initiateRegistrationTestPackages(Resource registrationTestPackageDirectoryResource) throws IOException {
+        if (registrationTestPackages.isEmpty()) {
+            Path registrationTestPackageDirectory = Paths.get(registrationTestPackageDirectoryResource.getURI());
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(registrationTestPackageDirectory, "*.xml")) {
+                for (Path entry : stream) {
+                    registrationTestPackages.add(Files.readAllLines(entry, StandardCharsets.UTF_8));
+                }
             }
         }
     }
 
     /**
      * Side-loads the IRP ART Registration Test Packages into the given Test Spec Bank.
-     * @param testSpecBankUrl URL of the vendor's TSB server
-     * @param accessToken Access token to access the vendor's TSB server
-     * @param tenantId The vendor's system's Tenant ID
+     *
      * @return The data for each Registration Test Package that was side-loaded into the vendor's TSB. This information
      * can be useful for selecting tests in ART.
      */
-    public List<TestSpecBankData> sideLoadRegistrationTestPackages(URL testSpecBankUrl, AccessToken accessToken, String tenantId) {
-        List<TestSpecBankData> testSpecBankDatas = new ArrayList<>();
+    public List<TestSpecBankData> sideLoadRegistrationTestPackages() {
 
+        sideLoadedData.clear();
         for (List<String> testPackage : registrationTestPackages) {
             TestSpecBankData testSpecBankData = processXmlFile(testPackage, tenantId);
-            testSpecBankDatas.add(sendData(testSpecBankUrl, accessToken, testSpecBankData));
+            sideLoadedData.add(sendData(testSpecBankData));
         }
 
-        return testSpecBankDatas;
+        return sideLoadedData;
+    }
+
+    @Override
+    public void rollback() {
+        for (TestSpecBankData testSpecBankData : sideLoadedData) {
+            retireTestSpec(testSpecBankData.getId());
+        }
+    }
+
+    private void retireTestSpec(String testSpecificationId) {
+        URL retireSpecificationUrl;
+        try {
+            retireSpecificationUrl = new URL(testSpecBankUrl, "/rest/" + testSpecificationId + "/retire");
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Authorization", "Bearer " + accessToken);
+        httpHeaders.add("Accept", "application/json");
+        httpHeaders.add("Content-Type", "application/json");
+
+        HttpEntity<?> request = new HttpEntity<>(httpHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
+        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
+        ris.add(ri);
+        restTemplate.setInterceptors(ris);
+        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
+
+        restTemplate.exchange(retireSpecificationUrl.toString(),
+                HttpMethod.PUT,
+                request,
+                TestSpecBankData.class);
     }
 
     /**
      * Does the actual side-loading by calling the TSB web service endpoint to insert the Registration Test Package.
-     * @param testSpecBankUrl The vendor's TSB URL
-     * @param accessToken The access token needed to access the TSB server
+     *
      * @param testSpecBankData The TSB data to pass to the web service endpoint
      * @return The data that was side-loaded into the vendor's TSB.
      */
-    private static TestSpecBankData sendData(URL testSpecBankUrl, AccessToken accessToken, TestSpecBankData testSpecBankData) {
-        URL testSpecBankSpecificationUrl;
-        try {
-            testSpecBankSpecificationUrl = new URL(testSpecBankUrl, "/rest/testSpecification");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+    private TestSpecBankData sendData(TestSpecBankData testSpecBankData) {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Authorization", "Bearer " + accessToken);
@@ -122,7 +166,10 @@ public class TestSpecBankSideLoader {
         restTemplate.setInterceptors(ris);
         restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
 
-        ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecificationUrl.toString(), HttpMethod.POST, request, TestSpecBankData.class);
+        ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecificationUrl.toString(),
+                HttpMethod.POST,
+                request,
+                TestSpecBankData.class);
 
         TestSpecBankData insertedTestSpecBankData = response.getBody();
         logger.debug("TSB response: " + insertedTestSpecBankData);
@@ -157,9 +204,6 @@ public class TestSpecBankSideLoader {
             if (line.startsWith("<testspecification") && state == 0) {
                 matcher = purposePattern.matcher(line);
                 if (matcher.find() && !StringUtils.equalsIgnoreCase("registration", matcher.group(1))) { throw new RuntimeException("Test Package"); }
-
-//                matcher = publisherPattern.matcher(line);
-//                String testPublisher = getGroup(matcher, 1);
 
                 matcher = testPublishDatePattern.matcher(line);
                 String testPublishDate = getGroup(matcher, 1);

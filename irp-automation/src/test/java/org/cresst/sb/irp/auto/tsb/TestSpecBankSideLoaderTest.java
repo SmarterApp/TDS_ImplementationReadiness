@@ -15,10 +15,7 @@ public class TestSpecBankSideLoaderTest {
     @Ignore("Further test harness structure needs to be build out to get test parameters")
     @Test
     public void sideLoadRegistrationTestPackagesTest() throws Exception {
-        Path artRegistrationTestPackages = Paths.get("");
-        TestSpecBankSideLoader sut = new TestSpecBankSideLoader(new PathResource(artRegistrationTestPackages));
 
-        sut.initiateRegistrationTestPackages();
         AccessToken accessToken = AccessToken.buildAccessToken(
                 new URL(""),
                 "",
@@ -27,10 +24,13 @@ public class TestSpecBankSideLoaderTest {
                 ""
         );
 
-        sut.sideLoadRegistrationTestPackages(
-                new URL(""),
+        Path artRegistrationTestPackages = Paths.get("");
+        TestSpecBankSideLoader sut = new TestSpecBankSideLoader(new PathResource(artRegistrationTestPackages),
                 accessToken,
+                new URL(""),
                 "");
+
+        sut.sideLoadRegistrationTestPackages();
     }
 
 }

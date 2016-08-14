@@ -39,10 +39,9 @@ public class ArtAssessmentSelectorTest {
         testSpecBankData.setType("summative");
 
 
-        ArtAssessmentSelector sut = new ArtAssessmentSelector();
-        sut.selectAssessments(new URL(""),
-                accessToken,
-                "CA",
-                testNames);
+        ArtAssessmentSelector sut = new ArtAssessmentSelector(accessToken,
+                new URL(""),
+                "CA");
+        sut.selectAssessments(testNames);
     }
 }

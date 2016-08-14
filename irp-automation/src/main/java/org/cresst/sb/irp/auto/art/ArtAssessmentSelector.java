@@ -1,6 +1,8 @@
 package org.cresst.sb.irp.auto.art;
 
+import org.codehaus.janino.Access;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import org.cresst.sb.irp.auto.engine.Rollbacker;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
 import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
 import org.joda.time.DateTime;
@@ -17,26 +19,36 @@ import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArtAssessmentSelector {
+public class ArtAssessmentSelector implements Rollbacker {
     private final static Logger logger = LoggerFactory.getLogger(ArtAssessmentSelector.class);
 
     private final static int NUM_OPPORTUNITIES = 1000;
 
+    private final AccessToken accessToken;
+    private final URL artUrl;
+    private final String stateAbbreviation;
+
+    private List<String> selectedAssessmentIds = new ArrayList<>();
+
+    public ArtAssessmentSelector(AccessToken accessToken, URL artUrl, String stateAbbreviation) {
+        this.accessToken = accessToken;
+        this.artUrl = artUrl;
+        this.stateAbbreviation = stateAbbreviation;
+    }
+
     /**
      * In ART, selects/registers the given Assessments that was side-loaded into TSB.
-     * @param artUrl Vendor's ART URL
-     * @param accessToken Access token to gain access to the vendor's ART application
-     * @param stateAbbreviation The State Abbreviation used by the vendor's system
      * @param testSpecBankData The data that was side-loaded into the vendor's TSB
+     * @return The list of IDs for each Assessment in the vendor's ART application.
      */
-    public List<String> selectAssessments(URL artUrl, AccessToken accessToken, String stateAbbreviation,
-                                          List<TestSpecBankData> testSpecBankData) {
+    public List<String> selectAssessments(List<TestSpecBankData> testSpecBankData) {
 
         RestTemplate restTemplate = new RestTemplate();
         ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
@@ -48,14 +60,14 @@ public class ArtAssessmentSelector {
         final DateTime testWindowStart = DateTime.now();
         final DateTime testWindowEnd = testWindowStart.plus(Duration.standardDays(2));
 
-        URL artAssessmentURL;
+        URL artAssessmentUrl;
         try {
-            artAssessmentURL = new URL(artUrl, "/rest/assessment");
+            artAssessmentUrl = new URL(artUrl, "/rest/assessment");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
 
-        List<String> selectedAssessmentIds = new ArrayList<>();
+        selectedAssessmentIds.clear();
         for (TestSpecBankData tsbData : testSpecBankData) {
             Assessment assessment = generateAssessment(tsbData, stateAbbreviation, testWindowStart, testWindowEnd);
 
@@ -66,7 +78,7 @@ public class ArtAssessmentSelector {
 
             HttpEntity<Assessment> request = new HttpEntity<>(assessment, httpHeaders);
 
-            ResponseEntity<Assessment> response = restTemplate.exchange(artAssessmentURL.toString(),
+            ResponseEntity<Assessment> response = restTemplate.exchange(artAssessmentUrl.toString(),
                     HttpMethod.POST,
                     request,
                     Assessment.class);
@@ -78,6 +90,38 @@ public class ArtAssessmentSelector {
         }
 
         return selectedAssessmentIds;
+    }
+
+    @Override
+    public void rollback() {
+
+        RestTemplate restTemplate = new RestTemplate();
+        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
+        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
+        ris.add(ri);
+        restTemplate.setInterceptors(ris);
+        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
+
+        for (String assessmentId : selectedAssessmentIds) {
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.add("Authorization", "Bearer " + accessToken);
+            httpHeaders.add("Accept", "application/json");
+            httpHeaders.add("Content-Type", "application/json");
+
+            HttpEntity<?> request = new HttpEntity<>(httpHeaders);
+
+            URL artAssessmentUrl;
+            try {
+                artAssessmentUrl = new URL(artUrl, "/rest/assessment/" + assessmentId);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+
+            restTemplate.exchange(artAssessmentUrl.toString(),
+                    HttpMethod.DELETE,
+                    request,
+                    Assessment.class);
+        }
     }
 
     /**
