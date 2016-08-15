@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.auto.art;
 
-import com.google.common.collect.Sets;
 import org.cresst.sb.irp.auto.engine.Rollbacker;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
 import org.cresst.sb.irp.auto.web.AutomationRestTemplate;
@@ -8,7 +7,6 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.opentestsystem.delivery.testreg.domain.Assessment;
 import org.opentestsystem.delivery.testreg.domain.ImplicitEligibilityRule;
-import org.opentestsystem.delivery.testreg.domain.search.AssessmentSearchRequest;
 import org.opentestsystem.shared.search.domain.SearchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

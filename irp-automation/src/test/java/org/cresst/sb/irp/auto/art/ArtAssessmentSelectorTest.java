@@ -5,6 +5,7 @@ import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.web.client.RestTemplate;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,7 +18,10 @@ public class ArtAssessmentSelectorTest {
     @Ignore("Enable when data can be supplied to arguments")
     @Test
     public void selectAssessments() throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+
         AccessToken accessToken = AccessToken.buildAccessToken(
+                restTemplate,
                 new URL(""),
                 "",
                 "",
@@ -39,7 +43,7 @@ public class ArtAssessmentSelectorTest {
         testSpecBankData.setType("summative");
 
 
-        ArtAssessmentSelector sut = new ArtAssessmentSelector(accessToken,
+        ArtAssessmentSelector sut = new ArtAssessmentSelector(restTemplate,
                 new URL(""),
                 "CA");
         sut.selectAssessments(testNames);
