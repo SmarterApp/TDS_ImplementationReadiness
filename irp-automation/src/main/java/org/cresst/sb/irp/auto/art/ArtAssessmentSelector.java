@@ -1,45 +1,48 @@
 package org.cresst.sb.irp.auto.art;
 
-import org.codehaus.janino.Access;
-import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import com.google.common.collect.Sets;
 import org.cresst.sb.irp.auto.engine.Rollbacker;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
-import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
+import org.cresst.sb.irp.auto.web.AutomationRestTemplate;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.opentestsystem.delivery.testreg.domain.Assessment;
 import org.opentestsystem.delivery.testreg.domain.ImplicitEligibilityRule;
+import org.opentestsystem.delivery.testreg.domain.search.AssessmentSearchRequest;
+import org.opentestsystem.shared.search.domain.SearchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestOperations;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ArtAssessmentSelector implements Rollbacker {
     private final static Logger logger = LoggerFactory.getLogger(ArtAssessmentSelector.class);
 
     private final static int NUM_OPPORTUNITIES = 1000;
 
-    private final AccessToken accessToken;
-    private final URL artUrl;
+    private final RestOperations automationRestTemplate;
+    private final URI artAssessmentUri;
     private final String stateAbbreviation;
 
     private List<String> selectedAssessmentIds = new ArrayList<>();
 
-    public ArtAssessmentSelector(AccessToken accessToken, URL artUrl, String stateAbbreviation) {
-        this.accessToken = accessToken;
-        this.artUrl = artUrl;
+    public ArtAssessmentSelector(RestOperations automationRestTemplate, URL artUrl, String stateAbbreviation) {
+        this.automationRestTemplate = automationRestTemplate;
+        this.artAssessmentUri = UriComponentsBuilder.fromHttpUrl(artUrl.toString())
+                .pathSegment("rest", "assessment")
+                .build(true)
+                .toUri();
         this.stateAbbreviation = stateAbbreviation;
     }
 
@@ -50,40 +53,17 @@ public class ArtAssessmentSelector implements Rollbacker {
      */
     public List<String> selectAssessments(List<TestSpecBankData> testSpecBankData) {
 
-        RestTemplate restTemplate = new RestTemplate();
-        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
-        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
-        ris.add(ri);
-        restTemplate.setInterceptors(ris);
-        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
         final DateTime testWindowStart = DateTime.now();
         final DateTime testWindowEnd = testWindowStart.plus(Duration.standardDays(2));
 
-        URL artAssessmentUrl;
-        try {
-            artAssessmentUrl = new URL(artUrl, "/rest/assessment");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-
         selectedAssessmentIds.clear();
         for (TestSpecBankData tsbData : testSpecBankData) {
-            Assessment assessment = generateAssessment(tsbData, stateAbbreviation, testWindowStart, testWindowEnd);
+            Assessment assessment = constructAssessment(tsbData, stateAbbreviation, testWindowStart, testWindowEnd);
 
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.add("Authorization", "Bearer " + accessToken);
-            httpHeaders.add("Accept", "application/json");
-            httpHeaders.add("Content-Type", "application/json");
+            HttpEntity<Assessment> request = AutomationRestTemplate.constructHttpEntity(assessment);
+            Assessment assessmentResponse = automationRestTemplate.postForObject(artAssessmentUri, request, Assessment.class);
 
-            HttpEntity<Assessment> request = new HttpEntity<>(assessment, httpHeaders);
-
-            ResponseEntity<Assessment> response = restTemplate.exchange(artAssessmentUrl.toString(),
-                    HttpMethod.POST,
-                    request,
-                    Assessment.class);
-
-            String assessmentId = response.getBody().getId();
+            String assessmentId = assessmentResponse.getId();
             selectedAssessmentIds.add(assessmentId);
 
             logger.debug("Selected Assessment {} and received ID={}", assessment.getEntityId(), assessmentId);
@@ -92,36 +72,62 @@ public class ArtAssessmentSelector implements Rollbacker {
         return selectedAssessmentIds;
     }
 
+    /**
+     * Searches vendor's ART application for all the Test Packages that were loaded into TSB
+     *
+     * @param tenantId The Tenant ID
+     * @param testSpecBankData The TSB Test Package data that was loaded into the vendor's TSB
+     * @return true if all the TSB data has been selected successfully in ART; false otherwise.
+     */
+    public boolean verifySelectedAssessments(String tenantId, List<TestSpecBankData> testSpecBankData) {
+        // ?currentPage=0&pageSize=15&entityId=IRP-&sortDir=asc&sortKey=entityId&tenantId=55661e17e4b0c4ebd30aa19f
+        URI searchAssessmentUri = UriComponentsBuilder.fromUri(artAssessmentUri)
+                .queryParam("currentPage", 0)
+                .queryParam("pageSize", testSpecBankData.size())
+                .queryParam("entityId", "IRP-")
+                .queryParam("sortDir", "asc")
+                .queryParam("sortKey", "entityId")
+                .queryParam("tenantId", tenantId)
+                .build(true)
+                .toUri();
+
+        SearchResponse<Assessment> searchResult = automationRestTemplate.exchange(searchAssessmentUri, HttpMethod.GET, null,
+                new ParameterizedTypeReference<SearchResponse<Assessment>>() {}).getBody();
+
+        if (searchResult.getReturnCount() != testSpecBankData.size()) {
+            return false;
+        }
+
+        Set<String> assessmentEntityIdSet = new HashSet<>();
+        for (Assessment assessment : searchResult.getSearchResults()) {
+            assessmentEntityIdSet.add(assessment.getEntityId());
+        }
+
+        Set<String> tsbNameSet = new HashSet<>();
+        for (TestSpecBankData tsbData : testSpecBankData) {
+            tsbNameSet.add(tsbData.getName());
+        }
+
+        return assessmentEntityIdSet.containsAll(tsbNameSet);
+    }
+
     @Override
     public void rollback() {
 
-        RestTemplate restTemplate = new RestTemplate();
-        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
-        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
-        ris.add(ri);
-        restTemplate.setInterceptors(ris);
-        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
         for (String assessmentId : selectedAssessmentIds) {
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.add("Authorization", "Bearer " + accessToken);
-            httpHeaders.add("Accept", "application/json");
-            httpHeaders.add("Content-Type", "application/json");
+            URI deleteAssessmentUri = UriComponentsBuilder.fromUri(artAssessmentUri)
+                    .pathSegment(assessmentId)
+                    .build(true)
+                    .toUri();
 
-            HttpEntity<?> request = new HttpEntity<>(httpHeaders);
-
-            URL artAssessmentUrl;
             try {
-                artAssessmentUrl = new URL(artUrl, "/rest/assessment/" + assessmentId);
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
+                automationRestTemplate.delete(deleteAssessmentUri);
+            } catch (RestClientException e) {
+                logger.error("Unable to delete assessment (" + assessmentId + ")", e);
             }
-
-            restTemplate.exchange(artAssessmentUrl.toString(),
-                    HttpMethod.DELETE,
-                    request,
-                    Assessment.class);
         }
+
+        logger.info("Rolled back ART Test Package selection");
     }
 
     /**
@@ -167,8 +173,8 @@ public class ArtAssessmentSelector implements Rollbacker {
   "url":"/assessment/null"
  }
      */
-    private Assessment generateAssessment(final TestSpecBankData tsbData, final String stateAbbreviation,
-                                          final DateTime testWindowStart, final DateTime testWindowEnd) {
+    private Assessment constructAssessment(final TestSpecBankData tsbData, final String stateAbbreviation,
+                                           final DateTime testWindowStart, final DateTime testWindowEnd) {
 
         Assessment assessment = new Assessment();
 

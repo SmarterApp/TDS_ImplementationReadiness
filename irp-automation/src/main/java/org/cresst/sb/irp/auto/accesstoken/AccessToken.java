@@ -1,20 +1,14 @@
 package org.cresst.sb.irp.auto.accesstoken;
 
-import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestOperations;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +19,8 @@ public class AccessToken {
     final static Pattern accessTokenPattern = Pattern.compile("\"access_token\":\"(.*)\"");
     final static Pattern expiresInPattern = Pattern.compile("\"expires_in\":([0-9]+),");
 
+    private final RestOperations accessTokenRestTemplate;
+
     private final URL oamUrl;
     private final String clientId;
     private final String clientSecret;
@@ -34,7 +30,10 @@ public class AccessToken {
     private String strAccessToken = null;
     private Instant expiration;
 
-    private AccessToken(URL oamUrl, String clientId, String clientSecret, String username, String password) {
+    private AccessToken(RestOperations accessTokenRestTemplate, URL oamUrl,
+                        String clientId, String clientSecret, String username, String password) {
+
+        this.accessTokenRestTemplate = accessTokenRestTemplate;
         this.oamUrl = oamUrl;
         this.clientId = clientId;
         this.clientSecret = clientSecret;
@@ -42,8 +41,16 @@ public class AccessToken {
         this.password = password;
     }
 
-    public static AccessToken buildAccessToken(URL oamUrl, String clientId, String clientSecret, String username, String password) {
-        AccessToken accessToken = new AccessToken(oamUrl, clientId, clientSecret, username, password);
+    public static AccessToken buildAccessToken(RestOperations accessTokenRestTemplate, URL oamUrl,
+                                               String clientId, String clientSecret, String username, String password) {
+
+        AccessToken accessToken = new AccessToken(accessTokenRestTemplate,
+                oamUrl,
+                clientId,
+                clientSecret,
+                username,
+                password);
+
         return accessToken;
     }
 
@@ -52,20 +59,13 @@ public class AccessToken {
             return strAccessToken;
         }
 
-        RestTemplate restTemplate = new RestTemplate();
-        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
-        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
-        ris.add(ri);
-        restTemplate.setInterceptors(ris);
-        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("grant_type", "password");
         form.add("username", username);
         form.add("password", password);
         form.add("client_id", clientId);
         form.add("client_secret", clientSecret);
-        String response = restTemplate.postForObject(oamUrl.toString(), form, String.class);
+        String response = accessTokenRestTemplate.postForObject(oamUrl.toString(), form, String.class);
 
         logger.info(response);
 

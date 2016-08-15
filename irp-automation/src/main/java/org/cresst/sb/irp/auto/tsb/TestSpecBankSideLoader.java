@@ -2,30 +2,20 @@ package org.cresst.sb.irp.auto.tsb;
 
 import com.google.common.io.BaseEncoding;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.janino.Access;
-import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.cresst.sb.irp.auto.engine.Rollbacker;
-import org.cresst.sb.irp.common.web.LoggingRequestInterceptor;
+import org.cresst.sb.irp.auto.web.AutomationRestTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestOperations;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.annotation.PostConstruct;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
@@ -55,31 +45,30 @@ public class TestSpecBankSideLoader implements Rollbacker {
     // The files aren't large, so the Registration Test Package XML docs are stored in memory.
     private static final List<List<String>> registrationTestPackages = new ArrayList<>();
 
-    private final AccessToken accessToken;
+    private final RestOperations automationRestTemplate;
     private final URL testSpecBankUrl;
     private final String tenantId;
 
-    private final URL testSpecBankSpecificationUrl;
+    private final URI testSpecBankSpecificationUri;
 
     private List<TestSpecBankData> sideLoadedData = new ArrayList<>();
 
     public TestSpecBankSideLoader(Resource registrationTestPackageDirectoryResource,
-                                  AccessToken accessToken, URL testSpecBankUrl, String tenantId) throws IOException {
+                                  RestOperations automationRestTemplate, URL testSpecBankUrl, String tenantId) throws IOException {
         initiateRegistrationTestPackages(registrationTestPackageDirectoryResource);
-        this.accessToken = accessToken;
+        this.automationRestTemplate = automationRestTemplate;
         this.testSpecBankUrl = testSpecBankUrl;
         this.tenantId = tenantId;
 
-        try {
-            testSpecBankSpecificationUrl = new URL(testSpecBankUrl, "/rest/testSpecification");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+
+        testSpecBankSpecificationUri = UriComponentsBuilder.fromHttpUrl(testSpecBankUrl.toString())
+                .pathSegment("rest", "testSpecification").build().toUri();
+
     }
 
     /**
      * Stores the IRP Registration Test Packages in memory.
-     * @throws IOException
+     * @throws IOException When there is an error reading the Registration Test Packages
      */
     private void initiateRegistrationTestPackages(Resource registrationTestPackageDirectoryResource) throws IOException {
         if (registrationTestPackages.isEmpty()) {
@@ -114,34 +103,21 @@ public class TestSpecBankSideLoader implements Rollbacker {
         for (TestSpecBankData testSpecBankData : sideLoadedData) {
             retireTestSpec(testSpecBankData.getId());
         }
+
+        logger.info("Rolled back (retired) Test Spec Data");
     }
 
     private void retireTestSpec(String testSpecificationId) {
-        URL retireSpecificationUrl;
+
+        UriComponents retireSpecificationUrl = UriComponentsBuilder.fromUri(testSpecBankSpecificationUri)
+                .pathSegment(testSpecificationId, "retire")
+                .build(true);
+
         try {
-            retireSpecificationUrl = new URL(testSpecBankUrl, "/rest/" + testSpecificationId + "/retire");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            automationRestTemplate.put(retireSpecificationUrl.toUri(), "");
+        } catch (RestClientException e) {
+            logger.error("Unable to retire spec (" + testSpecificationId + ")", e);
         }
-
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Authorization", "Bearer " + accessToken);
-        httpHeaders.add("Accept", "application/json");
-        httpHeaders.add("Content-Type", "application/json");
-
-        HttpEntity<?> request = new HttpEntity<>(httpHeaders);
-
-        RestTemplate restTemplate = new RestTemplate();
-        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
-        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
-        ris.add(ri);
-        restTemplate.setInterceptors(ris);
-        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
-        restTemplate.exchange(retireSpecificationUrl.toString(),
-                HttpMethod.PUT,
-                request,
-                TestSpecBankData.class);
     }
 
     /**
@@ -152,26 +128,11 @@ public class TestSpecBankSideLoader implements Rollbacker {
      */
     private TestSpecBankData sendData(TestSpecBankData testSpecBankData) {
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Authorization", "Bearer " + accessToken);
-        httpHeaders.add("Accept", "application/json");
-        httpHeaders.add("Content-Type", "application/json");
-
-        HttpEntity<TestSpecBankData> request = new HttpEntity<>(testSpecBankData, httpHeaders);
-
-        RestTemplate restTemplate = new RestTemplate();
-        ClientHttpRequestInterceptor ri = new LoggingRequestInterceptor();
-        List<ClientHttpRequestInterceptor> ris = new ArrayList<>();
-        ris.add(ri);
-        restTemplate.setInterceptors(ris);
-        restTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-
-        ResponseEntity<TestSpecBankData> response = restTemplate.exchange(testSpecBankSpecificationUrl.toString(),
-                HttpMethod.POST,
+        HttpEntity<TestSpecBankData> request = AutomationRestTemplate.constructHttpEntity(testSpecBankData);
+        TestSpecBankData insertedTestSpecBankData = automationRestTemplate.postForObject(testSpecBankSpecificationUri,
                 request,
                 TestSpecBankData.class);
 
-        TestSpecBankData insertedTestSpecBankData = response.getBody();
         logger.debug("TSB response: " + insertedTestSpecBankData);
 
         return insertedTestSpecBankData;
@@ -234,7 +195,6 @@ public class TestSpecBankSideLoader implements Rollbacker {
             if (matcher.find() && state == 2) {
                 String propName = matcher.group(1);
                 String propValue = matcher.group(2);
-                String propLabel = matcher.group(3);
 
                 if (StringUtils.equalsIgnoreCase("subject", propName)) {
                     boolean subjectFound = false;
@@ -343,10 +303,8 @@ public class TestSpecBankSideLoader implements Rollbacker {
             }
             encodedTestPackage.append(BaseEncoding.base64().encode(compressedByteOutputStream.toByteArray()));
             return encodedTestPackage.toString();
-        } catch (UnsupportedEncodingException ex) {
+        } catch (IOException ex) {
             throw new RuntimeException(ex);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }
