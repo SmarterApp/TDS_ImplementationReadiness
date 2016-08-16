@@ -2,6 +2,8 @@ package org.cresst.sb.irp.auto.engine;
 
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.cresst.sb.irp.auto.art.ArtAssessmentSelector;
+import org.cresst.sb.irp.auto.art.ArtStudentUploader;
+import org.cresst.sb.irp.auto.art.ArtStudentUploaderResult;
 import org.cresst.sb.irp.auto.progman.ProgManTenantId;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankSideLoader;
@@ -23,11 +25,14 @@ public class IrpAutomationEngine implements AutomationEngine {
     private final static Logger logger = LoggerFactory.getLogger(IrpAutomationEngine.class);
 
     private static Resource registrationTestPackageDirectory;
+    private static Resource studentTemplatePath;
 
     @Autowired
     public IrpAutomationEngine(
-            @Value("classpath:irp-package/TestPackages/ART/Registration") Resource registrationTestPackageDirectory) {
+            @Value("classpath:irp-package/TestPackages/ART/Registration") Resource registrationTestPackageDirectory,
+            @Value("classpath:irp-package/IRPStudents_template.csv") Resource studentTemplatePath) {
         IrpAutomationEngine.registrationTestPackageDirectory = registrationTestPackageDirectory;
+        IrpAutomationEngine.studentTemplatePath = studentTemplatePath;
     }
 
     @Override
@@ -71,11 +76,22 @@ public class IrpAutomationEngine implements AutomationEngine {
                     automationRequest.getStateAbbreviation());
             rollbackers.add(artAssessmentSelector);
 
-            List<String> selectedAssessmentIds = artAssessmentSelector.selectAssessments(testSpecBankData);
+            final List<String> selectedAssessmentIds = artAssessmentSelector.selectAssessments(testSpecBankData);
 
             logger.info("Verifying all Registration Test Packages are selected");
             if (!artAssessmentSelector.verifySelectedAssessments(tenantId, testSpecBankData)) {
                 throw new Exception("IRP found an error with the Test Package data loaded into your system.");
+            }
+
+            final ArtStudentUploader artStudentUploader = new ArtStudentUploader(studentTemplatePath,
+                    automationRestTemplate,
+                    automationRequest.getArtUrl(),
+                    automationRequest.getStateAbbreviation(),
+                    automationRequest.getDistrict(),
+                    automationRequest.getInstitution());
+            final ArtStudentUploaderResult artStudentUploaderResult = artStudentUploader.uploadStudentData();
+            if (!artStudentUploaderResult.isSuccessful()) {
+                throw new Exception("Unable to upload Student data because " + artStudentUploaderResult.getMessage());
             }
         } catch (Exception ex) {
             logger.error("Automation error occurred. Rolling back data now.", ex);

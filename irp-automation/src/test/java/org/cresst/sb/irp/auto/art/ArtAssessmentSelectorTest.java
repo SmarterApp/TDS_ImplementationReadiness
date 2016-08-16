@@ -3,6 +3,7 @@ package org.cresst.sb.irp.auto.art;
 import com.google.common.collect.Lists;
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
 import org.cresst.sb.irp.auto.tsb.TestSpecBankData;
+import org.cresst.sb.irp.auto.web.AutomationRestTemplate;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
@@ -11,17 +12,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class ArtAssessmentSelectorTest {
 
     @Ignore("Enable when data can be supplied to arguments")
     @Test
     public void selectAssessments() throws Exception {
-        RestTemplate restTemplate = new RestTemplate();
 
         AccessToken accessToken = AccessToken.buildAccessToken(
-                restTemplate,
+                new RestTemplate(),
                 new URL(""),
                 "",
                 "",
@@ -43,6 +41,8 @@ public class ArtAssessmentSelectorTest {
         testSpecBankData.setType("summative");
 
 
+        AutomationRestTemplate restTemplate = new AutomationRestTemplate();
+        restTemplate.addAccessToken(accessToken);
         ArtAssessmentSelector sut = new ArtAssessmentSelector(restTemplate,
                 new URL(""),
                 "CA");

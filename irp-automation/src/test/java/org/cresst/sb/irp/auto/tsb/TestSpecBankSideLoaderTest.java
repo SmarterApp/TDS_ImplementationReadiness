@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.auto.tsb;
 
 import org.cresst.sb.irp.auto.accesstoken.AccessToken;
+import org.cresst.sb.irp.auto.web.AutomationRestTemplate;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.core.io.PathResource;
@@ -17,10 +18,8 @@ public class TestSpecBankSideLoaderTest {
     @Test
     public void sideLoadRegistrationTestPackagesTest() throws Exception {
 
-        RestTemplate restTemplate = new RestTemplate();
-
         AccessToken accessToken = AccessToken.buildAccessToken(
-                restTemplate,
+                new RestTemplate(),
                 new URL(""),
                 "",
                 "",
@@ -29,6 +28,8 @@ public class TestSpecBankSideLoaderTest {
         );
 
         Path artRegistrationTestPackages = Paths.get("");
+        AutomationRestTemplate restTemplate = new AutomationRestTemplate();
+        restTemplate.addAccessToken(accessToken);
         TestSpecBankSideLoader sut = new TestSpecBankSideLoader(new PathResource(artRegistrationTestPackages),
                 restTemplate,
                 new URL(""),

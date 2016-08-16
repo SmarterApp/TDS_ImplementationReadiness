@@ -55,15 +55,17 @@ public class TestSpecBankSideLoader implements Rollbacker {
 
     public TestSpecBankSideLoader(Resource registrationTestPackageDirectoryResource,
                                   RestOperations automationRestTemplate, URL testSpecBankUrl, String tenantId) throws IOException {
+
         initiateRegistrationTestPackages(registrationTestPackageDirectoryResource);
+
         this.automationRestTemplate = automationRestTemplate;
         this.testSpecBankUrl = testSpecBankUrl;
         this.tenantId = tenantId;
 
-
-        testSpecBankSpecificationUri = UriComponentsBuilder.fromHttpUrl(testSpecBankUrl.toString())
-                .pathSegment("rest", "testSpecification").build().toUri();
-
+        this.testSpecBankSpecificationUri = UriComponentsBuilder.fromHttpUrl(testSpecBankUrl.toString())
+                .pathSegment("rest", "testSpecification")
+                .build()
+                .toUri();
     }
 
     /**
