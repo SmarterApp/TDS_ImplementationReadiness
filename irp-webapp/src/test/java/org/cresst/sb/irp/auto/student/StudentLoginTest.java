@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @author Ernesto De La Luz Martinez
 */
 
+@Ignore("TDS Server is IP restricted. Remove Ignore when machine has access to sever.")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( locations = { "classpath*:root-context.xml"})
 public class StudentLoginTest {
@@ -26,7 +27,6 @@ public class StudentLoginTest {
 	@Autowired
 	private StudentLogin studentLogin;
 
-	@Ignore("TDS Server is IP restricted. Remove Ignore when machine has access to sever.")
 	@Test
 	public void login(){
 		//String url ="http://localhost:8080/student/Pages/API/MasterShell.axd/loginStudent";

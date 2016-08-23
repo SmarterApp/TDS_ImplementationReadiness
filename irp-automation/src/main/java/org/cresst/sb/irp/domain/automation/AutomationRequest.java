@@ -1,10 +1,11 @@
 package org.cresst.sb.irp.domain.automation;
 
-import java.net.URI;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.net.URL;
+import java.util.Objects;
 
 public class AutomationRequest {
-    public AutomationRequest() {}
 
     private String vendorName;
     private String tenantName;
@@ -23,6 +24,70 @@ public class AutomationRequest {
     private URL artUrl;
     private String artUserId;
     private String artPassword;
+    private URL proctorUrl;
+    private String proctorUserId;
+    private String proctorPassword;
+
+    public AutomationRequest() {}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AutomationRequest that = (AutomationRequest) o;
+        return Objects.equals(vendorName, that.vendorName) &&
+                Objects.equals(tenantName, that.tenantName) &&
+                Objects.equals(stateAbbreviation, that.stateAbbreviation) &&
+                Objects.equals(district, that.district) &&
+                Objects.equals(institution, that.institution) &&
+                Objects.equals(oAuthUrl, that.oAuthUrl) &&
+                Objects.equals(programManagementUrl, that.programManagementUrl) &&
+                Objects.equals(programManagementClientId, that.programManagementClientId) &&
+                Objects.equals(programManagementClientSecret, that.programManagementClientSecret) &&
+                Objects.equals(programManagementUserId, that.programManagementUserId) &&
+                Objects.equals(programManagementUserPassword, that.programManagementUserPassword) &&
+                Objects.equals(testSpecBankUrl, that.testSpecBankUrl) &&
+                Objects.equals(testSpecBankUserId, that.testSpecBankUserId) &&
+                Objects.equals(testSpecBankPassword, that.testSpecBankPassword) &&
+                Objects.equals(artUrl, that.artUrl) &&
+                Objects.equals(artUserId, that.artUserId) &&
+                Objects.equals(artPassword, that.artPassword) &&
+                Objects.equals(proctorUrl, that.proctorUrl) &&
+                Objects.equals(proctorUserId, that.proctorUserId) &&
+                Objects.equals(proctorPassword, that.proctorPassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vendorName,
+                tenantName,
+                stateAbbreviation,
+                district,
+                institution,
+                oAuthUrl,
+                programManagementUrl,
+                programManagementClientId,
+                programManagementClientSecret,
+                programManagementUserId,
+                programManagementUserPassword,
+                testSpecBankUrl,
+                testSpecBankUserId,
+                testSpecBankPassword,
+                artUrl,
+                artUserId,
+                artPassword,
+                proctorUrl,
+                proctorUserId,
+                proctorPassword);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("vendorName", vendorName)
+                .append("oAuthUrl", oAuthUrl)
+                .toString();
+    }
 
     public String getVendorName() {
         return vendorName;
@@ -158,5 +223,29 @@ public class AutomationRequest {
 
     public void setArtPassword(String artPassword) {
         this.artPassword = artPassword;
+    }
+
+    public URL getProctorUrl() {
+        return proctorUrl;
+    }
+
+    public void setProctorUrl(URL proctorUrl) {
+        this.proctorUrl = proctorUrl;
+    }
+
+    public String getProctorUserId() {
+        return proctorUserId;
+    }
+
+    public void setProctorUserId(String proctorUserId) {
+        this.proctorUserId = proctorUserId;
+    }
+
+    public String getProctorPassword() {
+        return proctorPassword;
+    }
+
+    public void setProctorPassword(String proctorPassword) {
+        this.proctorPassword = proctorPassword;
     }
 }

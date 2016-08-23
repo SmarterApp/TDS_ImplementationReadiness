@@ -22,7 +22,7 @@
 
 	<properties>
 		<irp.version>2.0.0-SNAPSHOT</irp.version>
-		<spring.version>4.1.1.RELEASE</spring.version>
+		<spring.version>4.3.2.RELEASE</spring.version>
 		<guava.version>18.0</guava.version>
 		<joda.version>2.7</joda.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>

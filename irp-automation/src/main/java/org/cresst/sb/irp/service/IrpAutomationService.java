@@ -2,25 +2,26 @@ package org.cresst.sb.irp.service;
 
 import org.cresst.sb.irp.auto.engine.AutomationEngine;
 import org.cresst.sb.irp.domain.automation.AutomationRequest;
-import org.cresst.sb.irp.domain.automation.AutomationResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class IrpAutomationService implements AutomationService {
 
-    @Autowired
     AutomationEngine automationEngine;
+
+    public IrpAutomationService(AutomationEngine automationEngine) {
+        this.automationEngine = automationEngine;
+    }
 
     /**
      * Using the information about a vendor's implementation, automates the pre-loading and Student simulation phases of
      * IRP.
      *
-     * @param automationRequest
+     * @param automationRequest The information needed to run the automation
      * @return The results of the IRP automation phase.
      */
     @Override
-    public AutomationResponse automate(AutomationRequest automationRequest) throws Exception {
-        return automationEngine.automate(automationRequest);
+    public void automate(AutomationRequest automationRequest) {
+        automationEngine.automate(automationRequest);
     }
 }
