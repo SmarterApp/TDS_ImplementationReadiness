@@ -60,6 +60,7 @@
     </style>
 
     <script src="deps/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="scripts/pollymer-1.1.3.min.js"></script>
 
     <link rel="stylesheet" href="styles/main.css">
 
@@ -140,7 +141,7 @@
                                                 <li><button id="btnAutomatedMode" class="btn">Automated Mode</button> - Select this if you are running the Smarter Balanced Open Source System</li>
                                             </ul>
                                         </div>
-                                        <div>
+                                        <div id="manualModePage">
                                             <ul id="instructions">
                                                 <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
                                                     IRP package</a> and read the Implementation Readiness Package Usage Guide
@@ -177,7 +178,7 @@
                                                 <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
                                             </template>
                                         </div>
-                                        <div>
+                                        <div id="automationModePage">
                                             <p>
                                                 IRP Automation Mode will:
                                                 <ol>
@@ -222,6 +223,13 @@
                                                 <button id="btnBeginAutomation" disabled>Begin</button>
                                                 <button id="btnResetAutomationForm">Reset</button>
                                             </form>
+
+                                            <paper-dialog id="modalAutomationProgress" modal>
+                                                <p id="automationMessages">Starting IRP Automation...</p>
+                                                <div class="buttons">
+                                                    <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
+                                                </div>
+                                            </paper-dialog>
                                         </div>
                                     </iron-pages>
                                 </div>

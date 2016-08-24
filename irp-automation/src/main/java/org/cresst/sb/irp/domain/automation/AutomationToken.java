@@ -9,6 +9,9 @@ public class AutomationToken {
         this.token = automationRequest.hashCode();
     }
 
+    public AutomationToken() {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

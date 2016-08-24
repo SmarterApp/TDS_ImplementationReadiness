@@ -72,6 +72,7 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
     }
 
     @RequestMapping(value = "/automationStatus", method = RequestMethod.POST, produces = "application/json")
+    @ResponseBody
     public DeferredResult<List<AutomationStatus>> status(@RequestBody final AutomationToken automationToken) {
 
         final DeferredResult<List<AutomationStatus>> deferredStatuses = new DeferredResult<>(null, Collections.emptyList());
@@ -85,7 +86,7 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
         });
 
         List<AutomationStatus> latestStatuses = getLatestStatuses(automationToken);
-        if (!latestStatuses.isEmpty()) {
+        if (latestStatuses != null && !latestStatuses.isEmpty()) {
             deferredStatuses.setResult(latestStatuses);
         }
 
@@ -93,8 +94,8 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
     }
 
     @Override
-    public void handleAutomationRequestResult(final AutomationRequest automationRequest,
-                                              final AutomationToken automationToken) {
+    public void handleAutomationRequestResult(AutomationRequest automationRequest,
+                                              AutomationToken automationToken) {
         DeferredResult<AutomationToken> deferredAutomationRequest = automationRequests.get(automationRequest);
         deferredAutomationRequest.setResult(automationToken);
     }
@@ -127,7 +128,7 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
         }
     }
 
-    private List<AutomationStatus> getLatestStatuses(final AutomationToken automationToken) {
+    private List<AutomationStatus> getLatestStatuses(AutomationToken automationToken) {
         return automationStatuses.get(automationToken);
     }
 }

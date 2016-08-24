@@ -124,6 +124,7 @@ class AutomationTask implements Runnable {
             if (onCompletionCallback != null) {
                 onCompletionCallback.run();
             }
+            emitMessage("Done");
         }
 
         logger.info("Automation task for {} is complete.", automationToken);

@@ -27,7 +27,8 @@
     "paper-material": "PolymerElements/paper-material#^1.0.0",
     "page": "visionmedia/page.js#~1.6.4",
     "paper-input": "PolymerElements/paper-input#^1.1.15",
-    "iron-form": "PolymerElements/iron-form#^1.1.1"
+    "iron-form": "PolymerElements/iron-form#^1.1.1",
+    "paper-dialog": "PolymerElements/paper-dialog#^1.1.0"
   },
   "install": {
     "path": "deps",
@@ -45,6 +46,9 @@
       "iron-input": [
         "bower_components/iron-input/iron-input.html"
       ],
+      "iron-fit-behavior": [
+        "bower_components/iron-fit-behavior/iron-fit-behavior.html"
+      ],
       "iron-form": [
         "bower_components/iron-form/iron-form.html"
       ],
@@ -54,6 +58,40 @@
         "bower_components/iron-selector/iron-selection.html",
         "bower_components/iron-selector/iron-selector.html"
       ],
+      "iron-overlay-behavior": [
+        "bower_components/iron-overlay-behavior/iron-overlay-backdrop.html",
+        "bower_components/iron-overlay-behavior/iron-overlay-behavior.html",
+        "bower_components/iron-overlay-behavior/iron-overlay-manager.html"
+      ],
+      "neon-animations": [
+        "bower_components/neon-animations/animations/cascaded-animation.html",
+        "bower_components/neon-animations/animations/fade-in-animation.html",
+        "bower_components/neon-animations/animations/fade-out-animation.html",
+        "bower_components/neon-animations/animations/hero-animation.html",
+        "bower_components/neon-animations/animations/opaque-animation.html",
+        "bower_components/neon-animations/animations/reverse-ripple-animation.html",
+        "bower_components/neon-animations/animations/scale-down-animation.html",
+        "bower_components/neon-animations/animations/scale-up-animation.html",
+        "bower_components/neon-animations/animations/slide-down-animation.html",
+        "bower_components/neon-animations/animations/slide-from-bottom-animation.html",
+        "bower_components/neon-animations/animations/slide-from-left-animation.html",
+        "bower_components/neon-animations/animations/slide-from-right-animation.html",
+        "bower_components/neon-animations/animations/slide-from-top-animation.html",
+        "bower_components/neon-animations/animations/slide-left-animation.html",
+        "bower_components/neon-animations/animations/slide-right-animation.html",
+        "bower_components/neon-animations/animations/slide-up-animation.html",
+        "bower_components/neon-animations/animations/transform-animation.html",
+        "bower_components/neon-animations/neon-animatable.html",
+        "bower_components/neon-animations/neon-animatable-behavior.html",
+        "bower_components/neon-animations/neon-animated-pages.html",
+        "bower_components/neon-animations/neon-animation.html",
+        "bower_components/neon-animations/neon-animation-behavior.html",
+        "bower_components/neon-animations/neon-animation-runner-behavior.html",
+        "bower_components/neon-animations/neon-animations.html",
+        "bower_components/neon-animations/neon-shared-element-animatable.html",
+        "bower_components/neon-animations/neon-shared-element-animation-behavior.html",
+        "bower_components/neon-animations/web-animations.html"
+      ],
       "page": [
         "bower_components/page/page.js"
       ],
@@ -62,6 +100,16 @@
         "bower_components/paper-behaviors/paper-checked-element-behavior.html",
         "bower_components/paper-behaviors/paper-inky-focus-behavior.html",
         "bower_components/paper-behaviors/paper-ripple-behavior.html"
+      ],
+      "paper-dialog": [
+        "bower_components/paper-dialog/hero.svg",
+        "bower_components/paper-dialog/paper-dialog.html"
+      ],
+      "paper-dialog-behavior": [
+        "bower_components/paper-dialog/hero.svg",
+        "bower_components/paper-dialog/paper-dialog-behavior.html",
+        "bower_components/paper-dialog-common.css",
+        "bower_components/paper-dialog-shared-styles.html"
       ],
       "paper-input": [
         "bower_components/paper-input/paper-input.html",

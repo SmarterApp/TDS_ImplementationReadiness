@@ -25,6 +25,8 @@
         // imports are loaded and elements have been registered
 
         var that = app;
+
+        // Manual Mode events
         app.$.btnManualMode.addEventListener('click', function (event) {
             that.$.pageModeSelection.select(1);
         });
@@ -49,15 +51,60 @@
             }
         });
 
+        // Automation Mode events
         app.$.formAutomate.addEventListener('change', function (event) {
             // Validate the entire form to see if we should enable the `Submit` button.
             that.$.btnBeginAutomation.disabled = !that.$.formAutomate.validate();
         });
         app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
             console.log("Presubmit: " + JSON.stringify(event));
+            that.$.modalAutomationProgress.open();
         });
         app.$.formAutomate.addEventListener('iron-form-response', function (event) {
             console.log("Event: " + JSON.stringify(event.detail.response));
+
+            var response = event.detail.response;
+
+            if (response && response.errorMessage) {
+                that.$.automationMessages.innerHTML = response.errorMessage;
+            } else {
+                // Perform Long Polling
+                var automationStatusToken = response;
+                var req = new Pollymer.Request({recurring: false, maxTries: 2});
+
+                var poll = function () {
+                    var headers = {accept: 'application/json', 'content-type': 'application/json'};
+                    var body = JSON.stringify(automationStatusToken);
+                    req.start('POST', '/automationStatus', headers, body);
+                }
+
+                req.on('finished', function (code, result, headers) {
+                    var response = result;
+                    var messages = '<ul>';
+                    var pollAgain = true;
+                    for (var i = 0; i < response.length; i++) {
+                        messages += '<li>' + response[i].message + '</li>';
+                        if (response[i].message == 'Done') {
+                            console.info('Automation done. Ending polling.')
+                            pollAgain = false;
+                        }
+                    }
+                    messages += '</ul>';
+                    that.$.automationMessages.innerHTML = messages;
+
+                    if (pollAgain) {
+                        poll();
+                    }
+                });
+
+                req.on('error', function (reason) {
+                    var message = reason == 'TransportError' ? 'Error connecting to IRP Server'
+                                                             : 'Connection to IRP Server timed out';
+                    that.$.automationMessages.innerHTML += '<p>' + message + '</p>';
+                });
+
+                poll();
+            }
         });
         // app.$.btnBeginAutomation.addEventListener('click', function (event) {
         //     app.$.btnBeginAutomation.disabled = true;
