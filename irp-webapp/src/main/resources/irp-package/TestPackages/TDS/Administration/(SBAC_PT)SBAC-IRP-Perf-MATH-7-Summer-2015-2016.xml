@@ -94,22 +94,7 @@
           <itemscoreparameter measurementparameter="b0" value="7.103800000000000e-001" />
           <itemscoreparameter measurementparameter="b1" value="3.844940000000000e+000" />
         </itemscoredimension>
-      </testitem>
-      <testitem filename="item-187-2062.xml" itemtype="EQ">
-        <identifier uniqueid="187-2062" version="8185" />
-        <bpref>(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016</bpref>
-        <bpref>SBAC_PT-4</bpref>
-        <bpref>SBAC_PT-4|RP</bpref>
-        <bpref>SBAC_PT-4|RP|A</bpref>
-        <passageref>187-3720</passageref>
-        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
-        <poolproperty property="Language" value="ENU" label="English" />
-        <itemscoredimension measurementmodel="IRTGPC" scorepoints="2" weight="1.000000000000000e+000">
-          <itemscoreparameter measurementparameter="a" value="6.924600000000000e-001" />
-          <itemscoreparameter measurementparameter="b0" value="2.449190000000000e+000" />
-          <itemscoreparameter measurementparameter="b1" value="-1.421630000000000e+000" />
-        </itemscoredimension>
-      </testitem>
+      </testitem>      
       <testitem filename="item-187-2063.xml" itemtype="SA">
         <identifier uniqueid="187-2063" version="8185" />
         <bpref>(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016</bpref>
@@ -126,7 +111,7 @@
         </itemscoredimension>
       </testitem>
     </itempool>
-    <testform length="5">
+    <testform length="4">
       <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016:Default-ENU" name="(SBAC_PT)SBAC-IRP-Perf-MATH-7-Summer-2015-2016:Default-ENU" version="8185" />
       <property name="language" value="ENU" label="English" />
       <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="3" />
@@ -139,9 +124,8 @@
           <passageref>187-3720</passageref>
           <groupitem itemid="187-2059" formposition="1" groupposition="1" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
           <groupitem itemid="187-2060" formposition="2" groupposition="2" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-2061" formposition="3" groupposition="3" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-2062" formposition="4" groupposition="4" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-2063" formposition="5" groupposition="5" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
+          <groupitem itemid="187-2061" formposition="3" groupposition="3" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />          
+          <groupitem itemid="187-2063" formposition="4" groupposition="4" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
         </itemgroup>
       </formpartition>
     </testform>

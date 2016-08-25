@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <itemrelease version="2.0">
-  <item format="htq" id="2660" version="3" bankkey="187">
+  <item format="htq" id="2660" version="5" bankkey="187">
     <associatedpassage>3753</associatedpassage>
     <attriblist>
       <attrib attid="itm_item_id">
@@ -20,12 +20,12 @@
       </attrib>
       <attrib attid="itm_FTUse">
         <name>Fieldtest Use</name>
-        <val>PracTest::ELAG3::SP14 (11); PracTest::ELAG3::SP14::Braille (10);</val>
+        <val>PracTest::ELAG3::SP14 (11); PracTest::ELAG3::SP14::Braille (11); PracTest::ELAG3::SP15 (11); PratTest::ELAG3::SP15::BRL (11);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_OPUse">
         <name>Operational Use</name>
-        <val></val>
+        <val>IRP::ELAG3::CAT::SP15 (7); IRP::ELAG3::CAT::SP15::COMBINED (7);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_att_Answer Key">
@@ -58,6 +58,11 @@
         <val>1 pt.</val>
         <desc></desc>
       </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
       <attrib attid="stm_pass_id">
         <name>Stim: ITS ID</name>
         <val>3753</val>
@@ -68,14 +73,24 @@
         <val>NA</val>
         <desc></desc>
       </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices (Part II)">
+        <name>Item:Max Choices (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
     </attriblist>
     <tutorial id="1076" bankkey="187" />
     <resourceslist />
     <statistic />
-    <MachineRubric filename="Item_2660_v3.qrx" />
-    <content language="ENU" version="2.0" approvedVersion="3">
+    <MachineRubric filename="Item_2660_v5.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="5">
       <rationaleoptlist />
-      <stem><![CDATA[<p style="">This question has two parts. First, answer part A. Then, answer part <span id="item_2660_TAG_20_BEGIN">B.</span></p><p style=""><br /><span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2660_TAG_12_BEGIN"><span style="font-style:italic; font-weight:bold; ">A</span></span></p><p style=""><br />Click on the sentence that gives the <span id="item_2660_TAG_21_BEGIN"><span style="font-weight:bold; ">best</span></span><span style="font-weight:bold; "> </span>conclusion about the people who make maple syrup.</p><p style=""><br /><span id="item_2660_TAG_13_BEGIN">A.</span> <span id="item_2660_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1">They must protect trees.</span></span></p><p style=""><br /><span id="item_2660_TAG_17_BEGIN">B.</span> <span id="item_2660_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">They must pay attention to nature.</span></span></p><p style=""><br /><span id="item_2660_TAG_18_BEGIN">C.</span> <span id="item_2660_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">They must work outdoors all of the time.</span></span></p><p style=""><br /><span id="item_2660_TAG_19_BEGIN">D.</span> <span id="item_2660_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">They must like the taste of maple syrup.</span></span></p><p style=""><br /><span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2660_TAG_14_BEGIN"><span style="font-style:italic; font-weight:bold; ">B</span></span></p><p style=""><br />Click on <span id="item_2660_TAG_16_BEGIN"><span style="font-weight:bold; ">two</span></span> sentences from the passage that <span id="item_2660_TAG_23_BEGIN"><span style="font-weight:bold; ">best</span></span> support your answer in part <span id="item_2660_TAG_15_BEGIN">A.</span></p><p style=""><br /><span id="item_2660_TAG_22_BEGIN"><span id="item_2660_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">People who make maple syrup must read the signs of the season to know when to get to work.</span></span> <span id="item_2660_TAG_6_BEGIN"><span class="interaction selectable" data-its-identifier="6" data-its-group="1">In the early spring, when daytime and nighttime temperatures are just right, the trees can be tapped.</span></span> <span id="item_2660_TAG_7_BEGIN"><span class="interaction selectable" data-its-identifier="7" data-its-group="1">First, a small hole is drilled into the tree.</span></span> <span id="item_2660_TAG_8_BEGIN"><span class="interaction selectable" data-its-identifier="8" data-its-group="1">Then the tap—a short tube—is placed into the hole.</span></span> <span id="item_2660_TAG_9_BEGIN"><span class="interaction selectable" data-its-identifier="9" data-its-group="1">Sap drips through the tap into a bucket.</span></span> <span id="item_2660_TAG_10_BEGIN"><span class="interaction selectable" data-its-identifier="10" data-its-group="1">When the bucket is full, the sap is taken to the sugarhouse.</span></span> <span id="item_2660_TAG_11_BEGIN"><span class="interaction selectable" data-its-identifier="11" data-its-group="1">There, the sap is boiled and boiled until it thickens into syrup.</span></span></span></p>]]></stem>
+      <stem><![CDATA[<p style="">This question has two parts. First, answer part A. Then, answer part <span id="item_2660_TAG_20_BEGIN">B.</span></p><p style=""><br /><span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2660_TAG_12_BEGIN"><span style="font-style:italic; font-weight:bold; ">A</span></span></p><p style=""><br />Click on the sentence that gives the <span id="item_2660_TAG_21_BEGIN"><span style="font-weight:bold; ">best</span></span><span style="font-weight:bold; "> </span>conclusion about the people who make maple syrup.</p><p style=""><br /><span id="item_2660_TAG_13_BEGIN">A.</span> <span class="interaction selectable" data-its-identifier="1" data-its-group="1"><span id="item_2660_TAG_1_BEGIN">They must protect trees.</span></span></p><p style=""><br /><span id="item_2660_TAG_17_BEGIN">B.</span> <span class="interaction selectable" data-its-identifier="2" data-its-group="1"><span id="item_2660_TAG_2_BEGIN">They must pay attention to nature.</span></span></p><p style=""><br /><span id="item_2660_TAG_18_BEGIN">C.</span> <span class="interaction selectable" data-its-identifier="3" data-its-group="1"><span id="item_2660_TAG_3_BEGIN">They must work outdoors all of the time.</span></span></p><p style=""><br /><span id="item_2660_TAG_19_BEGIN">D.</span> <span class="interaction selectable" data-its-identifier="4" data-its-group="1"><span id="item_2660_TAG_4_BEGIN">They must like the taste of maple syrup.</span></span></p><p style=""><br /><span style="font-style:italic; font-weight:bold; ">Part </span><span id="item_2660_TAG_14_BEGIN"><span style="font-style:italic; font-weight:bold; ">B</span></span></p><p style=""><br />Click on <span id="item_2660_TAG_16_BEGIN"><span style="font-weight:bold; ">two</span></span> sentences from the passage that <span id="item_2660_TAG_23_BEGIN"><span style="font-weight:bold; ">best</span></span> support your answer in part <span id="item_2660_TAG_15_BEGIN">A.</span></p><p style=""><br /><span class="interaction selectable" data-its-identifier="5" data-its-group="1"><span id="item_2660_TAG_5_BEGIN">People who make maple syrup must read the signs of the season to know when to get to work.</span></span> <span class="interaction selectable" data-its-identifier="6" data-its-group="1"><span id="item_2660_TAG_6_BEGIN">In the early spring, when daytime and nighttime temperatures are just right, the trees can be tapped.</span></span> <span class="interaction selectable" data-its-identifier="7" data-its-group="1"><span id="item_2660_TAG_7_BEGIN">First, a small hole is drilled into the tree.</span></span> <span class="interaction selectable" data-its-identifier="8" data-its-group="1"><span id="item_2660_TAG_8_BEGIN">Then the tap<span id="item_2660_TAG_24_BEGIN">—</span>a short tube<span id="item_2660_TAG_25_BEGIN">—</span>is placed into the hole.</span></span> <span class="interaction selectable" data-its-identifier="9" data-its-group="1"><span id="item_2660_TAG_9_BEGIN">Sap drips through the tap into a bucket.</span></span> <span class="interaction selectable" data-its-identifier="10" data-its-group="1"><span id="item_2660_TAG_10_BEGIN">When the bucket is full, the sap is taken to the sugarhouse.</span></span> <span class="interaction selectable" data-its-identifier="11" data-its-group="1"><span id="item_2660_TAG_11_BEGIN">There, the sap is boiled and boiled until it thickens into syrup.</span></span></p>]]></stem>
       <rubriclist>
         <rubric scorepoint="">
           <name>
@@ -84,7 +99,10 @@
         </rubric>
         <samplelist maxval="" minval="" />
       </rubriclist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2660_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2660_enu_uncontracted.brf" />
+      </attachmentlist>
       <constraints>
         <cardinality target="1" min="0" max="0" />
         <cardinality target="" min="1" max="0" />
@@ -278,20 +296,6 @@
             </relatedElementInfo>
           </accessElement>
           <accessElement identifier="ae16">
-            <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_22_BEGIN" type="Text">
-              <objectLink />
-            </contentLinkInfo>
-            <relatedElementInfo>
-              <readAloud>
-                <textToSpeechPronunciation></textToSpeechPronunciation>
-                <textToSpeechPronunciationAlternate>People who make maple syrup must read the signs of the season to know when to get to work. In the early spring, when daytime and nighttime temperatures are just right, the trees can be tapped. First, a small hole is drilled into the tree. Then the tap—a short tube—is placed into the hole. Sap drips through the tap into a bucket. When the bucket is full, the sap is taken to the sugarhouse. There, the sap is boiled and boiled until it thickens into syrup.</textToSpeechPronunciationAlternate>
-              </readAloud>
-              <brailleText>
-                <brailleTextString>People who make maple syrup must read the signs of the season to know when to get to work. In the early spring, when daytime and nighttime temperatures are just right, the trees can be tapped. First, a small hole is drilled into the tree. Then the tap—a short tube—is placed into the hole. Sap drips through the tap into a bucket. When the bucket is full, the sap is taken to the sugarhouse. There, the sap is boiled and boiled until it thickens into syrup.</brailleTextString>
-              </brailleText>
-            </relatedElementInfo>
-          </accessElement>
-          <accessElement identifier="ae17">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_5_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -299,7 +303,7 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
-          <accessElement identifier="ae18">
+          <accessElement identifier="ae17">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_6_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -307,7 +311,7 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
-          <accessElement identifier="ae19">
+          <accessElement identifier="ae18">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_7_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -315,7 +319,7 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
-          <accessElement identifier="ae20">
+          <accessElement identifier="ae19">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_8_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -323,7 +327,35 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
+          <accessElement identifier="ae20">
+            <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_24_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
           <accessElement identifier="ae21">
+            <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_25_BEGIN" type="Text">
+              <objectLink />
+            </contentLinkInfo>
+            <relatedElementInfo>
+              <readAloud>
+                <textToSpeechPronunciation>,</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>—</textToSpeechPronunciationAlternate>
+              </readAloud>
+              <brailleText>
+                <brailleTextString>—</brailleTextString>
+              </brailleText>
+            </relatedElementInfo>
+          </accessElement>
+          <accessElement identifier="ae22">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_9_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -331,7 +363,7 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
-          <accessElement identifier="ae22">
+          <accessElement identifier="ae23">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_10_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
@@ -339,7 +371,7 @@
               <readAloud />
             </relatedElementInfo>
           </accessElement>
-          <accessElement identifier="ae23">
+          <accessElement identifier="ae24">
             <contentLinkInfo itsLinkIdentifierRef="item_2660_TAG_11_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>

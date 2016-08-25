@@ -140,7 +140,10 @@
           <feedback><![CDATA[<p style="">The student might read the proof of friendship and fail to see that it does not reinforce the competitiveness.</p>]]></feedback>
         </option>
       </optionlist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2622_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2622_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

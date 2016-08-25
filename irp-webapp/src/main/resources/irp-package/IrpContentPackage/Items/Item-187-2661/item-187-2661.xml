@@ -140,7 +140,10 @@
           <feedback><![CDATA[<p style="">CORRECT. This identifies a product made from trees.</p>]]></feedback>
         </option>
       </optionlist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2661_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2661_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

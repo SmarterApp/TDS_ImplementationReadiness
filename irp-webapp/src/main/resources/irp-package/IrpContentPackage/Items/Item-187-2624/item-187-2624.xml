@@ -84,7 +84,10 @@
         </rubric>
         <samplelist maxval="" minval="" />
       </rubriclist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2624_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2624_enu_uncontracted.brf" />
+      </attachmentlist>
       <constraints>
         <cardinality target="1" min="0" max="0" />
         <cardinality target="" min="1" max="0" />

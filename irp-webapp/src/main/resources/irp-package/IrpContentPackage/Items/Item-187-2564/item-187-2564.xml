@@ -84,7 +84,10 @@
         </rubric>
         <samplelist maxval="" minval="" />
       </rubriclist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2564_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2564_enu_uncontracted.brf" />
+      </attachmentlist>
       <constraints />
       <apipAccessibility>
         <accessibilityInfo>

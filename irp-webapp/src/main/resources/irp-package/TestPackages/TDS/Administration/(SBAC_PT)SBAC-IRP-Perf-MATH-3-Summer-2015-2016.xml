@@ -47,37 +47,7 @@
     <itempool>
       <passage filename="stim-187-3700.xml">
         <identifier uniqueid="187-3700" version="8185" />
-      </passage>
-      <testitem filename="item-187-1576.xml" itemtype="EQ">
-        <identifier uniqueid="187-1576" version="8185" />
-        <bpref>(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016</bpref>
-        <bpref>SBAC_PT-2</bpref>
-        <bpref>SBAC_PT-2|MD</bpref>
-        <bpref>SBAC_PT-2|MD|A</bpref>
-        <passageref>187-3700</passageref>
-        <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" />
-        <poolproperty property="Language" value="ENU" label="English" />
-        <itemscoredimension measurementmodel="IRT3PLn" scorepoints="1" weight="1.000000000000000e+000">
-          <itemscoreparameter measurementparameter="a" value="1.426470000000000e+000" />
-          <itemscoreparameter measurementparameter="b" value="-1.896590000000000e+000" />
-          <itemscoreparameter measurementparameter="c" value="0.000000000000000e+000" />
-        </itemscoredimension>
-      </testitem>
-      <testitem filename="item-187-1578.xml" itemtype="GI">
-        <identifier uniqueid="187-1578" version="8185" />
-        <bpref>(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016</bpref>
-        <bpref>SBAC_PT-4</bpref>
-        <bpref>SBAC_PT-4|MD</bpref>
-        <bpref>SBAC_PT-4|MD|A</bpref>
-        <passageref>187-3700</passageref>
-        <poolproperty property="--ITEMTYPE--" value="GI" label="GI" />
-        <poolproperty property="Language" value="ENU" label="English" />
-        <itemscoredimension measurementmodel="IRTGPC" scorepoints="2" weight="1.000000000000000e+000">
-          <itemscoreparameter measurementparameter="a" value="5.880000000000000e-001" />
-          <itemscoreparameter measurementparameter="b0" value="-8.878600000000000e-001" />
-          <itemscoreparameter measurementparameter="b1" value="-1.533600000000000e-001" />
-        </itemscoredimension>
-      </testitem>
+      </passage>      
       <testitem filename="item-187-2788.xml" itemtype="TI">
         <identifier uniqueid="187-2788" version="8185" />
         <bpref>(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016</bpref>
@@ -109,7 +79,7 @@
         </itemscoredimension>
       </testitem>
     </itempool>
-    <testform length="4">
+    <testform length="2">
       <identifier uniqueid="(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016:Default-ENU" name="(SBAC_PT)SBAC-IRP-Perf-MATH-3-Summer-2015-2016:Default-ENU" version="8185" />
       <property name="language" value="ENU" label="English" />
       <poolproperty property="--ITEMTYPE--" value="EQ" label="EQ" itemcount="1" />
@@ -122,9 +92,7 @@
           <identifier uniqueid="187-764:G-187-3700-0" name="187-764:G-187-3700-0" version="8185" />
           <passageref>187-3700</passageref>
           <groupitem itemid="187-2788" formposition="1" groupposition="1" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-1576" formposition="2" groupposition="2" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-2789" formposition="3" groupposition="3" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
-          <groupitem itemid="187-1578" formposition="4" groupposition="4" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />
+          <groupitem itemid="187-2789" formposition="2" groupposition="2" adminrequired="false" responserequired="false" isactive="true" isfieldtest="false" blockid="A" />          
         </itemgroup>
       </formpartition>
     </testform>

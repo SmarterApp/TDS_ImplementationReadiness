@@ -58,6 +58,7 @@
         });
         app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
             console.log("Presubmit: " + JSON.stringify(event));
+            that.$.automationMessages.innerHTML = 'Starting IRP Automation...';
             that.$.modalAutomationProgress.open();
         });
         app.$.formAutomate.addEventListener('iron-form-response', function (event) {

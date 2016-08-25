@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <itemrelease version="2.0">
-  <item format="htq" id="2685" version="6" bankkey="187">
+  <item format="htq" id="2685" version="8" bankkey="187">
     <associatedpassage>3753</associatedpassage>
     <attriblist>
       <attrib attid="itm_item_id">
@@ -20,12 +20,12 @@
       </attrib>
       <attrib attid="itm_FTUse">
         <name>Fieldtest Use</name>
-        <val>PracTest::ELAG3::SP14 (10); PracTest::ELAG3::SP14::Braille (9);</val>
+        <val>PracTest::ELAG3::SP14 (10); PracTest::ELAG3::SP14::Braille (10); PracTest::ELAG3::SP15 (10); PratTest::ELAG3::SP15::BRL (10);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_OPUse">
         <name>Operational Use</name>
-        <val></val>
+        <val>IRP::ELAG3::CAT::SP15 (6); IRP::ELAG3::CAT::SP15::COMBINED (6);</val>
         <desc></desc>
       </attrib>
       <attrib attid="itm_att_Answer Key">
@@ -58,6 +58,11 @@
         <val>1 pt.</val>
         <desc></desc>
       </attrib>
+      <attrib attid="itm_att_Cloze Answers">
+        <name>Item: Cloze Answers</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
       <attrib attid="stm_pass_id">
         <name>Stim: ITS ID</name>
         <val>3753</val>
@@ -68,14 +73,24 @@
         <val>NA</val>
         <desc></desc>
       </attrib>
+      <attrib attid="itm_att_Answer Key (Part II)">
+        <name>Item: Answer Key (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
+      <attrib attid="itm_att_Max Choices (Part II)">
+        <name>Item:Max Choices (Part II)</name>
+        <val></val>
+        <desc></desc>
+      </attrib>
     </attriblist>
     <tutorial id="1076" bankkey="187" />
     <resourceslist />
     <statistic />
-    <MachineRubric filename="Item_2685_v6.qrx" />
-    <content language="ENU" version="2.0" approvedVersion="6">
+    <MachineRubric filename="Item_2685_v8.qrx" />
+    <content language="ENU" version="2.0" approvedVersion="8">
       <rationaleoptlist />
-      <stem><![CDATA[<p style="">The author uses a word that means placed one on top of another. Click on the word in the paragraph that is <span id="item_2685_TAG_9_BEGIN"><span style="font-weight:bold; ">closest</span></span> to that idea.</p><p style=""><br /><span id="item_2685_TAG_8_BEGIN">Papermaking begins in the forest, where trees are <span id="item_2685_TAG_1_BEGIN"><span class="interaction selectable" data-its-identifier="1" data-its-group="1">marked</span></span> to be cut down. Once the trees are cut, the biggest branches are <span id="item_2685_TAG_2_BEGIN"><span class="interaction selectable" data-its-identifier="2" data-its-group="1">removed</span></span>. The logs, as they are now called, are <span id="item_2685_TAG_3_BEGIN"><span class="interaction selectable" data-its-identifier="3" data-its-group="1">stacked</span></span> in huge piles at the edge of the forest. A logging truck takes them to the paper mill. At the mill, the logs go through many steps to be made into paper. After the bark is removed, the wood is <span id="item_2685_TAG_4_BEGIN"><span class="interaction selectable" data-its-identifier="4" data-its-group="1">chipped</span></span>, then cooked with chemicals. This turns the wood into a mushy pulp. Next, the pulp is washed, bleached, and <span id="item_2685_TAG_5_BEGIN"><span class="interaction selectable" data-its-identifier="5" data-its-group="1">drained</span></span>. Then it is <span id="item_2685_TAG_6_BEGIN"><span class="interaction selectable" data-its-identifier="6" data-its-group="1">sprayed</span></span> onto big screens to dry. The finished sheets of paper are put onto giant rolls. Some of these rolls of paper weigh as much as 50,000 pounds! Finally, the paper is lined, cut, or folded for people to use.</span></p>]]></stem>
+      <stem><![CDATA[<p style="">The author uses a word that means placed one on top of another. Click on the word in the paragraph that is <span id="item_2685_TAG_9_BEGIN"><span style="font-weight:bold; ">closest</span></span> to that idea.</p><p style=""><br /><span id="item_2685_TAG_10_BEGIN">Papermaking</span> begins in the forest, where trees are <span class="interaction selectable" data-its-identifier="1" data-its-group="1"><span id="item_2685_TAG_1_BEGIN">marked</span></span> to be cut down. Once the trees are cut, the biggest branches are <span class="interaction selectable" data-its-identifier="2" data-its-group="1"><span id="item_2685_TAG_2_BEGIN">removed</span></span>. The logs, as they are now called, are <span class="interaction selectable" data-its-identifier="3" data-its-group="1"><span id="item_2685_TAG_3_BEGIN">stacked</span></span> in huge piles at the edge of the forest. A logging truck takes them to the paper mill. At the mill, the logs go through many steps to be made into paper. After the bark is removed, the wood is <span class="interaction selectable" data-its-identifier="4" data-its-group="1"><span id="item_2685_TAG_4_BEGIN">chipped</span></span>, then cooked with chemicals. This turns the wood into a mushy pulp. Next, the pulp is washed, bleached, and <span class="interaction selectable" data-its-identifier="5" data-its-group="1"><span id="item_2685_TAG_5_BEGIN">drained</span></span>. Then it is <span class="interaction selectable" data-its-identifier="6" data-its-group="1"><span id="item_2685_TAG_6_BEGIN">sprayed</span></span> onto big screens to dry. The finished sheets of paper are put onto giant rolls. Some of these rolls of paper weigh as much as 50,000 pounds! Finally, the paper is lined, cut, or folded for people to use.</p>]]></stem>
       <rubriclist>
         <rubric scorepoint="">
           <name>
@@ -84,7 +99,10 @@
         </rubric>
         <samplelist maxval="" minval="" />
       </rubriclist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2685_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2685_enu_uncontracted.brf" />
+      </attachmentlist>
       <constraints>
         <cardinality target="1" min="0" max="0" />
         <cardinality target="" min="1" max="0" />
@@ -106,16 +124,16 @@
             </relatedElementInfo>
           </accessElement>
           <accessElement identifier="ae2">
-            <contentLinkInfo itsLinkIdentifierRef="item_2685_TAG_8_BEGIN" type="Text">
+            <contentLinkInfo itsLinkIdentifierRef="item_2685_TAG_10_BEGIN" type="Text">
               <objectLink />
             </contentLinkInfo>
             <relatedElementInfo>
               <readAloud>
-                <textToSpeechPronunciation></textToSpeechPronunciation>
-                <textToSpeechPronunciationAlternate>Papermaking begins in the forest, where trees are marked to be cut down. Once the trees are cut, the biggest branches are removed. The logs, as they are now called, are stacked in huge piles at the edge of the forest. A logging truck takes them to the paper mill. At the mill, the logs go through many steps to be made into paper. After the bark is removed, the wood is chipped, then cooked with chemicals. This turns the wood into a mushy pulp. Next, the pulp is washed, bleached, and drained. Then it is sprayed onto big screens to dry. The finished sheets of paper are put onto giant rolls. Some of these rolls of paper weigh as much as 50,000 pounds! Finally, the paper is lined, cut, or folded for people to use.</textToSpeechPronunciationAlternate>
+                <textToSpeechPronunciation>Paper making</textToSpeechPronunciation>
+                <textToSpeechPronunciationAlternate>Papermaking</textToSpeechPronunciationAlternate>
               </readAloud>
               <brailleText>
-                <brailleTextString>Papermaking begins in the forest, where trees are marked to be cut down. Once the trees are cut, the biggest branches are removed. The logs, as they are now called, are stacked in huge piles at the edge of the forest. A logging truck takes them to the paper mill. At the mill, the logs go through many steps to be made into paper. After the bark is removed, the wood is chipped, then cooked with chemicals. This turns the wood into a mushy pulp. Next, the pulp is washed, bleached, and drained. Then it is sprayed onto big screens to dry. The finished sheets of paper are put onto giant rolls. Some of these rolls of paper weigh as much as 50,000 pounds! Finally, the paper is lined, cut, or folded for people to use.</brailleTextString>
+                <brailleTextString>Papermaking</brailleTextString>
               </brailleText>
             </relatedElementInfo>
           </accessElement>

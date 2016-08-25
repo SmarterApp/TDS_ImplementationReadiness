@@ -407,21 +407,7 @@
           <itemscoreparameter measurementparameter="b0" value="1.000000000000000e-015" />
           <itemscoreparameter measurementparameter="b1" value="1.000000000000000e-015" />
         </itemscoredimension>
-      </testitem>
-      <testitem filename="item-187-856.xml" itemtype="HT">
-        <identifier uniqueid="187-856" version="8185" />
-        <bpref>(SBAC_PT)SBAC-IRP-CAT-ELA-7-Summer-2015-2016</bpref>
-        <bpref>G7_DOK2</bpref>
-        <bpref>SBAC_PT-2-W</bpref>
-        <bpref>SBAC_PT-2-W|8-7</bpref>
-        <poolproperty property="--ITEMTYPE--" value="HT" label="HT" />
-        <poolproperty property="Language" value="ENU" label="English" />
-        <itemscoredimension measurementmodel="IRT3PLn" scorepoints="1" weight="1.000000000000000e+000">
-          <itemscoreparameter measurementparameter="a" value="7.996000000000000e-001" />
-          <itemscoreparameter measurementparameter="b" value="1.239380000000000e+000" />
-          <itemscoreparameter measurementparameter="c" value="0.000000000000000e+000" />
-        </itemscoredimension>
-      </testitem>
+      </testitem>      
     </itempool>
     <adminsegment segmentid="(SBAC_PT)SBAC-IRP-CAT-ELA-7-Summer-2015-2016" position="1" itemselection="adaptive2">
       <segmentblueprint>

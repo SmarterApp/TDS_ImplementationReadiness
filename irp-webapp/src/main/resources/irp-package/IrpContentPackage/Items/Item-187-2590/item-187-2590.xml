@@ -122,7 +122,10 @@
           <feedback><![CDATA[<p style="">CORRECT. The student understands that it is not proximity, but similar ethics that bond the boys.</p>]]></feedback>
         </option>
       </optionlist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2590_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2590_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

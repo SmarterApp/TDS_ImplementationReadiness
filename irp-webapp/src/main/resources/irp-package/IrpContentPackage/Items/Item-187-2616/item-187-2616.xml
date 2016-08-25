@@ -70,7 +70,10 @@
     <MachineRubric filename="Item_2616_v2.qrx" />
     <content language="ENU" version="2.0" approvedVersion="2">
       <qti spec="itemBody"><![CDATA[<itemBody><p style=""><p style="">This question has two parts. First, answer part A. Then, answer part B.</p></p><choiceInteraction responseIdentifier="EBSR1" shuffle="false" maxChoice="1"><prompt><p style="">Which of these inferences about the author's point of view is <span id="item_2616_TAG_1_BEGIN"><span style="font-weight:bold; ">best</span></span> supported by the text?</p></prompt><simpleChoice identifier="A"><p style="">The author believes that all living things are connected.</p></simpleChoice><simpleChoice identifier="B"><p style="">The author believes that wolves are weaker animals than moose.</p></simpleChoice><simpleChoice identifier="C"><p style="">The author believes that all of the animals on the island will eventually disappear.<br /></p></simpleChoice><simpleChoice identifier="D"><p style="">The author believes that the moose population will cause the extinction of the balsam fir.<br /></p></simpleChoice></choiceInteraction><choiceInteraction responseIdentifier="EBSR2" shuffle="false" maxChoice="0"><prompt><p style="">Which sentence from the text supports your answer in part A?</p></prompt><simpleChoice identifier="A"><p style="">"Scientists have been studying this isolated food chain for 50 years to understand how changes in one link can cause changes in another."</p></simpleChoice><simpleChoice identifier="B"><p style="">"As more moose are born on the island, they eat more balsam fir."<br /></p></simpleChoice><simpleChoice identifier="C"><p style="">"Ten times the size of a wolf, a moose has long, strong legs and a dangerous kick."</p></simpleChoice><simpleChoice identifier="D"><p style="">"However, when the moose population decreases, wolves starve."</p></simpleChoice></choiceInteraction></itemBody>]]></qti>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2616_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2616_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

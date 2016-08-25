@@ -131,7 +131,10 @@
           <feedback><![CDATA[<p style="">CORRECT. The student recognizes that the writer uses elephants, owls, and others to make it clear for the reader how the food chain will operate in the following sections.</p>]]></feedback>
         </option>
       </optionlist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2627_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2627_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

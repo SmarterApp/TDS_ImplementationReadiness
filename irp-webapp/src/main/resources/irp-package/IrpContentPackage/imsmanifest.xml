@@ -166,29 +166,7 @@
     </resource>
     <resource identifier="item_1080_v10_tutorial_mi_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
       <file href="Items/Item-187-1080/item_1080_v10_tutorial_mi_spa.html" />
-    </resource>
-    <resource identifier="item-187-1431" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1431/item-187-1431.xml" />
-      <dependency identifierref="Item_1431_v23_eax" />
-      <dependency identifierref="Item_1431_v23_qrx" />
-      <dependency identifierref="item_1431_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-1644" />
-      <dependency identifierref="stim-187-3688" />
-      <dependency identifierref="item-187-1431_metadata" />
-    </resource>
-    <resource identifier="item-187-1431_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1431/metadata.xml" />
-    </resource>
-    <resource identifier="item_1431_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1431/item_1431_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_1431_v23_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1431/Item_1431_v23.qrx" />
-    </resource>
-    <resource identifier="Item_1431_v23_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1431/Item_1431_v23.eax" />
-    </resource>
+    </resource>    
     <resource identifier="item-187-1432" type="imsqti_apipitem_xmlv2p2">
       <file href="Items/Item-187-1432/item-187-1432.xml" />
       <dependency identifierref="item_1432_ASL_STEM_MP4" />
@@ -236,299 +214,7 @@
     </resource>
     <resource identifier="Item_1434_v45_gax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
       <file href="Items/Item-187-1434/Item_1434_v45.gax" />
-    </resource>
-    <resource identifier="item-187-1435" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1435/item-187-1435.xml" />
-      <dependency identifierref="Item_1435_v41_gax" />
-      <dependency identifierref="Item_1435_v41_qrx" />
-      <dependency identifierref="item_1435_v41_Background_png16malpha_png" />
-      <dependency identifierref="item_1435_v41_graphics1_png256_png" />
-      <dependency identifierref="item_1435_ASL_STEM_MP4" />
-      <dependency identifierref="Item_1435_v41_Background_png16malpha_ESN_png" />
-      <dependency identifierref="item-187-1075" />
-      <dependency identifierref="item-187-1642" />
-      <dependency identifierref="stim-187-3688" />
-      <dependency identifierref="item-187-1435_metadata" />
-    </resource>
-    <resource identifier="item-187-1435_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1435/metadata.xml" />
-    </resource>
-    <resource identifier="Item_1435_v41_Background_png16malpha_ESN_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/Item_1435_v41_Background_png16malpha_ESN.png" />
-    </resource>
-    <resource identifier="item_1435_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/item_1435_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="item_1435_v41_graphics1_png256_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/item_1435_v41_graphics1_png256.png" />
-    </resource>
-    <resource identifier="item_1435_v41_Background_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/item_1435_v41_Background_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1435_v41_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/Item_1435_v41.qrx" />
-    </resource>
-    <resource identifier="Item_1435_v41_gax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1435/Item_1435_v41.gax" />
-    </resource>
-    <resource identifier="item-187-1436" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1436/item-187-1436.xml" />
-      <dependency identifierref="Item_1436_v22_eax" />
-      <dependency identifierref="Item_1436_v22_qrx" />
-      <dependency identifierref="item_1436_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-1640" />
-      <dependency identifierref="stim-187-3688" />
-      <dependency identifierref="item-187-1436_metadata" />
-    </resource>
-    <resource identifier="item-187-1436_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1436/metadata.xml" />
-    </resource>
-    <resource identifier="item_1436_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1436/item_1436_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_1436_v22_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1436/Item_1436_v22.qrx" />
-    </resource>
-    <resource identifier="Item_1436_v22_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1436/Item_1436_v22.eax" />
-    </resource>
-    <resource identifier="item-187-1437" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1437/item-187-1437.xml" />
-      <dependency identifierref="Item_1437_v19_eax" />
-      <dependency identifierref="Item_1437_v19_qrx" />
-      <dependency identifierref="item_1437_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-1641" />
-      <dependency identifierref="stim-187-3688" />
-      <dependency identifierref="item-187-1437_metadata" />
-    </resource>
-    <resource identifier="item-187-1437_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1437/metadata.xml" />
-    </resource>
-    <resource identifier="item_1437_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1437/item_1437_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_1437_v19_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1437/Item_1437_v19.qrx" />
-    </resource>
-    <resource identifier="Item_1437_v19_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1437/Item_1437_v19.eax" />
-    </resource>
-    <resource identifier="item-187-1444" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1444/item-187-1444.xml" />
-      <dependency identifierref="Item_1444_v23_eax" />
-      <dependency identifierref="Item_1444_v23_nlx" />
-      <dependency identifierref="Item_1444_v23_qrx" />
-      <dependency identifierref="item_1444_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-1643" />
-      <dependency identifierref="stim-187-3688" />
-      <dependency identifierref="item-187-1444_metadata" />
-    </resource>
-    <resource identifier="item-187-1444_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1444/metadata.xml" />
-    </resource>
-    <resource identifier="item_1444_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1444/item_1444_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_1444_v23_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1444/Item_1444_v23.qrx" />
-    </resource>
-    <resource identifier="Item_1444_v23_nlx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1444/Item_1444_v23.nlx" />
-    </resource>
-    <resource identifier="Item_1444_v23_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1444/Item_1444_v23.eax" />
-    </resource>
-    <resource identifier="item-187-1576" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1576/item-187-1576.xml" />
-      <dependency identifierref="Item_1576_v5_eax" />
-      <dependency identifierref="Item_1576_v5_qrx" />
-      <dependency identifierref="item_1576_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-1615" />
-      <dependency identifierref="stim-187-3700" />
-      <dependency identifierref="item-187-1576_metadata" />
-    </resource>
-    <resource identifier="item-187-1576_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1576/metadata.xml" />
-    </resource>
-    <resource identifier="item_1576_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1576/item_1576_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_1576_v5_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1576/Item_1576_v5.qrx" />
-    </resource>
-    <resource identifier="Item_1576_v5_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1576/Item_1576_v5.eax" />
-    </resource>
-    <resource identifier="item-187-1578" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-1578/item-187-1578.xml" />
-      <dependency identifierref="Item_1578_v17_1half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_1_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_2half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_2_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_3half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_3_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_4half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_4_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_5half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_5_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_6half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_6_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_7half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_7_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_8_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_background_png16malpha_png" />
-      <dependency identifierref="Item_1578_v17_background_png16malpha_ESN_png" />
-      <dependency identifierref="Item_1578_v17_half_png16malpha_png" />
-      <dependency identifierref="Item_1578_v18_gax" />
-      <dependency identifierref="Item_1578_v18_qrx" />
-      <dependency identifierref="item_1578_v18_background_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_1_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_1half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_2_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_2half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_3_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_3half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_4_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_4half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_5_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_5half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_6_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_6half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_7_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_7half_png16malpha_png" />
-      <dependency identifierref="item_1578_v18_8_png16malpha_png" />
-      <dependency identifierref="item_1578_ASL_STEM_MP4" />
-      <dependency identifierref="Item_1578_v18_background_png16malpha_ESN_png" />
-      <dependency identifierref="item-187-1075" />
-      <dependency identifierref="item-187-1617" />
-      <dependency identifierref="stim-187-3700" />
-      <dependency identifierref="item-187-1578_metadata" />
-    </resource>
-    <resource identifier="item-187-1578_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-1578/metadata.xml" />
-    </resource>
-    <resource identifier="Item_1578_v18_background_png16malpha_ESN_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v18_background_png16malpha_ESN.png" />
-    </resource>
-    <resource identifier="item_1578_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="item_1578_v18_8_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_8_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_7half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_7half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_7_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_7_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_6half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_6half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_6_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_6_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_5half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_5half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_5_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_5_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_4half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_4half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_4_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_4_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_3half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_3half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_3_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_3_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_2half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_2half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_2_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_1half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_1half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_1_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_half_png16malpha.png" />
-    </resource>
-    <resource identifier="item_1578_v18_background_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/item_1578_v18_background_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v18_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v18.qrx" />
-    </resource>
-    <resource identifier="Item_1578_v18_gax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v18.gax" />
-    </resource>
-    <resource identifier="Item_1578_v17_half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_background_png16malpha_ESN_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_background_png16malpha_ESN.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_background_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_background_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_8_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_8_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_7_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_7_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_7half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_7half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_6_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_6_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_6half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_6half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_5_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_5_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_5half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_5half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_4_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_4_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_4half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_4half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_3_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_3_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_3half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_3half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_2_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_2_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_2half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_2half_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_1_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_1_png16malpha.png" />
-    </resource>
-    <resource identifier="Item_1578_v17_1half_png16malpha_png" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-1578/Item_1578_v17_1half_png16malpha.png" />
-    </resource>
+    </resource>                        
     <resource identifier="item-187-1614" type="imsqti_apipitem_xmlv2p2">
       <file href="Items/Item-187-1614/item-187-1614.xml" />
       <dependency identifierref="item_1614_v12_1614_01spanish_glossary_ogg_m4a_m4a" />
@@ -12399,29 +12085,7 @@
     </resource>
     <resource identifier="item_2061_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
       <file href="Items/Item-187-2061/item_2061_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="item-187-2062" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-2062/item-187-2062.xml" />
-      <dependency identifierref="Item_2062_v11_eax" />
-      <dependency identifierref="Item_2062_v11_qrx" />
-      <dependency identifierref="item_2062_ASL_STEM_MP4" />
-      <dependency identifierref="item-187-1074" />
-      <dependency identifierref="item-187-2440" />
-      <dependency identifierref="stim-187-3720" />
-      <dependency identifierref="item-187-2062_metadata" />
-    </resource>
-    <resource identifier="item-187-2062_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-2062/metadata.xml" />
-    </resource>
-    <resource identifier="item_2062_ASL_STEM_MP4" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-2062/item_2062_ASL_STEM.MP4" />
-    </resource>
-    <resource identifier="Item_2062_v11_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-2062/Item_2062_v11.qrx" />
-    </resource>
-    <resource identifier="Item_2062_v11_eax" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-2062/Item_2062_v11.eax" />
-    </resource>
+    </resource>    
     <resource identifier="item-187-2063" type="imsqti_apipitem_xmlv2p2">
       <file href="Items/Item-187-2063/item-187-2063.xml" />
       <dependency identifierref="item_2063_ASL_STEM_MP4" />
@@ -43321,19 +42985,7 @@
     </resource>
     <resource identifier="Item_2789_v11_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
       <file href="Items/Item-187-2789/Item_2789_v11.qrx" />
-    </resource>
-    <resource identifier="item-187-856" type="imsqti_apipitem_xmlv2p2">
-      <file href="Items/Item-187-856/item-187-856.xml" />
-      <dependency identifierref="Item_856_v10_qrx" />
-      <dependency identifierref="item-187-1076" />
-      <dependency identifierref="item-187-856_metadata" />
-    </resource>
-    <resource identifier="item-187-856_metadata" type="resourcemetadata/apipv1p0">
-      <file href="Items/Item-187-856/metadata.xml" />
-    </resource>
-    <resource identifier="Item_856_v10_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
-      <file href="Items/Item-187-856/Item_856_v10.qrx" />
-    </resource>
+    </resource>    
     <resource identifier="stim-187-3688" type="imsqti_apipstimulus_xmlv2p2">
       <file href="Stimuli/stim-187-3688/stim-187-3688.xml" />
       <dependency identifierref="passage_3688_ASL_STEM_MP4" />
@@ -43593,6 +43245,540 @@
     </resource>
     <resource identifier="stim-187-3760_metadata" type="resourcemetadata/apipv1p0">
       <file href="Stimuli/stim-187-3760/metadata.xml" />
+    </resource>
+    <resource identifier="item-187-1072" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-1072/item-187-1072.xml" />
+      <dependency identifierref="item_1072_v17_tutorial_mc_spa_html" />
+      <dependency identifierref="item_1072_v17_tutorial_mc_spa_swf" />
+      <dependency identifierref="item_1072_v17_tutorial_html" />
+      <dependency identifierref="item_1072_v17_tutorial_swf" />
+      <dependency identifierref="item-187-1072_metadata" />
+    </resource>
+    <resource identifier="item-187-1072_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-1072/metadata.xml" />
+    </resource>
+    <resource identifier="item_1072_v17_tutorial_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1072/item_1072_v17_tutorial.swf" />
+    </resource>
+    <resource identifier="item_1072_v17_tutorial_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1072/item_1072_v17_tutorial.html" />
+    </resource>
+    <resource identifier="item_1072_v17_tutorial_mc_spa_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1072/item_1072_v17_tutorial_mc_spa.swf" />
+    </resource>
+    <resource identifier="item_1072_v17_tutorial_mc_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1072/item_1072_v17_tutorial_mc_spa.html" />
+    </resource>
+    <resource identifier="item-187-1073" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-1073/item-187-1073.xml" />
+      <dependency identifierref="item_1073_v11_tutorial_ms_spa_html" />
+      <dependency identifierref="item_1073_v11_tutorial_ms_spa_swf" />
+      <dependency identifierref="item_1073_v11_tutorial_ms_html" />
+      <dependency identifierref="item_1073_v11_tutorial_ms_swf" />
+      <dependency identifierref="item-187-1073_metadata" />
+    </resource>
+    <resource identifier="item-187-1073_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-1073/metadata.xml" />
+    </resource>
+    <resource identifier="item_1073_v11_tutorial_ms_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1073/item_1073_v11_tutorial_ms.swf" />
+    </resource>
+    <resource identifier="item_1073_v11_tutorial_ms_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1073/item_1073_v11_tutorial_ms.html" />
+    </resource>
+    <resource identifier="item_1073_v11_tutorial_ms_spa_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1073/item_1073_v11_tutorial_ms_spa.swf" />
+    </resource>
+    <resource identifier="item_1073_v11_tutorial_ms_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1073/item_1073_v11_tutorial_ms_spa.html" />
+    </resource>
+    <resource identifier="item-187-1076" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-1076/item-187-1076.xml" />
+      <dependency identifierref="item_1076_v11_tutorial_ht_spa_html" />
+      <dependency identifierref="item_1076_v11_tutorial_ht_spa_swf" />
+      <dependency identifierref="item_1076_v11_tutorial_ht_html" />
+      <dependency identifierref="item_1076_v11_tutorial_ht_swf" />
+      <dependency identifierref="item-187-1076_metadata" />
+    </resource>
+    <resource identifier="item-187-1076_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-1076/metadata.xml" />
+    </resource>
+    <resource identifier="item_1076_v11_tutorial_ht_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1076/item_1076_v11_tutorial_ht.swf" />
+    </resource>
+    <resource identifier="item_1076_v11_tutorial_ht_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1076/item_1076_v11_tutorial_ht.html" />
+    </resource>
+    <resource identifier="item_1076_v11_tutorial_ht_spa_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1076/item_1076_v11_tutorial_ht_spa.swf" />
+    </resource>
+    <resource identifier="item_1076_v11_tutorial_ht_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1076/item_1076_v11_tutorial_ht_spa.html" />
+    </resource>
+    <resource identifier="item-187-1078" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-1078/item-187-1078.xml" />
+      <dependency identifierref="item_1078_v10_tutorial_sr_spa_html" />
+      <dependency identifierref="item_1078_v10_tutorial_sr_spa_swf" />
+      <dependency identifierref="item_1078_v10_tutorial_sr_html" />
+      <dependency identifierref="item_1078_v10_tutorial_sr_swf" />
+      <dependency identifierref="item-187-1078_metadata" />
+    </resource>
+    <resource identifier="item-187-1078_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-1078/metadata.xml" />
+    </resource>
+    <resource identifier="item_1078_v10_tutorial_sr_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1078/item_1078_v10_tutorial_sr.swf" />
+    </resource>
+    <resource identifier="item_1078_v10_tutorial_sr_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1078/item_1078_v10_tutorial_sr.html" />
+    </resource>
+    <resource identifier="item_1078_v10_tutorial_sr_spa_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1078/item_1078_v10_tutorial_sr_spa.swf" />
+    </resource>
+    <resource identifier="item_1078_v10_tutorial_sr_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1078/item_1078_v10_tutorial_sr_spa.html" />
+    </resource>
+    <resource identifier="item-187-1769" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-1769/item-187-1769.xml" />
+      <dependency identifierref="item_1769_v4_tutorial_ebsr_spa_html" />
+      <dependency identifierref="item_1769_v4_tutorial_ebsr_spa_swf" />
+      <dependency identifierref="item_1769_v4_tutorial_ebsr_html" />
+      <dependency identifierref="item_1769_v4_tutorial_ebsr_swf" />
+      <dependency identifierref="item-187-1769_metadata" />
+    </resource>
+    <resource identifier="item-187-1769_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-1769/metadata.xml" />
+    </resource>
+    <resource identifier="item_1769_v4_tutorial_ebsr_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1769/item_1769_v4_tutorial_ebsr.swf" />
+    </resource>
+    <resource identifier="item_1769_v4_tutorial_ebsr_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1769/item_1769_v4_tutorial_ebsr.html" />
+    </resource>
+    <resource identifier="item_1769_v4_tutorial_ebsr_spa_swf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1769/item_1769_v4_tutorial_ebsr_spa.swf" />
+    </resource>
+    <resource identifier="item_1769_v4_tutorial_ebsr_spa_html" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-1769/item_1769_v4_tutorial_ebsr_spa.html" />
+    </resource>
+    <resource identifier="item-187-2493" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2493/item-187-2493.xml" />
+      <dependency identifierref="Item_2493_v3_qrx" />
+      <dependency identifierref="item_2493_enu_contracted_brf" />
+      <dependency identifierref="item_2493_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1769" />
+      <dependency identifierref="stim-187-3739" />
+      <dependency identifierref="item-187-2493_metadata" />
+    </resource>
+    <resource identifier="item-187-2493_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2493/metadata.xml" />
+    </resource>
+    <resource identifier="item_2493_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2493/item_2493_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2493_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2493/item_2493_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2493_v3_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2493/Item_2493_v3.qrx" />
+    </resource>
+    <resource identifier="item-187-2500" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2500/item-187-2500.xml" />
+      <dependency identifierref="item_2500_enu_contracted_brf" />
+      <dependency identifierref="item_2500_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1072" />
+      <dependency identifierref="stim-187-3739" />
+      <dependency identifierref="item-187-2500_metadata" />
+    </resource>
+    <resource identifier="item-187-2500_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2500/metadata.xml" />
+    </resource>
+    <resource identifier="item_2500_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2500/item_2500_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2500_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2500/item_2500_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2526" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2526/item-187-2526.xml" />
+      <dependency identifierref="item_2526_enu_contracted_brf" />
+      <dependency identifierref="item_2526_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1073" />
+      <dependency identifierref="stim-187-3739" />
+      <dependency identifierref="item-187-2526_metadata" />
+    </resource>
+    <resource identifier="item-187-2526_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2526/metadata.xml" />
+    </resource>
+    <resource identifier="item_2526_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2526/item_2526_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2526_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2526/item_2526_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2564" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2564/item-187-2564.xml" />
+      <dependency identifierref="Item_2564_v1_qrx" />
+      <dependency identifierref="item_2564_enu_contracted_brf" />
+      <dependency identifierref="item_2564_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3739" />
+      <dependency identifierref="item-187-2564_metadata" />
+    </resource>
+    <resource identifier="item-187-2564_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2564/metadata.xml" />
+    </resource>
+    <resource identifier="item_2564_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2564/item_2564_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2564_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2564/item_2564_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2564_v1_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2564/Item_2564_v1.qrx" />
+    </resource>
+    <resource identifier="item-187-2590" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2590/item-187-2590.xml" />
+      <dependency identifierref="item_2590_enu_contracted_brf" />
+      <dependency identifierref="item_2590_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1072" />
+      <dependency identifierref="stim-187-3746" />
+      <dependency identifierref="item-187-2590_metadata" />
+    </resource>
+    <resource identifier="item-187-2590_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2590/metadata.xml" />
+    </resource>
+    <resource identifier="item_2590_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2590/item_2590_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2590_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2590/item_2590_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2591" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2591/item-187-2591.xml" />
+      <dependency identifierref="Item_2591_v7_qrx" />
+      <dependency identifierref="item_2591_enu_contracted_brf" />
+      <dependency identifierref="item_2591_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3746" />
+      <dependency identifierref="item-187-2591_metadata" />
+    </resource>
+    <resource identifier="item-187-2591_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2591/metadata.xml" />
+    </resource>
+    <resource identifier="item_2591_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2591/item_2591_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2591_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2591/item_2591_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2591_v7_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2591/Item_2591_v7.qrx" />
+    </resource>
+    <resource identifier="item-187-2610" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2610/item-187-2610.xml" />
+      <dependency identifierref="item_2610_enu_contracted_brf" />
+      <dependency identifierref="item_2610_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1072" />
+      <dependency identifierref="stim-187-3748" />
+      <dependency identifierref="item-187-2610_metadata" />
+    </resource>
+    <resource identifier="item-187-2610_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2610/metadata.xml" />
+    </resource>
+    <resource identifier="item_2610_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2610/item_2610_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2610_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2610/item_2610_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2615" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2615/item-187-2615.xml" />
+      <dependency identifierref="item_2615_enu_contracted_brf" />
+      <dependency identifierref="item_2615_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1078" />
+      <dependency identifierref="stim-187-3748" />
+      <dependency identifierref="item-187-2615_metadata" />
+    </resource>
+    <resource identifier="item-187-2615_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2615/metadata.xml" />
+    </resource>
+    <resource identifier="item_2615_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2615/item_2615_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2615_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2615/item_2615_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2616" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2616/item-187-2616.xml" />
+      <dependency identifierref="Item_2616_v2_qrx" />
+      <dependency identifierref="item_2616_enu_contracted_brf" />
+      <dependency identifierref="item_2616_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1769" />
+      <dependency identifierref="stim-187-3748" />
+      <dependency identifierref="item-187-2616_metadata" />
+    </resource>
+    <resource identifier="item-187-2616_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2616/metadata.xml" />
+    </resource>
+    <resource identifier="item_2616_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2616/item_2616_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2616_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2616/item_2616_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2616_v2_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2616/Item_2616_v2.qrx" />
+    </resource>
+    <resource identifier="item-187-2622" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2622/item-187-2622.xml" />
+      <dependency identifierref="item_2622_enu_contracted_brf" />
+      <dependency identifierref="item_2622_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1073" />
+      <dependency identifierref="stim-187-3746" />
+      <dependency identifierref="item-187-2622_metadata" />
+    </resource>
+    <resource identifier="item-187-2622_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2622/metadata.xml" />
+    </resource>
+    <resource identifier="item_2622_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2622/item_2622_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2622_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2622/item_2622_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2624" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2624/item-187-2624.xml" />
+      <dependency identifierref="Item_2624_v3_qrx" />
+      <dependency identifierref="item_2624_enu_contracted_brf" />
+      <dependency identifierref="item_2624_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3748" />
+      <dependency identifierref="item-187-2624_metadata" />
+    </resource>
+    <resource identifier="item-187-2624_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2624/metadata.xml" />
+    </resource>
+    <resource identifier="item_2624_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2624/item_2624_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2624_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2624/item_2624_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2624_v3_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2624/Item_2624_v3.qrx" />
+    </resource>
+    <resource identifier="item-187-2626" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2626/item-187-2626.xml" />
+      <dependency identifierref="Item_2626_v6_qrx" />
+      <dependency identifierref="item_2626_enu_contracted_brf" />
+      <dependency identifierref="item_2626_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3746" />
+      <dependency identifierref="item-187-2626_metadata" />
+    </resource>
+    <resource identifier="item-187-2626_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2626/metadata.xml" />
+    </resource>
+    <resource identifier="item_2626_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2626/item_2626_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2626_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2626/item_2626_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2626_v6_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2626/Item_2626_v6.qrx" />
+    </resource>
+    <resource identifier="item-187-2627" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2627/item-187-2627.xml" />
+      <dependency identifierref="item_2627_enu_contracted_brf" />
+      <dependency identifierref="item_2627_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1073" />
+      <dependency identifierref="stim-187-3748" />
+      <dependency identifierref="item-187-2627_metadata" />
+    </resource>
+    <resource identifier="item-187-2627_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2627/metadata.xml" />
+    </resource>
+    <resource identifier="item_2627_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2627/item_2627_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2627_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2627/item_2627_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2630" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2630/item-187-2630.xml" />
+      <dependency identifierref="item_2630_enu_contracted_brf" />
+      <dependency identifierref="item_2630_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1078" />
+      <dependency identifierref="stim-187-3746" />
+      <dependency identifierref="item-187-2630_metadata" />
+    </resource>
+    <resource identifier="item-187-2630_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2630/metadata.xml" />
+    </resource>
+    <resource identifier="item_2630_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2630/item_2630_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2630_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2630/item_2630_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2659" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2659/item-187-2659.xml" />
+      <dependency identifierref="item_2659_enu_contracted_brf" />
+      <dependency identifierref="item_2659_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1072" />
+      <dependency identifierref="stim-187-3753" />
+      <dependency identifierref="item-187-2659_metadata" />
+    </resource>
+    <resource identifier="item-187-2659_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2659/metadata.xml" />
+    </resource>
+    <resource identifier="item_2659_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2659/item_2659_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2659_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2659/item_2659_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2660" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2660/item-187-2660.xml" />
+      <dependency identifierref="Item_2660_v5_qrx" />
+      <dependency identifierref="item_2660_enu_contracted_brf" />
+      <dependency identifierref="item_2660_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3753" />
+      <dependency identifierref="item-187-2660_metadata" />
+    </resource>
+    <resource identifier="item-187-2660_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2660/metadata.xml" />
+    </resource>
+    <resource identifier="item_2660_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2660/item_2660_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2660_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2660/item_2660_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2660_v5_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2660/Item_2660_v5.qrx" />
+    </resource>
+    <resource identifier="item-187-2661" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2661/item-187-2661.xml" />
+      <dependency identifierref="item_2661_enu_contracted_brf" />
+      <dependency identifierref="item_2661_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1073" />
+      <dependency identifierref="stim-187-3753" />
+      <dependency identifierref="item-187-2661_metadata" />
+    </resource>
+    <resource identifier="item-187-2661_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2661/metadata.xml" />
+    </resource>
+    <resource identifier="item_2661_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2661/item_2661_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2661_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2661/item_2661_enu_contracted.brf" />
+    </resource>
+    <resource identifier="item-187-2684" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2684/item-187-2684.xml" />
+      <dependency identifierref="Item_2684_v10_qrx" />
+      <dependency identifierref="item_2684_enu_contracted_brf" />
+      <dependency identifierref="item_2684_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1769" />
+      <dependency identifierref="stim-187-3753" />
+      <dependency identifierref="item-187-2684_metadata" />
+    </resource>
+    <resource identifier="item-187-2684_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2684/metadata.xml" />
+    </resource>
+    <resource identifier="item_2684_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2684/item_2684_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2684_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2684/item_2684_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2684_v10_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2684/Item_2684_v10.qrx" />
+    </resource>
+    <resource identifier="item-187-2685" type="imsqti_apipitem_xmlv2p2">
+      <file href="Items/Item-187-2685/item-187-2685.xml" />
+      <dependency identifierref="Item_2685_v8_qrx" />
+      <dependency identifierref="item_2685_enu_contracted_brf" />
+      <dependency identifierref="item_2685_enu_uncontracted_brf" />
+      <dependency identifierref="item-187-1076" />
+      <dependency identifierref="stim-187-3753" />
+      <dependency identifierref="item-187-2685_metadata" />
+    </resource>
+    <resource identifier="item-187-2685_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Items/Item-187-2685/metadata.xml" />
+    </resource>
+    <resource identifier="item_2685_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2685/item_2685_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="item_2685_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2685/item_2685_enu_contracted.brf" />
+    </resource>
+    <resource identifier="Item_2685_v8_qrx" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Items/Item-187-2685/Item_2685_v8.qrx" />
+    </resource>
+    <resource identifier="stim-187-3739" type="imsqti_apipstimulus_xmlv2p2">
+      <file href="Stimuli/stim-187-3739/stim-187-3739.xml" />
+      <dependency identifierref="passage_3739_enu_contracted_brf" />
+      <dependency identifierref="passage_3739_enu_uncontracted_brf" />
+      <dependency identifierref="stim-187-3739_metadata" />
+    </resource>
+    <resource identifier="stim-187-3739_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Stimuli/stim-187-3739/metadata.xml" />
+    </resource>
+    <resource identifier="passage_3739_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3739/passage_3739_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="passage_3739_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3739/passage_3739_enu_contracted.brf" />
+    </resource>
+    <resource identifier="stim-187-3746" type="imsqti_apipstimulus_xmlv2p2">
+      <file href="Stimuli/stim-187-3746/stim-187-3746.xml" />
+      <dependency identifierref="passage_3746_enu_contracted_brf" />
+      <dependency identifierref="passage_3746_enu_uncontracted_brf" />
+      <dependency identifierref="stim-187-3746_metadata" />
+    </resource>
+    <resource identifier="stim-187-3746_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Stimuli/stim-187-3746/metadata.xml" />
+    </resource>
+    <resource identifier="passage_3746_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3746/passage_3746_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="passage_3746_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3746/passage_3746_enu_contracted.brf" />
+    </resource>
+    <resource identifier="stim-187-3748" type="imsqti_apipstimulus_xmlv2p2">
+      <file href="Stimuli/stim-187-3748/stim-187-3748.xml" />
+      <dependency identifierref="passage_3748_enu_contracted_brf" />
+      <dependency identifierref="passage_3748_enu_uncontracted_brf" />
+      <dependency identifierref="stim-187-3748_metadata" />
+    </resource>
+    <resource identifier="stim-187-3748_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Stimuli/stim-187-3748/metadata.xml" />
+    </resource>
+    <resource identifier="passage_3748_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3748/passage_3748_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="passage_3748_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3748/passage_3748_enu_contracted.brf" />
+    </resource>
+    <resource identifier="stim-187-3753" type="imsqti_apipstimulus_xmlv2p2">
+      <file href="Stimuli/stim-187-3753/stim-187-3753.xml" />
+      <dependency identifierref="passage_3753_enu_contracted_brf" />
+      <dependency identifierref="passage_3753_enu_uncontracted_brf" />
+      <dependency identifierref="stim-187-3753_metadata" />
+    </resource>
+    <resource identifier="stim-187-3753_metadata" type="resourcemetadata/apipv1p0">
+      <file href="Stimuli/stim-187-3753/metadata.xml" />
+    </resource>
+    <resource identifier="passage_3753_enu_uncontracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3753/passage_3753_enu_uncontracted.brf" />
+    </resource>
+    <resource identifier="passage_3753_enu_contracted_brf" type="associatedcontent/apip_xmlv1p0/learning-application-resource">
+      <file href="Stimuli/stim-187-3753/passage_3753_enu_contracted.brf" />
     </resource>
   </resources>
 </manifest>

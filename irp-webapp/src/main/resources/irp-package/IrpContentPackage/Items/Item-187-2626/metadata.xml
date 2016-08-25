@@ -10,7 +10,7 @@
     <LastModifiedBy>Sridhar_Ravva</LastModifiedBy>
     <SecurityStatus>Non-secure</SecurityStatus>
     <SmarterAppItemDescriptor>When Winning Took a Backseat - SBAC_Field</SmarterAppItemDescriptor>
-    <Status>Ready for Field Test</Status>
+    <Status>Released</Status>
     <StimulusFormat>Standard</StimulusFormat>
     <IntendedGrade>7</IntendedGrade>
     <DepthOfKnowledge>3</DepthOfKnowledge>
@@ -26,12 +26,31 @@
     <ScorePoints>"0,1"</ScorePoints>
     <StimulusType>Text</StimulusType>
     <StandardPublication>
-      <Publication>SBAC-ELA-v1</Publication>
-      <PrimaryStandard>SBAC-ELA-v1:1-LT|4-7|7.RL.6</PrimaryStandard>
-    </StandardPublication>
-    <StandardPublication>
       <Publication>SBAC-ELA-v3</Publication>
       <PrimaryStandard>SBAC-ELA-v3:ELA-Undesignated</PrimaryStandard>
+    </StandardPublication>
+    <IrtDimension>
+      <IrtStatDomain>--NOVALUE--</IrtStatDomain>
+      <IrtModelType>IRT3PLN</IrtModelType>
+      <IrtDimensionPurpose></IrtDimensionPurpose>
+      <IrtScore>1</IrtScore>
+      <IrtWeight>1</IrtWeight>
+      <IrtParameter>
+        <Name>a</Name>
+        <Value>0.45298</Value>
+      </IrtParameter>
+      <IrtParameter>
+        <Name>b</Name>
+        <Value>-1.02877</Value>
+      </IrtParameter>
+      <IrtParameter>
+        <Name>c</Name>
+        <Value>0</Value>
+      </IrtParameter>
+    </IrtDimension>
+    <StandardPublication>
+      <Publication>SBAC-ELA-v1</Publication>
+      <PrimaryStandard>SBAC-ELA-v1:1-LT|4-7|7.RL.6</PrimaryStandard>
     </StandardPublication>
     <AssociatedTutorial>1076</AssociatedTutorial>
     <Language>eng</Language>

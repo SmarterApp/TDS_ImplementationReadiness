@@ -140,7 +140,10 @@
           <feedback><![CDATA[<p style="">CORRECT: The dialogue shares the characters' interest in the birds.</p>]]></feedback>
         </option>
       </optionlist>
-      <attachmentlist></attachmentlist>
+      <attachmentlist>
+        <attachment id="braillefile1" type="BRF" subtype="contracted" file="item_2526_enu_contracted.brf" />
+        <attachment id="braillefile2" type="BRF" subtype="uncontracted" file="item_2526_enu_uncontracted.brf" />
+      </attachmentlist>
       <apipAccessibility>
         <accessibilityInfo>
           <accessElement identifier="ae1">

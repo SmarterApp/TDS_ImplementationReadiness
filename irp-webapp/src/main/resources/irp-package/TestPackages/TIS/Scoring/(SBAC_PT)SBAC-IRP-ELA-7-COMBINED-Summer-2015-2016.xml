@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testspecification purpose="administration" publisher="SBAC_PT" publishdate="Aug 19 2015  4:37PM" version="1.0">
+<testspecification purpose="scoring" publisher="SBAC_PT" publishdate="Aug 19 2015  4:37PM" version="1.0">
   <identifier uniqueid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" name="SBAC-IRP-ELA-7-COMBINED" label="Grade 7 ELA" version="8175" />
   <property name="subject" value="ELA" label="ELA" />
   <property name="grade" value="7" label="grade 7" />
   <property name="type" value="summative" label="summative" />
-  <administration>
+  <scoring>
     <testblueprint>
       <bpelement elementtype="test" minopitems="12" maxopitems="12" minftitems="0" maxftitems="0" opitemcount="23" ftitemcount="0">
         <identifier uniqueid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" name="SBAC-IRP-ELA-7-COMBINED" version="8175" />
@@ -145,15 +145,6 @@
         <identifier uniqueid="SBAC_PT-4-CR|4-7|6-8.RH.1" name="4-CR|4-7|6-8.RH.1" version="8175" />
       </bpelement>
     </testblueprint>
-    <poolproperty property="--ITEMTYPE--" value="EBSR" label="EBSR" itemcount="2" />
-    <poolproperty property="--ITEMTYPE--" value="ER" label="ER" itemcount="4" />
-    <poolproperty property="--ITEMTYPE--" value="HT" label="HT" itemcount="1" />
-    <poolproperty property="--ITEMTYPE--" value="HTQ" label="HTQ" itemcount="6" />
-    <poolproperty property="--ITEMTYPE--" value="MC" label="MC" itemcount="5" />
-    <poolproperty property="--ITEMTYPE--" value="MI" label="MI" itemcount="1" />
-    <poolproperty property="--ITEMTYPE--" value="MS" label="MS" itemcount="3" />
-    <poolproperty property="--ITEMTYPE--" value="WER" label="WER" itemcount="1" />
-    <poolproperty property="Language" value="ENU" label="English" itemcount="23" />
     <itempool>
       <passage filename="stim-187-3726.xml">
         <identifier uniqueid="187-3726" version="8175" />
@@ -545,336 +536,325 @@
         </itemgroup>
       </formpartition>
     </testform>
-    <adminsegment segmentid="(SBAC_PT)SBAC-IRP-CAT-COMBINED-ELA-7-Summer-2015-2016" position="1" itemselection="adaptive2">
-      <segmentblueprint>
-        <segmentbpelement bpelementid="SBAC_PT-1-IT" minopitems="2" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT" minopitems="2" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W" minopitems="1" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-4-CR" minopitems="1" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|11-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|13-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|8-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|9-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|1-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|2-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|4-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|5-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|6-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|1-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|6-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|8-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|9-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L|4-7" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-4-CR|2-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-4-CR|4-7" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|13-7|7.RI.5" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|9-7|7.RI.2" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|1-7|7.RL.1" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|2-7|7.RL.2" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|4-7|7.RL.6" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|6-7|7.RL.5" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|1-7|7.W.3d" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|6-7|7.W.1b" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|9-7|7.L.1a" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L|4-7|7.SL.2" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L|4-7|7.SL.3" minopitems="0" maxopitems="2" />
-        <segmentbpelement bpelementid="SBAC_PT-4-CR|2-7|6-8.WHST.8" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="SBAC_PT-4-CR|4-7|6-8.RH.1" minopitems="0" maxopitems="1" />
-        <segmentbpelement bpelementid="G7_Claim1_T2/12" minopitems="1" maxopitems="1" />
-        <segmentbpelement bpelementid="G7_DOK2" minopitems="2" maxopitems="8" />
-      </segmentblueprint>
-      <itemselector type="adaptive">
-        <identifier uniqueid="AIR ADAPTIVE1" name="AIR ADAPTIVE" label="AIR ADAPTIVE" version="1.0" />
-        <itemselectionparameter bpelementid="(SBAC_PT)SBAC-IRP-CAT-COMBINED-ELA-7-Summer-2015-2016">
-          <property name="bpweight" value="1" label="blueprint metric weight relative to ability metric weight of 1.0" />
-          <property name="startability" value="0.113986" label="start ability" />
-          <property name="startinfo" value="0.2" label="start information" />
-          <property name="cset1size" value="5" label="cset 1 size" />
-          <property name="cset1order" value="ABILITY" label="cset 1 tie breaker" />
-          <property name="cset2random" value="3" label="randomizer for item selection" />
-          <property name="cset2initialrandom" value="19" label="randomizer for first item selection" />
-          <property name="abilityoffset" value="0" label="offset for ability estimate" />
-          <property name="itemweight" value="1" label="blueprint weight of items in chosen group relative to ability match for final pruning step" />
-          <property name="slope" value="85.8" label="slope" />
-          <property name="intercept" value="2508.2" label="intercept" />
-          <property name="precisiontarget" value="1" label="precision target" />
-          <property name="adaptivecut" value="0" label="adaptive cut" />
-          <property name="toocloseses" value="0" label="too Close SEs" />
-          <property name="abilityweight" value="1" label="ability weight" />
-          <property name="computeabilityestimates" value="false" label="compute ability estimates" />
-          <property name="rcabilityweight" value="0" label="rc ability weight" />
-          <property name="precisionTargetMetWeight" value="1" label="precisionTargetMetWeight" />
-          <property name="precisionTargetNotMetWeight" value="1" label="precisionTargetNotMetWeight" />
-          <property name="terminationOverallInfo" value="false" label="terminationOverallInfo" />
-          <property name="terminationRCInfo" value="false" label="terminationRCInfo" />
-          <property name="terminationMinCount" value="true" label="terminationMinCount" />
-          <property name="terminationTooClose" value="false" label="terminationTooClose" />
-          <property name="terminationFlagsAnd" value="false" label="terminationFlagsAnd" />
-          <property name="proficientPLevel" value="3" label="Level at which student is considered proficient for the test" />
-          <property name="offGradeProbAffectProficiency" value="0.01" label="Probability that introducing off-grade items will influence the student proficiency must be less than this value" />
-          <property name="offGradeMinItemsAdministered" value="30" label="Minimum number of on-grade operational items administered before considering for off-grade items" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="adaptivecut" value="-29.2331" label="adaptive cut point" />
-          <property name="startability" value="-29.2331" label="start ability" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="scalar" value="5" label="relative ability strand weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="adaptivecut" value="-29.2331" label="adaptive cut point" />
-          <property name="startability" value="-29.2331" label="start ability" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="scalar" value="5" label="relative ability strand weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="adaptivecut" value="-29.2331" label="adaptive cut point" />
-          <property name="startability" value="-29.2331" label="start ability" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="scalar" value="5" label="relative ability strand weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-3-L">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="adaptivecut" value="-29.2331" label="adaptive cut point" />
-          <property name="startability" value="-29.2331" label="start ability" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="scalar" value="5" label="relative ability strand weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-4-CR">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="adaptivecut" value="-29.2331" label="adaptive cut point" />
-          <property name="startability" value="-29.2331" label="start ability" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="scalar" value="5" label="relative ability strand weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|11-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|13-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|8-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|9-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|1-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|2-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|4-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|5-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|6-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|1-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|6-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|8-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|9-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-3-L|4-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-4-CR|2-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-4-CR|4-7">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|13-7|7.RI.5">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-IT|9-7|7.RI.2">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|1-7|7.RL.1">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|2-7|7.RL.2">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|4-7|7.RL.6">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-1-LT|6-7|7.RL.5">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|1-7|7.W.3d">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|6-7|7.W.1b">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-2-W|9-7|7.L.1a">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-3-L|4-7|7.SL.2">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-3-L|4-7|7.SL.3">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-4-CR|2-7|6-8.WHST.8">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="SBAC_PT-4-CR|4-7|6-8.RH.1">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="G7_Claim1_T2/12">
-          <property name="isstrictmax" value="false" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="precisiontarget" value="1" label="precision target" />
-          <property name="precisiontargetmetweight" value="0" label="precision target met weight" />
-          <property name="precisiontargetnotmetweight" value="0" label="precision target not met weight" />
-        </itemselectionparameter>
-        <itemselectionparameter bpelementid="G7_DOK2">
-          <property name="isstrictmax" value="true" label="Strict maximum flag" />
-          <property name="bpweight" value="1" label="Blueprint weight relative to other elements" />
-          <property name="startinfo" value="0" label="start information" />
-          <property name="precisiontarget" value="1" label="precision target" />
-          <property name="precisiontargetmetweight" value="0" label="precision target met weight" />
-          <property name="precisiontargetnotmetweight" value="0" label="precision target not met weight" />
-        </itemselectionparameter>
-      </itemselector>
-      <segmentpool>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="G-187-3726-1" name="G-187-3726-1" version="8175" />
-          <passageref>187-3726</passageref>
-          <groupitem itemid="187-2129" groupposition="1" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2118" groupposition="2" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2131" groupposition="3" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="G-187-3746-1" name="G-187-3746-1" version="8175" />
-          <passageref>187-3746</passageref>
-          <groupitem itemid="187-2622" groupposition="1" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2630" groupposition="2" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2626" groupposition="3" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2591" groupposition="4" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2590" groupposition="5" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="G-187-3748-1" name="G-187-3748-1" version="8175" />
-          <passageref>187-3748</passageref>
-          <groupitem itemid="187-2624" groupposition="1" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2615" groupposition="2" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2616" groupposition="3" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2610" groupposition="4" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-          <groupitem itemid="187-2627" groupposition="5" adminrequired="false" responserequired="false" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-2462" name="I-187-2462" version="8175" />
-          <groupitem itemid="187-2462" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-2529" name="I-187-2529" version="8175" />
-          <groupitem itemid="187-2529" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-2567" name="I-187-2567" version="8175" />
-          <groupitem itemid="187-2567" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-2570" name="I-187-2570" version="8175" />
-          <groupitem itemid="187-2570" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-2572" name="I-187-2572" version="8175" />
-          <groupitem itemid="187-2572" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-        <itemgroup maxitems="ALL" maxresponses="ALL">
-          <identifier uniqueid="I-187-856" name="I-187-856" version="8175" />
-          <groupitem itemid="187-856" groupposition="1" adminrequired="true" responserequired="true" isfieldtest="false" isactive="true" blockid="A" />
-        </itemgroup>
-      </segmentpool>
-    </adminsegment>
-    <adminsegment segmentid="(SBAC_PT)SBAC-IRP-Perf-S1-COMBINED-ELA-7-Summer-2015-2016" position="2" itemselection="fixedform">
-      <segmentblueprint>
-        <segmentbpelement bpelementid="SBAC_PT-1-IT" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|8-7" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|3-7" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L|4-7" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-1-IT|8-7|7.RI.1" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-1-LT|3-7|7.L.4b" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-3-L|4-7|7.SL.1c" minopitems="0" maxopitems="3" />
-      </segmentblueprint>
-      <itemselector type="fixedform">
-        <identifier uniqueid="AIR FIXEDFORM1" name="AIR FIXEDFORM" label="AIR FIXEDFORM" version="1.0" />
-        <itemselectionparameter bpelementid="(SBAC_PT)SBAC-IRP-Perf-S1-COMBINED-ELA-7-Summer-2015-2016">
-          <property name="slope" value="85.8" label="slope" />
-          <property name="intercept" value="2508.2" label="intercept" />
-        </itemselectionparameter>
-      </itemselector>
-      <segmentform formpartitionid="187-776" />
-    </adminsegment>
-    <adminsegment segmentid="(SBAC_PT)SBAC-IRP-Perf-S2-COMBINED-ELA-7-Summer-2015-2016" position="3" itemselection="fixedform">
-      <segmentblueprint>
-        <segmentbpelement bpelementid="SBAC_PT-2-W" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|5-7" minopitems="0" maxopitems="3" />
-        <segmentbpelement bpelementid="SBAC_PT-2-W|5-7|7.W.2a" minopitems="0" maxopitems="3" />
-      </segmentblueprint>
-      <itemselector type="fixedform">
-        <identifier uniqueid="AIR FIXEDFORM1" name="AIR FIXEDFORM" label="AIR FIXEDFORM" version="1.0" />
-        <itemselectionparameter bpelementid="(SBAC_PT)SBAC-IRP-Perf-S2-COMBINED-ELA-7-Summer-2015-2016">
-          <property name="slope" value="85.8" label="slope" />
-          <property name="intercept" value="2508.2" label="intercept" />
-        </itemselectionparameter>
-      </itemselector>
-      <segmentform formpartitionid="187-777" />
-    </adminsegment>
-  </administration>
+    <performancelevels>
+      <performancelevel bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" plevel="1" scaledlo="2.258000000000000e+003" scaledhi="2.479000000000000e+003" />
+      <performancelevel bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" plevel="2" scaledlo="2.479000000000000e+003" scaledhi="2.552000000000000e+003" />
+      <performancelevel bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" plevel="3" scaledlo="2.552000000000000e+003" scaledhi="2.649000000000000e+003" />
+      <performancelevel bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016" plevel="4" scaledlo="2.649000000000000e+003" scaledhi="2.745000000000000e+003" />
+    </performancelevels>
+    <scoringrules>
+      <computationrule computationorder="80" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="F629AF9A-AB08-4BF4-8DB2-05603E37BF69" name="SEBasedPLWithRounding" label="PerformanceLevel" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="7B19E304-3863-4F12-9A75-E311DD578EC1" name="seMultiple" version="1.0" />
+          <computationruleparametervalue value="1.5" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="int">
+          <identifier uniqueid="2EE0DDB3-7AD5-495E-B1CE-72D4C2BB1AAC" name="proficientPerformanceLevel" version="1.0" />
+          <computationruleparametervalue value="3" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="4363F62B-647C-4831-B334-DA5A1B5EA596" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="8191A641-6455-4AAF-840F-FF13BD6E5747" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="40" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="CE29532E-4137-4535-BC0E-0BEDB2A3348F" name="SBACCATTheta" label="ThetaScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="686D3098-28B0-40A0-AC92-EB71DD389125" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="double">
+          <identifier uniqueid="51FA9EDA-3EED-4A9C-9146-F7ACA82E61C0" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="F52B7D21-3EB8-4E1D-BECB-A8798CFD7673" name="seLimit" version="1.0" />
+          <computationruleparametervalue value="2.5" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="0899CB7A-F48A-4979-A590-B2C45B982D2F" name="averageA" version="1.0" />
+          <computationruleparametervalue value="0.54" />
+        </computationruleparameter>
+        <computationruleparameter position="5" parametertype="double">
+          <identifier uniqueid="D29ABEA7-6298-46E7-9F40-7E69B434EC29" name="averageB" version="1.0" />
+          <computationruleparametervalue value="1.11" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="143" bpelementid="SOCK_LS">
+        <identifier uniqueid="411AD76F-D349-4A92-8BB5-11151CD31B26" name="MultiStrandRawScore" label="RawScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="0F564274-3BBC-4A78-A363-71ACFEB12D55" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="3-L" />
+          <computationruleparametervalue index="2" value="3-S" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="121" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="FC3009A3-7E18-4AC0-B688-174A9E843A16" name="ItemCount" label="ItemCount" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="83" bpelementid="SOCK_LS">
+        <identifier uniqueid="3AFC86A2-C819-426F-A4FB-17EB65BDDCC2" name="SEBasedPLWithRounding" label="PerformanceLevel" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="7B19E304-3863-4F12-9A75-E311DD578EC1" name="seMultiple" version="1.0" />
+          <computationruleparametervalue value="1.5" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="int">
+          <identifier uniqueid="2EE0DDB3-7AD5-495E-B1CE-72D4C2BB1AAC" name="proficientPerformanceLevel" version="1.0" />
+          <computationruleparametervalue value="3" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="4363F62B-647C-4831-B334-DA5A1B5EA596" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="8191A641-6455-4AAF-840F-FF13BD6E5747" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="82" bpelementid="SOCK_R">
+        <identifier uniqueid="A24D94B9-B653-4FC9-B393-1B78141340B9" name="SEBasedPLWithRounding" label="PerformanceLevel" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="7B19E304-3863-4F12-9A75-E311DD578EC1" name="seMultiple" version="1.0" />
+          <computationruleparametervalue value="1.5" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="int">
+          <identifier uniqueid="2EE0DDB3-7AD5-495E-B1CE-72D4C2BB1AAC" name="proficientPerformanceLevel" version="1.0" />
+          <computationruleparametervalue value="3" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="4363F62B-647C-4831-B334-DA5A1B5EA596" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="8191A641-6455-4AAF-840F-FF13BD6E5747" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="10" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="2CD25EED-B7BD-407F-BF03-1C30F853F697" name="SBACAttemptedness" label="Attempted" version="1.0" />
+        <computationruleparameter position="1" parametertype="int">
+          <identifier uniqueid="1511FAA2-FB95-4E48-ACA9-7E73AB947D33" name="testPart" version="1.0" />
+          <property name="indextype" value="string" />
+          <computationruleparametervalue index="SBAC-IRP-CAT-COMBINED-ELA-7" value="1" />
+          <computationruleparametervalue index="SBAC-IRP-Perf-S1-COMBINED-ELA-7" value="2" />
+          <computationruleparametervalue index="SBAC-IRP-Perf-S2-COMBINED-ELA-7" value="2" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="100" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="52C7F526-9081-40AC-A66A-3052B854BECA" name="ItemCountScored" label="ItemCountScored" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="50" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="B2F57EE5-F1AE-4218-88E5-3590A1F727B8" name="ScaleScore" label="ScaleScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="35" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="66654570-B596-4C8B-9B08-498CA0FBC259" name="TestPerformanceLevel" label="PerformanceLevel" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="110" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="BA309F09-6395-474F-901F-4A29B87F860A" name="RawScore" label="RawScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="132" bpelementid="SOCK_R">
+        <identifier uniqueid="97E991CD-B0DF-40B0-8E23-50B17A456229" name="MultipleStrandItemCountScored" label="ItemCountScored" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="AE57944A-5F49-4849-8744-A0C5A3F3EC10" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="1-IT" />
+          <computationruleparametervalue index="2" value="1-LT" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="41" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="65EDEDF3-01A1-4074-B8B9-51A504863933" name="SBACCATTheta" label="ThetaScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="686D3098-28B0-40A0-AC92-EB71DD389125" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="double">
+          <identifier uniqueid="51FA9EDA-3EED-4A9C-9146-F7ACA82E61C0" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="F52B7D21-3EB8-4E1D-BECB-A8798CFD7673" name="seLimit" version="1.0" />
+          <computationruleparametervalue value="2.5" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="0899CB7A-F48A-4979-A590-B2C45B982D2F" name="averageA" version="1.0" />
+          <computationruleparametervalue value="0.54" />
+        </computationruleparameter>
+        <computationruleparameter position="5" parametertype="double">
+          <identifier uniqueid="D29ABEA7-6298-46E7-9F40-7E69B434EC29" name="averageB" version="1.0" />
+          <computationruleparametervalue value="1.11" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="140" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="67744195-FF7A-42C0-A64C-59812EB65FA1" name="RawScore" label="RawScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="51" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="A3389471-98C9-4913-9054-7332C7A63237" name="ScaleScore" label="ScaleScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="130" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="83D54672-7363-4983-AD80-8D4C0FC2BF7B" name="ItemCountScored" label="ItemCountScored" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="122" bpelementid="SOCK_R">
+        <identifier uniqueid="1711D2C0-0D31-4AC7-9355-97435E06A061" name="MultipleStrandItemCount" label="ItemCount" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="1360E978-9481-4AC6-A5D6-6A0E2042292B" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="1-IT" />
+          <computationruleparametervalue index="2" value="1-LT" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="42" bpelementid="SOCK_R">
+        <identifier uniqueid="50134EA6-0485-413E-BDA9-9B7CC38B6FAE" name="SBACCATMultiStrandTheta" label="ThetaScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="3792C8CF-89FA-429F-9692-251375D2C855" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="double">
+          <identifier uniqueid="6E1573D0-3A27-4F0F-A9E2-F13D43D17C97" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="0515C78F-70A6-4104-AC45-4AF97AA49893" name="seLimit" version="1.0" />
+          <computationruleparametervalue value="2.5" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="string">
+          <identifier uniqueid="9A828D3D-DE11-4557-8947-775B90E51CF2" name="strands" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="1-IT" />
+          <computationruleparametervalue index="2" value="1-LT" />
+        </computationruleparameter>
+        <computationruleparameter position="5" parametertype="double">
+          <identifier uniqueid="244A5AD9-67F6-447D-8BFB-81730008E56A" name="averageA" version="1.0" />
+          <computationruleparametervalue value="0.54" />
+        </computationruleparameter>
+        <computationruleparameter position="6" parametertype="double">
+          <identifier uniqueid="FCDEB5E3-EADC-4975-A232-D2D0574DA139" name="averageB" version="1.0" />
+          <computationruleparametervalue value="1.11" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="141" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="A2B31CB4-8F4E-48B3-95AE-B24F970B88AB" name="RawScore" label="RawScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="120" bpelementid="SBAC_PT-2-W">
+        <identifier uniqueid="BFA6B78E-5105-4600-923B-BC04854F3439" name="ItemCount" label="ItemCount" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="30" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="9C52BF12-717A-451A-A404-BD5E424413F7" name="ScaleScore" label="ScaleScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="90" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="FEB07E8C-1289-4A62-BAA2-C6262AF36B94" name="ItemCount" label="ItemCount" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="52" bpelementid="SOCK_R">
+        <identifier uniqueid="DFF6117C-8BE6-47B4-AEB4-CBC58EC16AD8" name="ScaleScore" label="ScaleScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="53" bpelementid="SOCK_LS">
+        <identifier uniqueid="B30C518D-1F95-45DD-918C-D67F00C060D1" name="ScaleScore" label="ScaleScore" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="81" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="275609F7-D396-4231-92C0-E5594F8C6572" name="SEBasedPLWithRounding" label="PerformanceLevel" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="7B19E304-3863-4F12-9A75-E311DD578EC1" name="seMultiple" version="1.0" />
+          <computationruleparametervalue value="1.5" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="int">
+          <identifier uniqueid="2EE0DDB3-7AD5-495E-B1CE-72D4C2BB1AAC" name="proficientPerformanceLevel" version="1.0" />
+          <computationruleparametervalue value="3" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="4363F62B-647C-4831-B334-DA5A1B5EA596" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="8191A641-6455-4AAF-840F-FF13BD6E5747" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="133" bpelementid="SOCK_LS">
+        <identifier uniqueid="D86454D5-1800-4477-856E-EC6FB31BA425" name="MultipleStrandItemCountScored" label="ItemCountScored" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="AE57944A-5F49-4849-8744-A0C5A3F3EC10" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="3-L" />
+          <computationruleparametervalue index="2" value="3-S" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="43" bpelementid="SOCK_LS">
+        <identifier uniqueid="E0BAAE63-199A-448A-B924-F1F2D3A29E62" name="SBACCATMultiStrandTheta" label="ThetaScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="3792C8CF-89FA-429F-9692-251375D2C855" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="double">
+          <identifier uniqueid="6E1573D0-3A27-4F0F-A9E2-F13D43D17C97" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="0515C78F-70A6-4104-AC45-4AF97AA49893" name="seLimit" version="1.0" />
+          <computationruleparametervalue value="2.5" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="string">
+          <identifier uniqueid="9A828D3D-DE11-4557-8947-775B90E51CF2" name="strands" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="3-L" />
+          <computationruleparametervalue index="2" value="3-S" />
+        </computationruleparameter>
+        <computationruleparameter position="5" parametertype="double">
+          <identifier uniqueid="244A5AD9-67F6-447D-8BFB-81730008E56A" name="averageA" version="1.0" />
+          <computationruleparametervalue value="0.54" />
+        </computationruleparameter>
+        <computationruleparameter position="6" parametertype="double">
+          <identifier uniqueid="FCDEB5E3-EADC-4975-A232-D2D0574DA139" name="averageB" version="1.0" />
+          <computationruleparametervalue value="1.11" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="131" bpelementid="SBAC_PT-4-CR">
+        <identifier uniqueid="734B002F-59FB-48CF-951E-F21D93D1FB62" name="ItemCountScored" label="ItemCountScored" version="1.0" />
+      </computationrule>
+      <computationrule computationorder="20" bpelementid="(SBAC_PT)SBAC-IRP-ELA-7-COMBINED-Summer-2015-2016">
+        <identifier uniqueid="7ABB0B84-178A-440D-B609-F47A7C8AB342" name="SBACCATTheta" label="ThetaScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="double">
+          <identifier uniqueid="686D3098-28B0-40A0-AC92-EB71DD389125" name="LOT" version="1.0" />
+          <computationruleparametervalue value="-2.9114" />
+        </computationruleparameter>
+        <computationruleparameter position="2" parametertype="double">
+          <identifier uniqueid="51FA9EDA-3EED-4A9C-9146-F7ACA82E61C0" name="HOT" version="1.0" />
+          <computationruleparametervalue value="2.7547" />
+        </computationruleparameter>
+        <computationruleparameter position="3" parametertype="double">
+          <identifier uniqueid="F52B7D21-3EB8-4E1D-BECB-A8798CFD7673" name="seLimit" version="1.0" />
+          <computationruleparametervalue value="2.5" />
+        </computationruleparameter>
+        <computationruleparameter position="4" parametertype="double">
+          <identifier uniqueid="0899CB7A-F48A-4979-A590-B2C45B982D2F" name="averageA" version="1.0" />
+          <computationruleparametervalue value="0.54" />
+        </computationruleparameter>
+        <computationruleparameter position="5" parametertype="double">
+          <identifier uniqueid="D29ABEA7-6298-46E7-9F40-7E69B434EC29" name="averageB" version="1.0" />
+          <computationruleparametervalue value="1.11" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="123" bpelementid="SOCK_LS">
+        <identifier uniqueid="FC0F25B5-BD0E-4AB2-BE2F-F624D9507EC6" name="MultipleStrandItemCount" label="ItemCount" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="1360E978-9481-4AC6-A5D6-6A0E2042292B" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="3-L" />
+          <computationruleparametervalue index="2" value="3-S" />
+        </computationruleparameter>
+      </computationrule>
+      <computationrule computationorder="142" bpelementid="SOCK_R">
+        <identifier uniqueid="55867FB5-AEE8-4221-B09C-F75E9D7B01F0" name="MultiStrandRawScore" label="RawScore" version="1.0" />
+        <computationruleparameter position="1" parametertype="string">
+          <identifier uniqueid="0F564274-3BBC-4A78-A363-71ACFEB12D55" name="subscales" version="1.0" />
+          <property name="indextype" value="int" />
+          <computationruleparametervalue index="1" value="1-IT" />
+          <computationruleparametervalue index="2" value="1-LT" />
+        </computationruleparameter>
+      </computationrule>
+    </scoringrules>
+  </scoring>
 </testspecification>
