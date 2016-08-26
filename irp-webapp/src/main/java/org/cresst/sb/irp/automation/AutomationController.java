@@ -1,5 +1,8 @@
 package org.cresst.sb.irp.automation;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import org.cresst.sb.irp.auto.engine.AutomationRequestResultHandler;
 import org.cresst.sb.irp.auto.engine.AutomationRequestResultHandlerProxy;
 import org.cresst.sb.irp.auto.engine.AutomationStatusHandler;
@@ -16,12 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * This controller handles automation requests and status reports. It is designed to run as a single instance
@@ -33,9 +32,13 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
 
     private AutomationService automationService;
 
-    private final ConcurrentMap<AutomationRequest, DeferredResult<AutomationToken>> automationRequests = new ConcurrentHashMap<>();
-    private final Map<AutomationToken, DeferredResult<List<AutomationStatus>>> statusRequests = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<AutomationToken, List<AutomationStatus>> automationStatuses = new ConcurrentHashMap<>();
+    // Requests
+    private final ConcurrentHashMap<AutomationRequest, DeferredResult<AutomationToken>> automationRequests = new ConcurrentHashMap<>();
+    private final Multimap<AutomationToken, DeferredResult<AutomationStatusReport>> statusRequests =
+            Multimaps.synchronizedListMultimap(ArrayListMultimap.<AutomationToken, DeferredResult<AutomationStatusReport>>create());
+
+    // Automation status reports
+    private final ConcurrentHashMap<AutomationToken, AutomationStatusReport> automationStatusReports = new ConcurrentHashMap<>();
 
     public AutomationController(AutomationService automationService,
                                 AutomationRequestResultHandlerProxy automationRequestResultHandlerProxy,
@@ -73,24 +76,27 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
 
     @RequestMapping(value = "/automationStatus", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public DeferredResult<List<AutomationStatus>> status(@RequestBody final AutomationToken automationToken) {
+    public DeferredResult<AutomationStatusReport> status(@Valid @RequestBody final AutomationStatusRequest automationStatusRequest) {
 
-        final DeferredResult<List<AutomationStatus>> deferredStatuses = new DeferredResult<>(null, Collections.emptyList());
-        statusRequests.put(automationToken, deferredStatuses);
+        final AutomationToken automationToken = automationStatusRequest.getAutomationToken();
 
-        deferredStatuses.onCompletion(new Runnable() {
+        final DeferredResult<AutomationStatusReport> deferredStatusReport = new DeferredResult<>(null, null);
+        statusRequests.put(automationToken, deferredStatusReport);
+
+        deferredStatusReport.onCompletion(new Runnable() {
             @Override
             public void run() {
-                statusRequests.remove(automationToken);
+                statusRequests.remove(automationToken, deferredStatusReport);
             }
         });
 
-        List<AutomationStatus> latestStatuses = getLatestStatuses(automationToken);
-        if (latestStatuses != null && !latestStatuses.isEmpty()) {
-            deferredStatuses.setResult(latestStatuses);
+        // Check if there are any status updates to return immediately
+        AutomationStatusReport latestStatusReport = getLatestStatuses(automationStatusRequest);
+        if (latestStatusReport != null) {
+            deferredStatusReport.setResult(latestStatusReport);
         }
 
-        return deferredStatuses;
+        return deferredStatusReport;
     }
 
     @Override
@@ -108,27 +114,26 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
     }
 
     @Override
-    public void handleAutomationStatus(AutomationToken automationToken, AutomationStatus automationStatus) {
-        List<AutomationStatus> emptyStatues = new CopyOnWriteArrayList<>();
-        List<AutomationStatus> previousStatuses = automationStatuses.putIfAbsent(automationToken, emptyStatues);
-        DeferredResult<List<AutomationStatus>> deferredResult = statusRequests.get(automationToken);
+    public void handleAutomationStatus(AutomationToken automationToken, AutomationStatusReport automationStatusReport) {
+        automationStatusReports.put(automationToken, automationStatusReport);
 
-        if (previousStatuses == null) {
-            emptyStatues.add(automationStatus);
-
-            if (deferredResult != null) {
-                deferredResult.setResult(emptyStatues);
-            }
-        } else {
-            previousStatuses.add(automationStatus);
-
-            if (deferredResult != null) {
-                deferredResult.setResult(previousStatuses);
+        // Notify clients
+        Collection<DeferredResult<AutomationStatusReport>> deferredStatusReports = statusRequests.get(automationToken);
+        synchronized (statusRequests) {
+            for (DeferredResult<AutomationStatusReport> deferredReport : deferredStatusReports) {
+                deferredReport.setResult(automationStatusReport);
             }
         }
     }
 
-    private List<AutomationStatus> getLatestStatuses(AutomationToken automationToken) {
-        return automationStatuses.get(automationToken);
+    private AutomationStatusReport getLatestStatuses(AutomationStatusRequest automationStatusRequest) {
+        AutomationStatusReport automationStatusReport = automationStatusReports.get(automationStatusRequest);
+
+        if (automationStatusReport != null &&
+                automationStatusRequest.getTimeOfLastStatus() < automationStatusReport.getLastUpdateTimestamp()) {
+            return automationStatusReport;
+        }
+
+        return null;
     }
 }

@@ -9,6 +9,7 @@ public class AutomationToken {
         this.token = automationRequest.hashCode();
     }
 
+    // This default constructor is only here as a quick fix to get Jackson deserializer to work
     public AutomationToken() {
     }
 

@@ -62,7 +62,7 @@
             that.$.modalAutomationProgress.open();
         });
         app.$.formAutomate.addEventListener('iron-form-response', function (event) {
-            console.log("Event: " + JSON.stringify(event.detail.response));
+            console.log("Automation request response: " + JSON.stringify(event.detail.response));
 
             var response = event.detail.response;
 
@@ -70,41 +70,50 @@
                 that.$.automationMessages.innerHTML = response.errorMessage;
             } else {
                 // Perform Long Polling
-                var automationStatusToken = response;
                 var req = new Pollymer.Request({recurring: false, maxTries: 2});
 
-                var poll = function () {
+                var automationStatusToken = response;
+                var lastUpdateTimestamp = 0;
+
+                var poll = function (automationStatusRequest) {
                     var headers = {accept: 'application/json', 'content-type': 'application/json'};
-                    var body = JSON.stringify(automationStatusToken);
+                    var body = JSON.stringify(automationStatusRequest);
                     req.start('POST', '/automationStatus', headers, body);
                 }
 
-                req.on('finished', function (code, result, headers) {
-                    var response = result;
-                    var messages = '<ul>';
-                    var pollAgain = true;
-                    for (var i = 0; i < response.length; i++) {
-                        messages += '<li>' + response[i].message + '</li>';
-                        if (response[i].message == 'Done') {
-                            console.info('Automation done. Ending polling.')
-                            pollAgain = false;
-                        }
-                    }
-                    messages += '</ul>';
-                    that.$.automationMessages.innerHTML = messages;
+                req.on('finished', function (code, automationStatusReport, headers) {
+                    var continuePolling = true;
+                    if (automationStatusReport) {
+                        continuePolling = !automationStatusReport.automationComplete;
+                        lastUpdateTimestamp = automationStatusReport.lastUpdateTimestamp;
 
-                    if (pollAgain) {
-                        poll();
+                        var phaseStatuses = automationStatusReport.phaseStatuses;
+
+                        for (var phase in phaseStatuses) {
+                            var messages = '<h3>' + phase + '</h3><ul>';
+                            for (var i = 0; i < phaseStatuses[phase].length; i++) {
+                                messages += '<li>' + phaseStatuses[phase][i] + '</li>';
+                            }
+                            messages += '</ul>';
+                        }
+
+                        that.$.automationMessages.innerHTML = messages;
+                    }
+
+                    if (continuePolling) {
+                        poll({timeOfLastStatus: lastUpdateTimestamp, automationToken: automationStatusToken});
+                    } else if (automationStatusReport && automationStatusReport.automationComplete){
+                        console.info('Automation done. Ending polling.')
                     }
                 });
 
                 req.on('error', function (reason) {
                     var message = reason == 'TransportError' ? 'Error connecting to IRP Server'
                                                              : 'Connection to IRP Server timed out';
-                    that.$.automationMessages.innerHTML += '<p>' + message + '</p>';
+                    that.$.automationMessages.innerHTML += '<p>Connection Error: ' + message + '</p>';
                 });
 
-                poll();
+                poll({timeOfLastStatus: 0, automationToken: automationStatusToken});
             }
         });
         // app.$.btnBeginAutomation.addEventListener('click', function (event) {
