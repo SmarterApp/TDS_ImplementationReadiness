@@ -67,7 +67,7 @@
             var response = event.detail.response;
 
             if (response && response.errorMessage) {
-                that.$.automationMessages.innerHTML = response.errorMessage;
+                that.$.automationMessages.innerHTML = '<p>' + response.errorMessage + '</p>';
             } else {
                 // Perform Long Polling
                 var req = new Pollymer.Request({recurring: false, maxTries: 2});

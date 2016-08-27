@@ -42,7 +42,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     @Then("^The analysis report should indicate my TDS Report is (malformed|valid)$")
     public void The_analysis_report_should_indicate_my_TDS_Report_is(String type) throws Throwable {
         resultActions.andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.individualResponses", hasSize(1)))
                 .andExpect(jsonPath("$.individualResponses[0].validXMLfile").value(!"malformed".equals(type)))
                 .andExpect(jsonPath("$.vendorName").value("test name"));
@@ -56,7 +56,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     @Then("^The analysis report should indicate that (\\d+) TDS Reports have been uploaded$")
     public void The_analysis_report_should_indicate_that_TDS_Reports_have_been_uploaded(int numberOfDocumentsInZip) throws Throwable {
         resultActions.andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.individualResponses", hasSize(numberOfDocumentsInZip)));
     }
 
@@ -73,7 +73,7 @@ public class UploadAndAnalysisSteps extends BaseIntegration {
     @Then("^The result of the upload should give me an error response$")
     public void The_result_of_the_upload_should_give_me_an_error_response() throws Throwable {
         resultActions.andExpect(status().isBadRequest())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.error").value("true"));
     }
 
