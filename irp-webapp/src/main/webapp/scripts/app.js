@@ -58,8 +58,21 @@
         });
         app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
             console.log("Presubmit: " + JSON.stringify(event));
-            that.$.automationMessages.innerHTML = 'Starting IRP Automation...';
-            that.$.modalAutomationProgress.open();
+            that.$.automationMessages.innerHTML = '<p>Starting IRP Automation...</p>';
+            that.$.dlgAutomationStatus.open();
+            that.$.automationProgressBar.disabled = false;
+            that.$.automationProgressBar.hidden = false;
+            that.$.btnAutomationProgressClose.hidden = true;
+        });
+        app.$.formAutomate.addEventListener('iron-form-error', function (event) {
+
+            console.error(event.detail.response);
+
+            that.$.automationMessages.innerHTML = '<p>Error starting automation</p>';
+
+            that.$.automationProgressBar.disabled = true;
+            that.$.automationProgressBar.hidden = true;
+            that.$.btnAutomationProgressClose.hidden = false;
         });
         app.$.formAutomate.addEventListener('iron-form-response', function (event) {
             console.log("Automation request response: " + JSON.stringify(event.detail.response));
@@ -89,8 +102,9 @@
 
                         var phaseStatuses = automationStatusReport.phaseStatuses;
 
+                        var messages = '';
                         for (var phase in phaseStatuses) {
-                            var messages = '<h3>' + phase + '</h3><ul>';
+                             messages += '<h3>' + phase + '</h3><ul>';
                             for (var i = 0; i < phaseStatuses[phase].length; i++) {
                                 messages += '<li>' + phaseStatuses[phase][i] + '</li>';
                             }
@@ -98,12 +112,16 @@
                         }
 
                         that.$.automationMessages.innerHTML = messages;
+                        that.$.dlgAutomationStatus.notifyResize();
                     }
 
                     if (continuePolling) {
                         poll({timeOfLastStatus: lastUpdateTimestamp, automationToken: automationStatusToken});
                     } else if (automationStatusReport && automationStatusReport.automationComplete){
-                        console.info('Automation done. Ending polling.')
+                        that.$.automationProgressBar.disabled = true;
+                        that.$.automationProgressBar.hidden = true;
+                        that.$.btnAutomationProgressClose.hidden = false;
+                        console.info('Automation done. Ending polling.');
                     }
                 });
 

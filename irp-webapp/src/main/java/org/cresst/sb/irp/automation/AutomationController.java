@@ -127,7 +127,7 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
     }
 
     private AutomationStatusReport getLatestStatuses(AutomationStatusRequest automationStatusRequest) {
-        AutomationStatusReport automationStatusReport = automationStatusReports.get(automationStatusRequest);
+        AutomationStatusReport automationStatusReport = automationStatusReports.get(automationStatusRequest.getAutomationToken());
 
         if (automationStatusReport != null &&
                 automationStatusRequest.getTimeOfLastStatus() < automationStatusReport.getLastUpdateTimestamp()) {

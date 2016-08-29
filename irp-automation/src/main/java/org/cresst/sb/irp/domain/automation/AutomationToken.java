@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.domain.automation;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class AutomationToken {
@@ -9,8 +11,9 @@ public class AutomationToken {
         this.token = automationRequest.hashCode();
     }
 
-    // This default constructor is only here as a quick fix to get Jackson deserializer to work
-    public AutomationToken() {
+    @JsonCreator
+    public AutomationToken(@JsonProperty("token") int token) {
+        this.token = token;
     }
 
     @Override

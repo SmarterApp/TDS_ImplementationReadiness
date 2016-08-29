@@ -60,9 +60,15 @@
     </bean>
 
     <bean id="jaxb2AnnotationIntrospector" class="com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector" />
+    <bean id="jacksonAnnotationIntrospector" class="com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector" />
+
+    <bean id="annotationIntrospectorPair" class="com.fasterxml.jackson.databind.introspect.AnnotationIntrospectorPair">
+        <constructor-arg name="p" ref="jaxb2AnnotationIntrospector" />
+        <constructor-arg name="s" ref="jacksonAnnotationIntrospector" />
+    </bean>
 
     <bean id="jacksonObjectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
-        <property name="annotationIntrospector" ref="jaxb2AnnotationIntrospector" />
+        <property name="annotationIntrospector" ref="annotationIntrospectorPair" />
         <property name="defaultViewInclusion" value="false" />
     </bean>
 

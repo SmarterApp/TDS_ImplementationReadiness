@@ -223,10 +223,14 @@
                                                 <button id="btnResetAutomationForm">Reset</button>
                                             </form>
 
-                                            <paper-dialog id="modalAutomationProgress" modal>
-                                                <p id="automationMessages">Starting IRP Automation...</p>
-                                                <div class="buttons">
-                                                    <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
+                                            <paper-dialog id="dlgAutomationStatus" modal>
+                                                <div>
+                                                    <h2>IRP Automation Progress</h2>
+                                                    <paper-progress id="automationProgressBar" indeterminate></paper-progress>
+                                                    <div id="automationMessages"><p>Starting IRP Automation...</p></div>
+                                                    <div class="buttons">
+                                                        <paper-button id="btnAutomationProgressClose" hidden dialog-confirm>Close</paper-button>
+                                                    </div>
                                                 </div>
                                             </paper-dialog>
                                         </div>

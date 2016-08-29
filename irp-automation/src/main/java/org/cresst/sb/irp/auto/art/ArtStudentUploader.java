@@ -60,6 +60,7 @@ public class ArtStudentUploader implements Rollbacker {
 
         if (upload(result) && verify(result)) {
             save(result);
+            result.setNumberOfStudentsUploaded(ArtStudentUploader.studentTemplateLines.size());
         }
 
         return result;
@@ -108,6 +109,7 @@ public class ArtStudentUploader implements Rollbacker {
     }
 
     private boolean upload(ArtStudentUploaderResult result) {
+        // ART needs a filename to associate with the data
         final ByteArrayResource studentData = new ByteArrayResource(generateStudentData().getBytes()) {
             @Override
             public String getFilename() {

@@ -1,11 +1,20 @@
 package org.cresst.sb.irp.auto.art;
 
 public class ArtStudentUploaderResult {
+    private int numberOfStudentsUploaded;
     private String studentUploadId;
     private boolean uploadSuccessful;
     private boolean validateSuccessful;
     private boolean saveSuccessful;
     private StringBuilder message = new StringBuilder("ArtStudentUploaderResult Messages");
+
+    public int getNumberOfStudentsUploaded() {
+        return numberOfStudentsUploaded;
+    }
+
+    public void setNumberOfStudentsUploaded(int numberOfStudentsUploaded) {
+        this.numberOfStudentsUploaded = numberOfStudentsUploaded;
+    }
 
     public String getStudentUploadId() {
         return studentUploadId;

@@ -28,7 +28,9 @@
     "page": "visionmedia/page.js#~1.6.4",
     "paper-input": "PolymerElements/paper-input#^1.1.15",
     "iron-form": "PolymerElements/iron-form#^1.1.1",
-    "paper-dialog": "PolymerElements/paper-dialog#^1.1.0"
+    "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
+    "paper-progress": "PolymerElements/paper-progress#^1.0.10",
+    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.1.5"
   },
   "install": {
     "path": "deps",
@@ -51,6 +53,9 @@
       ],
       "iron-form": [
         "bower_components/iron-form/iron-form.html"
+      ],
+      "iron-range-behavior": [
+        "bower_components/iron-range-behavior/iron-range-behavior.html"
       ],
       "iron-selector": [
         "bower_components/iron-selector/iron-multi-selectable.html",
@@ -111,6 +116,10 @@
         "bower_components/paper-dialog-common.css",
         "bower_components/paper-dialog-shared-styles.html"
       ],
+      "paper-dialog-scrollable": [
+        "bower_components/paper-dialog-scrollable/hero.svg",
+        "bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html"
+      ],
       "paper-input": [
         "bower_components/paper-input/paper-input.html",
         "bower_components/paper-input/paper-input-addon-behavior.html",
@@ -136,6 +145,10 @@
       "paper-material": [
         "bower_components/paper-material/paper-material.html",
         "bower_components/paper-material/paper-material-shared-styles.html"
+      ],
+      "paper-progress": [
+        "bower_components/paper-progress/hero.svg",
+        "bower_components/paper-progress/paper-progress.html"
       ],
       "paper-spinner": [
         "bower_components/paper-spinner/hero.svg",

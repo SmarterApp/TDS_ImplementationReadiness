@@ -30,13 +30,17 @@ public class AutomationRequest {
 
     public AutomationRequest() {}
 
+    /**
+     * The values chosen to check for equality help identify duplicate requests.
+     * @param o The other request to compare against
+     * @return True if two requests are for the same vendor implementation; false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AutomationRequest that = (AutomationRequest) o;
-        return Objects.equals(vendorName, that.vendorName) &&
-                Objects.equals(tenantName, that.tenantName) &&
+        return Objects.equals(tenantName, that.tenantName) &&
                 Objects.equals(stateAbbreviation, that.stateAbbreviation) &&
                 Objects.equals(district, that.district) &&
                 Objects.equals(institution, that.institution) &&
@@ -47,19 +51,18 @@ public class AutomationRequest {
                 Objects.equals(programManagementUserId, that.programManagementUserId) &&
                 Objects.equals(programManagementUserPassword, that.programManagementUserPassword) &&
                 Objects.equals(testSpecBankUrl, that.testSpecBankUrl) &&
-                Objects.equals(testSpecBankUserId, that.testSpecBankUserId) &&
-                Objects.equals(testSpecBankPassword, that.testSpecBankPassword) &&
                 Objects.equals(artUrl, that.artUrl) &&
-                Objects.equals(artUserId, that.artUserId) &&
-                Objects.equals(artPassword, that.artPassword) &&
-                Objects.equals(proctorUrl, that.proctorUrl) &&
-                Objects.equals(proctorUserId, that.proctorUserId) &&
-                Objects.equals(proctorPassword, that.proctorPassword);
+                Objects.equals(proctorUrl, that.proctorUrl);
     }
 
+    /**
+     * The hashcode is derived from values that identify duplicate requests. Duplicate requests should return the
+     * same hashcode.
+     * @return The hashcode of this request.
+     */
     @Override
     public int hashCode() {
-        return Objects.hash(vendorName,
+        return Objects.hash(
                 tenantName,
                 stateAbbreviation,
                 district,
@@ -71,14 +74,8 @@ public class AutomationRequest {
                 programManagementUserId,
                 programManagementUserPassword,
                 testSpecBankUrl,
-                testSpecBankUserId,
-                testSpecBankPassword,
                 artUrl,
-                artUserId,
-                artPassword,
-                proctorUrl,
-                proctorUserId,
-                proctorPassword);
+                proctorUrl);
     }
 
     @Override

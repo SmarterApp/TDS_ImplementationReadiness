@@ -81,25 +81,40 @@ class AutomationTask implements Runnable {
 
         automationRestTemplate.addAccessToken(accessToken);
 
-        logger.info("Getting Tenant ID");
-        initializationStatusReporter.status("Fetching your Tenant ID from " + automationRequest.getProgramManagementUrl());
-        final ProgManTenantId progManTenantId = new ProgManTenantId(automationRestTemplate,
-                automationRequest.getProgramManagementUrl(),
-                automationRequest.getStateAbbreviation());
-        final String tenantId = progManTenantId.getTenantId();
-        logger.info("Tenant ID {}", tenantId);
-        initializationStatusReporter.status("Tenant ID received");
-
         try {
+            final String tenantId = initialize(automationRestTemplate, initializationStatusReporter);
+
             preload(automationRestTemplate, preloadingStatusReporter, tenantId);
             //simulate();
             //analyze();
             //cleanup();
         } catch (Exception ex) {
-            // TODO: do something
+            logger.error("Ending automation task because of exception", ex);
         } finally {
             logger.info("Automation task for {} is complete.", automationToken);
             cleanupStatusReporter.markAutomationComplete();
+        }
+    }
+
+    private String initialize(AutomationRestTemplate automationRestTemplate, AutomationStatusReporter initializationStatusReporter) {
+        try {
+            logger.info("Getting Tenant ID");
+            initializationStatusReporter.status("Fetching your Tenant ID from " + automationRequest.getProgramManagementUrl());
+
+            final ProgManTenantId progManTenantId = new ProgManTenantId(automationRestTemplate,
+                    automationRequest.getProgramManagementUrl(),
+                    automationRequest.getStateAbbreviation());
+
+            final String tenantId = progManTenantId.getTenantId();
+
+            logger.info("Tenant ID {}", tenantId);
+            initializationStatusReporter.status("Tenant ID received");
+
+            return tenantId;
+        } catch (Exception ex) {
+            logger.info("Unable to get Tenant ID");
+            initializationStatusReporter.status("Unable to get Tenant ID. Check OpenAM URL, PM URL, and PM credentials.");
+            throw ex;
         }
     }
 
@@ -121,7 +136,8 @@ class AutomationTask implements Runnable {
 
             List<TestSpecBankData> testSpecBankData = testSpecBankSideLoader.sideLoadRegistrationTestPackages();
 
-            preloadingStatusReporter.status("Side-loading complete");
+            preloadingStatusReporter.status(String.format("Side-loading complete. Side-loaded %d Registration Test Packages into TSB.",
+                    testSpecBankData.size()));
 
             logger.info("Selecting Registration Test Packages in vendor's ART application");
 
@@ -157,10 +173,12 @@ class AutomationTask implements Runnable {
 
             final ArtStudentUploaderResult artStudentUploaderResult = artStudentUploader.uploadStudentData();
             if (!artStudentUploaderResult.isSuccessful()) {
+                preloadingStatusReporter.status("Failed to load IRP Students into ART: " + artStudentUploaderResult.getMessage());
                 throw new Exception("Unable to upload Student data because " + artStudentUploaderResult.getMessage());
             }
 
-            preloadingStatusReporter.status("IRP Students successfully loaded into ART");
+            preloadingStatusReporter.status(String.format("Successfully loaded %d IRP Students into ART. SSIDs start with 'IRP.'",
+                    artStudentUploaderResult.getNumberOfStudentsUploaded()));
         } catch (Exception ex) {
             logger.error("Automation error occurred. Rolling back data now.", ex);
             preloadingStatusReporter.status("An error occurred, IRP is rolling back any data it has loading into your implementation");
@@ -171,6 +189,8 @@ class AutomationTask implements Runnable {
             }
 
             preloadingStatusReporter.status("Rollback is complete");
+
+            throw ex;
         } finally {
             if (onCompletionCallback != null) {
                 onCompletionCallback.run();

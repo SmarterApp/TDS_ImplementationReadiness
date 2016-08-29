@@ -2,15 +2,12 @@ package org.cresst.sb.irp.domain.automation;
 
 import org.joda.time.Instant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AutomationStatusReport {
     private boolean automationComplete = false;
     private long lastUpdateTimestamp;
-    private Map<AutomationPhase, List<String>> phaseStatuses = new HashMap<>();
+    private Map<AutomationPhase, List<String>> phaseStatuses = new EnumMap<>(AutomationPhase.class);
 
     public void appendMessage(AutomationPhase automationPhase, String message) {
         lastUpdateTimestamp = Instant.now().getMillis();
