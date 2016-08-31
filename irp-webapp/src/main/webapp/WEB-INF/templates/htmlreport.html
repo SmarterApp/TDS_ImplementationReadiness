@@ -533,9 +533,9 @@
                         <th:block th:with="sr=${si.scoreRationaleCategory}">
                             <tr class="opportunityItem" th:each="cell : ${sr.cellCategories}">
                                 <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                                <td>Opportunity Item ScoreInfo ScoreRational: {{cell.tdsFieldName}}</td>
+                                <td th:text="${'Opportunity Item ScoreInfo ScoreRational: ' + cell.tdsFieldName}" ></td>
                                 <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                                <td>{{cell.tdsFieldNameValue}}</td>
+                                <td th:text="${cell.tdsFieldNameValue}"></td>
                             </tr>
                         </th:block>
                     </th:block>
