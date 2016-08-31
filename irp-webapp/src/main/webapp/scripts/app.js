@@ -41,7 +41,7 @@
             }
         });
         app.$.fileUploader.addEventListener('submitted', function (event) {
-            that.$.fileUploadButton.hidden = false;
+            that.$.btnFileUpload.hidden = false;
             that.$.spinnerUpload.active = false;
             if (event.detail.status == 200) {
                 var analysisResponse = JSON.parse(event.detail.responseText);
