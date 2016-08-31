@@ -3,6 +3,8 @@
 # Do not commit SampleAssessmentItemPackage
 SampleAssessmentItemPackage/
 
+irp-webapp/overlays/
+
 ### OSX ###
 .DS_Store
 .AppleDouble

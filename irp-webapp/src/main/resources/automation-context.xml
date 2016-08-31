@@ -12,21 +12,22 @@
         <property name="queueCapacity" value="${irp.automation.queuecapacity}" />
     </bean>
 
-    <bean id="irpAutomationEngine" class="org.cresst.sb.irp.auto.engine.IrpAutomationEngine">
+    <bean id="irpAutomationEngine" class="org.cresst.sb.irp.automation.engine.IrpAutomationEngine">
         <constructor-arg name="automationRequestProcessor" ref="runnableAutomationRequestProcessor" />
     </bean>
 
-    <bean id="runnableAutomationRequestProcessor" class="org.cresst.sb.irp.auto.engine.RunnableAutomationRequestProcessor"
+    <bean id="runnableAutomationRequestProcessor" class="org.cresst.sb.irp.automation.engine.RunnableAutomationRequestProcessor"
           init-method="initializeProcessor" destroy-method="shutdownProcessor">
         <constructor-arg name="taskExecutor" ref="irpAutomationTaskExecutor" />
         <constructor-arg name="automationRequestResultHandler" ref="automationRequestResultHandlerProxy" />
         <constructor-arg name="automationStatusHandler" ref="automationStatusHandlerProxy" />
         <constructor-arg name="registrationTestPackageDirectory" value="classpath:irp-package/TestPackages/ART/Registration" />
         <constructor-arg name="studentTemplatePath" value="classpath:irp-package/IRPStudents_template.csv" />
+        <constructor-arg name="studentAccommodationsTemplatePath" value="classpath:irp-package/IRPStudentsDesignatedSupportsAndAccommodations_template.csv" />
     </bean>
 
-    <bean id="automationRequestResultHandlerProxy" class="org.cresst.sb.irp.auto.engine.AutomationRequestResultHandlerProxy" />
-    <bean id="automationStatusHandlerProxy" class="org.cresst.sb.irp.auto.engine.AutomationStatusHandlerProxy" />
+    <bean id="automationRequestResultHandlerProxy" class="org.cresst.sb.irp.automation.engine.AutomationRequestResultHandlerProxy" />
+    <bean id="automationStatusHandlerProxy" class="org.cresst.sb.irp.automation.engine.AutomationStatusHandlerProxy" />
 
     <bean id="studentRestTemplate" class="org.springframework.web.client.RestTemplate">
         <property name="messageConverters">

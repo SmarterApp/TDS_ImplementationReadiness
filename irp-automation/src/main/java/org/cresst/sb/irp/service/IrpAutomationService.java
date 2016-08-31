@@ -1,6 +1,6 @@
 package org.cresst.sb.irp.service;
 
-import org.cresst.sb.irp.auto.engine.AutomationEngine;
+import org.cresst.sb.irp.automation.engine.AutomationEngine;
 import org.cresst.sb.irp.domain.automation.AutomationRequest;
 import org.springframework.stereotype.Service;
 
