@@ -87,6 +87,10 @@ public class PDFController {
             return valid ? "No Errors" : "Errors Found";
         }
 
+        public Boolean statusIsError(FieldCheckType input) {
+            return this.statusIcon(input).equals("http://localhost:8080/error.png");
+        }
+
         public String statusIcon(FieldCheckType input) {
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) {
                 return "http://localhost:8080/check.png";
