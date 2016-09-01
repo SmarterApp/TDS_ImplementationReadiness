@@ -414,7 +414,7 @@
                 <td colspan="4">Test Properties</td>
             </tr>
 
-			<th:block th:each="cell : ${response.testPropertiesCategory.cellCategories}">
+            <th:block th:each="cell : ${response.testPropertiesCategory.cellCategories}">
 	            <tr class="testPropertiesRows" th:classappend="${cellStat.even}? 'even'">
 	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                <td>Test Properties: <span th:text=" ${cell.tdsFieldName}"></span></td>
