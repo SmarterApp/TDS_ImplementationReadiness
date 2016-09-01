@@ -594,7 +594,7 @@
                         	<th:block th:each="cell : ${sr.cellCategories}">
 	                            <tr class="opportunityItem">
 	                                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-	                                <td th:text="${'Opportunity Item ScoreInfo ScoreRational: ' + cell.tdsFieldName}" ></td>
+	                                <td>Opportunity Item ScoreInfo ScoreRational: <span th:text="${cell.tdsFieldName}"></span> </td>
 	                                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
 	                                <td th:text="${cell.tdsFieldNameValue}"></td>
 	                            </tr>
