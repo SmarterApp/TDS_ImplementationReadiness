@@ -37,9 +37,13 @@
 
                 You will not see a break down analysis of the TDS Report because of this.
             </div>
+            XML Parsing error: </br>
+            <div id="xmlError" style="font-style: italic;">
+                {{response.xmlError}}
+            </div>
         </template>
 
-        <template is="dom-if" if="{{reponse.validXMLfile}}">
+        <template is="dom-if" if="{{response.validXMLfile}}">
 	        <template is="dom-if" if="{{!response.validTestName}}">
 	            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
 	                The test names does not match an IRP test. IRP can only analyze TDSReport XMLs that were

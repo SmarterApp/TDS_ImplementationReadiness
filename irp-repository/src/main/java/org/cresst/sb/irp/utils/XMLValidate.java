@@ -27,7 +27,7 @@ public class XMLValidate {
 			SchemaFactory factory = SchemaFactory
 					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = factory.newSchema(new File(xsdPath));
-			Validator validator = (Validator) schema.newValidator();
+			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(new File(xmlPath)), null);
 		} catch (SAXException e) {
 			logger.error("Exception: ", e);
@@ -43,7 +43,7 @@ public class XMLValidate {
 			SchemaFactory factory = SchemaFactory
 					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = factory.newSchema(resource.getFile());  //resource.getInputStream());
-			Validator validator = (Validator) schema.newValidator();
+			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(file.getInputStream()), null);
 		} catch (SAXException e) {
 			logger.error("Exception: ", e);
@@ -52,20 +52,30 @@ public class XMLValidate {
 		return true;
 	}
 
-	
+
 	public boolean validateXMLSchema(Resource resource, String file)
 			throws IOException {
 
 		try {
 			SchemaFactory factory = SchemaFactory
 					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			Schema schema = factory.newSchema(resource.getFile()); 
-			Validator validator = (Validator) schema.newValidator();
+			Schema schema = factory.newSchema(resource.getFile());
+			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(file));
 		} catch (SAXException e) {
 			logger.error("Exception: ", e);
 			return false;
 		}
 		return true;
+	}
+
+	// Validates xml schema and thorws SAXException if xml file is not valid
+	public void validateXMLSchemaException(Resource resource, String file)
+			throws IOException, SAXException {
+		SchemaFactory factory = SchemaFactory
+				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = factory.newSchema(resource.getFile());
+		Validator validator = schema.newValidator();
+		validator.validate(new StreamSource(file));
 	}
 }
