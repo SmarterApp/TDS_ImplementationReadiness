@@ -221,6 +221,10 @@
             margin-top:10px;
             margin-bottom:10px;
         }
+        
+        div.xmlError {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -266,6 +270,8 @@
     </div>
 
     <th:block th:each="response : ${responses.individualResponses}">
+
+
         <h2 align="center" th:text="${response.fileName}"></h2>
         <table border="1" class="full_border center text_center">
             <thead>
@@ -285,301 +291,311 @@
                 </tr>
             </tbody>
         </table>
+	    <th:block th:if="${!response.validXMLfile}">
+            <div style="background: #FFFFE0;padding: 10px;border: 1px solid #000;">
+                IRP was unable to validate and analyze this file because the TDSReport XML file is invalid.
 
-        <h3 align="center">Test Scoring Analysis</h3>
-        <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
-            <div th:if="${!scoreInfo.scoredTDSReport}" style="notice">
-                There was an internal server error that prevented validation of Test Scoring.
+                You will not see a break down analysis of the TDS Report because of this.
             </div>
-
-            <div th:if="${!scoreInfo.scoreMatch && scoreInfo.scoredTDSReport}" class="notice">
-                Not all of the Measures matched those computed by IRP. Please see the analysis below.
-            </div>
+            XML Parsing error:
+        <div id="xmlError" th:text="${response.xmlError}">  </div>
         </th:block>
-
-        <h4 align="center">Measures that match IRP's computed Measures</h4>
-        <table class="tableAnalysis">
-            <thead>
-            <tr>
-                <th>Measure Of</th>
-                <th>Measure Label</th>
-                <th>Value</th>
-                <th>Standard Error</th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:with="matchedScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap}">
-                <tr th:each="score : ${matchedScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
-                    <td th:text="${score.value.measureOf}"></td>
-                    <td th:text="${score.value.measureLabel}"></td>
-                    <td th:text="${score.value.value}"></td>
-                    <td th:text="${score.value.standardError}"></td>
-                </tr>
-            </th:block>
-            </tbody>
-        </table>
-
-        <h4 align="center" style="margin-bottom:0px;">Measures that did not match IRP's computed Measures</h4>
-        <p style="text-align: center;">(The measure's value and/or standard error did not match what IRP computed)</p>
-        <table class="tableAnalysis">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Measure Of</th>
-                <th>Measure Label</th>
-                <th>Value</th>
-                <th>Standard Error</th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:each="nonMatchedPairs : ${response.opportunityCategory.tdsReportScoreIrpScoredScore.notMatchPairs}">
-                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
-                    <td style="font-size:small;font-weight:bold">TDS Report's Measure:</td>
-                    <td th:text="${nonMatchedPairs.tdsReportScore.measureOf}"></td>
-                    <td th:text="${nonMatchedPairs.tdsReportScore.measureLabel}"></td>
-                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.value}"></td>
-                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.standardError}"></td>
-                </tr>
-                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
-                    <td style="font-size:small;font-weight:bold">IRP's Computed Measure:</td>
-                    <td th:text="${nonMatchedPairs.irpScoredScore.measureOf}"></td>
-                    <td th:text="${nonMatchedPairs.irpScoredScore.measureLabel}"></td>
-                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.value}"></td>
-                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.standardError}"></td>
-                </tr>
-            </th:block>
-            <tr th:if="${response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch}">
-                <td colspan="4" style="font-size:large;font-weight: bold">All measures matched IRP's computed measures.</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <h4 align="center" style="margin-bottom:0px;">Expected Measures that are missing from the TDSReport</h4>
-        <p style="text-align: center;">(IRP expected to see these measures in the TDSReport but did not find them)</p>
-        <table class="tableAnalysis">
-            <thead>
-            <tr>
-                <th>Measure Of</th>
-                <th>Measure Label</th>
-                <th>Value</th>
-                <th>Standard Error</th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:with="missingScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap}">
-                <tr th:each="score : ${missingScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
-                    <td th:text="${score.value.measureOf}"></td>
-                    <td th:text="${score.value.measureLabel}"></td>
-                    <td th:text="${score.value.value}"></td>
-                    <td th:text="${score.value.standardError}"></td>
-                </tr>
-            </th:block>
-            </tbody>
-        </table>
-
-        <h4 align="center">Extra Measures that were found in the TDSReport that IRP did not compute</h4>
-        <table class="tableAnalysis">
-            <thead>
-            <tr>
-                <th>Measure Of</th>
-                <th>Measure Label</th>
-                <th>Value</th>
-                <th>Standard Error</th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:with="extraScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap}">
-                <tr th:each="score : ${extraScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
-                    <td th:text="${score.value.measureOf}"></td>
-                    <td th:text="${score.value.measureLabel}"></td>
-                    <td th:text="${score.value.value}"></td>
-                    <td th:text="${score.value.standardError}"></td>
-                </tr>
-            </th:block>
-            </tbody>
-        </table>
-
-        <h3 align="center">TDS Report Analysis</h3>
-    <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
-        <thead>
-            <tr>
-                <th width="15%">Status</th>
-                <th width="25%">Field</th>
-                <th width="30%">Expected Value</th>
-                <th width="30%">Returned Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="category">
-                <td colspan="4">Test Properties</td>
-            </tr>
-
-            <tr th:each="cell : ${response.testPropertiesCategory.cellCategories}" class="testPropertiesRows" th:classappend="${cellStat.even}? 'even'">
-                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                <td>Test Properties: <span th:text=" ${cell.tdsFieldName}"></span></td>
-                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                <td th:text="${cell.tdsFieldNameValue}"></td>
-            </tr>
-
-            <tr class="category">
-                <td colspan="4">Examinee</td>
-            </tr>
-
-            <tr th:each="cell : ${response.examineeCategory.cellCategories}" class="examineeRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                <td>Examinee: <span th:text="${cell.tdsFieldName}"></span></td>
-                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                <td th:text="${cell.tdsFieldNameValue}"></td>
-            </tr>
-
-            <th:block th:each="category : ${response.examineeAttributeCategories}" th:with="categoryIndex=${categoryStat}">
-                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>ExamineeAttribute: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-            </th:block>
-
-            <th:block th:each="category : ${response.examineeRelationshipCategories}" th:with="categoryIndex=${categoryStat}">
-                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>ExamineeRelationship: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-            </th:block>
-
-            <tr class="category">
-                <td colspan="4">Opportunity</td>
-            </tr>
-            <tr th:each="cell : ${response.opportunityCategory.cellCategories}" class="opportunityPropertiesRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                <td>Opportunity Properties: <span th:text="${cell.tdsFieldName}"></span></td>
-                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                <td th:text="${cell.tdsFieldNameValue}"></td>
-            </tr>
-
-            <tr class="category">
-                <td colspan="4">Opportunity Segments</td>
-            </tr>
-            <th:block th:each="segment : ${response.opportunityCategory.segmentCategories}">
-                <tr th:each="cell : ${segment.cellCategories}" class="opportunitySegmentRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>Opportunity Segment: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-            </th:block>
-
-            <tr class="category">
-                <td colspan="4">Opportunity Accommodation</td>
-            </tr>
-            <th:block th:each="accommodation : ${response.opportunityCategory.accommodationCategories}">
-                <tr th:each="cell : ${accommodation.cellCategories}" class="opportunityAccommodationRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>Opportunity Accommodation: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-            </th:block>
-
-            <!--<tr class="category">-->
-                <!--<td colspan="4">Opportunity Scores</td>-->
-            <!--</tr>-->
-            <!--<th:block th:each="score : ${response.opportunityCategory.scoreCategories}">-->
-                <!--<tr th:each="cell : ${score.cellCategories}" class="opportunityScoreRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">-->
-                    <!--<td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>-->
-                    <!--<td>Opportunity Score: <span th:text="${cell.tdsFieldName}"></span></td>-->
-                    <!--<td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>-->
-                    <!--<td th:text="${cell.tdsFieldNameValue}"></td>-->
-                <!--</tr>-->
-            <!--</th:block>-->
-
-            <tr class="category">
-                <td colspan="4">Opportunity Items</td>
-            </tr>
-            <th:block th:each="item : ${response.opportunityCategory.itemCategories}">
-                <tr class="opportunityItem even">
-                    <td colspan="2" th:text="${item.itemBankKeyKey}"></td>
-                    <td th:text="${helper.itemStatus(item)}"></td>
-                    <td th:text="${helper.itemExplanation(item)}"></td>
-                </tr>
-
-                <th:block th:if="${helper.itemFound(item)}">
-
-                    <tr th:each="cell : ${item.cellCategories}" class="opportunityItem">
-                        <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                        <td>Opportunity Item: <span th:text="${cell.tdsFieldName}"></span></td>
-                        <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                        <td th:text="${cell.tdsFieldNameValue}"></td>
-                    </tr>
-
-                    <th:block th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}">
-                        <tr th:each="cell : ${rc.cellCategories}" class="opportunityItem">
-                            <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                            <td>Opportunity Item Response: <span th:text="${cell.tdsFieldName}"></span></td>
-                            <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                            <td th:text="${cell.tdsFieldNameValue}"></td>
-                        </tr>
-                    </th:block>
-                    <th:block th:if="${item.scoreInfoCategory}" th:with="si=${item.scoreInfoCategory}">
-                        <tr th:each="cell : ${si.cellCategories}" class="opportunityItem">
-                            <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                            <td>Opportunity Item ScoreInfo: <span th:text="${cell.tdsFieldName}"></span></td>
-                            <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                            <td th:text="${cell.tdsFieldNameValue}"></td>
-                        </tr>
-                        <th:block th:with="sr=${si.scoreRationaleCategory}">
-                            <tr class="opportunityItem" th:each="cell : ${sr.cellCategories}">
-                                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                                <td>Opportunity Item ScoreInfo ScoreRational: {{cell.tdsFieldName}}</td>
-                                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                                <td>{{cell.tdsFieldNameValue}}</td>
-                            </tr>
-                        </th:block>
-                    </th:block>
-
-                </th:block>
-            </th:block>
-
-            <tr class="category">
-                <td colspan="4">Comments</td>
-            </tr>
-
-            <th:block th:each="category : ${response.commentCategories}">
-                <tr th:each="cell : ${category.cellCategories}" class="comment" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>Comment: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-            </th:block>
-
-            <tr class="category">
-                <td colspan="4">Tool Usage</td>
-            </tr>
-
-            <th:block th:each="category : ${response.toolUsageCategories}">
-                <tr th:each="cell : ${category.cellCategories}" class="toolUsage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                    <td>ToolUsage: <span th:text="${cell.tdsFieldName}"></span></td>
-                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                    <td th:text="${cell.tdsFieldNameValue}"></td>
-                </tr>
-                <th:block th:each="pageCategory : ${category.toolPageCategories}">
-                    <tr th:each="cell : ${pageCategory.cellCategories}" class="toolPage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
-                        <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
-                        <td>ToolPage: <span th:text="${cell.tdsFieldName}"></span></td>
-                        <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
-                        <td th:text="${cell.tdsFieldNameValue}"></td>
-                    </tr>
-                </th:block>
-            </th:block>
-        </tbody>
-    </table>
-
-        <div class="print">&nbsp;</div>
+	    <th:block th:if="${response.validXMLfile}">
+	        <h3 align="center">Test Scoring Analysis</h3>
+	        <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
+	            <div th:if="${!scoreInfo.scoredTDSReport}" style="notice">
+	                There was an internal server error that prevented validation of Test Scoring.
+	            </div>
+	
+	            <div th:if="${!scoreInfo.scoreMatch && scoreInfo.scoredTDSReport}" class="notice">
+	                Not all of the Measures matched those computed by IRP. Please see the analysis below.
+	            </div>
+	        </th:block>
+	
+	        <h4 align="center">Measures that match IRP's computed Measures</h4>
+	        <table class="tableAnalysis">
+	            <thead>
+	            <tr>
+	                <th>Measure Of</th>
+	                <th>Measure Label</th>
+	                <th>Value</th>
+	                <th>Standard Error</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <th:block th:with="matchedScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.matchedScoresMap}">
+	                <tr th:each="score : ${matchedScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+	                    <td th:text="${score.value.measureOf}"></td>
+	                    <td th:text="${score.value.measureLabel}"></td>
+	                    <td th:text="${score.value.value}"></td>
+	                    <td th:text="${score.value.standardError}"></td>
+	                </tr>
+	            </th:block>
+	            </tbody>
+	        </table>
+	
+	        <h4 align="center" style="margin-bottom:0px;">Measures that did not match IRP's computed Measures</h4>
+	        <p style="text-align: center;">(The measure's value and/or standard error did not match what IRP computed)</p>
+	        <table class="tableAnalysis">
+	            <thead>
+	            <tr>
+	                <th></th>
+	                <th>Measure Of</th>
+	                <th>Measure Label</th>
+	                <th>Value</th>
+	                <th>Standard Error</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <th:block th:each="nonMatchedPairs : ${response.opportunityCategory.tdsReportScoreIrpScoredScore.notMatchPairs}">
+	                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
+	                    <td style="font-size:small;font-weight:bold">TDS Report's Measure:</td>
+	                    <td th:text="${nonMatchedPairs.tdsReportScore.measureOf}"></td>
+	                    <td th:text="${nonMatchedPairs.tdsReportScore.measureLabel}"></td>
+	                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.value}"></td>
+	                    <td style="font-size:medium" th:text="${nonMatchedPairs.tdsReportScore.standardError}"></td>
+	                </tr>
+	                <tr class="opportunityScore" th:classappend="${nonMatchedPairsStat.even}? 'even'">
+	                    <td style="font-size:small;font-weight:bold">IRP's Computed Measure:</td>
+	                    <td th:text="${nonMatchedPairs.irpScoredScore.measureOf}"></td>
+	                    <td th:text="${nonMatchedPairs.irpScoredScore.measureLabel}"></td>
+	                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.value}"></td>
+	                    <td style="font-size:medium" th:text="${nonMatchedPairs.irpScoredScore.standardError}"></td>
+	                </tr>
+	            </th:block>
+	            <tr th:if="${response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch}">
+	                <td colspan="4" style="font-size:large;font-weight: bold">All measures matched IRP's computed measures.</td>
+	            </tr>
+	            </tbody>
+	        </table>
+	
+	        <h4 align="center" style="margin-bottom:0px;">Expected Measures that are missing from the TDSReport</h4>
+	        <p style="text-align: center;">(IRP expected to see these measures in the TDSReport but did not find them)</p>
+	        <table class="tableAnalysis">
+	            <thead>
+	            <tr>
+	                <th>Measure Of</th>
+	                <th>Measure Label</th>
+	                <th>Value</th>
+	                <th>Standard Error</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <th:block th:with="missingScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.missedIrpScoredScoreMap}">
+	                <tr th:each="score : ${missingScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+	                    <td th:text="${score.value.measureOf}"></td>
+	                    <td th:text="${score.value.measureLabel}"></td>
+	                    <td th:text="${score.value.value}"></td>
+	                    <td th:text="${score.value.standardError}"></td>
+	                </tr>
+	            </th:block>
+	            </tbody>
+	        </table>
+	
+	        <h4 align="center">Extra Measures that were found in the TDSReport that IRP did not compute</h4>
+	        <table class="tableAnalysis">
+	            <thead>
+	            <tr>
+	                <th>Measure Of</th>
+	                <th>Measure Label</th>
+	                <th>Value</th>
+	                <th>Standard Error</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <th:block th:with="extraScores=${response.opportunityCategory.tdsReportScoreIrpScoredScore.extraTdsReportScoreMap}">
+	                <tr th:each="score : ${extraScores}" class="opportunityScore" th:classappend="${scoreStat.even}? 'even'">
+	                    <td th:text="${score.value.measureOf}"></td>
+	                    <td th:text="${score.value.measureLabel}"></td>
+	                    <td th:text="${score.value.value}"></td>
+	                    <td th:text="${score.value.standardError}"></td>
+	                </tr>
+	            </th:block>
+	            </tbody>
+	        </table>
+	
+	        <h3 align="center">TDS Report Analysis</h3>
+	    <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
+	        <thead>
+	            <tr>
+	                <th width="15%">Status</th>
+	                <th width="25%">Field</th>
+	                <th width="30%">Expected Value</th>
+	                <th width="30%">Returned Value</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr class="category">
+	                <td colspan="4">Test Properties</td>
+	            </tr>
+	
+	            <tr th:each="cell : ${response.testPropertiesCategory.cellCategories}" class="testPropertiesRows" th:classappend="${cellStat.even}? 'even'">
+	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                <td>Test Properties: <span th:text=" ${cell.tdsFieldName}"></span></td>
+	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                <td th:text="${cell.tdsFieldNameValue}"></td>
+	            </tr>
+	
+	            <tr class="category">
+	                <td colspan="4">Examinee</td>
+	            </tr>
+	
+	            <tr th:each="cell : ${response.examineeCategory.cellCategories}" class="examineeRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                <td>Examinee: <span th:text="${cell.tdsFieldName}"></span></td>
+	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                <td th:text="${cell.tdsFieldNameValue}"></td>
+	            </tr>
+	
+	            <th:block th:each="category : ${response.examineeAttributeCategories}" th:with="categoryIndex=${categoryStat}">
+	                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>ExamineeAttribute: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	            </th:block>
+	
+	            <th:block th:each="category : ${response.examineeRelationshipCategories}" th:with="categoryIndex=${categoryStat}">
+	                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>ExamineeRelationship: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	            </th:block>
+	
+	            <tr class="category">
+	                <td colspan="4">Opportunity</td>
+	            </tr>
+	            <tr th:each="cell : ${response.opportunityCategory.cellCategories}" class="opportunityPropertiesRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                <td>Opportunity Properties: <span th:text="${cell.tdsFieldName}"></span></td>
+	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                <td th:text="${cell.tdsFieldNameValue}"></td>
+	            </tr>
+	
+	            <tr class="category">
+	                <td colspan="4">Opportunity Segments</td>
+	            </tr>
+	            <th:block th:each="segment : ${response.opportunityCategory.segmentCategories}">
+	                <tr th:each="cell : ${segment.cellCategories}" class="opportunitySegmentRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>Opportunity Segment: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	            </th:block>
+	
+	            <tr class="category">
+	                <td colspan="4">Opportunity Accommodation</td>
+	            </tr>
+	            <th:block th:each="accommodation : ${response.opportunityCategory.accommodationCategories}">
+	                <tr th:each="cell : ${accommodation.cellCategories}" class="opportunityAccommodationRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>Opportunity Accommodation: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	            </th:block>
+	
+	            <!--<tr class="category">-->
+	                <!--<td colspan="4">Opportunity Scores</td>-->
+	            <!--</tr>-->
+	            <!--<th:block th:each="score : ${response.opportunityCategory.scoreCategories}">-->
+	                <!--<tr th:each="cell : ${score.cellCategories}" class="opportunityScoreRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">-->
+	                    <!--<td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>-->
+	                    <!--<td>Opportunity Score: <span th:text="${cell.tdsFieldName}"></span></td>-->
+	                    <!--<td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>-->
+	                    <!--<td th:text="${cell.tdsFieldNameValue}"></td>-->
+	                <!--</tr>-->
+	            <!--</th:block>-->
+	
+	            <tr class="category">
+	                <td colspan="4">Opportunity Items</td>
+	            </tr>
+	            <th:block th:each="item : ${response.opportunityCategory.itemCategories}">
+	                <tr class="opportunityItem even">
+	                    <td colspan="2" th:text="${item.itemBankKeyKey}"></td>
+	                    <td th:text="${helper.itemStatus(item)}"></td>
+	                    <td th:text="${helper.itemExplanation(item)}"></td>
+	                </tr>
+	
+	                <th:block th:if="${helper.itemFound(item)}">
+	
+	                    <tr th:each="cell : ${item.cellCategories}" class="opportunityItem">
+	                        <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                        <td>Opportunity Item: <span th:text="${cell.tdsFieldName}"></span></td>
+	                        <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                        <td th:text="${cell.tdsFieldNameValue}"></td>
+	                    </tr>
+	
+	                    <th:block th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}">
+	                        <tr th:each="cell : ${rc.cellCategories}" class="opportunityItem">
+	                            <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                            <td>Opportunity Item Response: <span th:text="${cell.tdsFieldName}"></span></td>
+	                            <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                            <td th:text="${cell.tdsFieldNameValue}"></td>
+	                        </tr>
+	                    </th:block>
+	                    <th:block th:if="${item.scoreInfoCategory}" th:with="si=${item.scoreInfoCategory}">
+	                        <tr th:each="cell : ${si.cellCategories}" class="opportunityItem">
+	                            <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                            <td>Opportunity Item ScoreInfo: <span th:text="${cell.tdsFieldName}"></span></td>
+	                            <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                            <td th:text="${cell.tdsFieldNameValue}"></td>
+	                        </tr>
+	                        <th:block th:with="sr=${si.scoreRationaleCategory}">
+	                            <tr class="opportunityItem" th:each="cell : ${sr.cellCategories}">
+	                                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                                <td>Opportunity Item ScoreInfo ScoreRational: {{cell.tdsFieldName}}</td>
+	                                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                                <td>{{cell.tdsFieldNameValue}}</td>
+	                            </tr>
+	                        </th:block>
+	                    </th:block>
+	
+	                </th:block>
+	            </th:block>
+	
+	            <tr class="category">
+	                <td colspan="4">Comments</td>
+	            </tr>
+	
+	            <th:block th:each="category : ${response.commentCategories}">
+	                <tr th:each="cell : ${category.cellCategories}" class="comment" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>Comment: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	            </th:block>
+	
+	            <tr class="category">
+	                <td colspan="4">Tool Usage</td>
+	            </tr>
+	
+	            <th:block th:each="category : ${response.toolUsageCategories}">
+	                <tr th:each="cell : ${category.cellCategories}" class="toolUsage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                    <td>ToolUsage: <span th:text="${cell.tdsFieldName}"></span></td>
+	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                    <td th:text="${cell.tdsFieldNameValue}"></td>
+	                </tr>
+	                <th:block th:each="pageCategory : ${category.toolPageCategories}">
+	                    <tr th:each="cell : ${pageCategory.cellCategories}" class="toolPage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                        <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
+	                        <td>ToolPage: <span th:text="${cell.tdsFieldName}"></span></td>
+	                        <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
+	                        <td th:text="${cell.tdsFieldNameValue}"></td>
+	                    </tr>
+	                </th:block>
+	            </th:block>
+	        </tbody>
+	    </table>
+	
+	        <div class="print">&nbsp;</div>
+	    </th:block>
     </th:block>
 </body>
 </html>
