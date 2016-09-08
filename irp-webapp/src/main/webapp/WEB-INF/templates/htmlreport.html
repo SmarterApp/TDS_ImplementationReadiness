@@ -232,7 +232,10 @@
         }
         img {
             height:20px;
-		}
+        }
+        div.xmlError {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -297,7 +300,17 @@
                 </tr>
             </tbody>
         </table>
+		<th:block th:if="${!response.validXMLfile}">
+            <div style="background: #FFFFE0;padding: 10px;border: 1px solid #000;">
+                IRP was unable to validate and analyze this file because the TDSReport XML file is invalid.
 
+                You will not see a break down analysis of the TDS Report because of this.
+            </div>
+            XML Parsing error:
+        <div id="xmlError" th:text="${response.xmlError}">  </div>
+        </th:block>
+        
+        <th:block th:if="${response.validXMLfile}">
         <h3 align="center">Test Scoring Analysis</h3>
         <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
             <div th:if="${!scoreInfo.scoredTDSReport}" style="notice">
@@ -644,6 +657,7 @@
     </table>
 
         <div class="print">&nbsp;</div>
+    </th:block>
     </th:block>
 </body>
 </html>

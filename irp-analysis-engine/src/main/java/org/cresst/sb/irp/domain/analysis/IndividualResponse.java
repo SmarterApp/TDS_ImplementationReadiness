@@ -19,6 +19,7 @@ public class IndividualResponse {
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
     private boolean isCombo; //Combined test or not
+    private String xmlError; // XmlErrors from manual parsing
 
     private TestPropertiesCategory testPropertiesCategory;
     private ExamineeCategory examineeCategory;
@@ -59,7 +60,7 @@ public class IndividualResponse {
 	public void setValidTestName(boolean isValidTestName) {
 		this.isValidTestName = isValidTestName;
 	}
-    
+
 	public boolean isValidExaminee() {
 		return isValidExaminee;
 	}
@@ -80,10 +81,18 @@ public class IndividualResponse {
 		return isCAT;
 	}
 
+    public String getXmlError() {
+		return xmlError;
+	}
+
+	public void setXmlError(String xmlError) {
+		this.xmlError = xmlError;
+	}
+
 	public void setCAT(boolean isCAT) {
 		this.isCAT = isCAT;
 	}
-	
+
     public TestPropertiesCategory getTestPropertiesCategory() {
         return testPropertiesCategory;
     }
