@@ -92,9 +92,14 @@
             font-weight: normal;
             color: #000000;
         }
-
+        /* To keep icon on first row, always make one row of text the same height as icon
+           Example: font-size 10px, img size 20px,
+             add 10px padding to text td (total size now 30px),
+             add 5px padding to img td (total size also 30px).
+           Can we scaled appropriately if needed.
+         */
         .tableAnalysis td.statusIcon {
-            padding: 0px;
+            padding: 5px;
         }
 
         .tableAnalysis tr:last-child td {
