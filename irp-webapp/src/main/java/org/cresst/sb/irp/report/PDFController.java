@@ -73,6 +73,10 @@ public class PDFController {
         }
     }
 
+    public enum StatusEnum {
+        VALID, ERROR, IGNORED
+    }
+
     class DisplayHelper {
         public String status(FieldCheckType input) {
             if (input == null) { return ""; }
@@ -88,12 +92,12 @@ public class PDFController {
         }
 
         public Boolean statusIsError(FieldCheckType input) {
-            return this.statusIcon(input).equals("http://localhost:8080/error.png");
+            return this.statusCheckEnum(input).equals(StatusEnum.ERROR);
         }
 
-        public String statusIcon(FieldCheckType input) {
+        public StatusEnum statusCheckEnum(FieldCheckType input) {
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) {
-                return "http://localhost:8080/check.png";
+                return StatusEnum.IGNORED;
             }
 
             if (input.isRequiredFieldMissing() ||
@@ -102,10 +106,30 @@ public class PDFController {
                                     !input.isAcceptableValue() ||
                                     !input.isCorrectWidth() ||
                                     (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC && !input.isCorrectValue()))) {
-                return "http://localhost:8080/error.png";
+                return StatusEnum.ERROR;
             }
 
-            return "http://localhost:8080/check-circle.png";
+            return StatusEnum.VALID;
+        }
+        public String statusIcon(FieldCheckType input) {
+            StatusEnum result = statusCheckEnum(input);
+            String icon = "";
+            switch(result) {
+            case IGNORED: {
+                icon = "http://localhost:8080/check.png";
+                break;
+            }
+            case ERROR: {
+                icon = "http://localhost:8080/error.png";
+                break;
+            }
+            // case VALID
+            default: {
+                icon = "http://localhost:8080/check-circle.png";
+                break;
+            }
+            }
+            return icon;
         }
 
         public String explanation(FieldCheckType input) {
