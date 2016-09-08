@@ -429,10 +429,7 @@
 	                <td th:text="${cell.tdsFieldNameValue}"></td>
 	            </tr>
 	            
-	             <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-	                <td class="errorEmptyCell">&nbsp;</td>
-	                <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-	             </tr>
+             <div th:replace="error-info :: error-row"></div>
              </th:block>
 
             <tr class="category">
@@ -457,10 +454,7 @@
 	                    <td th:text="${cell.tdsFieldNameValue}"></td>
 	                </tr>
 		            
-		            <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-		               <td class="errorEmptyCell">&nbsp;</td>
-		               <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-		            </tr>
+                <div th:replace="error-info :: error-row"></div>
                 </th:block>
             </th:block>
 
@@ -484,10 +478,7 @@
 	                <td th:text="${cell.tdsFieldNameValue}"></td>
 	            </tr>
 		        
-		        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-		          <td class="errorEmptyCell">&nbsp;</td>
-		          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-		        </tr>
+            <div th:replace="error-info :: error-row"></div>
             </th:block>
 
             <tr class="category">
@@ -502,10 +493,7 @@
                     <td th:text="${cell.tdsFieldNameValue}"></td>
                 </tr>
 		        
-		        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-		          <td class="errorEmptyCell">&nbsp;</td>
-		          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-		        </tr>
+                <div th:replace="error-info :: error-row"></div>
               </th:block>
             </th:block>
 
@@ -521,10 +509,7 @@
 	                    <td th:text="${cell.tdsFieldNameValue}"></td>
 	                </tr>
 			        
-			        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-			          <td class="errorEmptyCell">&nbsp;</td>
-			          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-			        </tr>
+                    <div th:replace="error-info :: error-row"></div>
                 </th:block>
             </th:block>
 
@@ -560,10 +545,7 @@
 	                        <td th:text="${cell.tdsFieldNameValue}"></td>
 	                    </tr>
 	                    
-				        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-				          <td class="errorEmptyCell">&nbsp;</td>
-				          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-				        </tr>
+                        <div th:replace="error-info :: error-row"></div>
                     </th:block>
 
                     <th:block th:if="${item.responseCategory}" th:with="rc=${item.responseCategory}">
@@ -575,10 +557,7 @@
 	                            <td th:text="${cell.tdsFieldNameValue}"></td>
 	                        </tr>
 					        
-					        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-					          <td class="errorEmptyCell">&nbsp;</td>
-					          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-					        </tr>
+                            <div th:replace="error-info :: error-row"></div>
                         </th:block>
                     </th:block>
 
@@ -591,10 +570,7 @@
 	                            <td th:text="${cell.tdsFieldNameValue}"></td>
 	                        </tr>
 	                        
-					        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-					          <td class="errorEmptyCell">&nbsp;</td>
-					          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-					        </tr>
+                            <div th:replace="error-info :: error-row"></div>
                         </th:block>
 
                         <th:block th:with="sr=${si.scoreRationaleCategory}">
@@ -606,10 +582,7 @@
 	                                <td th:text="${cell.tdsFieldNameValue}"></td>
 	                            </tr>
 		                        
-						        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-						          <td class="errorEmptyCell">&nbsp;</td>
-						          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-						        </tr>
+                                <div th:replace="error-info :: error-row"></div>
                             </th:block>
                         </th:block>
                     </th:block>
@@ -630,10 +603,7 @@
 	                    <td th:text="${cell.tdsFieldNameValue}"></td>
 	                </tr>
 	                
-			        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-			          <td class="errorEmptyCell">&nbsp;</td>
-			          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-			        </tr>
+                    <div th:replace="error-info :: error-row"></div>
                 </th:block>
             </th:block>
 
@@ -650,10 +620,7 @@
 	                    <td th:text="${cell.tdsFieldNameValue}"></td>
 	                </tr>
 	                
-			        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-			          <td class="errorEmptyCell">&nbsp;</td>
-			          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-			        </tr>
+                    <div th:replace="error-info :: error-row"></div>
                 </th:block>
                 <th:block th:each="pageCategory : ${category.toolPageCategories}">
                 	<th:block th:each="cell : ${pageCategory.cellCategories}">
@@ -664,10 +631,7 @@
 	                        <td th:text="${cell.tdsFieldNameValue}"></td>
 	                    </tr>
 		                
-				        <tr th:if="${helper.statusIsError(cell.fieldCheckType)}">
-				          <td class="errorEmptyCell">&nbsp;</td>
-				          <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
-				        </tr>
+                        <div th:replace="error-info :: error-row"></div>
                     </th:block>
                 </th:block>
             </th:block>
