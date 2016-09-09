@@ -461,6 +461,7 @@
 	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
 	                <td th:text="${cell.tdsFieldNameValue}"></td>
 	            </tr>
+	            
             </th:block>
 
             <th:block th:each="category : ${response.examineeAttributeCategories}" th:with="categoryIndex=${categoryStat}">
@@ -477,12 +478,15 @@
             </th:block>
 
             <th:block th:each="category : ${response.examineeRelationshipCategories}" th:with="categoryIndex=${categoryStat}">
-                <tr th:each="cell : ${category.cellCategories}" class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
+                <th:block th:each="cell : ${category.cellCategories}">
+                <tr class="examineeAttributeRows" th:classappend="${categoryIndex.even}? 'even'">
                     <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
                     <td>ExamineeRelationship: <span th:text="${cell.tdsFieldName}"></span></td>
                     <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
                     <td th:text="${cell.tdsFieldNameValue}"></td>
                 </tr>
+                <div th:replace="error-info :: error-row"></div>
+                </th:block>
             </th:block>
 
             <tr class="category">
