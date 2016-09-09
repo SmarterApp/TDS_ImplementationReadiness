@@ -21,6 +21,7 @@ import org.thymeleaf.context.WebContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.StringReader;
+import java.util.ArrayList;
 
 /**
  * View to generate PDF IRP Report
@@ -136,16 +137,30 @@ public class PDFController {
             if (input == null) { return ""; }
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return ""; }
 
-            StringBuilder reasons = new StringBuilder(input.getEnumfieldCheckType().toString());
-            if (input.isFieldValueEmpty()) reasons.append(" Field Empty");
-            if (!input.isCorrectDataType()) reasons.append(" Incorrect Data Type");
-            if (!input.isAcceptableValue()) reasons.append(" Unacceptable Value");
-
-            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
-                if (!input.isCorrectValue()) reasons.append(" Incorrect Value");
+            ArrayList<String> reasons = new ArrayList<String>();
+            if(input.isRequiredFieldMissing()) {
+                reasons.add("Required Field Missing");
+            } else if (!input.isUnknownField()) {
+                if (input.isFieldValueEmpty()) reasons.add("Field Empty");
+                if (!input.isCorrectDataType()) reasons.add("Incorrect Data Type");
+                if (!input.isAcceptableValue()) reasons.add("Unacceptable Value");
+            } else {
+                reasons.add("Unknown Field");
             }
 
-            return reasons.toString();
+            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
+                if (!input.isCorrectValue()) reasons.add("Incorrect Value");
+            }
+
+            // Comma separate the list of reasons
+            StringBuilder reasonsResult = new StringBuilder("");
+            for (String r : reasons) {
+                reasonsResult.append(r);
+                reasonsResult.append(", ");
+            }
+
+            // Remove the last comma
+            return reasonsResult.substring(0, reasonsResult.length() - 2);
         }
 
         public String itemStatus(ItemCategory item) {
