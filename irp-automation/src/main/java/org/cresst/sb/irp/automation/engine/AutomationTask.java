@@ -1,10 +1,7 @@
 package org.cresst.sb.irp.automation.engine;
 
 import org.cresst.sb.irp.automation.accesstoken.AccessToken;
-import org.cresst.sb.irp.automation.art.ArtAssessmentSelector;
-import org.cresst.sb.irp.automation.art.ArtStudentAccommodationsUploader;
-import org.cresst.sb.irp.automation.art.ArtStudentUploader;
-import org.cresst.sb.irp.automation.art.ArtUploaderResult;
+import org.cresst.sb.irp.automation.art.*;
 import org.cresst.sb.irp.automation.proctor.IrpProctor;
 import org.cresst.sb.irp.automation.proctor.Proctor;
 import org.cresst.sb.irp.automation.progman.ProgManTenantId;
@@ -205,6 +202,29 @@ class AutomationTask implements Runnable {
 
             preloadingStatusReporter.status(String.format("Successfully loaded %d IRP Student Accommodations into ART.",
                     artStudentAccommodationsUploaderResult.getNumberOfRecordsUploaded()));
+
+
+            final ArtStudentGroupUploader artStudentGroupUploader = new ArtStudentGroupUploader(
+                    RunnableAutomationRequestProcessor.studentGroupTemplatePath,
+                    automationRestTemplate,
+                    automationRequest.getArtUrl(),
+                    automationRequest.getStateAbbreviation(),
+                    automationRequest.getDistrict(),
+                    automationRequest.getInstitution(),
+                    automationRequest.getProctorUserId());
+
+            rollbackers.push(artStudentGroupUploader);
+
+            preloadingStatusReporter.status("Loading IRP Student Group into ART");
+
+            final ArtUploaderResult artStudentGroupUploaderResult = artStudentGroupUploader.uploadData();
+            if (!artStudentGroupUploaderResult.isSuccessful()) {
+                preloadingStatusReporter.status("Failed to load IRP Student Group into ART: " + artStudentGroupUploaderResult.getMessage());
+                throw new Exception("Unable to upload IRP Student Group data because " + artStudentGroupUploaderResult.getMessage());
+            }
+
+            preloadingStatusReporter.status(String.format("Successfully added %d IRP Students to the IRPStudentGroup in ART.",
+                    artStudentGroupUploaderResult.getNumberOfRecordsUploaded()));
 
         } catch (Exception ex) {
             logger.error("Automation error occurred. Rolling back data now.", ex);
