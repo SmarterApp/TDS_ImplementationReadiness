@@ -97,27 +97,29 @@
 	            <paper-tab>Comments &amp; Tool Usage</paper-tab>
 	            <paper-tab>Combined View</paper-tab>
 	        </paper-tabs>
+
+	        <iron-pages selected="{{selected}}">
+	            <div id="test-properties">
+	                <report-test-properties response="{{response}}"></report-test-properties>
+	            </div>
+	            <div id="examinee-info">
+	                <report-examinee-info response="{{response}}"></report-examinee-info>
+	            </div>
+	            <div id="opportunity">
+	                <report-opportunity response="{{response}}"></report-opportunity>
+	            </div>
+	            <div id="test-scoring">
+	                <report-test-scoring response="{{response}}"></report-test-scoring>
+	            </div>
+	            <div id="comments-tool-usage">
+	                <report-comment-toolusage response="{{response}}"></report-comment-toolusage>
+	            </div>
+	            <div id="raw-view">
+	                <report-raw-view response="{{response}}"></report-raw-view>
+	            </div>
+	        </iron-pages>
         </template>
-        <iron-pages selected="{{selected}}">
-            <div id="test-properties">
-                <report-test-properties response="{{response}}"></report-test-properties>
-            </div>
-            <div id="examinee-info">
-                <report-examinee-info response="{{response}}"></report-examinee-info>
-            </div>
-            <div id="opportunity">
-                <report-opportunity response="{{response}}"></report-opportunity>
-            </div>
-            <div id="test-scoring">
-                <report-test-scoring response="{{response}}"></report-test-scoring>
-            </div>
-            <div id="comments-tool-usage">
-                <report-comment-toolusage response="{{response}}"></report-comment-toolusage>
-            </div>
-            <div id="raw-view">
-                <report-raw-view response="{{response}}"></report-raw-view>
-            </div>
-        </iron-pages>
+        
 
         <!-- detect when window is narrow -->
         <iron-media-query id="mediaQuery" query="max-width: 640px"></iron-media-query>
