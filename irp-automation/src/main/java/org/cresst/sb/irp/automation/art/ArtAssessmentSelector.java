@@ -47,9 +47,9 @@ public class ArtAssessmentSelector implements Rollbacker {
     /**
      * In ART, selects/registers the given Assessments that was side-loaded into TSB.
      * @param testSpecBankData The data that was side-loaded into the vendor's TSB
-     * @return The list of IDs for each Assessment in the vendor's ART application.
+     * @return The number of assessments that were selected
      */
-    public List<String> selectAssessments(List<TestSpecBankData> testSpecBankData) {
+    public int selectAssessments(List<TestSpecBankData> testSpecBankData) {
 
         final DateTime testWindowStart = DateTime.now();
         final DateTime testWindowEnd = testWindowStart.plus(Duration.standardDays(2));
@@ -67,7 +67,7 @@ public class ArtAssessmentSelector implements Rollbacker {
             logger.debug("Selected Assessment {} and received ID={}", assessment.getEntityId(), assessmentId);
         }
 
-        return selectedAssessmentIds;
+        return selectedAssessmentIds.size();
     }
 
     /**
