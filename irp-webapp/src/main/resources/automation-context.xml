@@ -24,6 +24,7 @@
         <constructor-arg name="registrationTestPackageDirectory" value="classpath:irp-package/TestPackages/ART/Registration" />
         <constructor-arg name="studentTemplatePath" value="classpath:irp-package/IRPStudents_template.csv" />
         <constructor-arg name="studentAccommodationsTemplatePath" value="classpath:irp-package/IRPStudentsDesignatedSupportsAndAccommodations_template.csv" />
+        <constructor-arg name="studentGroupTemplatePath" value="classpath:irp-package/IRPStudentGroup_template.csv" />
     </bean>
 
     <bean id="automationRequestResultHandlerProxy" class="org.cresst.sb.irp.automation.engine.AutomationRequestResultHandlerProxy" />

@@ -25,6 +25,7 @@ class RunnableAutomationRequestProcessor implements AutomationRequestProcessor, 
     static Resource registrationTestPackageDirectory;
     static Resource studentTemplatePath;
     static Resource studentAccommodationsTemplatePath;
+    static Resource studentGroupTemplatePath;
 
 
     private volatile static boolean runProcessor = false;
@@ -44,7 +45,8 @@ class RunnableAutomationRequestProcessor implements AutomationRequestProcessor, 
                                               AutomationStatusHandler automationStatusHandler,
                                               Resource registrationTestPackageDirectory,
                                               Resource studentTemplatePath,
-                                              Resource studentAccommodationsTemplatePath) {
+                                              Resource studentAccommodationsTemplatePath,
+                                              Resource studentGroupTemplatePath) {
 
         this.taskExecutor = taskExecutor;
         this.automationRequestResultHandler = automationRequestResultHandler;
@@ -53,6 +55,7 @@ class RunnableAutomationRequestProcessor implements AutomationRequestProcessor, 
         RunnableAutomationRequestProcessor.registrationTestPackageDirectory = registrationTestPackageDirectory;
         RunnableAutomationRequestProcessor.studentTemplatePath = studentTemplatePath;
         RunnableAutomationRequestProcessor.studentAccommodationsTemplatePath = studentAccommodationsTemplatePath;
+        RunnableAutomationRequestProcessor.studentGroupTemplatePath = studentGroupTemplatePath;
     }
 
     /**

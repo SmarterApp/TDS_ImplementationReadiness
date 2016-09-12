@@ -1,10 +1,7 @@
 package org.cresst.sb.irp.automation.engine;
 
 import org.cresst.sb.irp.automation.accesstoken.AccessToken;
-import org.cresst.sb.irp.automation.art.ArtAssessmentSelector;
-import org.cresst.sb.irp.automation.art.ArtStudentAccommodationsUploader;
-import org.cresst.sb.irp.automation.art.ArtStudentUploader;
-import org.cresst.sb.irp.automation.art.ArtUploaderResult;
+import org.cresst.sb.irp.automation.art.*;
 import org.cresst.sb.irp.automation.proctor.IrpProctor;
 import org.cresst.sb.irp.automation.proctor.Proctor;
 import org.cresst.sb.irp.automation.progman.ProgManTenantId;
@@ -21,7 +18,9 @@ import org.cresst.sb.irp.domain.automation.AutomationToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -91,8 +90,8 @@ class AutomationTask implements Runnable {
         try {
             final String tenantId = initialize(automationRestTemplate, initializationStatusReporter);
 
-            preload(automationRestTemplate, preloadingStatusReporter, tenantId);
-            simulate(accessTokenRestTemplate, simulationStatusReporter);
+            Set<String> irpTestKeys = preload(automationRestTemplate, preloadingStatusReporter, tenantId);
+            simulate(accessTokenRestTemplate, simulationStatusReporter, irpTestKeys);
             //analyze();
             //cleanup();
         } catch (Exception ex) {
@@ -125,8 +124,10 @@ class AutomationTask implements Runnable {
         }
     }
 
-    private void preload(AutomationRestTemplate automationRestTemplate, AutomationStatusReporter preloadingStatusReporter,
+    private Set<String> preload(AutomationRestTemplate automationRestTemplate, AutomationStatusReporter preloadingStatusReporter,
                          String tenantId) throws Exception {
+
+        Set<String> irpTestKeys = new HashSet<>();
         Stack<Rollbacker> rollbackers = new Stack<>();
         try {
             logger.info("Side-loading Registration Test Packages");
@@ -143,6 +144,10 @@ class AutomationTask implements Runnable {
 
             List<TestSpecBankData> testSpecBankData = testSpecBankSideLoader.sideLoadRegistrationTestPackages();
 
+            for (TestSpecBankData data : testSpecBankData) {
+                irpTestKeys.add(data.getName());
+            }
+
             preloadingStatusReporter.status(String.format("Side-loading complete. Side-loaded %d Registration Test Packages into TSB.",
                     testSpecBankData.size()));
 
@@ -156,7 +161,7 @@ class AutomationTask implements Runnable {
 
             preloadingStatusReporter.status("Registering IRP Test Packages in ART");
 
-            final List<String> selectedAssessmentIds = artAssessmentSelector.selectAssessments(testSpecBankData);
+            int numOfSelectedAssessments = artAssessmentSelector.selectAssessments(testSpecBankData);
 
             logger.info("Verifying all Registration Test Packages are selected");
 
@@ -164,7 +169,7 @@ class AutomationTask implements Runnable {
                 throw new Exception("IRP found an error with the Test Package data loaded into your system.");
             }
 
-            preloadingStatusReporter.status("Registered " + selectedAssessmentIds.size() + " IRP Assessments in ART");
+            preloadingStatusReporter.status("Registered " + numOfSelectedAssessments + " IRP Assessments in ART");
 
             final ArtStudentUploader artStudentUploader = new ArtStudentUploader(
                     RunnableAutomationRequestProcessor.studentTemplatePath,
@@ -206,6 +211,29 @@ class AutomationTask implements Runnable {
             preloadingStatusReporter.status(String.format("Successfully loaded %d IRP Student Accommodations into ART.",
                     artStudentAccommodationsUploaderResult.getNumberOfRecordsUploaded()));
 
+
+            final ArtStudentGroupUploader artStudentGroupUploader = new ArtStudentGroupUploader(
+                    RunnableAutomationRequestProcessor.studentGroupTemplatePath,
+                    automationRestTemplate,
+                    automationRequest.getArtUrl(),
+                    automationRequest.getStateAbbreviation(),
+                    automationRequest.getDistrict(),
+                    automationRequest.getInstitution(),
+                    automationRequest.getProctorUserId());
+
+            rollbackers.push(artStudentGroupUploader);
+
+            preloadingStatusReporter.status("Loading IRP Student Group into ART");
+
+            final ArtUploaderResult artStudentGroupUploaderResult = artStudentGroupUploader.uploadData();
+            if (!artStudentGroupUploaderResult.isSuccessful()) {
+                preloadingStatusReporter.status("Failed to load IRP Student Group into ART: " + artStudentGroupUploaderResult.getMessage());
+                throw new Exception("Unable to upload IRP Student Group data because " + artStudentGroupUploaderResult.getMessage());
+            }
+
+            preloadingStatusReporter.status(String.format("Successfully added %d IRP Students to the IRPStudentGroup in ART.",
+                    artStudentGroupUploaderResult.getNumberOfRecordsUploaded()));
+
         } catch (Exception ex) {
             logger.error("Automation error occurred. Rolling back data now.", ex);
             preloadingStatusReporter.status("An error occurred, IRP is rolling back any data it has loading into your implementation");
@@ -225,9 +253,12 @@ class AutomationTask implements Runnable {
 
             preloadingStatusReporter.status("Done");
         }
+
+        return irpTestKeys;
     }
 
-    private void simulate(AutomationRestTemplate accessTokenRestTemplate, AutomationStatusReporter simulationStatusReporter) {
+    private void simulate(AutomationRestTemplate accessTokenRestTemplate, AutomationStatusReporter simulationStatusReporter,
+                          Set<String> irpTestKeys) {
 
         final Proctor proctor = new IrpProctor(accessTokenRestTemplate,
                 new IrpAutomationRestTemplate(),
@@ -241,7 +272,17 @@ class AutomationTask implements Runnable {
         simulationStatusReporter.status(String.format("Logging in as Proctor (%s)", automationRequest.getProctorUserId()));
         if (proctor.login()) {
             logger.info("Proctor login successful");
-            simulationStatusReporter.status("Proctor login successful");
+            simulationStatusReporter.status("Proctor login successful. Initiating Test Session.");
+
+            if (proctor.startTestSession(irpTestKeys)) {
+                logger.info("Successfully started test session");
+                simulationStatusReporter.status("Test Session has been initiated by the Proctor");
+
+
+            } else {
+                logger.info("Proctor was unable to start a Test Session");
+                simulationStatusReporter.status("Proctor was unable to start a Test Session");
+            }
         } else {
             logger.info("Proctor login was unsuccessful");
             simulationStatusReporter.status("Proctor login was unsuccessful");

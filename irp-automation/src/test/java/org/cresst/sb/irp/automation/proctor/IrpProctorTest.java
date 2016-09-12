@@ -2,6 +2,7 @@ package org.cresst.sb.irp.automation.proctor;
 
 import com.google.common.collect.Lists;
 import org.cresst.sb.irp.automation.proctor.data.SessionDTO;
+import org.cresst.sb.irp.automation.proctor.data.TestSession;
 import org.cresst.sb.irp.automation.testhelpers.IntegrationTests;
 import org.cresst.sb.irp.automation.web.AutomationRestTemplate;
 import org.cresst.sb.irp.automation.web.IrpAutomationRestTemplate;
@@ -18,13 +19,14 @@ import org.springframework.web.client.RestClientException;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 
@@ -40,6 +42,7 @@ public class IrpProctorTest {
     private final URL testOAuthUrl = new URL("https://oam.server.net/oauth");
     private final URL testProctorUrl = new URL("https://tds.server.net/proctor");
     private final URL testGetInitDataUrl = new URL("https://tds.server.net/proctor/Services/XHR.axd/GetInitData");
+    private final URL testInsertSessionTestsUrl = new URL("https://tds.server.net/proctor/Services/XHR.axd/InsertSessionTests");
     private final String testClientId = "testClientId";
     private final String testClientSecret = "testClientSecret";
     private final String testProctorUserId = "testProctorUserId@server.net";
@@ -48,9 +51,12 @@ public class IrpProctorTest {
     public IrpProctorTest() throws MalformedURLException {
     }
 
-    @Test
-    public void whenLoginSuccessful() throws Exception {
-
+    /**
+     * Reusable code to initiate a Proctor login
+     * @return The logged in Proctor
+     * @throws URISyntaxException Not likely to be thrown
+     */
+    private Proctor loginMockProctor() throws URISyntaxException {
         // Proctor Under Test
         final Proctor proctorUT = new IrpProctor(accessTokenAutomationRestTemplate,
                 proctorAutomationRestTemplate,
@@ -68,12 +74,26 @@ public class IrpProctorTest {
         headers.put("Set-Cookie", Lists.newArrayList("testcookie1=true", "testcookie2=1"));
         ResponseEntity<String> mockCookieResponse = new ResponseEntity<>("", new LinkedMultiValueMap<>(headers), HttpStatus.OK);
 
+        List<org.cresst.sb.irp.automation.proctor.data.Test> proctorTests = new ArrayList<>();
+        org.cresst.sb.irp.automation.proctor.data.Test t1 = new org.cresst.sb.irp.automation.proctor.data.Test();
+        t1.set_key("key1");
+        t1.setId("id1");
+        proctorTests.add(t1);
+
         SessionDTO sessionDTO = new SessionDTO();
+        sessionDTO.setTests(proctorTests);
         ResponseEntity<SessionDTO> mockGetInitDataResponse = new ResponseEntity<>(sessionDTO, HttpStatus.OK);
 
         when(proctorAutomationRestTemplate.getForEntity(eq(proctorUri), eq(String.class))).thenReturn(mockCookieResponse);
         when(proctorAutomationRestTemplate.getForEntity(eq(testGetInitDataUri), eq(SessionDTO.class)))
                 .thenReturn(mockGetInitDataResponse);
+        return proctorUT;
+    }
+
+
+    @Test
+    public void whenLoginSuccessful() throws Exception {
+        final Proctor proctorUT = loginMockProctor();
 
         assertTrue(proctorUT.login());
     }
@@ -151,5 +171,32 @@ public class IrpProctorTest {
                 "badPassword");
 
         assertFalse(proctorUT.login());
+    }
+
+    @Test
+    public void whenInitiatingTestSessionSuccessful_SessionIdAvailable() throws Exception {
+        // Proctor Under Test
+        final Proctor proctorUT = loginMockProctor();
+
+        final URI testInsertSessionTestsUri = new URI(testInsertSessionTestsUrl.toString());
+
+        Set<String> testKeys = new HashSet<>();
+        testKeys.add("key1");
+
+        TestSession testSession = new TestSession();
+        testSession.setId("test-session-id");
+
+        SessionDTO sessionDTO = new SessionDTO();
+        sessionDTO.setSession(testSession);
+
+        ResponseEntity<SessionDTO> mockInsertSessionTestResponse = new ResponseEntity<>(sessionDTO, HttpStatus.OK);
+
+        when(proctorAutomationRestTemplate.postForEntity(eq(testInsertSessionTestsUri), any(), eq(SessionDTO.class)))
+                .thenReturn(mockInsertSessionTestResponse);
+
+        proctorUT.login();
+        proctorUT.startTestSession(testKeys);
+
+        assertEquals("test-session-id", proctorUT.getSessionId());
     }
 }
