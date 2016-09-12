@@ -150,6 +150,16 @@
         .tableAnalysis .requiredField{
             font-style: normal;
         }
+        
+        .tableAnalysis .optionalFieldEven {
+            font-style: italic;
+            background-color: #ddd;
+        }
+
+        .tableAnalysis .requiredFieldEven {
+            font-style: normal;
+            background-color: #ddd;
+        }        
 
         .tableAnalysis .expectedValue {
         }
@@ -459,7 +469,7 @@
             </tr>
 
 			<th:block th:each="cell : ${response.examineeCategory.cellCategories}">
-	            <tr class="examineeRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	            <tr class="examineeRows" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                <td>Examinee: <span th:text="${cell.tdsFieldName}"></span></td>
 	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -497,7 +507,7 @@
                 <td colspan="4">Opportunity</td>
             </tr>
             <th:block th:each="cell : ${response.opportunityCategory.cellCategories}">
-	            <tr class="opportunityPropertiesRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	            <tr class="opportunityPropertiesRows" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                <td>Opportunity Properties: <span th:text="${cell.tdsFieldName}"></span></td>
 	                <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -512,7 +522,7 @@
             </tr>
             <th:block th:each="segment : ${response.opportunityCategory.segmentCategories}">
             	<th:block th:each="cell : ${segment.cellCategories}">
-                <tr class="opportunitySegmentRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+                <tr class="opportunitySegmentRows" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
                     <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
                     <td>Opportunity Segment: <span th:text="${cell.tdsFieldName}"></span></td>
                     <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -528,7 +538,7 @@
             </tr>
             <th:block th:each="accommodation : ${response.opportunityCategory.accommodationCategories}">
             	<th:block th:each="cell : ${accommodation.cellCategories}">
-	                <tr class="opportunityAccommodationRows" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                <tr class="opportunityAccommodationRows" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                    <td>Opportunity Accommodation: <span th:text="${cell.tdsFieldName}"></span></td>
 	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -622,7 +632,7 @@
 
             <th:block th:each="category : ${response.commentCategories}">
             	<th:block th:each="cell : ${category.cellCategories}">
-	                <tr class="comment" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                <tr class="comment" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                    <td>Comment: <span th:text="${cell.tdsFieldName}"></span></td>
 	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -639,7 +649,7 @@
 
             <th:block th:each="category : ${response.toolUsageCategories}">
             	<th:block th:each="cell : ${category.cellCategories}">
-	                <tr  class="toolUsage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                <tr  class="toolUsage" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                    <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                    <td>ToolUsage: <span th:text="${cell.tdsFieldName}"></span></td>
 	                    <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>
@@ -650,7 +660,7 @@
                 </th:block>
                 <th:block th:each="pageCategory : ${category.toolPageCategories}">
                 	<th:block th:each="cell : ${pageCategory.cellCategories}">
-	                    <tr class="toolPage" th:classappend="${cellStat.even}? 'even'" th:classappend="${helper.rowClass(cell.fieldCheckType)}">
+	                    <tr class="toolPage" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                        <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
 	                        <td>ToolPage: <span th:text="${cell.tdsFieldName}"></span></td>
 	                        <td th:class="${helper.expectedValueClass(cell.tdsExpectedValue)}" th:text="${helper.adjustedExpectedValueCell(cell.tdsExpectedValue)}"></td>

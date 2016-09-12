@@ -186,6 +186,11 @@ public class PDFController {
             return fieldCheckType.isOptionalValue() ? "optionalField" : "requiredField";
         }
 
+        // Returns the rowclass with Even appended if even
+        public String rowClassEven(FieldCheckType fieldCheckType, Boolean isEven) {
+            return rowClass(fieldCheckType) + (isEven ? "Even" : "");
+        }
+
         public String expectedValueClass(String tdsExpectedValue) {
             return StringUtils.isNotBlank(tdsExpectedValue) ? "expectedValue" : "noExpectedValue";
         }
