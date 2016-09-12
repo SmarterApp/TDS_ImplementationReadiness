@@ -131,7 +131,9 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		cellCategory.setFieldCheckType(fieldCheckType);
 
 		// If Field value is not empty, set the fieldCheckType correctly
-		if (fieldName != "" && fieldName != "-") {
+		if (fieldName.equals("") || fieldName.equals("-")) {
+		    fieldCheckType.setFieldValueEmpty(true);
+		} else {
 		    fieldCheckType.setFieldValueEmpty(false);
 		}
 		category.addCellCategory(cellCategory);
