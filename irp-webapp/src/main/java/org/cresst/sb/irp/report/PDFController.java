@@ -152,15 +152,7 @@ public class PDFController {
                 if (!input.isCorrectValue()) reasons.add("Incorrect Value");
             }
 
-            // Comma separate the list of reasons
-            StringBuilder reasonsResult = new StringBuilder("");
-            for (String r : reasons) {
-                reasonsResult.append(r);
-                reasonsResult.append(", ");
-            }
-
-            // Remove the last comma
-            return reasonsResult.substring(0, reasonsResult.length() - 2);
+            return StringUtils.join(reasons, ", ");
         }
 
         public String itemStatus(ItemCategory item) {
