@@ -2,6 +2,8 @@ package org.cresst.sb.irp.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
@@ -14,7 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
 @Service
 public class XMLValidate {
@@ -69,13 +73,42 @@ public class XMLValidate {
 		return true;
 	}
 
-	// Validates xml schema and thorws SAXException if xml file is not valid
-	public void validateXMLSchemaException(Resource resource, String file)
-			throws IOException, SAXException {
-		SchemaFactory factory = SchemaFactory
-				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = factory.newSchema(resource.getFile());
-		Validator validator = schema.newValidator();
-		validator.validate(new StreamSource(file));
+	// Validates xml schema and generates a list of XmlExceptions
+	public List<SAXException> validateXMLSchemaExceptionList(Resource resource, String file)
+			throws IOException {
+	    final List<SAXException> exceptions = new LinkedList<SAXException>();
+	    try {
+    		SchemaFactory factory = SchemaFactory
+    				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+    		Schema schema = factory.newSchema(resource.getFile());
+    		Validator validator = schema.newValidator();
+    		// Override error handler and keep all xml errors
+
+    		validator.setErrorHandler(new ErrorHandler()
+        	{
+        	  @Override
+        	  public void warning(SAXParseException exception) throws SAXException
+        	  {
+        	    exceptions.add(exception);
+        	  }
+
+        	  @Override
+        	  public void fatalError(SAXParseException exception) throws SAXException
+        	  {
+        	    exceptions.add(exception);
+        	  }
+
+        	  @Override
+        	  public void error(SAXParseException exception) throws SAXException
+        	  {
+        	    exceptions.add(exception);
+        	  }
+        	});
+
+            validator.validate(new StreamSource(file));
+        } catch (SAXException e) {
+            // Do nothing, we are returning errors any
+        }
+		return exceptions;
 	}
 }

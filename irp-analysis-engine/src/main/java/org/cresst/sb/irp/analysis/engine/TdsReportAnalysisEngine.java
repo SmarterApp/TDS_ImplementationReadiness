@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 
 @Service
 public class TdsReportAnalysisEngine implements AnalysisEngine {
@@ -84,37 +85,43 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 			analysisResponse.addListIndividualResponse(individualResponse);
 
 			try {
-				xmlValidate.validateXMLSchemaException(TDSReportXSDResource, tmpPath.toString());
-				individualResponse.setValidXMLfile(true);
-				TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
-				individualResponse.setTDSReport(tdsReport);
+				List<SAXException> xmlExceptions = xmlValidate.validateXMLSchemaExceptionList(TDSReportXSDResource, tmpPath.toString());
+				// XML is valid, perform analysis
+				if (xmlExceptions.isEmpty()) {
+				    individualResponse.setValidXMLfile(true);
+	                TDSReport tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tmpPath.toString()));
+	                individualResponse.setTDSReport(tdsReport);
 
-				testAnalysisAction.analyze(individualResponse);
-				if (individualResponse.isValidTestName()) {
-					examineeAnalysisAction.analyze(individualResponse);
-					if (individualResponse.isValidExaminee()) {
-						examineeAttributeAnalysisAction.analyze(individualResponse);
-						examineeRelationshipAnalysisAction.analyze(individualResponse);
-						opportunityAnalysisAction.analyze(individualResponse);
-						segmentAnalysisAction.analyze(individualResponse);
-						accommodationAnalysisAction.analyze(individualResponse);
-						testScoreAnalysisAction.analyze(individualResponse);
-						genericVariableAnalysisAction.analyze(individualResponse);
-						itemAttributesAnalysisAction.analyze(individualResponse);
-						itemResponseAnalysisAction.analyze(individualResponse);
-						itemScoreInfoAnalysisAction.analyze(individualResponse);
-						commentAnalysisAction.analyze(individualResponse);
-						toolUsageAnalysisAction.analyze(individualResponse);
-					}
+	                testAnalysisAction.analyze(individualResponse);
+	                if (individualResponse.isValidTestName()) {
+	                    examineeAnalysisAction.analyze(individualResponse);
+	                    if (individualResponse.isValidExaminee()) {
+	                        examineeAttributeAnalysisAction.analyze(individualResponse);
+	                        examineeRelationshipAnalysisAction.analyze(individualResponse);
+	                        opportunityAnalysisAction.analyze(individualResponse);
+	                        segmentAnalysisAction.analyze(individualResponse);
+	                        accommodationAnalysisAction.analyze(individualResponse);
+	                        testScoreAnalysisAction.analyze(individualResponse);
+	                        genericVariableAnalysisAction.analyze(individualResponse);
+	                        itemAttributesAnalysisAction.analyze(individualResponse);
+	                        itemResponseAnalysisAction.analyze(individualResponse);
+	                        itemScoreInfoAnalysisAction.analyze(individualResponse);
+	                        commentAnalysisAction.analyze(individualResponse);
+	                        toolUsageAnalysisAction.analyze(individualResponse);
+	                    }
+	                }
+
+	                individualResponse.setTDSReport(null);
+				} else {
+	                // Add each xml parse message to response
+	                for (SAXException e : xmlExceptions) {
+	                    System.out.println("XML ERROR: " + e.getMessage());
+	                    individualResponse.addXmlError(e.getMessage());
+	                }
+	                individualResponse.setValidXMLfile(false);
 				}
-
-				individualResponse.setTDSReport(null);
-
 			} catch (IOException e) {
 				logger.error("analyze exception: ", e);
-			} catch (SAXException e) {
-				individualResponse.setXmlError(e.getMessage());
-				logger.error("xml parsing error", e);
 			}
 		}
 		return analysisResponse;

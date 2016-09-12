@@ -37,9 +37,13 @@
 
                 You will not see a break down analysis of the TDS Report because of this.
             </div>
-            XML Parsing error: </br>
-            <div id="xmlError" style="font-style: italic;">
-                {{response.xmlError}}
+            <div id="xmlErrors" style="font-style: italic;">
+                    XML Errors
+                    <ul>
+		                <template is="dom-repeat" items="{{response.xmlErrors}}" as="xmlError">
+		                   <li>{{xmlError}}</li>
+		                </template>
+	                </ul>
             </div>
         </template>
 
