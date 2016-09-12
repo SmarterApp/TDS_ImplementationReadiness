@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+ <body>
+    <table>
+      <tbody>
+        <tr th:fragment="error-row" th:if="${helper.statusIsError(cell.fieldCheckType)}">
+            <td class="errorEmptyCell">&nbsp;</td>
+            <td colspan="3" class="errorExplanation" th:text="${helper.explanation(cell.fieldCheckType)}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

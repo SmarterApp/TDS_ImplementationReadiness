@@ -19,6 +19,7 @@ public class IndividualResponse {
 	private TDSReport tdsReport; //
     private String status; //No errors, Contains xx errors
     private boolean isCombo; //Combined test or not
+    private List<String> xmlErrors = new ArrayList<>(); // XmlErrors from manual parsing
 
     private TestPropertiesCategory testPropertiesCategory;
     private ExamineeCategory examineeCategory;
@@ -59,7 +60,7 @@ public class IndividualResponse {
 	public void setValidTestName(boolean isValidTestName) {
 		this.isValidTestName = isValidTestName;
 	}
-    
+
 	public boolean isValidExaminee() {
 		return isValidExaminee;
 	}
@@ -80,10 +81,22 @@ public class IndividualResponse {
 		return isCAT;
 	}
 
+    public ImmutableList<String> getXmlErrors() {
+		return ImmutableList.copyOf(xmlErrors);
+	}
+
+	public void setXmlErrors(List<String> xmlErrors) {
+		this.xmlErrors = xmlErrors;
+	}
+
+	public void addXmlError(String errorMsg) {
+	    this.xmlErrors.add(errorMsg);
+	}
+
 	public void setCAT(boolean isCAT) {
 		this.isCAT = isCAT;
 	}
-	
+
     public TestPropertiesCategory getTestPropertiesCategory() {
         return testPropertiesCategory;
     }
@@ -179,6 +192,7 @@ public class IndividualResponse {
                 .append("opportunityCategory", opportunityCategory)
                 .append("commentCategories", commentCategories)
                 .append("toolUsageCategories", toolUsageCategories)
+                .append("xmlErrors", xmlErrors)
                 .toString();
     }
 
@@ -202,7 +216,8 @@ public class IndividualResponse {
                 Objects.equals(examineeRelationshipCategories, that.examineeRelationshipCategories) &&
                 Objects.equals(opportunityCategory, that.opportunityCategory) &&
                 Objects.equals(commentCategories, that.commentCategories) &&
-                Objects.equals(toolUsageCategories, that.toolUsageCategories);
+                Objects.equals(toolUsageCategories, that.toolUsageCategories) &&
+                Objects.equals(xmlErrors, that.xmlErrors);
     }
 
     @Override
@@ -222,7 +237,8 @@ public class IndividualResponse {
                 examineeRelationshipCategories,
                 opportunityCategory,
                 commentCategories,
-                toolUsageCategories);
+                toolUsageCategories,
+                xmlErrors);
     }
 
 }

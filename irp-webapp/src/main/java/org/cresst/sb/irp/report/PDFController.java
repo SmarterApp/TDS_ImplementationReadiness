@@ -21,6 +21,7 @@ import org.thymeleaf.context.WebContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.StringReader;
+import java.util.ArrayList;
 
 /**
  * View to generate PDF IRP Report
@@ -73,6 +74,10 @@ public class PDFController {
         }
     }
 
+    public enum StatusEnum {
+        VALID, ERROR, IGNORED
+    }
+
     class DisplayHelper {
         public String status(FieldCheckType input) {
             if (input == null) { return ""; }
@@ -87,9 +92,13 @@ public class PDFController {
             return valid ? "No Errors" : "Errors Found";
         }
 
-        public String statusIcon(FieldCheckType input) {
+        public Boolean statusIsError(FieldCheckType input) {
+            return this.statusCheckEnum(input).equals(StatusEnum.ERROR);
+        }
+
+        public StatusEnum statusCheckEnum(FieldCheckType input) {
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) {
-                return "http://localhost:8080/check.png";
+                return StatusEnum.IGNORED;
             }
 
             if (input.isRequiredFieldMissing() ||
@@ -98,26 +107,52 @@ public class PDFController {
                                     !input.isAcceptableValue() ||
                                     !input.isCorrectWidth() ||
                                     (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC && !input.isCorrectValue()))) {
-                return "http://localhost:8080/error.png";
+                return StatusEnum.ERROR;
             }
 
-            return "http://localhost:8080/check-circle.png";
+            return StatusEnum.VALID;
+        }
+        public String statusIcon(FieldCheckType input) {
+            StatusEnum result = statusCheckEnum(input);
+            String icon = "";
+            switch(result) {
+            case IGNORED: {
+                icon = "http://localhost:8080/check.png";
+                break;
+            }
+            case ERROR: {
+                icon = "http://localhost:8080/error.png";
+                break;
+            }
+            // case VALID
+            default: {
+                icon = "http://localhost:8080/check-circle.png";
+                break;
+            }
+            }
+            return icon;
         }
 
         public String explanation(FieldCheckType input) {
             if (input == null) { return ""; }
             if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) { return ""; }
 
-            StringBuilder reasons = new StringBuilder(input.getEnumfieldCheckType().toString());
-            if (input.isFieldValueEmpty()) reasons.append(" Field Empty");
-            if (!input.isCorrectDataType()) reasons.append(" Incorrect Data Type");
-            if (!input.isAcceptableValue()) reasons.append(" Unacceptable Value");
-
-            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
-                if (!input.isCorrectValue()) reasons.append(" Incorrect Value");
+            ArrayList<String> reasons = new ArrayList<String>();
+            if(input.isRequiredFieldMissing()) {
+                reasons.add("Required Field Missing");
+            } else if (!input.isUnknownField()) {
+                if (input.isFieldValueEmpty()) reasons.add("Field Empty");
+                if (!input.isCorrectDataType()) reasons.add("Incorrect Data Type");
+                if (!input.isAcceptableValue()) reasons.add("Unacceptable Value");
+            } else {
+                reasons.add("Unknown Field");
             }
 
-            return reasons.toString();
+            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC) {
+                if (!input.isCorrectValue()) reasons.add("Incorrect Value");
+            }
+
+            return StringUtils.join(reasons, ", ");
         }
 
         public String itemStatus(ItemCategory item) {
@@ -141,6 +176,11 @@ public class PDFController {
 
         public String rowClass(FieldCheckType fieldCheckType) {
             return fieldCheckType.isOptionalValue() ? "optionalField" : "requiredField";
+        }
+
+        // Returns the rowclass with Even appended if even
+        public String rowClassEven(FieldCheckType fieldCheckType, Boolean isEven) {
+            return rowClass(fieldCheckType) + (isEven ? "Even" : "");
         }
 
         public String expectedValueClass(String tdsExpectedValue) {

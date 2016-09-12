@@ -33,16 +33,16 @@ import java.util.Objects;
  */
 public abstract class AnalysisAction<T, E extends Enum, O> {
 	private final static Logger logger = LoggerFactory.getLogger(AnalysisAction.class);
-	
+
 	@Autowired
 	public AccommodationService accommodationService;
-	
+
 	@Autowired
 	public TestPackageService testPackageService;
 
 	@Autowired
 	public StudentService studentService;
-	
+
 	@Autowired
 	public TDSReportService tdsReportService;
 
@@ -51,7 +51,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 	@Autowired
 	public TestStudentMappingService testStudentMappingService;
-	
+
 
 	/**
 	 * Analyze the TDS Report
@@ -121,21 +121,28 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 			FieldCheckType.EnumFieldCheckType enumFieldCheckType, E enumFieldName, O comparisonData) {
 
 		final FieldCheckType fieldCheckType = new FieldCheckType();
+		final String fieldName = Objects.toString(value, "");
 		fieldCheckType.setEnumfieldCheckType(enumFieldCheckType);
 
 		final CellCategory cellCategory = new CellCategory();
 		cellCategory.setTdsFieldName(enumFieldName.toString());
-		cellCategory.setTdsFieldNameValue(Objects.toString(value, ""));
+		cellCategory.setTdsFieldNameValue(fieldName);
 		cellCategory.setTdsExpectedValue(expectedValue(comparisonData, enumFieldName));
 		cellCategory.setFieldCheckType(fieldCheckType);
 
+		// If Field value is not empty, set the fieldCheckType correctly
+		if (fieldName.equals("") || fieldName.equals("-")) {
+		    fieldCheckType.setFieldValueEmpty(true);
+		} else {
+		    fieldCheckType.setFieldValueEmpty(false);
+		}
 		category.addCellCategory(cellCategory);
 
 		checkField(checkObj, enumFieldCheckType, enumFieldName, fieldCheckType, comparisonData);
 	}
 
 	/**
-	 * 
+	 *
 	 * @param cellCategories
 	 *            The cellCategories store the list CellCategory
 	 * @param key
@@ -151,7 +158,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param cellCategories
 	 *            The cellCategories store the list CellCategory
 	 * @param key
@@ -165,7 +172,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 		}
 		return null;
 	}
-	
+
 	protected ItemCategory getItemCategoryByBankKeyKey(String bankKey, String key, List<ItemCategory> listItemCategory,
 			ItemCategory.ItemStatusEnum itemStatusEnum) {
 
@@ -184,7 +191,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 
 		return null;
 	}
-	
+
 	/**
 	 * Checks the field
 	 *
@@ -224,7 +231,7 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	public Accommodation getAccommodation(String studentIdentifier) throws NotFoundException {
 		return accommodationService.getAccommodationByStudentIdentifier(studentIdentifier);
 	}
-	
+
 	public Student getStudent(String ssid) throws NotFoundException {
 		return studentService.getStudentByStudentSSID(ssid);
 	}
@@ -232,11 +239,11 @@ public abstract class AnalysisAction<T, E extends Enum, O> {
 	public TestStudentMapping getTestStudentMapping(String testName, String studentSSID) {
 		return testStudentMappingService.getTestStudentMapping(testName, studentSSID);
 	}
-	
+
 	public List<TestStudentMapping> getTestStudentMappingsByTestName(String testName) {
 		return testStudentMappingService.getTestStudentMappingsByTestName(testName);
 	}
-	
+
 	public org.cresst.sb.irp.domain.items.Itemrelease.Item getItemByIdentifier(String identifier) {
 		return itemService.getItemByIdentifier(identifier);
 	}

@@ -37,82 +37,93 @@
 
                 You will not see a break down analysis of the TDS Report because of this.
             </div>
-        </template>
-
-        <template is="dom-if" if="{{!response.validTestName}}">
-            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
-                The test names does not match an IRP test. IRP can only analyze TDSReport XMLs that were
-                generated using a test found in the IRP Test Package.
-
-                You will not see a break down analysis of the TDS Report because of this.
+            <div id="xmlErrors" style="font-style: italic;">
+                    XML Errors
+                    <ul>
+		                <template is="dom-repeat" items="{{response.xmlErrors}}" as="xmlError">
+		                   <li>{{xmlError}}</li>
+		                </template>
+	                </ul>
             </div>
         </template>
 
-        <template is="dom-if" if="{{!response.validExaminee}}">
-            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
-                The Examinee does not match an IRP specified Student. IRP needs the TDSReport XML to contain an
-                Examinee that is provided by IRP in order to successfully analyze Examinee attributes.
-            </div>
+        <template is="dom-if" if="{{response.validXMLfile}}">
+	        <template is="dom-if" if="{{!response.validTestName}}">
+	            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+	                The test names does not match an IRP test. IRP can only analyze TDSReport XMLs that were
+	                generated using a test found in the IRP Test Package.
+	
+	                You will not see a break down analysis of the TDS Report because of this.
+	            </div>
+	        </template>
+	
+	        <template is="dom-if" if="{{!response.validExaminee}}">
+	            <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+	                The Examinee does not match an IRP specified Student. IRP needs the TDSReport XML to contain an
+	                Examinee that is provided by IRP in order to successfully analyze Examinee attributes.
+	            </div>
+	        </template>
+	
+	        <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
+	        <p>Refer to the
+	            <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and the
+	            <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>
+	            for details about field data types and acceptable values.
+	        </p>
+	
+	        <p><em>Italicised</em> text means the field is optional.</p>
+	
+	        <p>
+	            <em>Legend</em>
+	        </p>
+	        <ul>
+	            <li><iron-icon icon="check-circle" style="color: green;"></iron-icon> - IRP analyzed this field and the field is correct.</li>
+	            <li><iron-icon icon="check" style="color: green;"></iron-icon> - IRP does not currently analyze this field.</li>
+	            <li><iron-icon icon="error" style="color: red;"></iron-icon> - IRP analyzed this field and the field has errors.
+	                <ul>
+	                    <li><em>Required Field Missing</em>: The required field was not found.</li>
+	                    <li><em>Field Empty</em>: The field did not contain a value but should have.</li>
+	                    <li><em>Incorrect Data Type</em>: The field's value data type is incorrect.</li>
+	                    <li><em>Unacceptable Value</em>: The field's value is outside the bounds of an acceptable value.</li>
+	                    <li><em>Incorrect Value</em>: The field's value does not match IRP's expected value.</li>
+	                    <li><em>Unknown Field</em>: The field is extraneous and not defined in <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and
+	                        <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>.</li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <p></p>
+	
+	        <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable>
+	            <paper-tab>Test Properties</paper-tab>
+	            <paper-tab>Examinee Information</paper-tab>
+	            <paper-tab>Opportunity</paper-tab>
+	            <paper-tab>Test Scoring</paper-tab>
+	            <paper-tab>Comments &amp; Tool Usage</paper-tab>
+	            <paper-tab>Combined View</paper-tab>
+	        </paper-tabs>
+
+	        <iron-pages selected="{{selected}}">
+	            <div id="test-properties">
+	                <report-test-properties response="{{response}}"></report-test-properties>
+	            </div>
+	            <div id="examinee-info">
+	                <report-examinee-info response="{{response}}"></report-examinee-info>
+	            </div>
+	            <div id="opportunity">
+	                <report-opportunity response="{{response}}"></report-opportunity>
+	            </div>
+	            <div id="test-scoring">
+	                <report-test-scoring response="{{response}}"></report-test-scoring>
+	            </div>
+	            <div id="comments-tool-usage">
+	                <report-comment-toolusage response="{{response}}"></report-comment-toolusage>
+	            </div>
+	            <div id="raw-view">
+	                <report-raw-view response="{{response}}"></report-raw-view>
+	            </div>
+	        </iron-pages>
         </template>
-
-        <p>Click the Home tab to download a PDF version of this IRP analysis.</p>
-        <p>Refer to the
-            <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and the
-            <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>
-            for details about field data types and acceptable values.
-        </p>
-
-        <p><em>Italicised</em> text means the field is optional.</p>
-
-        <p>
-            <em>Legend</em>
-        </p>
-        <ul>
-            <li><iron-icon icon="check-circle" style="color: green;"></iron-icon> - IRP analyzed this field and the field is correct.</li>
-            <li><iron-icon icon="check" style="color: green;"></iron-icon> - IRP does not currently analyze this field.</li>
-            <li><iron-icon icon="error" style="color: red;"></iron-icon> - IRP analyzed this field and the field has errors.
-                <ul>
-                    <li><em>Required Field Missing</em>: The required field was not found.</li>
-                    <li><em>Field Empty</em>: The field did not contain a value but should have.</li>
-                    <li><em>Incorrect Data Type</em>: The field's value data type is incorrect.</li>
-                    <li><em>Unacceptable Value</em>: The field's value is outside the bounds of an acceptable value.</li>
-                    <li><em>Incorrect Value</em>: The field's value does not match IRP's expected value.</li>
-                    <li><em>Unknown Field</em>: The field is extraneous and not defined in <a href="http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf">Test Results Transmission Format Specification</a> and
-                        <a href="http://www.smarterapp.org/documents/TestResults-DataModel.pdf">Data Dictionary and Logical Data Model</a>.</li>
-                </ul>
-            </li>
-        </ul>
-        <p></p>
-
-        <paper-tabs id="scrollableTabs" selected="{{selected}}" scrollable>
-            <paper-tab>Test Properties</paper-tab>
-            <paper-tab>Examinee Information</paper-tab>
-            <paper-tab>Opportunity</paper-tab>
-            <paper-tab>Test Scoring</paper-tab>
-            <paper-tab>Comments &amp; Tool Usage</paper-tab>
-            <paper-tab>Combined View</paper-tab>
-        </paper-tabs>
-
-        <iron-pages selected="{{selected}}">
-            <div id="test-properties">
-                <report-test-properties response="{{response}}"></report-test-properties>
-            </div>
-            <div id="examinee-info">
-                <report-examinee-info response="{{response}}"></report-examinee-info>
-            </div>
-            <div id="opportunity">
-                <report-opportunity response="{{response}}"></report-opportunity>
-            </div>
-            <div id="test-scoring">
-                <report-test-scoring response="{{response}}"></report-test-scoring>
-            </div>
-            <div id="comments-tool-usage">
-                <report-comment-toolusage response="{{response}}"></report-comment-toolusage>
-            </div>
-            <div id="raw-view">
-                <report-raw-view response="{{response}}"></report-raw-view>
-            </div>
-        </iron-pages>
+        
 
         <!-- detect when window is narrow -->
         <iron-media-query id="mediaQuery" query="max-width: 640px"></iron-media-query>
