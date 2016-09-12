@@ -306,8 +306,12 @@
 
                 You will not see a break down analysis of the TDS Report because of this.
             </div>
-            XML Parsing error:
-        <div id="xmlError" th:text="${response.xmlError}">  </div>
+            XML Errors
+            <ul>
+                <th:block th:each="xmlError: ${response.xmlErrors}">
+                   <li th:text="${xmlError}"></li>
+                </th:block>
+            </ul>
         </th:block>
         
         <th:block th:if="${response.validXMLfile}">

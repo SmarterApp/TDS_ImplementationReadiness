@@ -115,7 +115,6 @@ public class TdsReportAnalysisEngine implements AnalysisEngine {
 				} else {
 	                // Add each xml parse message to response
 	                for (SAXException e : xmlExceptions) {
-	                    System.out.println("XML ERROR: " + e.getMessage());
 	                    individualResponse.addXmlError(e.getMessage());
 	                }
 	                individualResponse.setValidXMLfile(false);
