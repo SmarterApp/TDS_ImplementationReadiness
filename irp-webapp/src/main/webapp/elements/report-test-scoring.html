@@ -129,7 +129,8 @@
       properties: { response: { type: Object, value: function() { return {}; } } },
       behaviors: [IRPBehavior],
       _computeIf: function (response) {
-        return !response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch && response.opportunityCategory.tdsReportScoreIrpScoredScore.scoredTDSReport;
+    	  // Ensure response opportunityCategory is not null before computing if
+        return response.opportunityCategory && !response.opportunityCategory.tdsReportScoreIrpScoredScore.scoreMatch && response.opportunityCategory.tdsReportScoreIrpScoredScore.scoredTDSReport;
       },
       _computeClass: function (index) {
         return 'opportunityScore ' + this.oddOrEvenClass(index);
