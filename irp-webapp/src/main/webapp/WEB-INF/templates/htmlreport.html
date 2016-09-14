@@ -326,6 +326,10 @@
         
         <th:block th:if="${response.validXMLfile}">
         <h3 align="center">Test Scoring Analysis</h3>
+        <th:block th:if="${!response.validExaminee}">
+            Invalid Examinee, test scoring analysis may not display correctly.
+        </th:block>
+        <th:block th:if="${response.opportunityCategory != null}">        
         <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
             <div th:if="${!scoreInfo.scoredTDSReport}" style="notice">
                 There was an internal server error that prevented validation of Test Scoring.
@@ -437,7 +441,7 @@
             </th:block>
             </tbody>
         </table>
-
+        </th:block>
         <h3 align="center">TDS Report Analysis</h3>
     <table class="tableAnalysis" style="repeat-header:yes;repeat-footer:yes;">
         <thead>
@@ -506,6 +510,7 @@
             <tr class="category">
                 <td colspan="4">Opportunity</td>
             </tr>
+            <th:block th:if="${response.opportunityCategory != null}">
             <th:block th:each="cell : ${response.opportunityCategory.cellCategories}">
 	            <tr class="opportunityPropertiesRows" th:classappend="${helper.rowClassEven(cell.fieldCheckType, cellStat.even)}">
 	                <td class="statusIcon"><img th:src="${helper.statusIcon(cell.fieldCheckType)}" /></td>
@@ -625,7 +630,7 @@
 
                 </th:block>
             </th:block>
-
+            </th:block>
             <tr class="category">
                 <td colspan="4">Comments</td>
             </tr>
