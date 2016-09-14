@@ -324,11 +324,15 @@
             </ul>
         </th:block>
         
+        <th:block th:if="${!response.validExaminee}">
+          <div style="background: #FFFFE0 none repeat scroll 0% 0%;padding: 10px;border: 1px solid #000;">
+            The Examinee does not match an IRP specified Student. IRP needs the TDSReport XML to contain an
+            Examinee that is provided by IRP in order to successfully analyze Examinee attributes.
+          </div>
+        </th:block>
+
         <th:block th:if="${response.validXMLfile}">
         <h3 align="center">Test Scoring Analysis</h3>
-        <th:block th:if="${!response.validExaminee}">
-            Invalid Examinee, test scoring analysis may not display correctly.
-        </th:block>
         <th:block th:if="${response.opportunityCategory != null}">        
         <th:block th:with="scoreInfo=${response.opportunityCategory.tdsReportScoreIrpScoredScore}">
             <div th:if="${!scoreInfo.scoredTDSReport}" style="notice">
