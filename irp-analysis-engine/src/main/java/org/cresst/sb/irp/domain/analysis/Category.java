@@ -28,7 +28,7 @@ public abstract class Category {
         FieldCheckType fieldCheckType = cellCategory.getFieldCheckType();
         if(fieldCheckType != null) {
             FieldCheckType.StatusEnum result = fieldCheckType.getStatusEnum();
-            if (result.equals(FieldCheckType.StatusEnum.ERROR)) {
+            if (result != null && result.equals(FieldCheckType.StatusEnum.ERROR)) {
                 everyCellValid = false;
             }
         }
