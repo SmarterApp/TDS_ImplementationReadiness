@@ -173,6 +173,29 @@ public class IndividualResponse {
         toolUsageCategories.add(toolUsageCategory);
     }
 
+    private boolean allListCategoryValid(List<? extends Category> categories) {
+        boolean result = true;
+        for(Category category : categories) {
+            result = result && category.isEveryCellValid();
+            // Short circuit if result is false
+            if(!result) {
+                return result;
+            }
+        }
+        return result;
+    }
+
+    // Checks each category if it is valid (no errors in any of the items)
+    public boolean isEveryCategoryValid() {
+        return this.testPropertiesCategory.isEveryCellValid() &&
+            this.examineeCategory.isEveryCellValid() &&
+            this.opportunityCategory.isEveryCellValid() &&
+            allListCategoryValid(this.examineeRelationshipCategories) &&
+            allListCategoryValid(this.examineeAttributeCategories) &&
+            allListCategoryValid(this.commentCategories) &&
+            allListCategoryValid(this.toolUsageCategories);
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)

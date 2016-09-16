@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.domain.analysis;
 
 import com.google.common.collect.ImmutableList;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.ArrayList;
@@ -16,7 +17,39 @@ public class OpportunityCategory extends Category {
 
     private OpItemsData opItemsData = new OpItemsData();
     private TdsReportScoreIrpScoredScore tdsReportScoreIrpScoredScore = new TdsReportScoreIrpScoredScore();
-    
+
+    // Returns true if all categories in iterable are true
+    // Short circuits if false category is encountered
+    private Boolean allTrue(Iterable<Category> categories) {
+        Boolean result = true;
+        for(Category category : categories) {
+             result = result && category.isEveryCellValid();
+             if (!result) break;
+        }
+        return result;
+    }
+
+    private Boolean allCategoriesValid() {
+        Boolean result = this.everyCellValid;
+        for(Category category : this.segmentCategories) {
+            result = result && category.isEveryCellValid();
+            if(!result) return result;
+        }
+        for(Category category : this.scoreCategories) {
+            result = result && category.isEveryCellValid();
+            if(!result) return result;
+        }
+        for(Category category : this.genericVariableCategories) {
+            result = result && category.isEveryCellValid();
+            if(!result) return result;
+        }
+        for(Category category : this.itemCategories) {
+            result = result && category.isEveryCellValid();
+            if(!result) return result;
+        }
+        return result;
+    }
+
     public ImmutableList<SegmentCategory> getSegmentCategories() {
         return ImmutableList.copyOf(segmentCategories);
     }
@@ -40,7 +73,7 @@ public class OpportunityCategory extends Category {
     public void setScoreCategories(List<ScoreCategory> scoreCategories) {
         this.scoreCategories = scoreCategories;
     }
-    
+
 	public ImmutableList<GenericVariableCategory> getGenericVariableCategories() {
 		return ImmutableList.copyOf(genericVariableCategories);
 	}
@@ -64,7 +97,7 @@ public class OpportunityCategory extends Category {
 	public void setOpItemsData(OpItemsData opItemsData) {
 		this.opItemsData = opItemsData;
 	}
-    
+
 	public TdsReportScoreIrpScoredScore getTdsReportScoreIrpScoredScore() {
 		return tdsReportScoreIrpScoredScore;
 	}
@@ -72,7 +105,7 @@ public class OpportunityCategory extends Category {
 	public void setTdsReportScoreIrpScoredScore(TdsReportScoreIrpScoredScore tdsReportScoreIrpScoredScore) {
 		this.tdsReportScoreIrpScoredScore = tdsReportScoreIrpScoredScore;
 	}
-	
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
