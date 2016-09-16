@@ -173,6 +173,7 @@ public class IndividualResponse {
         toolUsageCategories.add(toolUsageCategory);
     }
 
+    // Checks if a list of categories are all valid
     private boolean allListCategoryValid(List<? extends Category> categories) {
         boolean result = true;
         for(Category category : categories) {
@@ -187,9 +188,10 @@ public class IndividualResponse {
 
     // Checks each category if it is valid (no errors in any of the items)
     public boolean isEveryCategoryValid() {
-        return this.testPropertiesCategory != null && this.testPropertiesCategory.isEveryCellValid() &&
-            this.examineeCategory != null && this.examineeCategory.isEveryCellValid() &&
-            this.opportunityCategory != null && this.opportunityCategory.isEveryCellValid() &&
+        // If all categories are null, or every cell in them valid then every category is valid
+        return (this.testPropertiesCategory == null ||  this.testPropertiesCategory.isEveryCellValid()) &&
+            (this.examineeCategory == null || this.examineeCategory.isEveryCellValid()) &&
+            (this.opportunityCategory == null || this.opportunityCategory.isEveryCellValid()) &&
             allListCategoryValid(this.examineeRelationshipCategories) &&
             allListCategoryValid(this.examineeAttributeCategories) &&
             allListCategoryValid(this.commentCategories) &&
