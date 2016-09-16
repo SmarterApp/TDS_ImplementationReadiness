@@ -74,10 +74,6 @@ public class PDFController {
         }
     }
 
-    public enum StatusEnum {
-        VALID, ERROR, IGNORED
-    }
-
     class DisplayHelper {
         public String status(FieldCheckType input) {
             if (input == null) { return ""; }
@@ -93,27 +89,14 @@ public class PDFController {
         }
 
         public Boolean statusIsError(FieldCheckType input) {
-            return this.statusCheckEnum(input).equals(StatusEnum.ERROR);
+            return this.statusCheckEnum(input).equals(FieldCheckType.StatusEnum.ERROR);
         }
 
-        public StatusEnum statusCheckEnum(FieldCheckType input) {
-            if (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.D) {
-                return StatusEnum.IGNORED;
-            }
-
-            if (input.isRequiredFieldMissing() ||
-                    ((input.isOptionalValue() && !input.isFieldValueEmpty()) || !input.isOptionalValue()) &&
-                            (!input.isCorrectDataType() ||
-                                    !input.isAcceptableValue() ||
-                                    !input.isCorrectWidth() ||
-                                    (input.getEnumfieldCheckType() == FieldCheckType.EnumFieldCheckType.PC && !input.isCorrectValue()))) {
-                return StatusEnum.ERROR;
-            }
-
-            return StatusEnum.VALID;
+        public FieldCheckType.StatusEnum statusCheckEnum(FieldCheckType input) {
+            return input.getStatusEnum();
         }
         public String statusIcon(FieldCheckType input) {
-            StatusEnum result = statusCheckEnum(input);
+            FieldCheckType.StatusEnum result = statusCheckEnum(input);
             String icon = "";
             switch(result) {
             case IGNORED: {

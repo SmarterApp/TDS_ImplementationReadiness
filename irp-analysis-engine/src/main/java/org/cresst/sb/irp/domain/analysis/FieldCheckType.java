@@ -12,6 +12,11 @@ public class FieldCheckType {
         D, P, PC
     }
 
+    // For overall status
+    public enum StatusEnum {
+        VALID, ERROR, IGNORED
+    }
+
     private boolean isFieldValueEmpty = true;    // Field value is empty
     private boolean isRequiredFieldMissing;      // Required field is missing
     private boolean isCorrectDataType;
@@ -97,6 +102,24 @@ public class FieldCheckType {
 
     public void setUnknownField(boolean unknownField) {
         isUnknownField = unknownField;
+    }
+
+    // Returns overall status for FieldCheckType
+    public StatusEnum getStatusEnum() {
+        if (this.getEnumfieldCheckType() == EnumFieldCheckType.D) {
+            return StatusEnum.IGNORED;
+        }
+
+        if (this.isRequiredFieldMissing() ||
+                ((this.isOptionalValue() && !this.isFieldValueEmpty()) || !this.isOptionalValue()) &&
+                        (!this.isCorrectDataType() ||
+                                !this.isAcceptableValue() ||
+                                !this.isCorrectWidth() ||
+                                (this.getEnumfieldCheckType() == EnumFieldCheckType.PC && !this.isCorrectValue()))) {
+            return StatusEnum.ERROR;
+        }
+
+        return StatusEnum.VALID;
     }
 
     @Override
