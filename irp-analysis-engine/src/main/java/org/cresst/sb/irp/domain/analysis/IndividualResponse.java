@@ -187,9 +187,9 @@ public class IndividualResponse {
 
     // Checks each category if it is valid (no errors in any of the items)
     public boolean isEveryCategoryValid() {
-        return this.testPropertiesCategory.isEveryCellValid() &&
-            this.examineeCategory.isEveryCellValid() &&
-            this.opportunityCategory.isEveryCellValid() &&
+        return this.testPropertiesCategory != null && this.testPropertiesCategory.isEveryCellValid() &&
+            this.examineeCategory != null && this.examineeCategory.isEveryCellValid() &&
+            this.opportunityCategory != null && this.opportunityCategory.isEveryCellValid() &&
             allListCategoryValid(this.examineeRelationshipCategories) &&
             allListCategoryValid(this.examineeAttributeCategories) &&
             allListCategoryValid(this.commentCategories) &&
