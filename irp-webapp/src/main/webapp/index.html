@@ -179,49 +179,17 @@
                                         </div>
                                         <div id="automationModePage">
                                             <p>
-                                                IRP Automation Mode will:
-                                                <ol>
-                                                    <li>Load your Smarter Balanced Open Source Assessment Delivery System implementation with IRP Test Packages and Students.</li>
-                                                    <li>Simulate a Test Session where a Proctor initiates the Session and Students take the IRP Tests.</li>
-                                                </ol>
+                                                IRP Automation Mode will communicate with your custom implementation of the IRP Automation Adapter to retrieve TDSReport XML documents
+                                                that IRP needs to perform IRP Analysis and Reporting.
                                             </p>
                                             <p>
-                                                In order for IRP to Automate this process, it needs information about your Smarter Balanced Open Source Test Assessment Delivery System.
-                                            </p>
-                                            <p>
-                                                Prior to using this feature, you will need to create one to four accounts in your system. You can either create one account
-                                                that acts as an component administrator and a Proctor OR create distinct accounts to access each component. This is necessary
-                                                so IRP can login into the following components:
-                                                <ol>
-                                                    <li>Program Management: Obtains the Tenant ID</li>
-                                                    <li>Test Spec Bank: Uploads (side-loads) IRP Test Packages</li>
-                                                    <li>Administration and Registration Tools: Schedules IRP Tests and creates IRP Students</li>
-                                                    <li>Proctor Application: Initiates and approves Tests Sessions</li>
-                                                    <li>Student Application: Takes IRP Tests</li>
-                                                </ol>
+                                                The IRP Automation Adapter is a custom web service that you implement to automate the process of generating TDSReport XML documents.
+                                                IRP will communicate with your custom Adapter following the <a href="irp-v2-automation-adapter-spec.pdf">IRP Automation Adapter Specification</a>.
                                             </p>
                                             <form id="formAutomate" is="iron-form" method="post" action="/automate" content-type="application/json">
                                                 <paper-input name="vendorName" label="Vendor Name" required auto-validate error-message="Used for the IRP report"></paper-input>
+                                                <paper-input name="adapterUrl" label="IRP Automation Adapter URL (e.g. http://adapter.server.com:port/tdsReports)" required auto-validate error-message="Used for communicating with your custom IRP Automation Adapter"></paper-input>
 
-                                                <paper-input name="tenantName" label="Tenant Name Used in Your TDS Implementation" required auto-validate error-message="Used to create Test Packages to load into your TDS implementation"></paper-input>
-                                                <paper-input name="stateAbbreviation" label="State Abbreviation" char-counter maxlength="2" required auto-validate allowed-pattern="[a-zA-Z]"></paper-input>
-                                                <paper-input name="district" label="District to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
-                                                <paper-input name="institution" label="Institution to associate with IRP Students" required auto-validated error-message="Needed to associate to IRP Students"></paper-input>
-                                                <paper-input name="oAuthUrl" label="OpenAM OAuth2 server URL (e.g. https://your.openam.url/auth/oauth2/access_token?realm=/your-realm)" required auto-validate error-message="Used to obtain access tokens from your system"></paper-input>
-                                                <paper-input name="programManagementUrl" label="Program Management URL" required auto-validate error-message="Used to obtain "></paper-input>
-                                                <paper-input name="programManagementClientId" label="Program Management Client ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
-                                                <paper-input name="programManagementClientSecret" label="Program Management Client Secret" type="password"></paper-input>
-                                                <paper-input name="programManagementUserId" label="Program Management User ID" required auto-validate error-message="Used for logging into Program Management"></paper-input>
-                                                <paper-input name="programManagementUserPassword" label="Program Management User Password" type="password"></paper-input>
-                                                <paper-input name="testSpecBankUrl" label="Test Spec Bank URL" required auto-validated error-message="Used for side-loading IRP Test Packages"></paper-input>
-                                                <paper-input name="testSpecBankUserId" label="Test Spec Bank User ID" required auto-validate error-message="User to login to TSB to side-load IRP Test Packages"></paper-input>
-                                                <paper-input name="testSpecBankPassword" label="Test Spec Bank Password" type="password"></paper-input>
-                                                <paper-input name="artUrl" label="ART URL" required auto-validated error-message="Used for Scheduling Tests and Creating IRP Students"></paper-input>
-                                                <paper-input name="artUserId" label="ART User ID" required auto-validated error-message="The user to login to ART"></paper-input>
-                                                <paper-input name="artPassword" label="ART Password" type="password"></paper-input>
-                                                <paper-input name="proctorUrl" label="Proctor URL" required auto-validated error-message="Used to access the Proctor application"></paper-input>
-                                                <paper-input name="proctorUserId" label="Proctor User ID" required auto-validated error-message="Proctor user ID to access the Proctor application"></paper-input>
-                                                <paper-input name="proctorPassword" label="Proctor Password" type="password"></paper-input>
                                                 <button id="btnBeginAutomation" disabled>Begin</button>
                                                 <button id="btnResetAutomationForm">Reset</button>
                                             </form>
