@@ -12,6 +12,7 @@
 	<artifactId>irp-analysis-engine</artifactId>
 	<packaging>jar</packaging>
 	<name>IReadinessPackage - Analysis Engine</name>
+	<description>Engine that performs the IRP Analysis</description>
 	<url>http://bitbucket.org/sbcresst</url>
 
 	<properties>
