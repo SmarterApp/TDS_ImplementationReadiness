@@ -12,14 +12,14 @@ import java.util.List;
 public abstract class Category {
     protected List<CellCategory> cellCategories = new ArrayList<>();
     // Keep track of whether all CellCategories are valid
-    protected Boolean everyCellValid = true;
+    protected boolean everyCellValid = true;
 
     public ImmutableList<CellCategory> getCellCategories() {
         return ImmutableList.copyOf(cellCategories);
     }
 
     // In Nested Categories this should be implemented to check those categories as well
-    public Boolean isEveryCellValid() {
+    public boolean isEveryCellValid() {
         return everyCellValid;
     }
 

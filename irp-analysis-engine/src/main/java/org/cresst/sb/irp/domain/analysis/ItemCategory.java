@@ -76,7 +76,7 @@ public class ItemCategory extends Category {
     }
 
     @Override
-    public Boolean isEveryCellValid() {
+    public boolean isEveryCellValid() {
         return this.everyCellValid && this.scoreInfoCategory.isEveryCellValid() && this.responseCategory.isEveryCellValid();
     }
 
