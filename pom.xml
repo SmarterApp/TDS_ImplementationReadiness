@@ -16,8 +16,9 @@
 		<module>irp-repository</module>
 		<module>irp-service</module>
 		<module>irp-analysis-engine</module>
+        <module>irp-automation-service</module>
 		<module>irp-webapp</module>
-    </modules>
+	</modules>
 
 	<properties>
 		<irp.version>${project.version}</irp.version>
@@ -26,6 +27,7 @@
 		<joda.version>2.7</joda.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons-io.version>2.4</commons-io.version>
+        <jsr303-validator.version>5.2.4.Final</jsr303-validator.version>
 		<jsondoc.version>1.0.4</jsondoc.version>
 		<slf4j.version>1.7.7</slf4j.version>
         <logback.version>1.1.2</logback.version>
@@ -64,6 +66,11 @@
 				<artifactId>irp-analysis-engine</artifactId>
 				<version>${irp.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.cresst.sb.irp</groupId>
+				<artifactId>irp-automation-service</artifactId>
+				<version>${irp.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -96,6 +103,12 @@
 				<artifactId>commons-io</artifactId>
 				<version>${commons-io.version}</version>
 			</dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${jsr303-validator.version}</version>
+            </dependency>
 
 			<dependency>
 				<groupId>org.jsondoc</groupId>
