@@ -3,12 +3,12 @@ package org.cresst.sb.irp.automation;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
-import org.cresst.sb.irp.automation.engine.AutomationRequestResultHandler;
-import org.cresst.sb.irp.automation.engine.AutomationRequestResultHandlerProxy;
-import org.cresst.sb.irp.automation.engine.AutomationStatusHandler;
-import org.cresst.sb.irp.automation.engine.AutomationStatusHandlerProxy;
-import org.cresst.sb.irp.domain.automation.*;
-import org.cresst.sb.irp.service.AutomationService;
+import org.cresst.sb.irp.automation.service.AutomationService;
+import org.cresst.sb.irp.automation.service.domain.*;
+import org.cresst.sb.irp.automation.service.requesthandler.AutomationRequestResultHandler;
+import org.cresst.sb.irp.automation.service.requesthandler.AutomationRequestResultHandlerProxy;
+import org.cresst.sb.irp.automation.service.statusreporting.AutomationStatusHandler;
+import org.cresst.sb.irp.automation.service.statusreporting.IrpAutomationStatusHandlerProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * This controller handles automation requests and status reports. It is designed to run as a single instance
  * on a single server since it stores status results in-memory.
  */
-@Controller
+//@Controller
 public class AutomationController implements AutomationRequestResultHandler, AutomationStatusHandler {
     private final static Logger logger = LoggerFactory.getLogger(AutomationController.class);
 
@@ -42,7 +42,7 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
 
     public AutomationController(AutomationService automationService,
                                 AutomationRequestResultHandlerProxy automationRequestResultHandlerProxy,
-                                AutomationStatusHandlerProxy automationStatusHandlerProxy) {
+                                IrpAutomationStatusHandlerProxy automationStatusHandlerProxy) {
         this.automationService = automationService;
         automationRequestResultHandlerProxy.setAutomationRequestResultHandler(this);
         automationStatusHandlerProxy.setAutomationStatusHandler(this);
