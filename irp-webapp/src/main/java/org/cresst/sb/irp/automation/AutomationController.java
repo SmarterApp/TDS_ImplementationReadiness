@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * This controller handles automation requests and status reports. It is designed to run as a single instance
  * on a single server since it stores status results in-memory.
  */
-@Controller
+//@Controller
 public class AutomationController implements AutomationRequestResultHandler, AutomationStatusHandler {
     private final static Logger logger = LoggerFactory.getLogger(AutomationController.class);
 
