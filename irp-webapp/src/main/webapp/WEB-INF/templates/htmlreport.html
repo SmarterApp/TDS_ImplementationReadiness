@@ -299,6 +299,7 @@
                     <th>Valid Test Name</th>
                     <th>Valid Examinee</th>
                     <th>Valid Scoring</th>
+                    <th>All Fields Valid</th>
                 </tr>
             </thead>
             <tbody>
@@ -307,6 +308,7 @@
                     <td th:text="${response.validTestName}"></td>
                     <td th:text="${response.validExaminee}"></td>
                     <td th:text="${response.validScoring}"></td>
+                    <td th:text="${response.everyCategoryValid}"></td>
                 </tr>
             </tbody>
         </table>
@@ -510,6 +512,7 @@
                 <div th:replace="error-info :: error-row"></div>
                 </th:block>
             </th:block>
+
 
             <tr class="category">
                 <td colspan="4">Opportunity</td>
