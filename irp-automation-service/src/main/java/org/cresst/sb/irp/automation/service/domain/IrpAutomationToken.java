@@ -1,22 +1,25 @@
 package org.cresst.sb.irp.automation.service.domain;
 
-public class AutomationToken {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class IrpAutomationToken {
     private int token;
 
-    public AutomationToken(AutomationRequest automationRequest) {
-        this.token = automationRequest.hashCode();
+    public IrpAutomationToken(IrpAutomationRequest irpAutomationRequest) {
+        this.token = irpAutomationRequest.hashCode();
     }
 
-//    @JsonCreator
-//    public AutomationToken(@JsonProperty("token") int token) {
-//        this.token = token;
-//    }
+    @JsonCreator
+    public IrpAutomationToken(@JsonProperty("token") int token) {
+        this.token = token;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AutomationToken that = (AutomationToken) o;
+        IrpAutomationToken that = (IrpAutomationToken) o;
         return token == that.token;
     }
 

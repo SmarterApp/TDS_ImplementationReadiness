@@ -1,13 +1,13 @@
 package org.cresst.sb.irp.automation.service.domain;
 
-public class AutomationRequestError {
+public class IrpAutomationRequestError {
     private final boolean isAutomationRequestError = true;
     private final String errorMessage;
-    private final AutomationRequest automationRequest;
+    private final IrpAutomationRequest irpAutomationRequest;
 
-    public AutomationRequestError(final String errorMessage, final AutomationRequest automationRequest) {
+    public IrpAutomationRequestError(final String errorMessage, final IrpAutomationRequest irpAutomationRequest) {
         this.errorMessage = errorMessage;
-        this.automationRequest = automationRequest;
+        this.irpAutomationRequest = irpAutomationRequest;
     }
 
     public boolean isAutomationRequestError() {
@@ -18,7 +18,7 @@ public class AutomationRequestError {
         return errorMessage;
     }
 
-    public AutomationRequest getAutomationRequest() {
-        return automationRequest;
+    public IrpAutomationRequest getIrpAutomationRequest() {
+        return irpAutomationRequest;
     }
 }

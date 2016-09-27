@@ -3,32 +3,32 @@ package org.cresst.sb.irp.automation.service.domain;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-public class AutomationStatusRequest {
+public class IrpAutomationStatusRequest {
     // Client sends back server generated timestamp of previous message sent
     private long timeOfLastStatus;
 
     @NotNull
-    private AutomationToken automationToken;
+    private IrpAutomationToken irpAutomationToken;
 
     public long getTimeOfLastStatus() {
         return timeOfLastStatus;
     }
 
-    public AutomationToken getAutomationToken() {
-        return automationToken;
+    public IrpAutomationToken getIrpAutomationToken() {
+        return irpAutomationToken;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AutomationStatusRequest that = (AutomationStatusRequest) o;
+        IrpAutomationStatusRequest that = (IrpAutomationStatusRequest) o;
         return timeOfLastStatus == that.timeOfLastStatus &&
-                Objects.equals(automationToken, that.automationToken);
+                Objects.equals(irpAutomationToken, that.irpAutomationToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timeOfLastStatus, automationToken);
+        return Objects.hash(timeOfLastStatus, irpAutomationToken);
     }
 }

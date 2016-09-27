@@ -1,20 +1,20 @@
 package org.cresst.sb.irp.automation.service.requesthandler;
 
-import org.cresst.sb.irp.automation.service.domain.AutomationRequest;
-import org.cresst.sb.irp.automation.service.domain.AutomationRequestError;
-import org.cresst.sb.irp.automation.service.domain.AutomationToken;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequest;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequestError;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationToken;
 
 public class AutomationRequestResultHandlerProxy implements AutomationRequestResultHandler {
     private AutomationRequestResultHandler handler;
 
     @Override
-    public void handleAutomationRequestResult(AutomationRequest automationRequest, AutomationToken automationToken) {
-        handler.handleAutomationRequestResult(automationRequest, automationToken);
+    public void handleAutomationRequestResult(IrpAutomationRequest irpAutomationRequest, IrpAutomationToken irpAutomationToken) {
+        handler.handleAutomationRequestResult(irpAutomationRequest, irpAutomationToken);
     }
 
     @Override
-    public void handleAutomationRequestError(AutomationRequestError automationRequestError) {
-        handler.handleAutomationRequestError(automationRequestError);
+    public void handleAutomationRequestError(IrpAutomationRequestError irpAutomationRequestError) {
+        handler.handleAutomationRequestError(irpAutomationRequestError);
     }
 
     public void setAutomationRequestResultHandler(AutomationRequestResultHandler automationRequestResultHandler) {

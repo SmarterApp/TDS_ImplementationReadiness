@@ -26,19 +26,19 @@ import java.util.concurrent.ConcurrentHashMap;
  * This controller handles automation requests and status reports. It is designed to run as a single instance
  * on a single server since it stores status results in-memory.
  */
-//@Controller
+@Controller
 public class AutomationController implements AutomationRequestResultHandler, AutomationStatusHandler {
     private final static Logger logger = LoggerFactory.getLogger(AutomationController.class);
 
     private AutomationService automationService;
 
     // Requests
-    private final ConcurrentHashMap<AutomationRequest, DeferredResult<AutomationToken>> automationRequests = new ConcurrentHashMap<>();
-    private final Multimap<AutomationToken, DeferredResult<AutomationStatusReport>> statusRequests =
-            Multimaps.synchronizedListMultimap(ArrayListMultimap.<AutomationToken, DeferredResult<AutomationStatusReport>>create());
+    private final ConcurrentHashMap<IrpAutomationRequest, DeferredResult<IrpAutomationToken>> automationRequests = new ConcurrentHashMap<>();
+    private final Multimap<IrpAutomationToken, DeferredResult<AutomationStatusReport>> statusRequests =
+            Multimaps.synchronizedListMultimap(ArrayListMultimap.<IrpAutomationToken, DeferredResult<AutomationStatusReport>>create());
 
     // Automation status reports
-    private final ConcurrentHashMap<AutomationToken, AutomationStatusReport> automationStatusReports = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<IrpAutomationToken, AutomationStatusReport> automationStatusReports = new ConcurrentHashMap<>();
 
     public AutomationController(AutomationService automationService,
                                 AutomationRequestResultHandlerProxy automationRequestResultHandlerProxy,
@@ -50,25 +50,25 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
 
     @RequestMapping(value = "/automate", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public DeferredResult<AutomationToken> automate(@Valid @RequestBody final AutomationRequest automationRequest) {
-        logger.info("Automation Request: " + automationRequest);
+    public DeferredResult<IrpAutomationToken> automate(@Valid @RequestBody final IrpAutomationRequest irpAutomationRequest) {
+        logger.info("Automation Request: " + irpAutomationRequest);
 
-        final DeferredResult<AutomationToken> deferredAutomationRequest = new DeferredResult<>(null, null);
+        final DeferredResult<IrpAutomationToken> deferredAutomationRequest = new DeferredResult<>(null, null);
 
         // If this is a duplicate request, respond with previous DeferredResult
-        final DeferredResult<AutomationToken> previousRequest =
-                automationRequests.putIfAbsent(automationRequest, deferredAutomationRequest);
+        final DeferredResult<IrpAutomationToken> previousRequest =
+                automationRequests.putIfAbsent(irpAutomationRequest, deferredAutomationRequest);
 
         if (previousRequest == null) {
             deferredAutomationRequest.onCompletion(new Runnable() {
                 @Override
                 public void run() {
                     // Remove the request from the map is ok. The automation engine prevents duplicate automation runs.
-                    automationRequests.remove(automationRequest);
+                    automationRequests.remove(irpAutomationRequest);
                 }
             });
 
-            automationService.automate(automationRequest);
+            automationService.automate(irpAutomationRequest);
         }
 
         return previousRequest == null ? deferredAutomationRequest : previousRequest;
@@ -76,22 +76,22 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
 
     @RequestMapping(value = "/automationStatus", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public DeferredResult<AutomationStatusReport> status(@Valid @RequestBody final AutomationStatusRequest automationStatusRequest) {
+    public DeferredResult<AutomationStatusReport> status(@Valid @RequestBody final IrpAutomationStatusRequest irpAutomationStatusRequest) {
 
-        final AutomationToken automationToken = automationStatusRequest.getAutomationToken();
+        final IrpAutomationToken irpAutomationToken = irpAutomationStatusRequest.getIrpAutomationToken();
 
         final DeferredResult<AutomationStatusReport> deferredStatusReport = new DeferredResult<>(null, null);
-        statusRequests.put(automationToken, deferredStatusReport);
+        statusRequests.put(irpAutomationToken, deferredStatusReport);
 
         deferredStatusReport.onCompletion(new Runnable() {
             @Override
             public void run() {
-                statusRequests.remove(automationToken, deferredStatusReport);
+                statusRequests.remove(irpAutomationToken, deferredStatusReport);
             }
         });
 
         // Check if there are any status updates to return immediately
-        AutomationStatusReport latestStatusReport = getLatestStatuses(automationStatusRequest);
+        AutomationStatusReport latestStatusReport = getLatestStatuses(irpAutomationStatusRequest);
         if (latestStatusReport != null) {
             deferredStatusReport.setResult(latestStatusReport);
         }
@@ -100,25 +100,25 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
     }
 
     @Override
-    public void handleAutomationRequestResult(AutomationRequest automationRequest,
-                                              AutomationToken automationToken) {
-        DeferredResult<AutomationToken> deferredAutomationRequest = automationRequests.get(automationRequest);
-        deferredAutomationRequest.setResult(automationToken);
+    public void handleAutomationRequestResult(IrpAutomationRequest irpAutomationRequest,
+                                              IrpAutomationToken irpAutomationToken) {
+        DeferredResult<IrpAutomationToken> deferredAutomationRequest = automationRequests.get(irpAutomationRequest);
+        deferredAutomationRequest.setResult(irpAutomationToken);
     }
 
     @Override
-    public void handleAutomationRequestError(AutomationRequestError automationRequestError) {
-        AutomationRequest automationRequest = automationRequestError.getAutomationRequest();
-        DeferredResult<AutomationToken> deferredAutomationRequest = automationRequests.get(automationRequest);
-        deferredAutomationRequest.setErrorResult(automationRequestError);
+    public void handleAutomationRequestError(IrpAutomationRequestError irpAutomationRequestError) {
+        IrpAutomationRequest irpAutomationRequest = irpAutomationRequestError.getIrpAutomationRequest();
+        DeferredResult<IrpAutomationToken> deferredAutomationRequest = automationRequests.get(irpAutomationRequest);
+        deferredAutomationRequest.setErrorResult(irpAutomationRequestError);
     }
 
     @Override
-    public void handleAutomationStatus(AutomationToken automationToken, AutomationStatusReport automationStatusReport) {
-        automationStatusReports.put(automationToken, automationStatusReport);
+    public void handleAutomationStatus(IrpAutomationToken irpAutomationToken, AutomationStatusReport automationStatusReport) {
+        automationStatusReports.put(irpAutomationToken, automationStatusReport);
 
         // Notify clients
-        Collection<DeferredResult<AutomationStatusReport>> deferredStatusReports = statusRequests.get(automationToken);
+        Collection<DeferredResult<AutomationStatusReport>> deferredStatusReports = statusRequests.get(irpAutomationToken);
         synchronized (statusRequests) {
             for (DeferredResult<AutomationStatusReport> deferredReport : deferredStatusReports) {
                 deferredReport.setResult(automationStatusReport);
@@ -126,11 +126,11 @@ public class AutomationController implements AutomationRequestResultHandler, Aut
         }
     }
 
-    private AutomationStatusReport getLatestStatuses(AutomationStatusRequest automationStatusRequest) {
-        AutomationStatusReport automationStatusReport = automationStatusReports.get(automationStatusRequest.getAutomationToken());
+    private AutomationStatusReport getLatestStatuses(IrpAutomationStatusRequest irpAutomationStatusRequest) {
+        AutomationStatusReport automationStatusReport = automationStatusReports.get(irpAutomationStatusRequest.getIrpAutomationToken());
 
         if (automationStatusReport != null &&
-                automationStatusRequest.getTimeOfLastStatus() < automationStatusReport.getLastUpdateTimestamp()) {
+                irpAutomationStatusRequest.getTimeOfLastStatus() < automationStatusReport.getLastUpdateTimestamp()) {
             return automationStatusReport;
         }
 

@@ -6,27 +6,45 @@
 
     <context:property-placeholder location="classpath:irp.properties" />
 
-    <!--<bean id="irpAutomationTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">-->
-        <!--<property name="corePoolSize" value="${irp.automation.corepoolsize}" />-->
-        <!--<property name="maxPoolSize" value="${irp.automation.maxpoolsize}" />-->
-        <!--<property name="queueCapacity" value="${irp.automation.queuecapacity}" />-->
-    <!--</bean>-->
+    <bean id="irpAutomationService" class="org.cresst.sb.irp.automation.service.IrpAutomationService">
+        <constructor-arg name="automationEngine" ref="irpAutomationEngine" />
+    </bean>
 
-    <!--<bean id="irpAutomationEngine" class="org.cresst.sb.irp.automation.engine.IrpAutomationEngine">-->
-        <!--<constructor-arg name="automationRequestProcessor" ref="runnableAutomationRequestProcessor" />-->
-    <!--</bean>-->
+    <bean id="irpAutomationTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${irp.automation.corepoolsize}" />
+        <property name="maxPoolSize" value="${irp.automation.maxpoolsize}" />
+        <property name="queueCapacity" value="${irp.automation.queuecapacity}" />
+    </bean>
 
-    <!--<bean id="runnableAutomationRequestProcessor" class="org.cresst.sb.irp.automation.engine.RunnableAutomationRequestProcessor"-->
-          <!--init-method="initializeProcessor" destroy-method="shutdownProcessor">-->
-        <!--<constructor-arg name="taskExecutor" ref="irpAutomationTaskExecutor" />-->
-        <!--<constructor-arg name="automationRequestResultHandler" ref="automationRequestResultHandlerProxy" />-->
-        <!--<constructor-arg name="automationStatusHandler" ref="automationStatusHandlerProxy" />-->
-        <!--<constructor-arg name="registrationTestPackageDirectory" value="classpath:irp-package/TestPackages/ART/Registration" />-->
-        <!--<constructor-arg name="studentTemplatePath" value="classpath:irp-package/IRPStudents_template.csv" />-->
-        <!--<constructor-arg name="studentAccommodationsTemplatePath" value="classpath:irp-package/IRPStudentsDesignatedSupportsAndAccommodations_template.csv" />-->
-        <!--<constructor-arg name="studentGroupTemplatePath" value="classpath:irp-package/IRPStudentGroup_template.csv" />-->
-    <!--</bean>-->
+    <bean id="irpAutomationEngine" class="org.cresst.sb.irp.automation.service.engine.IrpAutomationEngine"
+          init-method="initializeProcessor" destroy-method="shutdownProcessor">
+        <constructor-arg name="taskExecutor" ref="irpAutomationTaskExecutor" />
+        <constructor-arg name="automationRequestResultHandler" ref="automationRequestResultHandlerProxy" />
+        <constructor-arg name="automationTaskFactory" />
+    </bean>
 
-    <!--<bean id="automationRequestResultHandlerProxy" class="org.cresst.sb.irp.automation.engine.AutomationRequestResultHandlerProxy" />-->
-    <!--<bean id="automationStatusHandlerProxy" class="org.cresst.sb.irp.automation.engine.AutomationStatusHandlerProxy" />-->
+    <bean id="automationRequestResultHandlerProxy" class="org.cresst.sb.irp.automation.service.requesthandler.AutomationRequestResultHandlerProxy" />
+    <bean id="automationStatusHandlerProxy" class="org.cresst.sb.irp.automation.service.statusreporting.IrpAutomationStatusHandlerProxy" />
+
+    <bean id="automationTask" class="org.cresst.sb.irp.automation.service.engine.task.AutomationTask" scope="prototype">
+        <constructor-arg name="automationStatusHandler" ref="automationStatusHandlerProxy" />
+        <!--<constructor-arg name="restTemplate" ref="irpAutomationAdapterRestTemplate" />-->
+        <!--<constructor-arg name="irpResources">-->
+            <!--<list>-->
+                <!--<value type="java.net.URI">http://localhost:8080/irp-package.zip</value>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    </bean>
+
+    <bean id="automationTaskFactory" class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+        <property name="serviceLocatorInterface" value="org.cresst.sb.irp.automation.service.engine.task.AutomationTaskFactory" />
+    </bean>
+
+    <bean id="irpAutomationAdapterRestTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <bean id="adapterClientRestTemplate" class="org.springframework.web.client.RestTemplate">
+        <constructor-arg name="messageConverters">
+
+        </constructor-arg>
+    </bean>
 </beans>

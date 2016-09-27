@@ -3,18 +3,18 @@ package org.cresst.sb.irp.automation.service.domain;
 import java.net.URL;
 import java.util.Objects;
 
-public class AutomationRequest {
+public class IrpAutomationRequest {
 
     private String vendorName;
     private URL adapterUrl;
 
-    public AutomationRequest() {}
+    public IrpAutomationRequest() {}
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AutomationRequest that = (AutomationRequest) o;
+        IrpAutomationRequest that = (IrpAutomationRequest) o;
         return Objects.equals(vendorName, that.vendorName) &&
                 Objects.equals(adapterUrl, that.adapterUrl);
     }

@@ -1,7 +1,7 @@
 package org.cresst.sb.irp.automation.service.statusreporting;
 
 import org.cresst.sb.irp.automation.service.domain.AutomationStatusReport;
-import org.cresst.sb.irp.automation.service.domain.AutomationToken;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationToken;
 
 public class IrpAutomationStatusHandlerProxy implements AutomationStatusHandler {
 
@@ -12,7 +12,7 @@ public class IrpAutomationStatusHandlerProxy implements AutomationStatusHandler 
     }
 
     @Override
-    public void handleAutomationStatus(AutomationToken automationToken, AutomationStatusReport automationStatusReport) {
-        handler.handleAutomationStatus(automationToken, automationStatusReport);
+    public void handleAutomationStatus(IrpAutomationToken irpAutomationToken, AutomationStatusReport automationStatusReport) {
+        handler.handleAutomationStatus(irpAutomationToken, automationStatusReport);
     }
 }

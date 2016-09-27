@@ -1,8 +1,8 @@
 package org.cresst.sb.irp.automation.service.requesthandler;
 
-import org.cresst.sb.irp.automation.service.domain.AutomationRequest;
-import org.cresst.sb.irp.automation.service.domain.AutomationRequestError;
-import org.cresst.sb.irp.automation.service.domain.AutomationToken;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequest;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequestError;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationToken;
 
 /**
  * After an Automation Request has been processed, this handler is called. Implementors will handle the result of
@@ -10,6 +10,6 @@ import org.cresst.sb.irp.automation.service.domain.AutomationToken;
  * Automation Request.
  */
 public interface AutomationRequestResultHandler {
-    void handleAutomationRequestResult(final AutomationRequest automationRequest, final AutomationToken automationToken);
-    void handleAutomationRequestError(final AutomationRequestError automationRequestError);
+    void handleAutomationRequestResult(final IrpAutomationRequest irpAutomationRequest, final IrpAutomationToken irpAutomationToken);
+    void handleAutomationRequestError(final IrpAutomationRequestError irpAutomationRequestError);
 }

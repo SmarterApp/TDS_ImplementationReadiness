@@ -1,7 +1,7 @@
 package org.cresst.sb.irp.automation.service;
 
-import org.cresst.sb.irp.automation.service.domain.AutomationRequest;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequest;
 
 public interface AutomationService {
-    void automate(AutomationRequest automationRequest);
+    void automate(IrpAutomationRequest irpAutomationRequest);
 }

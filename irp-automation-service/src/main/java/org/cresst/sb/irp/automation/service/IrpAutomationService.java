@@ -1,6 +1,6 @@
 package org.cresst.sb.irp.automation.service;
 
-import org.cresst.sb.irp.automation.service.domain.AutomationRequest;
+import org.cresst.sb.irp.automation.service.domain.IrpAutomationRequest;
 import org.cresst.sb.irp.automation.service.engine.AutomationEngine;
 
 public class IrpAutomationService implements AutomationService {
@@ -12,7 +12,7 @@ public class IrpAutomationService implements AutomationService {
     }
 
     @Override
-    public void automate(AutomationRequest automationRequest) {
-        automationEngine.automate(automationRequest);
+    public void automate(IrpAutomationRequest irpAutomationRequest) {
+        automationEngine.automate(irpAutomationRequest);
     }
 }
