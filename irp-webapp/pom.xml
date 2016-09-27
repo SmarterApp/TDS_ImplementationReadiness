@@ -38,10 +38,6 @@
             <groupId>org.cresst.sb.irp</groupId>
             <artifactId>irp-analysis-engine</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.cresst.sb.irp</groupId>
-            <artifactId>irp-automation-service</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>

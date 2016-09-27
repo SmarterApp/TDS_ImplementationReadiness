@@ -16,7 +16,6 @@
 		<module>irp-repository</module>
 		<module>irp-service</module>
 		<module>irp-analysis-engine</module>
-        <module>irp-automation-service</module>
 		<module>irp-webapp</module>
 	</modules>
 
@@ -65,11 +64,6 @@
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-analysis-engine</artifactId>
-				<version>${irp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.cresst.sb.irp</groupId>
-				<artifactId>irp-automation-service</artifactId>
 				<version>${irp.version}</version>
 			</dependency>
 

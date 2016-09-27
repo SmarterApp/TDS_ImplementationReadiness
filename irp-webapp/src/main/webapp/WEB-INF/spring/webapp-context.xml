@@ -87,9 +87,6 @@
     </bean>
 
     <bean id="automationController" class="org.cresst.sb.irp.automation.AutomationController" autowire-candidate="false">
-        <constructor-arg name="automationService" ref="irpAutomationService" />
-        <constructor-arg name="automationRequestResultHandlerProxy" ref="automationRequestResultHandlerProxy" />
-        <constructor-arg name="automationStatusHandlerProxy" ref="automationStatusHandlerProxy" />
     </bean>
 
 </beans>
