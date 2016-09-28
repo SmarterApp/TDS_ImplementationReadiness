@@ -53,19 +53,24 @@
 
         // Automation Mode events
         function performAnalysis(tdsReportLinks) {
-            console.info( "Sending data to IRP Server for Analysis" );
+            console.info("Sending data to IRP Server for Analysis");
             //$.post( "/analysisReports", tdsReportsLinks );
         }
         window.addEventListener("message", function(event) {
+            // Message handler for receiving messages from the Adapter iframe
             var adapterIFrame = that.$.adapterIFrame;
             var origin = event.origin || event.originalEvent.origin;
             if (!(adapterIFrame && adapterIFrame.src && adapterIFrame.src.startsWith(origin))) {
-                console.error("Message not from same window");
+                console.error("Message received was not from same window");
                 return;
             }
 
             if (!Array.isArray(event.data)) {
                 console.error("Data is not an array");
+                that.$.adapterInterfaceMessages.innerHTML = '<p>Error: The data received from that Adapter UI is not an array</p>';
+                adapterIFrame.hidden = true;
+                that.$.dlgAdapterInterface.notifyResize();
+                that.$.dlgAdapterInterface.center();
                 return;
             }
 
@@ -77,10 +82,13 @@
         app.$.btnBeginAutomation.addEventListener('click', function (event) {
             that.$.btnBeginAutomation.disabled = true;
 
+            adapterIFrame.hidden = false;
+            that.$.adapterInterfaceMessages.innerHTML = '';
             that.$.dlgAdapterInterface.open();
+            that.$.dlgAdapterInterface.notifyResize();
+            that.$.dlgAdapterInterface.center();
 
-            var adapterIFrame = that.$.adapterIFrame;
-            adapterIFrame.src = that.$.adapterUrl.value;
+            that.$.adapterIFrame.src = that.$.adapterUrl.value;
         });
         app.$.btnAutomationProgressClose.addEventListener('click', function (event) {
             that.$.dlgAdapterInterface.close();
