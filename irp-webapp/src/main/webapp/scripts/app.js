@@ -46,13 +46,6 @@
         });
 
         // Automation Mode events
-        function performAnalysis(tdsReportLinks) {
-            console.info("Sending data to IRP Server for Analysis");
-            var vendorName = that.$.adapterVendorName.value;
-            that.$.ajaxAutomation.body = { vendorName: vendorName, tdsReportLinks: tdsReportLinks };
-            that.$.ajaxAutomation.contentType = "application/json";
-            that.$.ajaxAutomation.generateRequest();
-        }
         window.addEventListener('message', function(event) {
             // Message handler for receiving messages from the Adapter iframe
             var adapterIFrame = that.$.adapterIFrame;
@@ -76,6 +69,13 @@
                 that.$.btnBeginAutomation.disabled = false;
             }
         });
+        function performAnalysis(tdsReportLinks) {
+            console.info("Sending data to IRP Server for Analysis");
+            var vendorName = that.$.adapterVendorName.value;
+            that.$.ajaxAutomation.body = { vendorName: vendorName, tdsReportLinks: tdsReportLinks };
+            that.$.ajaxAutomation.contentType = "application/json";
+            that.$.ajaxAutomation.generateRequest();
+        }
         app.$.ajaxAutomation.addEventListener('error', function (event) {
             console.error("Error sending Automation Adapter's TDS Report URIs", event.detail.text);
             that.$.adapterInterfaceMessages.innerHTML = '<p>Error: Unable to communicate with IRP</p>';

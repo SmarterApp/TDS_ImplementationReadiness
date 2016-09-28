@@ -1,8 +1,8 @@
 <link rel="import" href="../deps/polymer/polymer.html">
 <link rel="import" href="../deps/paper-spinner/paper-spinner.html">
+<link rel="import" href="../deps/paper-button/paper-button.html">
 
 <dom-module id="report-summary">
-    <link rel="import" type="css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style>
         .reportSummary {
             margin: 0px;
@@ -11,7 +11,7 @@
             border: 1px solid #000;
         }
 
-        .reportSummary table {
+        table.reportSummary {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
@@ -121,7 +121,7 @@
             <form id="bb" action="/pdfreport.html" method="post">
                 Click the following button to download the PDF version of the IRP analysis:
                 <input type="hidden" name="analysisResponses" value="">
-                <button id="pdf" class="btn" type="button">Download PDF</button>
+                <paper-button id="pdf" raised>Download PDF</paper-button>
                 <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
             </form>
             <p></p>
