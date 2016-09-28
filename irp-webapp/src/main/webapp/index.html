@@ -199,6 +199,13 @@
                                                     </div>
                                                 </div>
                                             </paper-dialog>
+
+                                            <iron-ajax id="ajaxAutomation"
+                                                       url="/analysisReports"
+                                                       method="POST"
+                                                       handle-as="json"
+                                                       lastresponse="{{responses}}"
+                                                       debounce-duration="300"></iron-ajax>
                                         </div>
 
                                         <template is="dom-if" if="[[responsesExist(responses)]]">

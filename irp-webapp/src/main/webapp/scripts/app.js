@@ -54,9 +54,11 @@
         // Automation Mode events
         function performAnalysis(tdsReportLinks) {
             console.info("Sending data to IRP Server for Analysis");
-            //$.post( "/analysisReports", tdsReportsLinks );
+            var vendorName = that.$.adapterVendorName.value;
+            that.$.ajaxAutomation.body = JSON.stringify({ vendorName: vendorName, tdsReportLinks: tdsReportLinks });
+            that.$.ajaxAutomation.generateRequest();
         }
-        window.addEventListener("message", function(event) {
+        window.addEventListener('message', function(event) {
             // Message handler for receiving messages from the Adapter iframe
             var adapterIFrame = that.$.adapterIFrame;
             var origin = event.origin || event.originalEvent.origin;
@@ -78,6 +80,20 @@
                 that.$.dlgAdapterInterface.close();
                 that.$.btnBeginAutomation.disabled = false;
             }
+        });
+        app.$.ajaxAutomation.addEventListener('error', function (event) {
+            console.error("Error sending Automation Adapter's TDS Report URIs", event.detail.text);
+            that.$.adapterInterfaceMessages.innerHTML = '<p>Error: Unable to communicate with IRP</p>';
+            adapterIFrame.hidden = true;
+            that.$.dlgAdapterInterface.notifyResize();
+            that.$.dlgAdapterInterface.center();
+
+        });
+        app.$.ajaxAutomation.addEventListener('response', function (event) {
+            that.$.dlgAdapterInterface.close();
+            that.$.btnBeginAutomation.disabled = false;
+
+            that.responses = that.$.ajaxAutomation.lastResponse;
         });
         app.$.btnBeginAutomation.addEventListener('click', function (event) {
             that.$.btnBeginAutomation.disabled = true;
