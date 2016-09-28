@@ -17,7 +17,7 @@
     // Listen for template bound event to know when bindings
     // have resolved and content has been stamped to the page
     app.addEventListener('dom-change', function() {
-        console.log('Implementation Readiness Package is running.');
+        console.info('Implementation Readiness Package is running.');
     });
 
     // See https://github.com/Polymer/polymer/issues/1381
@@ -27,13 +27,7 @@
         var that = app;
 
         // Manual Mode events
-        app.$.btnManualMode.addEventListener('click', function (event) {
-            that.$.pageModeSelection.select(1);
-        });
-        app.$.btnAutomatedMode.addEventListener('click', function (event) {
-            that.$.pageModeSelection.select(2);
-        });
-
+        app.selected = 0;
         app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientName.value != null && that.$.clientName.value != '') {
                 this.hidden = true;
@@ -52,125 +46,69 @@
         });
 
         // Automation Mode events
-        app.$.formAutomate.addEventListener('change', function (event) {
-            // Validate the entire form to see if we should enable the `Submit` button.
-            that.$.btnBeginAutomation.disabled = !that.$.formAutomate.validate();
-        });
-        app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
-            console.log("Presubmit: " + JSON.stringify(event));
-            that.$.automationMessages.innerHTML = '<p>Starting IRP Automation...</p>';
-            that.$.dlgAutomationStatus.open();
-            that.$.automationProgressBar.disabled = false;
-            that.$.automationProgressBar.hidden = false;
-            that.$.btnAutomationProgressClose.hidden = true;
-        });
-        app.$.formAutomate.addEventListener('iron-form-error', function (event) {
+        window.addEventListener('message', function(event) {
+            // Message handler for receiving messages from the Adapter iframe
+            var adapterIFrame = that.$.adapterIFrame;
+            var origin = event.origin || event.originalEvent.origin;
+            if (!(adapterIFrame && adapterIFrame.src && adapterIFrame.src.startsWith(origin))) {
+                console.error("Message received was not from same window");
+                return;
+            }
 
-            console.error(event.detail.response);
+            if (!Array.isArray(event.data)) {
+                console.error("Data is not an array");
+                that.$.adapterInterfaceMessages.innerHTML = '<p>Error: The data received from that Adapter UI is not an array</p>';
+                adapterIFrame.hidden = true;
+                that.$.dlgAdapterInterface.notifyResize();
+                that.$.dlgAdapterInterface.center();
+                return;
+            }
 
-            that.$.automationMessages.innerHTML = '<p>Error starting automation</p>';
-
-            that.$.automationProgressBar.disabled = true;
-            that.$.automationProgressBar.hidden = true;
-            that.$.btnAutomationProgressClose.hidden = false;
-        });
-        app.$.formAutomate.addEventListener('iron-form-response', function (event) {
-            console.log("Automation request response: " + JSON.stringify(event.detail.response));
-
-            var response = event.detail.response;
-
-            if (response && response.errorMessage) {
-                that.$.automationMessages.innerHTML = '<p>' + response.errorMessage + '</p>';
-            } else {
-                // Perform Long Polling
-                var req = new Pollymer.Request({recurring: false, maxTries: 2});
-
-                var automationStatusToken = response;
-                var lastUpdateTimestamp = 0;
-
-                var poll = function (automationStatusRequest) {
-                    var headers = {accept: 'application/json', 'content-type': 'application/json'};
-                    var body = JSON.stringify(automationStatusRequest);
-                    req.start('POST', '/automationStatus', headers, body);
-                }
-
-                req.on('finished', function (code, automationStatusReport, headers) {
-                    var continuePolling = true;
-                    if (automationStatusReport) {
-                        continuePolling = !automationStatusReport.automationComplete;
-                        lastUpdateTimestamp = automationStatusReport.lastUpdateTimestamp;
-
-                        var phaseStatuses = automationStatusReport.phaseStatuses;
-
-                        var messages = '';
-                        for (var phase in phaseStatuses) {
-                             messages += '<h3>' + phase + '</h3><ul>';
-                            for (var i = 0; i < phaseStatuses[phase].length; i++) {
-                                messages += '<li>' + phaseStatuses[phase][i] + '</li>';
-                            }
-                            messages += '</ul>';
-                        }
-
-                        that.$.automationMessages.innerHTML = messages;
-                        that.$.dlgAutomationStatus.notifyResize();
-                    }
-
-                    if (continuePolling) {
-                        poll({timeOfLastStatus: lastUpdateTimestamp, automationToken: automationStatusToken});
-                    } else if (automationStatusReport && automationStatusReport.automationComplete){
-                        that.$.automationProgressBar.disabled = true;
-                        that.$.automationProgressBar.hidden = true;
-                        that.$.btnAutomationProgressClose.hidden = false;
-                        console.info('Automation done. Ending polling.');
-                    }
-                });
-
-                req.on('error', function (reason) {
-                    var message = reason == 'TransportError' ? 'Error connecting to IRP Server'
-                                                             : 'Connection to IRP Server timed out';
-                    that.$.automationMessages.innerHTML += '<p>Connection Error: ' + message + '</p>';
-                });
-
-                poll({timeOfLastStatus: 0, automationToken: automationStatusToken});
+            if (performAnalysis(event.data)) {
+                that.$.dlgAdapterInterface.close();
+                that.$.btnBeginAutomation.disabled = false;
             }
         });
-        // app.$.btnBeginAutomation.addEventListener('click', function (event) {
-        //     app.$.btnBeginAutomation.disabled = true;
-        //     Polymer.dom(event).localTarget.parentElement.submit();
-        // });
-        app.$.btnResetAutomationForm.addEventListener('click', function (event) {
-            var form = Polymer.dom(event).localTarget.parentElement;
-            form.reset();
-            that.$.btnBeginAutomation.disabled = true;
+        function performAnalysis(tdsReportLinks) {
+            console.info("Sending data to IRP Server for Analysis");
+            var vendorName = that.$.adapterVendorName.value;
+            that.$.ajaxAutomation.body = { vendorName: vendorName, tdsReportLinks: tdsReportLinks };
+            that.$.ajaxAutomation.contentType = "application/json";
+            that.$.ajaxAutomation.generateRequest();
+        }
+        app.$.ajaxAutomation.addEventListener('error', function (event) {
+            console.error("Error sending Automation Adapter's TDS Report URIs", event.detail.text);
+            that.$.adapterInterfaceMessages.innerHTML = '<p>Error: Unable to communicate with IRP</p>';
+            adapterIFrame.hidden = true;
+            that.$.dlgAdapterInterface.notifyResize();
+            that.$.dlgAdapterInterface.center();
+
         });
-    });
+        app.$.ajaxAutomation.addEventListener('response', function (event) {
+            that.$.dlgAdapterInterface.close();
+            that.$.btnBeginAutomation.disabled = false;
 
-    // Main area's paper-scroll-header-panel custom condensing transformation of
-    // the appName in the middle-container and the bottom title in the bottom-container.
-    // The appName is moved to top and shrunk on condensing. The bottom sub title
-    // is shrunk to nothing on condensing.
-    window.addEventListener('paper-header-transform', function(e) {
-        var appName = Polymer.dom(document).querySelector('#mainToolbar .app-name');
-        var middleContainer = Polymer.dom(document).querySelector('#mainToolbar .middle-container');
-        var bottomContainer = Polymer.dom(document).querySelector('#mainToolbar .bottom-container');
-        var detail = e.detail;
-        var heightDiff = detail.height - detail.condensedHeight;
-        var yRatio = Math.min(1, detail.y / heightDiff);
-        // appName max size when condensed. The smaller the number the smaller the condensed size.
-        var maxMiddleScale = 0.50;
-        var auxHeight = heightDiff - detail.y;
-        var auxScale = heightDiff / (1 - maxMiddleScale);
-        var scaleMiddle = Math.max(maxMiddleScale, auxHeight / auxScale + maxMiddleScale);
-        var scaleBottom = 1 - yRatio;
+            that.responses = event.detail.response;
+        });
+        app.$.btnBeginAutomation.addEventListener('click', function (event) {
+            if (!that.$.adapterVendorName.validate() || !that.$.adapterUrl.validate()) {
+                return;
+            }
 
-        // Move/translate middleContainer
-        Polymer.Base.transform('translate3d(0,' + yRatio * 100 + '%,0)', middleContainer);
+            that.$.btnBeginAutomation.disabled = true;
 
-        // Scale bottomContainer and bottom sub title to nothing and back
-        Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
+            adapterIFrame.hidden = false;
+            that.$.adapterInterfaceMessages.innerHTML = '';
+            that.$.dlgAdapterInterface.open();
+            that.$.dlgAdapterInterface.notifyResize();
+            that.$.dlgAdapterInterface.center();
 
-        // Scale middleContainer appName
-        Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+            that.$.adapterIFrame.src = that.$.adapterUrl.value;
+        });
+        app.$.btnAutomationProgressClose.addEventListener('click', function (event) {
+            that.$.dlgAdapterInterface.close();
+            that.$.btnBeginAutomation.disabled = false;
+        });
     });
 
     // Scroll page to top and expand header

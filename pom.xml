@@ -16,7 +16,6 @@
 		<module>irp-repository</module>
 		<module>irp-service</module>
 		<module>irp-analysis-engine</module>
-        <module>irp-automation-service</module>
 		<module>irp-webapp</module>
 	</modules>
 
@@ -28,6 +27,7 @@
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons-io.version>2.4</commons-io.version>
         <jsr303-validator.version>5.2.4.Final</jsr303-validator.version>
+        <jackson.version>2.8.1</jackson.version>
 		<jsondoc.version>1.0.4</jsondoc.version>
 		<slf4j.version>1.7.7</slf4j.version>
         <logback.version>1.1.2</logback.version>
@@ -64,11 +64,6 @@
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-analysis-engine</artifactId>
-				<version>${irp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.cresst.sb.irp</groupId>
-				<artifactId>irp-automation-service</artifactId>
 				<version>${irp.version}</version>
 			</dependency>
 
@@ -108,6 +103,22 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${jsr303-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
 
 			<dependency>

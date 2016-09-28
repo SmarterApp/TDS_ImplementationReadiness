@@ -1,139 +1,95 @@
 package org.cresst.sb.irp.automation;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import org.cresst.sb.irp.automation.service.AutomationService;
-import org.cresst.sb.irp.automation.service.domain.*;
-import org.cresst.sb.irp.automation.service.requesthandler.AutomationRequestResultHandler;
-import org.cresst.sb.irp.automation.service.requesthandler.AutomationRequestResultHandlerProxy;
-import org.cresst.sb.irp.automation.service.statusreporting.AutomationStatusHandler;
-import org.cresst.sb.irp.automation.service.statusreporting.IrpAutomationStatusHandlerProxy;
+import org.cresst.sb.irp.automation.data.AdapterData;
+import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
+import org.cresst.sb.irp.service.AnalysisService;
+import org.cresst.sb.irp.zip.IrpZipUtils;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.async.DeferredResult;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestOperations;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URLConnection;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.spi.FileTypeDetector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This controller handles automation requests and status reports. It is designed to run as a single instance
  * on a single server since it stores status results in-memory.
  */
-//@Controller
-public class AutomationController implements AutomationRequestResultHandler, AutomationStatusHandler {
+@RestController
+public class AutomationController {
     private final static Logger logger = LoggerFactory.getLogger(AutomationController.class);
 
-    private AutomationService automationService;
+    @Value("${irp.version}")
+    String irpVersion;
 
-    // Requests
-    private final ConcurrentHashMap<AutomationRequest, DeferredResult<AutomationToken>> automationRequests = new ConcurrentHashMap<>();
-    private final Multimap<AutomationToken, DeferredResult<AutomationStatusReport>> statusRequests =
-            Multimaps.synchronizedListMultimap(ArrayListMultimap.<AutomationToken, DeferredResult<AutomationStatusReport>>create());
+    @Autowired
+    private AnalysisService analysisService;
 
-    // Automation status reports
-    private final ConcurrentHashMap<AutomationToken, AutomationStatusReport> automationStatusReports = new ConcurrentHashMap<>();
+    @PostMapping(value = "/analysisReports", produces = "application/json")
+    public AnalysisResponse analysisReports(@Valid @RequestBody AdapterData adapterData) throws IOException {
+        logger.info("TDS Report URIs received: {}", adapterData);
 
-    public AutomationController(AutomationService automationService,
-                                AutomationRequestResultHandlerProxy automationRequestResultHandlerProxy,
-                                IrpAutomationStatusHandlerProxy automationStatusHandlerProxy) {
-        this.automationService = automationService;
-        automationRequestResultHandlerProxy.setAutomationRequestResultHandler(this);
-        automationStatusHandlerProxy.setAutomationStatusHandler(this);
+        Iterable<Path> filePaths = downloadReports(adapterData);
+
+        AnalysisResponse analysisResponse = analysisService.analysisProcess(filePaths);
+        analysisResponse.setVendorName(adapterData.getVendorName());
+        analysisResponse.setIrpVersion(irpVersion);
+        analysisResponse.setDateTimeAnalyzed(DateTime.now(DateTimeZone.forID("America/Los_Angeles")).toString());
+
+        return analysisResponse;
     }
 
-    @RequestMapping(value = "/automate", method = RequestMethod.POST, produces = "application/json")
-    @ResponseBody
-    public DeferredResult<AutomationToken> automate(@Valid @RequestBody final AutomationRequest automationRequest) {
-        logger.info("Automation Request: " + automationRequest);
+    private List<Path> downloadReports(final AdapterData adapterData) throws IOException {
+        final List<Path> filePaths = new ArrayList<>();
 
-        final DeferredResult<AutomationToken> deferredAutomationRequest = new DeferredResult<>(null, null);
+        final Path tmpDir = Files.createTempDirectory("irp-adapter");
+        logger.info("Temp directory {}", tmpDir.toString());
 
-        // If this is a duplicate request, respond with previous DeferredResult
-        final DeferredResult<AutomationToken> previousRequest =
-                automationRequests.putIfAbsent(automationRequest, deferredAutomationRequest);
+        for (URI tdsReportUri : adapterData.getTdsReportLinks()) {
+            final URLConnection urlConnection = tdsReportUri.toURL().openConnection();
+            final String mimeType = urlConnection.getContentType();
 
-        if (previousRequest == null) {
-            deferredAutomationRequest.onCompletion(new Runnable() {
-                @Override
-                public void run() {
-                    // Remove the request from the map is ok. The automation engine prevents duplicate automation runs.
-                    automationRequests.remove(automationRequest);
+            final String suffix = "application/zip".equals(mimeType) ? "-zip" : "-xml";
+            final Path tmpFile = Files.createTempFile(tmpDir, "irp-", suffix);
+
+            try (InputStream inputStream = urlConnection.getInputStream();
+                 ReadableByteChannel rbc = Channels.newChannel(inputStream);
+                 FileOutputStream fileOuputStream = new FileOutputStream(tmpFile.toFile())) {
+
+                fileOuputStream.getChannel().transferFrom(rbc, 0, 5242880);
+
+                if ("application/zip".equals(mimeType)) {
+                    IrpZipUtils.extractFilesFromZip(filePaths, tmpDir, tmpFile);
+                    Files.delete(tmpFile);
+                } else {
+                    filePaths.add(tmpFile);
                 }
-            });
-
-            automationService.automate(automationRequest);
-        }
-
-        return previousRequest == null ? deferredAutomationRequest : previousRequest;
-    }
-
-    @RequestMapping(value = "/automationStatus", method = RequestMethod.POST, produces = "application/json")
-    @ResponseBody
-    public DeferredResult<AutomationStatusReport> status(@Valid @RequestBody final AutomationStatusRequest automationStatusRequest) {
-
-        final AutomationToken automationToken = automationStatusRequest.getAutomationToken();
-
-        final DeferredResult<AutomationStatusReport> deferredStatusReport = new DeferredResult<>(null, null);
-        statusRequests.put(automationToken, deferredStatusReport);
-
-        deferredStatusReport.onCompletion(new Runnable() {
-            @Override
-            public void run() {
-                statusRequests.remove(automationToken, deferredStatusReport);
-            }
-        });
-
-        // Check if there are any status updates to return immediately
-        AutomationStatusReport latestStatusReport = getLatestStatuses(automationStatusRequest);
-        if (latestStatusReport != null) {
-            deferredStatusReport.setResult(latestStatusReport);
-        }
-
-        return deferredStatusReport;
-    }
-
-    @Override
-    public void handleAutomationRequestResult(AutomationRequest automationRequest,
-                                              AutomationToken automationToken) {
-        DeferredResult<AutomationToken> deferredAutomationRequest = automationRequests.get(automationRequest);
-        deferredAutomationRequest.setResult(automationToken);
-    }
-
-    @Override
-    public void handleAutomationRequestError(AutomationRequestError automationRequestError) {
-        AutomationRequest automationRequest = automationRequestError.getAutomationRequest();
-        DeferredResult<AutomationToken> deferredAutomationRequest = automationRequests.get(automationRequest);
-        deferredAutomationRequest.setErrorResult(automationRequestError);
-    }
-
-    @Override
-    public void handleAutomationStatus(AutomationToken automationToken, AutomationStatusReport automationStatusReport) {
-        automationStatusReports.put(automationToken, automationStatusReport);
-
-        // Notify clients
-        Collection<DeferredResult<AutomationStatusReport>> deferredStatusReports = statusRequests.get(automationToken);
-        synchronized (statusRequests) {
-            for (DeferredResult<AutomationStatusReport> deferredReport : deferredStatusReports) {
-                deferredReport.setResult(automationStatusReport);
+            } catch (FileNotFoundException ex) {
+                logger.info("The file {} was not found", ex.getMessage());
+                // TODO: Should send this info back to UI
             }
         }
-    }
 
-    private AutomationStatusReport getLatestStatuses(AutomationStatusRequest automationStatusRequest) {
-        AutomationStatusReport automationStatusReport = automationStatusReports.get(automationStatusRequest.getAutomationToken());
-
-        if (automationStatusReport != null &&
-                automationStatusRequest.getTimeOfLastStatus() < automationStatusReport.getLastUpdateTimestamp()) {
-            return automationStatusReport;
-        }
-
-        return null;
+        return filePaths;
     }
 }

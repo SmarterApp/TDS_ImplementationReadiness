@@ -23,6 +23,7 @@
 
     <context:component-scan base-package="org.cresst.sb.irp.*" use-default-filters="false">
         <context:include-filter expression="org.springframework.stereotype.Controller" type="annotation" />
+        <context:include-filter expression="org.springframework.web.bind.annotation.RestController" type="annotation" />
     </context:component-scan>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -85,11 +86,4 @@
             </list>
         </property>
     </bean>
-
-    <!--<bean id="automationController" class="org.cresst.sb.irp.automation.AutomationController" autowire-candidate="false">-->
-        <!--<constructor-arg name="automationService" ref="irpAutomationService" />-->
-        <!--<constructor-arg name="automationRequestResultHandlerProxy" ref="automationRequestResultHandlerProxy" />-->
-        <!--<constructor-arg name="automationStatusHandlerProxy" ref="automationStatusHandlerProxy" />-->
-    <!--</bean>-->
-
 </beans>
