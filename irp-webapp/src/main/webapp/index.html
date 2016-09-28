@@ -57,6 +57,24 @@
             height: 100px;
             border: 1px black solid;
         }
+
+        paper-tabs, paper-toolbar {
+            background-color: #d5d5d5;
+            color: #000;
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        paper-tab.iron-selected {
+            background-color: white;
+        }
+
+        paper-tabs[noink][nobar] paper-tab {
+            color: #ffff8d;
+        }
+
+        paper-tabs {
+            --paper-tabs-selection-bar-color: #ED1C23;
+        }
     </style>
 
     <script src="deps/webcomponentsjs/webcomponents-lite.min.js"></script>
@@ -132,14 +150,12 @@
                         <section data-route="home">
                             <paper-material elevation="1">
                                 <div>
-                                    <iron-pages id="pageModeSelection" selected="0">
-                                        <div>
-                                            <div>Select a mode to run IRP:</div>
-                                            <ul>
-                                                <li><button id="btnManualMode" class="btn">Manual Mode</button> - Select this if you are not running the Smarter Balanced Open Source System</li>
-                                                <li><button id="btnAutomatedMode" class="btn">Automated Mode</button> - Select this if you are running the Smarter Balanced Open Source System</li>
-                                            </ul>
-                                        </div>
+                                    <paper-tabs selected="{{selected}}">
+                                        <paper-tab>Manual Mode</paper-tab>
+                                        <paper-tab>IRP Automation Adapter Mode</paper-tab>
+                                    </paper-tabs>
+
+                                    <iron-pages id="pageModeSelection" selected="{{selected}}">
                                         <div id="manualModePage">
                                             <ul id="instructions">
                                                 <li>Step 1: <a href="irp-package.zip" title="IRP Package Download">Download the
@@ -203,15 +219,15 @@
                                             <iron-ajax id="ajaxAutomation"
                                                        url="/analysisReports"
                                                        method="POST"
+                                                       contentType="application/json"
                                                        handle-as="json"
-                                                       lastresponse="{{responses}}"
                                                        debounce-duration="300"></iron-ajax>
                                         </div>
-
-                                        <template is="dom-if" if="[[responsesExist(responses)]]">
-                                            <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
-                                        </template>
                                     </iron-pages>
+
+                                    <template is="dom-if" if="[[responsesExist(responses)]]">
+                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                    </template>
                                 </div>
                             </paper-material>
                         </section>

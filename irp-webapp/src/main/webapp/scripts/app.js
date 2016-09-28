@@ -27,13 +27,7 @@
         var that = app;
 
         // Manual Mode events
-        app.$.btnManualMode.addEventListener('click', function (event) {
-            that.$.pageModeSelection.select(1);
-        });
-        app.$.btnAutomatedMode.addEventListener('click', function (event) {
-            that.$.pageModeSelection.select(2);
-        });
-
+        app.selected = 0;
         app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientName.value != null && that.$.clientName.value != '') {
                 this.hidden = true;
@@ -55,7 +49,8 @@
         function performAnalysis(tdsReportLinks) {
             console.info("Sending data to IRP Server for Analysis");
             var vendorName = that.$.adapterVendorName.value;
-            that.$.ajaxAutomation.body = JSON.stringify({ vendorName: vendorName, tdsReportLinks: tdsReportLinks });
+            that.$.ajaxAutomation.body = { vendorName: vendorName, tdsReportLinks: tdsReportLinks };
+            that.$.ajaxAutomation.contentType = "application/json";
             that.$.ajaxAutomation.generateRequest();
         }
         window.addEventListener('message', function(event) {
@@ -93,7 +88,7 @@
             that.$.dlgAdapterInterface.close();
             that.$.btnBeginAutomation.disabled = false;
 
-            that.responses = that.$.ajaxAutomation.lastResponse;
+            that.responses = event.detail.response;
         });
         app.$.btnBeginAutomation.addEventListener('click', function (event) {
             that.$.btnBeginAutomation.disabled = true;
