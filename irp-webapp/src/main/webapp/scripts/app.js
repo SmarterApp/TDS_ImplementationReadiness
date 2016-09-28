@@ -161,6 +161,7 @@
     };
 
     app.computeResponseIcon = function (response) {
-        return response.validXMLfile && response.validTestName && response.validExaminee && response.validScoring ? 'thumb-up' : 'thumb-down';
+        return response.validXMLfile && response.validTestName && response.validExaminee
+            && response.validScoring && response.everyCategoryValid ? 'thumb-up' : 'thumb-down';
     }
 })(document);

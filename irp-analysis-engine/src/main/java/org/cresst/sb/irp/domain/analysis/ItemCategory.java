@@ -14,9 +14,9 @@ public class ItemCategory extends Category {
     private Itemrelease.Item.Attriblist attriblist;
 
     public enum ItemStatusEnum{ FOUND, MISSING, EXTRA, NOTUSED }
-    
+
     private boolean itemFormatCorrect;
-    
+
     public boolean isItemFormatCorrect() {
 		return itemFormatCorrect;
 	}
@@ -26,7 +26,7 @@ public class ItemCategory extends Category {
 	}
 
 	private ItemStatusEnum status;
-    
+
     public ItemStatusEnum getStatus() {
 		return status;
 	}
@@ -73,6 +73,11 @@ public class ItemCategory extends Category {
 
     public void setAttriblist(Itemrelease.Item.Attriblist attriblist) {
         this.attriblist = attriblist;
+    }
+
+    @Override
+    public boolean isEveryCellValid() {
+        return this.everyCellValid && this.scoreInfoCategory.isEveryCellValid() && this.responseCategory.isEveryCellValid();
     }
 
     @Override
