@@ -4,9 +4,12 @@ import org.cresst.sb.irp.automation.data.AdapterData;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.service.AnalysisService;
 import org.cresst.sb.irp.zip.IrpZipUtils;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,18 +39,22 @@ import java.util.List;
 public class AutomationController {
     private final static Logger logger = LoggerFactory.getLogger(AutomationController.class);
 
-    @Autowired
-    private AnalysisService analysisService;
+    @Value("${irp.version}")
+    String irpVersion;
 
     @Autowired
-    private RestOperations adapterTdsReportRestTemplate;
+    private AnalysisService analysisService;
 
     @PostMapping(value = "/analysisReports", produces = "application/json")
     public AnalysisResponse analysisReports(@Valid @RequestBody AdapterData adapterData) throws IOException {
         logger.info("TDS Report URIs received: {}", adapterData);
 
         Iterable<Path> filePaths = downloadReports(adapterData);
+
         AnalysisResponse analysisResponse = analysisService.analysisProcess(filePaths);
+        analysisResponse.setVendorName(adapterData.getVendorName());
+        analysisResponse.setIrpVersion(irpVersion);
+        analysisResponse.setDateTimeAnalyzed(DateTime.now(DateTimeZone.forID("America/Los_Angeles")).toString());
 
         return analysisResponse;
     }

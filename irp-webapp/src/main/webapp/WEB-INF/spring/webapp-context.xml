@@ -86,10 +86,4 @@
             </list>
         </property>
     </bean>
-
-    <bean id="automationController" class="org.cresst.sb.irp.automation.AutomationController" autowire-candidate="false">
-    </bean>
-
-    <bean id="adapterTdsReportRestTemplate" class="org.springframework.web.client.RestTemplate"></bean>
-
 </beans>

@@ -8,6 +8,23 @@
         #logo {
             padding-bottom: 5px;
             margin-right: 10px;
+            -webkit-transform: scale(0.75);
+            -moz-transform: scale(0.75);
+            -ms-transform: scale(0.75);
+            -o-transform: scale(0.75);
+            transform: scale(0.75);
+        }
+
+        #mainToolbar {
+            height: inherit;
+        }
+
+        paper-toolbar.tall #middleBar.paper-toolbar, paper-toolbar.medium-tall #middleBar.paper-toolbar {
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            transform: translateY(0);
         }
 
         small {
@@ -16,6 +33,11 @@
 
         .version {
             font-size: .5em;
+        }
+
+        .selectedFileName {
+            white-space: nowrap;
+            font-size: small;
         }
 
         .uploader {
@@ -60,16 +82,16 @@
 
         paper-tabs, paper-toolbar {
             background-color: #d5d5d5;
-            color: #000;
+            color: #ffffff;
             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
         }
 
         paper-tab.iron-selected {
-            background-color: white;
+            background-color: #5771f5;
         }
 
         paper-tabs[noink][nobar] paper-tab {
-            color: #ffff8d;
+            color: #ff1e0d;
         }
 
         paper-tabs {
@@ -121,7 +143,7 @@
             </paper-scroll-header-panel>
 
             <!-- Main Area -->
-            <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+            <paper-scroll-header-panel main id="headerPanelMain" fixed>
 
                 <!-- Main Toolbar -->
                 <paper-toolbar id="mainToolbar" class="tall">
@@ -130,11 +152,13 @@
                     <span class="space"></span>
 
                     <div class="middle middle-container">
-                        <div class="app-name">
+                        <div>
                             <img id="logo" src="SmarterBalancedLogo.PNG" alt="Smarter Balanced" align="left">
-                            <span>Implementation Readiness Package</span><br />
-                            <span class="version">version: <irp-version></irp-version></span><br />
-                            <div style="white-space:nowrap;margin-top:20px;">[[response.fileName]]</div>
+                        </div>
+                        <div>
+                            <span>Implementation Readiness Package</span>
+                            <span class="version">(version: <irp-version></irp-version>)</span><br />
+                            <div class="selectedFileName">[[response.fileName]]</div>
                         </div>
                     </div>
 
@@ -195,18 +219,29 @@
                                         </div>
                                         <div id="automationModePage">
                                             <p>
-                                                IRP Automation Mode will communicate with your custom implementation of the IRP Automation Adapter to retrieve TDSReport XML documents
+                                                IRP Automation Mode will allow you to interact with your custom implementation of the IRP Automation Adapter to retrieve TDSReport XML documents
                                                 that IRP needs to perform IRP Analysis and Reporting.
                                             </p>
                                             <p>
-                                                The IRP Automation Adapter is a custom web service that you implement to automate the process of generating TDSReport XML documents.
-                                                IRP will communicate with your custom Adapter following the <a href="irp-v2-automation-adapter-spec.pdf">IRP Automation Adapter Specification</a>.
+                                                The IRP Automation Adapter is a custom web application that you implement to automate the process of generating TDSReport XML documents.
+                                                IRP retrieves generated TDS Report documents from a location specified by your custom Adapter. The user interface for your
+                                                custom Adapter will be displayed in a modal dialog box to allow you to interact with it. By implementing your Adapter's user interface
+                                                according to following the <a href="irp-v2-automation-adapter-spec.pdf">IRP Automation Adapter Specification</a>, IRP will be able to
+                                                locate and download the Adapter's generated TDS Report documents.
+                                            </p>
+                                            <p>
+                                                After the TDSReport XML file(s) have been analyzed, use the menu on the left to see the results for each individual TDSReport XML submitted.
+                                                A status icon will be shown next to the file name.
+                                                <br>
+                                                <iron-icon icon="thumb-up"></iron-icon> TDSReport XML File is valid, with no errors.
+                                                <br>
+                                                <iron-icon icon="thumb-down"></iron-icon> TDSReport contains some errors
                                             </p>
                                             <div id="formAutomate" is="iron-form">
                                                 <paper-input id="adapterVendorName" name="vendorName" label="Vendor Name" required auto-validate error-message="Used for the IRP report"></paper-input>
                                                 <paper-input id="adapterUrl" name="adapterUrl" label="IRP Automation Adapter URL (e.g. http://adapter.server.com:port/tdsReports)" required auto-validate error-message="Used for communicating with your custom IRP Automation Adapter"></paper-input>
 
-                                                <button id="btnBeginAutomation">Begin</button>
+                                                <paper-button id="btnBeginAutomation" raised>Begin</paper-button>
                                             </div>
 
                                             <paper-dialog id="dlgAdapterInterface" modal>
