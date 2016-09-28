@@ -17,7 +17,7 @@
     // Listen for template bound event to know when bindings
     // have resolved and content has been stamped to the page
     app.addEventListener('dom-change', function() {
-        console.log('Implementation Readiness Package is running.');
+        console.info('Implementation Readiness Package is running.');
     });
 
     // See https://github.com/Polymer/polymer/issues/1381
@@ -52,96 +52,39 @@
         });
 
         // Automation Mode events
-        app.$.formAutomate.addEventListener('change', function (event) {
-            // Validate the entire form to see if we should enable the `Submit` button.
-            that.$.btnBeginAutomation.disabled = !that.$.formAutomate.validate();
-        });
-        app.$.formAutomate.addEventListener('iron-form-presubmit', function (event) {
-            console.log("Presubmit: " + JSON.stringify(event));
-            that.$.automationMessages.innerHTML = '<p>Starting IRP Automation...</p>';
-            that.$.dlgAutomationStatus.open();
-            that.$.automationProgressBar.disabled = false;
-            that.$.automationProgressBar.hidden = false;
-            that.$.btnAutomationProgressClose.hidden = true;
-        });
-        app.$.formAutomate.addEventListener('iron-form-error', function (event) {
+        function performAnalysis(tdsReportLinks) {
+            console.info( "Sending data to IRP Server for Analysis" );
+            //$.post( "/analysisReports", tdsReportsLinks );
+        }
+        window.addEventListener("message", function(event) {
+            var adapterIFrame = that.$.adapterIFrame;
+            var origin = event.origin || event.originalEvent.origin;
+            if (!(adapterIFrame && adapterIFrame.src && adapterIFrame.src.startsWith(origin))) {
+                console.error("Message not from same window");
+                return;
+            }
 
-            console.error(event.detail.response);
+            if (!Array.isArray(event.data)) {
+                console.error("Data is not an array");
+                return;
+            }
 
-            that.$.automationMessages.innerHTML = '<p>Error starting automation</p>';
-
-            that.$.automationProgressBar.disabled = true;
-            that.$.automationProgressBar.hidden = true;
-            that.$.btnAutomationProgressClose.hidden = false;
-        });
-        app.$.formAutomate.addEventListener('iron-form-response', function (event) {
-            console.log("Automation request response: " + JSON.stringify(event.detail.response));
-
-            var response = event.detail.response;
-
-            if (response && response.errorMessage) {
-                that.$.automationMessages.innerHTML = '<p>' + response.errorMessage + '</p>';
-            } else {
-                // Perform Long Polling
-                var req = new Pollymer.Request({recurring: false, maxTries: 2});
-
-                var automationStatusToken = response;
-                var lastUpdateTimestamp = 0;
-
-                var poll = function (automationStatusRequest) {
-                    var headers = {accept: 'application/json', 'content-type': 'application/json'};
-                    var body = JSON.stringify(automationStatusRequest);
-                    req.start('POST', '/automationStatus', headers, body);
-                }
-
-                req.on('finished', function (code, automationStatusReport, headers) {
-                    var continuePolling = true;
-                    if (automationStatusReport) {
-                        continuePolling = !automationStatusReport.automationComplete;
-                        lastUpdateTimestamp = automationStatusReport.lastUpdateTimestamp;
-
-                        var phaseStatuses = automationStatusReport.phaseStatuses;
-
-                        var messages = '';
-                        for (var phase in phaseStatuses) {
-                             messages += '<h3>' + phase + '</h3><ul>';
-                            for (var i = 0; i < phaseStatuses[phase].length; i++) {
-                                messages += '<li>' + phaseStatuses[phase][i] + '</li>';
-                            }
-                            messages += '</ul>';
-                        }
-
-                        that.$.automationMessages.innerHTML = messages;
-                        that.$.dlgAutomationStatus.notifyResize();
-                    }
-
-                    if (continuePolling) {
-                        poll({timeOfLastStatus: lastUpdateTimestamp, automationToken: automationStatusToken});
-                    } else if (automationStatusReport && automationStatusReport.automationComplete){
-                        that.$.automationProgressBar.disabled = true;
-                        that.$.automationProgressBar.hidden = true;
-                        that.$.btnAutomationProgressClose.hidden = false;
-                        console.info('Automation done. Ending polling.');
-                    }
-                });
-
-                req.on('error', function (reason) {
-                    var message = reason == 'TransportError' ? 'Error connecting to IRP Server'
-                                                             : 'Connection to IRP Server timed out';
-                    that.$.automationMessages.innerHTML += '<p>Connection Error: ' + message + '</p>';
-                });
-
-                poll({timeOfLastStatus: 0, automationToken: automationStatusToken});
+            if (performAnalysis(event.data)) {
+                that.$.dlgAdapterInterface.close();
+                that.$.btnBeginAutomation.disabled = false;
             }
         });
-        // app.$.btnBeginAutomation.addEventListener('click', function (event) {
-        //     app.$.btnBeginAutomation.disabled = true;
-        //     Polymer.dom(event).localTarget.parentElement.submit();
-        // });
-        app.$.btnResetAutomationForm.addEventListener('click', function (event) {
-            var form = Polymer.dom(event).localTarget.parentElement;
-            form.reset();
+        app.$.btnBeginAutomation.addEventListener('click', function (event) {
             that.$.btnBeginAutomation.disabled = true;
+
+            that.$.dlgAdapterInterface.open();
+
+            var adapterIFrame = that.$.adapterIFrame;
+            adapterIFrame.src = that.$.adapterUrl.value;
+        });
+        app.$.btnAutomationProgressClose.addEventListener('click', function (event) {
+            that.$.dlgAdapterInterface.close();
+            that.$.btnBeginAutomation.disabled = false;
         });
     });
 
