@@ -217,6 +217,9 @@
                                                     <paper-spinner id="spinnerUpload" class="blue" inactive=""></paper-spinner>
                                                 </form>
                                             </div>
+                                            <template is="dom-if" if="[[responsesExist(responses)]]">
+                                              <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            </template>
                                         </div>
                                         <div id="automationModePage">
                                             <p>
@@ -262,6 +265,9 @@
                                                        contentType="application/json"
                                                        handle-as="json"
                                                        debounce-duration="300"></iron-ajax>
+                                          <template is="dom-if" if="[[responsesExist(responses)]]">
+                                            <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                          </template>
                                         </div>
                                         <div id="catModePage">
                                             CAT Mode
@@ -284,10 +290,6 @@
                                             </div>
                                         </div>
                                     </iron-pages>
-
-                                    <template is="dom-if" if="[[responsesExist(responses)]]">
-                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
-                                    </template>
                                 </div>
                             </paper-material>
                         </section>
