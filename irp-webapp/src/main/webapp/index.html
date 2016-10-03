@@ -177,6 +177,7 @@
                                     <paper-tabs selected="{{selected}}">
                                         <paper-tab>Manual Mode</paper-tab>
                                         <paper-tab>IRP Automation Adapter Mode</paper-tab>
+                                        <paper-tab>CAT Mode</paper-tab>
                                     </paper-tabs>
 
                                     <iron-pages id="pageModeSelection" selected="{{selected}}">
@@ -261,6 +262,9 @@
                                                        contentType="application/json"
                                                        handle-as="json"
                                                        debounce-duration="300"></iron-ajax>
+                                        </div>
+                                        <div id="catModePage">
+                                            CAT Mode
                                         </div>
                                     </iron-pages>
 
