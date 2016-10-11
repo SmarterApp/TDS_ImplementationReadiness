@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.service.CATAnalysisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -22,10 +24,13 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 public class CATFileUploadController {
-    private final static Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+    private final static Logger logger = LoggerFactory.getLogger(CATFileUploadController.class);
 
     @Value("${irp.version}")
     String irpVersion;
+
+    @Autowired
+    private CATAnalysisService catAnalysisService;
 
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
@@ -37,6 +42,13 @@ public class CATFileUploadController {
         } else {
             logger.info("uploaded: " + itemFile.getName());
             logger.info("uploaded: " + studentFile.getName());
+
+            if(catAnalysisService.validateItemCsv(itemFile)) {
+                logger.info(itemFile.getName() + " is in correct csv format");
+            } else {
+                logger.error(itemFile.getName() + " is in incorrect csv format");
+                throw new FileUploadException(itemFile.getName() + " is in incorrect csv format");
+            }
         }
 
         return "";
