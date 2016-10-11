@@ -49,6 +49,13 @@ public class CATFileUploadController {
                 logger.error(itemFile.getName() + " is in incorrect csv format");
                 throw new FileUploadException(itemFile.getName() + " is in incorrect csv format");
             }
+
+            if(catAnalysisService.validateStudentCsv(studentFile)) {
+                logger.info(studentFile.getName() + " is in correct csv format");
+            } else {
+                logger.error(studentFile.getName() + " is in incorrect csv format");
+                throw new FileUploadException(itemFile.getName() + " is in incorrect csv format");
+            }
         }
 
         return "";
