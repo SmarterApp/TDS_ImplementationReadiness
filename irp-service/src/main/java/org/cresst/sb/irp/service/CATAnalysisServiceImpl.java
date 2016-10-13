@@ -22,7 +22,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
      * @param file csv file to check headers against
      * @return true if csv contains headers in `headers`, false otherwise
      */
-    private boolean validateCsv(Collection<?> expectedHeaders, MultipartFile file) {
+    private boolean validateCsv(Collection<String> expectedHeaders, MultipartFile file) {
         try {
             CSVParser parser = CSVParser.parse(new String(file.getBytes()), CSVFormat.EXCEL.withHeader());
             Set<String> csvHeaders = parser.getHeaderMap().keySet();
