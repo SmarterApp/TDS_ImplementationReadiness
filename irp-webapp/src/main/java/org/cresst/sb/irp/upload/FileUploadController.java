@@ -84,7 +84,7 @@ public class FileUploadController {
         } else if ("text/xml".equals(fileType)) {
             final Path tmpDir = Files.createTempDirectory("irp");
             final Path tmpFile = Paths.get(tmpDir.toString(), multipartFile.getOriginalFilename());
-            
+
             // Move the uploaded file to the new temporary directory
             multipartFile.transferTo(tmpFile.toFile());
 
@@ -144,5 +144,5 @@ public class FileUploadController {
 		logger.info("NotFoundException: " + ex.getMessage());
 		return ex.getMessage();
 	}
-    
+
 }

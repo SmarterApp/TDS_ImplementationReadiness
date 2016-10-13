@@ -177,6 +177,7 @@
                                     <paper-tabs selected="{{selected}}">
                                         <paper-tab>Manual Mode</paper-tab>
                                         <paper-tab>IRP Automation Adapter Mode</paper-tab>
+                                        <paper-tab>CAT Mode</paper-tab>
                                     </paper-tabs>
 
                                     <iron-pages id="pageModeSelection" selected="{{selected}}">
@@ -216,6 +217,9 @@
                                                     <paper-spinner id="spinnerUpload" class="blue" inactive=""></paper-spinner>
                                                 </form>
                                             </div>
+                                            <template is="dom-if" if="[[responsesExist(responses)]]">
+                                              <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            </template>
                                         </div>
                                         <div id="automationModePage">
                                             <p>
@@ -261,12 +265,31 @@
                                                        contentType="application/json"
                                                        handle-as="json"
                                                        debounce-duration="300"></iron-ajax>
+                                          <template is="dom-if" if="[[responsesExist(responses)]]">
+                                            <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                          </template>
+                                        </div>
+                                        <div id="catModePage">
+                                            CAT Mode
+                                            <div id="simulationPackage">
+                                            </div>
+                                            <div class="uploader">
+                                              <form id="catFileUploader" is="ajax-form" method="post"
+                                                    enctype="multipart/form-data" action="/catUpload">
+                                                    <div id="catItemUpload">
+                                                      Item Datafile
+                                                      <input id="catItemFile" type="file" class="btn btn-default" name="catItemFile" required>
+                                                    </div>
+                                                    <div id="catStudentUpload">
+                                                      Student Datafile
+                                                      <input id="catStudentFile" type="file" class="btn btn-default" name="catStudentFile" required>
+                                                    </div>
+                                                    <button id="catBtnFileUpload" class="btn btn-primary">Upload</button>
+                                                    <paper-spinner id="catSpinnerUpload" class="blue" inactive=""></paper-spinner>
+                                              </form>
+                                            </div>
                                         </div>
                                     </iron-pages>
-
-                                    <template is="dom-if" if="[[responsesExist(responses)]]">
-                                        <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
-                                    </template>
                                 </div>
                             </paper-material>
                         </section>

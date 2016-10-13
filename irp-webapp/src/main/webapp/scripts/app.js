@@ -34,6 +34,14 @@
                 that.$.spinnerUpload.active = true;
             }
         });
+        app.$.catBtnFileUpload.addEventListener('click', function (event) {
+            if (that.$.catItemFile.value && that.$.catStudentFile.value) {
+                console.log(that.$.catItemFile.value);
+                console.log(that.$.catStudentFile.value);
+                this.hidden = true;
+                that.$.catSpinnerUpload.active = true;
+            }
+        });
         app.$.fileUploader.addEventListener('submitted', function (event) {
             that.$.btnFileUpload.hidden = false;
             that.$.spinnerUpload.active = false;
@@ -42,6 +50,16 @@
                 that.responses = analysisResponse;
             } else {
                 that.$.fileUploadErrorDialog.toggle();
+            }
+        });
+
+        app.$.catFileUploader.addEventListener('submitted', function (event) {
+            that.$.catBtnFileUpload.hidden = false;
+            that.$.catSpinnerUpload.active = false;
+            if (event.detail.status == 200) {
+                // Parse response data
+            } else {
+                // Show some error message
             }
         });
 
