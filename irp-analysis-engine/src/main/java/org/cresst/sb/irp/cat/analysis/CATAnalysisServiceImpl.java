@@ -1,12 +1,16 @@
 package org.cresst.sb.irp.cat.analysis;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.cresst.sb.irp.domain.analysis.ItemCAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -61,5 +65,26 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         expectedHeaders.add("Claim4_SEM");
 
         return validateCsv(expectedHeaders, studentFile);
+    }
+
+    public List<ItemCAT> parseItemCsv(MultipartFile itemFile) throws IOException {
+        logger.info("Parsing csv for: " + itemFile.getName());
+
+        CSVParser parser = CSVParser.parse(new String(itemFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        Set<String> expectedHeaders = new HashSet<>();
+        expectedHeaders.add("SID");
+        expectedHeaders.add("ItemID");
+        expectedHeaders.add("Score");
+        Set<String> csvHeaders = parser.getHeaderMap().keySet();
+
+        if (!csvHeaders.containsAll(expectedHeaders)) {
+            return null;
+        }
+
+        List<ItemCAT> parsedItems = new ArrayList<>();
+        for (CSVRecord record : parser.getRecords()) {
+            parsedItems.add(new ItemCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
+        }
+        return parsedItems;
     }
 }
