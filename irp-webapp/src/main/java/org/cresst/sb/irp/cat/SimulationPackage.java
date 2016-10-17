@@ -21,10 +21,19 @@ public class SimulationPackage {
     String irpVersion;
 
     @RequestMapping(value="/simupack/elag11/itempool", method = RequestMethod.GET)
-    public void simulationPackage(HttpServletResponse response) throws IOException {
+    public void simulationPackageItemPool(HttpServletResponse response) throws IOException {
         String itempool = "Math.cat.full_20150423.csv";
         InputStream itempoolStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + itempool);
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", itempool));
+        response.setContentType("text/csv");
+        FileCopyUtils.copy(itempoolStream, response.getOutputStream());
+    }
+
+    @RequestMapping(value="/simupack/elag11/blueprint", method = RequestMethod.GET)
+    public void simulationPackageBlueprint(HttpServletResponse response) throws IOException {
+        String blueprint = "ELAG11_CAT_BluePrint.csv";
+        InputStream itempoolStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + blueprint);
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", blueprint));
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
     }
