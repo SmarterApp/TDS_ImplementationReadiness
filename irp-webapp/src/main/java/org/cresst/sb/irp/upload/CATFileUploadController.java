@@ -3,8 +3,8 @@ package org.cresst.sb.irp.upload;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
 import org.cresst.sb.irp.exceptions.NotFoundException;
-import org.cresst.sb.irp.service.CATAnalysisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
