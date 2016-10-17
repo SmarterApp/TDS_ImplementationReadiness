@@ -1,9 +1,14 @@
 package org.cresst.sb.irp.upload;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
+import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +39,7 @@ public class CATFileUploadController {
 
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public String upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
+    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -43,22 +48,26 @@ public class CATFileUploadController {
             logger.info("uploaded: " + itemFile.getName());
             logger.info("uploaded: " + studentFile.getName());
 
-            if(catAnalysisService.validateItemCsv(itemFile)) {
-                logger.info(itemFile.getName() + " is in correct csv format");
-            } else {
-                logger.error(itemFile.getName() + " is in incorrect csv format");
-                throw new FileUploadException(itemFile.getName() + " is in incorrect csv format");
+            List<ItemResponseCAT> itemResponses = null;
+            try {
+                itemResponses = catAnalysisService.parseItemCsv(itemFile);
+            } catch (IOException e) {
+                logger.error("Unable to parse: " + itemFile.getOriginalFilename());
+                return null;
+            }
+            List<StudentScoreCAT> studentScores = null;
+            try {
+                studentScores = catAnalysisService.parseStudentCsv(studentFile);
+            } catch (IOException e) {
+                logger.error("Unable to parse: " + studentFile.getOriginalFilename());
+                return null;
             }
 
-            if(catAnalysisService.validateStudentCsv(studentFile)) {
-                logger.info(studentFile.getName() + " is in correct csv format");
-            } else {
-                logger.error(studentFile.getName() + " is in incorrect csv format");
-                throw new FileUploadException(itemFile.getName() + " is in incorrect csv format");
-            }
+            CATAnalysisResponse response = new CATAnalysisResponse();
+            response.setItemResponses(itemResponses);
+            response.setStudentScores(studentScores);
+            return response;
         }
-
-        return "";
     }
 
     /**
