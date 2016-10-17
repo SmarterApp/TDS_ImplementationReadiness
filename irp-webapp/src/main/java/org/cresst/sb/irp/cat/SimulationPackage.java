@@ -32,18 +32,18 @@ public class SimulationPackage {
     @RequestMapping(value="/simupack/elag11/blueprint", method = RequestMethod.GET)
     public void simulationPackageBlueprint(HttpServletResponse response) throws IOException {
         String blueprint = "ELAG11_CAT_BluePrint.csv";
-        InputStream itempoolStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + blueprint);
+        InputStream blueprintStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + blueprint);
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", blueprint));
         response.setContentType("text/csv");
-        FileCopyUtils.copy(itempoolStream, response.getOutputStream());
+        FileCopyUtils.copy(blueprintStream, response.getOutputStream());
     }
 
     @RequestMapping(value="/simupack/elag11/studentdata", method = RequestMethod.GET)
     public void simulationPackageStudentdata(HttpServletResponse response) throws IOException {
         String studentData = "CATResponses_WeightTuningELA11N1000ASL_no_resp.csv";
-        InputStream itempoolStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + studentData);
+        InputStream studentDataStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + studentData);
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", studentData));
         response.setContentType("text/csv");
-        FileCopyUtils.copy(itempoolStream, response.getOutputStream());
+        FileCopyUtils.copy(studentDataStream, response.getOutputStream());
     }
 }
