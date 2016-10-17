@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.domain.analysis;
 
+import java.util.Objects;
+
 public class StudentScoreCAT {
     private String sId;
     private double overallScore;
@@ -116,4 +118,61 @@ public class StudentScoreCAT {
     public void setClaim4SEM(double claim4sem) {
         claim4SEM = claim4sem;
     }
+
+    @Override
+    public String toString() {
+        return "StudentScoreCAT [sId=" + sId + ", overallScore=" + overallScore + ", overallSEM=" + overallSEM
+                + ", claim1Score=" + claim1Score + ", claim1SEM=" + claim1SEM + ", claim2Score=" + claim2Score
+                + ", claim2SEM=" + claim2SEM + ", claim3Score=" + claim3Score + ", claim3SEM=" + claim3SEM
+                + ", claim4Score=" + claim4Score + ", claim4SEM=" + claim4SEM + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sId, overallScore, overallSEM,
+                                claim1Score, claim1SEM,
+                                claim2Score, claim2SEM,
+                                claim3Score, claim3SEM,
+                                claim4Score, claim4SEM
+                                );
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        StudentScoreCAT other = (StudentScoreCAT) obj;
+        if (Double.doubleToLongBits(claim1SEM) != Double.doubleToLongBits(other.claim1SEM))
+            return false;
+        if (Double.doubleToLongBits(claim1Score) != Double.doubleToLongBits(other.claim1Score))
+            return false;
+        if (Double.doubleToLongBits(claim2SEM) != Double.doubleToLongBits(other.claim2SEM))
+            return false;
+        if (Double.doubleToLongBits(claim2Score) != Double.doubleToLongBits(other.claim2Score))
+            return false;
+        if (Double.doubleToLongBits(claim3SEM) != Double.doubleToLongBits(other.claim3SEM))
+            return false;
+        if (Double.doubleToLongBits(claim3Score) != Double.doubleToLongBits(other.claim3Score))
+            return false;
+        if (Double.doubleToLongBits(claim4SEM) != Double.doubleToLongBits(other.claim4SEM))
+            return false;
+        if (Double.doubleToLongBits(claim4Score) != Double.doubleToLongBits(other.claim4Score))
+            return false;
+        if (Double.doubleToLongBits(overallSEM) != Double.doubleToLongBits(other.overallSEM))
+            return false;
+        if (Double.doubleToLongBits(overallScore) != Double.doubleToLongBits(other.overallScore))
+            return false;
+        if (sId == null) {
+            if (other.sId != null)
+                return false;
+        } else if (!sId.equals(other.sId))
+            return false;
+        return true;
+    }
+
+
 }
