@@ -272,8 +272,19 @@
                                         <div id="catModePage">
                                             CAT Mode
                                             <div id="simulationPackage">
+                                                Simulation package for ELA grade 11</br>
+                                                <form action="/simupack/elag11/itempool" method="get">
+                                                    <input type="submit" value="Item Pool"/>
+                                                </form>
+                                                <form action="/simupack/elag11/blueprint" method="get">
+                                                    <input type="submit" value="Blueprint"/>
+                                                </form>
+                                                <form action="/simupack/elag11/studentdata" method="get">
+                                                    <input type="submit" value="Student Data"/>
+                                                </form>
                                             </div>
                                             <div class="uploader">
+                                              After running simulation then upload results 
                                               <form id="catFileUploader" is="ajax-form" method="post"
                                                     enctype="multipart/form-data" action="/catUpload">
                                                     <div id="catItemUpload">
