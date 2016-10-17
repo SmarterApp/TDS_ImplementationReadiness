@@ -1,11 +1,11 @@
 package org.cresst.sb.irp.domain.analysis;
 
-public class ItemCAT {
+public class ItemResponseCAT {
     private String sId;
     private String itemId;
     private int score;
 
-    public ItemCAT(String sId, String itemId, int score) {
+    public ItemResponseCAT(String sId, String itemId, int score) {
         this.sId = sId;
         this.itemId = itemId;
         this.score = score;

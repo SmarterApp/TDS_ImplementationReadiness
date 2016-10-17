@@ -10,7 +10,8 @@ import java.util.Set;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.cresst.sb.irp.domain.analysis.ItemCAT;
+import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -67,8 +68,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return validateCsv(expectedHeaders, studentFile);
     }
 
-    public List<ItemCAT> parseItemCsv(MultipartFile itemFile) throws IOException {
-        logger.info("Parsing csv for: " + itemFile.getName());
+    public List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) throws IOException {
+        logger.info("Parsing item csv for: " + itemFile.getName());
 
         CSVParser parser = CSVParser.parse(new String(itemFile.getBytes()), CSVFormat.EXCEL.withHeader());
         Set<String> expectedHeaders = new HashSet<>();
@@ -81,10 +82,51 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             return null;
         }
 
-        List<ItemCAT> parsedItems = new ArrayList<>();
+        List<ItemResponseCAT> parsedItems = new ArrayList<>();
         for (CSVRecord record : parser.getRecords()) {
-            parsedItems.add(new ItemCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
+            parsedItems.add(new ItemResponseCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
         }
         return parsedItems;
+    }
+
+    public List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile) throws IOException {
+        logger.info("Parsing student csv for: " + studentFile.getName());
+
+        CSVParser parser = CSVParser.parse(new String(studentFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        Set<String> expectedHeaders = new HashSet<>();
+        expectedHeaders.add("SID");
+        expectedHeaders.add("Overall");
+        expectedHeaders.add("Overall_SEM");
+        expectedHeaders.add("Claim1");
+        expectedHeaders.add("Claim1_SEM");
+        expectedHeaders.add("Claim2");
+        expectedHeaders.add("Claim2_SEM");
+        expectedHeaders.add("Claim3");
+        expectedHeaders.add("Claim3_SEM");
+        expectedHeaders.add("Claim4");
+        expectedHeaders.add("Claim4_SEM");
+        Set<String> csvHeaders = parser.getHeaderMap().keySet();
+
+        if (!csvHeaders.containsAll(expectedHeaders)) {
+            return null;
+        }
+
+        List<StudentScoreCAT> parsedStudents = new ArrayList<>();
+        for(CSVRecord record : parser.getRecords()) {
+            parsedStudents.add(new StudentScoreCAT(
+                    record.get("SID"),
+                    Double.parseDouble(record.get("Overall")),
+                    Double.parseDouble(record.get("Overall_SEM")),
+                    Double.parseDouble(record.get("Claim1")),
+                    Double.parseDouble(record.get("Claim1_SEM")),
+                    Double.parseDouble(record.get("Claim2")),
+                    Double.parseDouble(record.get("Claim2_SEM")),
+                    Double.parseDouble(record.get("Claim3")),
+                    Double.parseDouble(record.get("Claim3_SEM")),
+                    Double.parseDouble(record.get("Claim4")),
+                    Double.parseDouble(record.get("Claim4_SEM"))
+                    ));
+        }
+        return parsedStudents;
     }
 }
