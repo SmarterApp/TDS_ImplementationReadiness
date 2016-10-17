@@ -37,4 +37,13 @@ public class SimulationPackage {
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
     }
+
+    @RequestMapping(value="/simupack/elag11/studentdata", method = RequestMethod.GET)
+    public void simulationPackageStudentdata(HttpServletResponse response) throws IOException {
+        String studentData = "CATResponses_WeightTuningELA11N1000ASL_no_resp.csv";
+        InputStream itempoolStream = getClass().getResourceAsStream("/CAT_simulation_packages/ELAG11/" + studentData);
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", studentData));
+        response.setContentType("text/csv");
+        FileCopyUtils.copy(itempoolStream, response.getOutputStream());
+    }
 }
