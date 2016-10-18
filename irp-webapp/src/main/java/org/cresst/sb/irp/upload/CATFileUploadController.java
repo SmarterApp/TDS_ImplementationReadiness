@@ -48,8 +48,14 @@ public class CATFileUploadController {
             logger.info("uploaded: " + itemFile.getName());
             logger.info("uploaded: " + studentFile.getName());
 
-            List<ItemResponseCAT> itemResponses = catAnalysisService.parseItemCsv(itemFile);
-            List<StudentScoreCAT> studentScores = catAnalysisService.parseStudentCsv(studentFile);
+            List<ItemResponseCAT> itemResponses = null;
+            List<StudentScoreCAT> studentScores = null;
+            try {
+                itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
+                studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
+            } catch (IOException e) {
+                logger.error("Unable to get input stream");
+            }
 
             CATAnalysisResponse response = new CATAnalysisResponse();
             response.setItemResponses(itemResponses);

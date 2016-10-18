@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.cat.analysis;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
@@ -8,7 +9,6 @@ import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -18,39 +18,28 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class CATAnalysisServiceImpl implements CATAnalysisService {
     private final static Logger logger = LoggerFactory.getLogger(CATAnalysisServiceImpl.class);
 
-    @Override
-    public List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) {
-        logger.info("Parsing item csv for: " + itemFile.getName());
-
+    private <T > List<T> parseCATCsv(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
-        CsvSchema schema = mapper.schemaFor(ItemResponseCAT.class).withHeader();
+        CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
 
         try {
-            MappingIterator<ItemResponseCAT> it = mapper.readerFor(ItemResponseCAT.class)
+            MappingIterator<T> it = mapper.readerFor(csvClass)
                     .with(schema)
-                    .readValues(itemFile.getInputStream());
+                    .readValues(inputStream);
             return it.readAll();
         } catch (IOException e) {
-            logger.error("Error parsing csv: " + e.getMessage());
+            logger.error("Error parsing csv for: " + csvClass.getName());
         }
         return null;
     }
 
     @Override
-    public List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile) {
-        logger.info("Parsing item csv for: " + studentFile.getName());
+    public List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream) {
+            return parseCATCsv(itemFileStream, ItemResponseCAT.class);
+    }
 
-        CsvMapper mapper = new CsvMapper();
-        CsvSchema schema = mapper.schemaFor(StudentScoreCAT.class).withHeader();
-
-        try {
-            MappingIterator<StudentScoreCAT> it = mapper.readerFor(StudentScoreCAT.class)
-                    .with(schema)
-                    .readValues(studentFile.getInputStream());
-            return it.readAll();
-        } catch (IOException e) {
-            logger.error("Error parsing csv: " + e.getMessage());
-        }
-        return null;
+    @Override
+    public List<StudentScoreCAT> parseStudentCsv(InputStream studentStream) {
+        return parseCATCsv(studentStream, StudentScoreCAT.class);
     }
 }
