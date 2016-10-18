@@ -2,11 +2,9 @@ package org.cresst.sb.irp.cat.analysis;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import org.cresst.sb.irp.domain.analysis.Blueprint;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
@@ -56,5 +54,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
         return parseCATCsv(thetaStream, TrueTheta.class);
+    }
+
+    @Override
+    public List<Blueprint> parseBlueprint(InputStream blueprintStream) {
+        return parseCATCsv(blueprintStream, Blueprint.class);
     }
 }

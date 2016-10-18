@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
+import org.cresst.sb.irp.domain.analysis.Blueprint;
 import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
@@ -67,11 +68,13 @@ public class CATFileUploadController {
             List<StudentScoreCAT> studentScores = null;
             List<PoolItemCAT> poolItems = null;
             List<TrueTheta> trueThetas = null;
+            List<Blueprint> blueprints = null;
             try {
                 itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
                 poolItems = catAnalysisService.parsePoolItems(itemPoolResource.getInputStream());
                 trueThetas = catAnalysisService.parseTrueThetas(trueThetasResource.getInputStream());
+                blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream");
             }
@@ -81,6 +84,7 @@ public class CATFileUploadController {
             response.setStudentScores(studentScores);
             response.setPoolItems(poolItems);
             response.setTrueThetas(trueThetas);
+            response.setBlueprints(blueprints);
 
             return response;
         }
