@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,5 +42,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public List<StudentScoreCAT> parseStudentCsv(InputStream studentStream) {
         return parseCATCsv(studentStream, StudentScoreCAT.class);
+    }
+
+    @Override
+    public List<PoolItemCAT> parsePoolItems(InputStream poolStream) {
+        return parseCATCsv(poolStream, PoolItemCAT.class);
     }
 }

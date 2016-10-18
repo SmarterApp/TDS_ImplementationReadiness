@@ -8,12 +8,14 @@ import java.util.Map;
 import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
 import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,6 +36,15 @@ public class CATFileUploadController {
     @Value("${irp.version}")
     String irpVersion;
 
+    @Value("${cat.math.itempool}")
+    private Resource itemPool;
+
+    @Value("${cat.elag11.blueprint}")
+    private Resource blueprint;
+
+    @Value("${cat.elag11.studentdata}")
+    private Resource studentData;
+
     @Autowired
     private CATAnalysisService catAnalysisService;
 
@@ -50,9 +61,11 @@ public class CATFileUploadController {
 
             List<ItemResponseCAT> itemResponses = null;
             List<StudentScoreCAT> studentScores = null;
+            List<PoolItemCAT> poolItems = null;
             try {
                 itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
+                poolItems = catAnalysisService.parsePoolItems(itemPool.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream");
             }
@@ -60,6 +73,7 @@ public class CATFileUploadController {
             CATAnalysisResponse response = new CATAnalysisResponse();
             response.setItemResponses(itemResponses);
             response.setStudentScores(studentScores);
+            response.setPoolItems(poolItems);
             return response;
         }
     }
