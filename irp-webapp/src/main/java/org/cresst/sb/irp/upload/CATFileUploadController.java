@@ -7,12 +7,14 @@ import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.CATParsingService;
 import org.cresst.sb.irp.domain.analysis.Blueprint;
+import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.cresst.sb.irp.service.CATAnalysisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,9 +55,12 @@ public class CATFileUploadController {
     @Autowired
     private CATParsingService catParsingService;
 
+    @Autowired
+    private CATAnalysisService catAnalysisService;
+
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public CATDataModel upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
+    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -79,13 +84,15 @@ public class CATFileUploadController {
                 logger.error("Unable to get input stream");
             }
 
-            CATDataModel response = new CATDataModel();
-            response.setItemResponses(itemResponses);
-            response.setStudentScores(studentScores);
-            response.setPoolItems(poolItems);
-            response.setTrueThetas(trueThetas);
+            CATDataModel catData = new CATDataModel();
+            catData.setItemResponses(itemResponses);
+            catData.setStudentScores(studentScores);
+            catData.setPoolItems(poolItems);
+            catData.setTrueThetas(trueThetas);
             // TODO: Need to manually fix blueprint files
-            response.setBlueprints(blueprints);
+            catData.setBlueprints(blueprints);
+
+            CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
 
             return response;
         }
