@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
+import org.cresst.sb.irp.cat.analysis.CATParsingService;
 import org.cresst.sb.irp.domain.analysis.Blueprint;
 import org.cresst.sb.irp.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
@@ -51,7 +51,7 @@ public class CATFileUploadController {
     private Resource trueThetasResource;
 
     @Autowired
-    private CATAnalysisService catAnalysisService;
+    private CATParsingService catParsingService;
 
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
@@ -68,12 +68,12 @@ public class CATFileUploadController {
             List<StudentScoreCAT> studentScores = null;
             List<PoolItemCAT> poolItems = null;
             List<TrueTheta> trueThetas = null;
-            //List<Blueprint> blueprints = null;
+            List<Blueprint> blueprints = null;
             try {
-                itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
-                studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
-                poolItems = catAnalysisService.parsePoolItems(itemPoolResource.getInputStream());
-                trueThetas = catAnalysisService.parseTrueThetas(trueThetasResource.getInputStream());
+                itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
+                studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
+                poolItems = catParsingService.parsePoolItems(itemPoolResource.getInputStream());
+                trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream");
@@ -85,7 +85,7 @@ public class CATFileUploadController {
             response.setPoolItems(poolItems);
             response.setTrueThetas(trueThetas);
             // TODO: Need to manually fix blueprint files
-            //response.setBlueprints(blueprints);
+            response.setBlueprints(blueprints);
 
             return response;
         }

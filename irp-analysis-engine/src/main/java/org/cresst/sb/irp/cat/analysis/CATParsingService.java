@@ -2,7 +2,6 @@ package org.cresst.sb.irp.cat.analysis;
 
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
@@ -10,7 +9,7 @@ import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.domain.analysis.Blueprint;
 
-public interface CATAnalysisService {
+public interface CATParsingService {
 
     List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream);
 

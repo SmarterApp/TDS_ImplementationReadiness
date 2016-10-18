@@ -18,8 +18,8 @@ import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
 @Service
-public class CATAnalysisServiceImpl implements CATAnalysisService {
-    private final static Logger logger = LoggerFactory.getLogger(CATAnalysisServiceImpl.class);
+public class CATParsingServiceImpl implements CATParsingService {
+    private final static Logger logger = LoggerFactory.getLogger(CATParsingServiceImpl.class);
 
     private <T > List<T> parseCATCsv(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
