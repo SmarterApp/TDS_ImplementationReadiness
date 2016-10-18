@@ -2,11 +2,15 @@ package org.cresst.sb.irp.cat.analysis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.domain.analysis.TrueTheta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -47,5 +51,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public List<PoolItemCAT> parsePoolItems(InputStream poolStream) {
         return parseCATCsv(poolStream, PoolItemCAT.class);
+    }
+
+    @Override
+    public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
+        return parseCATCsv(thetaStream, TrueTheta.class);
     }
 }

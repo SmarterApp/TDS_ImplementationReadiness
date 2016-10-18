@@ -10,6 +10,7 @@ import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,13 +38,16 @@ public class CATFileUploadController {
     String irpVersion;
 
     @Value("${cat.math.itempool}")
-    private Resource itemPool;
+    private Resource itemPoolResource;
 
     @Value("${cat.elag11.blueprint}")
-    private Resource blueprint;
+    private Resource blueprintResource;
 
     @Value("${cat.elag11.studentdata}")
-    private Resource studentData;
+    private Resource studentDataResource;
+
+    @Value("${cat.elag11.truethetas}")
+    private Resource trueThetasResource;
 
     @Autowired
     private CATAnalysisService catAnalysisService;
@@ -62,10 +66,12 @@ public class CATFileUploadController {
             List<ItemResponseCAT> itemResponses = null;
             List<StudentScoreCAT> studentScores = null;
             List<PoolItemCAT> poolItems = null;
+            List<TrueTheta> trueThetas = null;
             try {
                 itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
-                poolItems = catAnalysisService.parsePoolItems(itemPool.getInputStream());
+                poolItems = catAnalysisService.parsePoolItems(itemPoolResource.getInputStream());
+                trueThetas = catAnalysisService.parseTrueThetas(trueThetasResource.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream");
             }
@@ -74,6 +80,8 @@ public class CATFileUploadController {
             response.setItemResponses(itemResponses);
             response.setStudentScores(studentScores);
             response.setPoolItems(poolItems);
+            response.setTrueThetas(trueThetas);
+
             return response;
         }
     }

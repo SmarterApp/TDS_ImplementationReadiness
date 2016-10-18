@@ -6,7 +6,7 @@ public class CATAnalysisResponse {
     private List<StudentScoreCAT> studentScores;
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItemCAT> poolItems;
-
+    private List<TrueTheta> trueThetas;
 
     public List<StudentScoreCAT> getStudentScores() {
         return studentScores;
@@ -26,4 +26,11 @@ public class CATAnalysisResponse {
     public List<PoolItemCAT> getPoolItems() {
         return poolItems;
     }
+    public List<TrueTheta> getTrueThetas() {
+        return trueThetas;
+    }
+    public void setTrueThetas(List<TrueTheta> trueThetas) {
+        this.trueThetas = trueThetas;
+    }
+
 }
