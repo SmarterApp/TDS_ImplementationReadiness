@@ -5,9 +5,9 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({
-    "ItemID","Subject","ItemGrade","PoolGrade","Claim","Target","DOK","StimID","AsmtType",
-    "ItemType","Calculator","IRT_A","IRT_B","IRT_C","IRT_Step1","IRT_Step2","IRT_Step3",
-    "IRT_Step4","IRT_Step5","IRT_Step6","IRT_Step7","IRT_Step8","Braille","Translation","ExtPool","SpaErrors"
+    "itemId","subject","itemGrade","poolGrade","claim","target","dok","stimId","asmtType",
+    "itemType","calculator","irtA","irtB","irtC","irtStep1","irtStep2","irtStep3",
+    "irtStep4","irtStep5","irtStep6","irtStep7","irtStep8","braille","translation","extPool","spaErrors"
 })
 public class PoolItemCAT {
     private String itemId;
