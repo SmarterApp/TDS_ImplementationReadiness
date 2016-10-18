@@ -8,10 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface CATAnalysisService {
 
-    boolean validateItemCsv(MultipartFile itemFile);
-
-    boolean validateStudentCsv(MultipartFile studentFile);
-
     List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile);
 
     List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile);

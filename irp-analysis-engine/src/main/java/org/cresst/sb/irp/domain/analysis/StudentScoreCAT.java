@@ -2,34 +2,46 @@ package org.cresst.sb.irp.domain.analysis;
 
 import java.util.Objects;
 
-public class StudentScoreCAT {
-    private String sId;
-    private double overallScore;
-    private double overallSEM;
-    private double claim1Score;
-    private double claim1SEM;
-    private double claim2Score;
-    private double claim2SEM;
-    private double claim3Score;
-    private double claim3SEM;
-    private double claim4Score;
-    private double claim4SEM;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-    public StudentScoreCAT(String sId, double overallScore, double overallSEM, double claim1Score, double claim1sem,
-            double claim2Score, double claim2sem, double claim3Score, double claim3sem, double claim4Score,
-            double claim4sem) {
-        this.sId = sId;
-        this.overallScore = overallScore;
-        this.overallSEM = overallSEM;
-        this.claim1Score = claim1Score;
-        claim1SEM = claim1sem;
-        this.claim2Score = claim2Score;
-        claim2SEM = claim2sem;
-        this.claim3Score = claim3Score;
-        claim3SEM = claim3sem;
-        this.claim4Score = claim4Score;
-        claim4SEM = claim4sem;
-    }
+@JsonPropertyOrder({
+    "SID", "Overall","Overall_SEM","Claim1","Claim1_SEM",
+    "Claim2","Claim2_SEM","Claim3","Claim3_SEM","Claim4","Claim4_SEM"
+    })
+public class StudentScoreCAT {
+    @JsonProperty("SID")
+    private String sId;
+
+    @JsonProperty("Overall")
+    private double overallScore;
+
+    @JsonProperty("Overall_SEM")
+    private double overallSEM;
+
+    @JsonProperty("Claim1")
+    private double claim1Score;
+
+    @JsonProperty("Claim1_SEM")
+    private double claim1SEM;
+
+    @JsonProperty("Claim2")
+    private double claim2Score;
+
+    @JsonProperty("Claim2_SEM")
+    private double claim2SEM;
+
+    @JsonProperty("Claim3")
+    private double claim3Score;
+
+    @JsonProperty("Claim3_SEM")
+    private double claim3SEM;
+
+    @JsonProperty("Claim4")
+    private double claim4Score;
+
+    @JsonProperty("Claim4_SEM")
+    private double claim4SEM;
 
     public String getsId() {
         return sId;
