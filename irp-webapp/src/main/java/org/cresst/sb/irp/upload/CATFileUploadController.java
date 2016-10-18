@@ -49,11 +49,11 @@ public class CATFileUploadController {
             logger.info("uploaded: " + studentFile.getName());
 
             List<ItemResponseCAT> itemResponses = catAnalysisService.parseItemCsv(itemFile);
-            List<StudentScoreCAT> studentScores = catAnalysisService.parseStudentCsv(studentFile);
+            //List<StudentScoreCAT> studentScores = catAnalysisService.parseStudentCsv(studentFile);
 
             CATAnalysisResponse response = new CATAnalysisResponse();
             response.setItemResponses(itemResponses);
-            response.setStudentScores(studentScores);
+            //response.setStudentScores(studentScores);
             return response;
         }
     }

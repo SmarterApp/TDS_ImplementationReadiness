@@ -17,6 +17,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+
 @Service
 public class CATAnalysisServiceImpl implements CATAnalysisService {
     private final static Logger logger = LoggerFactory.getLogger(CATAnalysisServiceImpl.class);
@@ -72,32 +76,18 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     public List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) {
         logger.info("Parsing item csv for: " + itemFile.getName());
 
-        CSVParser parser = null;
+        CsvMapper mapper = new CsvMapper();
+        CsvSchema schema = mapper.schemaFor(ItemResponseCAT.class).withHeader();
+
         try {
-            parser = CSVParser.parse(new String(itemFile.getBytes()), CSVFormat.EXCEL.withHeader());
+            MappingIterator<ItemResponseCAT> it = mapper.readerFor(ItemResponseCAT.class)
+                    .with(schema)
+                    .readValues(itemFile.getInputStream());
+            return it.readAll();
         } catch (IOException e) {
             logger.error("Error parsing csv: " + e.getMessage());
-            return null;
         }
-        Set<String> expectedHeaders = new HashSet<>();
-        expectedHeaders.add("SID");
-        expectedHeaders.add("ItemID");
-        expectedHeaders.add("Score");
-        Set<String> csvHeaders = parser.getHeaderMap().keySet();
-
-        if (!csvHeaders.containsAll(expectedHeaders)) {
-            return null;
-        }
-
-        List<ItemResponseCAT> parsedItems = new ArrayList<>();
-        try {
-            for (CSVRecord record : parser.getRecords()) {
-                parsedItems.add(new ItemResponseCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
-            }
-        } catch (NumberFormatException | IOException e) {
-            logger.error("Error parsing csv: " + e.getMessage());
-        }
-        return parsedItems;
+        return null;
     }
 
     @Override
