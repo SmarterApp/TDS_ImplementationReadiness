@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.cat.analysis;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
@@ -13,8 +12,8 @@ public interface CATAnalysisService {
 
     boolean validateStudentCsv(MultipartFile studentFile);
 
-    List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) throws IOException;
+    List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile);
 
-    List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile) throws IOException;
+    List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile);
 
 }

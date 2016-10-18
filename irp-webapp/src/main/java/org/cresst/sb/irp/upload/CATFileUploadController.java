@@ -48,20 +48,8 @@ public class CATFileUploadController {
             logger.info("uploaded: " + itemFile.getName());
             logger.info("uploaded: " + studentFile.getName());
 
-            List<ItemResponseCAT> itemResponses = null;
-            try {
-                itemResponses = catAnalysisService.parseItemCsv(itemFile);
-            } catch (IOException e) {
-                logger.error("Unable to parse: " + itemFile.getOriginalFilename());
-                return null;
-            }
-            List<StudentScoreCAT> studentScores = null;
-            try {
-                studentScores = catAnalysisService.parseStudentCsv(studentFile);
-            } catch (IOException e) {
-                logger.error("Unable to parse: " + studentFile.getOriginalFilename());
-                return null;
-            }
+            List<ItemResponseCAT> itemResponses = catAnalysisService.parseItemCsv(itemFile);
+            List<StudentScoreCAT> studentScores = catAnalysisService.parseStudentCsv(studentFile);
 
             CATAnalysisResponse response = new CATAnalysisResponse();
             response.setItemResponses(itemResponses);

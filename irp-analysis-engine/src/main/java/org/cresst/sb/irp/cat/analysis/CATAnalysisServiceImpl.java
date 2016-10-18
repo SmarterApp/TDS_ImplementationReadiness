@@ -69,10 +69,16 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     @Override
-    public List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) throws IOException {
+    public List<ItemResponseCAT> parseItemCsv(MultipartFile itemFile) {
         logger.info("Parsing item csv for: " + itemFile.getName());
 
-        CSVParser parser = CSVParser.parse(new String(itemFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        CSVParser parser = null;
+        try {
+            parser = CSVParser.parse(new String(itemFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        } catch (IOException e) {
+            logger.error("Error parsing csv: " + e.getMessage());
+            return null;
+        }
         Set<String> expectedHeaders = new HashSet<>();
         expectedHeaders.add("SID");
         expectedHeaders.add("ItemID");
@@ -84,17 +90,27 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         }
 
         List<ItemResponseCAT> parsedItems = new ArrayList<>();
-        for (CSVRecord record : parser.getRecords()) {
-            parsedItems.add(new ItemResponseCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
+        try {
+            for (CSVRecord record : parser.getRecords()) {
+                parsedItems.add(new ItemResponseCAT(record.get("SID"), record.get("ItemID"), Integer.parseInt((record.get("Score")))));
+            }
+        } catch (NumberFormatException | IOException e) {
+            logger.error("Error parsing csv: " + e.getMessage());
         }
         return parsedItems;
     }
 
     @Override
-    public List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile) throws IOException {
+    public List<StudentScoreCAT> parseStudentCsv(MultipartFile studentFile) {
         logger.info("Parsing student csv for: " + studentFile.getName());
 
-        CSVParser parser = CSVParser.parse(new String(studentFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        CSVParser parser = null;
+        try {
+            parser = CSVParser.parse(new String(studentFile.getBytes()), CSVFormat.EXCEL.withHeader());
+        } catch (IOException e) {
+            logger.error("Error parsing csv: " + e.getMessage());
+            return null;
+        }
         Set<String> expectedHeaders = new HashSet<>();
         expectedHeaders.add("SID");
         expectedHeaders.add("Overall");
@@ -114,20 +130,25 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         }
 
         List<StudentScoreCAT> parsedStudents = new ArrayList<>();
-        for(CSVRecord record : parser.getRecords()) {
-            parsedStudents.add(new StudentScoreCAT(
-                    record.get("SID"),
-                    Double.parseDouble(record.get("Overall")),
-                    Double.parseDouble(record.get("Overall_SEM")),
-                    Double.parseDouble(record.get("Claim1")),
-                    Double.parseDouble(record.get("Claim1_SEM")),
-                    Double.parseDouble(record.get("Claim2")),
-                    Double.parseDouble(record.get("Claim2_SEM")),
-                    Double.parseDouble(record.get("Claim3")),
-                    Double.parseDouble(record.get("Claim3_SEM")),
-                    Double.parseDouble(record.get("Claim4")),
-                    Double.parseDouble(record.get("Claim4_SEM"))
-                    ));
+        try {
+            for(CSVRecord record : parser.getRecords()) {
+                parsedStudents.add(new StudentScoreCAT(
+                        record.get("SID"),
+                        Double.parseDouble(record.get("Overall")),
+                        Double.parseDouble(record.get("Overall_SEM")),
+                        Double.parseDouble(record.get("Claim1")),
+                        Double.parseDouble(record.get("Claim1_SEM")),
+                        Double.parseDouble(record.get("Claim2")),
+                        Double.parseDouble(record.get("Claim2_SEM")),
+                        Double.parseDouble(record.get("Claim3")),
+                        Double.parseDouble(record.get("Claim3_SEM")),
+                        Double.parseDouble(record.get("Claim4")),
+                        Double.parseDouble(record.get("Claim4_SEM"))
+                        ));
+            }
+        } catch (NumberFormatException | IOException e) {
+            logger.error("Error parsing csv: " + e.getMessage());
+            return null;
         }
         return parsedStudents;
     }
