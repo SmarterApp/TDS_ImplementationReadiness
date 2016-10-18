@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.CATAnalysisService;
 import org.cresst.sb.irp.domain.analysis.Blueprint;
-import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
 import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
@@ -55,7 +55,7 @@ public class CATFileUploadController {
 
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
+    public CATDataModel upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -68,23 +68,24 @@ public class CATFileUploadController {
             List<StudentScoreCAT> studentScores = null;
             List<PoolItemCAT> poolItems = null;
             List<TrueTheta> trueThetas = null;
-            List<Blueprint> blueprints = null;
+            //List<Blueprint> blueprints = null;
             try {
                 itemResponses = catAnalysisService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catAnalysisService.parseStudentCsv(studentFile.getInputStream());
                 poolItems = catAnalysisService.parsePoolItems(itemPoolResource.getInputStream());
                 trueThetas = catAnalysisService.parseTrueThetas(trueThetasResource.getInputStream());
-                blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
+                //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream");
             }
 
-            CATAnalysisResponse response = new CATAnalysisResponse();
+            CATDataModel response = new CATDataModel();
             response.setItemResponses(itemResponses);
             response.setStudentScores(studentScores);
             response.setPoolItems(poolItems);
             response.setTrueThetas(trueThetas);
-            response.setBlueprints(blueprints);
+            // TODO: Need to manually fix blueprint files
+            //response.setBlueprints(blueprints);
 
             return response;
         }

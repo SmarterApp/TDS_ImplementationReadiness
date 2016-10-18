@@ -2,7 +2,7 @@ package org.cresst.sb.irp.domain.analysis;
 
 import java.util.List;
 
-public class CATAnalysisResponse {
+public class CATDataModel {
     private List<StudentScoreCAT> studentScores;
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItemCAT> poolItems;
