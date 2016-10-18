@@ -2,18 +2,12 @@ package org.cresst.sb.irp.domain.analysis;
 
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"SID", "ItemID", "Score"})
+@JsonPropertyOrder({"sId", "itemId", "score"})
 public class ItemResponseCAT {
-    @JsonProperty("SID")
     private String sId;
-
-    @JsonProperty("ItemID")
     private String itemId;
-
-    @JsonProperty("Score")
     private int score;
 
     public String getsId() {

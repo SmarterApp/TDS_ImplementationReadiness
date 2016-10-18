@@ -81,7 +81,7 @@ public class CATFileUploadController {
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
-                logger.error("Unable to get input stream");
+                logger.error("Unable to get input stream: " + e.getMessage());
             }
 
             CATDataModel catData = new CATDataModel();
