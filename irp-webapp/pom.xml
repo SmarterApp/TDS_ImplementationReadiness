@@ -38,7 +38,10 @@
             <groupId>org.cresst.sb.irp</groupId>
             <artifactId>irp-analysis-engine</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.cresst.sb.irp</groupId>
+            <artifactId>irp-cat-analysis-engine</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>

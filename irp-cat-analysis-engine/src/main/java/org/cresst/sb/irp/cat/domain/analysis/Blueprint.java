@@ -1,6 +1,4 @@
-package org.cresst.sb.irp.domain.analysis;
-
-import java.util.Objects;
+package org.cresst.sb.irp.cat.domain.analysis;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

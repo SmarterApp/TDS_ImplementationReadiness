@@ -1,4 +1,4 @@
-package org.cresst.sb.irp.domain.analysis;
+package org.cresst.sb.irp.cat.domain.analysis;
 
 import java.util.Map;
 

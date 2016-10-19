@@ -1,12 +1,12 @@
-package org.cresst.sb.irp.service;
+package org.cresst.sb.irp.cat.service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
-import org.cresst.sb.irp.domain.analysis.CATDataModel;
-import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

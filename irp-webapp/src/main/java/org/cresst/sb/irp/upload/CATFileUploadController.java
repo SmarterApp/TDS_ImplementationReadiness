@@ -5,16 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.cresst.sb.irp.cat.analysis.CATParsingService;
-import org.cresst.sb.irp.domain.analysis.Blueprint;
-import org.cresst.sb.irp.domain.analysis.CATAnalysisResponse;
-import org.cresst.sb.irp.domain.analysis.CATDataModel;
-import org.cresst.sb.irp.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.domain.analysis.PoolItemCAT;
-import org.cresst.sb.irp.domain.analysis.StudentScoreCAT;
-import org.cresst.sb.irp.domain.analysis.TrueTheta;
+import org.cresst.sb.irp.cat.analysis.engine.CATParsingService;
+import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
+import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
+import org.cresst.sb.irp.cat.service.CATAnalysisService;
 import org.cresst.sb.irp.exceptions.NotFoundException;
-import org.cresst.sb.irp.service.CATAnalysisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +60,7 @@ public class CATFileUploadController {
 
     @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException {
+    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException, IOException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -82,6 +82,7 @@ public class CATFileUploadController {
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("Unable to get input stream: " + e.getMessage());
+                throw e;
             }
 
             CATDataModel catData = new CATDataModel();
