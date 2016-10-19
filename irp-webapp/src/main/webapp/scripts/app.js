@@ -58,8 +58,10 @@
             that.$.catSpinnerUpload.active = false;
             if (event.detail.status == 200) {
                 // Parse response data
+                that.catResults = JSON.parse(event.detail.responseText);
             } else {
                 // Show some error message
+                that.$.fileUploadErrorDialog.toggle();
             }
         });
 
@@ -153,6 +155,10 @@
     app.responsesExist = function (responses) {
         return typeof responses !== 'undefined' && responses != null && Object.keys(responses).length > 0;
     };
+
+    app.keyLength = function (obj) {
+        return Object.keys(obj).length;
+    }
 
     app.computeResponseIcon = function (response) {
         return response.validXMLfile && response.validTestName && response.validExaminee
