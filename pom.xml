@@ -15,8 +15,8 @@
 		<module>irp-model</module>
 		<module>irp-repository</module>
 		<module>irp-service</module>
-		<module>irp-analysis-engine</module>
-                <module>irp-cat-analysis-engine</module>
+		<module>irp-tdsreport-analysis-engine</module>
+        <module>irp-cat-analysis-engine</module>
 		<module>irp-webapp</module>
 	</modules>
 
