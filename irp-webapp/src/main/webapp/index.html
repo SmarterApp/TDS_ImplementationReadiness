@@ -298,6 +298,9 @@
                                                     <button id="catBtnFileUpload" class="btn btn-primary">Upload</button>
                                                     <paper-spinner id="catSpinnerUpload" class="blue" inactive=""></paper-spinner>
                                               </form>
+                                              <template is="dom-if" if="[[responsesExist(catResults)]]">
+                                                Number of items in item pool and test: [[keyLength(catResults.exposureRates)]]
+                                              </template>
                                             </div>
                                         </div>
                                     </iron-pages>

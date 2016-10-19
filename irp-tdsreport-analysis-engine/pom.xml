@@ -9,9 +9,9 @@
 		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>irp-analysis-engine</artifactId>
+	<artifactId>irp-tdsreport-analysis-engine</artifactId>
 	<packaging>jar</packaging>
-	<name>IReadinessPackage - Analysis Engine</name>
+	<name>IReadinessPackage - TDS Analysis Engine</name>
 	<description>Engine that performs the IRP Analysis</description>
 	<url>http://bitbucket.org/sbcresst</url>
 
