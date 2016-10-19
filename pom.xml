@@ -64,7 +64,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
-				<artifactId>irp-analysis-engine</artifactId>
+				<artifactId>irp-tdsreport-analysis-engine</artifactId>
 				<version>${irp.version}</version>
 			</dependency>
             <dependency>
