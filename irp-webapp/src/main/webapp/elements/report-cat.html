@@ -1,0 +1,48 @@
+<link rel="import" href="../deps/polymer/polymer.html">
+<link rel="import" href="../deps/paper-spinner/paper-spinner.html">
+<link rel="import" href="../deps/paper-button/paper-button.html">
+
+<dom-module id="report-cat">
+    <style>
+
+    </style>
+    <template>
+
+        <div>
+            CAT Analysis Summary
+            <p>
+            </p>
+            <form id="bb" action="/catPdfreport.html" method="post">
+                Download the CAT Analysis results:
+                <input type="hidden" name="analysisResponses" value="">
+                <paper-button id="catpdf" raised>Download PDF</paper-button>
+                <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
+            </form>
+            <p></p>
+            
+            <p>
+            
+            
+            Number of items in item pool and test: [[keyLength(catResults.exposureRates)]]
+            
+            </p>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'report-cat',
+            properties: {
+                catResults: {
+                    type: Object, value: function () {
+                        return {};
+                    }
+                }
+            },
+            ready: function () {
+            },
+            keyLength: function (obj) {
+                return Object.keys(obj).length;
+            }
+        });
+    </script>
+</dom-module>
