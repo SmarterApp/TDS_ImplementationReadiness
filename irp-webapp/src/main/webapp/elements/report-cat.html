@@ -14,7 +14,7 @@
             </p>
             <form id="bb" action="/catPdfreport.html" method="post">
                 Download the CAT Analysis results:
-                <input type="hidden" name="analysisResponses" value="">
+                <input type="hidden" name="catResults" value="">
                 <paper-button id="catpdf" raised>Download PDF</paper-button>
                 <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
             </form>
@@ -39,6 +39,18 @@
                 }
             },
             ready: function () {
+                var that = this;
+                this.$.catpdf.addEventListener('click', function (event) {
+                    this.hidden = true;
+                    that.$.downloadPdfSpinner.active = true;
+
+                    var body = JSON.stringify(that.catResults);
+                    that.$.bb.children[0].value = body;
+                    that.$.bb.submit();
+
+                    that.$.catpdf.hidden = false;
+                    that.$.downloadPdfSpinner.active = false;
+                });
             },
             keyLength: function (obj) {
                 return Object.keys(obj).length;
