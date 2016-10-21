@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.report;
 
+import java.io.IOException;
 import java.io.StringReader;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.thymeleaf.context.WebContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
@@ -32,37 +34,32 @@ public class CATPDFController {
     private TemplateEngine templateEngine;
 
     @RequestMapping(value="/catPdfreport.html", method = RequestMethod.POST)
-    public void pdfReport(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            String catResults = request.getParameter("catResults");
+    public void pdfReport(HttpServletRequest request, HttpServletResponse response) throws IOException, DocumentException {
+        String catResults = request.getParameter("catResults");
 
-            CATAnalysisResponse catAnalysisResponse = jacksonObjectMapper.readValue(catResults, CATAnalysisResponse.class);
+        CATAnalysisResponse catAnalysisResponse = jacksonObjectMapper.readValue(catResults, CATAnalysisResponse.class);
 
-            WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
-            context.setVariable("catResults", catAnalysisResponse);
+        WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
+        context.setVariable("catResults", catAnalysisResponse);
 
-            templateEngine.clearTemplateCache();
-            String htmlReport = templateEngine.process("cathtmlreport", context);
+        templateEngine.clearTemplateCache();
+        String htmlReport = templateEngine.process("cathtmlreport", context);
 
-            response.setContentType("application/x-download");
-            response.setHeader("Content-Disposition", "attachment; filename=irp-cat-report.pdf");
+        response.setContentType("application/x-download");
+        response.setHeader("Content-Disposition", "attachment; filename=irp-cat-report.pdf");
 
-            Document document = new Document();
-            PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
-            writer.setPageEvent(new PageStamper());
+        Document document = new Document();
+        PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
+        writer.setPageEvent(new PageStamper());
 
-            document.addAuthor("Smarter Balanced IRP");
-            document.addCreationDate();
-            document.addTitle("CAT - Implementation Readiness Package Report");
-            document.open();
+        document.addAuthor("Smarter Balanced IRP");
+        document.addCreationDate();
+        document.addTitle("CAT - Implementation Readiness Package Report");
+        document.open();
 
-            XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
 
-            document.close();
-            writer.close();
-
-        } catch (Exception ex) {
-            log.error("pdf error", ex);
-        }
+        document.close();
+        writer.close();
     }
 }
