@@ -2,6 +2,7 @@ package org.cresst.sb.irp.report;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.apache.commons.lang3.StringUtils;
@@ -20,6 +21,8 @@ import org.thymeleaf.context.WebContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 
@@ -37,41 +40,36 @@ public class PDFController {
     private TemplateEngine templateEngine;
 
     @RequestMapping(value="/pdfreport.html", method = RequestMethod.POST)
-    public void pdfReport(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            String analysisResponseParameter = request.getParameter("analysisResponses");
+    public void pdfReport(HttpServletRequest request, HttpServletResponse response) throws IOException, DocumentException {
+        String analysisResponseParameter = request.getParameter("analysisResponses");
 
-            AnalysisResponse analysisResponse = jacksonObjectMapper.readValue(analysisResponseParameter, AnalysisResponse.class);
+        AnalysisResponse analysisResponse = jacksonObjectMapper.readValue(analysisResponseParameter, AnalysisResponse.class);
 
-            WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
-            log.debug(analysisResponse.getIrpVersion());
-            log.debug(analysisResponse.getVendorName());
-            context.setVariable("responses", analysisResponse);
-            context.setVariable("helper", new DisplayHelper());
+        WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
+        log.debug(analysisResponse.getIrpVersion());
+        log.debug(analysisResponse.getVendorName());
+        context.setVariable("responses", analysisResponse);
+        context.setVariable("helper", new DisplayHelper());
 
-            templateEngine.clearTemplateCache();
-            String htmlReport = templateEngine.process("htmlreport", context);
+        templateEngine.clearTemplateCache();
+        String htmlReport = templateEngine.process("htmlreport", context);
 
-            response.setContentType("application/x-download");
-            response.setHeader("Content-Disposition", "attachment; filename=irp-report.pdf");
+        response.setContentType("application/x-download");
+        response.setHeader("Content-Disposition", "attachment; filename=irp-report.pdf");
 
-            Document document = new Document();
-            PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
-            writer.setPageEvent(new PageStamper());
+        Document document = new Document();
+        PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
+        writer.setPageEvent(new PageStamper());
 
-            document.addAuthor("Smarter Balanced IRP");
-            document.addCreationDate();
-            document.addTitle("Implementation Readiness Package Report");
-            document.open();
+        document.addAuthor("Smarter Balanced IRP");
+        document.addCreationDate();
+        document.addTitle("Implementation Readiness Package Report");
+        document.open();
 
-            XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new StringReader(htmlReport));
 
-            document.close();
-            writer.close();
-
-        } catch (Exception ex) {
-            log.error("pdf error", ex);
-        }
+        document.close();
+        writer.close();
     }
 
     class DisplayHelper {
