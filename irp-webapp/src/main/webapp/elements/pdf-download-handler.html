@@ -1,0 +1,72 @@
+<link rel="import" href="../deps/polymer/polymer.html">
+<link rel="import" href="../deps/paper-button/paper-button.html">
+<link rel="import" href="../deps/paper-toast/paper-toast.html">
+
+<dom-module id="pdf-download-handler">
+    <style>
+        .yellow-button {
+            text-transform: none;
+            color: #eeff41;
+        }
+    </style>
+    <template>
+        <form id="pdfForm" action="[[pdfController]]" method="post" target="download_iframe">
+            <p>[[message]]</p>
+            <input type="hidden" name="[[postDataName]]" value="">
+            <paper-button id="pdf" raised>Download PDF</paper-button>
+            <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
+        </form>
+        <paper-toast id="toastPdfError" duration="0" text="There was an error generating the PDF Report">
+            <paper-button id="btnToastPdfError" class="yellow-button">Close</paper-button>
+        </paper-toast>
+        <iframe id="download_iframe" name="download_iframe" width="1" height="1" style="display:block; visibility:hidden"></iframe>
+    </template>
+    <script>
+        Polymer({
+            is: 'pdf-download-handler',
+            properties: {
+                pdfController: {
+                    type: String,
+                    notify: true
+                },
+                postData: {
+                    type: Object,
+                    notify: true
+                },
+                postDataName: {
+                    type: String,
+                    notify: true
+                },
+                message: {
+                    type: String,
+                    notify: true
+                }
+            },
+            ready: function () {
+                var that = this;
+                this.$.pdf.addEventListener('click', function () {
+                    this.hidden = true;
+                    that.$.downloadPdfSpinner.active = true;
+
+                    that.$.download_iframe.onload = function () {
+                        console.info("pdf failed to download");
+                        that.$.toastPdfError.show();
+                        that.$.btnToastPdfError.addEventListener('click', function () {
+                            that.$.toastPdfError.hide();
+                        });
+                    };
+
+                    var body = JSON.stringify(that.postData);
+                    that.$.pdfForm.children[1].value = body;
+                    that.$.pdfForm.submit();
+
+                    that.$.pdf.hidden = false;
+                    that.$.downloadPdfSpinner.active = false;
+                });
+            },
+            keyLength: function (obj) {
+                return Object.keys(obj).length;
+            }
+        });
+    </script>
+</dom-module>
