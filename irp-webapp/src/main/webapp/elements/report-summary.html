@@ -1,6 +1,5 @@
 <link rel="import" href="../deps/polymer/polymer.html">
-<link rel="import" href="../deps/paper-spinner/paper-spinner.html">
-<link rel="import" href="../deps/paper-button/paper-button.html">
+<link rel="import" href="pdf-download-handler.html">
 
 <dom-module id="report-summary">
     <style>
@@ -116,14 +115,10 @@
     <template>
 
         <div>
-            <p>
-            </p>
-            <form id="bb" action="/pdfreport.html" method="post">
-                Click the following button to download the PDF version of the IRP analysis:
-                <input type="hidden" name="analysisResponses" value="">
-                <paper-button id="pdf" raised>Download PDF</paper-button>
-                <paper-spinner id="downloadPdfSpinner" class="blue" inactive=""></paper-spinner>
-            </form>
+            <pdf-download-handler pdf-controller="/pdfreport.html"
+                                  post-data="[[responses]]"
+                                  post-data-name="analysisResponses"
+                                  message="Click the following button to download the PDF version of the IRP analysis:" />
             <p></p>
             <table class="reportSummary">
                 <thead>
@@ -156,24 +151,11 @@
             is: 'report-summary',
             properties: {
                 responses: {
-                    type: Object, value: function () {
-                        return {};
-                    }
+                    type: Object,
+                    notify: true
                 }
             },
             ready: function () {
-                var that = this;
-                this.$.pdf.addEventListener('click', function (event) {
-                    this.hidden = true;
-                    that.$.downloadPdfSpinner.active = true;
-
-                    var body = JSON.stringify(that.responses);
-                    that.$.bb.children[0].value = body;
-                    that.$.bb.submit();
-
-                    that.$.pdf.hidden = false;
-                    that.$.downloadPdfSpinner.active = false;
-                });
             },
             status: function (input) {
                 return input ? 'Yes' : 'No';
