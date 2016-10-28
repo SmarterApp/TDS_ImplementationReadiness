@@ -6,7 +6,9 @@ public class CATAnalysisResponse {
     private Map<String, Double> exposureRates;
     private int unusedItems;
     private int itemPoolCount;
+    private int usedItems;
     private double percentUnused;
+    private double percentUsed;
 
     public Map<String, Double> getExposureRates() {
         return exposureRates;
@@ -38,5 +40,21 @@ public class CATAnalysisResponse {
 
     public void setPercentUnused(double percentUnused) {
         this.percentUnused = percentUnused;
+    }
+
+    public double getPercentUsed() {
+        return percentUsed;
+    }
+
+    public void setPercentUsed(double percentUsed) {
+        this.percentUsed = percentUsed;
+    }
+
+    public int getUsedItems() {
+        return usedItems;
+    }
+
+    public void setUsedItems(int usedItems) {
+        this.usedItems = usedItems;
     }
 }

@@ -57,9 +57,13 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             }
             totalCount++;
         }
+
+        int usedCount = totalCount - unusedCount;
         response.setUnusedItems(unusedCount);
+        response.setUsedItems(usedCount);
         response.setItemPoolCount(totalCount);
         response.setPercentUnused(unusedCount / ((double) totalCount));
+        response.setPercentUsed(usedCount / ((double) totalCount));
         return true;
     }
 }

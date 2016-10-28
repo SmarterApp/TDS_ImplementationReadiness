@@ -21,6 +21,11 @@
         <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
         <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
         <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
+        
+        <div id="used-items">
+            <p th:text="|Used items: ${catResults.unusedItems}|"></p>
+            <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
+        </div>
         </div>
     </div>
 </body>

@@ -10,18 +10,28 @@
 
         <div>
             CAT Analysis Summary
-            <p>
-            Exposure Rates
-            <p>
-            Total items: [[catResults.itemPoolCount]]
-            </p>
-            <p>
-            Unused items: [[catResults.unusedItems]]
-            </p>
-            <p>
-            Percent unused: [[round(catResults.percentUnused, 2)]]
-            </p>            
-            </p>
+            <div id="exposure-analysis">
+                Exposure Rates
+                <div id="unused-items">
+                    <p>
+                    Total items: [[catResults.itemPoolCount]]
+                    </p>
+                    <p>
+                    Unused items: [[catResults.unusedItems]]
+                    </p>
+                    <p>
+                    Percent unused: [[round(catResults.percentUnused, 2)]]
+                    </p>
+                </div>
+                <div id="used-items">
+                    <p>
+                        Used items: [[catResults.usedItems]]
+                    </p>
+                    <p>
+                        Percent used: [[round(catResults.percentUsed, 2)]]
+                    </p>
+                </div>
+            </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
                                   post-data-name="catResults"
