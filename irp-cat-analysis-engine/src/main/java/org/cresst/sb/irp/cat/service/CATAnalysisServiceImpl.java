@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,19 +42,33 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         response.setExposureRates(exposureRates);
 
-        if (exposureCalculations(response)) {
+        // % increase for bins; hard-coded for 5%
+        double binSize = .05;
+        if (exposureCalculations(response, binSize)) {
             logger.debug("Successfully did exposure rate calculations");
         }
 
         return response;
     }
 
-    private boolean exposureCalculations(CATAnalysisResponse response) {
+    private int binIndex(double value, double stepSize) {
+        return (int) Math.floor(value / stepSize);
+    }
+
+    private boolean exposureCalculations(CATAnalysisResponse response, double binSize) {
         int unusedCount = 0;
         int totalCount = 0;
+        double maxValue = Collections.max(response.getExposureRates().values());
+        int binCount = (int) Math.floor(maxValue / binSize) + 1;
+        int[] bins = new int[binCount];
+
+        logger.debug("maxValue: {}, binCount: {}", maxValue, binCount);
         for(double exposureValue : response.getExposureRates().values()) {
             if (exposureValue == 0) {
                 unusedCount++;
+            } else {
+                // Increment the count for bin
+                bins[binIndex(exposureValue, binSize)]++;
             }
             totalCount++;
         }
@@ -64,6 +79,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         response.setItemPoolCount(totalCount);
         response.setPercentUnused(unusedCount / ((double) totalCount));
         response.setPercentUsed(usedCount / ((double) totalCount));
+        response.setBins(bins);
+        response.setBinSize(binSize);
         return true;
     }
 }

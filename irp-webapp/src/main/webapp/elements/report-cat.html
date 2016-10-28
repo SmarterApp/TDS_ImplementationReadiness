@@ -11,7 +11,7 @@
         <div>
             CAT Analysis Summary
             <div id="exposure-analysis">
-                Exposure Rates
+                <b>Exposure Rates</b>
                 <div id="unused-items">
                     <p>
                     Total items: [[catResults.itemPoolCount]]
@@ -30,6 +30,17 @@
                     <p>
                         Percent used: [[round(catResults.percentUsed, 2)]]
                     </p>
+                </div>
+                <div id="exposure-bins">
+                    <b>Distribution of exposure rates</b> 
+                    <p>Bin size: [[catResults.binSize]]</p> 
+                    <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                      <template is="dom-if" if="[[nonZero(bin)]]">
+                      <p>
+                        Bin [[lowerBound(catResults.binSize, index, 2)]] < X <= [[upperBound(catResults.binSize, index, 2)]] has a count of: [[bin]]
+                      </p>
+                    </template>
+                    </template>
                 </div>
             </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
@@ -53,6 +64,15 @@
             },
             round: function(value, places) {
                 return value.toFixed(places);
+            },
+            nonZero: function(val) {
+                return val > 0;
+            },
+            lowerBound: function(binSize, index, roundDigits) {
+                return this.round(binSize * index, 2);
+            },
+            upperBound: function(binSize, index, roundDigits) {
+                return this.lowerBound(binSize, index + 1, 2);
             }
         });
     </script>
