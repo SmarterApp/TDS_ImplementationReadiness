@@ -11,19 +11,23 @@
         <div>
             CAT Analysis Summary
             <p>
+            Exposure Rates
+            <p>
+            Total items: [[catResults.itemPoolCount]]
+            </p>
+            <p>
+            Unused items: [[catResults.unusedItems]]
+            </p>
+            <p>
+            Percent unused: [[round(catResults.percentUnused, 2)]]
+            </p>            
             </p>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
                                   post-data-name="catResults"
                                   message="Download the CAT Analysis results:" />
-            <p></p>
             
-            <p>
-            
-            
-            Number of items in item pool and test: [[keyLength(catResults.exposureRates)]]
-            
-            </p>
+
         </div>
     </template>
     <script>
@@ -37,8 +41,8 @@
             },
             ready: function () {
             },
-            keyLength: function (obj) {
-                return Object.keys(obj).length;
+            round: function(value, places) {
+                return value.toFixed(places);
             }
         });
     </script>

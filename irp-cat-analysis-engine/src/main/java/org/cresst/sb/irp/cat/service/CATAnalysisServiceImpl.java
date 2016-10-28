@@ -41,7 +41,25 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         response.setExposureRates(exposureRates);
 
+        if (exposureCalculations(response)) {
+            logger.debug("Successfully did exposure rate calculations");
+        }
+
         return response;
     }
 
+    private boolean exposureCalculations(CATAnalysisResponse response) {
+        int unusedCount = 0;
+        int totalCount = 0;
+        for(double exposureValue : response.getExposureRates().values()) {
+            if (exposureValue == 0) {
+                unusedCount++;
+            }
+            totalCount++;
+        }
+        response.setUnusedItems(unusedCount);
+        response.setItemPoolCount(totalCount);
+        response.setPercentUnused(unusedCount / ((double) totalCount));
+        return true;
+    }
 }

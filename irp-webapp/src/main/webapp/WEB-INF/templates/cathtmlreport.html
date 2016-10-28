@@ -6,14 +6,22 @@
     <title>CAT Implementation Readiness Package Report</title>
     <style>
     #content {
+        text-align: left;
+    }
+    h1 {
         text-align: center;
     }
     </style>
 </head>
 <body>
     <div id="content">
-    <h1>CAT Implementation Readiness Package Report</h1>
-    <div th:text="|Number of items in item pool and test: ${catResults.exposureRates.keySet().size()}|"></div>
+        <h1>CAT Implementation Readiness Package Report</h1>
+        <div id="exposure-analysis">
+            Exposure Rates Analysis
+        <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
+        <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
+        <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
+        </div>
     </div>
 </body>
 </html>
