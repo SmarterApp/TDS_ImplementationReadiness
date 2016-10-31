@@ -5,11 +5,11 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({
-    "sId", "overallScore","overallSEM","claim1Score","claim1SEM",
+    "sid", "overallScore","overallSEM","claim1Score","claim1SEM",
     "claim2Score","claim2SEM","claim3Score","claim3SEM","claim4Score","claim4SEM"
     })
-public class StudentScoreCAT {
-    private String sId;
+public class StudentScoreCAT implements Score {
+    private String sid;
     private double overallScore;
     private double overallSEM;
     private double claim1Score;
@@ -21,12 +21,18 @@ public class StudentScoreCAT {
     private double claim4Score;
     private double claim4SEM;
 
-    public String getsId() {
-        return sId;
+    @Override
+    public String getSid() {
+        return sid;
     }
 
-    public void setsId(String sId) {
-        this.sId = sId;
+    public void setSid(String sId) {
+        this.sid = sId;
+    }
+
+    @Override
+    public double getScore() {
+        return overallScore;
     }
 
     public double getOverallScore() {
@@ -111,7 +117,7 @@ public class StudentScoreCAT {
 
     @Override
     public String toString() {
-        return "StudentScoreCAT [sId=" + sId + ", overallScore=" + overallScore + ", overallSEM=" + overallSEM
+        return "StudentScoreCAT [sid=" + sid + ", overallScore=" + overallScore + ", overallSEM=" + overallSEM
                 + ", claim1Score=" + claim1Score + ", claim1SEM=" + claim1SEM + ", claim2Score=" + claim2Score
                 + ", claim2SEM=" + claim2SEM + ", claim3Score=" + claim3Score + ", claim3SEM=" + claim3SEM
                 + ", claim4Score=" + claim4Score + ", claim4SEM=" + claim4SEM + "]";
@@ -119,7 +125,7 @@ public class StudentScoreCAT {
 
     @Override
     public int hashCode() {
-        return Objects.hash(sId, overallScore, overallSEM,
+        return Objects.hash(sid, overallScore, overallSEM,
                                 claim1Score, claim1SEM,
                                 claim2Score, claim2SEM,
                                 claim3Score, claim3SEM,
@@ -156,10 +162,10 @@ public class StudentScoreCAT {
             return false;
         if (Double.doubleToLongBits(overallScore) != Double.doubleToLongBits(other.overallScore))
             return false;
-        if (sId == null) {
-            if (other.sId != null)
+        if (sid == null) {
+            if (other.sid != null)
                 return false;
-        } else if (!sId.equals(other.sId))
+        } else if (!sid.equals(other.sid))
             return false;
         return true;
     }

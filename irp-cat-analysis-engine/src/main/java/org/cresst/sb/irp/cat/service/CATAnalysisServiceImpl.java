@@ -2,12 +2,16 @@ package org.cresst.sb.irp.cat.service;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.Score;
+import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,62 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public CATAnalysisResponse analyzeCatResults(CATDataModel catData) {
         CATAnalysisResponse response = new CATAnalysisResponse();
+
+        // % increase for bins; hard-coded for 5%
+        double binSize = .05;
+        if (exposureCalculations(catData, response, binSize)) {
+            logger.debug("Successfully did exposure rate calculations");
+        } else {
+            logger.error("Failed to do exposure rate calculations");
+        }
+
+        if (biasCalculations(catData, response)) {
+            logger.debug("Successfully did bias calculations.");
+        } else {
+            logger.error("Failed to do bias calculations");
+        }
+
+        return response;
+    }
+
+    private boolean biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
+        List<TrueTheta> trueScores = catData.getTrueThetas();
+        List<StudentScoreCAT> studentScores = catData.getStudentScores();
+
+        Map<String, Double> trueScoreMap = scoresToMap(trueScores);
+        Map<String, Double> studentScoreMap = scoresToMap(studentScores);
+
+        int n = studentScores.size();
+        double diffResults = 0;
+        double squareDiffResults = 0;
+        double diff = 0;
+        for(String sid : studentScoreMap.keySet()) {
+            if (! trueScoreMap.containsKey(sid)) {
+                logger.warn("True score not found for student id: {}", sid);
+            } else {
+                diff = trueScoreMap.get(sid) - studentScoreMap.get(sid);
+                diffResults += diff;
+                squareDiffResults += Math.pow(diff, 2);
+            }
+        }
+        response.setAverageBias(diffResults / n);
+        response.setRmse(squareDiffResults / n);
+        return true;
+    }
+
+    private Map<String, Double> scoresToMap(List<? extends Score> scores) {
+        Map<String, Double> results = new HashMap<>();
+        for(Score score : scores) {
+            results.put(score.getSid(), score.getScore());
+        }
+        return results;
+    }
+
+    private int binIndex(double value, double stepSize) {
+        return (int) Math.floor(value / stepSize);
+    }
+
+    private boolean exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
         // Number of times an item appears
         Map<String, Double> exposureRates= new HashMap<>();
 
@@ -42,20 +102,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         response.setExposureRates(exposureRates);
 
-        // % increase for bins; hard-coded for 5%
-        double binSize = .05;
-        if (exposureCalculations(response, binSize)) {
-            logger.debug("Successfully did exposure rate calculations");
-        }
-
-        return response;
-    }
-
-    private int binIndex(double value, double stepSize) {
-        return (int) Math.floor(value / stepSize);
-    }
-
-    private boolean exposureCalculations(CATAnalysisResponse response, double binSize) {
         int unusedCount = 0;
         int totalCount = 0;
         double maxValue = Collections.max(response.getExposureRates().values());

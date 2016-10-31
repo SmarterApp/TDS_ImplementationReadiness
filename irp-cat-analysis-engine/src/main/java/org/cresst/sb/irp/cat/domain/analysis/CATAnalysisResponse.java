@@ -1,6 +1,5 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
-import java.util.List;
 import java.util.Map;
 
 public class CATAnalysisResponse {
@@ -12,6 +11,8 @@ public class CATAnalysisResponse {
     private double percentUsed;
     private int[] bins;
     private double binSize;
+    private double averageBias;
+    private double rmse;
 
     public Map<String, Double> getExposureRates() {
         return exposureRates;
@@ -75,5 +76,21 @@ public class CATAnalysisResponse {
 
     public void setBinSize(double binSize) {
         this.binSize = binSize;
+    }
+
+    public double getAverageBias() {
+        return averageBias;
+    }
+
+    public void setAverageBias(double averageBias) {
+        this.averageBias = averageBias;
+    }
+
+    public double getRmse() {
+        return rmse;
+    }
+
+    public void setRmse(double rmse) {
+        this.rmse = rmse;
     }
 }

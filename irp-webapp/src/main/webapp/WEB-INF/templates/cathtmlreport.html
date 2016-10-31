@@ -18,24 +18,29 @@
         <h1>CAT Implementation Readiness Package Report</h1>
         <div id="exposure-analysis">
             <b>Exposure Rates Analysis</b>
-        <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
-        <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
-        <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
-        
-        <div id="used-items">
-            <p th:text="|Used items: ${catResults.unusedItems}|"></p>
-            <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
+            <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
+            <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
+            <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
+            
+            <div id="used-items">
+                <p th:text="|Used items: ${catResults.unusedItems}|"></p>
+                <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
+            </div>
+            
+            <div id="exposure-bins">
+                 <b>Distribution of exposure rates</b>
+                 <p th:text="|Bin size: ${catResults.binSize}"></p>
+                 <th:block th:each="bin,iter : ${catResults.bins}">
+                    <p th:if="${bin > 0}"
+                       th:text="|Bin ${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} < X <= ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)} has a count of: ${bin}|">
+                    </p>
+                 </th:block>
+            </div>
         </div>
-        
-        <div id="exposure-bins">
-             <b>Distribution of exposure rates</b>
-             <p th:text="|Bin size: ${catResults.binSize}"></p>
-             <th:block th:each="bin,iter : ${catResults.bins}">
-                <p th:if="${bin > 0}"
-                   th:text="|Bin ${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} < X <= ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)} has a count of: ${bin}|">
-                </p>
-             </th:block>
-        </div>
+        <div id="score-summary">
+            <b>Score Summary</b>
+            <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
+            <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
         </div>
     </div>
 </body>

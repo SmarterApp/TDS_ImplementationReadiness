@@ -43,6 +43,11 @@
                     </template>
                 </div>
             </div>
+            <div id="score-summary">
+                <b>Score Summary</b>
+                <p>Average Bias: [[round(catResults.averageBias,3)]]</p>
+                <p>Root Mean Squared Error (RMSE) [[round(catResults.rmse,3)]]</p>
+            </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
                                   post-data-name="catResults"
