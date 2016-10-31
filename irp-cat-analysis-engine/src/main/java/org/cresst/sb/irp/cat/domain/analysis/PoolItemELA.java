@@ -5,23 +5,24 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({
-    "itemId","subject","itemGrade","poolGrade","claim","target","dok","stimId","asmtType",
-    "itemType","calculator","irtA","irtB","irtC","irtStep1","irtStep2","irtStep3",
-    "irtStep4","irtStep5","irtStep6","irtStep7","irtStep8","braille","translation","extPool","spaErrors"
+    "itemId","subject","itemGrade","claim","target","useTarget","blueprintTarget",
+    "dok","stimId","asmtType","itemType","irtA","irtB","irtC",
+    "irtStep1","irtStep2","irtStep3","irtStep4","irtStep5","irtStep6","irtStep7","irtStep8",
+    "braille","enemyItem","poolGrade","extPool","shortAnswer","fullWrite","spaErrors"
 })
-public class PoolItemCAT {
+public class PoolItemELA {
     private String itemId;
     private String subject;
     private String itemGrade;
-    private String poolGrade;
     private String claim;
     private String target;
+    private String useTarget;
+    private String blueprintTarget;
     // Depth of knowledge
     private String dok;
     private String stimId;
     private String asmtType;
     private String itemType;
-    private String calculator;
     private String irtA;
     private String irtB;
     private String irtC;
@@ -34,8 +35,11 @@ public class PoolItemCAT {
     private String irtStep7;
     private String irtStep8;
     private String braille;
-    private String translation;
+    private String enemyItem;
+    private String poolGrade;
     private String extPool;
+    private String shortAnswer;
+    private String fullWrite;
     private String spaErrors;
     public String getItemId() {
         return itemId;
@@ -55,12 +59,6 @@ public class PoolItemCAT {
     public void setItemGrade(String itemGrade) {
         this.itemGrade = itemGrade;
     }
-    public String getPoolGrade() {
-        return poolGrade;
-    }
-    public void setPoolGrade(String poolGrade) {
-        this.poolGrade = poolGrade;
-    }
     public String getClaim() {
         return claim;
     }
@@ -72,6 +70,18 @@ public class PoolItemCAT {
     }
     public void setTarget(String target) {
         this.target = target;
+    }
+    public String getUseTarget() {
+        return useTarget;
+    }
+    public void setUseTarget(String useTarget) {
+        this.useTarget = useTarget;
+    }
+    public String getBlueprintTarget() {
+        return blueprintTarget;
+    }
+    public void setBlueprintTarget(String blueprintTarget) {
+        this.blueprintTarget = blueprintTarget;
     }
     public String getDok() {
         return dok;
@@ -96,12 +106,6 @@ public class PoolItemCAT {
     }
     public void setItemType(String itemType) {
         this.itemType = itemType;
-    }
-    public String getCalculator() {
-        return calculator;
-    }
-    public void setCalculator(String calculator) {
-        this.calculator = calculator;
     }
     public String getIrtA() {
         return irtA;
@@ -175,17 +179,35 @@ public class PoolItemCAT {
     public void setBraille(String braille) {
         this.braille = braille;
     }
-    public String getTranslation() {
-        return translation;
+    public String getEnemyItem() {
+        return enemyItem;
     }
-    public void setTranslation(String translation) {
-        this.translation = translation;
+    public void setEnemyItem(String enemyItem) {
+        this.enemyItem = enemyItem;
+    }
+    public String getPoolGrade() {
+        return poolGrade;
+    }
+    public void setPoolGrade(String poolGrade) {
+        this.poolGrade = poolGrade;
     }
     public String getExtPool() {
         return extPool;
     }
     public void setExtPool(String extPool) {
         this.extPool = extPool;
+    }
+    public String getShortAnswer() {
+        return shortAnswer;
+    }
+    public void setShortAnswer(String shortAnswer) {
+        this.shortAnswer = shortAnswer;
+    }
+    public String getFullWrite() {
+        return fullWrite;
+    }
+    public void setFullWrite(String fullWrite) {
+        this.fullWrite = fullWrite;
     }
     public String getSpaErrors() {
         return spaErrors;
@@ -195,21 +217,28 @@ public class PoolItemCAT {
     }
     @Override
     public String toString() {
-        return "PoolItemCAT [itemId=" + itemId + ", subject=" + subject + ", itemGrade=" + itemGrade + ", poolGrade="
-                + poolGrade + ", claim=" + claim + ", target=" + target + ", dok=" + dok + ", stimId=" + stimId
-                + ", asmtType=" + asmtType + ", itemType=" + itemType + ", calculator=" + calculator + ", irtA=" + irtA
-                + ", irtB=" + irtB + ", irtC=" + irtC + ", irtStep1=" + irtStep1 + ", irtStep2=" + irtStep2
-                + ", irtStep3=" + irtStep3 + ", irtStep4=" + irtStep4 + ", irtStep5=" + irtStep5 + ", irtStep6="
-                + irtStep6 + ", irtStep7=" + irtStep7 + ", irtStep8=" + irtStep8 + ", braille=" + braille
-                + ", translation=" + translation + ", extPool=" + extPool + ", spaErrors=" + spaErrors + "]";
+        return "PoolItemELA [itemId=" + itemId + ", subject=" + subject + ", itemGrade=" + itemGrade + ", claim="
+                + claim + ", target=" + target + ", useTarget=" + useTarget + ", blueprintTarget=" + blueprintTarget
+                + ", dok=" + dok + ", stimId=" + stimId + ", asmtType=" + asmtType + ", itemType=" + itemType
+                + ", irtA=" + irtA + ", irtB=" + irtB + ", irtC=" + irtC + ", irtStep1=" + irtStep1 + ", irtStep2="
+                + irtStep2 + ", irtStep3=" + irtStep3 + ", irtStep4=" + irtStep4 + ", irtStep5=" + irtStep5
+                + ", irtStep6=" + irtStep6 + ", irtStep7=" + irtStep7 + ", irtStep8=" + irtStep8 + ", braille="
+                + braille + ", enemyItem=" + enemyItem + ", poolGrade=" + poolGrade + ", extPool=" + extPool
+                + ", shortAnswer=" + shortAnswer + ", fullWrite=" + fullWrite + ", spaErrors=" + spaErrors + "]";
     }
     @Override
     public int hashCode() {
-        return Objects.hash(itemId,subject,itemGrade,poolGrade, claim, target, dok,
-                stimId, asmtType, itemType, calculator, irtA, irtB, irtC, irtStep1,
-                irtStep2, irtStep3, irtStep4, irtStep5, irtStep6, irtStep7, irtStep8,
-                braille, translation, extPool, spaErrors);
+        return Objects.hash(
+                itemId,subject,itemGrade,claim,target,
+                useTarget,blueprintTarget,dok,stimId,
+                asmtType,itemType,irtA,irtB,irtC,
+                irtStep1, irtStep2,irtStep3, irtStep4,
+                irtStep5,irtStep6,irtStep7,irtStep8,
+                braille,enemyItem,poolGrade,extPool,
+                shortAnswer,fullWrite,spaErrors
+                );
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -218,21 +247,21 @@ public class PoolItemCAT {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        PoolItemCAT other = (PoolItemCAT) obj;
+        PoolItemELA other = (PoolItemELA) obj;
         if (asmtType == null) {
             if (other.asmtType != null)
                 return false;
         } else if (!asmtType.equals(other.asmtType))
             return false;
+        if (blueprintTarget == null) {
+            if (other.blueprintTarget != null)
+                return false;
+        } else if (!blueprintTarget.equals(other.blueprintTarget))
+            return false;
         if (braille == null) {
             if (other.braille != null)
                 return false;
         } else if (!braille.equals(other.braille))
-            return false;
-        if (calculator == null) {
-            if (other.calculator != null)
-                return false;
-        } else if (!calculator.equals(other.calculator))
             return false;
         if (claim == null) {
             if (other.claim != null)
@@ -244,10 +273,20 @@ public class PoolItemCAT {
                 return false;
         } else if (!dok.equals(other.dok))
             return false;
+        if (enemyItem == null) {
+            if (other.enemyItem != null)
+                return false;
+        } else if (!enemyItem.equals(other.enemyItem))
+            return false;
         if (extPool == null) {
             if (other.extPool != null)
                 return false;
         } else if (!extPool.equals(other.extPool))
+            return false;
+        if (fullWrite == null) {
+            if (other.fullWrite != null)
+                return false;
+        } else if (!fullWrite.equals(other.fullWrite))
             return false;
         if (irtA == null) {
             if (other.irtA != null)
@@ -324,6 +363,11 @@ public class PoolItemCAT {
                 return false;
         } else if (!poolGrade.equals(other.poolGrade))
             return false;
+        if (shortAnswer == null) {
+            if (other.shortAnswer != null)
+                return false;
+        } else if (!shortAnswer.equals(other.shortAnswer))
+            return false;
         if (spaErrors == null) {
             if (other.spaErrors != null)
                 return false;
@@ -344,11 +388,12 @@ public class PoolItemCAT {
                 return false;
         } else if (!target.equals(other.target))
             return false;
-        if (translation == null) {
-            if (other.translation != null)
+        if (useTarget == null) {
+            if (other.useTarget != null)
                 return false;
-        } else if (!translation.equals(other.translation))
+        } else if (!useTarget.equals(other.useTarget))
             return false;
         return true;
     }
+
 }

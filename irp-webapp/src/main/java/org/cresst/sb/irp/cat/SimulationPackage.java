@@ -21,7 +21,7 @@ public class SimulationPackage {
     @Value("${irp.version}")
     String irpVersion;
 
-    @Value("${cat.math.itempool}")
+    @Value("${cat.elag11.itempool}")
     private Resource itemPool;
 
     @Value("${cat.elag11.blueprint}")

@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.slf4j.Logger;
@@ -47,8 +48,13 @@ public class CATParsingServiceImpl implements CATParsingService {
     }
 
     @Override
-    public List<PoolItemCAT> parsePoolItems(InputStream poolStream) {
-        return parseCATCsv(poolStream, PoolItemCAT.class);
+    public List<PoolItemMath> parsePoolItemsMath(InputStream poolStream) {
+        return parseCATCsv(poolStream, PoolItemMath.class);
+    }
+
+    @Override
+    public List<PoolItemELA> parsePoolItemsELA(InputStream poolStream) {
+        return parseCATCsv(poolStream, PoolItemELA.class);
     }
 
     @Override

@@ -10,7 +10,8 @@ import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.service.CATAnalysisService;
@@ -40,7 +41,7 @@ public class CATFileUploadController {
     @Value("${irp.version}")
     String irpVersion;
 
-    @Value("${cat.math.itempool}")
+    @Value("${cat.elag11.itempool}")
     private Resource itemPoolResource;
 
     @Value("${cat.elag11.blueprint}")
@@ -71,13 +72,13 @@ public class CATFileUploadController {
 
             List<ItemResponseCAT> itemResponses = null;
             List<StudentScoreCAT> studentScores = null;
-            List<PoolItemCAT> poolItems = null;
+            List<PoolItemELA> poolItems = null;
             List<TrueTheta> trueThetas = null;
             List<Blueprint> blueprints = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
-                poolItems = catParsingService.parsePoolItems(itemPoolResource.getInputStream());
+                poolItems = catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream());
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {

@@ -8,7 +8,8 @@ import java.util.Map;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
@@ -83,7 +84,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         Map<String, Double> exposureRates= new HashMap<>();
 
         // Initialize exposures to 0
-        for(PoolItemCAT poolItem : catData.getPoolItems()) {
+        for(PoolItemELA poolItem : catData.getPoolItems()) {
             exposureRates.put(poolItem.getItemId(), 0.0);
         }
 
