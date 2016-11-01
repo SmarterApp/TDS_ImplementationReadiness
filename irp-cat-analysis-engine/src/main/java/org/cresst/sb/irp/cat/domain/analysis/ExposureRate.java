@@ -2,7 +2,7 @@ package org.cresst.sb.irp.cat.domain.analysis;
 
 import java.util.Objects;
 
-public class ExposureRate implements Comparable {
+public class ExposureRate implements Comparable<ExposureRate> {
     private String itemId;
     private double exposureRate;
     private boolean inItemPool;
@@ -67,8 +67,8 @@ public class ExposureRate implements Comparable {
         return true;
     }
     @Override
-    public int compareTo(Object o) {
-        return Double.compare(this.exposureRate, ((ExposureRate) o).getExposureRate());
+    public int compareTo(ExposureRate o) {
+        return Double.compare(this.exposureRate, o.getExposureRate());
     }
 
 }
