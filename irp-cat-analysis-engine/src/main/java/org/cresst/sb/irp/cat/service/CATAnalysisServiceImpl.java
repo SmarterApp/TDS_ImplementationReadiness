@@ -68,28 +68,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private boolean exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
-        // Number of times an item appears
-        Map<String, Double> exposureRates= new HashMap<>();
-
-        // Initialize exposures to 0
-        for(PoolItemELA poolItem : catData.getPoolItems()) {
-            exposureRates.put(poolItem.getItemId(), 0.0);
-        }
-
-        int n = catData.getStudentScores().size();
-        for(ItemResponseCAT itemResponse : catData.getItemResponses()) {
-            String itemId = itemResponse.getItemId();
-            Double oldResult = exposureRates.get(itemId);
-            if(oldResult != null) {
-                exposureRates.put(itemId, oldResult + (1 /(double) n));
-            } else {
-                logger.warn("item id: {} was not found in item pool.", itemId);
-                exposureRates.put(itemId, 1/(double) n);
-            }
-
-        }
-
-        response.setExposureRates(exposureRates);
+        response.setExposureRates(Stats.calculateExposureRates(catData));
 
         int unusedCount = 0;
         int totalCount = 0;

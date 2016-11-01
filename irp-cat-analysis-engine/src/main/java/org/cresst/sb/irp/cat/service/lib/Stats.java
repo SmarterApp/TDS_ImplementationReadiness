@@ -1,7 +1,13 @@
 package org.cresst.sb.irp.cat.service.lib;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,5 +46,37 @@ public class Stats {
 
     public static double rmse(Map<String, Double> trueValues, Map<String, Double> estimatedValues) {
         return Math.sqrt(meanSquaredError(trueValues, estimatedValues));
+    }
+
+    public static Map<String, Double> calculateExposureRates(CATDataModel catData) {
+        Map<String, Double> exposureRates = new HashMap<>();
+
+        // Initialize exposures to 0
+        for(PoolItemELA poolItem : catData.getPoolItems()) {
+            exposureRates.put(poolItem.getItemId(), 0.0);
+        }
+
+        int n = getUniqueStudentIds(catData).size();
+        for(ItemResponseCAT itemResponse : catData.getItemResponses()) {
+            String itemId = itemResponse.getItemId();
+            Double oldResult = exposureRates.get(itemId);
+            if(oldResult != null) {
+                exposureRates.put(itemId, oldResult + (1 /(double) n));
+            } else {
+                logger.warn("item id: {} was not found in item pool.", itemId);
+                exposureRates.put(itemId, 1/(double) n);
+            }
+
+        }
+
+        return exposureRates;
+    }
+
+    private static Set<String> getUniqueStudentIds(CATDataModel catData) {
+        Set<String> sids = new HashSet<>();
+        for(ItemResponseCAT item : catData.getItemResponses()) {
+            sids.add(item.getsId());
+        }
+        return sids;
     }
 }

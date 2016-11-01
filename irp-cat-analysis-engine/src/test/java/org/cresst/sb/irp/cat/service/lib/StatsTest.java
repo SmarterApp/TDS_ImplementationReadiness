@@ -2,9 +2,16 @@ package org.cresst.sb.irp.cat.service.lib;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -74,5 +81,41 @@ public class StatsTest {
         parameters.put("4", 2.0);
         values.put("4", 0.0);
         assertEquals(expected,  Stats.meanSquaredError(parameters, values), epsilon);
+    }
+
+    @Test
+    public void test_exposure_rates_no_items() {
+        CATDataModel catData = new CATDataModel();
+        List<ItemResponseCAT> itemResponses = new ArrayList<>();
+        List<PoolItemELA> poolItems = new ArrayList<>();
+        catData.setItemResponses(itemResponses);
+        catData.setPoolItems(poolItems);
+        Map<String, Double> exposureRates = Stats.calculateExposureRates(catData);
+        assertNotNull(exposureRates);
+        assertEquals(0, exposureRates.size());
+    }
+
+    @Test
+    public void test_exposure_rates_one_item() {
+        CATDataModel catData = new CATDataModel();
+        List<ItemResponseCAT> itemResponses = new ArrayList<>();
+        List<PoolItemELA> poolItems = new ArrayList<>();
+
+        // Add student responses
+        ItemResponseCAT item = new ItemResponseCAT();
+        item.setItemId("1");
+        item.setsId("1");
+        itemResponses.add(item);
+        catData.setItemResponses(itemResponses);
+
+        // Add pool items
+        PoolItemELA poolItem = new PoolItemELA();
+        poolItem.setItemId("1");
+        poolItems.add(poolItem);
+        catData.setPoolItems(poolItems);
+
+        Map<String, Double> exposureRates = Stats.calculateExposureRates(catData);
+        assertNotNull(exposureRates);
+        assertEquals(1, exposureRates.size());
     }
 }
