@@ -13,6 +13,7 @@ import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
+import org.cresst.sb.irp.cat.service.lib.Stats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -49,21 +50,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         Map<String, Double> trueScoreMap = scoresToMap(trueScores);
         Map<String, Double> studentScoreMap = scoresToMap(studentScores);
 
-        int n = studentScores.size();
-        double diffResults = 0;
-        double squareDiffResults = 0;
-        double diff = 0;
-        for(String sid : studentScoreMap.keySet()) {
-            if (! trueScoreMap.containsKey(sid)) {
-                logger.warn("True score not found for student id: {}", sid);
-            } else {
-                diff = trueScoreMap.get(sid) - studentScoreMap.get(sid);
-                diffResults += diff;
-                squareDiffResults += Math.pow(diff, 2);
-            }
-        }
-        response.setAverageBias(diffResults / n);
-        response.setRmse(squareDiffResults / n);
+        response.setAverageBias(Stats.averageBias(trueScoreMap, studentScoreMap));
+        response.setRmse(Stats.rmse(trueScoreMap, studentScoreMap));
         return true;
     }
 
