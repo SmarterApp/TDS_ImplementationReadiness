@@ -1,11 +1,14 @@
 package org.cresst.sb.irp.cat.service.lib;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.slf4j.Logger;
@@ -48,23 +51,33 @@ public class Stats {
         return Math.sqrt(meanSquaredError(trueValues, estimatedValues));
     }
 
-    public static Map<String, Double> calculateExposureRates(CATDataModel catData) {
-        Map<String, Double> exposureRates = new HashMap<>();
+    public static Map<String, ExposureRate> calculateExposureRates(CATDataModel catData) {
+        Map<String, ExposureRate> exposureRates = new HashMap<>();
 
         // Initialize exposures to 0
         for(PoolItemELA poolItem : catData.getPoolItems()) {
-            exposureRates.put(poolItem.getItemId(), 0.0);
+            ExposureRate exposureRate = new ExposureRate();
+            exposureRate.setExposureRate(0.0);
+            exposureRate.setInItemPool(true);
+            exposureRate.setInTestQuestions(false);
+            exposureRates.put(poolItem.getItemId(), exposureRate);
         }
 
         int n = getUniqueStudentIds(catData).size();
         for(ItemResponseCAT itemResponse : catData.getItemResponses()) {
             String itemId = itemResponse.getItemId();
-            Double oldResult = exposureRates.get(itemId);
+            ExposureRate oldResult = exposureRates.get(itemId);
+            double incrementValue =  1 /(double) n;
             if(oldResult != null) {
-                exposureRates.put(itemId, oldResult + (1 /(double) n));
+                oldResult.setExposureRate(oldResult.getExposureRate() + incrementValue);
             } else {
                 logger.warn("item id: {} was not found in item pool.", itemId);
-                exposureRates.put(itemId, 1/(double) n);
+                ExposureRate exposureRate = new ExposureRate();
+                exposureRate.setExposureRate(incrementValue);
+                exposureRate.setInItemPool(false);
+                exposureRate.setInTestQuestions(true);
+
+                exposureRates.put(itemId, exposureRate);
             }
 
         }
@@ -78,5 +91,38 @@ public class Stats {
             sids.add(item.getsId());
         }
         return sids;
+    }
+
+    private static int binIndex(double value, double stepSize) {
+        return (int) Math.floor(value / stepSize);
+    }
+
+    public static void calculateExposureBins(CATAnalysisResponse response, double binSize) {
+        int unusedCount = 0;
+        int totalCount = 0;
+        double maxValue = Collections.max(response.getExposureRates().values()).getExposureRate();
+        int binCount = (int) Math.floor(maxValue / binSize) + 1;
+        int[] bins = new int[binCount];
+
+        logger.debug("maxValue: {}, binCount: {}", maxValue, binCount);
+        for(ExposureRate exposureRate : response.getExposureRates().values()) {
+            double exposureValue = exposureRate.getExposureRate();
+            if (exposureValue == 0) {
+                unusedCount++;
+            } else {
+                // Increment the count for bin
+                bins[binIndex(exposureValue, binSize)]++;
+            }
+            totalCount++;
+        }
+
+        int usedCount = totalCount - unusedCount;
+        response.setUnusedItems(unusedCount);
+        response.setUsedItems(usedCount);
+        response.setItemPoolCount(totalCount);
+        response.setPercentUnused(unusedCount / ((double) totalCount));
+        response.setPercentUsed(usedCount / ((double) totalCount));
+        response.setBins(bins);
+        response.setBinSize(binSize);
     }
 }

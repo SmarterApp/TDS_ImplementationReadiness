@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
@@ -90,7 +91,7 @@ public class StatsTest {
         List<PoolItemELA> poolItems = new ArrayList<>();
         catData.setItemResponses(itemResponses);
         catData.setPoolItems(poolItems);
-        Map<String, Double> exposureRates = Stats.calculateExposureRates(catData);
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData);
         assertNotNull(exposureRates);
         assertEquals(0, exposureRates.size());
     }
@@ -114,8 +115,9 @@ public class StatsTest {
         poolItems.add(poolItem);
         catData.setPoolItems(poolItems);
 
-        Map<String, Double> exposureRates = Stats.calculateExposureRates(catData);
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData);
         assertNotNull(exposureRates);
         assertEquals(1, exposureRates.size());
+        assertEquals(1.0, exposureRates.get("1").getExposureRate(), epsilon);
     }
 }

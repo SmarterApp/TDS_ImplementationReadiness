@@ -7,11 +7,11 @@ public class CATAnalysisResponse {
     private double averageBias;
     private double rmse;
 
-    public Map<String, Double> getExposureRates() {
+    public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
     }
 
-    public void setExposureRates(Map<String, Double> exposureRates) {
+    public void setExposureRates(Map<String, ExposureRate> exposureRates) {
         this.exposureRateResponse.setExposureRates(exposureRates);
     }
 

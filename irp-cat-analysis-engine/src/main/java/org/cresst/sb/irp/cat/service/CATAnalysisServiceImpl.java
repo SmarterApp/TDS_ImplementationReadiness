@@ -63,38 +63,12 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return results;
     }
 
-    private int binIndex(double value, double stepSize) {
-        return (int) Math.floor(value / stepSize);
-    }
-
     private boolean exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
         response.setExposureRates(Stats.calculateExposureRates(catData));
 
-        int unusedCount = 0;
-        int totalCount = 0;
-        double maxValue = Collections.max(response.getExposureRates().values());
-        int binCount = (int) Math.floor(maxValue / binSize) + 1;
-        int[] bins = new int[binCount];
-
-        logger.debug("maxValue: {}, binCount: {}", maxValue, binCount);
-        for(double exposureValue : response.getExposureRates().values()) {
-            if (exposureValue == 0) {
-                unusedCount++;
-            } else {
-                // Increment the count for bin
-                bins[binIndex(exposureValue, binSize)]++;
-            }
-            totalCount++;
-        }
-
-        int usedCount = totalCount - unusedCount;
-        response.setUnusedItems(unusedCount);
-        response.setUsedItems(usedCount);
-        response.setItemPoolCount(totalCount);
-        response.setPercentUnused(unusedCount / ((double) totalCount));
-        response.setPercentUsed(usedCount / ((double) totalCount));
-        response.setBins(bins);
-        response.setBinSize(binSize);
+        Stats.calculateExposureBins(response, binSize);
         return true;
     }
+
+
 }

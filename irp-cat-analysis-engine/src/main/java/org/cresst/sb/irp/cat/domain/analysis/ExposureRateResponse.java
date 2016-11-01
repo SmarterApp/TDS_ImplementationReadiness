@@ -3,7 +3,7 @@ package org.cresst.sb.irp.cat.domain.analysis;
 import java.util.Map;
 
 public class ExposureRateResponse {
-    private Map<String, Double> exposureRates;
+    private Map<String, ExposureRate> exposureRates;
     private int unusedItems;
     private int itemPoolCount;
     private int usedItems;
@@ -15,11 +15,11 @@ public class ExposureRateResponse {
     public ExposureRateResponse() {
     }
 
-    public Map<String, Double> getExposureRates() {
+    public Map<String, ExposureRate> getExposureRates() {
         return exposureRates;
     }
 
-    public void setExposureRates(Map<String, Double> exposureRates) {
+    public void setExposureRates(Map<String, ExposureRate> exposureRates) {
         this.exposureRates = exposureRates;
     }
 
