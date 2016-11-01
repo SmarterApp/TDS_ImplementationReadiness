@@ -3,79 +3,72 @@ package org.cresst.sb.irp.cat.domain.analysis;
 import java.util.Map;
 
 public class CATAnalysisResponse {
-    private Map<String, Double> exposureRates;
-    private int unusedItems;
-    private int itemPoolCount;
-    private int usedItems;
-    private double percentUnused;
-    private double percentUsed;
-    private int[] bins;
-    private double binSize;
+    private ExposureRateResponse exposureRateResponse = new ExposureRateResponse();
     private double averageBias;
     private double rmse;
 
     public Map<String, Double> getExposureRates() {
-        return exposureRates;
+        return exposureRateResponse.getExposureRates();
     }
 
     public void setExposureRates(Map<String, Double> exposureRates) {
-        this.exposureRates = exposureRates;
+        this.exposureRateResponse.setExposureRates(exposureRates);
     }
 
     public int getUnusedItems() {
-        return unusedItems;
+        return exposureRateResponse.getUnusedItems();
     }
 
     public void setUnusedItems(int unusedItems) {
-        this.unusedItems = unusedItems;
+        this.exposureRateResponse.setUnusedItems(unusedItems);
     }
 
     public int getItemPoolCount() {
-        return itemPoolCount;
+        return exposureRateResponse.getItemPoolCount();
     }
 
     public void setItemPoolCount(int itemPoolCount) {
-        this.itemPoolCount = itemPoolCount;
+        this.exposureRateResponse.setItemPoolCount(itemPoolCount);
     }
 
     public double getPercentUnused() {
-        return percentUnused;
+        return exposureRateResponse.getPercentUnused();
     }
 
     public void setPercentUnused(double percentUnused) {
-        this.percentUnused = percentUnused;
+        this.exposureRateResponse.setPercentUnused(percentUnused);
     }
 
     public double getPercentUsed() {
-        return percentUsed;
+        return exposureRateResponse.getPercentUsed();
     }
 
     public void setPercentUsed(double percentUsed) {
-        this.percentUsed = percentUsed;
+        this.exposureRateResponse.setPercentUsed(percentUsed);
     }
 
     public int getUsedItems() {
-        return usedItems;
+        return exposureRateResponse.getUsedItems();
     }
 
     public void setUsedItems(int usedItems) {
-        this.usedItems = usedItems;
+        this.exposureRateResponse.setUsedItems(usedItems);
     }
 
     public int[] getBins() {
-        return bins;
+        return exposureRateResponse.getBins();
     }
 
     public void setBins(int[] bins) {
-        this.bins = bins;
+        this.exposureRateResponse.setBins(bins);
     }
 
     public double getBinSize() {
-        return binSize;
+        return exposureRateResponse.getBinSize();
     }
 
     public void setBinSize(double binSize) {
-        this.binSize = binSize;
+        this.exposureRateResponse.setBinSize(binSize);
     }
 
     public double getAverageBias() {
