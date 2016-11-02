@@ -159,4 +159,13 @@ public class StatsTest {
             assertEquals(2, map.size());
         }
     }
+
+    @Test
+    public void test_classificationAccuracy() {
+        int[][] classMatrix = {{1,0},{0,1}};
+        assertEquals(1.0, Stats.classificationAccuracy(classMatrix), epsilon);
+
+        int [][] classMatrix2 = {{5,5},{5,5}};
+        assertEquals(0.5, Stats.classificationAccuracy(classMatrix2), epsilon);
+    }
 }
