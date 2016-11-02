@@ -8,6 +8,8 @@ public class CATAnalysisResponse {
     private double rmse;
     private double[] decileAverageBias;
     private double[] decileRmse;
+    private int[][] classAccMatrix;
+    private double classAccuracy;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -103,5 +105,21 @@ public class CATAnalysisResponse {
 
     public void setDecileRmse(double[] decileRmse) {
         this.decileRmse = decileRmse;
+    }
+
+    public int[][] getClassAccMatrix() {
+        return classAccMatrix;
+    }
+
+    public void setClassAccMatrix(int[][] classAccMatrix) {
+        this.classAccMatrix = classAccMatrix;
+    }
+
+    public double getClassAccuracy() {
+        return classAccuracy;
+    }
+
+    public void setClassAccuracy(double classAccuracy) {
+        this.classAccuracy = classAccuracy;
     }
 }

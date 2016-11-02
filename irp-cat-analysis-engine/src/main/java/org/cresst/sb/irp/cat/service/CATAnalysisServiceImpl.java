@@ -40,6 +40,11 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             logger.error("Failed to do bias calculations");
         }
 
+        // TODO: Add selector for grade and add all grade levels
+        // Hardcoded from HS cutoff levels http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
+        double[] cutoffLevels = {-0.177, 0.872, 2.026};
+        classificationCalculations(catData, response, cutoffLevels);
+
         return response;
     }
 
@@ -83,5 +88,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return true;
     }
 
-
+    private void classificationCalculations(CATDataModel catData, CATAnalysisResponse response, double[] cutoffLevels) {
+        int[][] classAccMatrix = Stats.scoreLevelMatrix(catData.getStudentScores(), catData.getTrueThetas(), cutoffLevels);
+        double classAccuracy = Stats.classificationAccuracy(classAccMatrix);
+        response.setClassAccMatrix(classAccMatrix);
+        response.setClassAccuracy(classAccuracy);
+    }
 }

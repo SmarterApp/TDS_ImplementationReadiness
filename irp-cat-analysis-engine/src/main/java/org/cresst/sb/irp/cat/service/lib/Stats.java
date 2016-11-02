@@ -15,6 +15,7 @@ import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -154,16 +155,46 @@ public class Stats {
         return deciles;
     }
 
-    private static int findDecileIndex(double[] deciles, double value) {
-        int n = deciles.length;
+    public static int[][] scoreLevelMatrix(Collection<? extends Score> estimatedScores, Collection<? extends Score> trueScores, double[] cutoffs) {
+        int[][] results = new int[cutoffs.length + 1][cutoffs.length + 1];
+        Map<String, Integer> studentLevels = scoreLevel(estimatedScores, cutoffs);
+        Map<String, Integer> trueLevels = scoreLevel(trueScores, cutoffs);
+
+        for(String sid : studentLevels.keySet()) {
+            if(trueLevels.containsKey(sid)) {
+                results[studentLevels.get(sid) - 1][trueLevels.get(sid) - 1] += 1;
+            } else {
+                logger.error("Could not find sid {} in true levels", sid);
+            }
+        }
+
+        return results;
+    }
+
+    public static Map<String, Integer> scoreLevel(Collection<? extends Score> scores, double[] cutoffs) {
+        Map<String, Integer> scoreLevelMap = new HashMap<>();
+        for(Score score : scores) {
+            scoreLevelMap.put(score.getSid(), findBinIndex(score.getScore(), cutoffs) + 1);
+        }
+        return scoreLevelMap;
+    }
+
+    /**
+     *
+     * @param value the value we want to place in a 'bin'
+     * @param cutoffValues sorted array with limits
+     * @return the correct 'bin' index where the value fits
+     */
+    private static int findBinIndex(double value, double[] cutoffValues) {
+        int n = cutoffValues.length;
         for(int i = 0; i < n; i++) {
-            if (i == 0 && value < deciles[0]) {
+            if (i == 0 && value < cutoffValues[0]) {
                 return 0;
-            } else if (i > 0 && value >= deciles[i - 1] && value < deciles[i]) {
+            } else if (i > 0 && value >= cutoffValues[i - 1] && value < cutoffValues[i]) {
                 return i;
             }
         }
-        assert(value > deciles[n - 1]);
+        assert(value > cutoffValues[n - 1]);
         return n;
     }
 
@@ -175,10 +206,31 @@ public class Stats {
         double[] decileValues = decileValues(scores.values());
         for(String key : scores.keySet()) {
             double value = scores.get(key);
-            int decileBin = findDecileIndex(decileValues, value);
+            int decileBin = findBinIndex(value, decileValues);
             results.get(decileBin).put(key, value);
         }
 
         return results;
+    }
+
+    public static double classificationAccuracy(int[][] classAccMatrix) {
+        int x = classAccMatrix.length;
+        int y = classAccMatrix[0].length;
+        if (x != y) {
+            return -1;
+        }
+
+        int diagonal = 0;
+        int total = 0;
+        for(int i = 0; i < x; i++) {
+            for(int j = 0; j < y; j++) {
+                total += classAccMatrix[i][j];
+                if (i == j) {
+                    diagonal += classAccMatrix[i][j];
+                }
+            }
+
+        }
+        return diagonal / ((double) total);
     }
 }

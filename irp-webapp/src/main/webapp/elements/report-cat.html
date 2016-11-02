@@ -4,7 +4,10 @@
 
 <dom-module id="report-cat">
     <style>
-
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
     </style>
     <template>
 
@@ -62,6 +65,27 @@
                     </template>
                 </div>
             </div>
+            <div id="score-levels">
+                <table id="score-table">
+                    <thead>Score Levels</thead>
+                    <td></td><td colspan="4">True Level</td>
+                    <tr>
+                        <td>Estimated Level</td>
+                        <template is="dom-repeat" items="{{catResults.classAccMatrix}}" index-as="y">
+                            <td>{{addOne(y)}}</td>
+                        </template>
+                    </tr>
+                    <template is="dom-repeat" items="{{catResults.classAccMatrix}}" as="estLevel" index-as="x">
+                        <tr>
+                        <td>{{addOne(x)}}</td>
+                        <template is="dom-repeat" items="{{estLevel}}" as="trueLevel">
+                            <td>{{trueLevel}}</td>
+                        </template>
+                        </tr>
+                    </template>
+                </table>
+                <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
+            </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
                                   post-data-name="catResults"
@@ -78,6 +102,9 @@
                     type: Object,
                     notify: true
                 }
+            },
+            addOne: function(val) {
+                return val + 1;
             },
             ready: function () {
             },
