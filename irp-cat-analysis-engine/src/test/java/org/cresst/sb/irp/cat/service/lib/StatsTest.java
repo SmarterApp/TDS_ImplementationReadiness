@@ -120,4 +120,28 @@ public class StatsTest {
         assertEquals(1, exposureRates.size());
         assertEquals(1.0, exposureRates.get("1").getExposureRate(), epsilon);
     }
+
+    @Test
+    public void test_decileValues() {
+        List<Double> scores = new ArrayList<>();
+        for(int i = 0; i <= 100; i++) {
+            scores.add((double) i);
+        }
+        double[] deciles = Stats.decileValues(scores);
+        assertNotNull(deciles);
+        assertEquals(9, deciles.length);
+
+        // Test case from: http://mba-lectures.com/statistics/descriptive-statistics/222/deciles.html
+        List<Double> scores2 = new ArrayList<>();
+        double[] scoresArr = {500, 850, 925, 800, 600, 750, 650, 625, 800, 400, 725, 550};
+        for(int i = 0; i < scoresArr.length; i++) {
+            scores2.add(scoresArr[i]);
+        }
+        double[] deciles2 = Stats.decileValues(scores2);
+        assertNotNull(deciles2);
+        assertEquals(9, deciles2.length);
+        assertEquals(630, deciles2[3], epsilon);
+        assertEquals(800, deciles2[6], epsilon);
+        assertEquals(902.5, deciles2[8], epsilon);
+    }
 }

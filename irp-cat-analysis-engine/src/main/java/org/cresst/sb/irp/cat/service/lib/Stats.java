@@ -1,8 +1,11 @@
 package org.cresst.sb.irp.cat.service.lib;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -124,5 +127,29 @@ public class Stats {
         response.setPercentUsed(usedCount / ((double) totalCount));
         response.setBins(bins);
         response.setBinSize(binSize);
+    }
+
+    // Algorithm from: http://mba-lectures.com/statistics/descriptive-statistics/222/deciles.html
+    public static double[] decileValues(List<Double> scores) {
+        // Make copy of scores before sorting
+        List<Double> sortedScores = new ArrayList<>(scores);
+        Collections.sort(sortedScores);
+
+        int n = sortedScores.size();
+        double[] deciles = new double[9];
+        for(int i = 1; i < 10; i ++) {
+            double obs = (i * (n + 1)) / 10.0;
+            int obsInt = (int) Math.floor(obs);
+            double obsFrac = obs - obsInt;
+
+            if (obsInt < n) {
+                deciles[i - 1] = sortedScores.get(obsInt - 1) + obsFrac * (sortedScores.get(obsInt) - sortedScores.get(obsInt - 1));
+            }
+            else {
+                deciles[i - 1] = sortedScores.get(obsInt - 1);
+            }
+        }
+
+        return deciles;
     }
 }
