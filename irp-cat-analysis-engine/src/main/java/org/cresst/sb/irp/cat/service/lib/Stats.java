@@ -2,6 +2,7 @@ package org.cresst.sb.irp.cat.service.lib;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -130,7 +131,7 @@ public class Stats {
     }
 
     // Algorithm from: http://mba-lectures.com/statistics/descriptive-statistics/222/deciles.html
-    public static double[] decileValues(List<Double> scores) {
+    public static double[] decileValues(Collection<Double> scores) {
         // Make copy of scores before sorting
         List<Double> sortedScores = new ArrayList<>(scores);
         Collections.sort(sortedScores);
@@ -151,5 +152,33 @@ public class Stats {
         }
 
         return deciles;
+    }
+
+    private static int findDecileIndex(double[] deciles, double value) {
+        int n = deciles.length;
+        for(int i = 0; i < n; i++) {
+            if (i == 0 && value < deciles[0]) {
+                return 0;
+            } else if (i > 0 && value >= deciles[i - 1] && value < deciles[i]) {
+                return i;
+            }
+        }
+        assert(value > deciles[n - 1]);
+        return n;
+    }
+
+    // Partitions scores into decile bin
+    public static List<Map<String, Double>> decilePartition(Map<String, Double> scores) {
+        List<Map<String, Double>> results = new ArrayList<>();
+        for(int i = 0; i < 10; i++) results.add(new HashMap<String, Double>());
+
+        double[] decileValues = decileValues(scores.values());
+        for(String key : scores.keySet()) {
+            double value = scores.get(key);
+            int decileBin = findDecileIndex(decileValues, value);
+            results.get(decileBin).put(key, value);
+        }
+
+        return results;
     }
 }

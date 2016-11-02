@@ -144,4 +144,19 @@ public class StatsTest {
         assertEquals(800, deciles2[6], epsilon);
         assertEquals(902.5, deciles2[8], epsilon);
     }
+
+    @Test
+    public void test_decilePartition() {
+        Map<String, Double> scores = new HashMap<>();
+        // Put 20 scores, should result in 2 in each decile bin
+        for(int i = 0; i < 20; i++) {
+            scores.put(String.valueOf(i), (double) i);
+        }
+        List<Map<String, Double>> decilePartitions = Stats.decilePartition(scores);
+        assertNotNull(decilePartitions);
+        assertEquals(10, decilePartitions.size());
+        for(Map<String, Double> map : decilePartitions) {
+            assertEquals(2, map.size());
+        }
+    }
 }
