@@ -41,6 +41,17 @@
             <b>Score Summary</b>
             <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
             <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
+            <div id="score-summary-deciles">
+                    <b>Average Bias by Decile</b>
+                    <th:block th:each="avgBias, iter : ${catResults.decileAverageBias}">
+                        <p th:text="|Decile: ${iter.index} Average Bias: ${#numbers.formatDecimal(avgBias, 0, 3)}|"></p>
+                    </th:block>
+                    
+                    <b>RMSE by Decile</b>
+                    <th:block th:each="rmse, iter : ${catResults.decileRmse}">
+                        <p th:text="|Decile: ${iter.index} RMSE: ${#numbers.formatDecimal(rmse, 0, 3)}|"></p>
+                    </th:block>
+                </div>
         </div>
     </div>
 </body>

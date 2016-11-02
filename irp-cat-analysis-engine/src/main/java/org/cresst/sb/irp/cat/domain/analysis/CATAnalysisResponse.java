@@ -6,6 +6,8 @@ public class CATAnalysisResponse {
     private ExposureRateResponse exposureRateResponse = new ExposureRateResponse();
     private double averageBias;
     private double rmse;
+    private double[] decileAverageBias;
+    private double[] decileRmse;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -85,5 +87,21 @@ public class CATAnalysisResponse {
 
     public void setRmse(double rmse) {
         this.rmse = rmse;
+    }
+
+    public double[] getDecileAverageBias() {
+        return decileAverageBias;
+    }
+
+    public void setDecileAverageBias(double[] decileAverageBias) {
+        this.decileAverageBias = decileAverageBias;
+    }
+
+    public double[] getDecileRmse() {
+        return decileRmse;
+    }
+
+    public void setDecileRmse(double[] decileRmse) {
+        this.decileRmse = decileRmse;
     }
 }

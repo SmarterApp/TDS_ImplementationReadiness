@@ -52,6 +52,19 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         response.setAverageBias(Stats.averageBias(trueScoreMap, studentScoreMap));
         response.setRmse(Stats.rmse(trueScoreMap, studentScoreMap));
+
+        List<Map<String, Double>> studentDecilePartitions = Stats.decilePartition(studentScoreMap);
+        double[] decileBias = new double[10];
+        double[] decileRmse = new double[10];
+        int i = 0;
+        for(Map<String, Double> studentPart : studentDecilePartitions) {
+            decileBias[i] = Stats.averageBias(trueScoreMap, studentPart);
+            decileRmse[i] = Stats.rmse(trueScoreMap, studentPart);
+            i += 1;
+        }
+        response.setDecileAverageBias(decileBias);
+        response.setDecileRmse(decileRmse);
+
         return true;
     }
 

@@ -47,6 +47,20 @@
                 <b>Score Summary</b>
                 <p>Average Bias: [[round(catResults.averageBias,3)]]</p>
                 <p>Root Mean Squared Error (RMSE) [[round(catResults.rmse,3)]]</p>
+                <div id="score-summary-deciles">
+                    <b>Average Bias by Decile</b>
+                    <template is="dom-repeat" items="{{catResults.decileAverageBias}}" as="avgBias" index-as="index">
+                        <p>
+                        Decile: [[index]] Average Bias: [[round(avgBias, 3)]]
+                        </p>
+                    </template>
+                    <b>RMSE by Decile</b>
+                    <template is="dom-repeat" items="{{catResults.decileRmse}}" as="rmse" index-as="index">
+                        <p>
+                        Decile: [[index]] RMSE: [[round(rmse, 3)]]
+                        </p>
+                    </template>
+                </div>
             </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
