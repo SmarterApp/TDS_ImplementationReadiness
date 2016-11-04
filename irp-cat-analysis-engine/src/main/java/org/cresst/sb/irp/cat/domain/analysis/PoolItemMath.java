@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "itemType","calculator","irtA","irtB","irtC","irtStep1","irtStep2","irtStep3",
     "irtStep4","irtStep5","irtStep6","irtStep7","irtStep8","braille","translation","extPool","spaErrors"
 })
-public class PoolItemMath {
+public class PoolItemMath implements PoolItem {
     private String itemId;
     private String subject;
     private String itemGrade;
@@ -37,6 +37,7 @@ public class PoolItemMath {
     private String translation;
     private String extPool;
     private String spaErrors;
+    @Override
     public String getItemId() {
         return itemId;
     }
@@ -61,6 +62,7 @@ public class PoolItemMath {
     public void setPoolGrade(String poolGrade) {
         this.poolGrade = poolGrade;
     }
+    @Override
     public String getClaim() {
         return claim;
     }

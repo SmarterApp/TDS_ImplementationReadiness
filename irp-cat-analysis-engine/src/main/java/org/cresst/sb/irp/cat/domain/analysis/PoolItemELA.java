@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "irtStep1","irtStep2","irtStep3","irtStep4","irtStep5","irtStep6","irtStep7","irtStep8",
     "braille","enemyItem","poolGrade","extPool","shortAnswer","fullWrite","spaErrors"
 })
-public class PoolItemELA {
+public class PoolItemELA implements PoolItem {
     private String itemId;
     private String subject;
     private String itemGrade;
@@ -59,6 +59,7 @@ public class PoolItemELA {
     public void setItemGrade(String itemGrade) {
         this.itemGrade = itemGrade;
     }
+    @Override
     public String getClaim() {
         return claim;
     }

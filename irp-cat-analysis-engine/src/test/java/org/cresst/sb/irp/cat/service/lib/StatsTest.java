@@ -4,13 +4,16 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.junit.Before;
@@ -88,7 +91,7 @@ public class StatsTest {
     public void test_exposure_rates_no_items() {
         CATDataModel catData = new CATDataModel();
         List<ItemResponseCAT> itemResponses = new ArrayList<>();
-        List<PoolItemELA> poolItems = new ArrayList<>();
+        List<PoolItem> poolItems = new ArrayList<>();
         catData.setItemResponses(itemResponses);
         catData.setPoolItems(poolItems);
         Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData);
@@ -100,7 +103,7 @@ public class StatsTest {
     public void test_exposure_rates_one_item() {
         CATDataModel catData = new CATDataModel();
         List<ItemResponseCAT> itemResponses = new ArrayList<>();
-        List<PoolItemELA> poolItems = new ArrayList<>();
+        List<PoolItem> poolItems = new ArrayList<>();
 
         // Add student responses
         ItemResponseCAT item = new ItemResponseCAT();
@@ -167,5 +170,27 @@ public class StatsTest {
 
         int [][] classMatrix2 = {{5,5},{5,5}};
         assertEquals(0.5, Stats.classificationAccuracy(classMatrix2), epsilon);
+    }
+
+    @Test
+    public void test_scoreLevel() {
+        double[] cutoffs = {1.0};
+        List<StudentScoreCAT> scores = new ArrayList<>();
+        StudentScoreCAT score1 = new StudentScoreCAT();
+        score1.setSid("1");
+        score1.setOverallScore(.5);
+        scores.add(score1);
+        StudentScoreCAT score2 = new StudentScoreCAT();
+        score2.setSid("2");
+        score2.setOverallScore(1.5);
+        scores.add(score2);
+        Map<String, Integer> scoreLevels = Stats.scoreLevel(scores, cutoffs);
+        assertNotNull(scoreLevels);
+        assertEquals(1, (int) scoreLevels.get("1"));
+        assertEquals(2, (int) scoreLevels.get("2"));
+
+        // Score levels should no higher than one more the number of cutoffs
+        Set<Integer> scoreLevelSet = new HashSet<>(scoreLevels.values());
+        assertTrue(cutoffs.length + 1 <= scoreLevelSet.size());
     }
 }

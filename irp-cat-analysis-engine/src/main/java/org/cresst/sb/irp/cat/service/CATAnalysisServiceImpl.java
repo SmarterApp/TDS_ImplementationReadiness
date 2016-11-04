@@ -1,18 +1,19 @@
 package org.cresst.sb.irp.cat.service;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
+import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.cresst.sb.irp.cat.service.lib.Stats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +46,158 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         double[] cutoffLevels = {-0.177, 0.872, 2.026};
         classificationCalculations(catData, response, cutoffLevels);
 
+        List<BlueprintStatement> blueprintStatements = getGradeClaimBlueprints(11);
+        calculateBlueprintViolations(catData, response, blueprintStatements);
+
         return response;
+    }
+
+    private void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
+            List<BlueprintStatement> blueprintStatements) {
+
+        // Make a pool item map by item id
+        Map<String, PoolItem> poolItems = new HashMap<>();
+        for(PoolItem item : catData.getPoolItems()) {
+            poolItems.put(item.getItemId(), item);
+        }
+
+        //logger.debug("poolItems: {}", poolItems);
+
+        // Get map of all items taken by each student
+
+        Map<Integer, ViolationCount> violationCounts = new HashMap<>();
+        Map<String, List<ItemResponseCAT>> studentItems = groupItemsByStudent(catData.getItemResponses());
+        // TODO: Need to keep track of all violations
+        for(List<ItemResponseCAT> itemResponses : studentItems.values()) {
+            Map<Integer, Integer> claimMap = computeClaimNumbers(itemResponses, poolItems);
+            logger.debug("claimMap: {}", claimMap);
+            if(claimMap.size() == 0) {
+                continue;
+            }
+            //Map<Integer, Violation> violationMap = new HashMap<>();
+            for(BlueprintStatement blueprint : blueprintStatements) {
+                int claimNumber = blueprint.getClaimNumber();
+                int totalClaim = claimMap.get(claimNumber);
+                ViolationCount vCount;
+                if(violationCounts.containsKey(claimNumber)) {
+                    vCount = violationCounts.get(claimNumber);
+                } else {
+                    vCount = new ViolationCount();
+                }
+
+                if(totalClaim < blueprint.getMin()) {
+                    vCount.incUnder();
+                } else if (blueprint.getMin() <= totalClaim && totalClaim <= blueprint.getMax()) {
+                    vCount.incMatch();
+                } else if (blueprint.getMax() < totalClaim) {
+                    vCount.incOver();
+                }
+                violationCounts.put(claimNumber, vCount);
+            }
+        }
+
+        response.setClaimViolations(violationCounts);
+    }
+
+    /**
+     *
+     * @param itemResponses is a list of the items we want to count claim numbers for
+     * @return A map of <claim-number, count> pairs where the number of items in each claim is counted
+     */
+    private Map<Integer, Integer> computeClaimNumbers(List<ItemResponseCAT> itemResponses, Map<String, PoolItem> poolItems) {
+        Map<Integer, Integer> result = new HashMap<>();
+        for(ItemResponseCAT item : itemResponses) {
+            int claimNumber = getClaimFromItemId(item.getItemId(), poolItems);
+            if (claimNumber == -1) {
+                //logger.warn("Item {} not found in item pool", item.getItemId());
+                continue;
+            }
+
+            if (result.containsKey(claimNumber)) {
+                result.put(claimNumber, result.get(claimNumber) + 1);
+            } else {
+                result.put(claimNumber, 1);
+            }
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @param itemId id we want a claim number for
+     * @param poolItems the <ItemId, PoolItem> map for test
+     * @return integer claim number for the given item, -1 if not found
+     */
+    private int getClaimFromItemId(String itemId, Map<String, PoolItem> poolItems) {
+        PoolItem strClaim = poolItems.get(itemId);
+        if(strClaim != null) {
+            return Integer.parseInt(strClaim.getClaim());
+        }
+        return -1;
+    }
+
+    private Map<String, List<ItemResponseCAT>> groupItemsByStudent(List<ItemResponseCAT> itemResponses) {
+        Map<String, List<ItemResponseCAT>> results = new HashMap<>();
+        for(ItemResponseCAT resp : itemResponses) {
+            String sid = resp.getsId();
+            if(results.containsKey(sid)) {
+                results.get(sid).add(resp);
+            } else {
+                List<ItemResponseCAT> newList = new ArrayList<>();
+                newList.add(resp);
+                results.put(sid, newList);
+            }
+        }
+        return results;
+    }
+
+    private BlueprintStatement getClaimBlueprint(int grade, int claim) {
+        if (grade != 11) {
+            logger.error("Only grade 11 implemented");
+            return null;
+        }
+
+        BlueprintStatement blueprint = new BlueprintStatement();
+        switch (claim) {
+        case 1:
+            blueprint.setClaimName("Reading");
+            blueprint.setMin(15);
+            blueprint.setMax(16);
+            break;
+        case 2:
+            blueprint.setClaimName("Writing");
+            blueprint.setMin(10);
+            blueprint.setMax(10);
+            break;
+        case 3:
+            blueprint.setClaimName("Speaking/Listening");
+            blueprint.setMin(8);
+            blueprint.setMax(9);
+            break;
+        case 4:
+            blueprint.setClaimName("Research");
+            blueprint.setMin(6);
+            blueprint.setMax(6);
+            break;
+        default:
+            break;
+        }
+        blueprint.setClaimNumber(claim);
+        return blueprint;
+    }
+
+    private List<BlueprintStatement> getGradeClaimBlueprints(int grade) {
+        if (grade != 11) {
+            logger.error("Only grade 11 implemented");
+            return null;
+        }
+
+        int claimTotals = 4;
+        List<BlueprintStatement> statements = new ArrayList<>();
+        for(int i = 1; i <= claimTotals; i++) {
+            statements.add(getClaimBlueprint(grade, i));
+        }
+        return statements;
     }
 
     private boolean biasCalculations(CATDataModel catData, CATAnalysisResponse response) {

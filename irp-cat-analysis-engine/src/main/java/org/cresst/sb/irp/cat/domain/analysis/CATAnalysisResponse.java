@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import java.util.List;
 import java.util.Map;
 
 public class CATAnalysisResponse {
@@ -10,6 +11,8 @@ public class CATAnalysisResponse {
     private double[] decileRmse;
     private int[][] classAccMatrix;
     private double classAccuracy;
+    private List<BlueprintStatement> blueprintStatements;
+    private Map<Integer, ViolationCount> claimViolations;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -121,5 +124,21 @@ public class CATAnalysisResponse {
 
     public void setClassAccuracy(double classAccuracy) {
         this.classAccuracy = classAccuracy;
+    }
+
+    public List<BlueprintStatement> getBlueprintStatements() {
+        return blueprintStatements;
+    }
+
+    public void setBlueprintStatements(List<BlueprintStatement> blueprintStatements) {
+        this.blueprintStatements = blueprintStatements;
+    }
+
+    public Map<Integer, ViolationCount> getClaimViolations() {
+        return claimViolations;
+    }
+
+    public void setClaimViolations(Map<Integer, ViolationCount> violationCounts) {
+        this.claimViolations = violationCounts;
     }
 }

@@ -14,7 +14,7 @@ import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +60,7 @@ public class Stats {
         Map<String, ExposureRate> exposureRates = new HashMap<>();
 
         // Initialize exposures to 0
-        for(PoolItemELA poolItem : catData.getPoolItems()) {
+        for(PoolItem poolItem : catData.getPoolItems()) {
             ExposureRate exposureRate = new ExposureRate();
             exposureRate.setExposureRate(0.0);
             exposureRate.setInItemPool(true);

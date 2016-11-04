@@ -1,6 +1,7 @@
 package org.cresst.sb.irp.upload;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
@@ -40,6 +42,9 @@ public class CATFileUploadController {
 
     @Value("${irp.version}")
     String irpVersion;
+
+    @Value("${cat.math.itempool}")
+    private Resource mathItemPoolResource;
 
     @Value("${cat.elag11.itempool}")
     private Resource itemPoolResource;
@@ -73,23 +78,28 @@ public class CATFileUploadController {
             List<ItemResponseCAT> itemResponses = null;
             List<StudentScoreCAT> studentScores = null;
             List<PoolItemELA> poolItems = null;
+            List<PoolItemMath> mathPoolItems = null;
+            List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
             List<Blueprint> blueprints = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
+                //mathPoolItems = catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream());
                 poolItems = catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream());
+                allItems.addAll(mathPoolItems);
+                //allItems.addAll(poolItems);
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
-                logger.error("Unable to get input stream: " + e.getMessage());
+                logger.error("{}", e.getMessage());
                 throw e;
             }
 
             CATDataModel catData = new CATDataModel();
             catData.setItemResponses(itemResponses);
             catData.setStudentScores(studentScores);
-            catData.setPoolItems(poolItems);
+            catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
             // TODO: Need to manually fix blueprint files
             catData.setBlueprints(blueprints);
