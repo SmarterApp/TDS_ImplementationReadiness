@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class ExposureRateResponse {
@@ -77,5 +78,12 @@ public class ExposureRateResponse {
 
     public void setBinSize(double binSize) {
         this.binSize = binSize;
+    }
+
+    @Override
+    public String toString() {
+        return "ExposureRateResponse [exposureRates=" + exposureRates + ", unusedItems=" + unusedItems
+                + ", itemPoolCount=" + itemPoolCount + ", usedItems=" + usedItems + ", percentUnused=" + percentUnused
+                + ", percentUsed=" + percentUsed + ", bins=" + Arrays.toString(bins) + ", binSize=" + binSize + "]";
     }
 }

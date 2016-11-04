@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -140,5 +141,14 @@ public class CATAnalysisResponse {
 
     public void setClaimViolations(Map<Integer, ViolationCount> violationCounts) {
         this.claimViolations = violationCounts;
+    }
+
+    @Override
+    public String toString() {
+        return "CATAnalysisResponse [exposureRateResponse=" + exposureRateResponse + ", averageBias=" + averageBias
+                + ", rmse=" + rmse + ", decileAverageBias=" + Arrays.toString(decileAverageBias) + ", decileRmse="
+                + Arrays.toString(decileRmse) + ", classAccMatrix=" + Arrays.toString(classAccMatrix)
+                + ", classAccuracy=" + classAccuracy + ", blueprintStatements=" + blueprintStatements
+                + ", claimViolations=" + claimViolations + "]";
     }
 }

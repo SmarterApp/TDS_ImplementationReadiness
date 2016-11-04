@@ -10,10 +10,10 @@ public class ViolationCount {
         this.under += 1;
     }
     public void incMatch() {
-        this.under += 1;
+        this.match += 1;
     }
     public void incOver() {
-        this.under += 1;
+        this.over += 1;
     }
 
     public int getUnder() {
