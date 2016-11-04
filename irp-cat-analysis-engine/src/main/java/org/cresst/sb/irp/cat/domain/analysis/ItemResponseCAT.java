@@ -10,6 +10,14 @@ public class ItemResponseCAT {
     private String itemId;
     private int score;
 
+    public ItemResponseCAT(){};
+
+    public ItemResponseCAT(String sId, String itemId, int score) {
+        this.sId = sId;
+        this.itemId = itemId;
+        this.score = score;
+    }
+
     public String getsId() {
         return sId;
     }

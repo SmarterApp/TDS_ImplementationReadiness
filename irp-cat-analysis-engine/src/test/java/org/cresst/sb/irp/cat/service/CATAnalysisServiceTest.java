@@ -4,9 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.cresst.sb.irp.cat.AppConfig;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
@@ -16,13 +14,7 @@ import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class})
 public class CATAnalysisServiceTest {
     private CATAnalysisResponse response;
     private CATDataModel catData;
@@ -30,8 +22,6 @@ public class CATAnalysisServiceTest {
     private List<BlueprintStatement> blueprintStatements;
     private List<PoolItem> poolItems;
     private List<ItemResponseCAT> itemResponses;
-
-    @Autowired
     private CATAnalysisService catAnalysisService;
 
     @Before
@@ -42,6 +32,7 @@ public class CATAnalysisServiceTest {
         poolItems = new ArrayList<>();
         itemResponses = new ArrayList<>();
         blueState = new BlueprintStatement();
+        catAnalysisService = new CATAnalysisServiceImpl();
     }
 
     @Test
@@ -61,11 +52,7 @@ public class CATAnalysisServiceTest {
         item.setItemId("1");
         poolItems.add(item);
 
-        ItemResponseCAT resp = new ItemResponseCAT();
-        resp.setItemId("1");
-        resp.setScore(1);
-        resp.setsId("1");
-        itemResponses.add(resp);
+        itemResponses.add(new ItemResponseCAT("1", "1", 1));
 
         catData.setPoolItems(poolItems);
         catData.setItemResponses(itemResponses);
