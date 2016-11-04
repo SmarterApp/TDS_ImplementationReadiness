@@ -52,9 +52,18 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return response;
     }
 
-    private void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
+    @Override
+    public void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
             List<BlueprintStatement> blueprintStatements) {
 
+        if (catData == null) {
+            return;
+        }
+
+
+        if (catData.getPoolItems() == null) {
+            return;
+        }
         // Make a pool item map by item id
         Map<String, PoolItem> poolItems = new HashMap<>();
         for(PoolItem item : catData.getPoolItems()) {
