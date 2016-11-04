@@ -18,7 +18,6 @@ import org.junit.Test;
 public class CATAnalysisServiceTest {
     private CATAnalysisResponse response;
     private CATDataModel catData;
-    private BlueprintStatement blueState;
     private List<BlueprintStatement> blueprintStatements;
     private List<PoolItem> poolItems;
     private List<ItemResponseCAT> itemResponses;
@@ -31,7 +30,6 @@ public class CATAnalysisServiceTest {
         blueprintStatements = new ArrayList<>();
         poolItems = new ArrayList<>();
         itemResponses = new ArrayList<>();
-        blueState = new BlueprintStatement();
         catAnalysisService = new CATAnalysisServiceImpl();
     }
 
@@ -40,17 +38,9 @@ public class CATAnalysisServiceTest {
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
         assertNotNull(response);
 
-        blueState.setClaimName("Testing");
-        blueState.setClaimNumber(1);
-        blueState.setMin(1);
-        blueState.setMax(1);
+        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1));
 
-        blueprintStatements.add(blueState);
-
-        PoolItemELA item = new PoolItemELA();
-        item.setClaim("1");
-        item.setItemId("1");
-        poolItems.add(item);
+        poolItems.add(createSimplePoolItem("1", "1"));
 
         itemResponses.add(new ItemResponseCAT("1", "1", 1));
 
@@ -63,5 +53,35 @@ public class CATAnalysisServiceTest {
         assertEquals(0, claim1Violations.getUnder());
         assertEquals(1, claim1Violations.getMatch());
         assertEquals(0, claim1Violations.getOver());
+
+        poolItems.add(createSimplePoolItem("2", "2"));
+        poolItems.add(createSimplePoolItem("2", "3"));
+
+        // Claim 2
+        // min 2, max 2
+        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2));
+
+        itemResponses.add(new ItemResponseCAT("1", "2", 1));
+        catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
+
+        ViolationCount claim2Violations = response.getClaimViolations().get(2);
+        claim1Violations = response.getClaimViolations().get(1);
+
+        // Should still be the same
+        assertEquals(0, claim1Violations.getUnder());
+        assertEquals(1, claim1Violations.getMatch());
+        assertEquals(0, claim1Violations.getOver());
+
+        // Don't have enough items in claim 2
+        assertEquals(1, claim2Violations.getUnder());
+        assertEquals(0, claim2Violations.getMatch());
+        assertEquals(0, claim2Violations.getOver());
+    }
+
+    private PoolItem createSimplePoolItem(String claim, String itemId) {
+        PoolItemELA item = new PoolItemELA();
+        item.setClaim(claim);
+        item.setItemId(itemId);
+        return item;
     }
 }

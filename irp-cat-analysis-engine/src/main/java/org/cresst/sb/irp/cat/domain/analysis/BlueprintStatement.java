@@ -5,6 +5,16 @@ public class BlueprintStatement {
     private int claimNumber;
     private int min;
     private int max;
+
+    public BlueprintStatement(){}
+
+    public BlueprintStatement(String claimName, int claimNumber, int min, int max) {
+        this.claimName = claimName;
+        this.claimNumber = claimNumber;
+        this.min = min;
+        this.max = max;
+    }
+
     public String getClaimName() {
         return claimName;
     }
