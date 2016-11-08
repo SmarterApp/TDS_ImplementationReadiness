@@ -48,7 +48,7 @@ public class CATAnalysisServiceTest {
         catData.setItemResponses(itemResponses);
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
 
-        ViolationCount claim1Violations = response.getClaimViolations().get(1);
+        ViolationCount claim1Violations = response.getClaimViolationsMap().get(1);
 
         assertEquals(0, claim1Violations.getUnder());
         assertEquals(1, claim1Violations.getMatch());
@@ -64,8 +64,8 @@ public class CATAnalysisServiceTest {
         itemResponses.add(new ItemResponseCAT("1", "2", 1));
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
 
-        ViolationCount claim2Violations = response.getClaimViolations().get(2);
-        claim1Violations = response.getClaimViolations().get(1);
+        ViolationCount claim2Violations = response.getClaimViolationsMap().get(2);
+        claim1Violations = response.getClaimViolationsMap().get(1);
 
         // Should still be the same
         assertEquals(0, claim1Violations.getUnder());

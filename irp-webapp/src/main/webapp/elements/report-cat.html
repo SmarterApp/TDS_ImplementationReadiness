@@ -87,7 +87,23 @@
                 <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
             </div>
             <div id="blueprint-violations">
-                [[catResults.violationCounts]]
+                <b>Violation Counts</b>
+                <table>
+                    <tr>
+                        <td>Claim</td>
+                        <td>Under</td>
+                        <td>Match</td>
+                        <td>Over</td>
+                    </tr>
+                    <template is="dom-repeat" items="{{catResults.claimViolations}}" as="violation">
+                        <tr>
+                            <td>[[violation.claim]]</td>
+                            <td>[[violation.under]]</td>
+                            <td>[[violation.match]]</td>
+                            <td>[[violation.over]]</td>
+                        </tr>
+                    </template>
+                </table>
             </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
@@ -122,6 +138,14 @@
             },
             upperBound: function(binSize, index, roundDigits) {
                 return this.lowerBound(binSize, index + 1, 2);
+            },
+            _toArray: function(obj) {
+                return Object.keys(obj).map(function(key) {
+                    return {
+                        name: key,
+                        value: obj[key]
+                    };
+                });
             }
         });
     </script>

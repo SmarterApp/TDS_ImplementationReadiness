@@ -5,22 +5,24 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({
-    "itemId","subject","itemGrade","claim","target","useTarget","blueprintTarget",
-    "dok","stimId","asmtType","itemType","irtA","irtB","irtC",
+    "stimId","itemId","subject","itemGrade","poolGrade","claim","target","useTarget","blueprintTarget",
+    "dok","asmtType","itemType","irtA","irtB","irtC",
     "irtStep1","irtStep2","irtStep3","irtStep4","irtStep5","irtStep6","irtStep7","irtStep8",
-    "braille","enemyItem","poolGrade","extPool","shortAnswer","fullWrite","spaErrors"
+    "braille","enemyItem","extPool","shortAnswer","fullWrite","passage",
+    "writeRevise","claim2cat","stimMax","stimMin","spaErrors"
 })
 public class PoolItemELA implements PoolItem {
+    private String stimId;
     private String itemId;
     private String subject;
     private String itemGrade;
+    private String poolGrade;
     private String claim;
     private String target;
     private String useTarget;
     private String blueprintTarget;
     // Depth of knowledge
     private String dok;
-    private String stimId;
     private String asmtType;
     private String itemType;
     private String irtA;
@@ -36,11 +38,17 @@ public class PoolItemELA implements PoolItem {
     private String irtStep8;
     private String braille;
     private String enemyItem;
-    private String poolGrade;
     private String extPool;
     private String shortAnswer;
     private String fullWrite;
+    private String passage;
+    private String writeRevise;
+    private String claim2cat;
+    private String stimMax;
+    private String stimMin;
     private String spaErrors;
+
+    @Override
     public String getItemId() {
         return itemId;
     }
@@ -218,26 +226,56 @@ public class PoolItemELA implements PoolItem {
     }
     @Override
     public String toString() {
-        return "PoolItemELA [itemId=" + itemId + ", subject=" + subject + ", itemGrade=" + itemGrade + ", claim="
-                + claim + ", target=" + target + ", useTarget=" + useTarget + ", blueprintTarget=" + blueprintTarget
-                + ", dok=" + dok + ", stimId=" + stimId + ", asmtType=" + asmtType + ", itemType=" + itemType
-                + ", irtA=" + irtA + ", irtB=" + irtB + ", irtC=" + irtC + ", irtStep1=" + irtStep1 + ", irtStep2="
-                + irtStep2 + ", irtStep3=" + irtStep3 + ", irtStep4=" + irtStep4 + ", irtStep5=" + irtStep5
-                + ", irtStep6=" + irtStep6 + ", irtStep7=" + irtStep7 + ", irtStep8=" + irtStep8 + ", braille="
-                + braille + ", enemyItem=" + enemyItem + ", poolGrade=" + poolGrade + ", extPool=" + extPool
-                + ", shortAnswer=" + shortAnswer + ", fullWrite=" + fullWrite + ", spaErrors=" + spaErrors + "]";
+        return "PoolItemELA [stimId=" + stimId + ", itemId=" + itemId + ", subject=" + subject + ", itemGrade="
+                + itemGrade + ", poolGrade=" + poolGrade + ", claim=" + claim + ", target=" + target + ", useTarget="
+                + useTarget + ", blueprintTarget=" + blueprintTarget + ", dok=" + dok + ", asmtType=" + asmtType
+                + ", itemType=" + itemType + ", irtA=" + irtA + ", irtB=" + irtB + ", irtC=" + irtC + ", irtStep1="
+                + irtStep1 + ", irtStep2=" + irtStep2 + ", irtStep3=" + irtStep3 + ", irtStep4=" + irtStep4
+                + ", irtStep5=" + irtStep5 + ", irtStep6=" + irtStep6 + ", irtStep7=" + irtStep7 + ", irtStep8="
+                + irtStep8 + ", braille=" + braille + ", enemyItem=" + enemyItem + ", extPool=" + extPool
+                + ", shortAnswer=" + shortAnswer + ", fullWrite=" + fullWrite + ", passage=" + passage
+                + ", writeRevise=" + writeRevise + ", claim2cat=" + claim2cat + ", stimMax=" + stimMax + ", stimMin="
+                + stimMin + ", spaErrors=" + spaErrors + "]";
     }
     @Override
     public int hashCode() {
-        return Objects.hash(
-                itemId,subject,itemGrade,claim,target,
-                useTarget,blueprintTarget,dok,stimId,
-                asmtType,itemType,irtA,irtB,irtC,
-                irtStep1, irtStep2,irtStep3, irtStep4,
-                irtStep5,irtStep6,irtStep7,irtStep8,
-                braille,enemyItem,poolGrade,extPool,
-                shortAnswer,fullWrite,spaErrors
-                );
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((asmtType == null) ? 0 : asmtType.hashCode());
+        result = prime * result + ((blueprintTarget == null) ? 0 : blueprintTarget.hashCode());
+        result = prime * result + ((braille == null) ? 0 : braille.hashCode());
+        result = prime * result + ((claim == null) ? 0 : claim.hashCode());
+        result = prime * result + ((claim2cat == null) ? 0 : claim2cat.hashCode());
+        result = prime * result + ((dok == null) ? 0 : dok.hashCode());
+        result = prime * result + ((enemyItem == null) ? 0 : enemyItem.hashCode());
+        result = prime * result + ((extPool == null) ? 0 : extPool.hashCode());
+        result = prime * result + ((fullWrite == null) ? 0 : fullWrite.hashCode());
+        result = prime * result + ((irtA == null) ? 0 : irtA.hashCode());
+        result = prime * result + ((irtB == null) ? 0 : irtB.hashCode());
+        result = prime * result + ((irtC == null) ? 0 : irtC.hashCode());
+        result = prime * result + ((irtStep1 == null) ? 0 : irtStep1.hashCode());
+        result = prime * result + ((irtStep2 == null) ? 0 : irtStep2.hashCode());
+        result = prime * result + ((irtStep3 == null) ? 0 : irtStep3.hashCode());
+        result = prime * result + ((irtStep4 == null) ? 0 : irtStep4.hashCode());
+        result = prime * result + ((irtStep5 == null) ? 0 : irtStep5.hashCode());
+        result = prime * result + ((irtStep6 == null) ? 0 : irtStep6.hashCode());
+        result = prime * result + ((irtStep7 == null) ? 0 : irtStep7.hashCode());
+        result = prime * result + ((irtStep8 == null) ? 0 : irtStep8.hashCode());
+        result = prime * result + ((itemGrade == null) ? 0 : itemGrade.hashCode());
+        result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
+        result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
+        result = prime * result + ((passage == null) ? 0 : passage.hashCode());
+        result = prime * result + ((poolGrade == null) ? 0 : poolGrade.hashCode());
+        result = prime * result + ((shortAnswer == null) ? 0 : shortAnswer.hashCode());
+        result = prime * result + ((spaErrors == null) ? 0 : spaErrors.hashCode());
+        result = prime * result + ((stimId == null) ? 0 : stimId.hashCode());
+        result = prime * result + ((stimMax == null) ? 0 : stimMax.hashCode());
+        result = prime * result + ((stimMin == null) ? 0 : stimMin.hashCode());
+        result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+        result = prime * result + ((target == null) ? 0 : target.hashCode());
+        result = prime * result + ((useTarget == null) ? 0 : useTarget.hashCode());
+        result = prime * result + ((writeRevise == null) ? 0 : writeRevise.hashCode());
+        return result;
     }
 
     @Override
@@ -268,6 +306,11 @@ public class PoolItemELA implements PoolItem {
             if (other.claim != null)
                 return false;
         } else if (!claim.equals(other.claim))
+            return false;
+        if (claim2cat == null) {
+            if (other.claim2cat != null)
+                return false;
+        } else if (!claim2cat.equals(other.claim2cat))
             return false;
         if (dok == null) {
             if (other.dok != null)
@@ -359,6 +402,11 @@ public class PoolItemELA implements PoolItem {
                 return false;
         } else if (!itemType.equals(other.itemType))
             return false;
+        if (passage == null) {
+            if (other.passage != null)
+                return false;
+        } else if (!passage.equals(other.passage))
+            return false;
         if (poolGrade == null) {
             if (other.poolGrade != null)
                 return false;
@@ -379,6 +427,16 @@ public class PoolItemELA implements PoolItem {
                 return false;
         } else if (!stimId.equals(other.stimId))
             return false;
+        if (stimMax == null) {
+            if (other.stimMax != null)
+                return false;
+        } else if (!stimMax.equals(other.stimMax))
+            return false;
+        if (stimMin == null) {
+            if (other.stimMin != null)
+                return false;
+        } else if (!stimMin.equals(other.stimMin))
+            return false;
         if (subject == null) {
             if (other.subject != null)
                 return false;
@@ -394,7 +452,42 @@ public class PoolItemELA implements PoolItem {
                 return false;
         } else if (!useTarget.equals(other.useTarget))
             return false;
+        if (writeRevise == null) {
+            if (other.writeRevise != null)
+                return false;
+        } else if (!writeRevise.equals(other.writeRevise))
+            return false;
         return true;
+    }
+    public String getWriteRevise() {
+        return writeRevise;
+    }
+    public void setWriteRevise(String writeRevise) {
+        this.writeRevise = writeRevise;
+    }
+    public String getClaim2cat() {
+        return claim2cat;
+    }
+    public void setClaim2cat(String claim2cat) {
+        this.claim2cat = claim2cat;
+    }
+    public String getStimMax() {
+        return stimMax;
+    }
+    public void setStimMax(String stimMax) {
+        this.stimMax = stimMax;
+    }
+    public String getStimMin() {
+        return stimMin;
+    }
+    public void setStimMin(String stimMin) {
+        this.stimMin = stimMin;
+    }
+    public String getPassage() {
+        return passage;
+    }
+    public void setPassage(String passage) {
+        this.passage = passage;
     }
 
 }

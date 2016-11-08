@@ -78,6 +78,27 @@
             </table>
             <p th:text="|Classification accuracy: ${#numbers.formatDecimal(catResults.classAccuracy, 0, 3)}|"></p>
         </div>
+        
+        <div id="blueprint-violations">
+                <b>Violation Counts</b>
+                <table>
+                    <tr>
+                        <td>Claim</td>
+                        <td>Under</td>
+                        <td>Match</td>
+                        <td>Over</td>
+                    </tr>
+
+                    <th:block th:each="violation : ${catResults.claimViolations}">
+                        <tr>
+                            <td th:text="${violation.claim}"></td>
+                            <td th:text="${violation.under}"></td>
+                            <td th:text="${violation.match}"></td>
+                            <td th:text="${violation.over}"></td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
     </div>
 </body>
 </html>

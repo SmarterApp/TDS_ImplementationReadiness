@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,8 @@ public class CATAnalysisResponse {
     private int[][] classAccMatrix;
     private double classAccuracy;
     private List<BlueprintStatement> blueprintStatements;
-    private Map<Integer, ViolationCount> claimViolations;
+    private Map<Integer, ViolationCount> claimViolationsMap;
+    private List<ViolationCount> claimViolations;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -135,12 +137,20 @@ public class CATAnalysisResponse {
         this.blueprintStatements = blueprintStatements;
     }
 
-    public Map<Integer, ViolationCount> getClaimViolations() {
+    public Map<Integer, ViolationCount> getClaimViolationsMap() {
+        return claimViolationsMap;
+    }
+
+    public void setClaimViolationsMap(Map<Integer, ViolationCount> violationCounts) {
+        this.claimViolationsMap = violationCounts;
+    }
+
+    public List<ViolationCount> getClaimViolations() {
         return claimViolations;
     }
 
-    public void setClaimViolations(Map<Integer, ViolationCount> violationCounts) {
-        this.claimViolations = violationCounts;
+    public void setClaimViolations(List<ViolationCount> claimViolations) {
+        this.claimViolations = claimViolations;
     }
 
     @Override
@@ -149,6 +159,6 @@ public class CATAnalysisResponse {
                 + ", rmse=" + rmse + ", decileAverageBias=" + Arrays.toString(decileAverageBias) + ", decileRmse="
                 + Arrays.toString(decileRmse) + ", classAccMatrix=" + Arrays.toString(classAccMatrix)
                 + ", classAccuracy=" + classAccuracy + ", blueprintStatements=" + blueprintStatements
-                + ", claimViolations=" + claimViolations + "]";
+                + ", claimViolationsMap=" + claimViolationsMap + "]";
     }
 }

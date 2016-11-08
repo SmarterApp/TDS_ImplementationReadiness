@@ -87,8 +87,8 @@ public class CATFileUploadController {
                 studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
                 //mathPoolItems = catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream());
                 poolItems = catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream());
-                allItems.addAll(mathPoolItems);
-                //allItems.addAll(poolItems);
+                //allItems.addAll(mathPoolItems);
+                allItems.addAll(poolItems);
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
                 //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {

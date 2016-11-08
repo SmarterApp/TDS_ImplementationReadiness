@@ -94,6 +94,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
                     vCount = new ViolationCount();
                 }
 
+                vCount.setClaim(claimNumber);
+
                 if(totalClaim < blueprint.getMin()) {
                     vCount.incUnder();
                 } else if (blueprint.getMin() <= totalClaim && totalClaim <= blueprint.getMax()) {
@@ -105,7 +107,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             }
         }
 
-        response.setClaimViolations(violationCounts);
+        response.setClaimViolationsMap(violationCounts);
+        response.setClaimViolations(new ArrayList<ViolationCount>(violationCounts.values()));
     }
 
     /**
