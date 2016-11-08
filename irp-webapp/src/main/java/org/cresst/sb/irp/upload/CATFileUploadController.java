@@ -90,7 +90,7 @@ public class CATFileUploadController {
                 //allItems.addAll(mathPoolItems);
                 allItems.addAll(poolItems);
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
-                //blueprints = catAnalysisService.parseBlueprint(blueprintResource.getInputStream());
+                blueprints = catParsingService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());
                 throw e;
