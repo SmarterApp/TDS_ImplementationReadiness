@@ -46,16 +46,16 @@ public class CATFileUploadController {
     @Value("${cat.math.itempool}")
     private Resource mathItemPoolResource;
 
-    @Value("${cat.elag11.itempool}")
+    @Value("${cat.ela.itempool}")
     private Resource itemPoolResource;
 
-    @Value("${cat.elag11.blueprint}")
+    @Value("${cat.elag3.blueprint}")
     private Resource blueprintResource;
 
-    @Value("${cat.elag11.studentdata}")
+    @Value("${cat.elag3.studentdata}")
     private Resource studentDataResource;
 
-    @Value("${cat.elag11.truethetas}")
+    @Value("${cat.elag3.truethetas}")
     private Resource trueThetasResource;
 
     @Autowired
