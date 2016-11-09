@@ -89,6 +89,16 @@ public class CATAnalysisServiceTest {
         assertEquals(1, claim2Violations.getUnder());
         assertEquals(0, claim2Violations.getMatch());
         assertEquals(0, claim2Violations.getOver());
+
+        // Claim 2, DOK >= 2
+        blueprintStatements.add(new BlueprintStatement("Claim 2, DOK>=2", 2, 1, 1, new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && Integer.parseInt(item.getDok()) >= 3;
+            }
+        }));
+
+        itemResponses.add(new ItemResponseCAT("1", "3", 0));
     }
 
     private PoolItem createSimplePoolItem(String claim, String itemId) {

@@ -12,6 +12,8 @@ public class BlueprintStatement {
     private int claimNumber;
     private int min;
     private int max;
+    private ViolationCount violationCount;
+
     @JsonIgnore
     private BlueprintCondition condition;
 
@@ -52,7 +54,7 @@ public class BlueprintStatement {
     @Override
     public String toString() {
         return "BlueprintStatement [claimName=" + claimName + ", claimNumber=" + claimNumber + ", min=" + min + ", max="
-                + max + "]";
+                + max + ", violationCount=" + violationCount + "]";
     }
 
     public boolean test(PoolItem item) {
@@ -69,5 +71,13 @@ public class BlueprintStatement {
 
     public void setCondition(BlueprintCondition condition) {
         this.condition = condition;
+    }
+
+    public ViolationCount getViolationCount() {
+        return violationCount;
+    }
+
+    public void setViolationCount(ViolationCount violationCount) {
+        this.violationCount = violationCount;
     }
 }

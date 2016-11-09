@@ -29,12 +29,35 @@ public class BlueprintStatementTest {
 
             @Override
             public String getItemId() {
-                return "1";
+                return null;
             }
 
             @Override
             public String getClaim() {
                 return "1";
+            }
+
+            @Override
+            public String getDok() {
+                return null;
+            }
+        }));
+
+        assertFalse(statement.test(new PoolItem() {
+
+            @Override
+            public String getItemId() {
+                return null;
+            }
+
+            @Override
+            public String getClaim() {
+                return "2";
+            }
+
+            @Override
+            public String getDok() {
+                return null;
             }
         }));
     }

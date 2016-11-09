@@ -77,7 +77,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         Map<Integer, ViolationCount> violationCounts = new HashMap<>();
         Map<String, List<ItemResponseCAT>> studentItems = groupItemsByStudent(catData.getItemResponses());
-        // TODO: Need to keep track of all violations
         for(List<ItemResponseCAT> itemResponses : studentItems.values()) {
             Map<Integer, Integer> claimMap = computeClaimNumbers(itemResponses, poolItems);
             logger.debug("claimMap: {}", claimMap);
