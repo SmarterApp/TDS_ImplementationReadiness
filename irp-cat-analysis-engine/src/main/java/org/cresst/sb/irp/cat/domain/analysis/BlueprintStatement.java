@@ -1,18 +1,25 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class BlueprintStatement {
+    private final static Logger logger = LoggerFactory.getLogger(BlueprintStatement.class);
+
     private String claimName;
     private int claimNumber;
     private int min;
     private int max;
+    private BlueprintCondition condition;
 
     public BlueprintStatement(){}
 
-    public BlueprintStatement(String claimName, int claimNumber, int min, int max) {
+    public BlueprintStatement(String claimName, int claimNumber, int min, int max, BlueprintCondition condition) {
         this.claimName = claimName;
         this.claimNumber = claimNumber;
         this.min = min;
         this.max = max;
+        this.condition = condition;
     }
 
     public String getClaimName() {
@@ -43,5 +50,13 @@ public class BlueprintStatement {
     public String toString() {
         return "BlueprintStatement [claimName=" + claimName + ", claimNumber=" + claimNumber + ", min=" + min + ", max="
                 + max + "]";
+    }
+
+    public boolean test(PoolItem item) {
+        if (condition != null) {
+            return condition.test(item);
+        }
+        logger.warn("No condition specified.");
+        return false;
     }
 }

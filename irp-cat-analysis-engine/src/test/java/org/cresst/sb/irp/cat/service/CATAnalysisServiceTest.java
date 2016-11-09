@@ -38,7 +38,7 @@ public class CATAnalysisServiceTest {
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
         assertNotNull(response);
 
-        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1));
+        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1, null));
 
         poolItems.add(createSimplePoolItem("1", "1"));
 
@@ -59,7 +59,7 @@ public class CATAnalysisServiceTest {
 
         // Claim 2
         // min 2, max 2
-        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2));
+        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2, null));
 
         itemResponses.add(new ItemResponseCAT("1", "2", 1));
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
