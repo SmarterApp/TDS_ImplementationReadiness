@@ -3,6 +3,8 @@ package org.cresst.sb.irp.cat.domain.analysis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class BlueprintStatement {
     private final static Logger logger = LoggerFactory.getLogger(BlueprintStatement.class);
 
@@ -10,6 +12,7 @@ public class BlueprintStatement {
     private int claimNumber;
     private int min;
     private int max;
+    @JsonIgnore
     private BlueprintCondition condition;
 
     public BlueprintStatement(){}
@@ -58,5 +61,13 @@ public class BlueprintStatement {
         }
         logger.warn("No condition specified.");
         return false;
+    }
+
+    public BlueprintCondition getCondition() {
+        return condition;
+    }
+
+    public void setCondition(BlueprintCondition condition) {
+        this.condition = condition;
     }
 }

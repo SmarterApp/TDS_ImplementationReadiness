@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
@@ -175,21 +176,45 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             blueprint.setClaimName("Reading");
             blueprint.setMin(15);
             blueprint.setMax(16);
+            blueprint.setCondition(new BlueprintCondition() {
+                @Override
+                public boolean test(PoolItem item) {
+                    return item.getClaim().equals("1");
+                }
+            });
             break;
         case 2:
             blueprint.setClaimName("Writing");
             blueprint.setMin(10);
             blueprint.setMax(10);
+            blueprint.setCondition(new BlueprintCondition() {
+                @Override
+                public boolean test(PoolItem item) {
+                    return item.getClaim().equals("2");
+                }
+            });
             break;
         case 3:
             blueprint.setClaimName("Speaking/Listening");
             blueprint.setMin(8);
             blueprint.setMax(9);
+            blueprint.setCondition(new BlueprintCondition() {
+                @Override
+                public boolean test(PoolItem item) {
+                    return item.getClaim().equals("3");
+                }
+            });
             break;
         case 4:
             blueprint.setClaimName("Research");
             blueprint.setMin(6);
             blueprint.setMax(6);
+            blueprint.setCondition(new BlueprintCondition() {
+                @Override
+                public boolean test(PoolItem item) {
+                    return item.getClaim().equals("4");
+                }
+            });
             break;
         default:
             break;

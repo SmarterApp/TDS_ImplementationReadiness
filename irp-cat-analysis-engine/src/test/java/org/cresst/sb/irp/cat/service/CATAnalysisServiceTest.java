@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
@@ -38,7 +39,13 @@ public class CATAnalysisServiceTest {
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
         assertNotNull(response);
 
-        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1, null));
+        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1, new BlueprintCondition() {
+
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("1");
+            }
+        }));
 
         poolItems.add(createSimplePoolItem("1", "1"));
 
@@ -59,7 +66,13 @@ public class CATAnalysisServiceTest {
 
         // Claim 2
         // min 2, max 2
-        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2, null));
+        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2, new BlueprintCondition() {
+
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2");
+            }
+        }));
 
         itemResponses.add(new ItemResponseCAT("1", "2", 1));
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);

@@ -20,10 +20,22 @@ public class BlueprintStatementTest {
 
             @Override
             public boolean test(PoolItem item) {
-                return true;
+                return item.getClaim().equals("1");
             }
         });
+
         assertNotNull(statement);
-        assertTrue(statement.test(null));
+        assertTrue(statement.test(new PoolItem() {
+
+            @Override
+            public String getItemId() {
+                return "1";
+            }
+
+            @Override
+            public String getClaim() {
+                return "1";
+            }
+        }));
     }
 }
