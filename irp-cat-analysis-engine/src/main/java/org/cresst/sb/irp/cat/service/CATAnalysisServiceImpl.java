@@ -165,7 +165,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         blueprint = new BlueprintStatement();
         blueprint.setSpecification("Claim 1, Literary");
-        blueprint.setMin(7);
+        blueprint.setMin(0);
         blueprint.setMax(8);
         blueprint.setCondition(new BlueprintCondition() {
             @Override
