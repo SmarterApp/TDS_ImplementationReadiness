@@ -65,7 +65,16 @@
                     </template>
                 </div>
             </div>
+            <div id="precision-scores">
+                <b>Precision Summary</b>
+                <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
+                <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
+                <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
+                <p>Claim 3 Mean Standard Error of Measurement [[round(catResults.claim3SEM, 3)]]</p>
+                <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
+            </div>
             <div id="score-levels">
+                <b>Classification Levels</b>
                 <table id="score-table">
                     <thead>Score Levels</thead>
                     <td></td><td colspan="4">True Level</td>

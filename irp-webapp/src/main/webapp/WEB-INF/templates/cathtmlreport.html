@@ -57,8 +57,16 @@
                     </th:block>
                 </div>
         </div>
-        
+        <div id="precision-scores">
+        <b>Precision Summary</b>
+            <p th:text="|Mean Overall Standard Error of Measurement ${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}|"></p>
+            <p th:text="|Claim 1 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 3 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
+            </div>
         <div id="score-levels">
+            <b>Classification Levels</b>
             <table id="score-table">
                 <thead>Score Levels</thead>
                 <td></td><td colspan="4">True Level</td>

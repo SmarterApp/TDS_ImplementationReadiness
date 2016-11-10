@@ -16,6 +16,11 @@ public class CATAnalysisResponse {
     private List<BlueprintStatement> blueprintStatements;
     private Map<Integer, ViolationCount> claimViolationsMap;
     private List<ViolationCount> claimViolations;
+    private double overallSEM;
+    private double claim1SEM;
+    private double claim2SEM;
+    private double claim3SEM;
+    private double claim4SEM;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -159,6 +164,48 @@ public class CATAnalysisResponse {
                 + ", rmse=" + rmse + ", decileAverageBias=" + Arrays.toString(decileAverageBias) + ", decileRmse="
                 + Arrays.toString(decileRmse) + ", classAccMatrix=" + Arrays.toString(classAccMatrix)
                 + ", classAccuracy=" + classAccuracy + ", blueprintStatements=" + blueprintStatements
-                + ", claimViolationsMap=" + claimViolationsMap + "]";
+                + ", claimViolationsMap=" + claimViolationsMap + ", claimViolations=" + claimViolations
+                + ", overallSEM=" + overallSEM + ", claim1SEM=" + claim1SEM + ", claim2SEM=" + claim2SEM
+                + ", claim3SEM=" + claim3SEM + ", claim4SEM=" + claim4SEM + "]";
+    }
+
+    public double getOverallSEM() {
+        return overallSEM;
+    }
+
+    public void setOverallSEM(double overallSEM) {
+        this.overallSEM = overallSEM;
+    }
+
+    public double getClaim1SEM() {
+        return claim1SEM;
+    }
+
+    public void setClaim1SEM(double claim1sem) {
+        claim1SEM = claim1sem;
+    }
+
+    public double getClaim2SEM() {
+        return claim2SEM;
+    }
+
+    public void setClaim2SEM(double claim2sem) {
+        claim2SEM = claim2sem;
+    }
+
+    public double getClaim3SEM() {
+        return claim3SEM;
+    }
+
+    public void setClaim3SEM(double claim3sem) {
+        claim3SEM = claim3sem;
+    }
+
+    public double getClaim4SEM() {
+        return claim4SEM;
+    }
+
+    public void setClaim4SEM(double claim4sem) {
+        claim4SEM = claim4sem;
     }
 }

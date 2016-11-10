@@ -47,6 +47,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         double[] cutoffLevels = {-0.177, 0.872, 2.026};
         classificationCalculations(catData, response, cutoffLevels);
 
+
+        precisionStats(catData, response);
         List<BlueprintStatement> blueprintStatements = getGradeClaimBlueprints(11);
         calculateBlueprintViolations(catData, response, blueprintStatements);
 
@@ -281,5 +283,27 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         double classAccuracy = Stats.classificationAccuracy(classAccMatrix);
         response.setClassAccMatrix(classAccMatrix);
         response.setClassAccuracy(classAccuracy);
+    }
+
+    private void precisionStats(CATDataModel catData, CATAnalysisResponse response) {
+        double overallSEM = 0.0d;
+        double claim1SEM = 0.0d;
+        double claim2SEM = 0.0d;
+        double claim3SEM = 0.0d;
+        double claim4SEM = 0.0d;
+        List<StudentScoreCAT> scores = catData.getStudentScores();
+        for(StudentScoreCAT score : scores) {
+            overallSEM += score.getOverallSEM();
+            claim1SEM += score.getClaim1SEM();
+            claim2SEM += score.getClaim2SEM();
+            claim3SEM += score.getClaim3SEM();
+            claim4SEM += score.getClaim4SEM();
+        }
+
+        response.setOverallSEM(overallSEM / scores.size());
+        response.setClaim1SEM(claim1SEM / scores.size());
+        response.setClaim2SEM(claim2SEM / scores.size());
+        response.setClaim3SEM(claim3SEM / scores.size());
+        response.setClaim4SEM(claim4SEM / scores.size());
     }
 }
