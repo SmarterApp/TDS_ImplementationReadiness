@@ -42,14 +42,11 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             logger.error("Failed to do bias calculations");
         }
 
-        // TODO: Add selector for grade and add all grade levels
-        // Hardcoded from HS cutoff levels http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
-        double[] cutoffLevels = {-0.177, 0.872, 2.026};
+        double[] cutoffLevels = getThetaCutoffLevels(3);
         classificationCalculations(catData, response, cutoffLevels);
 
-
         precisionStats(catData, response);
-        List<BlueprintStatement> blueprintStatements = getGradeClaimBlueprints(11);
+        List<BlueprintStatement> blueprintStatements = getGradeClaimBlueprints(3);
         calculateBlueprintViolations(catData, response, blueprintStatements);
 
         return response;
@@ -73,81 +70,33 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             poolItems.put(item.getItemId(), item);
         }
 
-        //logger.debug("poolItems: {}", poolItems);
-
         // Get map of all items taken by each student
-
-        Map<Integer, ViolationCount> violationCounts = new HashMap<>();
         Map<String, List<ItemResponseCAT>> studentItems = groupItemsByStudent(catData.getItemResponses());
         for(List<ItemResponseCAT> itemResponses : studentItems.values()) {
-            Map<Integer, Integer> claimMap = computeClaimNumbers(itemResponses, poolItems);
-            logger.debug("claimMap: {}", claimMap);
-            if(claimMap.size() == 0) {
-                continue;
-            }
-            //Map<Integer, Violation> violationMap = new HashMap<>();
+
+            // Check item against all blueprint statement, increment counter for each statement
             for(BlueprintStatement blueprint : blueprintStatements) {
-                int claimNumber = blueprint.getClaimNumber();
-                int totalClaim = claimMap.get(claimNumber);
-                ViolationCount vCount;
-                if(violationCounts.containsKey(claimNumber)) {
-                    vCount = violationCounts.get(claimNumber);
-                } else {
-                    vCount = new ViolationCount();
-                }
+                for(ItemResponseCAT item : itemResponses) {
+                    PoolItem poolItem = poolItems.get(item.getItemId());
 
-                vCount.setClaim(claimNumber);
-
-                if(totalClaim < blueprint.getMin()) {
-                    vCount.incUnder();
-                } else if (blueprint.getMin() <= totalClaim && totalClaim <= blueprint.getMax()) {
-                    vCount.incMatch();
-                } else if (blueprint.getMax() < totalClaim) {
-                    vCount.incOver();
+                    if(blueprint.test(poolItem)) {
+                        blueprint.incMatch();
+                    }
                 }
-                violationCounts.put(claimNumber, vCount);
+                blueprint.updateViolations();
             }
         }
-
-        response.setClaimViolationsMap(violationCounts);
-        response.setClaimViolations(new ArrayList<ViolationCount>(violationCounts.values()));
     }
 
-    /**
-     *
-     * @param itemResponses is a list of the items we want to count claim numbers for
-     * @return A map of <claim-number, count> pairs where the number of items in each claim is counted
-     */
-    private Map<Integer, Integer> computeClaimNumbers(List<ItemResponseCAT> itemResponses, Map<String, PoolItem> poolItems) {
-        Map<Integer, Integer> result = new HashMap<>();
-        for(ItemResponseCAT item : itemResponses) {
-            int claimNumber = getClaimFromItemId(item.getItemId(), poolItems);
-            if (claimNumber == -1) {
-                //logger.warn("Item {} not found in item pool", item.getItemId());
-                continue;
-            }
-
-            if (result.containsKey(claimNumber)) {
-                result.put(claimNumber, result.get(claimNumber) + 1);
-            } else {
-                result.put(claimNumber, 1);
-            }
+    // Returns theta score cutoff levels from
+    // http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
+    private double[] getThetaCutoffLevels(int grade) {
+        if (grade == 11) {
+            return new double[]{-0.177, 0.872, 2.026};
+        } else if (grade == 3) {
+            return new double[]{-1.646, -0.888, -0.212};
         }
-        return result;
-    }
-
-    /**
-     *
-     * @param itemId id we want a claim number for
-     * @param poolItems the <ItemId, PoolItem> map for test
-     * @return integer claim number for the given item, -1 if not found
-     */
-    private int getClaimFromItemId(String itemId, Map<String, PoolItem> poolItems) {
-        PoolItem strClaim = poolItems.get(itemId);
-        if(strClaim != null) {
-            return Integer.parseInt(strClaim.getClaim());
-        }
-        return -1;
+        return null;
     }
 
     private Map<String, List<ItemResponseCAT>> groupItemsByStudent(List<ItemResponseCAT> itemResponses) {
@@ -166,7 +115,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private BlueprintStatement getClaimBlueprint(int grade, int claim) {
-        if (grade != 11) {
+        if (grade != 11 && grade != 3) {
             logger.error("Only grade 11 implemented");
             return null;
         }
@@ -174,8 +123,12 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         BlueprintStatement blueprint = new BlueprintStatement();
         switch (claim) {
         case 1:
-            blueprint.setClaimName("Reading");
-            blueprint.setMin(15);
+            blueprint.setClaimName("Claim 1: Reading");
+            if (grade == 11) {
+                blueprint.setMin(15);
+            } else if (grade == 3) {
+                blueprint.setMin(14);
+            }
             blueprint.setMax(16);
             blueprint.setCondition(new BlueprintCondition() {
                 @Override
@@ -185,7 +138,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             });
             break;
         case 2:
-            blueprint.setClaimName("Writing");
+            blueprint.setClaimName("Claim 2: Writing");
             blueprint.setMin(10);
             blueprint.setMax(10);
             blueprint.setCondition(new BlueprintCondition() {
@@ -196,7 +149,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             });
             break;
         case 3:
-            blueprint.setClaimName("Speaking/Listening");
+            blueprint.setClaimName("Claim 3: Speaking/Listening");
             blueprint.setMin(8);
             blueprint.setMax(9);
             blueprint.setCondition(new BlueprintCondition() {
@@ -207,7 +160,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             });
             break;
         case 4:
-            blueprint.setClaimName("Research");
+            blueprint.setClaimName("Claim 4: Research");
             blueprint.setMin(6);
             blueprint.setMax(6);
             blueprint.setCondition(new BlueprintCondition() {
@@ -220,13 +173,14 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         default:
             break;
         }
+
         blueprint.setClaimNumber(claim);
         return blueprint;
     }
 
     private List<BlueprintStatement> getGradeClaimBlueprints(int grade) {
-        if (grade != 11) {
-            logger.error("Only grade 11 implemented");
+        if (grade != 11 && grade != 3) {
+            logger.error("Only grades 3 and 11 implemented");
             return null;
         }
 

@@ -9,14 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class BlueprintStatementTest {
+    private BlueprintStatement statement;
+    private PoolItem poolItem1;
+    private PoolItem poolItem2;
+
     @Before
     public void setUp() throws Exception {
-
-    }
-
-    @Test
-    public void test_BluePrintCondition() {
-        BlueprintStatement statement = new BlueprintStatement("Test", 1, 1, 1, new BlueprintCondition() {
+        statement = new BlueprintStatement("Test", 1, 1, 1, new BlueprintCondition() {
 
             @Override
             public boolean test(PoolItem item) {
@@ -24,8 +23,7 @@ public class BlueprintStatementTest {
             }
         });
 
-        assertNotNull(statement);
-        assertTrue(statement.test(new PoolItem() {
+        poolItem1 = new PoolItem() {
 
             @Override
             public String getItemId() {
@@ -41,9 +39,9 @@ public class BlueprintStatementTest {
             public String getDok() {
                 return null;
             }
-        }));
+        };
 
-        assertFalse(statement.test(new PoolItem() {
+        poolItem2 = new PoolItem() {
 
             @Override
             public String getItemId() {
@@ -59,6 +57,30 @@ public class BlueprintStatementTest {
             public String getDok() {
                 return null;
             }
-        }));
+        };
+    }
+
+    @Test
+    public void test_BluePrintCondition() {
+        assertNotNull(statement);
+        assertTrue(statement.test(poolItem1));
+
+        assertFalse(statement.test(poolItem2));
+    }
+
+    @Test
+    public void test_BluePrint_updateViolations() {
+        assertNotNull(statement);
+
+        statement.setMin(1);
+        statement.setMax(1);
+        statement.incMatch();
+        statement.updateViolations();
+        assertEquals(1, statement.getViolationCount().getMatch());
+        statement.incMatch();
+        statement.incMatch();
+        statement.updateViolations();
+        assertEquals(1, statement.getViolationCount().getOver());
+        assertEquals(1, statement.getViolationCount().getMatch());
     }
 }

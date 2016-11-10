@@ -12,7 +12,8 @@ public class BlueprintStatement {
     private int claimNumber;
     private int min;
     private int max;
-    private ViolationCount violationCount;
+    private int matchCount;
+    private ViolationCount violationCount = new ViolationCount();
 
     @JsonIgnore
     private BlueprintCondition condition;
@@ -25,6 +26,8 @@ public class BlueprintStatement {
         this.min = min;
         this.max = max;
         this.condition = condition;
+        this.matchCount = 0;
+        this.violationCount = new ViolationCount();
     }
 
     public String getClaimName() {
@@ -54,7 +57,7 @@ public class BlueprintStatement {
     @Override
     public String toString() {
         return "BlueprintStatement [claimName=" + claimName + ", claimNumber=" + claimNumber + ", min=" + min + ", max="
-                + max + ", violationCount=" + violationCount + "]";
+                + max + ", matchCount=" + matchCount + ", violationCount=" + violationCount + "]";
     }
 
     public boolean test(PoolItem item) {
@@ -79,5 +82,23 @@ public class BlueprintStatement {
 
     public void setViolationCount(ViolationCount violationCount) {
         this.violationCount = violationCount;
+    }
+
+    public void incMatch() {
+        matchCount += 1;
+    }
+
+    /**
+     * Clears the match count for the current blueprint and updates violation count
+     */
+    public void updateViolations() {
+        if (matchCount < min) {
+            violationCount.incUnder();
+        } else if (matchCount >= min && matchCount <= max) {
+            violationCount.incMatch();
+        } else {
+            violationCount.incOver();
+        }
+        matchCount = 0;
     }
 }

@@ -104,12 +104,12 @@
                         <td>Match</td>
                         <td>Over</td>
                     </tr>
-                    <template is="dom-repeat" items="{{catResults.claimViolations}}" as="violation">
+                    <template is="dom-repeat" items="{{catResults.blueprintStatements}}" as="blueprint">
                         <tr>
-                            <td>[[violation.claim]]</td>
-                            <td>[[violation.under]]</td>
-                            <td>[[violation.match]]</td>
-                            <td>[[violation.over]]</td>
+                            <td>[[blueprint.claimName]]</td>
+                            <td>[[blueprint.violationCount.under]]</td>
+                            <td>[[blueprint.violationCount.match]]</td>
+                            <td>[[blueprint.violationCount.over]]</td>
                         </tr>
                     </template>
                 </table>

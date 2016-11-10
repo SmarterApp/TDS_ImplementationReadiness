@@ -14,6 +14,7 @@ import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CATAnalysisServiceTest {
@@ -34,6 +35,7 @@ public class CATAnalysisServiceTest {
         catAnalysisService = new CATAnalysisServiceImpl();
     }
 
+    @Ignore
     @Test
     public void test_calculateBlueprintViolations() {
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
