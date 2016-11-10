@@ -41,7 +41,7 @@ public class CATAnalysisServiceTest {
         catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
         assertNotNull(response);
 
-        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, 1, new BlueprintCondition() {
+        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, new BlueprintCondition() {
 
             @Override
             public boolean test(PoolItem item) {
@@ -68,7 +68,7 @@ public class CATAnalysisServiceTest {
 
         // Claim 2
         // min 2, max 2
-        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, 2, new BlueprintCondition() {
+        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, new BlueprintCondition() {
 
             @Override
             public boolean test(PoolItem item) {
@@ -93,7 +93,7 @@ public class CATAnalysisServiceTest {
         assertEquals(0, claim2Violations.getOver());
 
         // Claim 2, DOK >= 2
-        blueprintStatements.add(new BlueprintStatement("Claim 2, DOK>=2", 2, 1, 1, new BlueprintCondition() {
+        blueprintStatements.add(new BlueprintStatement("Claim 2, DOK>=2", 1, 1, new BlueprintCondition() {
             @Override
             public boolean test(PoolItem item) {
                 return item.getClaim().equals("2") && Integer.parseInt(item.getDok()) >= 3;

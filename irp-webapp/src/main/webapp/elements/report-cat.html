@@ -99,14 +99,18 @@
                 <b>Violation Counts</b>
                 <table>
                     <tr>
-                        <td>Claim</td>
+                        <td>Specification</td>
+                        <td>Min</td>
+                        <td>Max</td>
                         <td>Under</td>
                         <td>Match</td>
                         <td>Over</td>
                     </tr>
                     <template is="dom-repeat" items="{{catResults.blueprintStatements}}" as="blueprint">
                         <tr>
-                            <td>[[blueprint.claimName]]</td>
+                            <td>[[blueprint.specification]]</td>
+                            <td>[[blueprint.min]]</td>
+                            <td>[[blueprint.maxStr]]</td>
                             <td>[[blueprint.violationCount.under]]</td>
                             <td>[[blueprint.violationCount.match]]</td>
                             <td>[[blueprint.violationCount.over]]</td>

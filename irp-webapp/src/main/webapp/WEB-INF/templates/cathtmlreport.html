@@ -91,18 +91,22 @@
                 <b>Violation Counts</b>
                 <table>
                     <tr>
-                        <td>Claim</td>
+                        <td>Specification</td>
+                        <td>Min</td>
+                        <td>Max</td>
                         <td>Under</td>
                         <td>Match</td>
                         <td>Over</td>
                     </tr>
 
-                    <th:block th:each="violation : ${catResults.claimViolations}">
+                    <th:block th:each="blueprint : ${catResults.blueprintStatements}">
                         <tr>
-                            <td th:text="${violation.claim}"></td>
-                            <td th:text="${violation.under}"></td>
-                            <td th:text="${violation.match}"></td>
-                            <td th:text="${violation.over}"></td>
+                            <td th:text="${blueprint.specification}"></td>
+                            <td th:text="${blueprint.min}"></td>
+                            <td th:text="${blueprint.maxStr}"></td>
+                            <td th:text="${blueprint.violationCount.under}"></td>
+                            <td th:text="${blueprint.violationCount.match}"></td>
+                            <td th:text="${blueprint.violationCount.over}"></td>
                         </tr>
                     </th:block>
                 </table>

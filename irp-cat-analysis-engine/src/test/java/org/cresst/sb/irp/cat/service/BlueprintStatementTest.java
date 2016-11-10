@@ -15,7 +15,7 @@ public class BlueprintStatementTest {
 
     @Before
     public void setUp() throws Exception {
-        statement = new BlueprintStatement("Test", 1, 1, 1, new BlueprintCondition() {
+        statement = new BlueprintStatement("Test", 1, 1, new BlueprintCondition() {
 
             @Override
             public boolean test(PoolItem item) {
@@ -39,6 +39,12 @@ public class BlueprintStatementTest {
             public String getDok() {
                 return null;
             }
+
+            @Override
+            public String getTarget() {
+                // TODO Auto-generated method stub
+                return null;
+            }
         };
 
         poolItem2 = new PoolItem() {
@@ -55,6 +61,12 @@ public class BlueprintStatementTest {
 
             @Override
             public String getDok() {
+                return null;
+            }
+
+            @Override
+            public String getTarget() {
+                // TODO Auto-generated method stub
                 return null;
             }
         };

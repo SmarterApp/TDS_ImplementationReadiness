@@ -4,4 +4,5 @@ public interface PoolItem {
     String getClaim();
     String getItemId();
     String getDok();
+    String getTarget();
 }

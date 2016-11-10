@@ -8,8 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class BlueprintStatement {
     private final static Logger logger = LoggerFactory.getLogger(BlueprintStatement.class);
 
-    private String claimName;
-    private int claimNumber;
+    private String specification;
     private int min;
     private int max;
     private int matchCount;
@@ -20,9 +19,8 @@ public class BlueprintStatement {
 
     public BlueprintStatement(){}
 
-    public BlueprintStatement(String claimName, int claimNumber, int min, int max, BlueprintCondition condition) {
-        this.claimName = claimName;
-        this.claimNumber = claimNumber;
+    public BlueprintStatement(String claimName, int min, int max, BlueprintCondition condition) {
+        this.specification = claimName;
         this.min = min;
         this.max = max;
         this.condition = condition;
@@ -30,21 +28,24 @@ public class BlueprintStatement {
         this.violationCount = new ViolationCount();
     }
 
-    public String getClaimName() {
-        return claimName;
+    public String getSpecification() {
+        return specification;
     }
-    public void setClaimName(String claimName) {
-        this.claimName = claimName;
+    public void setSpecification(String claimName) {
+        this.specification = claimName;
     }
-    public int getClaimNumber() {
-        return claimNumber;
-    }
-    public void setClaimNumber(int claimNumber) {
-        this.claimNumber = claimNumber;
-    }
+
     public int getMin() {
         return min;
     }
+
+    public String getMaxStr() {
+        if (max == Integer.MAX_VALUE) {
+            return "NA";
+        }
+            return String.valueOf(max);
+    }
+
     public void setMin(int min) {
         this.min = min;
     }
@@ -56,7 +57,7 @@ public class BlueprintStatement {
     }
     @Override
     public String toString() {
-        return "BlueprintStatement [claimName=" + claimName + ", claimNumber=" + claimNumber + ", min=" + min + ", max="
+        return "BlueprintStatement [specification=" + specification + ", min=" + min + ", max="
                 + max + ", matchCount=" + matchCount + ", violationCount=" + violationCount + "]";
     }
 

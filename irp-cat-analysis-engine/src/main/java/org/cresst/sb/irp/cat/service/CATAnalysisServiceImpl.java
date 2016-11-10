@@ -46,7 +46,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        List<BlueprintStatement> blueprintStatements = getGradeClaimBlueprints(3);
+        List<BlueprintStatement> blueprintStatements = getGradeBlueprints(3);
         calculateBlueprintViolations(catData, response, blueprintStatements);
 
         return response;
@@ -114,81 +114,105 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return results;
     }
 
-    private BlueprintStatement getClaimBlueprint(int grade, int claim) {
+    private List<BlueprintStatement> getGradeBlueprints(int grade) {
         if (grade != 11 && grade != 3) {
             logger.error("Only grade 11 implemented");
             return null;
         }
 
-        BlueprintStatement blueprint = new BlueprintStatement();
-        switch (claim) {
-        case 1:
-            blueprint.setClaimName("Claim 1: Reading");
-            if (grade == 11) {
-                blueprint.setMin(15);
-            } else if (grade == 3) {
-                blueprint.setMin(14);
-            }
-            blueprint.setMax(16);
-            blueprint.setCondition(new BlueprintCondition() {
-                @Override
-                public boolean test(PoolItem item) {
-                    return item.getClaim().equals("1");
-                }
-            });
-            break;
-        case 2:
-            blueprint.setClaimName("Claim 2: Writing");
-            blueprint.setMin(10);
-            blueprint.setMax(10);
-            blueprint.setCondition(new BlueprintCondition() {
-                @Override
-                public boolean test(PoolItem item) {
-                    return item.getClaim().equals("2");
-                }
-            });
-            break;
-        case 3:
-            blueprint.setClaimName("Claim 3: Speaking/Listening");
-            blueprint.setMin(8);
-            blueprint.setMax(9);
-            blueprint.setCondition(new BlueprintCondition() {
-                @Override
-                public boolean test(PoolItem item) {
-                    return item.getClaim().equals("3");
-                }
-            });
-            break;
-        case 4:
-            blueprint.setClaimName("Claim 4: Research");
-            blueprint.setMin(6);
-            blueprint.setMax(6);
-            blueprint.setCondition(new BlueprintCondition() {
-                @Override
-                public boolean test(PoolItem item) {
-                    return item.getClaim().equals("4");
-                }
-            });
-            break;
-        default:
-            break;
-        }
-
-        blueprint.setClaimNumber(claim);
-        return blueprint;
-    }
-
-    private List<BlueprintStatement> getGradeClaimBlueprints(int grade) {
-        if (grade != 11 && grade != 3) {
-            logger.error("Only grades 3 and 11 implemented");
-            return null;
-        }
-
-        int claimTotals = 4;
         List<BlueprintStatement> statements = new ArrayList<>();
-        for(int i = 1; i <= claimTotals; i++) {
-            statements.add(getClaimBlueprint(grade, i));
+
+        BlueprintStatement blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1: Reading");
+        if (grade == 11) {
+            blueprint.setMin(15);
+        } else if (grade == 3) {
+            blueprint.setMin(14);
         }
+        blueprint.setMax(16);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("1");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1, DOK=2");
+        blueprint.setMin(7);
+        blueprint.setMax(Integer.MAX_VALUE);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("1") && item.getDok().equals("2");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1, DOK>=3");
+        blueprint.setMin(2);
+        blueprint.setMax(Integer.MAX_VALUE);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                int dok = Integer.parseInt(item.getDok());
+                return item.getClaim().equals("1") && dok >= 3;
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1, Literary");
+        blueprint.setMin(7);
+        blueprint.setMax(8);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.matches("[1234567]"));
+
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2: Writing");
+        blueprint.setMin(10);
+        blueprint.setMax(10);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 3: Speaking/Listening");
+        blueprint.setMin(8);
+        blueprint.setMax(9);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("3");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 4: Research");
+        blueprint.setMin(6);
+        blueprint.setMax(6);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("4");
+            }
+        });
+        statements.add(blueprint);
+
         return statements;
     }
 
