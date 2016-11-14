@@ -171,11 +171,82 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             @Override
             public boolean test(PoolItem item) {
                 String target = item.getTarget();
-                return (item.getClaim().equals("1") && target.matches("[1234567]"));
+                return (item.getClaim().equals("1") && target.matches("|1|2|3|4|5|6|7"));
 
             }
         });
         statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1 Informational");
+        blueprint.setMin(0);
+        blueprint.setMax(8);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.matches("8|9|10|11|12|13|14"));
+
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1 (Literary), Target 2");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.equals("2"));
+
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1 (Literary), Target 4");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.equals("4"));
+
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1 (Literary), Target 9");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.equals("9"));
+
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 1 (Informational), Target 11");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                String target = item.getTarget();
+                return (item.getClaim().equals("1") && target.equals("11"));
+
+            }
+        });
+        statements.add(blueprint);
+
 
         blueprint = new BlueprintStatement();
         blueprint.setSpecification("Claim 2: Writing");
@@ -185,6 +256,101 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             @Override
             public boolean test(PoolItem item) {
                 return item.getClaim().equals("2");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2, DOK=2");
+        blueprint.setMin(5);
+        blueprint.setMax(5);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getDok().equals("2");
+            }
+        });
+        statements.add(blueprint);
+
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2, DOK>=3");
+        blueprint.setMin(1);
+        blueprint.setMax(Integer.MAX_VALUE);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                int dok = Integer.parseInt(item.getDok());
+                return item.getClaim().equals("2") && dok >= 3;
+            }
+        });
+        statements.add(blueprint);
+
+        // Claim 2 (At least one O/P item)
+        // Target 1a/3a/6a & 1b/3b/6b
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2 (At least one O/P item)\nTarget 1a/3a/6a & 1b/3b/6b");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getTarget().matches("1aO|3aO|6aO|1bO|3bO|6bO");
+            }
+        });
+        statements.add(blueprint);
+
+        // Claim 2 (At least one E/E item)
+        // Target 1a/3a/6a & 1b/3b/6b
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2 (At least one E/E item)\nTarget 1a/3a/6a & 1b/3b/6b");
+        blueprint.setMin(1);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getTarget().matches("1aE|3aE|6aE|1bE|3bE|6bE");
+            }
+        });
+        statements.add(blueprint);
+
+        // Claim 2 (Exactly 3 O/P and E/E items)
+        // Target 1a/3a/6a & 1b/3b/6b
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2 (Exactly 3 O/P and E/E items)\nTarget 1a/3a/6a & 1b/3b/6b");
+        blueprint.setMin(3);
+        blueprint.setMax(3);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getTarget().matches("1aO|3aO|6aO|1bO|3bO|6bO|1aE|3aE|6aE|1bE|3bE|6bE");
+            }
+        });
+        statements.add(blueprint);
+
+        // Claim 2 (Exactly 1 Write Brief text)
+        // Target 1a/3a/6a
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2 (Exactly 1 Write Brief text)\nTarget 1a/3a/6a");
+        blueprint.setMin(1);
+        blueprint.setMax(1);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getTarget().matches("1aO|3aO|6aO|1aE|3aE|6aE");
+            }
+        });
+        statements.add(blueprint);
+
+        // Claim 2 (Only 2 revise brief allowed)
+        // Target 1a/3a/6a
+        blueprint = new BlueprintStatement();
+        blueprint.setSpecification("Claim 2 (Exactly 1 Write Brief text)\nTarget 1b/3b/6b");
+        blueprint.setMin(2);
+        blueprint.setMax(2);
+        blueprint.setCondition(new BlueprintCondition() {
+            @Override
+            public boolean test(PoolItem item) {
+                return item.getClaim().equals("2") && item.getTarget().matches("1bO|3bO|6bO|1bE|3bE|6bE");
             }
         });
         statements.add(blueprint);
