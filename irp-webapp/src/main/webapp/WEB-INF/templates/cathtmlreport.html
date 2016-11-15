@@ -6,14 +6,111 @@
     <title>CAT Implementation Readiness Package Report</title>
     <style>
     #content {
+        text-align: left;
+    }
+    h1 {
         text-align: center;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
     </style>
 </head>
 <body>
     <div id="content">
-    <h1>CAT Implementation Readiness Package Report</h1>
-    <div th:text="|Number of items in item pool and test: ${catResults.exposureRates.keySet().size()}|"></div>
+        <h1>CAT Implementation Readiness Package Report</h1>
+        <div id="exposure-analysis">
+            <b>Exposure Rates Analysis</b>
+            <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
+            <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
+            <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
+            
+            <div id="used-items">
+                <p th:text="|Used items: ${catResults.unusedItems}|"></p>
+                <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
+            </div>
+            
+            <div id="exposure-bins">
+                 <b>Distribution of exposure rates</b>
+                 <p th:text="|Bin size: ${catResults.binSize}"></p>
+                 <th:block th:each="bin,iter : ${catResults.bins}">
+                    <p th:if="${bin > 0}"
+                       th:text="|Bin ${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} < X <= ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)} has a count of: ${bin}|">
+                    </p>
+                 </th:block>
+            </div>
+        </div>
+        <div id="score-summary">
+            <b>Score Summary</b>
+            <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
+            <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
+            <div id="score-summary-deciles">
+                    <b>Average Bias by Decile</b>
+                    <th:block th:each="avgBias, iter : ${catResults.decileAverageBias}">
+                        <p th:text="|Decile: ${iter.index} Average Bias: ${#numbers.formatDecimal(avgBias, 0, 3)}|"></p>
+                    </th:block>
+                    
+                    <b>RMSE by Decile</b>
+                    <th:block th:each="rmse, iter : ${catResults.decileRmse}">
+                        <p th:text="|Decile: ${iter.index} RMSE: ${#numbers.formatDecimal(rmse, 0, 3)}|"></p>
+                    </th:block>
+                </div>
+        </div>
+        <div id="precision-scores">
+        <b>Precision Summary</b>
+            <p th:text="|Mean Overall Standard Error of Measurement ${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}|"></p>
+            <p th:text="|Claim 1 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 3 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}|"></p>
+            <p th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
+            </div>
+        <div id="score-levels">
+            <b>Classification Levels</b>
+            <table id="score-table">
+                <thead>Score Levels</thead>
+                <td></td><td colspan="4">True Level</td>
+                <tr>
+                    <td>Estimated Level</td>
+                    <th:block th:each="val, iter : ${catResults.classAccMatrix}">
+                        <td th:text="${iter.count}"></td>
+                    </th:block>
+                </tr>
+                <th:block th:each="estLevel, iter : ${catResults.classAccMatrix}">
+                    <tr>
+                        <td th:text="${iter.count}"></td>
+                        <th:block th:each="trueLevel : ${estLevel}">
+                            <td th:text="${trueLevel}"></td>
+                        </th:block>
+                </th:block>
+            </table>
+            <p th:text="|Classification accuracy: ${#numbers.formatDecimal(catResults.classAccuracy, 0, 3)}|"></p>
+        </div>
+        
+        <div id="blueprint-violations">
+                <b>Violation Counts</b>
+                <table>
+                    <tr>
+                        <td>Specification</td>
+                        <td>Min</td>
+                        <td>Max</td>
+                        <td>Under</td>
+                        <td>Match</td>
+                        <td>Over</td>
+                    </tr>
+
+                    <th:block th:each="blueprint : ${catResults.blueprintStatements}">
+                        <tr>
+                            <td th:text="${blueprint.specification}"></td>
+                            <td th:text="${blueprint.min}"></td>
+                            <td th:text="${blueprint.maxStr}"></td>
+                            <td th:text="${blueprint.violationCount.under}"></td>
+                            <td th:text="${blueprint.violationCount.match}"></td>
+                            <td th:text="${blueprint.violationCount.over}"></td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
     </div>
 </body>
 </html>

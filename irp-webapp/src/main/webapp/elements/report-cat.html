@@ -4,26 +4,126 @@
 
 <dom-module id="report-cat">
     <style>
-
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
     </style>
     <template>
 
         <div>
             CAT Analysis Summary
-            <p>
-            </p>
+            <div id="exposure-analysis">
+                <b>Exposure Rates</b>
+                <div id="unused-items">
+                    <p>
+                    Total items: [[catResults.itemPoolCount]]
+                    </p>
+                    <p>
+                    Unused items: [[catResults.unusedItems]]
+                    </p>
+                    <p>
+                    Percent unused: [[round(catResults.percentUnused, 2)]]
+                    </p>
+                </div>
+                <div id="used-items">
+                    <p>
+                        Used items: [[catResults.usedItems]]
+                    </p>
+                    <p>
+                        Percent used: [[round(catResults.percentUsed, 2)]]
+                    </p>
+                </div>
+                <div id="exposure-bins">
+                    <b>Distribution of exposure rates</b> 
+                    <p>Bin size: [[catResults.binSize]]</p> 
+                    <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                      <template is="dom-if" if="[[nonZero(bin)]]">
+                      <p>
+                        Bin [[lowerBound(catResults.binSize, index, 2)]] < X <= [[upperBound(catResults.binSize, index, 2)]] has a count of: [[bin]]
+                      </p>
+                    </template>
+                    </template>
+                </div>
+            </div>
+            <div id="score-summary">
+                <b>Score Summary</b>
+                <p>Average Bias: [[round(catResults.averageBias,3)]]</p>
+                <p>Root Mean Squared Error (RMSE) [[round(catResults.rmse,3)]]</p>
+                <div id="score-summary-deciles">
+                    <b>Average Bias by Decile</b>
+                    <template is="dom-repeat" items="{{catResults.decileAverageBias}}" as="avgBias" index-as="index">
+                        <p>
+                        Decile: [[index]] Average Bias: [[round(avgBias, 3)]]
+                        </p>
+                    </template>
+                    <b>RMSE by Decile</b>
+                    <template is="dom-repeat" items="{{catResults.decileRmse}}" as="rmse" index-as="index">
+                        <p>
+                        Decile: [[index]] RMSE: [[round(rmse, 3)]]
+                        </p>
+                    </template>
+                </div>
+            </div>
+            <div id="precision-scores">
+                <b>Precision Summary</b>
+                <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
+                <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
+                <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
+                <p>Claim 3 Mean Standard Error of Measurement [[round(catResults.claim3SEM, 3)]]</p>
+                <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
+            </div>
+            <div id="score-levels">
+                <b>Classification Levels</b>
+                <table id="score-table">
+                    <thead>Score Levels</thead>
+                    <td></td><td colspan="4">True Level</td>
+                    <tr>
+                        <td>Estimated Level</td>
+                        <template is="dom-repeat" items="{{catResults.classAccMatrix}}" index-as="y">
+                            <td>{{addOne(y)}}</td>
+                        </template>
+                    </tr>
+                    <template is="dom-repeat" items="{{catResults.classAccMatrix}}" as="estLevel" index-as="x">
+                        <tr>
+                        <td>{{addOne(x)}}</td>
+                        <template is="dom-repeat" items="{{estLevel}}" as="trueLevel">
+                            <td>{{trueLevel}}</td>
+                        </template>
+                        </tr>
+                    </template>
+                </table>
+                <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
+            </div>
+            <div id="blueprint-violations">
+                <b>Violation Counts</b>
+                <table>
+                    <tr>
+                        <td>Specification</td>
+                        <td>Min</td>
+                        <td>Max</td>
+                        <td>Under</td>
+                        <td>Match</td>
+                        <td>Over</td>
+                    </tr>
+                    <template is="dom-repeat" items="{{catResults.blueprintStatements}}" as="blueprint">
+                        <tr>
+                            <td>[[blueprint.specification]]</td>
+                            <td>[[blueprint.min]]</td>
+                            <td>[[blueprint.maxStr]]</td>
+                            <td>[[blueprint.violationCount.under]]</td>
+                            <td>[[blueprint.violationCount.match]]</td>
+                            <td>[[blueprint.violationCount.over]]</td>
+                        </tr>
+                    </template>
+                </table>
+            </div>
             <pdf-download-handler pdf-controller="/catPdfreport.html"
                                   post-data="[[catResults]]"
                                   post-data-name="catResults"
                                   message="Download the CAT Analysis results:" />
-            <p></p>
             
-            <p>
-            
-            
-            Number of items in item pool and test: [[keyLength(catResults.exposureRates)]]
-            
-            </p>
+
         </div>
     </template>
     <script>
@@ -35,10 +135,30 @@
                     notify: true
                 }
             },
+            addOne: function(val) {
+                return val + 1;
+            },
             ready: function () {
             },
-            keyLength: function (obj) {
-                return Object.keys(obj).length;
+            round: function(value, places) {
+                return value.toFixed(places);
+            },
+            nonZero: function(val) {
+                return val > 0;
+            },
+            lowerBound: function(binSize, index, roundDigits) {
+                return this.round(binSize * index, 2);
+            },
+            upperBound: function(binSize, index, roundDigits) {
+                return this.lowerBound(binSize, index + 1, 2);
+            },
+            _toArray: function(obj) {
+                return Object.keys(obj).map(function(key) {
+                    return {
+                        name: key,
+                        value: obj[key]
+                    };
+                });
             }
         });
     </script>

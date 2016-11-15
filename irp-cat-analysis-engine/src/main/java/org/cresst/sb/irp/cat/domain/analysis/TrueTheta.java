@@ -2,26 +2,28 @@ package org.cresst.sb.irp.cat.domain.analysis;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"sid", "theta"})
-public class TrueTheta {
+@JsonPropertyOrder({"sid", "score"})
+public class TrueTheta implements Score {
     private String sid;
-    private double theta;
+    private double score;
 
+    @Override
     public String getSid() {
         return sid;
     }
     public void setSid(String sid) {
         this.sid = sid;
     }
-    public double getTheta() {
-        return theta;
+    @Override
+    public double getScore() {
+        return score;
     }
-    public void setTheta(double theta) {
-        this.theta = theta;
+    public void setScore(double theta) {
+        this.score = theta;
     }
 
     @Override
     public String toString() {
-        return "TrueTheta [sid=" + sid + ", theta=" + theta + "]";
+        return "TrueTheta [sid=" + sid + ", score=" + score + "]";
     }
 }

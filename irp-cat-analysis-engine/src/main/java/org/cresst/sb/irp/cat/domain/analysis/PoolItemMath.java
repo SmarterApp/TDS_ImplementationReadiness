@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "itemType","calculator","irtA","irtB","irtC","irtStep1","irtStep2","irtStep3",
     "irtStep4","irtStep5","irtStep6","irtStep7","irtStep8","braille","translation","extPool","spaErrors"
 })
-public class PoolItemCAT {
+public class PoolItemMath implements PoolItem {
     private String itemId;
     private String subject;
     private String itemGrade;
@@ -37,6 +37,7 @@ public class PoolItemCAT {
     private String translation;
     private String extPool;
     private String spaErrors;
+    @Override
     public String getItemId() {
         return itemId;
     }
@@ -61,6 +62,7 @@ public class PoolItemCAT {
     public void setPoolGrade(String poolGrade) {
         this.poolGrade = poolGrade;
     }
+    @Override
     public String getClaim() {
         return claim;
     }
@@ -195,7 +197,7 @@ public class PoolItemCAT {
     }
     @Override
     public String toString() {
-        return "PoolItemCAT [itemId=" + itemId + ", subject=" + subject + ", itemGrade=" + itemGrade + ", poolGrade="
+        return "PoolItemMath [itemId=" + itemId + ", subject=" + subject + ", itemGrade=" + itemGrade + ", poolGrade="
                 + poolGrade + ", claim=" + claim + ", target=" + target + ", dok=" + dok + ", stimId=" + stimId
                 + ", asmtType=" + asmtType + ", itemType=" + itemType + ", calculator=" + calculator + ", irtA=" + irtA
                 + ", irtB=" + irtB + ", irtC=" + irtC + ", irtStep1=" + irtStep1 + ", irtStep2=" + irtStep2
@@ -218,7 +220,7 @@ public class PoolItemCAT {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        PoolItemCAT other = (PoolItemCAT) obj;
+        PoolItemMath other = (PoolItemMath) obj;
         if (asmtType == null) {
             if (other.asmtType != null)
                 return false;
