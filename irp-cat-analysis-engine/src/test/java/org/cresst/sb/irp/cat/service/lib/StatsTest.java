@@ -94,7 +94,7 @@ public class StatsTest {
         List<PoolItem> poolItems = new ArrayList<>();
         catData.setItemResponses(itemResponses);
         catData.setPoolItems(poolItems);
-        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData);
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses());
         assertNotNull(exposureRates);
         assertEquals(0, exposureRates.size());
     }
@@ -118,7 +118,7 @@ public class StatsTest {
         poolItems.add(poolItem);
         catData.setPoolItems(poolItems);
 
-        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData);
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses());
         assertNotNull(exposureRates);
         assertEquals(1, exposureRates.size());
         assertEquals(1.0, exposureRates.get("1").getExposureRate(), epsilon);
