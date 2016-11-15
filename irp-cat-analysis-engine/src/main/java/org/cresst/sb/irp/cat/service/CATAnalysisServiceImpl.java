@@ -31,17 +31,9 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         // % increase for bins; hard-coded for 5%
         double binSize = .05;
-        if (exposureCalculations(catData, response, binSize)) {
-            logger.debug("Successfully did exposure rate calculations");
-        } else {
-            logger.error("Failed to do exposure rate calculations");
-        }
+        exposureCalculations(catData, response, binSize);
 
-        if (biasCalculations(catData, response)) {
-            logger.debug("Successfully did bias calculations.");
-        } else {
-            logger.error("Failed to do bias calculations");
-        }
+        biasCalculations(catData, response);
 
         double[] cutoffLevels = getThetaCutoffLevels(3);
         classificationCalculations(catData, response, cutoffLevels);
@@ -115,7 +107,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return results;
     }
 
-    private boolean biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
+    private void biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
         List<TrueTheta> trueScores = catData.getTrueThetas();
         List<StudentScoreCAT> studentScores = catData.getStudentScores();
 
@@ -136,8 +128,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         }
         response.setDecileAverageBias(decileBias);
         response.setDecileRmse(decileRmse);
-
-        return true;
     }
 
     private Map<String, Double> scoresToMap(List<? extends Score> scores) {
@@ -148,11 +138,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return results;
     }
 
-    private boolean exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
+    private void exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
         response.setExposureRates(Stats.calculateExposureRates(catData));
 
         Stats.calculateExposureBins(response, binSize);
-        return true;
     }
 
     private void classificationCalculations(CATDataModel catData, CATAnalysisResponse response, double[] cutoffLevels) {
