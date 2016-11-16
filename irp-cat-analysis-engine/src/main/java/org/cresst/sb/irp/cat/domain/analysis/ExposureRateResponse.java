@@ -3,6 +3,10 @@ package org.cresst.sb.irp.cat.domain.analysis;
 import java.util.Arrays;
 import java.util.Map;
 
+/**
+ * Collection of data and result for calculating exposure rates
+ * 
+ */
 public class ExposureRateResponse {
     private Map<String, ExposureRate> exposureRates;
     private int unusedItems;

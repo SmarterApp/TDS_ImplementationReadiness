@@ -4,6 +4,11 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Data model for Item Response CSV files
+ * Expects that csv header is formatted exactly as: "sId", "itemId", "score"
+ * 
+ */
 @JsonPropertyOrder({"sId", "itemId", "score"})
 public class ItemResponseCAT {
     private String sId;

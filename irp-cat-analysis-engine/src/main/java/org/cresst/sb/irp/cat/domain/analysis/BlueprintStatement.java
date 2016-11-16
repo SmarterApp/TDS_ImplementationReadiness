@@ -11,7 +11,9 @@ public class BlueprintStatement {
     private String specification;
     private int min;
     private int max;
+    // Number of "true" occurrences of the blueprint test
     private int matchCount;
+    // Number of occurrences are accumulated into violation count
     private ViolationCount violationCount = new ViolationCount();
 
     @JsonIgnore
@@ -73,6 +75,11 @@ public class BlueprintStatement {
         return condition;
     }
 
+    /**
+     * 
+     * @param condition generally an inline anonymous class that overrides the `test` method
+     * Allows us to set a custom function for each instance of the blueprint statement.
+     */
     public void setCondition(BlueprintCondition condition) {
         this.condition = condition;
     }

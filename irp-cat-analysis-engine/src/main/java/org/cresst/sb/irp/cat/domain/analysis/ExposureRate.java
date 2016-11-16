@@ -2,6 +2,12 @@ package org.cresst.sb.irp.cat.domain.analysis;
 
 import java.util.Objects;
 
+/**
+ * Defines the "Exposure Rate" of an item
+ * Contains a percentage of exposure rate (number of times an item occurs / total number of items in pool)
+ * along with additional information about whether or not item was found in item pool and also in the test questions.
+ * 
+ */
 public class ExposureRate implements Comparable<ExposureRate> {
     private String itemId;
     private double exposureRate;

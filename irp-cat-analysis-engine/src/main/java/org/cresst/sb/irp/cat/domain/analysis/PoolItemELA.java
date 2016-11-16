@@ -1,9 +1,10 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Data model for an ELA Pool Item, excepts rows to be formatted in order shown in JsonPropertyOrder
+ */
 @JsonPropertyOrder({
     "stimId","itemId","subject","itemGrade","poolGrade","claim","target","useTarget","blueprintTarget",
     "dok","asmtType","itemType","irtA","irtB","irtC",
