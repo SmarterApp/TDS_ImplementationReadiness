@@ -22,6 +22,12 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 public class CATParsingServiceImpl implements CATParsingService {
     private final static Logger logger = LoggerFactory.getLogger(CATParsingServiceImpl.class);
 
+    /**
+     * 
+     * @param inputStream InputStream that points to a csv
+     * @param csvClass the java object that we want to parse as csv
+     * @return A List with each row parsed as T, or null if failed to parse.
+     */
     private <T > List<T> parseCATCsv(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
