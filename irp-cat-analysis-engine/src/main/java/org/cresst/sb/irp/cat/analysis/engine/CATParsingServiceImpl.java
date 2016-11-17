@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
@@ -66,10 +65,5 @@ public class CATParsingServiceImpl implements CATParsingService {
     @Override
     public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
         return parseCATCsv(thetaStream, TrueTheta.class);
-    }
-
-    @Override
-    public List<Blueprint> parseBlueprint(InputStream blueprintStream) {
-        return parseCATCsv(blueprintStream, Blueprint.class);
     }
 }

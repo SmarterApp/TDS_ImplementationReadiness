@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.engine.CATParsingService;
-import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
@@ -49,12 +48,6 @@ public class CATFileUploadController {
     @Value("${cat.ela.itempool}")
     private Resource itemPoolResource;
 
-    @Value("${cat.elag3.blueprint}")
-    private Resource blueprintResource;
-
-    @Value("${cat.elag3.studentdata}")
-    private Resource studentDataResource;
-
     @Value("${cat.elag3.truethetas}")
     private Resource trueThetasResource;
 
@@ -81,7 +74,6 @@ public class CATFileUploadController {
             List<PoolItemMath> mathPoolItems = null;
             List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
-            List<Blueprint> blueprints = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
@@ -90,7 +82,6 @@ public class CATFileUploadController {
                 //allItems.addAll(mathPoolItems);
                 allItems.addAll(poolItems);
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
-                blueprints = catParsingService.parseBlueprint(blueprintResource.getInputStream());
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());
                 throw e;
@@ -101,8 +92,6 @@ public class CATFileUploadController {
             catData.setStudentScores(studentScores);
             catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
-            // TODO: Need to manually fix blueprint files
-            catData.setBlueprints(blueprints);
 
             CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
 

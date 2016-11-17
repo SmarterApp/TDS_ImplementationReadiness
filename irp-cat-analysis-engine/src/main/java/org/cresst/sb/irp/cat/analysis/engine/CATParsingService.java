@@ -3,7 +3,6 @@ package org.cresst.sb.irp.cat.analysis.engine;
 import java.io.InputStream;
 import java.util.List;
 
-import org.cresst.sb.irp.cat.domain.analysis.Blueprint;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
@@ -25,7 +24,5 @@ public interface CATParsingService {
     List<PoolItemELA> parsePoolItemsELA(InputStream poolStream);
 
     List<TrueTheta> parseTrueThetas(InputStream thetaStream);
-
-    List<Blueprint> parseBlueprint(InputStream blueprintStream);
 
 }

@@ -25,30 +25,15 @@ public class SimulationPackage {
     @Value("${cat.ela.itempool}")
     private Resource itemPool;
 
-    @Value("${cat.elag3.blueprint}")
-    private Resource blueprint;
-
     @Value("${cat.elag3.studentdata}")
     private Resource studentData;
 
-    @RequestMapping(value="/simupack/ela/{grade}/itempool", method = RequestMethod.GET)
-    public void simulationPackageItemPool(
-            @PathVariable("grade") long grade,
-            HttpServletResponse response) throws IOException {
+    @RequestMapping(value="/simupack/ela/itempool", method = RequestMethod.GET)
+    public void simulationPackageItemPool(HttpServletResponse response) throws IOException {
         InputStream itempoolStream = itemPool.getInputStream();
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", itemPool.getFilename()));
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
-    }
-
-    @RequestMapping(value="/simupack/ela/{grade}/blueprint", method = RequestMethod.GET)
-    public void simulationPackageBlueprint(
-            @PathVariable("grade") long grade,
-            HttpServletResponse response) throws IOException {
-        InputStream blueprintStream = blueprint.getInputStream();
-        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", blueprint.getFilename()));
-        response.setContentType("text/csv");
-        FileCopyUtils.copy(blueprintStream, response.getOutputStream());
     }
 
     @RequestMapping(value="/simupack/ela/{grade}/studentdata", method = RequestMethod.GET)
