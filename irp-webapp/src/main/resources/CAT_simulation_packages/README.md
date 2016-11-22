@@ -31,6 +31,7 @@ True Theta values are the only file that needs to be create but not distributed 
 The format is a csv file with headers:
     "student ID","theta value"
 which represents the true score for a student.
+- These are generated using population distributions from AIR's CAT Report
+- Sampled from normal distribution
 
-  
 
