@@ -6,6 +6,9 @@ import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 
+/**
+ * Analyzes CAT data from a simulation run. 
+ */
 public interface CATAnalysisService {
     CATAnalysisResponse analyzeCatResults(CATDataModel catData);
 

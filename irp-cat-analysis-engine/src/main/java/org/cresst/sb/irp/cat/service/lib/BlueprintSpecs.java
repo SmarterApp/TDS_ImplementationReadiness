@@ -10,9 +10,19 @@ import org.cresst.sb.irp.cat.service.CATAnalysisServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Manually entered blueprint specifications.
+ * ELA Blueprint: https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf
+ * Math Blueprint: https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf
+ */
 public class BlueprintSpecs {
     private final static Logger logger = LoggerFactory.getLogger(CATAnalysisServiceImpl.class);
 
+    /**
+     * 
+     * @param grade the target grade we want all blueprints for
+     * @return A List of BlueprintStatements that make up a grade's entire blueprint.
+     */
     public static List<BlueprintStatement> getGradeBlueprints(int grade) {
         if (grade != 3) {
             logger.error("Only grade 3 implemented");

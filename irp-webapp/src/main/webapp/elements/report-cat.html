@@ -4,9 +4,37 @@
 
 <dom-module id="report-cat">
     <style>
-    table, th, td {
-        border: 1px solid black;
+    table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border: 1px solid #000000;
+        border-spacing: 0;
         border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    th {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: #000000;
+    }
+    
+    td {
+        vertical-align: middle;
+
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: #000000;
+        text-align: left;
+        padding: 11px;
+        font-size: 10px;
+        font-weight: normal;
+        color: #000000;
     }
     </style>
     <template>
@@ -15,6 +43,10 @@
             CAT Analysis Summary
             <div id="exposure-analysis">
                 <b>Exposure Rates</b>
+                <p>
+                	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
+                	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
+                </p>
                 <div id="unused-items">
                     <p>
                     Total items: [[catResults.itemPoolCount]]
@@ -36,7 +68,7 @@
                 </div>
                 <div id="exposure-bins">
                     <b>Distribution of exposure rates</b> 
-                    <p>Bin size: [[catResults.binSize]]</p> 
+                    <p>Bin size: [[catResults.binSize]]</p>
                     <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
                       <template is="dom-if" if="[[nonZero(bin)]]">
                       <p>
@@ -48,25 +80,50 @@
             </div>
             <div id="score-summary">
                 <b>Score Summary</b>
+                <p>
+                	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
+                	These summaries are also computed against the scores partitioned into deciles.
+                </p>
                 <p>Average Bias: [[round(catResults.averageBias,3)]]</p>
                 <p>Root Mean Squared Error (RMSE) [[round(catResults.rmse,3)]]</p>
                 <div id="score-summary-deciles">
                     <b>Average Bias by Decile</b>
-                    <template is="dom-repeat" items="{{catResults.decileAverageBias}}" as="avgBias" index-as="index">
-                        <p>
-                        Decile: [[index]] Average Bias: [[round(avgBias, 3)]]
-                        </p>
-                    </template>
+                    <table>
+						<tr>				
+							<td><b>Decile</b></td>			
+                   			<template is="dom-repeat" items="{{catResults.decileAverageBias}}" as="avgBias" index-as="index">
+                   				<td>[[addOne(index)]]</td>
+                   			</template>                   				
+                   		</tr>
+						<tr>				
+							<td><b>Mean Bias</b></td>			
+                   			<template is="dom-repeat" items="{{catResults.decileAverageBias}}" as="avgBias" index-as="index">
+                   				<td>[[round(avgBias, 3)]]</td>
+                   			</template>                   				
+                   		</tr>
+                    </table>
                     <b>RMSE by Decile</b>
-                    <template is="dom-repeat" items="{{catResults.decileRmse}}" as="rmse" index-as="index">
-                        <p>
-                        Decile: [[index]] RMSE: [[round(rmse, 3)]]
-                        </p>
-                    </template>
+                    <table>
+                   		<tr>
+                   			<td><b>Decile</b></td>
+                    		<template is="dom-repeat" items="{{catResults.decileRmse}}" as="rmse" index-as="index">
+	                        	<td>[[addOne(index)]]</td>
+                        	</template>
+                       	</tr>
+                       	<tr>
+                       		<td><b>RMSE</b></td>
+                       		<template is="dom-repeat" items="{{catResults.decileRmse}}" as="rmse" index-as="index">
+	                        	<td>[[round(rmse, 3)]]</td>
+                    		</template>
+                   		</tr>
+                    </table>
                 </div>
             </div>
             <div id="precision-scores">
                 <b>Precision Summary</b>
+		        <p>
+		        	Precision is scored by the overall mean standard error of measurement and by claim.
+		        </p>
                 <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
                 <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
                 <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
@@ -74,6 +131,15 @@
                 <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
             </div>
             <div id="score-levels">
+        	<p>
+        		<ul>
+        			<li>
+        				For every true score and estimated scale score, there are corresponding levels. 
+        				For the overall score, students are assigned to one of four possible levels. 
+        			</li>
+        			<li>Cut scores by grade and subject can be found here (pp. 8-9): <a href="http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf">http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf</a></li>
+        		</ul>
+        	</p>
                 <b>Classification Levels</b>
                 <table id="score-table">
                     <thead>Score Levels</thead>
@@ -96,6 +162,12 @@
                 <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
             </div>
             <div id="blueprint-violations">
+            	<b>Blueprint Violations</b>
+            	<p>
+            		Blueprint violations are summarized for ELA from <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a> and for Math from 
+            		<a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
+            		Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
+            	</p>
                 <b>Violation Counts</b>
                 <table>
                     <tr>

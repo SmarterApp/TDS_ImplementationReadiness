@@ -1,10 +1,12 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Results from the Cat Simulation Analysis. Designed to be filled by `CATAnalysisService` and serialized to display on front end 
+ */
 public class CATAnalysisResponse {
     private ExposureRateResponse exposureRateResponse = new ExposureRateResponse();
     private double averageBias;

@@ -1,5 +1,8 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+/**
+ * Maintains a count of various blueprint violations
+ */
 public class ViolationCount {
     private int under;
     private int match;

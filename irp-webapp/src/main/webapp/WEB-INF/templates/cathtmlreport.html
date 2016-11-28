@@ -11,10 +11,39 @@
     h1 {
         text-align: center;
     }
-    table, th, td {
-        border: 1px solid black;
+    table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border: 1px solid #000000;
+        border-spacing: 0;
         border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
+
+    th {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: #000000;
+    }
+    
+    td {
+        vertical-align: middle;
+
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: #000000;
+        text-align: left;
+        padding: 11px;
+        font-size: 10px;
+        font-weight: normal;
+        color: #000000;
+    }
+
     </style>
 </head>
 <body>
@@ -22,6 +51,10 @@
         <h1>CAT Implementation Readiness Package Report</h1>
         <div id="exposure-analysis">
             <b>Exposure Rates Analysis</b>
+	        <p>
+	          	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
+	          	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
+	        </p>
             <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
             <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
             <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
@@ -43,29 +76,67 @@
         </div>
         <div id="score-summary">
             <b>Score Summary</b>
+            <p>
+            	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
+            	These summaries are also computed against the scores partitioned into deciles.
+            </p>
             <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
             <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
             <div id="score-summary-deciles">
                     <b>Average Bias by Decile</b>
-                    <th:block th:each="avgBias, iter : ${catResults.decileAverageBias}">
-                        <p th:text="|Decile: ${iter.index} Average Bias: ${#numbers.formatDecimal(avgBias, 0, 3)}|"></p>
-                    </th:block>
-                    
-                    <b>RMSE by Decile</b>
-                    <th:block th:each="rmse, iter : ${catResults.decileRmse}">
-                        <p th:text="|Decile: ${iter.index} RMSE: ${#numbers.formatDecimal(rmse, 0, 3)}|"></p>
-                    </th:block>
+                    <table>
+                    	<tr>
+                    		<td><b>Decile</b></td>
+                    		<th:block th:each="avgBias, iter : ${catResults.decileAverageBias}">
+                        		<td th:text="${iter.index}"></td>
+                    		</th:block>
+		                </tr>
+		                <tr>
+                    		<td><b>Mean Bias</b></td>
+		                    <th:block th:each="avgBias, iter : ${catResults.decileAverageBias}">
+		                        <td th:text="${#numbers.formatDecimal(avgBias, 0, 3)}"></td>
+		                    </th:block>                    		
+                    	</tr>
+                   	</table>
+                   	
+                    <table>
+                    	<tr>
+                    		<td><b>Decile</b></td>
+                    		<th:block th:each="rmse, iter : ${catResults.decileRmse}">
+                        		<td th:text="${iter.index}"></td>
+                    		</th:block>         
+		                </tr>
+		                <tr>      		
+                    		<td><b>RMSE</b></td>
+		                    <th:block th:each="rmse, iter : ${catResults.decileRmse}">
+		                        <td th:text="${#numbers.formatDecimal(rmse, 0, 3)}"></td>
+		                    </th:block>                    		
+                    	</tr>
+                    </table>
                 </div>
         </div>
         <div id="precision-scores">
         <b>Precision Summary</b>
+        <p>
+        	Precision is scored by the overall mean standard error of measurement and by claim.
+        </p>
             <p th:text="|Mean Overall Standard Error of Measurement ${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}|"></p>
             <p th:text="|Claim 1 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}|"></p>
             <p th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
             <p th:text="|Claim 3 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}|"></p>
             <p th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
-            </div>
+        </div>
+        
         <div id="score-levels">
+        	<p>
+        		<ul>
+        			<li>
+        				For every true score and estimated scale score, there are corresponding levels. 
+        				For the overall score, students are assigned to one of four possible levels. 
+        			</li>
+        			<li>Cut scores by grade and subject can be found here (pp. 8-9): <a href="http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf">http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf</a></li>
+        		</ul>
+        	</p>
             <b>Classification Levels</b>
             <table id="score-table">
                 <thead>Score Levels</thead>
@@ -88,6 +159,12 @@
         </div>
         
         <div id="blueprint-violations">
+            	<b>Blueprint Violations</b>
+            	<p>
+            		Blueprint violations are summarized for ELA from <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a> and for Math from 
+            		<a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
+            		Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
+            	</p>
                 <b>Violation Counts</b>
                 <table>
                     <tr>

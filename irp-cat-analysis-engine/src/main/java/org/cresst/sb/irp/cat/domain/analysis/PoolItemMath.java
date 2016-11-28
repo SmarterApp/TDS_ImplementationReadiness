@@ -4,6 +4,9 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Data model for an Math Pool Item, excepts rows to be formatted in order shown in JsonPropertyOrder
+ */
 @JsonPropertyOrder({
     "itemId","subject","itemGrade","poolGrade","claim","target","dok","stimId","asmtType",
     "itemType","calculator","irtA","irtB","irtC","irtStep1","irtStep2","irtStep3",

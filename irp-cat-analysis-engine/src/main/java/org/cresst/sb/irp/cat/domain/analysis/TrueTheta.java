@@ -2,6 +2,9 @@ package org.cresst.sb.irp.cat.domain.analysis;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Models the "True Theta" scores, which are the student's generating (population) values.
+ */
 @JsonPropertyOrder({"sid", "score"})
 public class TrueTheta implements Score {
     private String sid;

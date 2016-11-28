@@ -139,7 +139,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private void exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
-        response.setExposureRates(Stats.calculateExposureRates(catData));
+        response.setExposureRates(Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses()));
 
         Stats.calculateExposureBins(response, binSize);
     }
@@ -152,24 +152,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private void precisionStats(CATDataModel catData, CATAnalysisResponse response) {
-        double overallSEM = 0.0d;
-        double claim1SEM = 0.0d;
-        double claim2SEM = 0.0d;
-        double claim3SEM = 0.0d;
-        double claim4SEM = 0.0d;
-        List<StudentScoreCAT> scores = catData.getStudentScores();
-        for(StudentScoreCAT score : scores) {
-            overallSEM += score.getOverallSEM();
-            claim1SEM += score.getClaim1SEM();
-            claim2SEM += score.getClaim2SEM();
-            claim3SEM += score.getClaim3SEM();
-            claim4SEM += score.getClaim4SEM();
-        }
-
-        response.setOverallSEM(overallSEM / scores.size());
-        response.setClaim1SEM(claim1SEM / scores.size());
-        response.setClaim2SEM(claim2SEM / scores.size());
-        response.setClaim3SEM(claim3SEM / scores.size());
-        response.setClaim4SEM(claim4SEM / scores.size());
+        Stats.calculateAverageSEM(catData.getStudentScores(), response);
     }
 }

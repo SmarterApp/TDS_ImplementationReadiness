@@ -7,7 +7,6 @@ public class CATDataModel {
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItem> poolItems;
     private List<TrueTheta> trueThetas;
-    private List<Blueprint> blueprints;
 
     public List<StudentScoreCAT> getStudentScores() {
         return studentScores;
@@ -33,11 +32,4 @@ public class CATDataModel {
     public void setTrueThetas(List<TrueTheta> trueThetas) {
         this.trueThetas = trueThetas;
     }
-    public List<Blueprint> getBlueprints() {
-        return blueprints;
-    }
-    public void setBlueprints(List<Blueprint> blueprints) {
-        this.blueprints = blueprints;
-    }
-
 }

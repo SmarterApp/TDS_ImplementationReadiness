@@ -4,6 +4,9 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Data model for the student scores from running a CAT simulation. Data is expected to be in order listed in JsonPropertyOrder
+ */
 @JsonPropertyOrder({
     "sid", "overallScore","overallSEM","claim1Score","claim1SEM",
     "claim2Score","claim2SEM","claim3Score","claim3SEM","claim4Score","claim4SEM"
