@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.ResourceSelector;
 import org.cresst.sb.irp.cat.analysis.engine.CATParsingService;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
@@ -49,9 +50,6 @@ public class CATFileUploadController {
     @Value("${cat.ela.itempool}")
     private Resource itemPoolResource;
 
-    @Value("${cat.elag3.truethetas}")
-    private Resource trueThetasResource;
-
     @Autowired
     private CATParsingService catParsingService;
 
@@ -64,7 +62,7 @@ public class CATFileUploadController {
             @RequestParam("catItemFile") MultipartFile itemFile, 
             @RequestParam("catStudentFile") MultipartFile studentFile,
             @PathVariable("subject") String subject,
-            @PathVariable("grade") long grade
+            @PathVariable("grade") int grade
             ) throws FileUploadException, IOException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
@@ -87,7 +85,7 @@ public class CATFileUploadController {
                     // Should not actually occur as math is not implemented
                     allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
                 }
-                trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
+                trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());
                 throw e;
