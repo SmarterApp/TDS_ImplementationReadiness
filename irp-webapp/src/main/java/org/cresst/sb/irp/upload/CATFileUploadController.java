@@ -96,11 +96,11 @@ public class CATFileUploadController {
             catData.setStudentScores(studentScores);
             catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
+            catData.setGrade(grade);
+            catData.setSubject(subject);
 
             CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
-            response.setGrade(grade);
-            response.setSubject(subject);
-            
+
             return response;
         }
     }

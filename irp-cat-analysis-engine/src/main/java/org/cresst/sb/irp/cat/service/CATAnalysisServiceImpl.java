@@ -28,6 +28,9 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public CATAnalysisResponse analyzeCatResults(CATDataModel catData) {
         CATAnalysisResponse response = new CATAnalysisResponse();
+        
+        response.setGrade(catData.getGrade());
+        response.setSubject(catData.getSubject());
 
         // % increase for bins; hard-coded for 5%
         double binSize = .05;
@@ -35,11 +38,11 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         biasCalculations(catData, response);
 
-        double[] cutoffLevels = getThetaCutoffLevels(3);
+        double[] cutoffLevels = getThetaCutoffLevels(catData.getSubject(), catData.getGrade());
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        List<BlueprintStatement> blueprintStatements = BlueprintSpecs.getGradeBlueprints(3);
+        List<BlueprintStatement> blueprintStatements = BlueprintSpecs.getGradeBlueprints(catData.getSubject(), catData.getGrade());
         calculateBlueprintViolations(catData, response, blueprintStatements);
 
         return response;
@@ -53,10 +56,14 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             return;
         }
 
-
         if (catData.getPoolItems() == null) {
             return;
         }
+        
+        if (blueprintStatements == null || blueprintStatements.size() == 0) {
+            return;
+        }
+        
         // Make a pool item map by item id
         Map<String, PoolItem> poolItems = new HashMap<>();
         for(PoolItem item : catData.getPoolItems()) {
@@ -83,12 +90,54 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     // Returns theta score cutoff levels from
     // http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
-    private double[] getThetaCutoffLevels(int grade) {
-        if (grade == 11) {
-            return new double[]{-0.177, 0.872, 2.026};
-        } else if (grade == 3) {
-            return new double[]{-1.646, -0.888, -0.212};
+    // TODO: Could abstract out into own csv file so smarterbalanced could change without changing code
+    private double[] getThetaCutoffLevels(String subject, int grade) {
+        if (subject.toLowerCase().equals("ela")) {
+            switch (grade) {
+            case 3:
+                return new double[]{-1.646, -0.888, -0.212};
+            case 4:
+                return new double[]{-1.075, -0.410, 0.289};
+            case 5:
+                return new double[]{-0.772, -0.072, 0.860};
+            case 6:
+                return new double[]{-0.597, 0.266, 1.280};
+            case 7:
+                return new double[]{-0.340, 0.510, 1.641};
+            case 8:
+                return new double[]{-0.247, 0.685, 1.862};
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                return new double[]{-0.177, 0.872, 2.026};
+            default:
+                return null;
+            }
+        } else if (subject.toLowerCase().equals("math")) {
+            switch (grade) {
+            case 3:
+                return new double[]{-1.689, -0.995, -0.175};
+            case 4:
+                return new double[]{-1.310, -0.377, 0.430};
+            case 5:
+                return new double[]{-0.755, 0.165, 0.808};
+            case 6:
+                return new double[]{-0.528, 0.468, 1.199};
+            case 7:
+                return new double[]{-0.390, 0.657, 1.515};
+            case 8:
+                return new double[]{-0.137, 0.897, 1.741 };
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                return new double[]{0.354, 1.426, 2.561};
+            default:
+                return null;
+            }            
         }
+
         return null;
     }
 
