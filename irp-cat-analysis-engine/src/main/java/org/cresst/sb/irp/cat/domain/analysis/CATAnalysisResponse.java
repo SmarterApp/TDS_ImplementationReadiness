@@ -23,6 +23,8 @@ public class CATAnalysisResponse {
     private double claim2SEM;
     private double claim3SEM;
     private double claim4SEM;
+    private int grade;
+    private String subject;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -209,5 +211,21 @@ public class CATAnalysisResponse {
 
     public void setClaim4SEM(double claim4sem) {
         claim4SEM = claim4sem;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

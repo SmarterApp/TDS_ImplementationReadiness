@@ -98,7 +98,9 @@ public class CATFileUploadController {
             catData.setTrueThetas(trueThetas);
 
             CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
-
+            response.setGrade(grade);
+            response.setSubject(subject);
+            
             return response;
         }
     }

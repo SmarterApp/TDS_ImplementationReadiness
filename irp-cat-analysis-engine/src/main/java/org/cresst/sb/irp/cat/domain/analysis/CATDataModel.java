@@ -7,7 +7,7 @@ public class CATDataModel {
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItem> poolItems;
     private List<TrueTheta> trueThetas;
-
+    
     public List<StudentScoreCAT> getStudentScores() {
         return studentScores;
     }
