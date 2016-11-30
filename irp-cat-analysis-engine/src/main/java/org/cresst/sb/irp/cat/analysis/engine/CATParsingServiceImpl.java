@@ -27,7 +27,7 @@ public class CATParsingServiceImpl implements CATParsingService {
      * @param csvClass the java object that we want to parse as csv
      * @return A List with each row parsed as T, or null if failed to parse.
      */
-    private <T > List<T> parseCATCsv(InputStream inputStream, Class<T> csvClass) {
+    public static <T> List<T> parseCsv(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
 
@@ -44,26 +44,26 @@ public class CATParsingServiceImpl implements CATParsingService {
 
     @Override
     public List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream) {
-            return parseCATCsv(itemFileStream, ItemResponseCAT.class);
+            return parseCsv(itemFileStream, ItemResponseCAT.class);
     }
 
     @Override
     public List<StudentScoreCAT> parseStudentCsv(InputStream studentStream) {
-        return parseCATCsv(studentStream, StudentScoreCAT.class);
+        return parseCsv(studentStream, StudentScoreCAT.class);
     }
 
     @Override
     public List<PoolItemMath> parsePoolItemsMath(InputStream poolStream) {
-        return parseCATCsv(poolStream, PoolItemMath.class);
+        return parseCsv(poolStream, PoolItemMath.class);
     }
 
     @Override
     public List<PoolItemELA> parsePoolItemsELA(InputStream poolStream) {
-        return parseCATCsv(poolStream, PoolItemELA.class);
+        return parseCsv(poolStream, PoolItemELA.class);
     }
 
     @Override
     public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
-        return parseCATCsv(thetaStream, TrueTheta.class);
+        return parseCsv(thetaStream, TrueTheta.class);
     }
 }

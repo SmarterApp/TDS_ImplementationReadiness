@@ -1,10 +1,12 @@
 package org.cresst.sb.irp.cat.service;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.analysis.engine.CATParsingServiceImpl;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
@@ -13,6 +15,7 @@ import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ThresholdLevels;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.cresst.sb.irp.cat.service.lib.BlueprintSpecs;
@@ -90,54 +93,27 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     // Returns theta score cutoff levels from
     // http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
-    // TODO: Could abstract out into own csv file so smarterbalanced could change without changing code
+    // Data can be changed in irp-cat-analysis-engine's resource folder: ThresholdScores2014-2015.csv
     private double[] getThetaCutoffLevels(String subject, int grade) {
-        if (subject.toLowerCase().equals("ela")) {
-            switch (grade) {
-            case 3:
-                return new double[]{-1.646, -0.888, -0.212};
-            case 4:
-                return new double[]{-1.075, -0.410, 0.289};
-            case 5:
-                return new double[]{-0.772, -0.072, 0.860};
-            case 6:
-                return new double[]{-0.597, 0.266, 1.280};
-            case 7:
-                return new double[]{-0.340, 0.510, 1.641};
-            case 8:
-                return new double[]{-0.247, 0.685, 1.862};
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-                return new double[]{-0.177, 0.872, 2.026};
-            default:
-                return null;
+        // Change this file if thresholds scores change, found in irp-cat-analysis-engine resources 
+        InputStream thresholdLevelStream = ThresholdLevels.class.getClassLoader().getResourceAsStream("ThresholdScores2014-2015.csv");
+        // Parse the csv file
+        List<ThresholdLevels> thresholdLevels = CATParsingServiceImpl.parseCsv(thresholdLevelStream, ThresholdLevels.class);
+        String strGrade = String.valueOf(grade);
+        
+        for (ThresholdLevels levels : thresholdLevels) {
+            String lvlSubject = levels.getSubject().toLowerCase();
+            String lvlGrade = levels.getGrade().toLowerCase();
+            if (lvlSubject.equals(subject) &&
+                    // Grades with numbers just need to be compared directly
+                    (lvlGrade.equals(strGrade) || 
+                            // Grade can be expressed as HS for high school, grade must fall between 9th and 12th grade
+                            (lvlGrade.equals("hs") && grade >= 9 && grade <= 12))) {
+                // Return the 3 theta levels as a double for the given grade/subject
+                return new double[]{levels.getTheta_1_2(), levels.getTheta_2_3(), levels.getTheta_3_4()};
             }
-        } else if (subject.toLowerCase().equals("math")) {
-            switch (grade) {
-            case 3:
-                return new double[]{-1.689, -0.995, -0.175};
-            case 4:
-                return new double[]{-1.310, -0.377, 0.430};
-            case 5:
-                return new double[]{-0.755, 0.165, 0.808};
-            case 6:
-                return new double[]{-0.528, 0.468, 1.199};
-            case 7:
-                return new double[]{-0.390, 0.657, 1.515};
-            case 8:
-                return new double[]{-0.137, 0.897, 1.741 };
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-                return new double[]{0.354, 1.426, 2.561};
-            default:
-                return null;
-            }            
         }
-
+        
         return null;
     }
 
