@@ -28,20 +28,20 @@ public class SimulationPackage {
     @Value("${cat.math.itempool}")
     private Resource mathItemPool;
 
-    @Value("${cat.elag3.studentdata}")
-    private Resource studentData;
-
     @RequestMapping(value="/simupack/itempool/subject/{subject}", method = RequestMethod.GET)
     public void simulationPackageItemPool(
             @PathVariable("subject") String subject,
             HttpServletResponse response) throws IOException {
         InputStream itempoolStream = null;
+        String filename = "";
         if(subject.equals("ela")) {
             itempoolStream = itemPool.getInputStream();
+            filename = itemPool.getFilename();
         } else if (subject.equals("math")) {
             itempoolStream = mathItemPool.getInputStream();
+            filename = mathItemPool.getFilename();
         }
-        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", itemPool.getFilename()));
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
     }
@@ -52,7 +52,8 @@ public class SimulationPackage {
             @PathVariable("grade") int grade,
             HttpServletResponse response) throws IOException {
         InputStream studentDataStream = ResourceSelector.getStudentResponses(subject, grade);
-        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", studentData.getFilename()));
+        String filename = ResourceSelector.getStudentResponsesFilename(subject, grade);
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
         response.setContentType("text/csv");
         FileCopyUtils.copy(studentDataStream, response.getOutputStream());
     }
