@@ -280,8 +280,12 @@
                                                 <option value="8">Grade 8</option>
                                                 <option value="11">Grade 11 </option>
                                             </select>
+                                            <select id="catSubjectSelector">
+                                                <option value="ela">ELA</option>
+                                                <option value="math">Math</option>
+                                            </select>
                                             <div id="simulationPackage">
-                                                Simulation package for ELA grade [[grade]]</br>
+                                                Simulation package for [[subject]] grade [[grade]]</br>
                                                 <form action="/simupack/itempool/subject/{{subject}}" method="get">
                                                     <input type="submit" value="Item Pool"/>
                                                 </form>
@@ -309,6 +313,13 @@
                                                     <paper-spinner id="catSpinnerUpload" class="blue" inactive=""></paper-spinner>
                                               </form>
                                               <template is="dom-if" if="[[responsesExist(catResults)]]">
+                                                <div>
+                                                  <pdf-download-handler pdf-controller="/catPdfreport.html"
+                                                      post-data="[[catResults]]"
+                                                      post-data-name="catResults"
+                                                      message="Download the CAT Analysis results:" />
+                                                </div>
+                                                <br>
                                                 <report-cat id="reportCat" cat-results="[[catResults]]"></report-cat>
                                               </template>
                                             </div>

@@ -71,6 +71,10 @@
         app.$.catGradeSelector.addEventListener('change', function(event) {
             that.grade = this.options[this.selectedIndex].value;
         });
+        
+        app.$.catSubjectSelector.addEventListener('change', function(event) {
+            that.subject = this.options[this.selectedIndex].value;
+        });
 
         // Automation Mode events
         window.addEventListener('message', function(event) {
