@@ -24,23 +24,34 @@ public class SimulationPackage {
 
     @Value("${cat.ela.itempool}")
     private Resource itemPool;
+    
+    @Value("${cat.math.itempool}")
+    private Resource mathItemPool;
 
     @Value("${cat.elag3.studentdata}")
     private Resource studentData;
 
-    @RequestMapping(value="/simupack/ela/itempool", method = RequestMethod.GET)
-    public void simulationPackageItemPool(HttpServletResponse response) throws IOException {
-        InputStream itempoolStream = itemPool.getInputStream();
+    @RequestMapping(value="/simupack/itempool/subject/{subject}", method = RequestMethod.GET)
+    public void simulationPackageItemPool(
+            @PathVariable("subject") String subject,
+            HttpServletResponse response) throws IOException {
+        InputStream itempoolStream = null;
+        if(subject.equals("ela")) {
+            itempoolStream = itemPool.getInputStream();
+        } else if (subject.equals("math")) {
+            itempoolStream = mathItemPool.getInputStream();
+        }
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", itemPool.getFilename()));
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
     }
 
-    @RequestMapping(value="/simupack/ela/{grade}/studentdata", method = RequestMethod.GET)
+    @RequestMapping(value="/simupack/studentdata/subject/{subject}/grade/{grade}", method = RequestMethod.GET)
     public void simulationPackageStudentdata(
-            @PathVariable("grade") long grade,
+            @PathVariable("subject") String subject,
+            @PathVariable("grade") int grade,
             HttpServletResponse response) throws IOException {
-        InputStream studentDataStream = studentData.getInputStream();
+        InputStream studentDataStream = ResourceSelector.getStudentResponses(subject, grade);
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", studentData.getFilename()));
         response.setContentType("text/csv");
         FileCopyUtils.copy(studentDataStream, response.getOutputStream());

@@ -277,10 +277,10 @@
                                             </select>
                                             <div id="simulationPackage">
                                                 Simulation package for ELA grade [[grade]]</br>
-                                                <form action="/simupack/ela/itempool" method="get">
+                                                <form action="/simupack/itempool/subject/{{subject}}" method="get">
                                                     <input type="submit" value="Item Pool"/>
                                                 </form>
-                                                <form action="/simupack/ela/{{grade}}/studentdata" method="get">
+                                                <form action="/simupack/studentdata/subject/{{subject}}/grade/{{grade}}" method="get">
                                                     <input type="submit" value="Student Data"/>
                                                 </form>
                                                 <p>
