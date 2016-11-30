@@ -28,6 +28,9 @@
 
         // Manual Mode events
         app.selected = 0;
+        app.grade = 3;
+        app.subject = 'ela';
+        
         app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientName.value != null && that.$.clientName.value != '') {
                 this.hidden = true;
@@ -63,6 +66,10 @@
                 // Show some error message
                 that.$.fileUploadErrorDialog.toggle();
             }
+        });
+        
+        app.$.catGradeSelector.addEventListener('change', function(event) {
+            that.grade = this.options[this.selectedIndex].value;
         });
 
         // Automation Mode events

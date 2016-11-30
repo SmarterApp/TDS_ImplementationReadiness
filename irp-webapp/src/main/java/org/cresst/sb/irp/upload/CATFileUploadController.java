@@ -25,6 +25,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,9 +58,14 @@ public class CATFileUploadController {
     @Autowired
     private CATAnalysisService catAnalysisService;
 
-    @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/catUpload/subject/{subject}/grade/{grade}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException, IOException {
+    public CATAnalysisResponse upload(
+            @RequestParam("catItemFile") MultipartFile itemFile, 
+            @RequestParam("catStudentFile") MultipartFile studentFile,
+            @PathVariable("subject") String subject,
+            @PathVariable("grade") long grade
+            ) throws FileUploadException, IOException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -70,17 +76,17 @@ public class CATFileUploadController {
 
             List<ItemResponseCAT> itemResponses = null;
             List<StudentScoreCAT> studentScores = null;
-            List<PoolItemELA> poolItems = null;
-            List<PoolItemMath> mathPoolItems = null;
             List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
                 studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
-                //mathPoolItems = catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream());
-                poolItems = catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream());
-                //allItems.addAll(mathPoolItems);
-                allItems.addAll(poolItems);
+                if(subject.equals("ela")) {
+                    allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
+                } else if (subject.equals("math")) {
+                    // Should not actually occur as math is not implemented
+                    allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
+                }
                 trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());

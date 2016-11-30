@@ -271,12 +271,16 @@
                                         </div>
                                         <div id="catModePage">
                                             CAT Mode
+                                            <select id="catGradeSelector">
+                                                <option value="3">Grade 3</option>
+                                                <option value="11">Grade 11 </option>
+                                            </select>
                                             <div id="simulationPackage">
-                                                Simulation package for ELA grade 3</br>
+                                                Simulation package for ELA grade [[grade]]</br>
                                                 <form action="/simupack/ela/itempool" method="get">
                                                     <input type="submit" value="Item Pool"/>
                                                 </form>
-                                                <form action="/simupack/ela/3/studentdata" method="get">
+                                                <form action="/simupack/ela/{{grade}}/studentdata" method="get">
                                                     <input type="submit" value="Student Data"/>
                                                 </form>
                                                 <p>
@@ -287,7 +291,7 @@
                                             <div class="uploader">
                                               After running simulation then upload results 
                                               <form id="catFileUploader" is="ajax-form" method="post"
-                                                    enctype="multipart/form-data" action="/catUpload">
+                                                    enctype="multipart/form-data" action="/catUpload/subject/{{subject}}/grade/{{grade}}">
                                                     <div id="catItemUpload">
                                                       Item Datafile
                                                       <input id="catItemFile" type="file" class="btn btn-default" name="catItemFile" required>
