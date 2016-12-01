@@ -23,6 +23,7 @@ public class CATAnalysisResponse {
     private double claim2SEM;
     private double claim3SEM;
     private double claim4SEM;
+    private double claim2_4SEM;
     private int grade;
     private String subject;
 
@@ -170,7 +171,7 @@ public class CATAnalysisResponse {
                 + ", classAccuracy=" + classAccuracy + ", blueprintStatements=" + blueprintStatements
                 + ", claimViolationsMap=" + claimViolationsMap + ", claimViolations=" + claimViolations
                 + ", overallSEM=" + overallSEM + ", claim1SEM=" + claim1SEM + ", claim2SEM=" + claim2SEM
-                + ", claim3SEM=" + claim3SEM + ", claim4SEM=" + claim4SEM + "]";
+                + ", claim3SEM=" + claim3SEM + ", claim4SEM=" + claim4SEM + ", claim2_4SEM=" + claim2_4SEM + "]";
     }
 
     public double getOverallSEM() {
@@ -227,5 +228,13 @@ public class CATAnalysisResponse {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public double getClaim2_4SEM() {
+        return claim2_4SEM;
+    }
+
+    public void setClaim2_4SEM(double claim2_4sem) {
+        claim2_4SEM = claim2_4sem;
     }
 }

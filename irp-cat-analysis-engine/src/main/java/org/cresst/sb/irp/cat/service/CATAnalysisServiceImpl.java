@@ -15,6 +15,7 @@ import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.ThresholdLevels;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
@@ -134,7 +135,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     private void biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
         List<TrueTheta> trueScores = catData.getTrueThetas();
-        List<StudentScoreCAT> studentScores = catData.getStudentScores();
+        List<? extends StudentScoreCAT> studentScores = catData.getStudentScores();
 
         Map<String, Double> trueScoreMap = scoresToMap(trueScores);
         Map<String, Double> studentScoreMap = scoresToMap(studentScores);
@@ -177,6 +178,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private void precisionStats(CATDataModel catData, CATAnalysisResponse response) {
-        Stats.calculateAverageSEM(catData.getStudentScores(), response);
+        Stats.calculateAverageSEM(catData.getSubject(), catData.getStudentScores(), response);
     }
 }

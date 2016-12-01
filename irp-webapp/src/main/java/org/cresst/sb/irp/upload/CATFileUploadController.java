@@ -12,8 +12,6 @@ import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.service.CATAnalysisService;
@@ -73,17 +71,18 @@ public class CATFileUploadController {
             logger.info("uploaded: " + studentFile.getName());
 
             List<ItemResponseCAT> itemResponses = null;
-            List<StudentScoreCAT> studentScores = null;
+            List<? extends StudentScoreCAT> studentScores = null;
             List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
-                studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
                 if(subject.equals("ela")) {
                     allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
+                    studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
                 } else if (subject.equals("math")) {
                     // Should not actually occur as math is not implemented
                     allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
+                    studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
                 }
                 trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
             } catch (IOException e) {

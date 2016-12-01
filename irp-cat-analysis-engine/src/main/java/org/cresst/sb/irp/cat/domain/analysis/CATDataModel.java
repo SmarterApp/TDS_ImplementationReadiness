@@ -3,18 +3,18 @@ package org.cresst.sb.irp.cat.domain.analysis;
 import java.util.List;
 
 public class CATDataModel {
-    private List<StudentScoreCAT> studentScores;
+    private List<? extends StudentScoreCAT> studentScores;
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItem> poolItems;
     private List<TrueTheta> trueThetas;
     private int grade;
     private String subject;
     
-    public List<StudentScoreCAT> getStudentScores() {
+    public List<? extends StudentScoreCAT> getStudentScores() {
         return studentScores;
     }
-    public void setStudentScores(List<StudentScoreCAT> studentScores) {
-        this.studentScores = studentScores;
+    public void setStudentScores(List<? extends StudentScoreCAT> studentScores2) {
+        this.studentScores = studentScores2;
     }
     public List<ItemResponseCAT> getItemResponses() {
         return itemResponses;

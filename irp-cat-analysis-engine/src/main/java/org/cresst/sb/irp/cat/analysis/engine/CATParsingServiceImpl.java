@@ -5,9 +5,10 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.MathStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
-import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,8 +49,8 @@ public class CATParsingServiceImpl implements CATParsingService {
     }
 
     @Override
-    public List<StudentScoreCAT> parseStudentCsv(InputStream studentStream) {
-        return parseCsv(studentStream, StudentScoreCAT.class);
+    public List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream) {
+        return parseCsv(studentStream, ELAStudentScoreCAT.class);
     }
 
     @Override
@@ -65,5 +66,10 @@ public class CATParsingServiceImpl implements CATParsingService {
     @Override
     public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
         return parseCsv(thetaStream, TrueTheta.class);
+    }
+
+    @Override
+    public List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream) {
+        return parseCsv(studentStream, MathStudentScoreCAT.class);
     }
 }

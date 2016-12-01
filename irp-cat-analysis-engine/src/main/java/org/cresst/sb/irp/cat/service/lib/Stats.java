@@ -10,8 +10,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.MathStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
@@ -312,19 +314,42 @@ public class Stats {
         }
         return diagonal / ((double) total);
     }
+    
+    /**
+    *
+    * @param scores simulated student scores
+    * @param response Current results of the cat analysis, will be populated with mean SEM values after calling.
+    */
+   public static void calculateAverageSEM_Math(List<MathStudentScoreCAT> scores, CATAnalysisResponse response) {
+       double overallSEM = 0.0d;
+       double claim1SEM = 0.0d;
+       double claim2_4SEM = 0.0d;
+       double claim3SEM = 0.0d;
+       for(MathStudentScoreCAT score : scores) {
+           overallSEM += score.getOverallSEM();
+           claim1SEM += score.getClaim1SEM();
+           claim2_4SEM += score.getClaim2_4SEM();
+           claim3SEM += score.getClaim3SEM();
+       }
+
+       response.setOverallSEM(overallSEM / scores.size());
+       response.setClaim1SEM(claim1SEM / scores.size());
+       response.setClaim2SEM(claim2_4SEM / scores.size());
+       response.setClaim3SEM(claim3SEM / scores.size());
+   }
 
     /**
      *
      * @param scores simulated student scores
      * @param response Current results of the cat analysis, will be populated with mean SEM values after calling.
      */
-    public static void calculateAverageSEM(List<StudentScoreCAT> scores, CATAnalysisResponse response) {
+    public static void calculateAverageSEM_ELA(List<ELAStudentScoreCAT> scores, CATAnalysisResponse response) {
         double overallSEM = 0.0d;
         double claim1SEM = 0.0d;
         double claim2SEM = 0.0d;
         double claim3SEM = 0.0d;
         double claim4SEM = 0.0d;
-        for(StudentScoreCAT score : scores) {
+        for(ELAStudentScoreCAT score : scores) {
             overallSEM += score.getOverallSEM();
             claim1SEM += score.getClaim1SEM();
             claim2SEM += score.getClaim2SEM();
@@ -337,5 +362,38 @@ public class Stats {
         response.setClaim2SEM(claim2SEM / scores.size());
         response.setClaim3SEM(claim3SEM / scores.size());
         response.setClaim4SEM(claim4SEM / scores.size());
+    }
+
+    public static void calculateAverageSEM(String subject, List<? extends StudentScoreCAT> scores,
+            CATAnalysisResponse response) {
+        subject = subject.toLowerCase();
+        double overallSEM = 0.0d;
+        double claim1SEM = 0.0d;
+        double claim2SEM = 0.0d;
+        double claim3SEM = 0.0d;
+        double claim4SEM = 0.0d;
+        double claim2_4SEM = 0.0d;
+        
+        for(StudentScoreCAT score : scores) {
+
+            overallSEM += score.getOverallSEM();
+            claim1SEM += score.getClaim1SEM();
+            claim3SEM += score.getClaim3SEM();
+
+            // TODO: refactor
+            if (subject.equals("ela")) {
+                claim2SEM += ((ELAStudentScoreCAT) score).getClaim2SEM();
+                claim4SEM += ((ELAStudentScoreCAT) score).getClaim4SEM();
+            } else if (subject.equals("math")) {
+                claim2_4SEM += ((MathStudentScoreCAT) score).getClaim2_4SEM();
+            }
+        }
+
+        response.setOverallSEM(overallSEM / scores.size());
+        response.setClaim1SEM(claim1SEM / scores.size());
+        response.setClaim2SEM(claim2SEM / scores.size());
+        response.setClaim3SEM(claim3SEM / scores.size());
+        response.setClaim4SEM(claim4SEM / scores.size());
+        response.setClaim2_4SEM(claim2_4SEM / scores.size());
     }
 }

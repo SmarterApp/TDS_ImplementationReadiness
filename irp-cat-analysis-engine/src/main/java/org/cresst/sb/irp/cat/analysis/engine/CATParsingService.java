@@ -4,9 +4,10 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
+import org.cresst.sb.irp.cat.domain.analysis.MathStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
-import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 
 /**
@@ -17,7 +18,9 @@ public interface CATParsingService {
 
     List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream);
 
-    List<StudentScoreCAT> parseStudentCsv(InputStream studentStream);
+    List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream);
+    
+    List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream);
 
     List<PoolItemMath> parsePoolItemsMath(InputStream poolStream);
 
