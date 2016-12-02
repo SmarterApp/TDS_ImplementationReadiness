@@ -1,10 +1,12 @@
 package org.cresst.sb.irp.cat.service;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.analysis.engine.CATParsingServiceImpl;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
@@ -13,6 +15,8 @@ import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ThresholdLevels;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.cresst.sb.irp.cat.service.lib.BlueprintSpecs;
@@ -28,6 +32,9 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     @Override
     public CATAnalysisResponse analyzeCatResults(CATDataModel catData) {
         CATAnalysisResponse response = new CATAnalysisResponse();
+        
+        response.setGrade(catData.getGrade());
+        response.setSubject(catData.getSubject());
 
         // % increase for bins; hard-coded for 5%
         double binSize = .05;
@@ -35,11 +42,11 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         biasCalculations(catData, response);
 
-        double[] cutoffLevels = getThetaCutoffLevels(3);
+        double[] cutoffLevels = getThetaCutoffLevels(catData.getSubject(), catData.getGrade());
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        List<BlueprintStatement> blueprintStatements = BlueprintSpecs.getGradeBlueprints(3);
+        List<BlueprintStatement> blueprintStatements = BlueprintSpecs.getGradeBlueprints(catData.getSubject(), catData.getGrade());
         calculateBlueprintViolations(catData, response, blueprintStatements);
 
         return response;
@@ -53,10 +60,14 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             return;
         }
 
-
         if (catData.getPoolItems() == null) {
             return;
         }
+        
+        if (blueprintStatements == null || blueprintStatements.size() == 0) {
+            return;
+        }
+        
         // Make a pool item map by item id
         Map<String, PoolItem> poolItems = new HashMap<>();
         for(PoolItem item : catData.getPoolItems()) {
@@ -83,12 +94,27 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     // Returns theta score cutoff levels from
     // http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
-    private double[] getThetaCutoffLevels(int grade) {
-        if (grade == 11) {
-            return new double[]{-0.177, 0.872, 2.026};
-        } else if (grade == 3) {
-            return new double[]{-1.646, -0.888, -0.212};
+    // Data can be changed in irp-cat-analysis-engine's resource folder: ThresholdScores2014-2015.csv
+    private double[] getThetaCutoffLevels(String subject, int grade) {
+        // Change this file if thresholds scores change, found in irp-cat-analysis-engine resources 
+        InputStream thresholdLevelStream = ThresholdLevels.class.getClassLoader().getResourceAsStream("ThresholdScores2014-2015.csv");
+        // Parse the csv file
+        List<ThresholdLevels> thresholdLevels = CATParsingServiceImpl.parseCsv(thresholdLevelStream, ThresholdLevels.class);
+        String strGrade = String.valueOf(grade);
+        
+        for (ThresholdLevels levels : thresholdLevels) {
+            String lvlSubject = levels.getSubject().toLowerCase();
+            String lvlGrade = levels.getGrade().toLowerCase();
+            if (lvlSubject.equals(subject) &&
+                    // Grades with numbers just need to be compared directly
+                    (lvlGrade.equals(strGrade) || 
+                            // Grade can be expressed as HS for high school, grade must fall between 9th and 12th grade
+                            (lvlGrade.equals("hs") && grade >= 9 && grade <= 12))) {
+                // Return the 3 theta levels as a double for the given grade/subject
+                return new double[]{levels.getTheta_1_2(), levels.getTheta_2_3(), levels.getTheta_3_4()};
+            }
         }
+        
         return null;
     }
 
@@ -109,7 +135,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     private void biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
         List<TrueTheta> trueScores = catData.getTrueThetas();
-        List<StudentScoreCAT> studentScores = catData.getStudentScores();
+        List<? extends StudentScoreCAT> studentScores = catData.getStudentScores();
 
         Map<String, Double> trueScoreMap = scoresToMap(trueScores);
         Map<String, Double> studentScoreMap = scoresToMap(studentScores);
@@ -152,6 +178,6 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private void precisionStats(CATDataModel catData, CATAnalysisResponse response) {
-        Stats.calculateAverageSEM(catData.getStudentScores(), response);
+        Stats.calculateAverageSEM(catData.getSubject(), catData.getStudentScores(), response);
     }
 }

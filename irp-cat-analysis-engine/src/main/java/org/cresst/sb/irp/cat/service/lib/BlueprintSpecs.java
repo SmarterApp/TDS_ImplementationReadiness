@@ -20,13 +20,14 @@ public class BlueprintSpecs {
 
     /**
      * 
+     * @param subject 
      * @param grade the target grade we want all blueprints for
      * @return A List of BlueprintStatements that make up a grade's entire blueprint.
      */
-    public static List<BlueprintStatement> getGradeBlueprints(int grade) {
+    public static List<BlueprintStatement> getGradeBlueprints(String subject, int grade) {
         if (grade != 3) {
-            logger.error("Only grade 3 implemented");
-            return null;
+            logger.warn("Only grade 3 implemented");
+            return new ArrayList<BlueprintStatement>();
         }
 
         List<BlueprintStatement> statements = new ArrayList<>();

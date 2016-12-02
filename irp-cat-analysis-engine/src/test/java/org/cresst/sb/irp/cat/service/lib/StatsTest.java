@@ -15,7 +15,7 @@ import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -175,12 +175,12 @@ public class StatsTest {
     @Test
     public void test_scoreLevel() {
         double[] cutoffs = {1.0};
-        List<StudentScoreCAT> scores = new ArrayList<>();
-        StudentScoreCAT score1 = new StudentScoreCAT();
+        List<ELAStudentScoreCAT> scores = new ArrayList<>();
+        ELAStudentScoreCAT score1 = new ELAStudentScoreCAT();
         score1.setSid("1");
         score1.setOverallScore(.5);
         scores.add(score1);
-        StudentScoreCAT score2 = new StudentScoreCAT();
+        ELAStudentScoreCAT score2 = new ELAStudentScoreCAT();
         score2.setSid("2");
         score2.setOverallScore(1.5);
         scores.add(score2);

@@ -40,7 +40,7 @@
     <template>
 
         <div>
-            CAT Analysis Summary
+            CAT Analysis Summary for {{catResults.subject}} Grade {{catResults.grade}}
             <div id="exposure-analysis">
                 <b>Exposure Rates</b>
                 <p>
@@ -126,9 +126,16 @@
 		        </p>
                 <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
                 <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
-                <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
+                <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                    <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
+                </template>
+                <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                 <p>Combined Claim 2-4 Mean Standard Error of Measurement [[round(catResults.claim2_4SEM, 3)]]</p>
+                </template>
                 <p>Claim 3 Mean Standard Error of Measurement [[round(catResults.claim3SEM, 3)]]</p>
-                <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
+                <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                    <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
+                </template>
             </div>
             <div id="score-levels">
         	<p>
@@ -190,12 +197,6 @@
                     </template>
                 </table>
             </div>
-            <pdf-download-handler pdf-controller="/catPdfreport.html"
-                                  post-data="[[catResults]]"
-                                  post-data-name="catResults"
-                                  message="Download the CAT Analysis results:" />
-            
-
         </div>
     </template>
     <script>
@@ -223,6 +224,12 @@
             },
             upperBound: function(binSize, index, roundDigits) {
                 return this.lowerBound(binSize, index + 1, 2);
+            },
+            isEla: function(subject) {
+                return subject.toLowerCase() === "ela";
+            },
+            isMath: function(subject) {
+                return subject.toLowerCase() === "math";
             },
             _toArray: function(obj) {
                 return Object.keys(obj).map(function(key) {

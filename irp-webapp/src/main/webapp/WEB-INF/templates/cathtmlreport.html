@@ -8,7 +8,7 @@
     #content {
         text-align: left;
     }
-    h1 {
+    h1,h2 {
         text-align: center;
     }
     table {
@@ -49,6 +49,7 @@
 <body>
     <div id="content">
         <h1>CAT Implementation Readiness Package Report</h1>
+        <h2 th:text="|${catResults.subject} grade ${catResults.grade}|"></h2>
         <div id="exposure-analysis">
             <b>Exposure Rates Analysis</b>
 	        <p>
@@ -122,9 +123,10 @@
         </p>
             <p th:text="|Mean Overall Standard Error of Measurement ${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}|"></p>
             <p th:text="|Claim 1 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}|"></p>
-            <p th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
+            <p th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
+            <p th:if="${catResults.subject.toLowerCase()} == 'math'" th:text="|Combined Claim 2 and 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2_4SEM, 0, 3)}|"></p>
             <p th:text="|Claim 3 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}|"></p>
-            <p th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
+            <p th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
         </div>
         
         <div id="score-levels">

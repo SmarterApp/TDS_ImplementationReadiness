@@ -6,13 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cresst.sb.irp.cat.ResourceSelector;
 import org.cresst.sb.irp.cat.analysis.engine.CATParsingService;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.service.CATAnalysisService;
@@ -25,6 +24,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,18 +48,20 @@ public class CATFileUploadController {
     @Value("${cat.ela.itempool}")
     private Resource itemPoolResource;
 
-    @Value("${cat.elag3.truethetas}")
-    private Resource trueThetasResource;
-
     @Autowired
     private CATParsingService catParsingService;
 
     @Autowired
     private CATAnalysisService catAnalysisService;
 
-    @RequestMapping(value = "/catUpload", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/catUpload/subject/{subject}/grade/{grade}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public CATAnalysisResponse upload(@RequestParam("catItemFile") MultipartFile itemFile, @RequestParam("catStudentFile") MultipartFile studentFile) throws FileUploadException, IOException {
+    public CATAnalysisResponse upload(
+            @RequestParam("catItemFile") MultipartFile itemFile, 
+            @RequestParam("catStudentFile") MultipartFile studentFile,
+            @PathVariable("subject") String subject,
+            @PathVariable("grade") int grade
+            ) throws FileUploadException, IOException {
         if(itemFile.isEmpty()) {
             throw new FileUploadException(itemFile.getName() + " not uploaded");
         } else if (studentFile.isEmpty()) {
@@ -69,19 +71,20 @@ public class CATFileUploadController {
             logger.info("uploaded: " + studentFile.getName());
 
             List<ItemResponseCAT> itemResponses = null;
-            List<StudentScoreCAT> studentScores = null;
-            List<PoolItemELA> poolItems = null;
-            List<PoolItemMath> mathPoolItems = null;
+            List<? extends StudentScoreCAT> studentScores = null;
             List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
-                studentScores = catParsingService.parseStudentCsv(studentFile.getInputStream());
-                //mathPoolItems = catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream());
-                poolItems = catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream());
-                //allItems.addAll(mathPoolItems);
-                allItems.addAll(poolItems);
-                trueThetas = catParsingService.parseTrueThetas(trueThetasResource.getInputStream());
+                if(subject.equals("ela")) {
+                    allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
+                    studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
+                } else if (subject.equals("math")) {
+                    // Should not actually occur as math is not implemented
+                    allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
+                    studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
+                }
+                trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());
                 throw e;
@@ -92,6 +95,8 @@ public class CATFileUploadController {
             catData.setStudentScores(studentScores);
             catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
+            catData.setGrade(grade);
+            catData.setSubject(subject);
 
             CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
 
