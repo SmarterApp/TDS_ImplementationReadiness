@@ -1,5 +1,6 @@
 description,subject,grade,claim,min,max,target,dok,dok>=,passage,short_answer
 Reading,ela,3,1,14,16,,,,,
+Literary,ela,3,1,7,8,"1,2,3,4,5,6,7",,,,
 Writing,ela,3,2,10,10,,,,,
 Speaking/Listening,ela,3,3,8,9,,,,,
 Research,ela,3,4,6,6,,,,,

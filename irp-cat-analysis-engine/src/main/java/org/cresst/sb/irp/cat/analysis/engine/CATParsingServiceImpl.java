@@ -95,25 +95,49 @@ public class CATParsingServiceImpl implements CATParsingService {
         while(mappingIter.hasNext()) {
             final BlueprintCsvRow row = mappingIter.next();
             final int claim = row.getClaim();
+            final List<String> targets = splitToList(row.getTarget());
             statement = new BlueprintStatement();
             statement.setMin(row.getMin());
             statement.setMax(row.getMax());
             statement.setGrade(row.getGrade());
             String spec = String.format("Claim %d: %s", claim, row.getDescription());
             statement.setSpecification(spec);
-           
+
             statement.setCondition(new BlueprintCondition() {
                 final String strClaim = String.valueOf(claim);
 
                 @Override
                 public boolean test(PoolItem item) {
-                    // Currently only check against claim number
-                    return item.getClaim().equals(strClaim);
+                    // Currently only check against claim number and targets
+                    boolean targetResults = targetResults(item.getTarget(), targets);
+                    return item.getClaim().equals(strClaim) && targetResults;
                 }
             });
 
             statements.add(statement);
         }
         return statements;
+    }
+
+    // Checks if target is any of the values in targets list
+    private boolean targetResults(String target, List<String> targets) {
+        if (targets == null || targets.size() == 0)
+            return true;
+        
+        for (String t : targets) {
+            if (target.equalsIgnoreCase(t))
+                return true;
+        }
+        return false;
+    }
+
+    private List<String> splitToList(String str) {
+        List<String> results = new ArrayList<>();
+        for (String val : str.split("\\s*,\\s*")) {
+            if(!val.isEmpty()) {
+                results.add(val);
+            }
+        }
+        return results;
     }
 }
