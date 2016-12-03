@@ -94,19 +94,21 @@ public class CATParsingServiceImpl implements CATParsingService {
         BlueprintStatement statement = null;
         while(mappingIter.hasNext()) {
             final BlueprintCsvRow row = mappingIter.next();
+            final int claim = row.getClaim();
             statement = new BlueprintStatement();
             statement.setMin(row.getMin());
             statement.setMax(row.getMax());
             statement.setGrade(row.getGrade());
-            statement.setSpecification(row.getDescription());
+            String spec = String.format("Claim %d: %s", claim, row.getDescription());
+            statement.setSpecification(spec);
            
             statement.setCondition(new BlueprintCondition() {
-                String claim = String.valueOf(row.getClaim());
+                final String strClaim = String.valueOf(claim);
 
                 @Override
                 public boolean test(PoolItem item) {
                     // Currently only check against claim number
-                    return item.getClaim().equals(claim);
+                    return item.getClaim().equals(strClaim);
                 }
             });
 
