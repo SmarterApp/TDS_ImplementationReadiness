@@ -7,6 +7,7 @@ public class CATDataModel {
     private List<ItemResponseCAT> itemResponses;
     private List<PoolItem> poolItems;
     private List<TrueTheta> trueThetas;
+    private List<BlueprintStatement> blueprintStatements;
     private int grade;
     private String subject;
     
@@ -45,5 +46,11 @@ public class CATDataModel {
     }
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+    public List<BlueprintStatement> getBlueprintStatements() {
+        return blueprintStatements;
+    }
+    public void setBlueprintStatements(List<BlueprintStatement> blueprintStatements) {
+        this.blueprintStatements = blueprintStatements;
     }
 }

@@ -11,6 +11,7 @@ public class BlueprintStatement {
     private String specification;
     private int min;
     private int max;
+    private int grade;
     // Number of "true" occurrences of the blueprint test
     private int matchCount;
     // Number of occurrences are accumulated into violation count
@@ -108,5 +109,13 @@ public class BlueprintStatement {
             violationCount.incOver();
         }
         matchCount = 0;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 }

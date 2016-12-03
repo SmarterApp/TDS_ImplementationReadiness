@@ -2,13 +2,18 @@ package org.cresst.sb.irp.cat.analysis.engine;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintCsvRow;
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.MathStudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemMath;
-import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +34,15 @@ public class CATParsingServiceImpl implements CATParsingService {
      * @return A List with each row parsed as T, or null if failed to parse.
      */
     public static <T> List<T> parseCsv(InputStream inputStream, Class<T> csvClass) {
+        try {
+            return parseToMappingIterator(inputStream, csvClass).readAll();
+        } catch (IOException e) {
+            logger.error("Could not get all elements from MappingIterator from csv: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    private static <T> MappingIterator<T> parseToMappingIterator(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
 
@@ -36,7 +50,7 @@ public class CATParsingServiceImpl implements CATParsingService {
             MappingIterator<T> it = mapper.readerFor(csvClass)
                     .with(schema)
                     .readValues(inputStream);
-            return it.readAll();
+            return it;
         } catch (IOException e) {
             logger.error("Error parsing csv for: " + csvClass.getName());
         }
@@ -71,5 +85,33 @@ public class CATParsingServiceImpl implements CATParsingService {
     @Override
     public List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream) {
         return parseCsv(studentStream, MathStudentScoreCAT.class);
+    }
+
+    @Override
+    public List<BlueprintStatement> parseBlueprintCsv(InputStream blueprintStream) {
+        MappingIterator<BlueprintCsvRow> mappingIter = parseToMappingIterator(blueprintStream, BlueprintCsvRow.class);
+        List<BlueprintStatement> statements = new ArrayList<>();
+        BlueprintStatement statement = null;
+        while(mappingIter.hasNext()) {
+            final BlueprintCsvRow row = mappingIter.next();
+            statement = new BlueprintStatement();
+            statement.setMin(row.getMin());
+            statement.setMax(row.getMax());
+            statement.setGrade(row.getGrade());
+            statement.setSpecification(row.getDescription());
+           
+            statement.setCondition(new BlueprintCondition() {
+                String claim = String.valueOf(row.getClaim());
+
+                @Override
+                public boolean test(PoolItem item) {
+                    // Currently only check against claim number
+                    return item.getClaim().equals(claim);
+                }
+            });
+
+            statements.add(statement);
+        }
+        return statements;
     }
 }

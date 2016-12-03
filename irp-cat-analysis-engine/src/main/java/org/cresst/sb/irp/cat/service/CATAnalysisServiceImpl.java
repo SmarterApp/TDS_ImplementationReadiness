@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.cresst.sb.irp.cat.analysis.engine.CATParsingServiceImpl;
-import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
@@ -15,11 +14,8 @@ import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.Score;
 import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
-import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.ThresholdLevels;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
-import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
-import org.cresst.sb.irp.cat.service.lib.BlueprintSpecs;
 import org.cresst.sb.irp.cat.service.lib.Stats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,8 +42,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        List<BlueprintStatement> blueprintStatements = BlueprintSpecs.getGradeBlueprints(catData.getSubject(), catData.getGrade());
-        calculateBlueprintViolations(catData, response, blueprintStatements);
+        // List<BlueprintStatement> blueprintStatements =
+        // BlueprintSpecs.getGradeBlueprints(catData.getSubject(),
+        // catData.getGrade());
+        calculateBlueprintViolations(catData, response, catData.getBlueprintStatements());
 
         return response;
     }

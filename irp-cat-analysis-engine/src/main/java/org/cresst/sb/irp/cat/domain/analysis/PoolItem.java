@@ -5,4 +5,5 @@ public interface PoolItem {
     String getItemId();
     String getDok();
     String getTarget();
+    String getItemGrade();
 }
