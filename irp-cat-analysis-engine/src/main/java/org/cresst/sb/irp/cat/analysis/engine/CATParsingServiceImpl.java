@@ -132,6 +132,7 @@ public class CATParsingServiceImpl implements CATParsingService {
     }
 
     private List<String> splitToList(String str) {
+        str = str.replace("\"", "");
         List<String> results = new ArrayList<>();
         for (String val : str.split("\\s*,\\s*")) {
             if(!val.isEmpty()) {

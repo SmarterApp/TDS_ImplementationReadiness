@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 // Represent the blueprint csv
 @JsonPropertyOrder({ "description", "subject", "grade", "claim", "min", "max", "target", "dok", "dokGte", "passage",
-        "shortAnswer" })
+        "shortAnswer", "stim", "weight" })
 public class BlueprintCsvRow {
     private String description;
     private String subject;
@@ -19,6 +19,8 @@ public class BlueprintCsvRow {
     private int dokGte;
     private String passage;
     private int shortAnswer;
+    private String stim;
+    private String weight;
 
     public String getDescription() {
         return description;
@@ -106,5 +108,21 @@ public class BlueprintCsvRow {
 
     public void setShortAnswer(int shortAnswer) {
         this.shortAnswer = shortAnswer;
+    }
+
+    public String getStim() {
+        return stim;
+    }
+
+    public void setStim(String stim) {
+        this.stim = stim;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 }
