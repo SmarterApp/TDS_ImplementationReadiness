@@ -94,23 +94,27 @@ public class CATParsingServiceImpl implements CATParsingService {
         BlueprintStatement statement = null;
         while(mappingIter.hasNext()) {
             final BlueprintCsvRow row = mappingIter.next();
-            final int claim = row.getClaim();
+            final String claim = row.getClaim();
             final List<String> targets = splitToList(row.getTarget());
+            final String dok = row.getDok();
+            final String dokGte = row.getDokGte();
             statement = new BlueprintStatement();
             statement.setMin(row.getMin());
             statement.setMax(row.getMax());
             statement.setGrade(row.getGrade());
-            String spec = String.format("Claim %d: %s", claim, row.getDescription());
+            String spec = String.format("Claim %s: %s", claim, row.getDescription());
             statement.setSpecification(spec);
 
             statement.setCondition(new BlueprintCondition() {
-                final String strClaim = String.valueOf(claim);
 
                 @Override
                 public boolean test(PoolItem item) {
-                    // Currently only check against claim number and targets
-                    boolean targetResults = targetResults(item.getTarget(), targets);
-                    return item.getClaim().equals(strClaim) && targetResults;
+                    // Currently only check against claim number and targets and
+                    // dok
+                    boolean claimResults = testClaim(item.getClaim(), claim);
+                    boolean targetResults = orTest(item.getTarget(), targets);
+                    boolean dokResults = testDok(item.getDok(), dok, dokGte);
+                    return claimResults && targetResults && dokResults;
                 }
             });
 
@@ -119,8 +123,37 @@ public class CATParsingServiceImpl implements CATParsingService {
         return statements;
     }
 
+    private boolean testDok(String itemDok, String dok, String dokGte) {
+        if (dok.isEmpty())
+            return true;
+
+        if (!dokGte.isEmpty()) {
+            int itemDokInt = Integer.parseInt(itemDok);
+            int dokGteInt = Integer.parseInt(dokGte);
+            return (itemDokInt >= dokGteInt);
+        }
+
+        dok = dok.replace("\"", "");
+        for (String d : dok.split(",")) {
+            if (d.equals(itemDok))
+                return true;
+        }
+        return false;
+    }
+
+    private boolean testClaim(String strClaim, String claim) {
+        if (strClaim.equals(claim))
+            return true;
+        String[] splitString = strClaim.split("&");
+        for (String claimPart : splitString) {
+            if (claimPart.equals(claim))
+                return true;
+        }
+        return false;
+    }
+
     // Checks if target is any of the values in targets list
-    private boolean targetResults(String target, List<String> targets) {
+    private boolean orTest(String target, List<String> targets) {
         if (targets == null || targets.size() == 0)
             return true;
         

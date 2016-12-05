@@ -9,14 +9,14 @@ public class BlueprintCsvRow {
     private String description;
     private String subject;
     private int grade;
-    private int claim;
+    private String claim;
     private int min;
     private int max;
     // Can have multiple targets, handle as String
     private String target;
     private String dok;
     // dok>= some value
-    private int dokGte;
+    private String dokGte;
     private String passage;
     private int shortAnswer;
     private String stim;
@@ -46,11 +46,11 @@ public class BlueprintCsvRow {
         this.grade = grade;
     }
 
-    public int getClaim() {
+    public String getClaim() {
         return claim;
     }
 
-    public void setClaim(int claim) {
+    public void setClaim(String claim) {
         this.claim = claim;
     }
 
@@ -86,11 +86,11 @@ public class BlueprintCsvRow {
         this.dok = dok;
     }
 
-    public int getDokGte() {
+    public String getDokGte() {
         return dokGte;
     }
 
-    public void setDokGte(int dokGte) {
+    public void setDokGte(String dokGte) {
         this.dokGte = dokGte;
     }
 
