@@ -102,7 +102,7 @@ public class CATFileUploadController {
             catData.setStudentScores(studentScores);
             catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
-            catData.setBlueprintStatements(filterGrade(blueprintStatements, grade));
+            catData.setBlueprintStatements(filterGrade(blueprintStatements, subject, grade));
             catData.setGrade(grade);
             catData.setSubject(subject);
 
@@ -112,10 +112,11 @@ public class CATFileUploadController {
         }
     }
 
-    private List<BlueprintStatement> filterGrade(List<BlueprintStatement> blueprintStatements, int grade) {
+    private List<BlueprintStatement> filterGrade(List<BlueprintStatement> blueprintStatements, String subject,
+            int grade) {
         List<BlueprintStatement> results = new ArrayList<>();
         for (BlueprintStatement s : blueprintStatements) {
-            if (s.getGrade() == grade)
+            if (s.getGrade() == grade && s.getSubject().equalsIgnoreCase(subject))
                 results.add(s);
         }
         return results;
