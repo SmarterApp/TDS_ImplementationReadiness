@@ -102,9 +102,15 @@ public class CATParsingServiceImpl implements CATParsingService {
             final String subject = row.getSubject();
             final String passage = row.getPassage();
             final String shortAnswer = row.getShortAnswer();
+            String min = row.getMin();
+            String max = row.getMax();
             statement = new BlueprintStatement();
-            statement.setMin(row.getMin());
-            statement.setMax(row.getMax());
+            statement.setMin(Integer.parseInt(row.getMin()));
+            if (max.isEmpty()) {
+                statement.setMax(Integer.MAX_VALUE);
+            } else {
+                statement.setMax(Integer.parseInt(max));
+            }
             statement.setGrade(row.getGrade());
             String spec = createSpecification(row);
             statement.setSpecification(spec);

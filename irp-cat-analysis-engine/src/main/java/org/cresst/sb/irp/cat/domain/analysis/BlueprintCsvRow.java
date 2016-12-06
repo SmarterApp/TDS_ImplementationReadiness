@@ -10,8 +10,8 @@ public class BlueprintCsvRow {
     private String subject;
     private int grade;
     private String claim;
-    private int min;
-    private int max;
+    private String min;
+    private String max;
     // Can have multiple targets, handle as String
     private String target;
     private String dok;
@@ -54,19 +54,19 @@ public class BlueprintCsvRow {
         this.claim = claim;
     }
 
-    public int getMin() {
+    public String getMin() {
         return min;
     }
 
-    public void setMin(int min) {
+    public void setMin(String min) {
         this.min = min;
     }
 
-    public int getMax() {
+    public String getMax() {
         return max;
     }
 
-    public void setMax(int max) {
+    public void setMax(String max) {
         this.max = max;
     }
 
