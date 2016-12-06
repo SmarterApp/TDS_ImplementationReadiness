@@ -3,6 +3,7 @@ package org.cresst.sb.irp.cat.analysis.engine;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
@@ -105,7 +106,7 @@ public class CATParsingServiceImpl implements CATParsingService {
             statement.setMin(row.getMin());
             statement.setMax(row.getMax());
             statement.setGrade(row.getGrade());
-            String spec = String.format("Claim %s: %s", claim, row.getDescription());
+            String spec = createSpecification(row);
             statement.setSpecification(spec);
 
             statement.setCondition(new BlueprintCondition() {
@@ -133,6 +134,55 @@ public class CATParsingServiceImpl implements CATParsingService {
             statements.add(statement);
         }
         return statements;
+    }
+
+    private String createSpecification(BlueprintCsvRow row) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Claim ");
+        builder.append(row.getClaim());
+
+        builder.append(' ');
+        if (!row.getDescription().isEmpty())
+            builder.append(", ");
+            builder.append(row.getDescription());
+        if (!row.getDok().isEmpty()) {
+            builder.append(", ");
+            builder.append("DOK = ");
+            builder.append(row.getDok());
+            builder.append(' ');
+        }
+        if (!row.getDokGte().isEmpty()) {
+            builder.append(", ");
+            builder.append("DOK >= ");
+            builder.append(row.getDokGte());
+            builder.append(' ');
+        }
+
+        if (!row.getTarget().isEmpty()) {
+            builder.append(", ");
+            builder.append("Targets: ");
+            builder.append(formatTargets(row.getTarget()).replaceAll("\"", ""));
+        }
+
+        return builder.toString();
+    }
+
+    private String formatTargets(String rawTargets) {
+        String results = rawTargets.replaceAll("\"", "");
+        List<Integer> targets = new ArrayList<>();
+        for (String target : results.split(",")) {
+            try {
+                targets.add(Integer.parseInt(target));
+            } catch (NumberFormatException e) {
+                // Target is non-numeric
+                break;
+            }
+        }
+        if (targets.size() > 0) {
+            Collections.sort(targets);
+            return targets.toString().replace("[", "").replace("]", "");
+        }
+        return results;
     }
 
     private boolean testShortAnswer(String itemShortAnswer, String shortAnswer) {
