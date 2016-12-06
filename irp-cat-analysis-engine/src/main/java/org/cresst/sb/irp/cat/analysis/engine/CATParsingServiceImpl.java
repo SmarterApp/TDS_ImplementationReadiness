@@ -136,10 +136,15 @@ public class CATParsingServiceImpl implements CATParsingService {
     }
 
     private boolean testShortAnswer(String itemShortAnswer, String shortAnswer) {
+        if (shortAnswer.isEmpty())
+            return true;
+
         return itemShortAnswer.equalsIgnoreCase(shortAnswer);
     }
 
     private boolean testPassage(String itemPassage, String passage) {
+        if (passage.isEmpty())
+            return true;
         return itemPassage.equalsIgnoreCase(passage);
     }
 
