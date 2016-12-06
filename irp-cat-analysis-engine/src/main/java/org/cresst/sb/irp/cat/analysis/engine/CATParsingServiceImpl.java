@@ -98,6 +98,9 @@ public class CATParsingServiceImpl implements CATParsingService {
             final List<String> targets = splitToList(row.getTarget());
             final String dok = row.getDok();
             final String dokGte = row.getDokGte();
+            final String subject = row.getSubject();
+            final String passage = row.getPassage();
+            final String shortAnswer = row.getShortAnswer();
             statement = new BlueprintStatement();
             statement.setMin(row.getMin());
             statement.setMax(row.getMax());
@@ -109,18 +112,35 @@ public class CATParsingServiceImpl implements CATParsingService {
 
                 @Override
                 public boolean test(PoolItem item) {
-                    // Currently only check against claim number and targets and
-                    // dok
+                    // Currently checks against claim number and targets and
+                    // dok, and passage/shortanswer for ELA subject
                     boolean claimResults = testClaim(item.getClaim(), claim);
                     boolean targetResults = orTest(item.getTarget(), targets);
                     boolean dokResults = testDok(item.getDok(), dok, dokGte);
-                    return claimResults && targetResults && dokResults;
+                    // Passage and short answer only applies to ela
+                    boolean passageResults = true;
+                    boolean shortAnswerResults = true;
+                    if (subject.equalsIgnoreCase("ela")) {
+                        PoolItemELA elaItem = (PoolItemELA) item;
+                        passageResults = testPassage(elaItem.getPassage(), passage);
+                        shortAnswerResults = testShortAnswer(elaItem.getShortAnswer(), shortAnswer);
+                    }
+
+                    return claimResults && targetResults && dokResults && passageResults && shortAnswerResults;
                 }
             });
 
             statements.add(statement);
         }
         return statements;
+    }
+
+    private boolean testShortAnswer(String itemShortAnswer, String shortAnswer) {
+        return itemShortAnswer.equalsIgnoreCase(shortAnswer);
+    }
+
+    private boolean testPassage(String itemPassage, String passage) {
+        return itemPassage.equalsIgnoreCase(passage);
     }
 
     private boolean testDok(String itemDok, String dok, String dokGte) {

@@ -18,7 +18,7 @@ public class BlueprintCsvRow {
     // dok>= some value
     private String dokGte;
     private String passage;
-    private int shortAnswer;
+    private String shortAnswer;
     private String stim;
     private String weight;
 
@@ -102,11 +102,11 @@ public class BlueprintCsvRow {
         this.passage = passage;
     }
 
-    public int getShortAnswer() {
+    public String getShortAnswer() {
         return shortAnswer;
     }
 
-    public void setShortAnswer(int shortAnswer) {
+    public void setShortAnswer(String shortAnswer) {
         this.shortAnswer = shortAnswer;
     }
 
