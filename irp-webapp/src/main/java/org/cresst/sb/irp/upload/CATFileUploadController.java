@@ -85,10 +85,8 @@ public class CATFileUploadController {
                     allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
                     studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
                 } else if (subject.equals("math")) {
-                    // Should not actually occur as math is not implemented
                     allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
                     studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
-
                 }
                 blueprintStatements = catParsingService.parseBlueprintCsv(blueprintResource.getInputStream());
                 trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
