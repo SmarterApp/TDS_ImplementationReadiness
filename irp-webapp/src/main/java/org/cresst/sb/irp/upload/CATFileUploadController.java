@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.cresst.sb.irp.cat.ResourceSelector;
 import org.cresst.sb.irp.cat.analysis.engine.CATParsingService;
+import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
@@ -48,6 +49,9 @@ public class CATFileUploadController {
     @Value("${cat.ela.itempool}")
     private Resource itemPoolResource;
 
+    @Value("${cat.blueprint}")
+    private Resource blueprintResource;
+
     @Autowired
     private CATParsingService catParsingService;
 
@@ -74,16 +78,17 @@ public class CATFileUploadController {
             List<? extends StudentScoreCAT> studentScores = null;
             List<PoolItem> allItems = new ArrayList<>();
             List<TrueTheta> trueThetas = null;
+            List<BlueprintStatement> blueprintStatements = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
                 if(subject.equals("ela")) {
                     allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
                     studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
                 } else if (subject.equals("math")) {
-                    // Should not actually occur as math is not implemented
                     allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
                     studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
                 }
+                blueprintStatements = catParsingService.parseBlueprintCsv(blueprintResource.getInputStream());
                 trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
             } catch (IOException e) {
                 logger.error("{}", e.getMessage());
@@ -95,6 +100,7 @@ public class CATFileUploadController {
             catData.setStudentScores(studentScores);
             catData.setPoolItems(allItems);
             catData.setTrueThetas(trueThetas);
+            catData.setBlueprintStatements(filterGrade(blueprintStatements, subject, grade));
             catData.setGrade(grade);
             catData.setSubject(subject);
 
@@ -102,6 +108,16 @@ public class CATFileUploadController {
 
             return response;
         }
+    }
+
+    private List<BlueprintStatement> filterGrade(List<BlueprintStatement> blueprintStatements, String subject,
+            int grade) {
+        List<BlueprintStatement> results = new ArrayList<>();
+        for (BlueprintStatement s : blueprintStatements) {
+            if (s.getGrade() == grade && s.getSubject().equalsIgnoreCase(subject))
+                results.add(s);
+        }
+        return results;
     }
 
     /**

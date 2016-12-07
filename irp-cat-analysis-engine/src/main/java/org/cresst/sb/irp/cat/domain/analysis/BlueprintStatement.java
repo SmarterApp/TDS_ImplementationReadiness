@@ -9,8 +9,10 @@ public class BlueprintStatement {
     private final static Logger logger = LoggerFactory.getLogger(BlueprintStatement.class);
 
     private String specification;
+    private String subject;
     private int min;
     private int max;
+    private int grade;
     // Number of "true" occurrences of the blueprint test
     private int matchCount;
     // Number of occurrences are accumulated into violation count
@@ -60,7 +62,8 @@ public class BlueprintStatement {
     @Override
     public String toString() {
         return "BlueprintStatement [specification=" + specification + ", min=" + min + ", max="
-                + max + ", matchCount=" + matchCount + ", violationCount=" + violationCount + "]";
+                + max + ", matchCount=" + matchCount + ", violationCount=" + violationCount + ", subject=" + subject
+                + "]";
     }
 
     public boolean test(PoolItem item) {
@@ -108,5 +111,21 @@ public class BlueprintStatement {
             violationCount.incOver();
         }
         matchCount = 0;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

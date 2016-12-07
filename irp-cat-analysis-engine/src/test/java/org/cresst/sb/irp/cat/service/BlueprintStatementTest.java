@@ -1,6 +1,9 @@
 package org.cresst.sb.irp.cat.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
@@ -45,6 +48,12 @@ public class BlueprintStatementTest {
                 // TODO Auto-generated method stub
                 return null;
             }
+
+            @Override
+            public String getItemGrade() {
+                // TODO Auto-generated method stub
+                return null;
+            }
         };
 
         poolItem2 = new PoolItem() {
@@ -66,6 +75,12 @@ public class BlueprintStatementTest {
 
             @Override
             public String getTarget() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public String getItemGrade() {
                 // TODO Auto-generated method stub
                 return null;
             }
