@@ -226,10 +226,10 @@
                 return this.lowerBound(binSize, index + 1, 2);
             },
             isEla: function(subject) {
-                return subject.toLowerCase() === "ela";
+                return subject != null && subject.toLowerCase() === "ela";
             },
             isMath: function(subject) {
-                return subject.toLowerCase() === "math";
+                return subject != null && subject.toLowerCase() === "math";
             },
             _toArray: function(obj) {
                 return Object.keys(obj).map(function(key) {
