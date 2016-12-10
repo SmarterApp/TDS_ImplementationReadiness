@@ -63,13 +63,22 @@
             </div>
             
             <div id="exposure-bins">
-                 <b>Distribution of exposure rates</b>
+                 <b>Distribution of exposure rates</b><br>
                  <p th:text="|Bin size: ${catResults.binSize}"></p>
-                 <th:block th:each="bin,iter : ${catResults.bins}">
-                    <p th:if="${bin > 0}"
-                       th:text="|Bin ${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} < X <= ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)} has a count of: ${bin}|">
-                    </p>
-                 </th:block>
+                 <table>
+                    <tr>
+                        <td>Bin</td>
+                        <th:block th:each="bin,iter : ${catResults.bins}">
+                            <td th:text="|${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} to ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)}|">
+                        </th:block>
+                    </tr>
+                    <tr>
+                        <td>Count</td>
+                        <th:block th:each="bin,iter : ${catResults.bins}">
+                            <td th:text="${bin}"></td>
+                        </th:block>
+                    </tr>
+                 </table>
             </div>
         </div>
         <div id="score-summary">

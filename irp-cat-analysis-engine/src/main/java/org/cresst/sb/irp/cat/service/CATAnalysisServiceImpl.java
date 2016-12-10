@@ -32,8 +32,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         response.setGrade(catData.getGrade());
         response.setSubject(catData.getSubject());
 
-        // % increase for bins; hard-coded for 5%
-        double binSize = .05;
+        // % increase for bins; hard-coded for 20%
+        double binSize = .10;
         exposureCalculations(catData, response, binSize);
 
         biasCalculations(catData, response);

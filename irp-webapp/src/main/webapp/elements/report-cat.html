@@ -64,15 +64,23 @@
                     </p>
                 </div>
                 <div id="exposure-bins">
-                    <b>Distribution of exposure rates</b> 
-                    <p>Bin size: [[catResults.binSize]]</p>
-                    <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
-                      <template is="dom-if" if="[[nonZero(bin)]]">
-                      <p>
-                        Bin [[lowerBound(catResults.binSize, index, 2)]] < X <= [[upperBound(catResults.binSize, index, 2)]] has a count of: [[bin]]
-                      </p>
-                    </template>
-                    </template>
+                    <b>Distribution of exposure rates</b><br>
+                    <p>Bin size: [[catResults.binSize]]</p> 
+                    <table>
+                        <tr>
+                            <td>Bin</td>
+                            <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                                <td>[[lowerBound(catResults.binSize, index, 2)]] to [[upperBound(catResults.binSize, index, 2)]]</td>
+                            </template>
+                        </tr>
+
+                        <tr>
+                            <td>Count</td>
+                            <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                                <td>[[bin]]</td>
+                            </template>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div id="score-summary">
