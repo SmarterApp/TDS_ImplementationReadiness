@@ -14,13 +14,10 @@
     table {
         margin: 0;
         padding: 0;
-        width: 100%;
         border: 1px solid #000000;
         border-spacing: 0;
         border-collapse: collapse;
         border-spacing: 0;
-        width: 100%;
-        height: 100%;
         margin: 0;
         padding: 0;
     }
@@ -81,8 +78,16 @@
             	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
             	These summaries are also computed against the scores partitioned into deciles.
             </p>
-            <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
-            <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
+            <table>
+                <tr>
+                    <td>Average Bias</td>
+                    <td th:text="${#numbers.formatDecimal(catResults.averageBias, 0, 3)}"></td>
+                </tr>
+                <tr>
+                    <td >Root Mean Squared Error (RMSE)</td>
+                    <td th:text="${#numbers.formatDecimal(catResults.rmse, 0, 3)}"></td>
+                </tr>
+            </table>            
             <div id="score-summary-deciles">
                     <b>Average Bias by Decile</b>
                     <table>
