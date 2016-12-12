@@ -135,18 +135,44 @@
 		        <p>
 		        	Precision is scored by the overall mean standard error of measurement and by claim.
 		        </p>
-                <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
-                <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
-                <template is="dom-if" if="[[isEla(catResults.subject)]]">
-                    <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
-                </template>
-                <template is="dom-if" if="[[isMath(catResults.subject)]]">
-                 <p>Combined Claim 2-4 Mean Standard Error of Measurement [[round(catResults.claim2_4SEM, 3)]]</p>
-                </template>
-                <p>Claim 3 Mean Standard Error of Measurement [[round(catResults.claim3SEM, 3)]]</p>
-                <template is="dom-if" if="[[isEla(catResults.subject)]]">
-                    <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
-                </template>
+                <table id="precision">
+                    <tr>
+                        <td>
+                            <b>Claim</b>
+                        </td>
+                        <td>Overall</td>
+                        <td>1</td>
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </template>
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                            <td>2-4</td>
+                            <td>3</td>
+                        </template>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mean Standard Error of Measurement
+                        </td>
+                        <td>
+                            [[round(catResults.overallSEM, 3)]]
+                        </td> 
+                        <td>
+                            [[round(catResults.claim1SEM, 3)]]
+                        </td>
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                            <td>[[round(catResults.claim2SEM, 3)]]</td>
+                            <td>[[round(catResults.claim3SEM, 3)]]</td>
+                            <td>[[round(catResults.claim4SEM, 3)]]</td>
+                        </template>
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                            <td>[[round(catResults.claim2_4SEM, 3)]]</td>
+                            <td>[[round(catResults.claim4SEM, 3)]]</td>
+                        </template>
+                      </tr>
+                  </table>
             </div>
             <div id="score-levels">
         	<p>
