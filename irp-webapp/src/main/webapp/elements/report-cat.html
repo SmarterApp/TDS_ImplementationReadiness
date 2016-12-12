@@ -10,7 +10,6 @@
         border: 1px solid #000000;
         border-spacing: 0;
         border-collapse: collapse;
-        border-spacing: 0;
         margin: 0;
         padding: 0;
     }
@@ -33,13 +32,23 @@
         font-weight: normal;
         color: #000000;
     }
+    .section-header {
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .subsection-header {
+        padding: 10px;
+        font-size: 14px;
+        font-style: italic;
+    }
     </style>
     <template>
 
         <div>
             CAT Analysis Summary for {{catResults.subject}} Grade {{catResults.grade}}
             <div id="exposure-analysis">
-                <b>Exposure Rates Analysis</b>
+                <div class="section-header">Exposure Rates Analysis</div>
                 <p>
                 	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
                 	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
@@ -62,7 +71,7 @@
                 </table>
  
                 <div id="exposure-bins-analysis">
-                    <b>Distribution of exposure rates</b><br>
+                    <div class="section-header">Distribution of exposure rates</div>
                     <p>Bin size: [[catResults.binSize]]</p> 
                     <table id="exposure-bins">
                         <tr>
@@ -82,7 +91,7 @@
                 </div>
             </div>
             <div id="score-summary">
-                <b>Score Summary</b>
+                <div class="section-header">Score Summary</div>
                 <p>
                 	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
                 	These summaries are also computed against the scores partitioned into deciles.
@@ -98,7 +107,7 @@
                     </tr>
                 </table>
                 <div id="score-summary-deciles">
-                    <b>Average Bias by Decile</b>
+                    <div class="subsection-header">Average Bias by Decile</div>
                     <table>
 						<tr>				
 							<td><b>Decile</b></td>			
@@ -113,7 +122,7 @@
                    			</template>                   				
                    		</tr>
                     </table>
-                    <b>RMSE by Decile</b>
+                    <div class="subsection-header">RMSE by Decile</div>
                     <table>
                    		<tr>
                    			<td><b>Decile</b></td>
@@ -131,7 +140,7 @@
                 </div>
             </div>
             <div id="precision-scores">
-                <b>Precision Summary</b>
+                <div class="section-header">Precision Summary</div>
 		        <p>
 		        	Precision is scored by the overall mean standard error of measurement and by claim.
 		        </p>
@@ -184,7 +193,7 @@
         			<li>Cut scores by grade and subject can be found here (pp. 8-9): <a href="http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf">http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf</a></li>
         		</ul>
         	</p>
-                <b>Classification Levels</b>
+                <div class="section-header">Classification Levels</div>
                 <table id="score-table">
                     <thead>Score Levels</thead>
                     <td></td><td colspan="4">True Level</td>
@@ -206,13 +215,13 @@
                 <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
             </div>
             <div id="blueprint-violations">
-            	<b>Blueprint Violations</b>
+            	<div class="section-header">Blueprint Violations</div>
             	<p>
             		Blueprint violations are summarized for ELA from <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a> and for Math from 
             		<a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
             		Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
             	</p>
-                <b>Violation Counts</b>
+                <div class="subsection-header">Violation Counts</div>
                 <table>
                     <tr>
                         <td>Specification</td>
