@@ -50,9 +50,23 @@
     </style>
 </head>
 <body>
-    <div id="content">
+    <div id="content">    
         <div class="header">CAT IRP Report</div>
         <div class="subsection-header" th:text="|${catResults.subject} grade ${catResults.grade}|"></div>
+        <table>
+        <tr>
+            <td>Implementation Readiness Package</td>
+            <td th:text="${catResults.irpVersion}"></td>
+        </tr>
+        <tr th:if="${catResults.vendorName != null && catResults.vendorName != ''}">
+            <td>Vendor Name</td>
+            <td th:text="${catResults.vendorName}"></td>
+        </tr>
+        <tr class="border_bottom">
+            <td>Date and Time Analyzed</td>
+            <td th:text="${catResults.dateTimeAnalyzed}"></td>
+        </tr>
+    </table>
         <div id="exposure-analysis">
             <div class="section-header">Exposure Rates Analysis</div>
 	        <p>

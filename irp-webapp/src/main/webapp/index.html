@@ -326,20 +326,34 @@
                                                     Step 5: Using these files, run a simulation
                                                 </li>
                                                 <li>
-                                                    Step 6: Upload <i>Item Datafile</i> which is a record of every item administered to each simulated examinee, and <i>Student Datafile</i> which contains final scale score estimates obtained and their associated standard errors of measurement.<br>
+                                                    Step 6: Upload <i>Item Datafile</i> which is a record of every item administered to each simulated examinee, and <i>Student Scores Datafile</i> which contains final scale score estimates obtained and their associated standard errors of measurement.<br>
                                                     <form id="catFileUploader" is="ajax-form" method="post"
                                                         enctype="multipart/form-data" action="/catUpload/subject/{{subject}}/grade/{{grade}}">
                                                         <ul>
                                                             <li>
                                                                 <div id="catItemUpload">
-                                                                  Item Datafile
+                                                                  Items Datafile
                                                                   <input id="catItemFile" type="file" class="btn btn-default" name="catItemFile" required>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div id="catStudentUpload">
-                                                                  Student Datafile
+                                                                  Student Scores Datafile
                                                                   <input id="catStudentFile" type="file" class="btn btn-default" name="catStudentFile" required>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="vendorName">Vendor Name: <input id="clientName" type="text"
+                                                                                                name="vendorName">
+                                                                    <div class="vendor-tooltip">
+                                                                        <span id="vendor-name-info">
+                                                                            info
+                                                                        </span>
+                                                                        <span class="vendor-tooltip-inner">
+                                                                            Please enter the name of the organization you represent. This information is displayed in the resulting PDF.
+                                                                        </span>
+                                                                    
+                                                                    </div>
                                                                 </div>
                                                             </li>
                                                         </ul>
