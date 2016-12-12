@@ -8,9 +8,6 @@
     #content {
         text-align: left;
     }
-    h1,h2 {
-        text-align: center;
-    }
     table {
         margin: 0;
         padding: 0;
@@ -47,12 +44,16 @@
         font-size: 14px;
         font-style: italic;
     }
+    .header {
+       font-size: 18px;
+       font-weight: bold;
+    }
     </style>
 </head>
 <body>
     <div id="content">
-        <h1>CAT Implementation Readiness Package Report</h1>
-        <h2 th:text="|${catResults.subject} grade ${catResults.grade}|"></h2>
+        <div class="header">CAT IRP Report</div>
+        <div class="subsection-header" th:text="|${catResults.subject} grade ${catResults.grade}|"></div>
         <div id="exposure-analysis">
             <div class="section-header">Exposure Rates Analysis</div>
 	        <p>

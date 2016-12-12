@@ -40,11 +40,21 @@
         font-size: 14px;
         font-style: italic;
     }
+    .header {
+        font-size: 20px;
+        font-weight:bold;
+    }
     </style>
     <template>
 
         <div>
-            CAT Analysis Summary for {{catResults.subject}} Grade {{catResults.grade}}
+            <hr>
+            <div class="header">
+                CAT Analysis Summary
+            </div>
+            <div class="subsection-header">
+                {{catResults.subject}} grade {{catResults.grade}}
+            </div>
             <div id="exposure-analysis">
                 <div class="section-header">Exposure Rates Analysis</div>
                 <p>
