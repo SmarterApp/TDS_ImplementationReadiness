@@ -30,7 +30,15 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         CATAnalysisResponse response = new CATAnalysisResponse();
         
         response.setGrade(catData.getGrade());
-        response.setSubject(catData.getSubject());
+        String subject = catData.getSubject();
+        // Format the subject nicely
+        if (subject.equalsIgnoreCase("ela")) {
+            response.setSubject("ELA");
+        } else if (subject.equalsIgnoreCase("math")) {
+            response.setSubject("Math");
+        } else {
+            response.setSubject(subject);
+        }
 
         // % increase for bins; hard-coded for 20%
         double binSize = .10;

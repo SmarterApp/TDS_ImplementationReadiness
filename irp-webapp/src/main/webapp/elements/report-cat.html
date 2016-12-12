@@ -53,7 +53,7 @@
                 CAT Analysis Summary
             </div>
             <div class="subsection-header">
-                {{catResults.subject}} grade {{catResults.grade}}
+                {{formatSubject(catResults.subject)}} grade {{catResults.grade}}
             </div>
             <div id="exposure-analysis">
                 <div class="section-header">Exposure Rates Analysis</div>
@@ -80,7 +80,7 @@
  
                 <div id="exposure-bins-analysis">
                     <div class="section-header">Distribution of exposure rates</div>
-                    <p>Bin size: [[catResults.binSize]]</p> 
+                    <p>The count of the number exposure rates falling into each percentage range with a bin size of [[catResults.binSize]]</p> 
                     <table id="exposure-bins">
                         <tr>
                             <td>Bin</td>
@@ -159,12 +159,12 @@
                         </td>
                         <td>Overall</td>
                         <td>1</td>
-                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                        <template is="dom-if" if="[[isEla(formatSubject(catResults.subject))]]">
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
                         </template>
-                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                        <template is="dom-if" if="[[isMath(formatSubject(catResults.subject))]]">
                             <td>2-4</td>
                             <td>3</td>
                         </template>
@@ -179,12 +179,12 @@
                         <td>
                             [[round(catResults.claim1SEM, 3)]]
                         </td>
-                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                        <template is="dom-if" if="[[isEla(formatSubject(catResults.subject))]]">
                             <td>[[round(catResults.claim2SEM, 3)]]</td>
                             <td>[[round(catResults.claim3SEM, 3)]]</td>
                             <td>[[round(catResults.claim4SEM, 3)]]</td>
                         </template>
-                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                        <template is="dom-if" if="[[isMath(formatSubject(catResults.subject))]]">
                             <td>[[round(catResults.claim2_4SEM, 3)]]</td>
                             <td>[[round(catResults.claim4SEM, 3)]]</td>
                         </template>
@@ -297,6 +297,14 @@
             },
             isMath: function(subject) {
                 return subject != null && subject.toLowerCase() === "math";
+            },
+            formatSubject: function(subject) {
+                if(this.isEla(subject)) {
+                    return "ELA";
+                }
+                else if (this.isMath(subject)) {
+                    return "Math";
+                }
             },
             _toArray: function(obj) {
                 return Object.keys(obj).map(function(key) {

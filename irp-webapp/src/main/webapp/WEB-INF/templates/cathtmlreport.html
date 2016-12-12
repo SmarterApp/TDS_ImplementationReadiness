@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <title>CAT Implementation Readiness Package Report</title>
     <style>
+    
     #content {
         text-align: left;
+    
     }
     table {
         margin: 0;
@@ -77,7 +79,7 @@
             
             <div id="exposure-bins-analysis">
                  <div class="section-header">Distribution of exposure rates</div>
-                 <p th:text="|Bin size: ${catResults.binSize}"></p>
+                 <p th:text="|The count of the number exposure rates falling into each percentage range with a bin size of ${catResults.binSize}"></p>
                  <table id="exposure-bins">
                     <tr>
                         <td>Bin</td>
