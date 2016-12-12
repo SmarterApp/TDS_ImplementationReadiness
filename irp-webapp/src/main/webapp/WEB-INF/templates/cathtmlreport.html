@@ -53,14 +53,23 @@
 	          	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
 	          	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
 	        </p>
-            <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
-            <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
-            <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
-            
-            <div id="used-items">
-                <p th:text="|Used items: ${catResults.unusedItems}|"></p>
-                <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
-            </div>
+            <table id="exposure-summary">
+                <tr>
+                    <td>Total items</td>
+                    <td>Unused items</td>
+                    <td>Percent unused</td>
+                    <td>Used items</td>
+                    <td>Percent used</td>
+                    
+                </tr>
+                <tr>
+                    <td th:text="${catResults.itemPoolCount}"></td>
+                    <td th:text="${catResults.unusedItems}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}"></td>
+                    <td th:text="${catResults.unusedItems}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}"></td>
+                </tr>
+            </table>
             
             <div id="exposure-bins">
                  <b>Distribution of exposure rates</b><br>

@@ -39,34 +39,32 @@
         <div>
             CAT Analysis Summary for {{catResults.subject}} Grade {{catResults.grade}}
             <div id="exposure-analysis">
-                <b>Exposure Rates</b>
+                <b>Exposure Rates Analysis</b>
                 <p>
                 	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
                 	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
                 </p>
-                <div id="unused-items">
-                    <p>
-                    Total items: [[catResults.itemPoolCount]]
-                    </p>
-                    <p>
-                    Unused items: [[catResults.unusedItems]]
-                    </p>
-                    <p>
-                    Percent unused: [[round(catResults.percentUnused, 2)]]
-                    </p>
-                </div>
-                <div id="used-items">
-                    <p>
-                        Used items: [[catResults.usedItems]]
-                    </p>
-                    <p>
-                        Percent used: [[round(catResults.percentUsed, 2)]]
-                    </p>
-                </div>
-                <div id="exposure-bins">
+                <table id="exposure-summary">
+                    <tr>
+                        <td>Total items</td>
+                        <td>Unused items</td>
+                        <td>Percent unused</td>
+                        <td>Used items</td>
+                        <td>Percent used</td>
+                    </tr>
+                    <tr>
+                        <td>[[catResults.itemPoolCount]]</td>
+                        <td>[[catResults.unusedItems]]</td>
+                        <td>[[round(catResults.percentUnused, 2)]]</td>
+                        <td>[[catResults.usedItems]]</td>
+                        <td>[[round(catResults.percentUsed, 2)]]</td>
+                    </tr>
+                </table>
+ 
+                <div id="exposure-bins-analysis">
                     <b>Distribution of exposure rates</b><br>
                     <p>Bin size: [[catResults.binSize]]</p> 
-                    <table>
+                    <table id="exposure-bins">
                         <tr>
                             <td>Bin</td>
                             <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
