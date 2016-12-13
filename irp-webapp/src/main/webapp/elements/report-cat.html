@@ -7,15 +7,9 @@
     table {
         margin: 0;
         padding: 0;
-        width: 100%;
         border: 1px solid #000000;
         border-spacing: 0;
         border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
     }
 
     th {
@@ -36,58 +30,92 @@
         font-weight: normal;
         color: #000000;
     }
+    .section-header {
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .subsection-header {
+        padding: 10px;
+        font-size: 14px;
+        font-style: italic;
+    }
+    .header {
+        font-size: 20px;
+        font-weight:bold;
+    }
     </style>
     <template>
 
         <div>
-            CAT Analysis Summary for {{catResults.subject}} Grade {{catResults.grade}}
+            <hr>
+            <div class="header">
+                CAT Analysis Summary
+            </div>
+            <div class="subsection-header">
+                {{formatSubject(catResults.subject)}} grade {{catResults.grade}}
+            </div>
             <div id="exposure-analysis">
-                <b>Exposure Rates</b>
+                <div class="section-header">Exposure Rates Analysis</div>
                 <p>
                 	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
                 	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
                 </p>
-                <div id="unused-items">
-                    <p>
-                    Total items: [[catResults.itemPoolCount]]
-                    </p>
-                    <p>
-                    Unused items: [[catResults.unusedItems]]
-                    </p>
-                    <p>
-                    Percent unused: [[round(catResults.percentUnused, 2)]]
-                    </p>
-                </div>
-                <div id="used-items">
-                    <p>
-                        Used items: [[catResults.usedItems]]
-                    </p>
-                    <p>
-                        Percent used: [[round(catResults.percentUsed, 2)]]
-                    </p>
-                </div>
-                <div id="exposure-bins">
-                    <b>Distribution of exposure rates</b> 
-                    <p>Bin size: [[catResults.binSize]]</p>
-                    <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
-                      <template is="dom-if" if="[[nonZero(bin)]]">
-                      <p>
-                        Bin [[lowerBound(catResults.binSize, index, 2)]] < X <= [[upperBound(catResults.binSize, index, 2)]] has a count of: [[bin]]
-                      </p>
-                    </template>
-                    </template>
+                <table id="exposure-summary">
+                    <tr>
+                        <td>Total items</td>
+                        <td>Unused items</td>
+                        <td>Percent unused</td>
+                        <td>Used items</td>
+                        <td>Percent used</td>
+                    </tr>
+                    <tr>
+                        <td>[[catResults.itemPoolCount]]</td>
+                        <td>[[catResults.unusedItems]]</td>
+                        <td>[[round(catResults.percentUnused, 2)]]</td>
+                        <td>[[catResults.usedItems]]</td>
+                        <td>[[round(catResults.percentUsed, 2)]]</td>
+                    </tr>
+                </table>
+ 
+                <div id="exposure-bins-analysis">
+                    <div class="section-header">Distribution of exposure rates</div>
+                    <p>The count of the number exposure rates falling into each percentage range with a bin size of [[catResults.binSize]]</p> 
+                    <table id="exposure-bins">
+                        <tr>
+                            <td>Bin</td>
+                            <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                                <td>[[lowerBound(catResults.binSize, index, 2)]] to [[upperBound(catResults.binSize, index, 2)]]</td>
+                            </template>
+                        </tr>
+
+                        <tr>
+                            <td>Count</td>
+                            <template is="dom-repeat" items="{{catResults.bins}}" as="bin" index-as="index">
+                                <td>[[bin]]</td>
+                            </template>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div id="score-summary">
-                <b>Score Summary</b>
+                <div class="section-header">Score Summary</div>
                 <p>
                 	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
                 	These summaries are also computed against the scores partitioned into deciles.
                 </p>
-                <p>Average Bias: [[round(catResults.averageBias,3)]]</p>
-                <p>Root Mean Squared Error (RMSE) [[round(catResults.rmse,3)]]</p>
+                <table>
+                    <tr>
+                        <td>Average Bias</td>
+                        <td>[[round(catResults.averageBias,3)]]</td>
+                    </tr>
+                    <tr>
+                        <td>Root Mean Squared Error (RMSE)</td>
+                        <td>[[round(catResults.rmse,3)]]</td>
+                    </tr>
+                </table>
                 <div id="score-summary-deciles">
-                    <b>Average Bias by Decile</b>
+                    <div class="subsection-header">Average Bias by Decile</div>
                     <table>
 						<tr>				
 							<td><b>Decile</b></td>			
@@ -102,7 +130,7 @@
                    			</template>                   				
                    		</tr>
                     </table>
-                    <b>RMSE by Decile</b>
+                    <div class="subsection-header">RMSE by Decile</div>
                     <table>
                    		<tr>
                    			<td><b>Decile</b></td>
@@ -120,22 +148,48 @@
                 </div>
             </div>
             <div id="precision-scores">
-                <b>Precision Summary</b>
+                <div class="section-header">Precision Summary</div>
 		        <p>
 		        	Precision is scored by the overall mean standard error of measurement and by claim.
 		        </p>
-                <p>Mean Overall Standard Error of Measurement [[round(catResults.overallSEM, 3)]]</p>
-                <p>Claim 1 Mean Standard Error of Measurement [[round(catResults.claim1SEM, 3)]]</p>
-                <template is="dom-if" if="[[isEla(catResults.subject)]]">
-                    <p>Claim 2 Mean Standard Error of Measurement [[round(catResults.claim2SEM, 3)]]</p>
-                </template>
-                <template is="dom-if" if="[[isMath(catResults.subject)]]">
-                 <p>Combined Claim 2-4 Mean Standard Error of Measurement [[round(catResults.claim2_4SEM, 3)]]</p>
-                </template>
-                <p>Claim 3 Mean Standard Error of Measurement [[round(catResults.claim3SEM, 3)]]</p>
-                <template is="dom-if" if="[[isEla(catResults.subject)]]">
-                    <p>Claim 4 Mean Standard Error of Measurement [[round(catResults.claim4SEM, 3)]]</p>
-                </template>
+                <table id="precision">
+                    <tr>
+                        <td>
+                            <b>Claim</b>
+                        </td>
+                        <td>Overall</td>
+                        <td>1</td>
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </template>
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                            <td>2-4</td>
+                            <td>3</td>
+                        </template>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mean Standard Error of Measurement
+                        </td>
+                        <td>
+                            [[round(catResults.overallSEM, 3)]]
+                        </td> 
+                        <td>
+                            [[round(catResults.claim1SEM, 3)]]
+                        </td>
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
+                            <td>[[round(catResults.claim2SEM, 3)]]</td>
+                            <td>[[round(catResults.claim3SEM, 3)]]</td>
+                            <td>[[round(catResults.claim4SEM, 3)]]</td>
+                        </template>
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
+                            <td>[[round(catResults.claim2_4SEM, 3)]]</td>
+                            <td>[[round(catResults.claim4SEM, 3)]]</td>
+                        </template>
+                      </tr>
+                  </table>
             </div>
             <div id="score-levels">
         	<p>
@@ -147,7 +201,13 @@
         			<li>Cut scores by grade and subject can be found here (pp. 8-9): <a href="http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf">http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf</a></li>
         		</ul>
         	</p>
-                <b>Classification Levels</b>
+                <div class="section-header">Classification Levels</div>
+                <p>
+                    For every true score and estimated scale score, there are corresponding levels.
+                    For the overall score, students are assigned to one of four possible levels.
+                    <i>Classification accuracy</i> is the number of correctly labeled students compared to the generating student levels divided by the total number of students.
+                    This is a sum of the diagonal along the table and dividing by the total number of students.
+                </p>
                 <table id="score-table">
                     <thead>Score Levels</thead>
                     <td></td><td colspan="4">True Level</td>
@@ -169,13 +229,20 @@
                 <p>Classification accuracy: [[round(catResults.classAccuracy, 2)]]</p>
             </div>
             <div id="blueprint-violations">
-            	<b>Blueprint Violations</b>
-            	<p>
-            		Blueprint violations are summarized for ELA from <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a> and for Math from 
-            		<a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
-            		Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
-            	</p>
-                <b>Violation Counts</b>
+                <div class="section-header">Blueprint Violations</div>
+                <p>
+                    Blueprint violations are summarized from here
+                    <ul>
+                        <li>
+                            ELA <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a>
+                        </li>
+                        <li>
+                            Math <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
+                        </li>
+                        Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
+                    </ul>
+                </p>
+                <div class="subsection-header">Violation Counts</div>
                 <table>
                     <tr>
                         <td>Specification</td>
@@ -226,10 +293,18 @@
                 return this.lowerBound(binSize, index + 1, 2);
             },
             isEla: function(subject) {
-                return subject.toLowerCase() === "ela";
+                return subject != null && subject.toLowerCase() === "ela";
             },
             isMath: function(subject) {
-                return subject.toLowerCase() === "math";
+                return subject != null && subject.toLowerCase() === "math";
+            },
+            formatSubject: function(subject) {
+                if(this.isEla(subject)) {
+                    return "ELA";
+                }
+                else if (this.isMath(subject)) {
+                    return "Math";
+                }
             },
             _toArray: function(obj) {
                 return Object.keys(obj).map(function(key) {

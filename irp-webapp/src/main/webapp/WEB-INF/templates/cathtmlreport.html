@@ -5,36 +5,26 @@
     <meta charset="UTF-8">
     <title>CAT Implementation Readiness Package Report</title>
     <style>
+    
     #content {
         text-align: left;
-    }
-    h1,h2 {
-        text-align: center;
+    
     }
     table {
         margin: 0;
         padding: 0;
-        width: 100%;
-        border: 1px solid #000000;
+        border: 1;
         border-spacing: 0;
         border-collapse: collapse;
-        border-spacing: 0;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
     }
-
     th {
-        border-width: 0 1px 1px 0;
+        border-width: 0 0.5 0.5 0;
         border-style: solid;
         border-color: #000000;
     }
-    
     td {
         vertical-align: middle;
-
-        border-width: 0 1px 1px 0;
+        border-width: 0 0.5 0.5 0;
         border-style: solid;
         border-color: #000000;
         text-align: left;
@@ -43,48 +33,101 @@
         font-weight: normal;
         color: #000000;
     }
-
+    .section-header {
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .subsection-header {
+        padding: 10px;
+        font-size: 14px;
+        font-style: italic;
+    }
+    .header {
+       font-size: 20px;
+       font-weight: bold;
+    }
     </style>
 </head>
 <body>
-    <div id="content">
-        <h1>CAT Implementation Readiness Package Report</h1>
-        <h2 th:text="|${catResults.subject} grade ${catResults.grade}|"></h2>
+    <div id="content">    
+        <div class="header">CAT IRP Report</div>
+        <div class="subsection-header" th:text="|${catResults.subject} grade ${catResults.grade}|"></div>
+        <table>
+        <tr>
+            <td>Implementation Readiness Package</td>
+            <td th:text="${catResults.irpVersion}"></td>
+        </tr>
+        <tr th:if="${catResults.vendorName != null && catResults.vendorName != ''}">
+            <td>Vendor Name</td>
+            <td th:text="${catResults.vendorName}"></td>
+        </tr>
+        <tr class="border_bottom">
+            <td>Date and Time Analyzed</td>
+            <td th:text="${catResults.dateTimeAnalyzed}"></td>
+        </tr>
+    </table>
         <div id="exposure-analysis">
-            <b>Exposure Rates Analysis</b>
+            <div class="section-header">Exposure Rates Analysis</div>
 	        <p>
 	          	For all available items in the pool, the number of times administered divided by the number of tests simulated for students in the particular grade and subject. 
 	          	For example, if item #100 is used 500 times among 10,000 simulated tests, exposure rate for item #100 is 500/10,000 = 0.05.
 	        </p>
-            <p th:text="|Total items: ${catResults.itemPoolCount}|"></p>
-            <p th:text="|Unused items: ${catResults.unusedItems}|"></p>        
-            <p th:text="|Percent unused: ${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}|"></p>
+            <table id="exposure-summary">
+                <tr>
+                    <td>Total items</td>
+                    <td>Unused items</td>
+                    <td>Percent unused</td>
+                    <td>Used items</td>
+                    <td>Percent used</td>
+                    
+                </tr>
+                <tr>
+                    <td th:text="${catResults.itemPoolCount}"></td>
+                    <td th:text="${catResults.unusedItems}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.percentUnused, 0 , 2)}"></td>
+                    <td th:text="${catResults.unusedItems}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}"></td>
+                </tr>
+            </table>
             
-            <div id="used-items">
-                <p th:text="|Used items: ${catResults.unusedItems}|"></p>
-                <p th:text="|Percent used: ${#numbers.formatDecimal(catResults.percentUsed, 0 , 2)}|"></p>
-            </div>
-            
-            <div id="exposure-bins">
-                 <b>Distribution of exposure rates</b>
-                 <p th:text="|Bin size: ${catResults.binSize}"></p>
-                 <th:block th:each="bin,iter : ${catResults.bins}">
-                    <p th:if="${bin > 0}"
-                       th:text="|Bin ${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} < X <= ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)} has a count of: ${bin}|">
-                    </p>
-                 </th:block>
+            <div id="exposure-bins-analysis">
+                 <div class="section-header">Distribution of exposure rates</div>
+                 <p th:text="|The count of the number exposure rates falling into each percentage range with a bin size of ${catResults.binSize}"></p>
+                 <table id="exposure-bins">
+                    <tr>
+                        <td>Bin</td>
+                        <th:block th:each="bin,iter : ${catResults.bins}">
+                            <td th:text="|${#numbers.formatDecimal(catResults.binSize * iter.index, 0, 2)} to ${#numbers.formatDecimal(catResults.binSize * iter.count, 0, 2)}|">
+                        </th:block>
+                    </tr>
+                    <tr>
+                        <td>Count</td>
+                        <th:block th:each="bin,iter : ${catResults.bins}">
+                            <td th:text="${bin}"></td>
+                        </th:block>
+                    </tr>
+                 </table>
             </div>
         </div>
         <div id="score-summary">
-            <b>Score Summary</b>
+            <div class="section-header">Score Summary</div>
             <p>
             	Score estimates are compared against the true/generating scores. Summaries are available as Average Bias and Root Mean Squared Error (RMSE)
             	These summaries are also computed against the scores partitioned into deciles.
             </p>
-            <p th:text="|Average Bias: ${#numbers.formatDecimal(catResults.averageBias, 0, 3)}|"></p>
-            <p th:text="|Root Mean Squared Error (RMSE): ${#numbers.formatDecimal(catResults.rmse, 0, 3)}|"></p>
+            <table>
+                <tr>
+                    <td>Average Bias</td>
+                    <td th:text="${#numbers.formatDecimal(catResults.averageBias, 0, 3)}"></td>
+                </tr>
+                <tr>
+                    <td >Root Mean Squared Error (RMSE)</td>
+                    <td th:text="${#numbers.formatDecimal(catResults.rmse, 0, 3)}"></td>
+                </tr>
+            </table>            
             <div id="score-summary-deciles">
-                    <b>Average Bias by Decile</b>
+                    <div class="subsection-header">Average Bias by Decile</div>
                     <table>
                     	<tr>
                     		<td><b>Decile</b></td>
@@ -98,8 +141,8 @@
 		                        <td th:text="${#numbers.formatDecimal(avgBias, 0, 3)}"></td>
 		                    </th:block>                    		
                     	</tr>
-                   	</table>
-                   	
+                    </table>
+                    <div class="subsection-header">RMSE by Decile</div>
                     <table>
                     	<tr>
                     		<td><b>Decile</b></td>
@@ -117,16 +160,30 @@
                 </div>
         </div>
         <div id="precision-scores">
-        <b>Precision Summary</b>
-        <p>
-        	Precision is scored by the overall mean standard error of measurement and by claim.
-        </p>
-            <p th:text="|Mean Overall Standard Error of Measurement ${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}|"></p>
-            <p th:text="|Claim 1 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}|"></p>
-            <p th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="|Claim 2 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}|"></p>
-            <p th:if="${catResults.subject.toLowerCase()} == 'math'" th:text="|Combined Claim 2 and 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim2_4SEM, 0, 3)}|"></p>
-            <p th:text="|Claim 3 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}|"></p>
-            <p th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="|Claim 4 Mean Standard Error of Measurement ${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}|"></p>
+            <div class="section-header">Precision Summary</div>
+            <p>
+                Precision is scored by the overall mean standard error of measurement and by claim.
+            </p>
+            <table id="precision">
+                <tr>
+                <td><b>Claim</b></td>
+                <td>Overall</td>
+                <td>1</td>
+                <td th:if="${catResults.subject.toLowerCase()} == 'ela'">2</td>
+                <td th:if="${catResults.subject.toLowerCase()} == 'math'">2-4</td>
+                <td>3</td>
+                <td th:if="${catResults.subject.toLowerCase()} == 'ela'">4</td>
+                </tr>
+                <tr>
+                    <td><b>Mean Standard Error of Measurement</b></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.overallSEM, 0, 3)}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.claim1SEM, 0, 3)}"></td>
+                    <td th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="${#numbers.formatDecimal(catResults.claim2SEM, 0, 3)}"></td>
+                    <td th:if="${catResults.subject.toLowerCase()} == 'math'" th:text="${#numbers.formatDecimal(catResults.claim2_4SEM, 0, 3)}"></td>
+                    <td th:text="${#numbers.formatDecimal(catResults.claim3SEM, 0, 3)}"></td>
+                    <td th:if="${catResults.subject.toLowerCase()} == 'ela'" th:text="${#numbers.formatDecimal(catResults.claim4SEM, 0, 3)}"></td>
+                </tr>
+            </table>
         </div>
         
         <div id="score-levels">
@@ -139,7 +196,13 @@
         			<li>Cut scores by grade and subject can be found here (pp. 8-9): <a href="http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf">http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf</a></li>
         		</ul>
         	</p>
-            <b>Classification Levels</b>
+            <div class="section-header">Classification Levels</div>
+            <p>
+                For every true score and estimated scale score, there are corresponding levels.
+                For the overall score, students are assigned to one of four possible levels.
+                <i>Classification accuracy</i> is the number of correctly labeled students compared to the generating student levels divided by the total number of students.
+                This is a sum of the diagonal along the table and dividing by the total number of students.
+            </p>
             <table id="score-table">
                 <thead>Score Levels</thead>
                 <td></td><td colspan="4">True Level</td>
@@ -161,13 +224,20 @@
         </div>
         
         <div id="blueprint-violations">
-            	<b>Blueprint Violations</b>
-            	<p>
-            		Blueprint violations are summarized for ELA from <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a> and for Math from 
-            		<a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
-            		Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
-            	</p>
-                <b>Violation Counts</b>
+                <div class="section-header">Blueprint Violations</div>
+                <p>
+                    Blueprint violations are summarized from here
+                    <ul>
+                        <li>
+                            ELA <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a>
+                        </li>
+                        <li>
+                            Math <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
+                        </li>
+                        Summaries are given based on the number of tests that fall under, over or match the blueprint specification.
+                    </ul>
+                </p>
+                <div class="subsection-header">Violation Counts</div>
                 <table>
                     <tr>
                         <td>Specification</td>

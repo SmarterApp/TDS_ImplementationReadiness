@@ -270,48 +270,99 @@
                                           </template>
                                         </div>
                                         <div id="catModePage">
-                                            CAT Mode
-                                            <select id="catGradeSelector">
-                                                <option value="3">Grade 3</option>
-                                                <option value="4">Grade 4</option>
-                                                <option value="5">Grade 5</option>
-                                                <option value="6">Grade 6</option>
-                                                <option value="7">Grade 7</option>
-                                                <option value="8">Grade 8</option>
-                                                <option value="11">Grade 11 </option>
-                                            </select>
-                                            <select id="catSubjectSelector">
-                                                <option value="ela">ELA</option>
-                                                <option value="math">Math</option>
-                                            </select>
-                                            <div id="simulationPackage">
-                                                Simulation package for [[subject]] grade [[grade]]</br>
-                                                <form action="/simupack/itempool/subject/{{subject}}" method="get">
-                                                    <input type="submit" value="Item Pool"/>
-                                                </form>
-                                                <form action="/simupack/studentdata/subject/{{subject}}/grade/{{grade}}" method="get">
-                                                    <input type="submit" value="Student Data"/>
-                                                </form>
-                                                <p>
-                                                Blueprint for ELA tests can be found here: <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a></br>
-                                                Math <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
-                                                </p>
-                                            </div>
-                                            <div class="uploader">
-                                              After running simulation then upload results 
-                                              <form id="catFileUploader" is="ajax-form" method="post"
-                                                    enctype="multipart/form-data" action="/catUpload/subject/{{subject}}/grade/{{grade}}">
-                                                    <div id="catItemUpload">
-                                                      Item Datafile
-                                                      <input id="catItemFile" type="file" class="btn btn-default" name="catItemFile" required>
-                                                    </div>
-                                                    <div id="catStudentUpload">
-                                                      Student Datafile
-                                                      <input id="catStudentFile" type="file" class="btn btn-default" name="catStudentFile" required>
-                                                    </div>
-                                                    <button id="catBtnFileUpload" class="btn btn-primary">Upload</button>
-                                                    <paper-spinner id="catSpinnerUpload" class="blue" inactive=""></paper-spinner>
-                                              </form>
+                                            <p>
+                                                The <i>IRP Computer Adaptive Testing (CAT) Analysis</i> is a service offered to vendors that will evaluate the readiness of their test delivery system.<br>
+
+
+                                                Using data & parameters supplied by IRP (which includes: item pool, item parameters, test blueprint, and student information), vendors can use the internal capabilities of their own CAT engine to simulate a computer-adaptive test.<br>
+                                                The results of the simulation can then be uploaded in csv format to the web interface to summarize how the vendor’s CAT engine performed.<br>
+                                            </p>
+                                            <!-- TODO:  Link to actual documentation --> 
+                                            The file format is described in detail in the <a href="http://www.smarterapp.org/">documentation</a>.
+                                            <ul id="instructions">
+                                                <li>
+                                                    Step 1: Select Grade and Subject combination to test<br>
+                                                    <select id="catGradeSelector">
+                                                        <option value="3">Grade 3</option>
+                                                        <option value="4">Grade 4</option>
+                                                        <option value="5">Grade 5</option>
+                                                        <option value="6">Grade 6</option>
+                                                        <option value="7">Grade 7</option>
+                                                        <option value="8">Grade 8</option>
+                                                        <option value="11">Grade 11 </option>
+                                                    </select>
+                                                    <select id="catSubjectSelector">
+                                                        <option value="ela">ELA</option>
+                                                        <option value="math">Math</option>
+                                                    </select>
+                                                </li>
+                                                <li>
+                                                    Step 2: Download the item pool for {{subject}}<br>
+                                                    <form action="/simupack/itempool/subject/{{subject}}" method="get">
+                                                        <input type="submit" value="Item Pool"/>
+                                                    </form>
+                                                </li>
+                                                <li>
+                                                    Step 3: Download the simulated student data for {{subject}} grade {{grade}}
+                                                    <form action="/simupack/studentdata/subject/{{subject}}/grade/{{grade}}" method="get">
+                                                        <input type="submit" value="Student Data"/>
+                                                    </form>
+                                                </li>
+                                                <li>
+                                                    Step 4: Download the blueprints
+                                                    <form action="/simupack/blueprints" method="get">
+                                                        <input type="submit" value="Blueprint data"/>
+                                                    </form>
+                                                    <ul>
+                                                        <li>
+                                                            Blueprint for ELA tests can be found here: <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/ELA_Blueprint.pdf</a></br>
+                                                        </li>
+                                                        <li>
+                                                            Math <a href="https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf">https://www.smarterbalanced.org/wp-content/uploads/2015/08/Mathematics_Blueprint.pdf</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Step 5: Using these files, run a simulation
+                                                </li>
+                                                <li>
+                                                    Step 6: Upload <i>Item Datafile</i> which is a record of every item administered to each simulated examinee, and <i>Student Scores Datafile</i> which contains final scale score estimates obtained and their associated standard errors of measurement.<br>
+                                                    <form id="catFileUploader" is="ajax-form" method="post"
+                                                        enctype="multipart/form-data" action="/catUpload/subject/{{subject}}/grade/{{grade}}">
+                                                        <ul>
+                                                            <li>
+                                                                <div id="catItemUpload">
+                                                                  Items Datafile
+                                                                  <input id="catItemFile" type="file" class="btn btn-default" name="catItemFile" required>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div id="catStudentUpload">
+                                                                  Student Scores Datafile
+                                                                  <input id="catStudentFile" type="file" class="btn btn-default" name="catStudentFile" required>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="vendorName">Vendor Name: <input id="clientName" type="text"
+                                                                                                name="vendorName">
+                                                                    <div class="vendor-tooltip">
+                                                                        <span id="vendor-name-info">
+                                                                            info
+                                                                        </span>
+                                                                        <span class="vendor-tooltip-inner">
+                                                                            Please enter the name of the organization you represent. This information is displayed in the resulting PDF.
+                                                                        </span>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <button id="catBtnFileUpload" class="btn btn-primary">Upload</button>
+                                                        <paper-spinner id="catSpinnerUpload" class="blue" inactive=""></paper-spinner>
+                                                    </form>
+                                                </li>
+                                            </ul>
+
                                               <template is="dom-if" if="[[responsesExist(catResults)]]">
                                                 <div>
                                                   <pdf-download-handler pdf-controller="/catPdfreport.html"
@@ -322,7 +373,6 @@
                                                 <br>
                                                 <report-cat id="reportCat" cat-results="[[catResults]]"></report-cat>
                                               </template>
-                                            </div>
                                         </div>
                                     </iron-pages>
                                 </div>

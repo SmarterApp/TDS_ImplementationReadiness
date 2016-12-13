@@ -26,6 +26,9 @@ public class CATAnalysisResponse {
     private double claim2_4SEM;
     private int grade;
     private String subject;
+    private String vendorName;
+    private String irpVersion;
+    private String dateTimeAnalyzed;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -236,5 +239,29 @@ public class CATAnalysisResponse {
 
     public void setClaim2_4SEM(double claim2_4sem) {
         claim2_4SEM = claim2_4sem;
+    }
+
+    public String getVendorName() {
+        return vendorName;
+    }
+
+    public void setVendorName(String vendorName) {
+        this.vendorName = vendorName;
+    }
+
+    public String getIrpVersion() {
+        return irpVersion;
+    }
+
+    public void setIrpVersion(String irpVersion) {
+        this.irpVersion = irpVersion;
+    }
+
+    public String getDateTimeAnalyzed() {
+        return dateTimeAnalyzed;
+    }
+
+    public void setDateTimeAnalyzed(String dateTimeAnalyzed) {
+        this.dateTimeAnalyzed = dateTimeAnalyzed;
     }
 }

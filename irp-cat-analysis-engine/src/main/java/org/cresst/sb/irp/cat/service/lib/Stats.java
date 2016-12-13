@@ -152,11 +152,10 @@ public class Stats {
     public static void calculateExposureBins(CATAnalysisResponse response, double binSize) {
         int unusedCount = 0;
         int totalCount = 0;
-        double maxValue = Collections.max(response.getExposureRates().values()).getExposureRate();
-        int binCount = (int) Math.floor(maxValue / binSize) + 1;
+        double maxValue = 1.0;
+        int binCount = (int) Math.floor(maxValue / binSize);
         int[] bins = new int[binCount];
 
-        logger.debug("maxValue: {}, binCount: {}", maxValue, binCount);
         for(ExposureRate exposureRate : response.getExposureRates().values()) {
             double exposureValue = exposureRate.getExposureRate();
             if (exposureValue == 0) {

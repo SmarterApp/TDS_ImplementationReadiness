@@ -30,10 +30,18 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         CATAnalysisResponse response = new CATAnalysisResponse();
         
         response.setGrade(catData.getGrade());
-        response.setSubject(catData.getSubject());
+        String subject = catData.getSubject();
+        // Format the subject nicely
+        if (subject.equalsIgnoreCase("ela")) {
+            response.setSubject("ELA");
+        } else if (subject.equalsIgnoreCase("math")) {
+            response.setSubject("Math");
+        } else {
+            response.setSubject(subject);
+        }
 
-        // % increase for bins; hard-coded for 5%
-        double binSize = .05;
+        // % increase for bins; hard-coded for 10%
+        double binSize = .10;
         exposureCalculations(catData, response, binSize);
 
         biasCalculations(catData, response);
@@ -42,9 +50,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        // List<BlueprintStatement> blueprintStatements =
-        // BlueprintSpecs.getGradeBlueprints(catData.getSubject(),
-        // catData.getGrade());
+
         calculateBlueprintViolations(catData, response, catData.getBlueprintStatements());
 
         return response;

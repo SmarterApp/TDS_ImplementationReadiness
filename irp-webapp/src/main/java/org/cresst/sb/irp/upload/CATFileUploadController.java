@@ -17,6 +17,8 @@ import org.cresst.sb.irp.cat.domain.analysis.StudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.service.CATAnalysisService;
 import org.cresst.sb.irp.exceptions.NotFoundException;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +65,7 @@ public class CATFileUploadController {
     public CATAnalysisResponse upload(
             @RequestParam("catItemFile") MultipartFile itemFile, 
             @RequestParam("catStudentFile") MultipartFile studentFile,
+            @RequestParam("vendorName") String vendorName,
             @PathVariable("subject") String subject,
             @PathVariable("grade") int grade
             ) throws FileUploadException, IOException {
@@ -105,6 +108,9 @@ public class CATFileUploadController {
             catData.setSubject(subject);
 
             CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
+            response.setVendorName(vendorName);
+            response.setIrpVersion(irpVersion);
+            response.setDateTimeAnalyzed(DateTime.now(DateTimeZone.forID("America/Los_Angeles")).toString());
 
             return response;
         }
