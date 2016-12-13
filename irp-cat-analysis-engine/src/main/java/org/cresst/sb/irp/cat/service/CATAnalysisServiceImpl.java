@@ -40,7 +40,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
             response.setSubject(subject);
         }
 
-        // % increase for bins; hard-coded for 20%
+        // % increase for bins; hard-coded for 10%
         double binSize = .10;
         exposureCalculations(catData, response, binSize);
 
@@ -50,9 +50,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
-        // List<BlueprintStatement> blueprintStatements =
-        // BlueprintSpecs.getGradeBlueprints(catData.getSubject(),
-        // catData.getGrade());
+
         calculateBlueprintViolations(catData, response, catData.getBlueprintStatements());
 
         return response;
