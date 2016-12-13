@@ -159,12 +159,12 @@
                         </td>
                         <td>Overall</td>
                         <td>1</td>
-                        <template is="dom-if" if="[[isEla(formatSubject(catResults.subject))]]">
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
                         </template>
-                        <template is="dom-if" if="[[isMath(formatSubject(catResults.subject))]]">
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
                             <td>2-4</td>
                             <td>3</td>
                         </template>
@@ -179,12 +179,12 @@
                         <td>
                             [[round(catResults.claim1SEM, 3)]]
                         </td>
-                        <template is="dom-if" if="[[isEla(formatSubject(catResults.subject))]]">
+                        <template is="dom-if" if="[[isEla(catResults.subject)]]">
                             <td>[[round(catResults.claim2SEM, 3)]]</td>
                             <td>[[round(catResults.claim3SEM, 3)]]</td>
                             <td>[[round(catResults.claim4SEM, 3)]]</td>
                         </template>
-                        <template is="dom-if" if="[[isMath(formatSubject(catResults.subject))]]">
+                        <template is="dom-if" if="[[isMath(catResults.subject)]]">
                             <td>[[round(catResults.claim2_4SEM, 3)]]</td>
                             <td>[[round(catResults.claim4SEM, 3)]]</td>
                         </template>
