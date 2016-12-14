@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.analysis.engine;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -17,18 +18,18 @@ import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
  */
 public interface CATParsingService {
 
-    List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream);
+    List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream) throws IOException;
 
-    List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream);
+    List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream) throws IOException;
     
-    List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream);
+    List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream) throws IOException;
 
-    List<PoolItemMath> parsePoolItemsMath(InputStream poolStream);
+    List<PoolItemMath> parsePoolItemsMath(InputStream poolStream) throws IOException;
 
-    List<PoolItemELA> parsePoolItemsELA(InputStream poolStream);
+    List<PoolItemELA> parsePoolItemsELA(InputStream poolStream) throws IOException;
 
-    List<TrueTheta> parseTrueThetas(InputStream thetaStream);
+    List<TrueTheta> parseTrueThetas(InputStream thetaStream) throws IOException;
 
-    List<BlueprintStatement> parseBlueprintCsv(InputStream blueprintStream);
+    List<BlueprintStatement> parseBlueprintCsv(InputStream blueprintStream) throws IOException;
 
 }

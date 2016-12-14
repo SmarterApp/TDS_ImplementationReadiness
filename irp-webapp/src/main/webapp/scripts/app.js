@@ -144,6 +144,10 @@
         });
     });
 
+    app.hasError = function(catData) {
+        return catData.error === true;
+    }
+
     // Scroll page to top and expand header
     app.scrollPageToTop = function() {
         app.$.headerPanelMain.scrollToTop(true);

@@ -30,22 +30,20 @@ public class CATParsingServiceImpl implements CATParsingService {
 
     /**
      * 
-     * @param inputStream InputStream that points to a csv
-     * @param csvClass the java object that we want to parse as csv
+     * @param inputStream
+     *            InputStream that points to a csv
+     * @param csvClass
+     *            the java object that we want to parse as csv
      * @return A List with each row parsed as T, or null if failed to parse.
+     * @throws IOException
      */
-    public static <T> List<T> parseCsv(InputStream inputStream, Class<T> csvClass) {
-        try {
-            return parseToMappingIterator(inputStream, csvClass).readAll();
-        } catch (IOException e) {
-            logger.error("Could not get all elements from MappingIterator from csv: {}", e.getMessage());
-            return null;
-        }
+    public static <T> List<T> parseCsv(InputStream inputStream, Class<T> csvClass) throws IOException {
+        return parseToMappingIterator(inputStream, csvClass).readAll();
     }
 
     private static <T> MappingIterator<T> parseToMappingIterator(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
-        CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
+        CsvSchema schema = mapper.schemaFor(csvClass);
 
         try {
             MappingIterator<T> it = mapper.readerFor(csvClass)
@@ -59,37 +57,37 @@ public class CATParsingServiceImpl implements CATParsingService {
     }
 
     @Override
-    public List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream) {
+    public List<ItemResponseCAT> parseItemCsv(InputStream itemFileStream) throws IOException {
             return parseCsv(itemFileStream, ItemResponseCAT.class);
     }
 
     @Override
-    public List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream) {
+    public List<ELAStudentScoreCAT> parseStudentELACsv(InputStream studentStream) throws IOException {
         return parseCsv(studentStream, ELAStudentScoreCAT.class);
     }
 
     @Override
-    public List<PoolItemMath> parsePoolItemsMath(InputStream poolStream) {
+    public List<PoolItemMath> parsePoolItemsMath(InputStream poolStream) throws IOException {
         return parseCsv(poolStream, PoolItemMath.class);
     }
 
     @Override
-    public List<PoolItemELA> parsePoolItemsELA(InputStream poolStream) {
+    public List<PoolItemELA> parsePoolItemsELA(InputStream poolStream) throws IOException {
         return parseCsv(poolStream, PoolItemELA.class);
     }
 
     @Override
-    public List<TrueTheta> parseTrueThetas(InputStream thetaStream) {
+    public List<TrueTheta> parseTrueThetas(InputStream thetaStream) throws IOException {
         return parseCsv(thetaStream, TrueTheta.class);
     }
 
     @Override
-    public List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream) {
+    public List<MathStudentScoreCAT> parseStudentMathCsv(InputStream studentStream) throws IOException {
         return parseCsv(studentStream, MathStudentScoreCAT.class);
     }
 
     @Override
-    public List<BlueprintStatement> parseBlueprintCsv(InputStream blueprintStream) {
+    public List<BlueprintStatement> parseBlueprintCsv(InputStream blueprintStream) throws IOException {
         MappingIterator<BlueprintCsvRow> mappingIter = parseToMappingIterator(blueprintStream, BlueprintCsvRow.class);
         List<BlueprintStatement> statements = new ArrayList<>();
         BlueprintStatement statement = null;

@@ -93,9 +93,13 @@ public class CATFileUploadController {
                 }
                 blueprintStatements = catParsingService.parseBlueprintCsv(blueprintResource.getInputStream());
                 trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
-            } catch (IOException e) {
+            } catch (Exception e) {
                 logger.error("{}", e.getMessage());
-                throw e;
+                CATAnalysisResponse response = new CATAnalysisResponse();
+                response.setError(true);
+                response.setErrorMessage(e.getMessage());
+
+                return response;
             }
 
             CATDataModel catData = new CATDataModel();

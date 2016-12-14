@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.cat.service;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     private final static Logger logger = LoggerFactory.getLogger(CATAnalysisServiceImpl.class);
 
     @Override
-    public CATAnalysisResponse analyzeCatResults(CATDataModel catData) {
+    public CATAnalysisResponse analyzeCatResults(CATDataModel catData) throws IOException {
         CATAnalysisResponse response = new CATAnalysisResponse();
         
         response.setGrade(catData.getGrade());
@@ -99,7 +100,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     // Returns theta score cutoff levels from
     // http://www.smarterapp.org/documents/TestScoringSpecs2014-2015.pdf
     // Data can be changed in irp-cat-analysis-engine's resource folder: ThresholdScores2014-2015.csv
-    private double[] getThetaCutoffLevels(String subject, int grade) {
+    private double[] getThetaCutoffLevels(String subject, int grade) throws IOException {
         // Change this file if thresholds scores change, found in irp-cat-analysis-engine resources 
         InputStream thresholdLevelStream = ThresholdLevels.class.getClassLoader().getResourceAsStream("ThresholdScores2014-2015.csv");
         // Parse the csv file

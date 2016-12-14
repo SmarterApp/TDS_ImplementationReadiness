@@ -97,6 +97,11 @@
         paper-tabs {
             --paper-tabs-selection-bar-color: #ED1C23;
         }
+
+        #errorMessage {
+            font-size: 14px;
+            background-color: #ff9999;
+        }
     </style>
 
     <script src="deps/webcomponentsjs/webcomponents-lite.min.js"></script>
@@ -362,7 +367,12 @@
                                                     </form>
                                                 </li>
                                             </ul>
-
+                                            <template is="dom-if" if="[[catResults.error]]">
+                                                <div id="errorMessage">
+                                                    There was an error: [[catResults.errorMessage]]
+                                                </div>
+                                            </template>
+                                            <template is="dom-if" if="[[! catResults.error ]]">
                                               <template is="dom-if" if="[[responsesExist(catResults)]]">
                                                 <div>
                                                   <pdf-download-handler pdf-controller="/catPdfreport.html"
@@ -373,6 +383,7 @@
                                                 <br>
                                                 <report-cat id="reportCat" cat-results="[[catResults]]"></report-cat>
                                               </template>
+                                          </template>
                                         </div>
                                     </iron-pages>
                                 </div>

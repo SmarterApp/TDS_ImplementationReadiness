@@ -29,6 +29,8 @@ public class CATAnalysisResponse {
     private String vendorName;
     private String irpVersion;
     private String dateTimeAnalyzed;
+    private String errorMessage;
+    private boolean error;
 
     public Map<String, ExposureRate> getExposureRates() {
         return exposureRateResponse.getExposureRates();
@@ -263,5 +265,21 @@ public class CATAnalysisResponse {
 
     public void setDateTimeAnalyzed(String dateTimeAnalyzed) {
         this.dateTimeAnalyzed = dateTimeAnalyzed;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
     }
 }
