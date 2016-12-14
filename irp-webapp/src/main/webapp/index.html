@@ -369,7 +369,8 @@
                                             </ul>
                                             <template is="dom-if" if="[[catResults.error]]">
                                                 <div id="errorMessage">
-                                                    There was an error: [[catResults.errorMessage]]
+                                                    There was an error <br>
+                                                    <i>[[catResults.errorMessage]]</i>
                                                 </div>
                                             </template>
                                             <template is="dom-if" if="[[! catResults.error ]]">

@@ -85,7 +85,8 @@ public class CATFileUploadController {
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
             } catch (IOException e) {
-                return createErrorMessage(e.getMessage());
+                return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                        itemFile.getOriginalFilename(), e.getMessage()));
             }
             if (subject.equals("ela")) {
                 try {
@@ -97,7 +98,8 @@ public class CATFileUploadController {
                 try {
                     studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
                 } catch (IOException e) {
-                    return createErrorMessage(e.getMessage());
+                    return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                            studentFile.getOriginalFilename(), e.getMessage()));
                 }
             } else if (subject.equals("math")) {
                 try {
@@ -109,7 +111,8 @@ public class CATFileUploadController {
                 try {
                     studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
                 } catch (IOException e) {
-                    return createErrorMessage(e.getMessage());
+                    return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                            studentFile.getOriginalFilename(), e.getMessage()));
                 }
             }
             try {
