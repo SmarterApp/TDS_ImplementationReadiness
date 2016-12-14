@@ -43,7 +43,7 @@ public class CATParsingServiceImpl implements CATParsingService {
 
     private static <T> MappingIterator<T> parseToMappingIterator(InputStream inputStream, Class<T> csvClass) {
         CsvMapper mapper = new CsvMapper();
-        CsvSchema schema = mapper.schemaFor(csvClass).withHeader();
+        CsvSchema schema = mapper.schemaFor(csvClass).withSkipFirstDataRow(true);
 
         try {
             MappingIterator<T> it = mapper.readerFor(csvClass)
