@@ -23,7 +23,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -45,14 +44,8 @@ public class CATFileUploadController {
     @Value("${irp.version}")
     String irpVersion;
 
-    @Value("${cat.math.itempool}")
-    private Resource mathItemPoolResource;
-
-    @Value("${cat.ela.itempool}")
-    private Resource itemPoolResource;
-
-    @Value("${cat.blueprint}")
-    private Resource blueprintResource;
+    @Value("${cat.datafolder}")
+    private String catDataFolder;
 
     @Autowired
     private CATParsingService catParsingService;
@@ -90,7 +83,8 @@ public class CATFileUploadController {
             }
             if (subject.equals("ela")) {
                 try {
-                    allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
+                    allItems.addAll(
+                            catParsingService.parsePoolItemsELA(ResourceSelector.getItemPool(catDataFolder, subject)));
                 } catch (IOException e) {
                     logger.error(e.getMessage());
                     return createErrorMessage("Error parsing the pool items");
@@ -103,7 +97,8 @@ public class CATFileUploadController {
                 }
             } else if (subject.equals("math")) {
                 try {
-                    allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
+                    allItems.addAll(
+                            catParsingService.parsePoolItemsMath(ResourceSelector.getItemPool(catDataFolder, subject)));
                 } catch (IOException e) {
                     logger.error(e.getMessage());
                     return createErrorMessage("Error parsing math pool items");
@@ -116,12 +111,14 @@ public class CATFileUploadController {
                 }
             }
             try {
-                blueprintStatements = catParsingService.parseBlueprintCsv(blueprintResource.getInputStream());
+                blueprintStatements = catParsingService
+                        .parseBlueprintCsv(ResourceSelector.getBlueprints(catDataFolder));
             } catch (IOException e) {
                 return createErrorMessage("Could not parse blueprint csv: " + e.getMessage());
             }
             try {
-                trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
+                trueThetas = catParsingService
+                        .parseTrueThetas(ResourceSelector.getTrueThetasGz(catDataFolder, subject, grade));
             } catch (IOException e) {
                 return createErrorMessage("Could not parse the true theta file: " + e.getMessage());
             }

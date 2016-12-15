@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,20 +21,14 @@ public class SimulationPackage {
     @Value("${irp.version}")
     String irpVersion;
 
-    @Value("${cat.ela.itempool}")
-    private Resource itemPool;
-    
-    @Value("${cat.math.itempool}")
-    private Resource mathItemPool;
-
-    @Value("${cat.blueprint}")
-    private Resource blueprintResource;
+    @Value("${cat.datafolder}")
+    private String catDataFolder;
 
     @RequestMapping(value = "/simupack/blueprints", method = RequestMethod.GET)
     public void simulationPackageBlueprints(HttpServletResponse response)
             throws IOException {
-        InputStream blueprintDataStream = blueprintResource.getInputStream();
-        String filename = blueprintResource.getFilename();
+        InputStream blueprintDataStream = ResourceSelector.getBlueprints(catDataFolder);
+        String filename = "Blueprints.csv";
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
         response.setContentType("text/csv");
         FileCopyUtils.copy(blueprintDataStream, response.getOutputStream());
@@ -44,15 +37,9 @@ public class SimulationPackage {
     public void simulationPackageItemPool(
             @PathVariable("subject") String subject,
             HttpServletResponse response) throws IOException {
-        InputStream itempoolStream = null;
-        String filename = "";
-        if(subject.equals("ela")) {
-            itempoolStream = itemPool.getInputStream();
-            filename = itemPool.getFilename();
-        } else if (subject.equals("math")) {
-            itempoolStream = mathItemPool.getInputStream();
-            filename = mathItemPool.getFilename();
-        }
+        InputStream itempoolStream = ResourceSelector.getItemPool(catDataFolder, subject);
+        String filename = ResourceSelector.getItemPoolFilename(subject);
+
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
         response.setContentType("text/csv");
         FileCopyUtils.copy(itempoolStream, response.getOutputStream());
@@ -63,7 +50,7 @@ public class SimulationPackage {
             @PathVariable("subject") String subject,
             @PathVariable("grade") int grade,
             HttpServletResponse response) throws IOException {
-        InputStream studentDataStream = ResourceSelector.getStudentResponses(subject, grade);
+        InputStream studentDataStream = ResourceSelector.getStudentResponsesGz(catDataFolder, subject, grade);
         String filename = ResourceSelector.getStudentResponsesFilename(subject, grade);
         response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
         response.setContentType("text/csv");
