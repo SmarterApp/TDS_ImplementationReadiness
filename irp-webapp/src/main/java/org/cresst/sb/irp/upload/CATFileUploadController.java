@@ -84,18 +84,46 @@ public class CATFileUploadController {
             List<BlueprintStatement> blueprintStatements = null;
             try {
                 itemResponses = catParsingService.parseItemCsv(itemFile.getInputStream());
-                if(subject.equals("ela")) {
+            } catch (IOException e) {
+                return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                        itemFile.getOriginalFilename(), e.getMessage()));
+            }
+            if (subject.equals("ela")) {
+                try {
                     allItems.addAll(catParsingService.parsePoolItemsELA(itemPoolResource.getInputStream()));
-                    studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
-                } else if (subject.equals("math")) {
-                    allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
-                    studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                    return createErrorMessage("Error parsing the pool items");
                 }
+                try {
+                    studentScores = catParsingService.parseStudentELACsv(studentFile.getInputStream());
+                } catch (IOException e) {
+                    return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                            studentFile.getOriginalFilename(), e.getMessage()));
+                }
+            } else if (subject.equals("math")) {
+                try {
+                    allItems.addAll(catParsingService.parsePoolItemsMath(mathItemPoolResource.getInputStream()));
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                    return createErrorMessage("Error parsing math pool items");
+                }
+                try {
+                    studentScores = catParsingService.parseStudentMathCsv(studentFile.getInputStream());
+                } catch (IOException e) {
+                    return createErrorMessage(String.format("Error parsing file: %s Reason: %s",
+                            studentFile.getOriginalFilename(), e.getMessage()));
+                }
+            }
+            try {
                 blueprintStatements = catParsingService.parseBlueprintCsv(blueprintResource.getInputStream());
+            } catch (IOException e) {
+                return createErrorMessage("Could not parse blueprint csv: " + e.getMessage());
+            }
+            try {
                 trueThetas = catParsingService.parseTrueThetas(ResourceSelector.getTrueThetas(subject, grade));
             } catch (IOException e) {
-                logger.error("{}", e.getMessage());
-                throw e;
+                return createErrorMessage("Could not parse the true theta file: " + e.getMessage());
             }
 
             CATDataModel catData = new CATDataModel();
@@ -114,6 +142,14 @@ public class CATFileUploadController {
 
             return response;
         }
+    }
+
+    private CATAnalysisResponse createErrorMessage(String errorMessage) {
+        logger.error(errorMessage);
+        CATAnalysisResponse resp = new CATAnalysisResponse();
+        resp.setError(true);
+        resp.setErrorMessage(errorMessage);
+        return resp;
     }
 
     private List<BlueprintStatement> filterGrade(List<BlueprintStatement> blueprintStatements, String subject,
