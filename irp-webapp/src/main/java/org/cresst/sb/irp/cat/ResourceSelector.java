@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.zip.GZIPInputStream;
 
 public class ResourceSelector {
+
     public static InputStream getTrueThetas(String subject, int grade) throws IOException {
         String filename = getTrueThetasFilename(subject, grade) + ".gz";
         return new GZIPInputStream(ResourceSelector.class.getClassLoader().getResourceAsStream(filename));

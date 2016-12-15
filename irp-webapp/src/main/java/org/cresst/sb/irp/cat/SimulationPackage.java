@@ -28,6 +28,18 @@ public class SimulationPackage {
     @Value("${cat.math.itempool}")
     private Resource mathItemPool;
 
+    @Value("${cat.blueprint}")
+    private Resource blueprintResource;
+
+    @RequestMapping(value = "/simupack/blueprints", method = RequestMethod.GET)
+    public void simulationPackageBlueprints(HttpServletResponse response)
+            throws IOException {
+        InputStream blueprintDataStream = blueprintResource.getInputStream();
+        String filename = blueprintResource.getFilename();
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", filename));
+        response.setContentType("text/csv");
+        FileCopyUtils.copy(blueprintDataStream, response.getOutputStream());
+    }
     @RequestMapping(value="/simupack/itempool/subject/{subject}", method = RequestMethod.GET)
     public void simulationPackageItemPool(
             @PathVariable("subject") String subject,
