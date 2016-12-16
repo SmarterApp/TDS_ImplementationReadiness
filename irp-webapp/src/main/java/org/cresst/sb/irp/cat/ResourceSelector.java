@@ -27,7 +27,7 @@ public class ResourceSelector {
     }
 
     public static String getTrueThetasFilename(String subject, int grade) {
-        return String.format("TrueThetas_WeightTuning%1$s%2$dN1000ASL.csv", subject.toLowerCase(), grade);
+        return String.format("TrueThetas_%1$s%2$dN1000ASL.csv", subject.toLowerCase(), grade);
     }
 
     public static InputStream getStudentResponsesGz(String folderPath, String subject, int grade) throws IOException {
