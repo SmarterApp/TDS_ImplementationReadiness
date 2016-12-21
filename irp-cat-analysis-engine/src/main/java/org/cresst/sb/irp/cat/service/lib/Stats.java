@@ -86,11 +86,14 @@ public class Stats {
      * @return exposure rates in a Map with pairs <itemid, ExposureRate>
      */
     public static Map<String, ExposureRate> calculateExposureRates(Collection<PoolItem> poolItems,
-            Collection<ItemResponseCAT> itemResponses) {
+            Collection<ItemResponseCAT> itemResponses, String grade) {
         Map<String, ExposureRate> exposureRates = new HashMap<>();
 
         // Initialize exposures to 0
         for(PoolItem poolItem : poolItems) {
+            if (!poolItem.getItemGrade().equals(grade)) {
+                continue;
+            }
             ExposureRate exposureRate = new ExposureRate();
             exposureRate.setExposureRate(0.0);
             exposureRate.setInItemPool(true);
