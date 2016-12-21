@@ -1,6 +1,8 @@
 package org.cresst.sb.irp.cat.service.lib;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,13 +11,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -94,7 +95,8 @@ public class StatsTest {
         List<PoolItem> poolItems = new ArrayList<>();
         catData.setItemResponses(itemResponses);
         catData.setPoolItems(poolItems);
-        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses());
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(),
+                catData.getItemResponses(), "3");
         assertNotNull(exposureRates);
         assertEquals(0, exposureRates.size());
     }
@@ -104,6 +106,7 @@ public class StatsTest {
         CATDataModel catData = new CATDataModel();
         List<ItemResponseCAT> itemResponses = new ArrayList<>();
         List<PoolItem> poolItems = new ArrayList<>();
+        final String grade = "3";
 
         // Add student responses
         ItemResponseCAT item = new ItemResponseCAT();
@@ -115,10 +118,13 @@ public class StatsTest {
         // Add pool items
         PoolItemELA poolItem = new PoolItemELA();
         poolItem.setItemId("1");
+        poolItem.setPoolGrade("3");
         poolItems.add(poolItem);
+
         catData.setPoolItems(poolItems);
 
-        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses());
+        Map<String, ExposureRate> exposureRates = Stats.calculateExposureRates(catData.getPoolItems(),
+                catData.getItemResponses(), grade);
         assertNotNull(exposureRates);
         assertEquals(1, exposureRates.size());
         assertEquals(1.0, exposureRates.get("1").getExposureRate(), epsilon);

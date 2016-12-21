@@ -43,11 +43,13 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
         // % increase for bins; hard-coded for 10%
         double binSize = .10;
-        exposureCalculations(catData, response, binSize);
+        exposureCalculations(catData, response, binSize, String.valueOf(catData.getGrade()));
 
         biasCalculations(catData, response);
 
         double[] cutoffLevels = getThetaCutoffLevels(catData.getSubject(), catData.getGrade());
+
+        response.setCutoffLevels(cutoffLevels);
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
@@ -169,8 +171,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return results;
     }
 
-    private void exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize) {
-        response.setExposureRates(Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses()));
+    private void exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize,
+            String grade) {
+        response.setExposureRates(
+                Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses(), grade));
 
         Stats.calculateExposureBins(response, binSize);
     }

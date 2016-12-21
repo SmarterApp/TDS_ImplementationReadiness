@@ -208,6 +208,18 @@
                     <i>Classification accuracy</i> is the number of correctly labeled students compared to the generating student levels divided by the total number of students.
                     This is a sum of the diagonal along the table and dividing by the total number of students.
                 </p>
+                <table id="cutoff-levels">
+                    <tr>
+                        <td>Theta Cut between Levels 1 and 2</td>
+                        <td>Theta Cut between Levels 2 and 3</td>
+                        <td>Theta Cut between Levels 3 and 4</td>
+                    </tr>
+                    <tr>
+                        <template is="dom-repeat" items="{{catResults.cutoffLevels}}" as="cutoff">
+                            <td>{{cutoff}}</td>
+                        </template>
+                    </tr>
+                </table>
                 <table id="score-table">
                     <thead>Score Levels</thead>
                     <td></td><td colspan="4">True Level</td>

@@ -6,4 +6,5 @@ public interface PoolItem {
     String getDok();
     String getTarget();
     String getItemGrade();
+    String getPoolGrade();
 }
