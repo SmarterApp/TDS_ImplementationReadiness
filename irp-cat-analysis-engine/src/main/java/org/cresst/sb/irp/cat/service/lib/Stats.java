@@ -91,7 +91,7 @@ public class Stats {
 
         // Initialize exposures to 0
         for(PoolItem poolItem : poolItems) {
-            if (!poolItem.getItemGrade().equals(grade)) {
+            if (!poolItem.getPoolGrade().equals(grade)) {
                 continue;
             }
             ExposureRate exposureRate = new ExposureRate();
