@@ -118,7 +118,7 @@ public class StatsTest {
         // Add pool items
         PoolItemELA poolItem = new PoolItemELA();
         poolItem.setItemId("1");
-        poolItem.setItemGrade("3");
+        poolItem.setPoolGrade("3");
         poolItems.add(poolItem);
 
         catData.setPoolItems(poolItems);
