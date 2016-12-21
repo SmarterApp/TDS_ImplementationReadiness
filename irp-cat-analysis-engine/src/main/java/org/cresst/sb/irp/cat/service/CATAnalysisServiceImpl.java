@@ -48,6 +48,8 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         biasCalculations(catData, response);
 
         double[] cutoffLevels = getThetaCutoffLevels(catData.getSubject(), catData.getGrade());
+
+        response.setCutoffLevels(cutoffLevels);
         classificationCalculations(catData, response, cutoffLevels);
 
         precisionStats(catData, response);
