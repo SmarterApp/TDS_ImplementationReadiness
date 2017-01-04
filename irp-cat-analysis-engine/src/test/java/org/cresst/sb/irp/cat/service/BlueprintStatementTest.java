@@ -45,15 +45,18 @@ public class BlueprintStatementTest {
 
             @Override
             public String getTarget() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getItemGrade() {
-                // TODO Auto-generated method stub
                 return null;
             }
+
+			@Override
+			public String getPoolGrade() {
+				return null;
+			}
         };
 
         poolItem2 = new PoolItem() {
@@ -75,15 +78,18 @@ public class BlueprintStatementTest {
 
             @Override
             public String getTarget() {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public String getItemGrade() {
-                // TODO Auto-generated method stub
                 return null;
             }
+
+			@Override
+			public String getPoolGrade() {
+				return null;
+			}
         };
     }
 

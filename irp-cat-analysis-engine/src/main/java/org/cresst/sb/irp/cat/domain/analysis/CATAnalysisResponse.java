@@ -14,6 +14,7 @@ public class CATAnalysisResponse {
     private double[] decileAverageBias;
     private double[] decileRmse;
     private int[][] classAccMatrix;
+    private double[] cutoffLevels;
     private double classAccuracy;
     private List<BlueprintStatement> blueprintStatements;
     private Map<Integer, ViolationCount> claimViolationsMap;
@@ -281,5 +282,13 @@ public class CATAnalysisResponse {
 
     public void setError(boolean error) {
         this.error = error;
+    }
+
+    public double[] getCutoffLevels() {
+        return cutoffLevels;
+    }
+
+    public void setCutoffLevels(double[] cutoffLevels) {
+        this.cutoffLevels = cutoffLevels;
     }
 }
