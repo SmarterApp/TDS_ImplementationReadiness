@@ -1,7 +1,0 @@
-StateAbbreviation,ResponsibleDistrictIdentifier,ResponsibleInstitutionIdentifier,LastOrSurname,FirstName,MiddleName,Birthdate,SSID,ExternalSSID,GradeLevelWhenAssessed,Sex,HispanicOrLatiNoEthnicity,AmericanIndiaNorAlaskaNative,Asian,BlackOrAfricanAmerican,White,NativeHawaiiaNorOtherPacificIslander,DemographicRaceTwoOrMoreRaces,IDEAIndicator,LEPStatus,Section504Status,EcoNomicDisadvantageStatus,LanguageCode,EnglishLanguageProficiencyLevel,MigrantStatus,FirstEntryDateIntoUSSchool,LimitedEnglishProficiencyEntryDate,LEPExitDate,TitleIIILanguageInstructionProgramType,PrimaryDisabilityType,Delete
-{SA},{RDI},{RII},IRPLastNameA,IRPStudentA,IRPMiddleA,2008-03-01,IRP39990001,AIRP39990001,03,Male,Yes,No,No,No,No,No,No,No,No,No,No,eng,3,No,2010-08-03,,,,,
-{SA},{RDI},{RII},IRPLastNameB,IRPStudentB,,2008-03-02,IRP39990002,AIRP39990002,03,Male,No,No,Yes,No,No,No,No,No,Yes,No,No,eng,3,No,2010-08-04,,,,,
-{SA},{RDI},{RII},IRPLastNameC,IRPStudentC,,2008-03-03,IRP39990003,AIRP39990003,03,Female,No,No,No,Yes,No,No,No,No,No,No,No,eng,3,No,2010-08-05,,,,,
-{SA},{RDI},{RII},IRPLastNameD,IRPStudentD,,2008-03-04,IRP39990004,AIRP39990004,03,Female,No,No,No,No,Yes,No,No,No,No,No,No,eng,3,No,2010-08-06,2013-01-15,2012-06-13,DUALLANGUAGE,,
-{SA},{RDI},{RII},IRPLastNameE,IRPStudentE,IRPMiddleE,2008-03-05,IRP39990005,AIRP39990005,03,Male,Yes,No,No,No,No,No,No,No,No,No,No,eng,3,No,2010-08-07,,,,,
-{SA},{RDI},{RII},IRPLastNameF,IRPStudentF,,2008-03-06,IRP39990006,AIRP39990006,03,Male,No,No,Yes,No,No,No,No,No,Yes,No,No,eng,3,No,2010-08-08,,,,,

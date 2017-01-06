@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.cresst.sb.irp.domain.student.Student;
@@ -18,15 +20,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
-
 @Repository
 public class StudentDaoImpl implements StudentDao {
 	private final static Logger logger = LoggerFactory.getLogger(StudentDaoImpl.class);
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<Student> students = new ArrayList<Student>();
 
-	@Value("classpath:irp-package/IRPStudents.xlsx")
+    @Value("file://${irp.package.location}/IRPStudents.xlsx")
 	private Resource studentResource;
 
 	@Autowired

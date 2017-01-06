@@ -27,7 +27,7 @@ public class TestStudentMappingDaoImpl implements TestStudentMappingDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<TestStudentMapping> testStudentMappings = new ArrayList<TestStudentMapping>();
 	
-	@Value("classpath:irp-package/IRPTestStudentMapping.xlsx")
+    @Value("file://${irp.package.location}/IRPTestStudentMapping.xlsx")
 	private Resource testStudentMappingResource;
 	
 	@Autowired

@@ -29,7 +29,7 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	private final static Logger logger = LoggerFactory.getLogger(TestpackageDaoImpl.class);
 	private Map<String, Testspecification> mapTestpackage = new HashMap<>();
 
-	@Value("classpath:irp-package/TestPackages/TDS/Administration")
+    @Value("file://${irp.package.location}/TestPackages/TDS/Administration")
 	private Resource testPackagePath;
 
 	@Value("classpath:testspecification.official.xsd")
