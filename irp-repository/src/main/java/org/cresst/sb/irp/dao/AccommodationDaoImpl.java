@@ -27,7 +27,7 @@ public class AccommodationDaoImpl implements AccommodationDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<Accommodation> accommodations = new ArrayList<Accommodation>();
 
-    @Value("file://${irp.package.location}/IRPStudentsDesignatedSupportsAndAccommodations.xlsx")
+    @Value("${irp.package.location}/IRPStudentsDesignatedSupportsAndAccommodations.xlsx")
 	private Resource accommodationResource;
 	
 	@Autowired

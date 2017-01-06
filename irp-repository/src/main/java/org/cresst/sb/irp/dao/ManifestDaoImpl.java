@@ -25,7 +25,7 @@ public class ManifestDaoImpl implements ManifestDao {
 	private Map<String, Manifest> map = new ConcurrentHashMap<String, Manifest>(); ;
 	private Manifest manifest;
 
-    @Value("file://${irp.package.location}/IrpContentPackage/imsmanifest.xml")
+    @Value("${irp.package.location}/IrpContentPackage/imsmanifest.xml")
 	private Resource manifestResource;
 
 	@Autowired

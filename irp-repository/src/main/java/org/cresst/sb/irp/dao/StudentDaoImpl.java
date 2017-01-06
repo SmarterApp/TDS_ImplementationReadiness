@@ -26,7 +26,7 @@ public class StudentDaoImpl implements StudentDao {
 	private Map<Integer, String> headerMap = new HashMap<Integer, String>();
 	private List<Student> students = new ArrayList<Student>();
 
-    @Value("file://${irp.package.location}/IRPStudents.xlsx")
+    @Value("${irp.package.location}/IRPStudents.xlsx")
 	private Resource studentResource;
 
 	@Autowired
