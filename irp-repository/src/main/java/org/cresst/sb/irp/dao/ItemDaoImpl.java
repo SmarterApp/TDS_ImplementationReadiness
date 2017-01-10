@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;
@@ -15,20 +18,19 @@ import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
-
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
 
 @Repository
 public class ItemDaoImpl implements ItemDao {
 	private final static Logger logger = LoggerFactory.getLogger(ItemDaoImpl.class);
 	private static Map<Integer, Itemrelease.Item> map = new ConcurrentHashMap<Integer, Itemrelease.Item>();
 	private static Map<String, Itemrelease.Item> map2 = new ConcurrentHashMap<String, Itemrelease.Item>();
-	private String rootResourceFolderName = "irp-package/IrpContentPackage";
+    @Value("${irp.package.location}/IrpContentPackage")
+    private String rootResourceFolderName;
 	private String resourceType = "imsqti_apipitem_xmlv2p2";
 	private List<Manifest.Resources.Resource> listResource;
 
@@ -76,7 +78,7 @@ public class ItemDaoImpl implements ItemDao {
 				if (identifierArray.length == 3) {
 					try {
 						int itemid = Integer.parseInt(identifierArray[2]);
-						Resource resource = new ClassPathResource(rootResourceFolderName + "/" + _file.getHref());
+                        Resource resource = new FileSystemResource(rootResourceFolderName + "/" + _file.getHref());
 						Source source = new StreamSource(resource.getInputStream());
 						itemrelease = (Itemrelease) unmarshaller.unmarshal(source);
 						item = itemrelease.getItem().get(0);

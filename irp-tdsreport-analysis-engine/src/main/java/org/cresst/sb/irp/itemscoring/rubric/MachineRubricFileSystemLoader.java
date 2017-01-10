@@ -1,6 +1,11 @@
 package org.cresst.sb.irp.itemscoring.rubric;
 
-import com.google.common.io.CharStreams;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import com.google.common.io.CharStreams;
 
 /**
  * Loads the contents of machine rubrics from the file system
@@ -21,7 +22,7 @@ import java.nio.file.Paths;
 public class MachineRubricFileSystemLoader implements MachineRubricLoader {
     private final static Logger logger = LoggerFactory.getLogger(MachineRubricFileSystemLoader.class);
 
-    @Value("classpath:irp-package/IrpContentPackage/Items")
+    @Value("${irp.package.location}/IrpContentPackage/Items")
     private Resource irpContentPackagePath;
 
     private boolean IS_WINDOWS = System.getProperty( "os.name" ).contains( "indow" );

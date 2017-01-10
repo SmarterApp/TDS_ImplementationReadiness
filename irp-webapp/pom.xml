@@ -127,6 +127,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.zeroturnaround</groupId>
+            <artifactId>zt-zip</artifactId>
+            <version>1.10</version>
+            <type>jar</type>
+        </dependency>
 
         <dependency>
             <groupId>org.jsondoc</groupId>
@@ -249,38 +255,6 @@
                 <configuration>
                     <packagingExcludes>bower*</packagingExcludes>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>zip-irp-package</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <zip destfile="src/main/webapp/irp-package.zip"
-                                     basedir="src/main/resources/irp-package" />
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>cleanup-zip-irp-package</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <delete file="src/main/webapp/irp-package.zip" />
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

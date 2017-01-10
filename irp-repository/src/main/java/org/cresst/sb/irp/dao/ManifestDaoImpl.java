@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.PostConstruct;
+import javax.xml.transform.stream.StreamSource;
+
 import org.cresst.sb.irp.domain.manifest.Manifest;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.utils.ManifestUtil;
@@ -15,9 +18,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
-import javax.xml.transform.stream.StreamSource;
-
 @Repository
 public class ManifestDaoImpl implements ManifestDao {
 	private final static Logger logger = LoggerFactory.getLogger(ManifestDaoImpl.class);
@@ -25,7 +25,7 @@ public class ManifestDaoImpl implements ManifestDao {
 	private Map<String, Manifest> map = new ConcurrentHashMap<String, Manifest>(); ;
 	private Manifest manifest;
 
-	@Value("classpath:irp-package/IrpContentPackage/imsmanifest.xml")
+    @Value("${irp.package.location}/IrpContentPackage/imsmanifest.xml")
 	private Resource manifestResource;
 
 	@Autowired
