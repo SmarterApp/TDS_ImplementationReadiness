@@ -35,7 +35,7 @@ public class TestAnalysisAction extends AnalysisAction<Test, TestAnalysisAction.
 		contract(100, false),
 		mode(50),
 		grade(100),
-		assessmentType(20),
+		assessmentType(20, false),
 		academicYear(4),
 		assessmentVersion(30);
 
