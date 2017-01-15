@@ -30,7 +30,10 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	private Map<String, Testspecification> mapTestpackage = new HashMap<>();
 
     @Value("${irp.package.location}/TestPackages/TDS/Administration")
-	private Resource testPackagePath;
+	private Resource tdsTestPackagePath;
+
+	@Value("${irp.package.location}/TestPackages/TIS/Administration")
+	private Resource tisTestPackagePath;
 
 	@Value("classpath:testspecification.official.xsd")
 	private Resource testspecificationXSDResource;
@@ -67,8 +70,10 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		try {
-			retrieveFileUtil.walk(testPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
+			retrieveFileUtil.walk(tdsTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
 					xmlValidate);
+			retrieveFileUtil.walk(tisTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
+                    xmlValidate);
 		} catch (Exception e) {
 			logger.error("afterPropertiesSet exception: ", e);
 		}
