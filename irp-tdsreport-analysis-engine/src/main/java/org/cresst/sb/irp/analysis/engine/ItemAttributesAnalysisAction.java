@@ -48,7 +48,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
         adminDate(23),
         numberVisits(8, false),
         mimeType(255, false),
-        clientId(250, false),
+        clientId(80, false),
         strand(150, false), 
         contentLevel(150, false), 
         pageNumber(8), 
