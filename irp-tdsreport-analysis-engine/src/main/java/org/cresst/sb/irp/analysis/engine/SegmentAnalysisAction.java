@@ -1,5 +1,8 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -13,20 +16,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class SegmentAnalysisAction extends AnalysisAction<Segment, SegmentAnalysisAction.EnumSegmentFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(SegmentAnalysisAction.class);
 
     public enum EnumSegmentFieldName {
-        id(250),
-        position(8),
+        id(250, false),
+        position(8, false),
         formKey(100, false),
         formId(150, false),
-        algorithm(50),
-        algorithmVersion(50);
+        algorithm(50, false),
+        algorithmVersion(50, false);
 
         private int maxWidth;
         private boolean isRequired;

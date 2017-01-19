@@ -20,7 +20,27 @@ public class ExamineeAnalysisAction extends AnalysisAction<Examinee, ExamineeAna
     private final static Logger logger = LoggerFactory.getLogger(ExamineeAnalysisAction.class);
 
     static public enum EnumExamineeFieldName {
-        key, isDemo
+        key(16, false), isDemo(5, false);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumExamineeFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumExamineeFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     @Override

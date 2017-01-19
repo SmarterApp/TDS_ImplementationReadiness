@@ -1,29 +1,81 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang3.EnumUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.cresst.sb.irp.domain.analysis.*;
+import org.cresst.sb.irp.domain.analysis.Category;
+import org.cresst.sb.irp.domain.analysis.CellCategory;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.ItemCategory;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
+import org.cresst.sb.irp.domain.analysis.OpItemsData;
+import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
+import org.cresst.sb.irp.domain.analysis.TestPropertiesCategory;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity.Item;
-import org.cresst.sb.irp.domain.testpackage.*;
+import org.cresst.sb.irp.domain.testpackage.Administration;
+import org.cresst.sb.irp.domain.testpackage.Bpelement;
+import org.cresst.sb.irp.domain.testpackage.Identifier;
+import org.cresst.sb.irp.domain.testpackage.Itempool;
+import org.cresst.sb.irp.domain.testpackage.Testblueprint;
+import org.cresst.sb.irp.domain.testpackage.Testitem;
+import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.domain.teststudentmapping.TestStudentMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Testitem> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemAttributesAnalysisAction.class);
 
 	static public enum EnumItemFieldName {
-		position, segmentId, bankKey, key, operational, isSelected, format, score, scoreStatus, adminDate, numberVisits, mimeType, clientId, strand, contentLevel, pageNumber, pageVisits, pageTime, dropped
+        position(8),
+        segmentId(250),
+        bankKey(40),
+        key(40),
+        operational(8, false),
+        isSelected(8, false),
+        format(50, false),
+        score(8),
+        scoreStatus(50, false),
+        adminDate(23),
+        numberVisits(8, false),
+        mimeType(255, false),
+        clientId(80, false),
+        strand(150, false), 
+        contentLevel(150, false), 
+        pageNumber(8), 
+        pageVisits(8),
+        pageTime(8),
+        dropped(8);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumItemFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumItemFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
 	}
 
 	static public enum EnumFormatAcceptValues {
