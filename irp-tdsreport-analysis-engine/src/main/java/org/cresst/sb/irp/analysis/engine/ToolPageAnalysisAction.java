@@ -1,5 +1,8 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -9,15 +12,33 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class ToolPageAnalysisAction extends AnalysisAction<ToolPage, ToolPageAnalysisAction.EnumToolPageFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(ToolPageAnalysisAction.class);
 
     static public enum EnumToolPageFieldName {
-        page, groupId, count
+        page(8), groupId(59), count(8);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumToolPageFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumToolPageFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     /**

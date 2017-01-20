@@ -80,17 +80,17 @@ public class GenericVariableAnalysisActionTest {
 				new CellCategory[] {
 						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.name.toString())
+								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariableFieldName.name.toString())
 								.tdsFieldNameValue(name).toCellCategory(),
 
 						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.value.toString())
+								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariableFieldName.value.toString())
 								.tdsFieldNameValue(value).toCellCategory(),
 
 						new CellCategoryBuilder().correctDataType(true).acceptableValue(true).fieldEmpty(false)
 								.enumFieldCheckType(FieldCheckType.EnumFieldCheckType.P)
-								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariablFieldName.context.toString())
+								.tdsFieldName(GenericVariableAnalysisAction.EnumGenericVariableFieldName.context.toString())
 								.tdsFieldNameValue(context).toCellCategory() };
 
 		return cellCategories;

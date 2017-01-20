@@ -1,11 +1,17 @@
 package org.cresst.sb.irp.analysis.engine;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import org.apache.commons.lang3.StringUtils;
-import org.cresst.sb.irp.domain.analysis.*;
+import org.cresst.sb.irp.domain.analysis.CellCategory;
+import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
+import org.cresst.sb.irp.domain.analysis.IndividualResponse;
+import org.cresst.sb.irp.domain.analysis.ItemCategory;
 import org.cresst.sb.irp.domain.analysis.ItemCategory.ItemStatusEnum;
+import org.cresst.sb.irp.domain.analysis.OpportunityCategory;
+import org.cresst.sb.irp.domain.analysis.ResponseCategory;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport;
 import org.cresst.sb.irp.domain.tdsreport.TDSReport.Opportunity;
@@ -16,17 +22,44 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tds.itemscoringengine.*;
 
-import java.util.List;
-import java.util.regex.Pattern;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+
+import tds.itemscoringengine.IItemScorer;
+import tds.itemscoringengine.ItemScore;
+import tds.itemscoringengine.ItemScoreInfo;
+import tds.itemscoringengine.ResponseInfo;
+import tds.itemscoringengine.RubricContentType;
+import tds.itemscoringengine.ScoringStatus;
 
 @Service
 public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemResponseAnalysisAction.EnumItemResponseFieldName, ItemCategory> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemResponseAnalysisAction.class);
 
     static public enum EnumItemResponseFieldName {
-		date, type, content
+        date(23), type(10), content(Integer.MAX_VALUE);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumItemResponseFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumItemResponseFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
 	}
 
     private IItemScorer itemScorer;
