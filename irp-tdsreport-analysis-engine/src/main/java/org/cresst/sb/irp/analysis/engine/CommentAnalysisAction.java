@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.List;
+
 import org.cresst.sb.irp.domain.analysis.CommentCategory;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
@@ -10,14 +12,35 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class CommentAnalysisAction extends AnalysisAction<Comment, CommentAnalysisAction.EnumCommentFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(CommentAnalysisAction.class);
 
     public enum EnumCommentFieldName {
-        context, itemPosition, date, content
+        // 'unlimited' in Transmission format is represented as
+        // Integer.MAX_VALUE
+        context(200), itemPosition(8), date(23), content(Integer.MAX_VALUE);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumCommentFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumCommentFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     @Override
