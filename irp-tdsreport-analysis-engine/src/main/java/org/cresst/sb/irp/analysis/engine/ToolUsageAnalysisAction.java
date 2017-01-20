@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.analysis.engine;
 
+import java.util.List;
+
 import org.cresst.sb.irp.domain.analysis.FieldCheckType;
 import org.cresst.sb.irp.domain.analysis.FieldCheckType.EnumFieldCheckType;
 import org.cresst.sb.irp.domain.analysis.IndividualResponse;
@@ -11,14 +13,33 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ToolUsageAnalysisAction extends AnalysisAction<ToolUsage, ToolUsageAnalysisAction.EnumToolUsageFieldName, Object> {
     private final static Logger logger = LoggerFactory.getLogger(ToolUsageAnalysisAction.class);
 
     static public enum EnumToolUsageFieldName {
-        type, code
+        type(100), code(100);
+
+        private int maxWidth;
+        private boolean isRequired;
+
+        EnumToolUsageFieldName(int maxWidth) {
+            this.maxWidth = maxWidth;
+            this.isRequired = true;
+        }
+
+        EnumToolUsageFieldName(int maxWidth, boolean isRequired) {
+            this.maxWidth = maxWidth;
+            this.isRequired = isRequired;
+        }
+
+        public int getMaxWidth() {
+            return maxWidth;
+        }
+
+        public boolean isRequired() {
+            return isRequired;
+        }
     }
 
     @Autowired
