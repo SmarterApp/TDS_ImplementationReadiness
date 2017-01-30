@@ -100,6 +100,21 @@ public class BlueprintStatement {
     }
 
     /**
+     * 
+     * @param item
+     *            PoolItem to test against blueprint specs
+     * @return true if item meets spec and false otherwise Side effect:
+     *         Increments internal match count
+     */
+    public boolean testAndIncrementMatch(PoolItem item) {
+        if (this.test(item)) {
+            incMatch();
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Clears the match count for the current blueprint and updates violation count
      */
     public void updateViolations() {
