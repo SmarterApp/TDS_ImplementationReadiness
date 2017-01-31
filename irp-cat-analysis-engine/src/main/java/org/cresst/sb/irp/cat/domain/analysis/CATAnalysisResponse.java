@@ -291,4 +291,133 @@ public class CATAnalysisResponse {
     public void setCutoffLevels(double[] cutoffLevels) {
         this.cutoffLevels = cutoffLevels;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(averageBias);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((blueprintStatements == null) ? 0 : blueprintStatements.hashCode());
+        temp = Double.doubleToLongBits(claim1SEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(claim2SEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(claim2_4SEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(claim3SEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(claim4SEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((claimViolations == null) ? 0 : claimViolations.hashCode());
+        result = prime * result + ((claimViolationsMap == null) ? 0 : claimViolationsMap.hashCode());
+        result = prime * result + Arrays.deepHashCode(classAccMatrix);
+        temp = Double.doubleToLongBits(classAccuracy);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + Arrays.hashCode(cutoffLevels);
+        result = prime * result + ((dateTimeAnalyzed == null) ? 0 : dateTimeAnalyzed.hashCode());
+        result = prime * result + Arrays.hashCode(decileAverageBias);
+        result = prime * result + Arrays.hashCode(decileRmse);
+        result = prime * result + (error ? 1231 : 1237);
+        result = prime * result + ((errorMessage == null) ? 0 : errorMessage.hashCode());
+        result = prime * result + ((exposureRateResponse == null) ? 0 : exposureRateResponse.hashCode());
+        result = prime * result + grade;
+        result = prime * result + ((irpVersion == null) ? 0 : irpVersion.hashCode());
+        temp = Double.doubleToLongBits(overallSEM);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(rmse);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+        result = prime * result + ((vendorName == null) ? 0 : vendorName.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        CATAnalysisResponse other = (CATAnalysisResponse) obj;
+        if (Double.doubleToLongBits(averageBias) != Double.doubleToLongBits(other.averageBias))
+            return false;
+        if (blueprintStatements == null) {
+            if (other.blueprintStatements != null)
+                return false;
+        } else if (!blueprintStatements.equals(other.blueprintStatements))
+            return false;
+        if (Double.doubleToLongBits(claim1SEM) != Double.doubleToLongBits(other.claim1SEM))
+            return false;
+        if (Double.doubleToLongBits(claim2SEM) != Double.doubleToLongBits(other.claim2SEM))
+            return false;
+        if (Double.doubleToLongBits(claim2_4SEM) != Double.doubleToLongBits(other.claim2_4SEM))
+            return false;
+        if (Double.doubleToLongBits(claim3SEM) != Double.doubleToLongBits(other.claim3SEM))
+            return false;
+        if (Double.doubleToLongBits(claim4SEM) != Double.doubleToLongBits(other.claim4SEM))
+            return false;
+        if (claimViolations == null) {
+            if (other.claimViolations != null)
+                return false;
+        } else if (!claimViolations.equals(other.claimViolations))
+            return false;
+        if (claimViolationsMap == null) {
+            if (other.claimViolationsMap != null)
+                return false;
+        } else if (!claimViolationsMap.equals(other.claimViolationsMap))
+            return false;
+        if (!Arrays.deepEquals(classAccMatrix, other.classAccMatrix))
+            return false;
+        if (Double.doubleToLongBits(classAccuracy) != Double.doubleToLongBits(other.classAccuracy))
+            return false;
+        if (!Arrays.equals(cutoffLevels, other.cutoffLevels))
+            return false;
+        if (dateTimeAnalyzed == null) {
+            if (other.dateTimeAnalyzed != null)
+                return false;
+        } else if (!dateTimeAnalyzed.equals(other.dateTimeAnalyzed))
+            return false;
+        if (!Arrays.equals(decileAverageBias, other.decileAverageBias))
+            return false;
+        if (!Arrays.equals(decileRmse, other.decileRmse))
+            return false;
+        if (error != other.error)
+            return false;
+        if (errorMessage == null) {
+            if (other.errorMessage != null)
+                return false;
+        } else if (!errorMessage.equals(other.errorMessage))
+            return false;
+        if (exposureRateResponse == null) {
+            if (other.exposureRateResponse != null)
+                return false;
+        } else if (!exposureRateResponse.equals(other.exposureRateResponse))
+            return false;
+        if (grade != other.grade)
+            return false;
+        if (irpVersion == null) {
+            if (other.irpVersion != null)
+                return false;
+        } else if (!irpVersion.equals(other.irpVersion))
+            return false;
+        if (Double.doubleToLongBits(overallSEM) != Double.doubleToLongBits(other.overallSEM))
+            return false;
+        if (Double.doubleToLongBits(rmse) != Double.doubleToLongBits(other.rmse))
+            return false;
+        if (subject == null) {
+            if (other.subject != null)
+                return false;
+        } else if (!subject.equals(other.subject))
+            return false;
+        if (vendorName == null) {
+            if (other.vendorName != null)
+                return false;
+        } else if (!vendorName.equals(other.vendorName))
+            return false;
+        return true;
+    }
+
 }

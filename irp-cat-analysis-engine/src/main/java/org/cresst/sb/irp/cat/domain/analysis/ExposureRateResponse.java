@@ -90,4 +90,55 @@ public class ExposureRateResponse {
                 + ", itemPoolCount=" + itemPoolCount + ", usedItems=" + usedItems + ", percentUnused=" + percentUnused
                 + ", percentUsed=" + percentUsed + ", bins=" + Arrays.toString(bins) + ", binSize=" + binSize + "]";
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(binSize);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + Arrays.hashCode(bins);
+        result = prime * result + ((exposureRates == null) ? 0 : exposureRates.hashCode());
+        result = prime * result + itemPoolCount;
+        temp = Double.doubleToLongBits(percentUnused);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(percentUsed);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + unusedItems;
+        result = prime * result + usedItems;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ExposureRateResponse other = (ExposureRateResponse) obj;
+        if (Double.doubleToLongBits(binSize) != Double.doubleToLongBits(other.binSize))
+            return false;
+        if (!Arrays.equals(bins, other.bins))
+            return false;
+        if (exposureRates == null) {
+            if (other.exposureRates != null)
+                return false;
+        } else if (!exposureRates.equals(other.exposureRates))
+            return false;
+        if (itemPoolCount != other.itemPoolCount)
+            return false;
+        if (Double.doubleToLongBits(percentUnused) != Double.doubleToLongBits(other.percentUnused))
+            return false;
+        if (Double.doubleToLongBits(percentUsed) != Double.doubleToLongBits(other.percentUsed))
+            return false;
+        if (unusedItems != other.unusedItems)
+            return false;
+        if (usedItems != other.usedItems)
+            return false;
+        return true;
+    }
+
 }

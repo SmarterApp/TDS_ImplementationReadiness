@@ -159,6 +159,9 @@ public class Stats {
         int binCount = (int) Math.floor(maxValue / binSize);
         int[] bins = new int[binCount];
 
+        if (response.getExposureRates() == null) {
+            return;
+        }
         for(ExposureRate exposureRate : response.getExposureRates().values()) {
             double exposureValue = exposureRate.getExposureRate();
             if (exposureValue == 0) {

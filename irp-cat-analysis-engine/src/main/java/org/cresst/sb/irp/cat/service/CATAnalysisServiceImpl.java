@@ -30,8 +30,15 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     public CATAnalysisResponse analyzeCatResults(CATDataModel catData) throws IOException {
         CATAnalysisResponse response = new CATAnalysisResponse();
         
+        // null grade
+        if (catData.getGrade() == 0) {
+            return null;
+        }
         response.setGrade(catData.getGrade());
         String subject = catData.getSubject();
+        if (subject == null) {
+            return null;
+        }
         // Format the subject nicely
         if (subject.equalsIgnoreCase("ela")) {
             response.setSubject("ELA");
@@ -62,14 +69,10 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     private void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
             List<BlueprintStatement> blueprintStatements) {
         response.setBlueprintStatements(blueprintStatements);
-        if (catData == null) {
+        if (catData == null || catData.getPoolItems() == null) {
             return;
         }
 
-        if (catData.getPoolItems() == null) {
-            return;
-        }
-        
         if (blueprintStatements == null || blueprintStatements.size() == 0) {
             return;
         }
@@ -140,6 +143,9 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
     }
 
     private void biasCalculations(CATDataModel catData, CATAnalysisResponse response) {
+        if (catData.getTrueThetas() == null || catData.getStudentScores() == null) {
+            return;
+        }
         List<TrueTheta> trueScores = catData.getTrueThetas();
         List<? extends StudentScoreCAT> studentScores = catData.getStudentScores();
 
@@ -172,13 +178,18 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
 
     private void exposureCalculations(CATDataModel catData, CATAnalysisResponse response, double binSize,
             String grade) {
-        response.setExposureRates(
-                Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses(), grade));
+        if (catData.getPoolItems() != null && catData.getItemResponses() != null) {
+            response.setExposureRates(
+                    Stats.calculateExposureRates(catData.getPoolItems(), catData.getItemResponses(), grade));
+        }
 
         Stats.calculateExposureBins(response, binSize);
     }
 
     private void classificationCalculations(CATDataModel catData, CATAnalysisResponse response, double[] cutoffLevels) {
+        if (catData.getStudentScores() == null || catData.getTrueThetas() == null) {
+            return;
+        }
         int[][] classAccMatrix = Stats.scoreLevelMatrix(catData.getStudentScores(), catData.getTrueThetas(), cutoffLevels);
         double classAccuracy = Stats.classificationAccuracy(classAccMatrix);
         response.setClassAccMatrix(classAccMatrix);
