@@ -1,5 +1,6 @@
 package org.cresst.sb.irp.automation;
 
+import org.apache.commons.io.IOUtils;
 import org.cresst.sb.irp.automation.data.AdapterData;
 import org.cresst.sb.irp.domain.analysis.AnalysisResponse;
 import org.cresst.sb.irp.service.AnalysisService;
@@ -30,6 +31,8 @@ import java.nio.file.Path;
 import java.nio.file.spi.FileTypeDetector;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This controller handles automation requests and status reports. It is designed to run as a single instance
@@ -64,30 +67,53 @@ public class AutomationController {
 
         final Path tmpDir = Files.createTempDirectory("irp-adapter");
         logger.info("Temp directory {}", tmpDir.toString());
-
+        int errorCounter = 1;
         for (URI tdsReportUri : adapterData.getTdsReportLinks()) {
             final URLConnection urlConnection = tdsReportUri.toURL().openConnection();
             final String mimeType = urlConnection.getContentType();
 
-            final String suffix = "application/zip".equals(mimeType) ? "-zip" : "-xml";
-            final Path tmpFile = Files.createTempFile(tmpDir, "irp-", suffix);
+            try ( InputStream inputStream = urlConnection.getInputStream();		) {
 
-            try (InputStream inputStream = urlConnection.getInputStream();
-                 ReadableByteChannel rbc = Channels.newChannel(inputStream);
-                 FileOutputStream fileOuputStream = new FileOutputStream(tmpFile.toFile())) {
+				if ("application/zip".equals(mimeType)) {
+					final Path tmpFile = Files.createTempFile(tmpDir, "irp-", "-zip");
+					try (ReadableByteChannel rbc = Channels.newChannel(inputStream);
+							FileOutputStream fileOuputStream = new FileOutputStream(tmpFile.toFile())) {
+						fileOuputStream.getChannel().transferFrom(rbc, 0, 5242880);
+						IrpZipUtils.extractFilesFromZip(filePaths, tmpDir, tmpFile);
+						Files.delete(tmpFile);
+					} catch (FileNotFoundException ex) {
+						logger.info("The file {} was not found", ex.getMessage());
+					}
+				} else {
+					String fileName="";
+					String fileContent = IOUtils.toString(inputStream, "UTF-8");
 
-                fileOuputStream.getChannel().transferFrom(rbc, 0, 5242880);
+					Pattern pattern = Pattern.compile("Test name=\"(.*?)\"");
+					Matcher matcher = pattern.matcher(fileContent);
+					if (matcher.find()) {
+						fileName = matcher.group(1) + "-";
+					} else {
+						fileName = "invalid-tds-report-" + errorCounter;
+						errorCounter++;
+					}
 
-                if ("application/zip".equals(mimeType)) {
-                    IrpZipUtils.extractFilesFromZip(filePaths, tmpDir, tmpFile);
-                    Files.delete(tmpFile);
-                } else {
-                    filePaths.add(tmpFile);
-                }
-            } catch (FileNotFoundException ex) {
-                logger.info("The file {} was not found", ex.getMessage());
-                // TODO: Should send this info back to UI
-            }
+ 
+					final Path tmpFile = Files.createTempFile(tmpDir, fileName, "-xml");
+					try (FileOutputStream fileOuputStream = new FileOutputStream(tmpFile.toFile());) {
+
+						byte[] contentInBytes = fileContent.getBytes();
+						fileOuputStream.write(contentInBytes);
+						fileOuputStream.flush();
+						filePaths.add(tmpFile);
+
+					} catch (FileNotFoundException ex) {
+						logger.info("The file {} was not found", ex.getMessage());
+					}
+				}
+			} catch (FileNotFoundException ex) {
+				logger.info("The file {} was not found", ex.getMessage());
+				// TODO: Should send this info back to UI
+			}
         }
 
         return filePaths;
