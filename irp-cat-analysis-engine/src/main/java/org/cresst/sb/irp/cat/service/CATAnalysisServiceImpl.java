@@ -59,8 +59,7 @@ public class CATAnalysisServiceImpl implements CATAnalysisService {
         return response;
     }
 
-    @Override
-    public void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
+    private void calculateBlueprintViolations(CATDataModel catData, CATAnalysisResponse response,
             List<BlueprintStatement> blueprintStatements) {
         response.setBlueprintStatements(blueprintStatements);
         if (catData == null) {
