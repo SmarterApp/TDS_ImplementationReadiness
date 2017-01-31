@@ -197,8 +197,9 @@ public class Stats {
         Collections.sort(sortedScores);
 
         int n = sortedScores.size();
+        int limit = Integer.min(n, 10);
         double[] deciles = new double[9];
-        for(int i = 1; i < 10; i ++) {
+        for (int i = 1; i < limit; i++) {
             double obs = (i * (n + 1)) / 10.0;
             int obsInt = (int) Math.floor(obs);
             double obsFrac = obs - obsInt;
@@ -269,7 +270,7 @@ public class Stats {
                 return i;
             }
         }
-        assert(value > cutoffValues[n - 1]);
+        assert (value >= cutoffValues[n - 1]);
         return n;
     }
 
@@ -379,6 +380,9 @@ public class Stats {
         double claim4SEM = 0.0d;
         double claim2_4SEM = 0.0d;
         
+        if (scores == null)
+            return;
+
         for(StudentScoreCAT score : scores) {
 
             overallSEM += score.getOverallSEM();
