@@ -17,6 +17,7 @@ import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
 import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CATParsingServiceTest {
@@ -133,4 +134,21 @@ public class CATParsingServiceTest {
         assertEquals(0.3, item.getClaim3SEM(), DELTA);
     }
 
+    @Test(expected = com.fasterxml.jackson.databind.JsonMappingException.class)
+    public void csv_has_test_too_many_columns() throws IOException {
+        final String badString = "a,b,c,d\n1,2,3,4";
+        final InputStream stream = stringToInputStream(badString);
+        service.parseTrueThetas(stream);
+    }
+
+    // TODO: Bug when there are less values than expected still parses
+    // See issue https://github.com/FasterXML/jackson-dataformat-csv/issues/113
+    // Unable to do at this point with jackson csv parser
+    @Ignore
+    @Test(expected = com.fasterxml.jackson.databind.JsonMappingException.class)
+    public void csv_has_test_too_few_columns() throws IOException {
+        final String badString = "a\n1";
+        final InputStream stream = stringToInputStream(badString);
+        service.parseTrueThetas(stream);
+    }
 }
