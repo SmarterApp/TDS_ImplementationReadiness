@@ -1,7 +1,10 @@
 package org.cresst.sb.irp.cat.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,104 +12,105 @@ import org.cresst.sb.irp.cat.domain.analysis.BlueprintCondition;
 import org.cresst.sb.irp.cat.domain.analysis.BlueprintStatement;
 import org.cresst.sb.irp.cat.domain.analysis.CATAnalysisResponse;
 import org.cresst.sb.irp.cat.domain.analysis.CATDataModel;
+import org.cresst.sb.irp.cat.domain.analysis.ELAStudentScoreCAT;
+import org.cresst.sb.irp.cat.domain.analysis.ExposureRate;
 import org.cresst.sb.irp.cat.domain.analysis.ItemResponseCAT;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItem;
 import org.cresst.sb.irp.cat.domain.analysis.PoolItemELA;
-import org.cresst.sb.irp.cat.domain.analysis.ViolationCount;
+import org.cresst.sb.irp.cat.domain.analysis.TrueTheta;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class CATAnalysisServiceTest {
-    private CATAnalysisResponse response;
+    private static final double DELTA = 1e-15;
     private CATDataModel catData;
-    private List<BlueprintStatement> blueprintStatements;
-    private List<PoolItem> poolItems;
-    private List<ItemResponseCAT> itemResponses;
     private CATAnalysisService catAnalysisService;
 
     @Before
     public void setUp() throws Exception {
-        response = new CATAnalysisResponse();
         catData = new CATDataModel();
-        blueprintStatements = new ArrayList<>();
-        poolItems = new ArrayList<>();
-        itemResponses = new ArrayList<>();
         catAnalysisService = new CATAnalysisServiceImpl();
     }
 
-    @Ignore
     @Test
-    public void test_calculateBlueprintViolations() {
-        catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
+    public void test_analyzeCatResults() throws IOException {
+        CATAnalysisResponse response = catAnalysisService.analyzeCatResults(catData);
+        assertNull(response);
+
+        catData.setGrade(11);
+        catData.setSubject("ela");
+
+        response = catAnalysisService.analyzeCatResults(catData);
         assertNotNull(response);
 
-        blueprintStatements.add(new BlueprintStatement("Unit Testing", 1, 1, new BlueprintCondition() {
+        List<BlueprintStatement> blueprints = new ArrayList<>();
+        catData.setBlueprintStatements(blueprints);
+        response = catAnalysisService.analyzeCatResults(catData);
+        assertNotNull(response);
+
+        BlueprintStatement blueprint = new BlueprintStatement();
+        blueprint.setGrade(11);
+        blueprint.setSubject("ela");
+        blueprint.setMin(1);
+        blueprint.setMax(1);
+        blueprint.setCondition(new BlueprintCondition() {
 
             @Override
             public boolean test(PoolItem item) {
-                return item.getClaim().equals("1");
+                return item.getItemGrade().equals("11") && item.getPoolGrade().equals("11");
             }
-        }));
+        });
 
-        poolItems.add(createSimplePoolItem("1", "1"));
+        blueprints.add(blueprint);
 
-        itemResponses.add(new ItemResponseCAT("1", "1", 1));
+        List<TrueTheta> trueThetas = new ArrayList<>();
+        TrueTheta theta = new TrueTheta();
+        theta.setScore(1.0);
+        theta.setSid("1");
+        trueThetas.add(theta);
+        catData.setTrueThetas(trueThetas);
 
-        catData.setPoolItems(poolItems);
+        List<ItemResponseCAT> itemResponses = new ArrayList<>();
+        ItemResponseCAT resp = new ItemResponseCAT();
+        resp.setsId("1");
+        resp.setItemId("1");
+        resp.setScore(1);
+        itemResponses.add(resp);
         catData.setItemResponses(itemResponses);
-        catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
 
-        ViolationCount claim1Violations = response.getClaimViolationsMap().get(1);
+        List<ELAStudentScoreCAT> scores = new ArrayList<>();
+        ELAStudentScoreCAT score = new ELAStudentScoreCAT();
+        score.setOverallScore(5.0);
+        score.setOverallSEM(0.5);
+        score.setClaim1Score(1.0);
+        score.setClaim1SEM(0.1);
+        score.setClaim2Score(2.0);
+        score.setClaim2SEM(0.2);
+        score.setClaim3Score(3.0);
+        score.setClaim3SEM(0.3);
+        score.setClaim4Score(4.0);
+        score.setClaim4SEM(0.4);
+        score.setSid("1");
+        scores.add(score);
+        catData.setStudentScores(scores);
 
-        assertEquals(0, claim1Violations.getUnder());
-        assertEquals(1, claim1Violations.getMatch());
-        assertEquals(0, claim1Violations.getOver());
+        List<PoolItemELA> poolItems = new ArrayList<>();
+        PoolItemELA poolItem = new PoolItemELA();
+        poolItem.setItemId("1");
+        poolItem.setItemGrade("11");
+        poolItem.setPoolGrade("11");
+        poolItems.add(poolItem);
+        catData.setPoolItems(poolItems);
+        response = catAnalysisService.analyzeCatResults(catData);
+        System.out.println(response);
+        assertNotNull(response);
 
-        poolItems.add(createSimplePoolItem("2", "2"));
-        poolItems.add(createSimplePoolItem("2", "3"));
-
-        // Claim 2
-        // min 2, max 2
-        blueprintStatements.add(new BlueprintStatement("Spring", 2, 2, new BlueprintCondition() {
-
-            @Override
-            public boolean test(PoolItem item) {
-                return item.getClaim().equals("2");
-            }
-        }));
-
-        itemResponses.add(new ItemResponseCAT("1", "2", 1));
-        catAnalysisService.calculateBlueprintViolations(catData, response, blueprintStatements);
-
-        ViolationCount claim2Violations = response.getClaimViolationsMap().get(2);
-        claim1Violations = response.getClaimViolationsMap().get(1);
-
-        // Should still be the same
-        assertEquals(0, claim1Violations.getUnder());
-        assertEquals(1, claim1Violations.getMatch());
-        assertEquals(0, claim1Violations.getOver());
-
-        // Don't have enough items in claim 2
-        assertEquals(1, claim2Violations.getUnder());
-        assertEquals(0, claim2Violations.getMatch());
-        assertEquals(0, claim2Violations.getOver());
-
-        // Claim 2, DOK >= 2
-        blueprintStatements.add(new BlueprintStatement("Claim 2, DOK>=2", 1, 1, new BlueprintCondition() {
-            @Override
-            public boolean test(PoolItem item) {
-                return item.getClaim().equals("2") && Integer.parseInt(item.getDok()) >= 3;
-            }
-        }));
-
-        itemResponses.add(new ItemResponseCAT("1", "3", 0));
-    }
-
-    private PoolItem createSimplePoolItem(String claim, String itemId) {
-        PoolItemELA item = new PoolItemELA();
-        item.setClaim(claim);
-        item.setItemId(itemId);
-        return item;
+        ExposureRate respExposure1 = response.getExposureRates().get("1"); 
+        assertEquals(1.0, respExposure1.getExposureRate(), DELTA);
+        assertEquals(0.1, response.getClaim1SEM(), DELTA);
+        assertEquals(0.2, response.getClaim2SEM(), DELTA);
+        assertEquals(0.3, response.getClaim3SEM(), DELTA);
+        assertEquals(0.4, response.getClaim4SEM(), DELTA);
+        assertEquals(4.0, Math.abs(response.getAverageBias()), DELTA);
     }
 }

@@ -81,16 +81,19 @@ public class Stats {
 
     /**
      *
-     * @param poolItems A collection of items that a test should get items from
-     * @param itemResponses A collection of items that were actual given on simulated tests
+     * @param poolItems
+     *            A collection of items that a test should get items from
+     * @param itemResponses
+     *            A collection of items that were actual given on simulated
+     *            tests
      * @return exposure rates in a Map with pairs <itemid, ExposureRate>
      */
-    public static Map<String, ExposureRate> calculateExposureRates(Collection<PoolItem> poolItems,
+    public static Map<String, ExposureRate> calculateExposureRates(List<? extends PoolItem> poolItems,
             Collection<ItemResponseCAT> itemResponses, String grade) {
         Map<String, ExposureRate> exposureRates = new HashMap<>();
 
         // Initialize exposures to 0
-        for(PoolItem poolItem : poolItems) {
+        for (PoolItem poolItem : poolItems) {
             if (!poolItem.getPoolGrade().equals(grade)) {
                 continue;
             }
@@ -159,13 +162,21 @@ public class Stats {
         int binCount = (int) Math.floor(maxValue / binSize);
         int[] bins = new int[binCount];
 
+        if (response.getExposureRates() == null) {
+            return;
+        }
         for(ExposureRate exposureRate : response.getExposureRates().values()) {
             double exposureValue = exposureRate.getExposureRate();
             if (exposureValue == 0) {
                 unusedCount++;
             } else {
                 // Increment the count for bin
-                bins[binIndex(exposureValue, binSize)]++;
+                int bindex = binIndex(exposureValue, binSize);
+                // If we have the max value, put it in last bin
+                if (bindex >= bins.length) {
+                    bindex = bins.length - 1;
+                }
+                bins[bindex]++;
             }
             totalCount++;
         }
@@ -194,8 +205,9 @@ public class Stats {
         Collections.sort(sortedScores);
 
         int n = sortedScores.size();
+        int limit = Math.min(n, 10);
         double[] deciles = new double[9];
-        for(int i = 1; i < 10; i ++) {
+        for (int i = 1; i < limit; i++) {
             double obs = (i * (n + 1)) / 10.0;
             int obsInt = (int) Math.floor(obs);
             double obsFrac = obs - obsInt;
@@ -266,7 +278,7 @@ public class Stats {
                 return i;
             }
         }
-        assert(value > cutoffValues[n - 1]);
+        assert (value >= cutoffValues[n - 1]);
         return n;
     }
 
@@ -376,6 +388,9 @@ public class Stats {
         double claim4SEM = 0.0d;
         double claim2_4SEM = 0.0d;
         
+        if (scores == null)
+            return;
+
         for(StudentScoreCAT score : scores) {
 
             overallSEM += score.getOverallSEM();

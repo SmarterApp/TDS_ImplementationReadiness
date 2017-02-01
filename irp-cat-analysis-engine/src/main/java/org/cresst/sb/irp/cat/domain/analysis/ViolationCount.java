@@ -1,5 +1,7 @@
 package org.cresst.sb.irp.cat.domain.analysis;
 
+import java.util.Objects;
+
 /**
  * Maintains a count of various blueprint violations
  */
@@ -47,4 +49,30 @@ public class ViolationCount {
     public String toString() {
         return "ViolationCount [under=" + under + ", match=" + match + ", over=" + over + ", claim=" + claim + "]";
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claim, match, over, under);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ViolationCount other = (ViolationCount) obj;
+        if (claim != other.claim)
+            return false;
+        if (match != other.match)
+            return false;
+        if (over != other.over)
+            return false;
+        if (under != other.under)
+            return false;
+        return true;
+    }
+
 }

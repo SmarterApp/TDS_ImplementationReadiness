@@ -5,7 +5,7 @@ import java.util.List;
 public class CATDataModel {
     private List<? extends StudentScoreCAT> studentScores;
     private List<ItemResponseCAT> itemResponses;
-    private List<PoolItem> poolItems;
+    private List<? extends PoolItem> poolItems;
     private List<TrueTheta> trueThetas;
     private List<BlueprintStatement> blueprintStatements;
     private int grade;
@@ -23,10 +23,10 @@ public class CATDataModel {
     public void setItemResponses(List<ItemResponseCAT> itemResponses) {
         this.itemResponses = itemResponses;
     }
-    public void setPoolItems(List<PoolItem> poolItems) {
+    public void setPoolItems(List<? extends PoolItem> poolItems) {
         this.poolItems = poolItems;
     }
-    public List<PoolItem> getPoolItems() {
+    public List<? extends PoolItem> getPoolItems() {
         return poolItems;
     }
     public List<TrueTheta> getTrueThetas() {
