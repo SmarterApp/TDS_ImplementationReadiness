@@ -68,6 +68,10 @@ public class AutomationController {
         final Path tmpDir = Files.createTempDirectory("irp-adapter");
         logger.info("Temp directory {}", tmpDir.toString());
         int errorCounter = 1;
+        
+        Pattern pattern = Pattern.compile("<Test (.*?)/>");
+    	Pattern patternName = Pattern.compile("name=\"(.*?)\"");
+        
         for (URI tdsReportUri : adapterData.getTdsReportLinks()) {
             final URLConnection urlConnection = tdsReportUri.toURL().openConnection();
             final String mimeType = urlConnection.getContentType();
@@ -81,19 +85,24 @@ public class AutomationController {
 						fileOuputStream.getChannel().transferFrom(rbc, 0, 5242880);
 						IrpZipUtils.extractFilesFromZip(filePaths, tmpDir, tmpFile);
 						Files.delete(tmpFile);
-					} catch (FileNotFoundException ex) {
-						logger.info("The file {} was not found", ex.getMessage());
-					}
+					}  
 				} else {
 					String fileName="";
 					String fileContent = IOUtils.toString(inputStream, "UTF-8");
 
-					Pattern pattern = Pattern.compile("Test name=\"(.*?)\"");
+					
 					Matcher matcher = pattern.matcher(fileContent);
-					if (matcher.find()) {
-						fileName = matcher.group(1) + "-";
+					if (matcher.find()) {//gets the content of the <Test > tag
+						fileName = matcher.group(1);
+						matcher = patternName.matcher(fileName);
+						if (matcher.find()) {//gets the content of the property name=
+							fileName = matcher.group(1) + "-";
+						} else {
+							fileName = "Invalid_File_" + errorCounter;
+							errorCounter++;
+						}
 					} else {
-						fileName = "invalid-tds-report-" + errorCounter;
+						fileName = "Invalid_File_" + errorCounter;
 						errorCounter++;
 					}
 
@@ -106,9 +115,7 @@ public class AutomationController {
 						fileOuputStream.flush();
 						filePaths.add(tmpFile);
 
-					} catch (FileNotFoundException ex) {
-						logger.info("The file {} was not found", ex.getMessage());
-					}
+					}  
 				}
 			} catch (FileNotFoundException ex) {
 				logger.info("The file {} was not found", ex.getMessage());
