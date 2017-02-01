@@ -205,7 +205,7 @@ public class Stats {
         Collections.sort(sortedScores);
 
         int n = sortedScores.size();
-        int limit = Integer.min(n, 10);
+        int limit = Math.min(n, 10);
         double[] deciles = new double[9];
         for (int i = 1; i < limit; i++) {
             double obs = (i * (n + 1)) / 10.0;
