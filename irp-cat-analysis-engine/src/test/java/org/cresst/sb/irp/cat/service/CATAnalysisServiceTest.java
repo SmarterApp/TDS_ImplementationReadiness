@@ -67,6 +67,7 @@ public class CATAnalysisServiceTest {
         TrueTheta theta = new TrueTheta();
         theta.setScore(1.0);
         theta.setSid("1");
+        trueThetas.add(theta);
         catData.setTrueThetas(trueThetas);
 
         List<ItemResponseCAT> itemResponses = new ArrayList<>();
@@ -106,5 +107,10 @@ public class CATAnalysisServiceTest {
 
         ExposureRate respExposure1 = response.getExposureRates().get("1"); 
         assertEquals(1.0, respExposure1.getExposureRate(), DELTA);
+        assertEquals(0.1, response.getClaim1SEM(), DELTA);
+        assertEquals(0.2, response.getClaim2SEM(), DELTA);
+        assertEquals(0.3, response.getClaim3SEM(), DELTA);
+        assertEquals(0.4, response.getClaim4SEM(), DELTA);
+        assertEquals(4.0, Math.abs(response.getAverageBias()), DELTA);
     }
 }
