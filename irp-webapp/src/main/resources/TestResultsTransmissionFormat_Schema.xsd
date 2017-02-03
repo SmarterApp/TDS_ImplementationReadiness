@@ -113,7 +113,7 @@
                                     <xs:element name="Response" minOccurs="0" maxOccurs="1">
                                         <xs:complexType mixed="true">
                                             <xs:attribute name="date" type="xs:dateTime"/>
-                                            <xs:attribute name="type" use="required">
+                                            <xs:attribute name="type">
                                                 <xs:simpleType>
                                                     <xs:restriction base="xs:token">
                                                         <xs:enumeration value="value"/>
@@ -287,7 +287,7 @@ Details about the calculation rules are in the “Test Condition Codes” docume
         </xs:simpleType>
     </xs:attribute>
     <xs:attribute name="confLevel"/>
-    <xs:attribute name="conditionCode" use="required">
+    <xs:attribute name="conditionCode">
         <xs:simpleType>
             <!-- CC is 1 cap char -->
             <xs:restriction base="xs:string">
@@ -296,7 +296,7 @@ Details about the calculation rules are in the “Test Condition Codes” docume
             </xs:restriction>
         </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="sequence" type="UIntOneBased" use="required"/>
+    <xs:attribute name="sequence" type="UIntOneBased"/>
 </xs:complexType>
 <!-- some reusable types -->
 <xs:simpleType name="Bit">
