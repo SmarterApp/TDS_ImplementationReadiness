@@ -199,8 +199,23 @@
                     <!-- The new test condition fields, “validity” and “completeness” have been added. For the 2014-2015
 school year theyse values will be calculated if not present. In future years, the fields will be required.
 Details about the calculation rules are in the “Test Condition Codes” document on SmarterApp.org. -->
-                    <xs:attribute name="validity"/>
-                    <xs:attribute name="completeness"/>
+                    <xs:attribute name="validity">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="valid"/>
+                                <xs:enumeration value="invalid"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="completeness">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="none" />
+                                <xs:enumeration value="partial" />
+                                <xs:enumeration value="complete" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
                     <xs:attribute name="opportunity" use="required" type="xs:unsignedInt"/>
                     <xs:attribute name="statusDate" use="required" type="xs:dateTime"/>
                     <xs:attribute name="dateCompleted" type="NullableDateTime" use="required"/>
