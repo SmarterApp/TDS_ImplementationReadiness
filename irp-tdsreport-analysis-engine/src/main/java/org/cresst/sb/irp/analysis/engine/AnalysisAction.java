@@ -23,6 +23,10 @@ import java.util.Objects;
 
 /**
  * Base class for various TDS Report XML analyzers.
+ * Represents a category from the Smarter Balanced specifications:
+ * Data Model: http://www.smarterapp.org/documents/TestResults-DataModel.pdf
+ * Test Results Transmission Format (TRT): http://www.smarterapp.org/documents/TestResultsTransmissionFormat.pdf
+ * In case of a discrepancy between the Data Model and the TRT, the Data Model is used.
  *
  * @param <T>
  *            Any object that contains the fields being analyzed.
