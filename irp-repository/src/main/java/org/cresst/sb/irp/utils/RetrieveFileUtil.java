@@ -13,6 +13,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.oxm.Unmarshaller;
 
+/**
+ * Utility service to retrieve files (test packages).
+ */
 @Service
 public class RetrieveFileUtil {
 	private final static Logger logger = LoggerFactory.getLogger(RetrieveFileUtil.class);
@@ -20,7 +23,19 @@ public class RetrieveFileUtil {
 	@Autowired
 	private Unmarshaller unmarshaller;
 
-	public void walk(String testPackagePath, Map<String, Testspecification> mapTestpackage, Resource resource,
+	/**
+     * 
+     * @param testPackagePath
+     *            root to search for test packages
+     * @param mapTestpackage
+     *            stores results of the search in `testPackagePath` in
+     *            <identifier.uniqueId, test package> map.
+     * @param schemaResource
+     *            schema to validate the test packages found in the walk
+     * @param xmlValidate
+     *            xml validation service
+     */
+    public void walk(String testPackagePath, Map<String, Testspecification> mapTestpackage, Resource schemaResource,
 			XMLValidate xmlValidate) {
 
 		File root = new File(testPackagePath);
@@ -31,10 +46,10 @@ public class RetrieveFileUtil {
 
 		for (File f : list) {
 			if (f.isDirectory()) {
-				walk(f.getAbsolutePath(), mapTestpackage, resource, xmlValidate);
+                walk(f.getAbsolutePath(), mapTestpackage, schemaResource, xmlValidate);
 			} else {
 				try {
-					if (xmlValidate.validateXMLSchema(resource, f.getCanonicalPath())) {
+                    if (xmlValidate.validateXMLSchema(schemaResource, f.getCanonicalPath())) {
 						Testspecification testpackage =
 								(Testspecification) unmarshaller.unmarshal(new StreamSource(f.getCanonicalPath()));
 						String uniqueid = testpackage.getIdentifier().getUniqueid();
