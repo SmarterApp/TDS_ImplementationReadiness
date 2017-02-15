@@ -11,6 +11,9 @@ import java.util.zip.GZIPInputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Handles selecting data files needed for CAT Analysis from CAT Data Folder.
+ */
 public class ResourceSelector {
     private final static Logger logger = LoggerFactory.getLogger(ResourceSelector.class);
 

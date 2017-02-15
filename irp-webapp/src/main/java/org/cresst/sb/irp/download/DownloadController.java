@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.zeroturnaround.zip.ZipUtil;
 
+/**
+ * This controller handles the irp-package download.
+ */
 @Controller
 public class DownloadController {
     private static final Logger logger = LoggerFactory.getLogger(DownloadController.class);

@@ -7,10 +7,24 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Module for handling Zip files.
+ */
 public class IrpZipUtils {
-    public static void extractFilesFromZip(final List<Path> paths, final Path tmpDir, Path tmpZip) throws IOException {
+    /**
+     * 
+     * @param paths
+     *            existing paths before extracting from `zipFile`. All `Path`'s
+     *            from `zipFile` will be added to `paths`.
+     * @param tmpDir
+     *            temporary directory for files from zip to be extracted to.
+     * @param zipFile
+     *            target zip file
+     * @throws IOException
+     */
+    public static void extractFilesFromZip(final List<Path> paths, final Path tmpDir, Path zipFile) throws IOException {
         // Find all XML documents in the ZIP file and add them to paths
-        final URI uri = URI.create("jar:file:" + tmpZip.toUri().getPath());
+        final URI uri = URI.create("jar:file:" + zipFile.toUri().getPath());
         try (FileSystem fs = FileSystems.newFileSystem(uri, new HashMap<String, Object>())) {
             for (Path root : fs.getRootDirectories()) {
 
