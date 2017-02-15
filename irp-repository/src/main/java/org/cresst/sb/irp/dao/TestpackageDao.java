@@ -13,6 +13,10 @@ import org.cresst.sb.irp.domain.testpackage.Testblueprint;
 import org.cresst.sb.irp.domain.testpackage.Testform;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 
+/**
+ * Test package data repository for accessing irp-package data for TDS, TIS, and
+ * classpath:testspecification.official.xsd
+ */
 public interface TestpackageDao {
 	
 	Map<String, Testspecification> getMapTestpackage();

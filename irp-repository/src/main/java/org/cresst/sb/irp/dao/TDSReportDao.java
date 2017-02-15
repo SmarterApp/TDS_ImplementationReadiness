@@ -8,6 +8,9 @@ import org.cresst.sb.irp.domain.tdsreport.TDSReport.Examinee.ExamineeRelationshi
 import java.util.List;
 
 
+/**
+ * TDS Report Dao data repository for classpath:TestScoreBatching.xml
+ */
 public interface TDSReportDao {
 	
 	TDSReport.Test getTest();
