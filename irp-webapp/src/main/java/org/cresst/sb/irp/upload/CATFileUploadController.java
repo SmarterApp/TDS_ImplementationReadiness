@@ -35,7 +35,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Handles file uploads
+ * Handles file uploads and analysis for CAT Data. Files uploaded includes the
+ * item csv file with the format SID,ItemID,Resp and the student csv file in the
+ * format
+ * SID,Overall,Overall_SEM,Claim1,Claim1_SEM,Claim2,Claim2_SEM,Claim3,Claim3_SEM,Claim4,Claim4_SEM
+ * 
  */
 @Controller
 public class CATFileUploadController {

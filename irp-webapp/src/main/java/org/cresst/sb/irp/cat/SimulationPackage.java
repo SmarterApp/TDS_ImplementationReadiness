@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * This controller handles the CAT simulation package downloads. Both the item
+ * pool and student data are downloaded with this controller.
+ */
 @Controller
 public class SimulationPackage {
     private final static Logger logger = LoggerFactory.getLogger(SimulationPackage.class);

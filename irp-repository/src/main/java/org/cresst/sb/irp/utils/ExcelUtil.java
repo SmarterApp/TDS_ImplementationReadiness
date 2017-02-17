@@ -14,10 +14,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+/**
+ * Utilities for handling excel files from the irp-package
+ */
 @Service
 public class ExcelUtil {
 	private final static Logger logger = LoggerFactory.getLogger(ExcelUtil.class);
 
+    /**
+     * 
+     * @param headerMap
+     *            is populated with <column index, header name> values after
+     *            method call
+     * @param sheet
+     *            the excel spreadsheet to extract headers from
+     * @param headerrowIndex
+     *            the index of the header row found in `sheet`.
+     */
 	public void getHeaderColumn(Map<Integer, String> headerMap, XSSFSheet sheet, int headerrowIndex) {
 		try {
 			// get header
@@ -34,6 +47,12 @@ public class ExcelUtil {
 		}
 	}
 	
+    /**
+     * 
+     * @param row
+     *            to test
+     * @return boolean representing whether `row` is empty or not
+     */
 	public boolean isEmptyRow(Row row) {
 		try {
 			for (int cellNum = row.getFirstCellNum(); cellNum < row

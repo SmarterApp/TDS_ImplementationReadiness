@@ -16,6 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 
+/**
+ * Student utilities
+ */
 @Service
 public class StudentUtil {
 	private final static Logger logger = LoggerFactory.getLogger(StudentUtil.class);
@@ -23,6 +26,19 @@ public class StudentUtil {
 	public StudentUtil() {
 	}
 	
+    /**
+     * 
+     * @param listStudent
+     *            results from processing excel sheet
+     * @param headerMap
+     *            map that contains column index keys to header name values
+     * @param sheet
+     *            spreadsheet to process
+     * @param excelUtil
+     *            excel utility service
+     * @param startIndex
+     *            index to start processing from. Iterates until last row.
+     */
 	public void processSheet(List<Student> listStudent,
 			Map<Integer, String> headerMap, XSSFSheet sheet,
 			ExcelUtil excelUtil, 
@@ -42,6 +58,16 @@ public class StudentUtil {
 
 	}
 
+    /**
+     * 
+     * @param row
+     *            excel row to create accommodation from
+     * @param headerMap
+     *            <column index, column name> map to process row
+     * @param excelUtil
+     *            excel utility service
+     * @return student object represented by `row`
+     */
 	private Student createObject(Row row, Map<Integer, String> headerMap, ExcelUtil excelUtil) {
 		Student student = null;
 		try {
@@ -68,6 +94,18 @@ public class StudentUtil {
 		return student;
 	}
 
+    /**
+     * 
+     * @param student
+     *            existing Student that will have a new property set according
+     *            to `columnName`, with the value of `cellStringValue`
+     * @param columnName
+     *            selects the method of setting the value in `cellStringValue`.
+     *            The string will make `cellStringValue` to the corresponding
+     *            property in `student`.
+     * @param cellStringValue
+     *            value to set in `student`
+     */
 	private void setFieldData(Student student, String columnName, String cellStringValue, ExcelUtil excelUtil) {
 		try {
 			columnName = StringUtils.deleteWhitespace(columnName);

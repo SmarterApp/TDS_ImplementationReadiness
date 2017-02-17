@@ -12,10 +12,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+/**
+ * Utilities for the processing of Accommodations from excel files.
+ */
 @Service
 public class AccommodationUtil {
 	private final static Logger logger = LoggerFactory.getLogger(AccommodationUtil.class);
 
+    /**
+     * 
+     * @param list
+     *            results from processing excel sheet
+     * @param headerMap
+     *            map that contains column index keys to header name values
+     * @param sheet
+     *            spreadsheet to process
+     * @param excelUtil
+     *            excel utility service
+     * @param startIndex
+     *            index to start processing from. Iterates until last row.
+     */
 	public void processSheet(List<Accommodation> list,
 			Map<Integer, String> headerMap, XSSFSheet sheet,
 			ExcelUtil excelUtil,
@@ -34,6 +50,14 @@ public class AccommodationUtil {
 		}
 	}
 	
+    /**
+     * 
+     * @param row
+     *            excel row to create accommodation from
+     * @param headerMap
+     *            <column index, column name> map to process row
+     * @return
+     */
 	private Accommodation createObject(Row row, Map<Integer, String> headerMap) {
 		Accommodation accommodation = null;
 		try {
@@ -59,6 +83,18 @@ public class AccommodationUtil {
 		return accommodation;
 	}
 	
+    /**
+     * 
+     * @param accommodation
+     *            existing Accommodation that will have a new property set
+     *            according to `columnName`, with the value of `cellStringValue`
+     * @param columnName
+     *            selects the method of setting the value in `cellStringValue`.
+     *            The string will make `cellStringValue` to the corresponding
+     *            property in `accommodation`.
+     * @param cellStringValue
+     *            value to set in `accommodation`
+     */
 	private void setFieldData(Accommodation accommodation, String columnName,
 			String cellStringValue) {
 		try {

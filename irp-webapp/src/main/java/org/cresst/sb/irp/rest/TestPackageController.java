@@ -13,6 +13,7 @@ import org.cresst.sb.irp.domain.testpackage.Testform;
 import org.cresst.sb.irp.domain.testpackage.Testspecification;
 import org.cresst.sb.irp.exceptions.NotFoundException;
 import org.cresst.sb.irp.service.TestPackageService;
+import org.jsondoc.core.annotation.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
+@Api(name = "Test Package API", description = "REST API for Test Packages")
 @Controller
 public class TestPackageController {
 	private final static Logger logger = LoggerFactory.getLogger(TestPackageController.class);
