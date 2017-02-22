@@ -35,8 +35,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * This controller handles automation requests and status reports. It is designed to run as a single instance
- * on a single server since it stores status results in-memory.
+ * This controller processes/analyzes TDS Report XMLs located at URIs provided in the AdapterData.
+ * This is called by IRP's UI in Automation Mode.
  */
 @RestController
 public class AutomationController {
