@@ -62,10 +62,10 @@
         <Score measureOf="L" measureLabel="ScaleScore" value="252.162148917585" standardError="35.7639802907321" />
         <Score measureOf="RI" measureLabel="ScaleScore" value="254.784135710183" standardError="30.902114975099" />
         <Score measureOf="W" measureLabel="ScaleScore" value="230.411440502403" standardError="31.8696250634601" />
-        <Score measureOf="Overall" measureLabel="PerformanceLevel" value="1" />
-        <Score measureOf="L" measureLabel="PerformanceLevel" value="1" />
-        <Score measureOf="RI" measureLabel="PerformanceLevel" value="1" />
-        <Score measureOf="W" measureLabel="PerformanceLevel" value="1" />
+        <Score measureOf="Overall" measureLabel="PerformanceLevel" value="1" standardError=""/>
+        <Score measureOf="L" measureLabel="PerformanceLevel" value="1" standardError=""/>
+        <Score measureOf="RI" measureLabel="PerformanceLevel" value="1" standardError=""/>
+        <Score measureOf="W" measureLabel="PerformanceLevel" value="1" standardError=""/>
         <Score measureOf="Overall" measureLabel="RawScore" value="9" standardError="0" />
         <Score measureOf="L" measureLabel="RawScore" value="4" standardError="0" />
         <Score measureOf="RI" measureLabel="RawScore" value="2" standardError="0" />
@@ -87,13 +87,11 @@
 
                 &lt;p&gt;More response here.&lt;/p&gt;
             </Response>
-            <ScoreInfo />
         </Item>
         <Item position="11" segmentId="(SBAC)SBAC-FT-SomeDescriptionS2-MATH-7-Fall-2013-2014" bankKey="200" key="61843" operational="0" isSelected="1" format="WER" score="-1" scoreStatus="NOTSCORED" adminDate="2014-04-09T16:25:18.323" numberVisits="1" mimeType="text/html" strand="2-W" contentLevel="2-W|2-5" pageNumber="2" pageVisits="1" pageTime="143394" dropped="0">
             <Response date="2014-04-09T16:40:18.090" >
                 &lt;p&gt;some text here&amp;nbsp;&amp;nbsp;&amp;nbsp; and more text&lt;/p&gt;
             </Response>
-            <ScoreInfo />
         </Item>
         <Item position="2" segmentId="(SBAC)SBAC-FT-SomeDescriptionS1-MATH-7-Fall-2013-2014" bankKey="200" key="15566" operational="0" isSelected="1" format="MC" score="0" scoreStatus="SCORED" adminDate="2014-04-14T10:49:10.327" numberVisits="1" mimeType="text/plain" strand="3" contentLevel="3|EE|NA|E" pageNumber="1" pageVisits="1" pageTime="69834" dropped="0">
             <Response date="2014-04-14T10:56:01.077">D</Response>
@@ -351,7 +349,6 @@
 
                 &lt;/responseSpec&gt;
             </Response>
-            <ScoreInfo />
         </Item>
     </Opportunity>
     <Comment context="TestItem" itemPosition="1" date="2014-04-14T10:52:02.440">Walk 1&amp;#92;2 miles&amp;#10;BLAH BLAH</Comment>

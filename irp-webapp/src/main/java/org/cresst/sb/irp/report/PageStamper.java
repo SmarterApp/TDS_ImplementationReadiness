@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Adds page number to all the pages.
+ * Adds page number to all the pages in the PDF download.
  */
 public class PageStamper extends PdfPageEventHelper {
     private static final Logger log = LoggerFactory.getLogger(PageStamper.class);

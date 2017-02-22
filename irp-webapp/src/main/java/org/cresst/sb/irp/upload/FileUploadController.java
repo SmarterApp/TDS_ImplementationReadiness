@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Handles file uploads
+ * Handles file uploads and analyzes the uploaded files to produce TDS Reports.
  */
 @Controller
 public class FileUploadController {

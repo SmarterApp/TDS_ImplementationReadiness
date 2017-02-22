@@ -20,10 +20,21 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+/**
+ * Service to validate xml files
+ */
 @Service
 public class XMLValidate {
 	private final static Logger logger = LoggerFactory.getLogger(XMLValidate.class);
 
+    /**
+     * 
+     * @param schemaResource
+     * @param xmlPath
+     * @return true if `xmlPath` is a path to a valid xml file according to the
+     *         schema in `schemaResource`, otherwise false.
+     * @throws IOException
+     */
 	public boolean validateXMLSchema(String xsdPath, String xmlPath)
 			throws IOException {
 
@@ -40,13 +51,21 @@ public class XMLValidate {
 		return true;
 	}
 
-	public boolean validateXMLSchema(Resource resource, MultipartFile file)
+    /**
+     * 
+     * @param schemaResource
+     * @param file
+     * @return true if `file` is a valid xml file according to the schema in
+     *         `schemaResource`, otherwise false.
+     * @throws IOException
+     */
+	public boolean validateXMLSchema(Resource schemaResource, MultipartFile file)
 			throws IOException {
 
 		try {
 			SchemaFactory factory = SchemaFactory
 					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			Schema schema = factory.newSchema(resource.getFile());  //resource.getInputStream());
+			Schema schema = factory.newSchema(schemaResource.getFile());  //resource.getInputStream());
 			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(file.getInputStream()), null);
 		} catch (SAXException e) {
@@ -56,14 +75,21 @@ public class XMLValidate {
 		return true;
 	}
 
-
-	public boolean validateXMLSchema(Resource resource, String file)
+    /**
+     * 
+     * @param schemaResource
+     * @param file
+     * @return true if `file` is a valid xml file according to the schema in
+     *         `schemaResource`, otherwise false.
+     * @throws IOException
+     */
+	public boolean validateXMLSchema(Resource schemaResource, String file)
 			throws IOException {
 
 		try {
 			SchemaFactory factory = SchemaFactory
 					.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			Schema schema = factory.newSchema(resource.getFile());
+			Schema schema = factory.newSchema(schemaResource.getFile());
 			Validator validator = schema.newValidator();
 			validator.validate(new StreamSource(file));
 		} catch (SAXException e) {
@@ -73,14 +99,21 @@ public class XMLValidate {
 		return true;
 	}
 
-	// Validates xml schema and generates a list of XmlExceptions
-	public List<SAXException> validateXMLSchemaExceptionList(Resource resource, String file)
+    /**
+     * Validates xml schema and generates a list of XmlExceptions
+     * 
+     * @param schemaResource
+     * @param file
+     * @return
+     * @throws IOException
+     */
+	public List<SAXException> validateXMLSchemaExceptionList(Resource schemaResource, String file)
 			throws IOException {
 	    final List<SAXException> exceptions = new LinkedList<SAXException>();
 	    try {
     		SchemaFactory factory = SchemaFactory
     				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    		Schema schema = factory.newSchema(resource.getFile());
+    		Schema schema = factory.newSchema(schemaResource.getFile());
     		Validator validator = schema.newValidator();
     		// Override error handler and keep all xml errors
 

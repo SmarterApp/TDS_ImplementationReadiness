@@ -10,6 +10,10 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
+/**
+ * Item data repository which loads data from irp-package. Enables querying
+ * functionality by various attributes for accessing IRP Items.
+ */
 public interface ItemDao {
 	
 	void loadData(List<Manifest.Resources> listResources) throws JAXBException, FileNotFoundException;
