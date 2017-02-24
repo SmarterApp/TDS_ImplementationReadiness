@@ -115,11 +115,6 @@
     <template>
 
         <div>
-            <pdf-download-handler pdf-controller="/pdfreport.html"
-                                  post-data="[[responses]]"
-                                  post-data-name="analysisResponses"
-                                  message="Click the following button to download the PDF version of the IRP analysis:" />
-            <p></p>
             <table class="reportSummary">
                 <thead>
                 <tr>
@@ -144,6 +139,11 @@
                 </template>
                 </tbody>
             </table>
+            <pdf-download-handler pdf-controller="/pdfreport.html"
+                                  post-data="[[responses]]"
+                                  post-data-name="analysisResponses"
+                                  message="Click the following button to download the PDF version of the IRP analysis:" />
+            <p></p>
         </div>
     </template>
     <script>
