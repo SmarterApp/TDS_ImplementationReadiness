@@ -186,10 +186,14 @@ public class IndividualResponse {
         return result;
     }
 
-    // Checks each category if it is valid (no errors in any of the items)
+    /**
+     * @return Boolean representing if every category is valid (no errors in any
+     *         of the items)
+     */
     public boolean isEveryCategoryValid() {
         // If all categories are null, or every cell in them valid then every category is valid
-        return (this.testPropertiesCategory == null ||  this.testPropertiesCategory.isEveryCellValid()) &&
+        return this.isValidXMLfile() &&
+            (this.testPropertiesCategory == null ||  this.testPropertiesCategory.isEveryCellValid()) &&
             (this.examineeCategory == null || this.examineeCategory.isEveryCellValid()) &&
             (this.opportunityCategory == null || this.opportunityCategory.isEveryCellValid()) &&
             allListCategoryValid(this.examineeRelationshipCategories) &&
