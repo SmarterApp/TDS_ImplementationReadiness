@@ -32,8 +32,8 @@
         app.subject = 'ela';
         
         app.$.btnFileUpload.addEventListener('click', function (event) {
-            if (that.$.clientName.value != null && that.$.clientName.value != '') {
-                this.hidden = true;
+            if (that.$.clientNameManualMode.value != null && that.$.clientNameManualMode.value != '') {
+            	that.$.btnFileUpload.hidden = true;
                 that.$.spinnerUpload.active = true;
             }
         });
