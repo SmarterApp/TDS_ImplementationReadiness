@@ -142,7 +142,7 @@
                     <template is="dom-repeat" items="{{responses.individualResponses}}" as="response"
                               id="tmplIndividualResponses">
                         <a data-route$="[[computeRoute(index)]]" href="[[computeResponseUrl(index)]]">
-                            <iron-icon icon$="{{computeResponseIcon(response)}}" class="iron-icon-big"></iron-icon>
+                            <iron-icon icon$="{{computeResponseIcon(response)}}" class$="{{getIronIconClass()}}" ></iron-icon>
                             <span>[[response.fileName]]</span>
                         </a>
                     </template>
