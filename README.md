@@ -9,7 +9,7 @@ For more information visit http://www.smarterapp.org.
 ### What is this repository for? ###
 
 * Implementation Readiness Package
-* Version: 1.0.0-SNAPSHOT
+* Version: 2.0.0
 
 ### Technology Used ###
 * Maven
@@ -28,7 +28,11 @@ For more information visit http://www.smarterapp.org.
 ### How do I build? ###
 * To build: `mvn clean install`
 * To run tomcat 7: `mvn tomcat7:run`
-* Deployment instructions coming soon
+
+### Deployment ###
+IRP is built by CodeShip and hosted on AWS Elastic Beanstalk. Two Elastic Beanstalk instances exist:
+Production and Staging.  The `deploy_beanstalk.sh` script is executed by CodeShip after a successful build of `master`.
+That script deploys the successfully built WAR file.  The built WAR is deployed to the Staging Elastic Beanstalk instance.
 
 ### Contribution guidelines ###
 
