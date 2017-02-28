@@ -12,7 +12,7 @@ public class Accommodation {
 	private String Masking;
 	private String PermissiveMode;
 	private String PrintOnDemand;
-	private String Zoom;
+	private String PrintSize;
 	private String StreamlinedInterface;
 	private String TexttoSpeech;
 	private String Translation;
@@ -100,12 +100,12 @@ public class Accommodation {
 		PrintOnDemand = printOnDemand;
 	}
 
-	public String getZoom() {
-		return Zoom;
+	public String getPrintSize() {
+		return PrintSize;
 	}
 
-	public void setZoom(String zoom) {
-		Zoom = zoom;
+	public void setPrintSize(String printSize) {
+		PrintSize = printSize;
 	}
 
 	public String getStreamlinedInterface() {
@@ -161,8 +161,8 @@ public class Accommodation {
 		return "Accommodation [StudentIdentifier=" + StudentIdentifier + ", StateAbbreviation=" + StateAbbreviation
 				+ ", Subject=" + Subject + ", AmericanSignLanguage=" + AmericanSignLanguage + ", ColorContrast="
 				+ ColorContrast + ", ClosedCaptioning=" + ClosedCaptioning + ", Language=" + Language + ", Masking="
-				+ Masking + ", PermissiveMode=" + PermissiveMode + ", PrintOnDemand=" + PrintOnDemand + ", Zoom="
-				+ Zoom + ", StreamlinedInterface=" + StreamlinedInterface + ", TexttoSpeech=" + TexttoSpeech
+				+ Masking + ", PermissiveMode=" + PermissiveMode + ", PrintOnDemand=" + PrintOnDemand + ", PrintSize="
+				+ PrintSize + ", StreamlinedInterface=" + StreamlinedInterface + ", TexttoSpeech=" + TexttoSpeech
 				+ ", Translation=" + Translation + ", NonEmbeddedDesignatedSupports=" + NonEmbeddedDesignatedSupports
 				+ ", NonEmbeddedAccommodations=" + NonEmbeddedAccommodations + ", Other=" + Other + "]";
 	}

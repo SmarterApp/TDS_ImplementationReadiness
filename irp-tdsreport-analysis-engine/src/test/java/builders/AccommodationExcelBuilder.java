@@ -65,7 +65,7 @@ public class AccommodationExcelBuilder {
 	}
 	
 	public AccommodationExcelBuilder zoom(String zoom){
-		accommodation.setZoom(zoom);
+		accommodation.setPrintSize(zoom);
 		return this;
 	}
 	

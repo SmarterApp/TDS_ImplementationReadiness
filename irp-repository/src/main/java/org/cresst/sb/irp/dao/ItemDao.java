@@ -16,7 +16,7 @@ import javax.xml.bind.JAXBException;
  */
 public interface ItemDao {
 	
-	void loadData(List<Manifest.Resources> listResources) throws JAXBException, FileNotFoundException;
+	void loadData(List<Manifest.Resources> listResources) throws Exception;
 
 	Itemrelease.Item getItemById(int id);
 	

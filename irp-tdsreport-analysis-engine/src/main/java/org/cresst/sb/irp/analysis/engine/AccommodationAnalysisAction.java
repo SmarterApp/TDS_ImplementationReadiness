@@ -188,7 +188,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 				break;
 			case code:
 				EnumAccommodationTypeAcceptableVaues acceptableType = searchEnumObject(EnumAccommodationTypeAcceptableVaues.class, accommodation.getType());
-				if (acceptableType != null){
+				if (acceptableType != null) {
 					String expectedValue = getExpectedValue(accommodation.getCode(), acceptableType, accommodationExcel);
 					if (expectedValue != null){
 						CellCategory cellCategory = getCellCategoryByFieldName(accommodationCategory.getCellCategories(), 
@@ -237,7 +237,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 	 *
 	 * @param tdsValue
 	 *            TDS Accommodation value of fields to check
-	 * @param enumFieldName
+	 * @param acceptableValue
 	 *            Specifies the field to check
 	 * @param fieldCheckType
 	 *            This is where the results are stored
@@ -256,14 +256,17 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 			PropertyDescriptor[] properties = info.getPropertyDescriptors();
 			for (PropertyDescriptor descriptor : properties) {
 				  // Compares the property name to the enum field name in order to perform a proper field check
-				if (StringUtils.equalsIgnoreCase(descriptor.getName(), acceptableValue.name()) ||
-					(descriptor.getName().equalsIgnoreCase("zoom") && acceptableValue.name().equalsIgnoreCase("PrintSize"))){
+				if (StringUtils.equalsIgnoreCase(descriptor.getName(), acceptableValue.name())
+						&& acceptableValue != EnumAccommodationTypeAcceptableVaues.Other) {
 					Method getter = descriptor.getReadMethod();
                     if (getter != null) {
                         String value = (String) getter.invoke(accommodationExcel);
                         processSameValue(value, tdsValue, fieldCheckType);
                     }
-				}
+				} else if (acceptableValue == EnumAccommodationTypeAcceptableVaues.Other) {
+				    // Can be any value
+                    setCcorrect(fieldCheckType);
+                }
 			}
 		} catch (Exception e) {
 			logger.error("checkC exception: ", e);
@@ -304,7 +307,7 @@ public class AccommodationAnalysisAction extends AnalysisAction<org.cresst.sb.ir
 	}
 
 	private void processSameValue(String first, String second, FieldCheckType fieldCheckType) {
-		if (StringUtils.isNotBlank(first) || StringUtils.isNotBlank(second)) {
+		if (StringUtils.isNotBlank(first)) {
 			if (StringUtils.equalsIgnoreCase(first, second)) {
 				setCcorrect(fieldCheckType);
 			}

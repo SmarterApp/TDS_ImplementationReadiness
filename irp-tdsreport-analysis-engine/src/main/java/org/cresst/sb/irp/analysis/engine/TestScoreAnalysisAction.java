@@ -65,13 +65,13 @@ public class TestScoreAnalysisAction extends
 							EnumScoreFieldName.standardError, null);
 
 					for (CellCategory cellCategory : scoreCategory.getCellCategories()) {
-						if (!cellCategory.getFieldCheckType().isAcceptableValue()) {
+					    FieldCheckType fieldCheckType = cellCategory.getFieldCheckType();
+						if (!fieldCheckType.isOptionalValue() && !fieldCheckType.isAcceptableValue()) {
 							individualResponse.setValidScoring(false);
 						}
 					}
 				}
 
-				// If all of them are valid then
 				// Construct a TDSReport without scoring information
 				TDSReport tdsReport = individualResponse.getTDSReport();
 				List<TDSReport.Opportunity.Score> copyOfScores = copyScores(tdsReport.getOpportunity().getScore());
@@ -134,7 +134,8 @@ public class TestScoreAnalysisAction extends
 								score.getValue(), irpScore.getValue(),
 								score.getStandardError(), irpScore.getStandardError());
 
-				final boolean isValueEqual = score.getValue().equals(irpScore.getValue());
+				final boolean isValueEqual = !StringUtils.isEmpty(score.getValue())
+						&& score.getValue().equals(irpScore.getValue());
 
 				if (!isScoreEqual && !isValueEqual) {
 					TdsReportScoreIrpScoredScorePair notMatchPair = new TdsReportScoreIrpScoredScorePair();
@@ -250,6 +251,7 @@ public class TestScoreAnalysisAction extends
 			break;
 		case standardError:
 			processP_FloatAllowNulls(score.getStandardError(), fieldCheckType);
+            fieldCheckType.setOptionalValue(true);
 
 			if (fieldCheckType.isCorrectDataType()
 				&& fieldCheckType.isAcceptableValue()

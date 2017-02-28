@@ -35,7 +35,7 @@ import org.springframework.stereotype.Service;
 public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttributesAnalysisAction.EnumItemFieldName, Testitem> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemAttributesAnalysisAction.class);
 
-	static public enum EnumItemFieldName {
+	public enum EnumItemFieldName {
         position(8),
         segmentId(250),
         bankKey(40),
@@ -244,7 +244,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 		validate(itemCategory, tdsItem, tdsItem.getIsSelected(), EnumFieldCheckType.P, EnumItemFieldName.isSelected, null);
 		validate(itemCategory, tdsItem, tdsItem.getFormat(), EnumFieldCheckType.PC, EnumItemFieldName.format, testitem);
 		validate(itemCategory, tdsItem, tdsItem.getScore(), EnumFieldCheckType.PC, EnumItemFieldName.score, null); // TODO checkC
-		validate(itemCategory, tdsItem, tdsItem.getScoreStatus(), EnumFieldCheckType.D, EnumItemFieldName.scoreStatus, null);
+		validate(itemCategory, tdsItem, tdsItem.getScoreStatus(), EnumFieldCheckType.P, EnumItemFieldName.scoreStatus, null);
 		validate(itemCategory, tdsItem, tdsItem.getAdminDate(), EnumFieldCheckType.P, EnumItemFieldName.adminDate, null);
 		validate(itemCategory, tdsItem, tdsItem.getNumberVisits(), EnumFieldCheckType.P, EnumItemFieldName.numberVisits, null);
 		validate(itemCategory, tdsItem, tdsItem.getMimeType(), EnumFieldCheckType.P, EnumItemFieldName.mimeType, null);
@@ -269,10 +269,9 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 	 */
 	@Override
 	protected void checkP(Item item, EnumItemFieldName enumFieldName, FieldCheckType fieldCheckType) {
-		try {
-            // TODO: Check actual width
-            fieldCheckType.setCorrectWidth(true);
+		fieldCheckType.setCorrectWidth(true);
 
+		try {
 			switch (enumFieldName) {
 			case position:
 				// <xs:attribute name="position" use="required" type="xs:unsignedInt" />
@@ -281,6 +280,7 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			case segmentId:
 				// <xs:attribute name="segmentId" use="required" />
 				processP_PrintableASCIIone(item.getSegmentId(), fieldCheckType);
+				fieldCheckType.setCorrectWidth(item.getSegmentId() != null && item.getSegmentId().length() <= enumFieldName.getMaxWidth());
 				break;
 			case bankKey:
 				// <xs:attribute name="bankKey" use="required" type="xs:unsignedInt" /> vs dox, need to check
@@ -301,10 +301,12 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 			case format:
 				// <xs:attribute name="format" use="required" />
 				processAcceptableEnum(item.getFormat(), fieldCheckType, EnumFormatAcceptValues.class);
+				fieldCheckType.setCorrectWidth(item.getFormat() != null && item.getFormat().length() <= enumFieldName.getMaxWidth());
 				break;
 			case score:
 				// <xs:attribute name="score" use="required" type="UFloatAllowNegativeOne" />
 				validateUnsignedFloat(item.getScore(), fieldCheckType, -1);
+				fieldCheckType.setCorrectWidth(item.getScore() != null && item.getScore().length() <= enumFieldName.getMaxWidth());
 				break;
 			case scoreStatus:
 				// <xs:attribute name="scoreStatus">
@@ -318,7 +320,22 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				// <xs:enumeration value="APPEALED" />
 				// </xs:restriction>
 				// </xs:simpleType>
-				processP(item.getScoreStatus(), fieldCheckType, false); // last param: required: N
+				if (StringUtils.isNotEmpty(item.getScoreStatus())) {
+					switch (item.getScoreStatus()) {
+						case "NOTSCORED":
+						case "SCORED":
+						case "WAITINGFORMACHINESCORE":
+						case "SCORINGERROR":
+						case "APPEALED"	:
+							setPcorrect(fieldCheckType);
+							break;
+						default:
+							break;
+					}
+				} else {
+					processP(item.getScoreStatus(), fieldCheckType, false); // last param: required: N
+				}
+				fieldCheckType.setCorrectWidth(item.getScoreStatus() != null && item.getScoreStatus().length() <= enumFieldName.getMaxWidth());
 				break;
 			case adminDate:
 				// <xs:attribute name="adminDate" use="required" type="xs:dateTime" />
@@ -340,14 +357,17 @@ public class ItemAttributesAnalysisAction extends AnalysisAction<Item, ItemAttri
 				// </xs:restriction>
 				// </xs:simpleType>
 				processP_PrintableASCIIone(item.getMimeType(), fieldCheckType);
+				fieldCheckType.setCorrectWidth(item.getMimeType() != null && item.getMimeType().length() <= enumFieldName.getMaxWidth());
 				break;
 			case strand:
 				// <xs:attribute name="strand" use="required" />
 				processP_PrintableASCIIone(item.getStrand(), fieldCheckType);
+				fieldCheckType.setCorrectWidth(item.getStrand() != null && item.getStrand().length() <= enumFieldName.getMaxWidth());
 				break;
 			case contentLevel:
 				// <xs:attribute name="contentLevel" use="required" />
 				processP_PrintableASCIIone(item.getContentLevel(), fieldCheckType);
+				fieldCheckType.setCorrectWidth(item.getContentLevel() != null && item.getContentLevel().length() <= enumFieldName.getMaxWidth());
 				break;
 			case pageNumber:
 				// <xs:attribute name="pageNumber" use="required" type="xs:unsignedInt" />

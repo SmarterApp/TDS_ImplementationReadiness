@@ -69,14 +69,10 @@ public class TestpackageDaoImpl implements TestpackageDao, InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		try {
-			retrieveFileUtil.walk(tdsTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
-					xmlValidate);
-			retrieveFileUtil.walk(tisTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
-                    xmlValidate);
-		} catch (Exception e) {
-			logger.error("afterPropertiesSet exception: ", e);
-		}
+		retrieveFileUtil.walk(tdsTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
+				xmlValidate);
+		retrieveFileUtil.walk(tisTestPackagePath.getURI().getPath(), mapTestpackage, testspecificationXSDResource,
+				xmlValidate);
 	}
 
 	@Override

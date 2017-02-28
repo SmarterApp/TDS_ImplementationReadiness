@@ -38,14 +38,10 @@ public class TestStudentMappingDaoImpl implements TestStudentMappingDao {
 	
 	@PostConstruct
 	public void loadData() throws Exception {
-		try {
-			XSSFWorkbook workbook = new XSSFWorkbook(testStudentMappingResource.getInputStream());
-			XSSFSheet sheet = workbook.getSheetAt(0);
-			excelUtil.getHeaderColumn(headerMap, sheet, 1);
-			testStudentMappingUtil.processSheet(testStudentMappings, headerMap, sheet, excelUtil, 2);
-		} catch (Exception e) {
-			logger.error("afterPropertiesSet exception: ", e);
-		}
+		XSSFWorkbook workbook = new XSSFWorkbook(testStudentMappingResource.getInputStream());
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		excelUtil.getHeaderColumn(headerMap, sheet, 1);
+		testStudentMappingUtil.processSheet(testStudentMappings, headerMap, sheet, excelUtil, 2);
 	}
 
 	@Override

@@ -95,69 +95,141 @@ public class AccommodationUtil {
      * @param cellStringValue
      *            value to set in `accommodation`
      */
-	private void setFieldData(Accommodation accommodation, String columnName,
-			String cellStringValue) {
-		try {
-			columnName = StringUtils.deleteWhitespace(columnName);
-			switch (columnName.toLowerCase()) {
-			case "studentidentifier": 
-				accommodation.setStudentIdentifier(cellStringValue);
-				break;
-			case "stateabbreviation":
-				accommodation.setStateAbbreviation(cellStringValue);
-				break;
-			case "subject": 
-				accommodation.setSubject(cellStringValue);
-				break;
-			case "americansignlanguage":
-				accommodation.setAmericanSignLanguage(cellStringValue);
-				break;
-			case "colorcontrast": 
-				accommodation.setColorContrast(cellStringValue);
-				break;
-			case "closedcaptioning":
-				accommodation.setClosedCaptioning(cellStringValue);
-				break;
-			case "language": 
-				accommodation.setLanguage(cellStringValue);
-				break;
-			case "masking":
-				accommodation.setMasking(cellStringValue);
-				break;
-			case "permissivemode": 
-				accommodation.setPermissiveMode(cellStringValue);
-				break;
-			case "printondemand":
-				accommodation.setPrintOnDemand(cellStringValue);
-				break;
-			case "zoom": 
-				accommodation.setZoom(cellStringValue);
-				break;
-			case "streamlinedinterface":
-				accommodation.setStreamlinedInterface(cellStringValue);
-				break;
-			case "texttospeech": 
-				accommodation.setTexttoSpeech(cellStringValue);
-				break;
-			case "translation":
-				accommodation.setTranslation(cellStringValue);
-				break;
-			case "nonembeddeddesignatedsupports": 
-				accommodation.setNonEmbeddedDesignatedSupports(cellStringValue);
-				break;
-			case "nonembeddedaccommodations":
-				accommodation.setNonEmbeddedAccommodations(cellStringValue);
-				break;
-			case "other": 
-				accommodation.setOther(cellStringValue);
-				break;	
-			default:
-				throw new IllegalArgumentException("Invalid column name: "
-							+ columnName);
-			}
-		} catch (Exception e) {
-			logger.error("setFieldData(); exception: ", e);
-		}
+	private void setFieldData(Accommodation accommodation, String columnName, String cellStringValue) {
+
+	    columnName = StringUtils.deleteWhitespace(columnName);
+        switch (columnName.toLowerCase()) {
+            case "studentidentifier":
+                accommodation.setStudentIdentifier(cellStringValue);
+                break;
+            case "stateabbreviation":
+                accommodation.setStateAbbreviation(cellStringValue);
+                break;
+            case "subject":
+                accommodation.setSubject(cellStringValue);
+                break;
+            case "accommodationcodes":
+                // Set some defaults
+                accommodation.setLanguage("ENU");
+                accommodation.setPrintSize("TDS_PS_L0");
+
+                String[] codes = StringUtils.split(cellStringValue, '|');
+                for (int i = 0; i < codes.length; i++) {
+                    switch (codes[i]) {
+                        case "TDS_ASL0":
+                        case "TDS_ASL1":
+                            accommodation.setAmericanSignLanguage(codes[i]);
+                            break;
+                        case "TDS_CC0":
+                        case "TDS_CCInvert":
+                        case "TDS_CCMagenta":
+                        case "TDS_CCMedGrayLtGray":
+                        case "TDS_CCYellowB":
+                            accommodation.setColorContrast(codes[i]);
+                            break;
+                        case "TDS_ClosedCap0":
+                        case "TDS_ClosedCap1":
+                            accommodation.setClosedCaptioning(codes[i]);
+                            break;
+                        case "ENU":
+                        case "ENU-Braille":
+                        case "ESN":
+                            accommodation.setLanguage(codes[i]);
+                            break;
+                        case "TDS_Masking0":
+                        case "TDS_Masking1":
+                            accommodation.setMasking(codes[i]);
+                            break;
+                        case "TDS_PM0":
+                        case "TDS_PM1":
+                            accommodation.setPermissiveMode(codes[i]);
+                            break;
+                        case "TDS_PoD0":
+                        case "TDS_PoD_Stim":
+                            accommodation.setPrintOnDemand(codes[i]);
+                            break;
+                        case "TDS_PS_L0":
+                        case "TDS_PS_L1":
+                        case "TDS_PS_L2":
+                        case "TDS_PS_L3":
+                        case "TDS_PS_L4":
+                            accommodation.setPrintSize(codes[i]);
+                            break;
+                        case "TDS_TS_Modern":
+                        case "TDS_TS_Accessibility":
+                            accommodation.setStreamlinedInterface(codes[i]);
+                            break;
+                        case "TDS_TTS0":
+                        case "TDS_TTS_Item":
+                        case "TDS_TTS_Stim":
+                        case "TDS_TTS_Stim&TDS_TTS_Item":
+                            accommodation.setTexttoSpeech(codes[i]);
+                            break;
+                        case "TDS_WL_Glossary":
+                        case "TDS_WL_ArabicGloss":
+                        case "TDS_WL_CantoneseGloss":
+                        case "TDS_WL_ESNGlossary":
+                        case "TDS_WL_KoreanGloss":
+                        case "TDS_WL_MandarinGloss":
+                        case "TDS_WL_PunjabiGloss":
+                        case "TDS_WL_RussianGloss":
+                        case "TDS_WL_TagalGloss":
+                        case "TDS_WL_UkrainianGloss":
+                        case "TDS_WL_VietnameseGloss":
+                        case "TDS_WL_Glossary&TDS_WL_ArabicGloss":
+                        case "TDS_WL_Glossary&TDS_WL_CantoneseGloss":
+                        case "TDS_WL_Glossary&TDS_WL_ESNGlossary":
+                        case "TDS_WL_Glossary&TDS_WL_KoreanGloss":
+                        case "TDS_WL_Glossary&TDS_WL_MandarinGloss":
+                        case "TDS_WL_Glossary&TDS_WL_PunjabiGloss":
+                        case "TDS_WL_Glossary&TDS_WL_RussianGloss":
+                        case "TDS_WL_Glossary&TDS_WL_TagalGloss":
+                        case "TDS_WL_Glossary&TDS_WL_UkrainianGloss":
+                        case "TDS_WL_Glossary&TDS_WL_VietnameseGloss":
+                        case "TDS_WL0":
+                            accommodation.setTranslation(codes[i]);
+                            break;
+                        case "NEDS0":
+                        case "NEDS_BD":
+                        case "NEDS_CC":
+                        case "NEDS_CO":
+                        case "NEDS_Mag":
+                        case "NEDS_RA_Items":
+                        case "NEDS_SC_Items":
+                        case "NEDS_SS":
+                        case "NEDS_TArabic":
+                        case "NEDS_TCantonese":
+                        case "NEDS_TFilipino":
+                        case "NEDS_TKorean":
+                        case "NEDS_TMandarin":
+                        case "NEDS_TPunjabi":
+                        case "NEDS_TRussian":
+                        case "NEDS_TSpanish":
+                        case "NEDS_TUkrainian":
+                        case "NEDS_TVietnamese":
+                        case "NEDS_TransDirs":
+                            accommodation.setNonEmbeddedDesignatedSupports(codes[i]);
+                            break;
+                        case "NEA0":
+                        case "NEA_AR":
+                        case "NEA_RA_Stimuli":
+                        case "NEA_SC_WritItems":
+                        case "NEA_STT":
+                        case "NEA_Abacus":
+                        case "NEA_Calc":
+                        case "NEA_MT":
+                        case "NEA_NoiseBuf":
+                            accommodation.setNonEmbeddedAccommodations(codes[i]);
+                            break;
+                        default:
+                            accommodation.setOther(codes[i]);
+                            break;
+                    }
+                }
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid column name: " + columnName);
+        }
 	}
 	
 }

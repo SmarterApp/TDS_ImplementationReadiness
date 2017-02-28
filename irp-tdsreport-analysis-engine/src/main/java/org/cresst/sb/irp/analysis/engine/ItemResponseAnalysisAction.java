@@ -37,8 +37,8 @@ import tds.itemscoringengine.ScoringStatus;
 public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemResponseAnalysisAction.EnumItemResponseFieldName, ItemCategory> {
 	private final static Logger logger = LoggerFactory.getLogger(ItemResponseAnalysisAction.class);
 
-    static public enum EnumItemResponseFieldName {
-        date(23), type(10), content(Integer.MAX_VALUE);
+    public enum EnumItemResponseFieldName {
+        date(23), type(10, false), content(Integer.MAX_VALUE);
 
         private int maxWidth;
         private boolean isRequired;
@@ -99,7 +99,7 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
                 		itemCategory.setIrpItem(irpItem);
         				Itemrelease.Item.Attriblist attriblist = getItemAttriblistFromIRPitem(irpItem);
         				itemCategory.setAttriblist(attriblist);
-	               
+
 						analyzeItemResponse(itemCategory, tdsItem);
                 	}
 				}
@@ -139,6 +139,8 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 	 */
 	@Override
 	protected void checkP(Item tdsItem, EnumItemResponseFieldName enumFieldName, FieldCheckType fieldCheckType) {
+		fieldCheckType.setCorrectWidth(true);
+
 		try {
 			Response response = tdsItem.getResponse();
 			switch (enumFieldName) {
@@ -148,8 +150,11 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 					setPcorrect(fieldCheckType);
 				break;
 			case type:
-				if (response.getType() != null)
+				if (response.getType() != null) {
 					processP(response.getType(), fieldCheckType, false); //not required
+					fieldCheckType.setCorrectWidth(response.getType().length() <= enumFieldName.getMaxWidth());
+				}
+				fieldCheckType.setOptionalValue(true);
 				break;
 			case content:
 				processP(response.getContent(), fieldCheckType, false);
@@ -157,9 +162,6 @@ public class ItemResponseAnalysisAction extends AnalysisAction<Item, ItemRespons
 			default:
 				break;
 			}
-
-			// TODO: Check actual width
-			fieldCheckType.setCorrectWidth(true);
 		} catch (Exception e) {
 			logger.error("checkP exception: ", e);
 		}
