@@ -1,13 +1,5 @@
 package org.cresst.sb.irp.dao;
 
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-
 import org.cresst.sb.irp.domain.items.ItemAttribute;
 import org.cresst.sb.irp.domain.items.Itemrelease;
 import org.cresst.sb.irp.domain.items.Itemrelease.Item;
@@ -19,10 +11,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Repository;
+
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class ItemDaoImpl implements ItemDao {
@@ -62,7 +60,7 @@ public class ItemDaoImpl implements ItemDao {
 		return item;
 	}
 
-	public void loadData(List<Manifest.Resources> listResources) throws FileNotFoundException {
+	public void loadData(List<Manifest.Resources> listResources) throws Exception {
 		logger.info("ItemDaoImpl.loadData()");
 		Manifest.Resources resources = listResources.get(0);
 		this.listResource = resources.getResource();
@@ -76,22 +74,13 @@ public class ItemDaoImpl implements ItemDao {
 				Manifest.Resources.Resource.File _file = listFile.get(0);
 				String[] identifierArray = resourceIdentifier.split("-");
 				if (identifierArray.length == 3) {
-					try {
-						int itemid = Integer.parseInt(identifierArray[2]);
-                        Resource resource = new FileSystemResource(rootResourceFolderName + "/" + _file.getHref());
-						Source source = new StreamSource(resource.getInputStream());
-						itemrelease = (Itemrelease) unmarshaller.unmarshal(source);
-						item = itemrelease.getItem().get(0);
-						map.put(itemid, item);
-						map2.put(resourceIdentifier.trim(), item);
-					} catch (NumberFormatException e) {
-						logger.error(
-								"the last part of resource identifier (xxx-number-number) in imsmanifest.xml is not a number !!",
-								e);
-					} catch (Exception e) {
-						logger.error("ItemDaoImpl.loadData() Exception", e);
-					}
-
+					int itemid = Integer.parseInt(identifierArray[2]);
+					Resource resource = new UrlResource(rootResourceFolderName + "/" + _file.getHref());
+					Source source = new StreamSource(resource.getInputStream());
+					itemrelease = (Itemrelease) unmarshaller.unmarshal(source);
+					item = itemrelease.getItem().get(0);
+					map.put(itemid, item);
+					map2.put(resourceIdentifier.trim(), item);
 				} else {
 					logger.info("identifier's pattern should be like xxx-number-number");
 				}

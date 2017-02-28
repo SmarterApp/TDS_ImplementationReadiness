@@ -77,13 +77,9 @@ public class ManifestDaoImpl implements ManifestDao {
 
 	@PostConstruct
 	public void loadData() throws Exception {
-		try {
-			manifest = (Manifest) unmarshaller.unmarshal(new StreamSource(manifestResource.getInputStream()));
-			String identifier = manifest.getIdentifier();
-			map.put(identifier, manifest);
-		} catch (Exception e) {
-			logger.error("ManifestDaoImpl exception: ", e);
-		}
+		manifest = (Manifest) unmarshaller.unmarshal(new StreamSource(manifestResource.getInputStream()));
+		String identifier = manifest.getIdentifier();
+		map.put(identifier, manifest);
 
 		itemDao.loadData(manifest.getResources());
 		

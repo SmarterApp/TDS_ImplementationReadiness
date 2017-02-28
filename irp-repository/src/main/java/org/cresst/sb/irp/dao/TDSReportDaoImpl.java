@@ -27,10 +27,6 @@ public class TDSReportDaoImpl implements TDSReportDao {
 	@Autowired
 	private Unmarshaller unmarshaller;
 
-	public TDSReportDaoImpl() {
-		logger.info("initializing");
-	}
-
 	@Override
 	public TDSReport.Test getTest() {
 		TDSReport.Test test = tdsReport.getTest();
@@ -104,12 +100,7 @@ public class TDSReportDaoImpl implements TDSReportDao {
 
 	@PostConstruct
 	public void loadData() throws Exception {
-		try {
-			tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tdsReportResource.getInputStream()));
-		} catch (Exception e) {
-			logger.error("TDSReportDaoImpl exception: ", e);
-		}
-
+		tdsReport = (TDSReport) unmarshaller.unmarshal(new StreamSource(tdsReportResource.getInputStream()));
 	}
 
 
