@@ -30,6 +30,10 @@
         app.selected = 0;
         app.grade = 3;
         app.subject = 'ela';
+
+        // Determines current mode
+        // Used to show summary table for the correct mode (either manual or automation)
+        app.isAutomation = true;
         
         app.$.btnFileUpload.addEventListener('click', function (event) {
             if (that.$.clientNameManualMode.value != null && that.$.clientNameManualMode.value != '') {
@@ -51,6 +55,7 @@
             if (event.detail.status == 200) {
                 var analysisResponse = JSON.parse(event.detail.responseText);
                 that.responses = analysisResponse;
+                app.isAutomation = false;
             } else {
                 that.$.fileUploadErrorDialog.toggle();
             }
@@ -122,6 +127,7 @@
             that.$.btnBeginAutomation.disabled = false;
 
             that.responses = event.detail.response;
+            app.isAutomation = true;
         });
         app.$.btnBeginAutomation.addEventListener('click', function (event) {
             if (!that.$.adapterVendorName.validate() || !that.$.adapterUrl.validate()) {

@@ -226,8 +226,10 @@
                                                     <paper-spinner id="spinnerUpload" class="blue" inactive=""></paper-spinner>
                                                 </form>
                                             </div>
-                                            <template is="dom-if" if="[[responsesExist(responses)]]">
-                                              <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            <template is="dom-if" if="[[!isAutomation]]">
+                                                <template is="dom-if" if="[[responsesExist(responses)]]">
+                                                  <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                                </template>
                                             </template>
                                         </div>
                                         <div id="automationModePage">
@@ -274,8 +276,10 @@
                                                        contentType="application/json"
                                                        handle-as="json"
                                                        debounce-duration="300"></iron-ajax>
-                                          <template is="dom-if" if="[[responsesExist(responses)]]">
-                                            <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                          <template is="dom-if" if="[[isAutomation]]">
+                                            <template is="dom-if" if="[[responsesExist(responses)]]">
+                                                <report-summary id="reportSummary" responses="[[responses]]"></report-summary>
+                                            </template>
                                           </template>
                                         </div>
                                         <div id="catModePage">
