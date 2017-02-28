@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemScoreInfoAnalysisAction extends AnalysisAction<ScoreInfoType, ItemScoreInfoAnalysisAction.EnumItemScoreInfoFieldName, ItemCategory> {
     private final static Logger logger = LoggerFactory.getLogger(ItemScoreInfoAnalysisAction.class);
 
-    static public enum EnumItemScoreInfoFieldName {
+    public enum EnumItemScoreInfoFieldName {
         scorePoint, maxScore, scoreDimension, scoreStatus, confLevel
     }
     
