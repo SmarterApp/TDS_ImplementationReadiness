@@ -235,6 +235,11 @@
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -263,4 +268,9 @@
 			<url>https://airdev.artifactoryonline.com/airdev/ext-releases/</url>
 		</repository>
 	</repositories>
+
+	<scm>
+		<connection>scm:git:git@bitbucket.org:sbcresst/ireadinesspackage.git</connection>
+		<developerConnection>scm:git:git@bitbucket.org:sbcresst/ireadinesspackage.git</developerConnection>
+	</scm>
 </project>
