@@ -187,14 +187,5 @@
         return response.validXMLfile && response.validTestName && response.validExaminee
             && response.validScoring && response.everyCategoryValid ? 'thumb-up' : 'thumb-down';
     }
-
-    app.getIronIconClass = function () {
-    	if(navigator.userAgent.indexOf("Chrome") != -1 ){
-    		return 'iron-icon-big';
-        }else if(navigator.userAgent.indexOf("Firefox") != -1 ){
-        	return 'iron-icon-medium';
-        }
-    	return 'iron-icon-big';
-    }
     
 })(document);
