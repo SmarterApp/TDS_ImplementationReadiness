@@ -36,8 +36,8 @@
         app.isAutomation = true;
         
         app.$.btnFileUpload.addEventListener('click', function (event) {
-            if (that.$.clientName.value != null && that.$.clientName.value != '') {
-                this.hidden = true;
+            if (that.$.clientNameManualMode.value != null && that.$.clientNameManualMode.value != '') {
+            	that.$.btnFileUpload.hidden = true;
                 that.$.spinnerUpload.active = true;
             }
         });
@@ -187,4 +187,5 @@
         return response.validXMLfile && response.validTestName && response.validExaminee
             && response.validScoring && response.everyCategoryValid ? 'thumb-up' : 'thumb-down';
     }
+    
 })(document);
