@@ -1,10 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.cresst.sb.irp</groupId>
 	<artifactId>irp-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>2.0.0</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<name>IReadinessPackage - Parent</name>
 	<url>http://bitbucket.org/sbcresst</url>
 
@@ -271,6 +271,6 @@
 	<scm>
 		<connection>scm:git:git@bitbucket.org:sbcresst/ireadinesspackage.git</connection>
 		<developerConnection>scm:git:git@bitbucket.org:sbcresst/ireadinesspackage.git</developerConnection>
-	  <tag>irp-v2.0.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 </project>
