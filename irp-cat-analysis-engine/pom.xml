@@ -2,19 +2,18 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.cresst.sb.irp</groupId>
-  <artifactId>irp-cat-analysis-engine</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  <name>IReadinessPackage - CAT Analysis Engine</name>
-  <description>Engine that performs the CAT IRP Analysis</description>
-  <url>http://bitbucket.org/sbcresst</url>
-    
   <parent>
     <groupId>org.cresst.sb.irp</groupId>
     <artifactId>irp-parent</artifactId>
     <version>2.0.0-SNAPSHOT</version>
   </parent>
+
+  <groupId>org.cresst.sb.irp</groupId>
+  <artifactId>irp-cat-analysis-engine</artifactId>
+  <packaging>jar</packaging>
+  <name>IReadinessPackage - CAT Analysis Engine</name>
+  <description>Engine that performs the CAT IRP Analysis</description>
+  <url>http://bitbucket.org/sbcresst</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

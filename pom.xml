@@ -45,33 +45,34 @@
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-core</artifactId>
-				<version>${irp.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-model</artifactId>
-				<version>${irp.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-repository</artifactId>
-				<version>${irp.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-service</artifactId>
-				<version>${irp.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.cresst.sb.irp</groupId>
 				<artifactId>irp-tdsreport-analysis-engine</artifactId>
-				<version>${irp.version}</version>
+				<version>${project.version}</version>
 			</dependency>
             <dependency>
                 <groupId>org.cresst.sb.irp</groupId>
                 <artifactId>irp-cat-analysis-engine</artifactId>
-                <version>${irp.version}</version>
+                <version>${project.version}</version>
             </dependency>
+            
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
